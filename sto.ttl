@@ -227,14 +227,14 @@ sto:hasOntology rdf:type owl:DatatypeProperty ;
 sto:name rdf:type owl:DatatypeProperty ;
          rdfs:domain sto:SDO ;
          dc:description "Name of the Organization"@en ;
-         rdfs:label "Name" .
+         rdfs:label "Name"@en .
 
 
 ###  https://w3id.org/i40/sto#norm
 sto:norm rdf:type owl:DatatypeProperty ;
          rdfs:domain sto:Standard ;
          dc:description "Norm under which the standard is published"@en ;
-         rdfs:label "Norm" .
+         rdfs:label "Norm"@en .
 
 sto:hasISA95Level rdf:type owl:ObjectProperty ;
          rdfs:domain sto:Standard ;
@@ -806,6 +806,7 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:hasOfficialResource <https://webstore.iec.ch/publication/5878> ;
   sto:motivation "Information description and communication mapping for fieldbus profiles"@en ;
   dc:description "Industrial communication networks - Profiles - Ethernet-real-time-enabled"@en ;
+  sto:hasISA95Level sto:DeviceLevel ;
   rami:hasRAMIHierarchyLevel rami:FieldDevice, rami:ControlDevice ;
   .
 
@@ -902,6 +903,7 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:scope sto:M2M;
   sto:relatedTo sto:IEC_62714 ;
   sto:relatedTo sto:IEC_61499 ;
+  sto:hasISA95Level sto:SCADALevel ;
   sto:hasDBpediaResource <http://dbpedia.org/resource/OPC_Unified_Architecture> ;
   sto:hasOfficialResource <https://opcfoundation.org/about/opc-technologies/opc-ua/>;
   sto:hasWikidataEntity <https://www.wikidata.org/entity/Q623244> ;
@@ -915,14 +917,15 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:norm "62591" ;
   sto:publisher sto:IEC ;
   sto:hasTag "WirelessHART"@en ;
+  sto:hasISA95Level sto:DeviceLevel ;
   sto:hasOfficialResource <https://webstore.iec.ch/publication/24433>;
   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/WirelessHART>;
   dc:description "Industrial networks - Wireless communication network and communication profiles."@en ;
   .
 
- sto:M2M a sto:IndustryDomain ;
-  sto:domainName "Machine to machine Communication" ;
-  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Machine_to_machine" ;
+ sto:M2M a sto:Domain ;
+  sto:domainName "Machine to machine Communication"@en ;
+  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Machine_to_machine> ;
   sto:hasDBpediaResource <http://dbpedia.org/resource/Machine_to_machine> ;
   sto:hasWikidataEntity <http://www.wikidata.org/entity/Q251072> ;
   dc:description "Machine to machine refers to direct communication between devices using any communications channel, including wired and wireless"@en ;
