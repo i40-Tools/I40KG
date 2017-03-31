@@ -493,10 +493,21 @@ sto:EnterpriseLevel a sto:ISA95Level ;
   sto:abbreviation "BBF" ;
   sto:formationDate "2008-01-01"^^xsd:date ;
   sto:name "Broadband Forum"@en;
-  sto:hasDBpediaResource <http://www.wikidata.org/entity/Q922023>;
-  sto:hasWikidataEntity <http://dbpedia.org/resource/Broadband_Forum>;
+  sto:hasDBpediaResource <http://dbpedia.org/resource/Broadband_Forum>;
+  sto:hasWikidataEntity <http://www.wikidata.org/entity/Q922023>;
   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Broadband_Forum>;
   sto:hasOfficialResource <https://www.broadband-forum.org/>;
+  dc:description "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
+  .
+
+ sto:SE a sto:SDO ;
+  sto:abbreviation "SE" ;
+  sto:formationDate "1936-01-01"^^xsd:date ;
+  sto:name "Schneider Electric"@en;
+  sto:hasDBpediaResource <http://dbpedia.org/page/Schneider_Electric>;
+  sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q49053>;
+  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Schneider_Electric>;
+  sto:hasOfficialResource <http://www.schneider-electric.com/ww/en/>;
   dc:description "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
   .
 
@@ -647,6 +658,7 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:hasWikidataEntity <http://www.wikidata.org/entity/Q6718422>;
   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/MTConnect>;
   sto:hasDBpediaResource <http://dbpedia.org/resource/MTConnect>;
+  sto:hasISA95Level sto:DeviceLevel ;
   dc:description "MTConnect is a protocol designed for the exchange of data between shop floor equipment and software applications used for monitoring and data analysis. MTConnect is referred to as a read-only standard, meaning that it only defines the extraction (reading) of data from control devices, not the writing of data to a control device. Freely available, open standards are used for all aspects of MTConnect. Data from shop floor devices is presented in XML format, and is retrieved from information providers, called Agents, using Hypertext Transfer Protocol (HTTP) as the underlying transport protocol. MTConnect provides a RESTful interface, which means the interface is stateless. No session must be established to retrieve data from an MTConnect Agent, and no logon or logoff sequence is required (unless overlying security protocols are added which do). Lightweight Directory Access Protocol (LDAP) is recommended for discovery services."@en ;
   .
 
@@ -762,6 +774,7 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:norm "61512" ;
   sto:hasTag "ISA-88"@en ;
   sto:publisher sto:IEC ;
+  sto:hasISA95Level sto:SCADALevel ;
   sto:hasDBpediaResource <http://dbpedia.org/resource/ISA-88> ;
   sto:hasOfficialResource <https://webstore.iec.ch/publication/5528> ;
   sto:hasWikidataEntity <https://www.wikidata.org/entity/Q1512301> ;
@@ -770,6 +783,11 @@ This linking structure forms a directed, labeled graph, where the edges represen
   dc:description "Batch control - Models and terminology"@en ;
   rami:hasRAMIHierarchyLevel rami:Product, rami:ControlDevice, rami:Station, rami:WorkCenter ;
   .
+
+sto:ModBus a sto:Standard ;
+ sto:hasTag "Modbus"@en ;
+ sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Modbus> ;
+.
 
  sto:ISA-95 a sto:Standard ;
   sto:norm "ISA-95" ;
