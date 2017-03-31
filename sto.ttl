@@ -511,6 +511,19 @@ sto:EnterpriseLevel a sto:ISA95Level ;
   dc:description "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
   .
 
+ sto:MESA a sto:SDO ;
+  sto:abbreviation "MESA";
+  sto:formationDate "1992-01-01"^^xsd:date ;
+  sto:name "Manufacturing Enterprise Solutions Association"@en;
+  sto:hasDBpediaResource <http://dbpedia.org/page/Manufacturing_Enterprise_Solutions_Association>;
+  sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q1891847>;
+  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Manufacturing_Enterprise_Solutions_Association>;
+  sto:hasOfficialResource <http://www.mesa.org/en/index.asp>;
+  dc:description "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
+  rdfs:comment "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
+  .
+ 
+
  sto:W3C_SPARQL a sto:Standard ;
   sto:norm "SPARQL" ;
   sto:publisher sto:W3C ;
@@ -833,14 +846,17 @@ sto:ISO_19439 a sto:Standard ;
  sto:IEC_62264 a sto:Standard ;
   sto:norm "62264" ;
   sto:hasTag "Enterprise-control system integration"@en ;
-  sto:publisher sto:IEC ;
+  skos:altLabel "B2MML";
+  sto:publisher sto:MESA ;
   sto:developer sto:IEC ;
   sto:relatedTo sto:ISA-95 ;
+  sto:hasISA95Level sto:EnterpriseLevel;
   sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_62264> ;
   sto:hasOfficialResource <https://webstore.iec.ch/publication/6675> ;
   sto:hasOfficialResource <https://www.iso.org/standard/57308.html> ;
   sto:hasWikidataEntity <http://www.wikidata.org/entity/Q1653426> ;
-  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_62264> ;
+  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_62264> ,
+                          <https://en.wikipedia.org/wiki/B2MML> ;
   dc:description "IEC 62264 is an international standard for enterprise-control system integration. This standard is based upon ANSI/ISA-95."@en ;
   .
 
