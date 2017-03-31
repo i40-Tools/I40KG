@@ -179,7 +179,7 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
 ###  https://w3id.org/i40/sto#scope
 sto:scope rdf:type owl:ObjectProperty ;
           rdfs:domain sto:Standard ;
-          rdfs:range sto:IndustryDomain .
+          rdfs:range sto:Domain .
 
 
 #################################################################
@@ -195,8 +195,8 @@ sto:abbreviation rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#domainName
 sto:domainName rdf:type owl:DatatypeProperty ;
-               rdfs:domain sto:IndustryDomain ;
-               dc:description "Name of the Industry Domain"@en ;
+               rdfs:domain sto:Domain ;
+               dc:description "Name of the Domain"@en ;
                rdfs:label "hasDomainName"@en .
 
 
@@ -266,9 +266,9 @@ rami:RAMIHierarchyLevel rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/sto#IndustryDomain
-sto:IndustryDomain rdf:type owl:Class ;
-                   dc:description "Represents the possible industry domains"@en ;
-                   rdfs:label "IndustryDomain"@en .
+sto:Domain rdf:type owl:Class ;
+                   dc:description "Represents the Domains in which the Standards can be used"@en ;
+                   rdfs:label "Domain"@en .
 
 
 ###  https://w3id.org/i40/sto#SDO
