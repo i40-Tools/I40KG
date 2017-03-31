@@ -321,6 +321,10 @@ sto:EnterpriseLevel a sto:ISA95Level ;
     rdfs:comment "Describes the Enterprise level according to the ISA95 level classification."@en ;
 .
 
+sto:CrossLevel a sto:ISA95Level ;
+	rdfs:label "CrossLevel";
+    rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
+.
 
 
 
@@ -523,7 +527,6 @@ sto:EnterpriseLevel a sto:ISA95Level ;
   rdfs:comment "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
   .
  
-
  sto:W3C_SPARQL a sto:Standard ;
   sto:norm "SPARQL" ;
   sto:publisher sto:W3C ;
@@ -548,11 +551,8 @@ sto:EnterpriseLevel a sto:ISA95Level ;
   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Resource_Description_Framework> ;
   dc:description """
   RDF is a standard model for data interchange on the Web. RDF has features that facilitate data merging even if the underlying schemas differ, and it specifically supports the evolution of schemas over time without requiring all the data consumers to be changed.
-
-RDF extends the linking structure of the Web to use URIs to name the relationship between things as well as the two ends of the link (this is usually referred to as a “triple”). Using this simple model, it allows structured and semi-structured data to be mixed, exposed, and shared across different applications.
-
-This linking structure forms a directed, labeled graph, where the edges represent the named link between two resources, represented by the graph nodes. This graph view is the easiest possible mental model for RDF and is often used in easy-to-understand visual explanations.
-
+  RDF extends the linking structure of the Web to use URIs to name the relationship between things as well as the two ends of the link (this is usually referred to as a “triple”). Using this simple model, it allows structured and semi-structured data to be mixed, exposed, and shared across different applications.
+  This linking structure forms a directed, labeled graph, where the edges represent the named link between two resources, represented by the graph nodes. This graph view is the easiest possible mental model for RDF and is often used in easy-to-understand visual explanations.
   """@en ;
   .
 
@@ -641,6 +641,7 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:hasDBpediaResource <http://dbpedia.org/resource/ULE_-_Ultra_Low_Energy> ;
   dc:description "DECT Ultra Low Energy (DECT ULE) is a technology based on DECT, and intended for Machine-to-Machine communications such as Home and Industrial automation. The main characteristics of the technology are ultra-low power consumption (much lower than IEEE 802.11) and wider coverage (much wider than IEEE 802.15 and Bluetooth Low Energy)."@en ;
   .
+
  sto:ETSI_LTN a sto:Standard ;
   sto:norm "LTN" ;
   sto:publisher sto:ETSI;
@@ -653,11 +654,9 @@ This linking structure forms a directed, labeled graph, where the edges represen
     """
   	  Machine-to-Machine communications and the Internet of Things (IoT) involve the connection of potentially billions of connected objects which need only low throughput connectivity.
 	  The anticipated benefits of creating new dedicated IoT Low Throughput Networks (LTN) include:
-
         -  lower costs
         -  the creation of new applications
         -  a reduction in electromagnetic radiation by improving data transmission efficiency
-
       LTN are expected to be crucial to the success of IoT standardization and implementation, and to provide the basis for many new and innovative applications.
     """@en ;
   .
@@ -774,11 +773,8 @@ This linking structure forms a directed, labeled graph, where the edges represen
   sto:motivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en ;
   dc:description """
 	Systems comprised of electrical and/or electronic elements have been used for many years to perform safety functions in most application sectors. Computer-based systems (generically referred to as programmable electronic systems) are being used in all application sectors to perform non-safety functions and, increasingly, to perform safety functions.
- 
 	Functional safety is a concept applicable across all industry sectors. It is fundamental to the enabling of complex technology used for safety-related systems. It provides the assurance that the safety-related systems will offer the necessary risk reduction required to achieve safety for the equipment.
- 
 	The oil and gas industry, nuclear plants and the machinery sector, to name but a few, all rely heavily on functional safety to achieve safety for the equipment giving rise to the hazards.
- 
 	All IEC International Standards in the IEC 61508 series were developed by IEC SC (Subcommittee) 65 A: Industrial-process measurement, control and automation - Systems aspects.  
   """@en ;
   .
@@ -830,8 +826,7 @@ sto:ISO_19439 a sto:Standard ;
  rdfs:comment "provides a unified conceptual basis for model-based enterprise engineering that enables consistency, convergence and interoperability of the various modelling methodologies and supporting tools."@en ;
 .
 
-
- sto:ISA-95 a sto:Standard ;
+sto:ISA-95 a sto:Standard ;
   sto:norm "ISA-95" ;
   sto:hasTag "Enterprise-Control System Integration"@en ;
   sto:publisher sto:ISA, sto:ANSI;
@@ -842,6 +837,21 @@ sto:ISO_19439 a sto:Standard ;
   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ANSI/ISA-95> ;
   dc:description "ANSI/ISA-95, or ISA-95 as it is more commonly referred, is an international standard from the International Society of Automation for developing an automated interface between enterprise and control systems. This standard has been developed for global manufacturers. It was developed to be applied in all industries, and in all sorts of processes, like batch processes, continuous and repetitive processes.There are 5 parts of the ISA-95 standard.ISA-95 Models"@en ;
   .
+
+sto:IEC-62443 a sto:Standard ;
+  sto:norm "IEC-62443" ;
+  sto:hasTag "Electronically secure Industrial Automation and Control Systems"@en ;
+  skos:altLabel "ISA99" ;
+  sto:publisher sto:ISA, sto:ANSI;
+  sto:developer sto:ISA, sto:ANSI ;
+  sto:hasISA95Level sto:CrossLevel ;
+  sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q1653422> ;
+  sto:hasOfficialResource <https://webstore.iec.ch/publication/7033> ;
+  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Cyber_security_standards#ISA.2FIEC-62443_.28formerly_ISA-99.29> ;
+  dc:description "Defines procedures for implementing electronically secure Industrial Automation and Control Systems."@en ;
+  rdfs:comment "Defines procedures for implementing electronically secure Industrial Automation and Control Systems"@en ;  
+.
+
 
  sto:IEC_62264 a sto:Standard ;
   sto:norm "62264" ;
