@@ -677,7 +677,8 @@ sto:ISO_10303
               <https://en.wikipedia.org/wiki/ISO_10303> ;
       sto:norm "10303" ;
       sto:publisher sto:ISO ;
-      sto:scope "CAD" .
+      sto:scope "CAD" ;
+	.
 
 sto:ISO_13584
       rdf:type sto:Standard ;
@@ -968,6 +969,21 @@ sto:ProductLifeCycleManagement
 
 sto:ProductModelDataExchange
       rdf:type sto:PLMRelatedArea , owl:NamedIndividual .
+	  
+sto:ProductionSystemModelData
+      rdf:type sto:ProductionSystem , owl:NamedIndividual ;
+	  rdfs:comment "Provide information models for factory and production system design. They enhance information exchange among stakeholders, and enable virtual commissioning, which can improve manufacturing agility and reduce manufacturing cost."@en ;
+	.
+	  
+sto:ProductionSystemEngineering
+      rdf:type sto:ProductionSystem , owl:NamedIndividual ;
+	  rdfs:comment "Standards can interconnect engineering tools from different disciplines, e.g., system engineering, mechanical plant engineering, electrical design, process engineering, process control engineering, Human Machine Interface (HMI) development, PLC programming, and robotic programming."@en;
+	.
+	  
+sto:ProductionSystemOperationMaintenance
+      rdf:type sto:ProductionSystem , owl:NamedIndividual ;
+	  rdfs:comment "Classifies standards define data processing, communication, and presentation standards for condition monitoring and diagnostics of machines, for maintaining the adequate performance of the system, and for searching ways to improve performance"@en;
+	.  
 
 sto:ProductionEngineering
       rdf:type owl:NamedIndividual .
