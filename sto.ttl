@@ -86,7 +86,7 @@ sto:ASAM_ODS
       sto:publisher sto:ASAM .
 
 sto:BBF
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
       sto:abbreviation "BBF" ;
       sto:formationDate "2008-01-01"^^xsd:date ;
@@ -101,7 +101,7 @@ sto:BBF
       sto:name "Broadband Forum"@en .
 
 sto:BBF_TR-069
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Digital Enhanced Cordless Telecommunications (DECT™) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
       sto:developer sto:BBF ;
       sto:hasDBpediaResource
@@ -133,15 +133,15 @@ sto:Domain
       rdf:type owl:Class ;
       rdfs:label "Domain"@en ;
       dc:description "Represents the Domains in which the Standards can be used"@en .
-	  
+    
 sto:StandardLicense
       rdf:type owl:Class ;
-	  rdfs:subClassOf foaf:Document; 
+    rdfs:subClassOf foaf:Document; 
       rdfs:label "StandardLicense"@en ;
       dc:description "Represents licenses that Standards can have, e.g., private, public, etc"@en .
 
 sto:ETSI
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "The European Telecommunications Standards Institute (ETSI) is an independent, not-for-profit, standardization organization in the telecommunications industry (equipment makers and network operators) in Europe, headquartered in Sophia-Antipolis, France, with worldwide projection. ETSI produces globally-applicable standards for Information and Communications Technologies (ICT), including fixed, mobile, radio, converged, broadcast and internet technologies." ;
       sto:abbreviation "ETSI" ;
       sto:formationDate "1988-01-01"^^xsd:date ;
@@ -156,7 +156,7 @@ sto:ETSI
       sto:name "European Telecommunications Standards Institute"@en .
 
 sto:ETSI_DECT
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Digital Enhanced Cordless Telecommunications (DECT™) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
       sto:developer sto:ETSI ;
       sto:hasDBpediaResource
@@ -366,7 +366,7 @@ sto:IEC_61511
       sto:relatedTo sto:IEC_62061 , sto:ISO_13849 .
 
 sto:IEC_61512
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Batch control - Models and terminology"@en ;
       rami:hasRAMIHierarchyLevel
               rami:WorkCenter , rami:ControlDevice , rami:Station , rami:Product ;
@@ -400,7 +400,7 @@ sto:IEC_61784
       sto:relatedTo sto:IEC_61158 .
 
 sto:IEC_61804
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Function blocks (FB) for process control - Overview of system aspects "@en ;
       rami:hasRAMIHierarchyLevel
               rami:FieldDevice , rami:ControlDevice ;
@@ -431,7 +431,7 @@ sto:IEC_61987_X
       sto:publisher sto:IEC .
 
 sto:IEC_62061
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "provides requirements that are applicable to the system level design of all types of machinery safety-related electrical control systems and also for the design of non-complex subsystems or devices."@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/IEC_62061> ;
@@ -467,7 +467,7 @@ sto:IEC_62264
       sto:relatedTo sto:ISA-95 .
 
 sto:IEC_62424
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "CAEX (Computer Aided Engineering Exchange) is a neutral data format that allows storage of hierarchical object information, e.g. the hierarchical architecture of a plant. On a certain abstraction level, a plant consists in modules or components that are interconnected. CAEX allows storage of those modules or components by means of objects. Object oriented concepts as encapsulation, classes, class libraries, instances, instance hierarchies, inheritance, relations, attributes and interfaces are explicitly supported. CAEX bases on XML and is defined as XML schema (xsd file). The original intention of developing CAEX was the industrial lack of a common and established data exchange between process engineering tools and process control engineering tools. However, CAEX can be applied to all types of static object information, e.g. plant topologies, document topologies, product topologies, petri nets, but also for non-technical applications like phylogenetic trees."@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/CAEX> ;
@@ -500,7 +500,7 @@ sto:IEC_62443
       sto:relatedTo sto:IEC_27000 .
 
 sto:IEC_62453
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Field device tool (FDT) interface specification - Overview and guidance"@en ;
       rami:hasRAMIHierarchyLevel
               rami:ControlDevice , rami:FieldDevice , rami:Station ;
@@ -512,7 +512,7 @@ sto:IEC_62453
       sto:publisher sto:IEC .
 
 sto:IEC_62541
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "OPC Unified Architecture (OPC UA) is an industrial M2M communication protocol for interoperability developed by the OPC Foundation. It is the successor to Open Platform Communications (OPC). Although developed by the same organization, OPC UA differs significantly from its predecessor. The Foundation's goal for this project was to provide a path forward from the original OPC communications model (namely the Microsoft Windows only process exchange COM/DCOM) to a cross-platform service-oriented architecture (SOA) for process control, while enhancing security and providing an information model."@en ;
       rami:hasRAMIHierarchyLevel
               rami:Station , rami:ControlDevice , rami:WorkCenter , rami:FieldDevice , rami:Enterprise , rami:ConnectedWorld ;
@@ -547,7 +547,7 @@ sto:IEC_62591
       sto:publisher sto:IEC .
 
 sto:IEC_62714
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Engineering data exchange format for use in industrial automation systems engineering - Automation markup language - Architecture and general requirements"@en ;
       skos:altLabel "AML"@en ;
       rami:hasRAMIHierarchyLevel
@@ -592,7 +592,7 @@ sto:IEC_62890
       sto:publisher sto:IEC .
 
 sto:IEC_TR_62794
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
       rami:hasRAMIHierarchyLevel
               rami:WorkCenter , rami:Station , rami:ControlDevice , rami:FieldDevice ;
@@ -606,7 +606,7 @@ sto:IEC_TR_62794
       sto:relatedTo sto:IEC_TS_62832 .
 
 sto:IEC_TS_62832
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Digital Factory Reference model TS"@en ;
       rami:hasRAMIHierarchyLevel
               rami:ControlDevice , rami:FieldDevice , rami:Station , rami:WorkCenter ;
@@ -698,7 +698,7 @@ sto:ISO_13584
       sto:relatedTo sto:IEC_61360 , sto:eClass .
 
 sto:ISO_13849
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "Provides safety requirements and guidance on the principles for the design and integration of safety-related parts of control systems (SRP/CS), including the design of software."@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/ISO_13849> ;
@@ -713,7 +713,7 @@ sto:ISO_13849
       sto:publisher sto:ISO .
 
 sto:ISO_19439
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       rdfs:comment "provides a unified conceptual basis for model-based enterprise engineering that enables consistency, convergence and interoperability of the various modelling methodologies and supporting tools."@en ;
       dc:description "provides a unified conceptual basis for model-based enterprise engineering that enables consistency, convergence and interoperability of the various modelling methodologies and supporting tools."@en ;
       sto:hasDBpediaResource
@@ -756,7 +756,7 @@ sto:ISO_20922
       sto:relatedTo sto:IEC_62541 .
 
 sto:ISO_27000
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "The ISO/IEC 27000 family of standards helps organizations keep information assets secure. Using this family of standards will help your organization manage the security of assets such as financial information, intellectual property, employee details or information entrusted to you by third parties."@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/IEC_27000> ;
@@ -772,7 +772,7 @@ sto:ISO_27000
       sto:publisher sto:ISO .
 
 sto:ISO_PAS_17506
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "ISO-PAS 17506-2012 describes the COLLADA schema. COLLADA is a COLLAborative Design Activity that defines an XML-based schema to enable 3D authoring applications to freely exchange digital assets without loss of information, enabling multiple software packages to be combined into extremely powerful tool chains."@en , "SO/PAS 17506:2012 describes the COLLADA schema. COLLADA is a COLLAborative Design Activity that defines an XML-based schema to enable 3D authoring applications to freely exchange digital assets without loss of information, enabling multiple software packages to be combined into extremely powerful tool chains. The purpose of ISO/PAS 17506:2012 is to provide a specification for the COLLADA schema in sufficient detail to enable software developers to create tools to process COLLADA resources. In particular, it is relevant to those who import to or export from digital content creation (DCC) applications, 3D interactive applications and tool chains, prototyping tools, real-time visualization applications such as those used in the video game and movie industries, and CAD tools. ISO/PAS 17506:2012 covers the initial design and specifications of the COLLADA schema, as well as a minimal set of requirements for COLLADA exporters. "@en ;
       sto:developer sto:ISO ;
       sto:hasDBpediaResource
@@ -811,7 +811,7 @@ sto:Industrial_Automation
 
 
 sto:MESA
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       rdfs:comment "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
       dc:description "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
       sto:abbreviation "MESA" ;
@@ -827,7 +827,7 @@ sto:MESA
       sto:name "Manufacturing Enterprise Solutions Association"@en .
 
 sto:MOMLevel
-      rdf:type owl:NamedIndividual , sto:ISA95Level ;
+      rdf:type  sto:ISA95Level ;
       rdfs:comment "Describes the MOM level according to the ISA95 level classification."@en ;
       rdfs:label "MOMLevel" ;
       skos:definition "Manufacturing Operation Management Level according to ISA 95"@en .
@@ -850,7 +850,7 @@ sto:MTConnect
       sto:publisher sto:MTConnect_Institute .
 
 sto:MTConnect_Institute
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "MTConnect Institute is a collaborative effort to develop technical standards and specifications intended to foster greater interoperability between automation/control applications, field systems/devices, and business/office applications in the manufacturing industry (\"MTConnect Specifications\"), as well as schema, prototype software examples, and related documentation in order to facilitate the implementation of the MTConnect Specifications in compliant applications, drivers, and other services"@en ;
       sto:abbreviation "MTC" ;
       sto:formationDate "2006-01-01"^^xsd:date ;
@@ -865,7 +865,7 @@ sto:ManufacturingModelData
       rdf:type sto:PLMRelatedArea , owl:NamedIndividual .
 
 sto:ModBus
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       rdfs:comment "Modbus is a serial communications protocol to be used in Programmable logic controllers (PLCs)."@en ;
       dc:description "Modbus is a serial communications protocol to be used in Programmable logic controllers (PLCs)."@en ;
       sto:hasDBpediaResource
@@ -884,7 +884,7 @@ sto:ModelingPractice
       rdf:type sto:PLMRelatedArea , owl:NamedIndividual .
 
 sto:NIST
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "The National Institute of Standards and Technology (NIST) is a measurement standards laboratory, and a non-regulatory agency of the United States Department of Commerce."@en ;
       sto:abbreviation "NIST" ;
       sto:formationDate "1901-01-01"^^xsd:date ;
@@ -899,7 +899,7 @@ sto:NIST
       sto:name "National Institute of Standards and Technology"@en .
 
 sto:OASIS
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "The Organization for the Advancement of Structured Information Standards (OASIS) is a global nonprofit consortium that works on the development, convergence, and adoption of standards for security, Internet of Things, energy, content technologies, emergency management, and other areas."@en ;
       sto:abbreviation "OASIS" ;
       sto:formationDate "1993-01-01"^^xsd:date ;
@@ -914,7 +914,7 @@ sto:OASIS
       sto:name "Organization for the Advancement of Structured Information Standards"@en .
 
 sto:OMG
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "The Object Management Group (OMG) is an international, open membership, not-for-profit technology standards consortium. OMG Task Forces develop enterprise integration standards for a wide range of technologies and industries. OMG modeling standards enable visual design, execution and maintenance of software and other processes. Originally aimed at standardizing distributed object-oriented systems, the company now focuses on modeling (programs, systems and business processes) and model-based standards." ;
       sto:abbreviation "OMG" ;
       sto:formationDate "1989-01-01"^^xsd:date ;
@@ -929,7 +929,7 @@ sto:OMG
       sto:name "Object Management Group"@en .
 
 sto:OPC_Foundation
-      rdf:type owl:NamedIndividual , sto:SDO ;
+      rdf:type  sto:SDO ;
       dc:description "Is an industry consortium that creates and maintains standards for open connectivity of industrial automation devices and systems, such as industrial control systems and process control generally"@en ;
       sto:abbreviation "OPC" ;
       sto:formationDate "1994-01-01"^^xsd:date ;
@@ -978,7 +978,7 @@ sto:ProductionSystem
       rdfs:label "ProductionSystem"@en .
 
 sto:SCADALevel
-      rdf:type owl:NamedIndividual , sto:ISA95Level ;
+      rdf:type  sto:ISA95Level ;
       rdfs:comment "Describes the SCADA level according to the ISA95 level classification."@en ;
       rdfs:label "SCADALevel" ;
       skos:definition "Supervisory control and data acquisition according to ISA 95"@en .
@@ -1012,7 +1012,7 @@ sto:Standard
       dc:description "Standards Class"@en .
 
 sto:SysML
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "The OMG Systems Modeling Language™ (OMG SysML™) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML™ for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
       sto:developer sto:OMG ;
       sto:hasDBpediaResource
@@ -1103,7 +1103,7 @@ sto:W3C_RDF
       sto:publisher sto:W3C .
 
 sto:W3C_RIF
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "The Rule Interchange Format (RIF) is a W3C Recommendation. RIF is part of the infrastructure for the semantic web, along with (principally) SPARQL, RDF and OWL. Although originally envisioned by many as a rules layer for the semantic web, in reality the design of RIF is based on the observation that there are many rules languages in existence, and what is needed is to exchange rules between them."@en , "The Rule Interchange Format (RIF) is a W3C Recommendation. RIF is part of the infrastructure for the semantic web, along with (principally) SPARQL, RDF and OWL. Although originally envisioned by many as a \"rules layer\" for the semantic web, in reality the design of RIF is based on the observation that there are many \"rules languages\" in existence, and what is needed is to exchange rules between them. "@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/Rule_Interchange_Format> ;
@@ -1120,7 +1120,7 @@ sto:W3C_RIF
       sto:relatedTo sto:W3C_OWL .
 
 sto:W3C_SPARQL
-      rdf:type owl:NamedIndividual , sto:Standard ;
+      rdf:type  sto:Standard ;
       dc:description "The SPARQL Protocol and RDF Query Language (SPARQL) is a query language and protocol for RDF. This document specifies the SPARQL Protocol; it describes a means for conveying SPARQL queries and updates to a SPARQL processing service and returning the results via HTTP to the entity that requested them. This protocol was developed by the W3C SPARQL Working Group, part of the Semantic Web Activity as described in the activity statement ."@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/SPARQL> ;
@@ -1135,40 +1135,40 @@ sto:W3C_SPARQL
       sto:norm "SPARQL" ;
       sto:publisher sto:W3C ;
       sto:relatedTo sto:W3C_RDF .
-	  
+    
 sto:private 
       rdf:type sto:StandardLicense;
-	  rdfs:label "Private"@en;
-	  skos:note "TODO, include in the current instances";
-    .	
-	
+    rdfs:label "Private"@en;
+    skos:note "TODO, include in the current instances";
+    . 
+  
 sto:public 
       rdf:type sto:StandardLicense ;
-	  rdfs:label "Public"@en;
-	  skos:note "TODO, include in the current instances";
-    .	  
+    rdfs:label "Public"@en;
+    skos:note "TODO, include in the current instances";
+    .   
 
 sto:abbreviation
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:SDO ;
       rdfs:label "hasAbbreviatedName"@en ;
       dc:description "Abbreviated  name of the organization"@en .
-	  
+    
 sto:hasPublicationDate
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:Standard ;
       rdfs:label "hasPublicationDate"@en ;
       dc:description "Publication date of the Standard"@en ;
       rdfs:comment "Publication date of the Standard"@en ;
-	.
-	
+  .
+  
 sto:hasStatus
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:Standard ;
       rdfs:label "hasStatus"@en ;
       dc:description "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
       rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
-	.	
+  . 
 
 sto:developed
       rdf:type owl:ObjectProperty ;
@@ -1294,9 +1294,9 @@ sto:isUtilizedIn
 sto:license
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
-	  rdfs:range sto:StandardLicense ;
+    rdfs:range sto:StandardLicense ;
       rdfs:subPropertyOf dc:license ;
-	.
+  .
 
 sto:motivation
       rdf:type owl:ObjectProperty ;
