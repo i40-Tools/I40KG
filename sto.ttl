@@ -1139,12 +1139,14 @@ sto:public
 sto:abbreviation
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:SDO ;
+      rdfs:domain xsd:string ;
       rdfs:label "hasAbbreviatedName"@en ;
       dc:description "Abbreviated  name of the organization"@en .
 	  
 sto:hasPublicationDate
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:Standard ;
+	  rdfs:range xsd:date ;
       rdfs:label "hasPublicationDate"@en ;
       dc:description "Publication date of the Standard"@en ;
       rdfs:comment "Publication date of the Standard"@en ;
