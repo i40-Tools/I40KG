@@ -1,4 +1,3 @@
-# Saved by TopBraid on Tue Apr 04 14:38:09 CEST 2017
 # baseURI: https://w3id.org/i40/sto#
 
 @prefix :        <https://w3id.org/i40/sto#> .
@@ -134,6 +133,11 @@ sto:Domain
       rdf:type owl:Class ;
       rdfs:label "Domain"@en ;
       dc:description "Represents the Domains in which the Standards can be used"@en .
+	  
+sto:StandardLicense
+      rdf:type owl:Class ;
+      rdfs:label "StandardLicense"@en ;
+      dc:description "Represents licenses that Standards can have, e.g., private, public, etc"@en .
 
 sto:ETSI
       rdf:type owl:NamedIndividual , sto:SDO ;
@@ -1249,7 +1253,9 @@ sto:isUtilizedIn
 sto:license
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
-      rdfs:subPropertyOf dc:license .
+	  rdfs:range sto:StandardLicense ;
+      rdfs:subPropertyOf dc:license ;
+	.
 
 sto:motivation
       rdf:type owl:ObjectProperty ;
