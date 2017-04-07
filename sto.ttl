@@ -136,7 +136,7 @@ sto:Domain
     
 sto:StandardLicense
       rdf:type owl:Class ;
-    rdfs:subClassOf foaf:Document; 
+      rdfs:subClassOf foaf:Document; 
       rdfs:label "StandardLicense"@en ;
       dc:description "Represents licenses that Standards can have, e.g., private, public, etc"@en .
 
@@ -1167,6 +1167,23 @@ sto:public
     skos:note "TODO, include in the current instances";
     .   
 
+sto:licenseTerms
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:StandardLicense ;
+      rdfs:domain xsd:string ;
+      rdfs:label "licenseTerms"@en ;
+      dc:description "Terms described in the document of the Standard License"@en ;
+	. 
+	
+sto:usageType
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:StandardLicense ;
+      rdfs:domain xsd:string ;
+      rdfs:label "usageType"@en ;
+      dc:description "Type of usage for a given Standard License"@en ;
+	.  
+	
+	
 sto:abbreviation
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:SDO ;
