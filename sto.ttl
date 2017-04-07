@@ -815,7 +815,7 @@ sto:Industrial_Automation
 
 
 sto:MESA
-      rdf:type  sto:SDO ;
+      rdf:type sto:SDO ;
       rdfs:comment "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
       dc:description "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en ;
       sto:abbreviation "MESA" ;
@@ -1198,6 +1198,30 @@ sto:stoPartName
 	  rdfs:range xsd:string ;
       rdfs:label "stoPartName"@en ;
       dc:description "Name of the standard part."@en ;
+	.
+	
+sto:hasTimeFrame
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:ISA95Level ;
+	  rdfs:range xsd:date ;
+      rdfs:label "hasTimeFrame"@en ;
+      dc:description "Time frame for the ISA95 level."@en ;
+	.
+	
+sto:hasObjective
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:ISA95Level ;
+	  rdfs:range xsd:string ;
+      rdfs:label "hasObjective"@en ;
+      dc:description "Specifies the objectives for the different ISA 95 levels."@en ;
+	.	
+	
+sto:hasTask
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:ISA95Level ;
+	  rdfs:range xsd:string ;
+      rdfs:label "hasTask"@en ;
+      dc:description "Specifies the taks for the different ISA 95 levels."@en ;
 	.
 	
 sto:isPartOf
