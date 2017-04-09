@@ -313,6 +313,7 @@ sto:IEC_61360
 	  rami:hasRAMIITLayer rami:Asset;
 	  rami:hasAdminShellSubmodel rami:Engineering;
       sto:publisher sto:IEC ;
+	  sto:isUtilizedIn sto:ManufacturingModelData;
       sto:relatedTo sto:eClass , sto:ISO_13584 .
 
 sto:IEC_61499
@@ -580,6 +581,7 @@ sto:IEC_62714
       sto:norm "62714" ;
       sto:publisher sto:IEC ;
 	  rami:hasRAMIITLayer rami:Information;
+	  sto:isUtilizedIn sto:ProductModelDataExchange;
       sto:relatedTo sto:IEC_61360 , sto:IEC_61987_X , sto:IEC_62541 .
 
 sto:IEC_62837
@@ -905,6 +907,7 @@ sto:ModBus
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Modbus> ;
 	  rami:hasRAMIITLayer rami:Integration;
+	  sto:isUtilizedIn sto:ProductionEngineering;
       sto:publisher sto:SE .
 
 sto:ModelingPractice
@@ -1012,7 +1015,7 @@ sto:ProductionSystemOperationMaintenance
 	.  
 
 sto:ProductionEngineering
-      rdf:type owl:NamedIndividual .
+      rdf:type sto:PLMRelatedArea, owl:NamedIndividual .
 
 sto:ProductionSystem
       rdf:type owl:Class ;
