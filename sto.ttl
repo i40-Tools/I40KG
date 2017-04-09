@@ -32,6 +32,9 @@ rami:hasRAMIHierarchyLevel
 
 rami:hasRAMILifeCycleLayer
       rdf:type owl:AnnotationProperty .
+	  
+rami:hasAdminShellSubmodel
+      rdf:type owl:AnnotationProperty .
 
 sto:  rdf:type owl:Ontology ;
       dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
@@ -308,6 +311,7 @@ sto:IEC_61360
       sto:motivation "Standard data elements (properties) are used as elements in administration shell"@en ;
       sto:norm "61360" ;
 	  rami:hasRAMIITLayer rami:Asset;
+	  rami:hasAdminShellSubmodel rami:Engineering;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:eClass , sto:ISO_13584 .
 
@@ -345,6 +349,7 @@ sto:IEC_61508
       sto:license "Private"@en ;
       sto:motivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en ;
       sto:norm "61508" ;
+	  rami:hasAdminShellSubmodel rami:Safety;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_61511 .
 
@@ -391,6 +396,7 @@ sto:IEC_61784
       rami:hasRAMIHierarchyLevel
               rami:ControlDevice , rami:FieldDevice ;
       sto:hasISA95Level sto:DeviceLevel ;
+	  rami:hasAdminShellSubmodel rami:CommunicationSubModel ;
       sto:hasOfficialResource
               <https://webstore.iec.ch/publication/5878> ;
       sto:hasTag "IEC Fieldbus (Profibus)"@en ;
@@ -415,6 +421,7 @@ sto:IEC_61804
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Device_Description_Language> ;
       sto:norm "61804" ;
+	  rami:hasAdminShellSubmodel rami:Configuration;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62453 .
 
@@ -425,6 +432,7 @@ sto:IEC_61987_X
               rami:Enterprise , rami:ControlDevice , rami:FieldDevice , rami:Product , rami:WorkCenter , rami:Station ;
       sto:hasOfficialResource
               <https://webstore.iec.ch/publication/6225> ;
+	  rami:hasAdminShellSubmodel rami:Engineering;
       sto:hasTag "LOPs in PA"@en ;
       sto:license "Private"@en ;
       sto:motivation "Properties and LOPs as an informational representation of the features of measuring equipment. The referenced standards define general principles (e.g. part 11) as well as specific LOPs for specific device types. These international standards also may serve as examples for description of products."@en ;
@@ -444,6 +452,7 @@ sto:IEC_62061
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/IEC_62061> ;
       sto:norm "62061" ;
+	  rami:hasAdminShellSubmodel rami:Safety;
       sto:publisher sto:IEC .
 
 sto:IEC_62264
@@ -499,6 +508,7 @@ sto:IEC_62443
       sto:motivation "Cyber attacks threat the industry and can cause damage to property and personal injury and affect the image of companies. The Standard allows to define procedures for implementing electronically secure Industrial Automation and Control Systems (IACS). This guidance applies to end-users, system integrators, security practitioners, and control systems manufacturers responsible for manufacturing, designing, implementing, or managing industrial automation and control systems"@en ;
       sto:norm "62443" ;
       sto:publisher sto:IEC ;
+	  rami:hasAdminShellSubmodel rami:Security;
       sto:relatedTo sto:IEC_27000 .
 
 sto:IEC_62453
@@ -509,6 +519,7 @@ sto:IEC_62453
       sto:hasOfficialResource
               <https://webstore.iec.ch/publication/7040> ;
       sto:hasTag "FDT"@en ;
+	  rami:hasAdminShellSubmodel rami:Configuration;
       sto:motivation "FDT is an interface for integration of devices into a system (e.g. control system or engineering system). The standard supports factory automation as well as process automation with a wide range of fieldbus protocols. The interface defines fieldbus-independent mechanisms for accessing data and functions of the devices."@en ;
       sto:norm "62453" ;
       sto:publisher sto:IEC .
@@ -588,10 +599,11 @@ sto:IEC_62890
               rami:WorkCenter , rami:Station ;
       sto:hasOfficialResource
               <http://www.iec.ch/dyn/www/f?p=103:38:16824039984463::::FSP_ORG_ID,FSP_APEX_PAGE,FSP_PROJECT_ID:1250,23,20929> ;
-      sto:hasTag "Example"@en ;
+      sto:hasTag "IEC 62890"@en ;
       sto:license "Private"@en ;
       sto:motivation "Stations need to describe their operational state and performance parameters towards superior I4.0-Components"@en ;
       sto:norm "62890" ;
+	  rami:hasAdminShellSubmodel rami:LifecycleStatus;
       sto:publisher sto:IEC .
 
 sto:IEC_TR_62794
@@ -599,6 +611,7 @@ sto:IEC_TR_62794
       dc:description "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
       rami:hasRAMIHierarchyLevel
               rami:WorkCenter , rami:Station , rami:ControlDevice , rami:FieldDevice ;
+	  rami:hasAdminShellSubmodel rami:GeneralAdminShell ;
       sto:hasOfficialResource
               <https://webstore.iec.ch/publication/7433> ;
       sto:hasTag "DF/TR"@en ;
@@ -613,6 +626,7 @@ sto:IEC_TS_62832
       dc:description "Digital Factory Reference model TS"@en ;
       rami:hasRAMIHierarchyLevel
               rami:ControlDevice , rami:FieldDevice , rami:Station , rami:WorkCenter ;
+	  rami:hasAdminShellSubmodel rami:GeneralAdminShell ;
       sto:hasTag "DF/TS"@en ;
       sto:license "Private"@en ;
       sto:motivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. IEC TS 62832 defines methods, which allow to validate or plan connections between assets."@en ;
@@ -717,6 +731,7 @@ sto:ISO_13849
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/ISO_13849> ;
       sto:norm "13849" ;
+	  rami:hasAdminShellSubmodel rami:Safety;
       sto:publisher sto:ISO .
 
 sto:ISO_19439
@@ -745,6 +760,7 @@ sto:ISO_20140_5
               <http://www.iso.org/iso/catalogue_detail.htm?csnumber=54809> ;
       sto:hasTag "Energy Efficiency"@en ;
       sto:norm "20140-5" ;
+	  rami:hasAdminShellSubmodel rami:EnergyEfficiency;
       sto:publisher sto:ISO .
 
 sto:ISO_20922
@@ -1087,6 +1103,7 @@ sto:VDMA_24582
               <https://www.vdma.org/documents/105628/2244593/Inhalt+VDMA+24582_en.pdf/> ;
       sto:hasTag "Condition Monitoring"@en ;
       sto:norm "24582" ;
+	  rami:hasAdminShellSubmodel rami:ConditionMonitoring;
       sto:publisher sto:VDMA .
 
 sto:W3C
@@ -1302,6 +1319,7 @@ sto:eClass
               <https://de.wikipedia.org/wiki/ECl@ss> ;
       sto:motivation "Global identification, semantic description and automatic product classification"@en ;
       sto:norm "eClass" , "eCl@ss" ;
+	  rami:hasAdminShellSubmodel rami:Engineering;
       sto:publisher sto:eClassAssoc ;
       sto:relatedTo sto:IEC_61360 , sto:ISO_13584 .
 
