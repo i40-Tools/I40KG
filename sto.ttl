@@ -242,7 +242,7 @@ sto:IEC
               <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> ;
       sto:name "Commission électrotechnique internationale"@fr , "International Electrotechnical Commission"@en .
 
-sto:IEC-62443
+sto:IEC_62443
       rdf:type sto:Standard ;
       rdfs:comment "Defines procedures for implementing electronically secure Industrial Automation and Control Systems"@en ;
       dc:description "Defines procedures for implementing electronically secure Industrial Automation and Control Systems."@en ;
@@ -284,6 +284,19 @@ sto:IEC_61131
       sto:norm "61131" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_61499 .
+	  
+sto:IEC_61850
+      rdf:type sto:Standard ;
+	  sto:norm "61850" ;
+      dc:description "IEC 61850 is a standard for vendor-agnostic engineering of the configuration of Intelligent Electronic Devices for electrical substation automation systems to be able to communicate with each other.."@en ;
+      rdfs:comment "IEC 61850 is a standard for vendor-agnostic engineering of the configuration of Intelligent Electronic Devices for electrical substation automation systems to be able to communicate with each other.."@en ;
+      sto:hasDBpediaResource <http://dbpedia.org/page/IEC_61850> ;
+      sto:hasOfficialResource <https://webstore.iec.ch/publication/4550> ;
+      sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q168160> ;
+      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> ;
+      sto:norm "61131" ;
+      sto:publisher sto:IEC ;
+	.  
 
 sto:IEC_61158
       rdf:type sto:Standard ;
@@ -545,7 +558,10 @@ sto:IEC_62541
               <https://en.wikipedia.org/wiki/OPC_Unified_Architecture> ;
       sto:norm "62541" ;
       sto:publisher sto:IEC ;
-      sto:relatedTo sto:IEC_62714 , sto:IEC_61499 ;
+      sto:relatedTo sto:IEC_62714 , 
+	                sto:IEC_61499 ,
+					sto:IEC_61850 
+					;
       sto:scope sto:Industrial_Automation .
 
 sto:IEC_62591
@@ -1085,6 +1101,7 @@ sto:SysML
               <https://en.wikipedia.org/wiki/Systems_Modeling_Language> ;
       sto:norm "SysML" ;
       sto:publisher sto:OMG .
+	  
 
 sto:UseService
       rdf:type owl:NamedIndividual .
