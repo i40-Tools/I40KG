@@ -377,6 +377,23 @@ sto:ISO_18828-2
         sto:relatedTo sto:IEC_61804;
         sto:isUtilizedIn sto:ProductionEngineering.
 
+sto:IEC_60839-5-2 
+        rdf:type  sto:Standard ;
+        dc:description "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition:
+        - reflects the current technological state of art (IP networks);
+        - harmonizes with the ATS categories introduced in IEC 60839-5-1:2014;
+        - introduces test requirements."@en;
+        sto:hasUrl <https://webstore.iec.ch/publication/24120>;
+        sto:norm "60839" ;
+        sto:scope sto:M2M;
+        sto:publisher sto:IEC ;
+        sto:hasPublicationDate "2016-02-03"@xsd:Date;
+        rami:hasRAMIHierarchyLevel  rami:ControlDevice , rami:FieldDevice ;
+        rami:hasRAMIITLayer rami:Communication;
+        rami:hasAdminShellSubmodel rami:Security;
+        sto:relatedTo sto:IEC_62443.
+
+
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
       rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
