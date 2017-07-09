@@ -258,6 +258,19 @@ sto:ISO_15704
         rami:hasAdminShellSubmodel rami:Other;
         sto:relatedTo sto:ISO_13374,sto:ISO_19439.
 
+sto:ISO_22400  
+        rdf:type sto:Standard ;
+        dc:description "Automation systems and integration -- Key performance indicators (KPIs) for manufacturing operations management."@en;
+        sto:hasOfficialResource <https://www.iso.org/standard/54497.html>;
+        sto:norm "22400" ;
+        sto:publisher sto:ISO ;
+        sto:scope sto:Industrial_Automation;
+        sto:hasPublicationDate "2014-01"@xsd:Date;
+        rami:hasRAMIHierarchyLevel rami:Station , rami:ControlDevice , rami:WorkCenter , rami:FieldDevice , rami:Enterprise , rami:ConnectedWorld ;;
+        rami:hasRAMIITLayer rami:Business;
+        rami:hasAdminShellSubmodel rami:Conditional_Monitoring ,rami:LifeCycle_Status;
+        sto:relatedTo sto:IEC_62541.
+
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
       rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
