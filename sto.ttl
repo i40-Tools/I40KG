@@ -119,6 +119,22 @@ sto:BBF_TR-069
       sto:norm "TR-069" ;
       sto:publisher sto:BBF .
 
+sto:IEC_24760
+        rdf:type  sto:Standard ;
+        dc:description "ISO/IEC 24760: it defines terms for identity management, and also specifies core concepts of identity and identity management and their relationships. It is applicable to any information system that processes identity information. A bibliography of documents describing various aspects of identity information management is provided."@en ;
+        sto:norm "24760" ;
+        rami:hasRAMIITLayer rami:Information;
+        rami:hasRAMIHierarchyLevel rami:FieldDevice , rami:Product , rami:Station , rami:ControlDevice ;
+        sto:publisher sto:IEC ;
+        rami:hasAdminShellSubmodel rami:Security,rami:Safety;
+        sto:isUtilizedIn sto:ProductModelDataExchange;
+        sto:hasOfficialResource <https://www.iso.org/standard/57914.html> ;
+        sto:publisher sto:IEC;
+        sto:scope  sto:M2M;
+        sto:hasPublicationDate "2011-12"@xsd:Date;
+        sto:relatedTo sto:IEC_62443 .
+        
+
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
       rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
