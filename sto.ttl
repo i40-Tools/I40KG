@@ -133,7 +133,20 @@ sto:IEC_24760
         sto:scope  sto:M2M;
         sto:hasPublicationDate "2011-12"@xsd:Date;
         sto:relatedTo sto:IEC_62443 .
-        
+
+sto:IEC_29182-1
+        rdf:type sto:Standard ;
+        dc:description "ISO/IEC 29182-1: provides a general overview of the characteristics of a sensor network and the organization of the entities that comprise such a network. It also describes the general requirements that are identified for sensor networks."@en ;
+        sto:norm "24760" ;
+        sto:hasPublicationDate  "2013-06"@xsd:Date;
+        sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
+        sto:publisher sto:IEC;
+        sto:Scope sto:M2M;
+        rami:hasRAMIHierarchyLevel rami:ControlDevice , rami:FieldDevice ;
+        sto:hasISA95Level sto:DeviceLevel ;
+        rami:hasAdminShellSubmodel rami:Communications;
+        sto:relatedTo sto:IEC_61158;
+        sto:isUtilizedIn sto:ProductionSystemModelData.
 
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
