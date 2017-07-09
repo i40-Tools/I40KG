@@ -162,6 +162,20 @@ sto:ISO_8062-4
         rami:hasRAMIITLayer rami:Asset;
         sto:isUtilizedIn sto:ProductionSystemModelData.
 
+sto:ISO_14306  
+        rdf:type sto:Standard ;
+        dc:description "It provides the description of the structure and content for a binary file having the extension of .jt. A binary file with the .jt extension is generally referred to as a JT file. The JT format described in ISO 14306:2012 is used primarily in industrial use cases as the means for capturing and repurposing lightweight 3D product definition data"@en ;;
+        sto:hasOfficialResource <https://www.iso.org/standard/60572.html> ;
+        sto:norm "14306" ;
+        sto:publisher sto:ISO ;
+        sto:scope "CAD";
+        sto:relatedTo sto:IEC_62541;
+        sto:hasPublicationDate "2017-07"@xsd:Date;
+        rami:hasRAMIHierarchyLevel rami:Product;
+        rami:hasRAMIITLayer rami:Asset;
+        rami:hasAdminShellSubmodel rami:Identifikation,rami:Engineering;
+        sto:isUtilizedIn sto:ProcessPlanning,sto:ProductionSystemModelData.
+
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
       rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
