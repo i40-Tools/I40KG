@@ -303,6 +303,28 @@ sto:ISO_22745-11
         rami:hasRAMIITLayer rami:Assest;
         sto:isUtilizedIn sto:ProductCatalogData.
 
+sto:ISO_TS_14649-201  
+        rdf:type sto:Standard ;
+        dc:description "SO/TS 14649-201:2011 specifies the technology-specific machine tool description data elements needed as process data for manufacturing and machine characteristics. The machine tool descriptions covered in this schema are, initially, milling machines, machining centres, turning machines and multi-tasking machines.
+        ISO/TS 14649-201:2011 is not intended to replace existing machine tool description standards, but to cover the specific needs of
+        manufacturing resource description for manufacturing needs in the technologies described in ISO 14649.
+        Examples of manufacturing applications of this model are:
+        part programming for CNC machining;
+        process planning;
+        a simulation of machining processes;
+        analysis of expected machining time and machine tool energy use;
+        a description of new machine tools for manufacturing evaluation and/or controller development.
+        The schema specified in ISO/TS 14649-201:2011 does not include representations, executable objects and base classes that are common for all technologies. These are referenced from the generic resources of ISO 10303 and from ISO 14649-10."@en;
+        sto:hasOfficialResource <https://www.iso.org/standard/60042.html>;
+        sto:norm "14649" ;
+        sto:publisher sto:ISO ;
+        sto:scope sto:Industrial_Automation;
+        sto:hasPublicationDate "2011-12"@xsd:Date;
+        rami:hasRAMIHierarchyLevel rami:Product;
+        rami:hasRAMIITLayer rami:Integeration,rami:Assest;
+        rami:hasAdminShellSubmodel rami:Configuration,rami:Safety,rami:Engineering;
+        sto:isUtilizedIn sto:ProductionSystemModelData.
+
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
       rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
