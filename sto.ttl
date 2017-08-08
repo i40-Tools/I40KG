@@ -18,6 +18,7 @@
 @prefix voaf:    <http://purl.org/vocommons/voaf#> .
 @prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:     <http://www.geonames.org/ontology#> .
 
 rami:RAMIHierarchyLevel
       rdf:type owl:Class .
@@ -36,6 +37,20 @@ rami:hasRAMILifeCycleLayer
 rami:hasAdminShellSubmodel
       rdf:type owl:AnnotationProperty .
 
+
+geo:name
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:SDO ;
+      rdfs:range xsd:string ;
+      rdfs:label "Country Name"@en.
+
+geo:countryCode
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain sto:SDO ;
+      rdfs:range xsd:string ;
+      rdfs:label "Country Code"@en.
+
+
 sto:  rdf:type owl:Ontology ;
       dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
       dc11:title "Standards Vocabulary"@en ;
@@ -49,8 +64,8 @@ sto:  rdf:type owl:Ontology ;
       owl:versionInfo "0.2" .
 
 sto:ANSI
-      rdf:type sto:SDO ;
-      dc:description "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en , """
+     rdf:type sto:SDO ;
+     dc:description "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en , """
     The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide.
     ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."""@en ;
       sto:abbreviation "ANSI" ;
@@ -62,10 +77,11 @@ sto:ANSI
       sto:hasWikidataEntity
               <http://www.wikidata.org/entity/Q180003> ;
       sto:hasWikipediaArticle
-              <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true> ;
-      sto:orgName "American National Standards Institute"@en .
+              <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true>;       
+      sto:orgName "American National Standards Institute"@en.
 
-	  
+      
+      
 sto:NIST
       rdf:type  sto:SDO ;
       dc:description "The National Institute of Standards and Technology (NIST) is a measurement standards laboratory, and a non-regulatory agency of the United States Department of Commerce."@en ;
@@ -79,9 +95,26 @@ sto:NIST
               <https://www.wikidata.org/wiki/Q176691> ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology> ;
-	  sto:orgName "National Institute of Standards and Technology"@en.	  
+      geo:name "United States"@en;
+      geo:countryCode "US";
+      sto:orgName "National Institute of Standards and Technology"@en.	  
 	  
-	  
+
+sto:DIN
+      rdf:type  sto:SDO ;
+      dc:description "Deutsches Institut für Normung e.V. (DIN; in English, the German Institute for Standardization) is the German national organization for standardization and is the German ISO member body. DIN is a German Registered Association (e.V.) headquartered in Berlin. There are currently around thirty thousand DIN Standards, covering nearly every field of technology"@en ;
+      sto:abbreviation "DIN" ;
+      sto:formationDate "1918-01-01"^^xsd:date ;
+      sto:hasOfficialResource
+              <http://www.din.de/en/about-standards/din-standards> ;
+      sto:hasWikidataEntity
+              <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
+      geo:name "Germany"@en;
+      geo:countryCode "DE";
+      sto:orgName "Deutsches Institut für Normung"@en.      
+      
+
+
 
 sto:MIIT
       rdf:type  sto:SDO ;
@@ -93,8 +126,10 @@ sto:MIIT
       sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology> ;
       sto:hasWikipediaArticle
-              <https://en.wikipedia.org/wiki/OASIS_(organization)> ;
-       sto:orgName "Ministry of Industry and Information Technology"@en.	  
+              <https://en.wikipedia.org/wiki/OASIS_(organization)>;
+      geo:name "China"@en;
+      geo:countryCode "CN";
+      sto:orgName "Ministry of Industry and Information Technology"@en.	  
 	  
 sto:ASAM
       rdf:type sto:SDO ;
@@ -108,7 +143,9 @@ sto:ASAM
       sto:hasWikidataEntity
               <https://m.wikidata.org/entity/Q743638> ;
       sto:hasWikipediaArticle
-              <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems> ;
+              <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems>;
+      geo:name "United States"@en;
+      geo:countryCode "US";
       sto:orgName "Association for Standardization of Automation and Measuring Systems"@en .
 
 sto:ASAM_ODS
