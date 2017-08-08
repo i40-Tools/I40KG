@@ -37,7 +37,7 @@ rami:hasRAMILifeCycleLayer
 rami:hasAdminShellSubmodel
       rdf:type owl:AnnotationProperty .
 
-
+	
 geo:name
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:SDO ;
@@ -50,6 +50,9 @@ geo:countryCode
       rdfs:range xsd:string ;
       rdfs:label "Country Code"@en.
 
+
+
+sto:ModellingPractice rdf:type owl:NamedIndividual. 
 
 sto:  rdf:type owl:Ontology ;
       dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
@@ -64,11 +67,11 @@ sto:  rdf:type owl:Ontology ;
       owl:versionInfo "0.2" .
 
 sto:ANSI
-     rdf:type sto:SDO ;
-     dc:description "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en , """
-    The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide.
-    ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."""@en ;
-      sto:abbreviation "ANSI" ;
+		rdf:type sto:SDO ;
+		dc:description "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en , """
+		The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide.
+		ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."""@en ;
+		  sto:abbreviation "ANSI" ;
       sto:formationDate "1918-05-14"^^xsd:date ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/American_National_Standards_Institute> ;
@@ -80,6 +83,18 @@ sto:ANSI
               <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true>;       
       sto:orgName "American National Standards Institute"@en.
 
+sto:ISO
+      rdf:type  sto:SDO ;
+      dc:description "The International Organization for Standardization (ISO) is an international standard-setting body composed of representatives from various national standards organizations."@en ;
+      sto:abbreviation "ISO" ;
+      sto:formationDate "1947-02-23"^^xsd:date ;
+      sto:hasOfficialResource
+              <https://www.iso.org/about-us.html> ;
+      sto:hasWikidataEntity
+              <https://en.wikipedia.org/wiki/International_Organization_for_Standardization> ;
+      geo:name "Switzerland"@en;
+      geo:countryCode "CH";
+      sto:orgName "The International Organization for Standardization"@en.
       
       
 sto:NIST
@@ -199,14 +214,14 @@ sto:IEC_24760
         sto:hasOfficialResource <https://www.iso.org/standard/57914.html> ;
         sto:publisher sto:IEC;
         sto:scope  sto:M2M;
-        sto:hasPublicationDate "2011-12"@xsd:Date;
+        sto:hasPublicationDate  "2011-01-12"^^xsd:Date;
         sto:relatedTo sto:IEC_62443 .
 
 sto:IEC_29182-1
         rdf:type sto:Standard ;
         dc:description "ISO/IEC 29182-1: provides a general overview of the characteristics of a sensor network and the organization of the entities that comprise such a network. It also describes the general requirements that are identified for sensor networks."@en ;
         sto:norm "24760" ;
-        sto:hasPublicationDate  "2013-06"@xsd:Date;
+        sto:hasPublicationDate  "2013-06"^^xsd:Date;
         sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
         sto:publisher sto:IEC;
         sto:Scope sto:M2M;
@@ -225,49 +240,47 @@ sto:ISO_8062-4
         sto:publisher sto:ISO ;
         sto:scope "CAD" ;
         sto:relatedTo sto:ISO_10303;
-        sto:hasPublicationDate "2017-07"@xsd:Date;
+        sto:hasPublicationDate "2017-07"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Asset;
         sto:isUtilizedIn sto:ProductionSystemModelData.
 
 sto:ISO_1302
         rdf:type sto:Standard;
-        dc:description ""Geometrical product specifications (GPS) -- Indication of surface texture in technical product documentation--This   International   Standard   specifies   the   rules   for   the   indication   of   surface   texture   in   technical   product   
-           documentation  (e.g.  drawings,  specifications,  contracts,  reports)  by  means  of  graphical  symbols  and  textual  indications. "@en ;
+        dc:description "Geometrical product specifications (GPS) -- Indication of surface texture in technical product documentation--This   International   Standard   specifies   the   rules   for   the   indication   of   surface   texture   in   technical   product   
+          documentation  (e.g.  drawings,  specifications,  contracts,  reports)  by  means  of  graphical  symbols  and  textual  indications"@en ;
          sto:hasOfficialResource <https://www.iso.org/standard/28089.html> ;
-         sto:norm "1302" ;
-         sto:publisher sto:ISO ;
-         sto:scope sto:M2M ;
-         sto:relatedTo sto:ISO_4287,ISO_12085;
-         sto:hasPublicationDate “2002-02” @xsd:Date;
+         sto:norm "1302";
+         sto:hasPublicationDate "2002-02"^^xsd:date;
          rami:hasRAMIHierarchyLevel rami:Product;
          rami:hasRAMIITLayer rami:Asst;
-         sto:isUtilizedIn sto:Modelling practice.
+         sto:isUtilizedIn sto:ModellingPractice.
 
 sto:ISO_5459
         rdf:type sto:Standard;
         dc:description "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Datums and datum systems--ISO 5459:2011 specifies terminology, rules and methodology for the indication and understanding of datums and datum systems in technical product documentation"@en ;
         sto:hasOfficialResource <https://www.iso.org/standard/40358.html> ;
         sto:norm "5459" ;
-        sto:publisher sto:ISO ;
+        sto:publisher sto:ISO;
         sto:scope sto:M2M;
-        sto:hasPublicationDate “2011-08” @xsd:Date;
+        sto:hasPublicationDate "2011-08"^^xsd:date ;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Asset;
-        sto:isUtilizedIn sto:Modelling practice.
+        sto:isUtilizedIn sto:ModellingPractice.
 
-sto:ISO/IEC_81714
+
+sto:IEC_81714
         rdf:type sto:Standard;
         dc:description "ISO/IEC 81714Design of graphical symbols for use in the technical documentation of products -- Part 3: Classification of connect nodes, networks and their encoding-- specifies requirements concerning the classification of connect nodes assigned to graphical symbols, being a representation of functional and product concepts."@en ;;
         sto:hasOfficialResource <https://www.iso.org/standard/40134.html> ;
         sto:norm "81714" ;
-        sto:publisher sto:ISO sto:IEC;
+        sto:publisher sto:ISOsto:IEC;
         sto:scope sto:CAD;
-        sto:hasPublicationDate “2004-10” @xsd:Date;
+        sto:hasPublicationDate "2004-10"^^xsd:date ;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Asset;
         rami:hasAdminShellSubmodel rami:Identifikation,rami:Engineering;
-        sto:isUtilizedIn sto:Modelling practice.
+        sto:isUtilizedIn sto:ModellingPractice.
 
 sto:ISO_14739-1
          rdf:type sto:Standard ;
@@ -277,7 +290,7 @@ sto:ISO_14739-1
          skos:altLabel "STEP"@en ;
          sto:publisher sto:ISO ;
          sto:scope sto:CAD;
-         sto:hasPublicationDate “2014-12” @xsd:Date;
+         sto:hasPublicationDate "2014-12"^^xsd:date ;
          sto:isUtilizedIn sto:ProductModelDataExchange.
 
 sto:ISO_19440
@@ -285,13 +298,12 @@ sto:ISO_19440
          dc:description "Enterprise integration -- Constructs for enterprise modelling-specifies the characteristics of the core constructs necessary for computer-supported modelling of enterprises conforming to ISO 19439.."@en;
          sto:hasOfficialResource <https://www.iso.org/standard/33834.html>;
          sto:norm "19440" ;
-         sto:scope sto:Enterprise integration;
+         sto:scope sto:EnterpriseIntegration;
          sto:publisher sto:ISO ;
-         sto:hasPublicationDate “2007-12” @xsd:Date;
-         rami:hasRAMIHierarchyLevel, sto:Prodcut , rami:Enterprise;
+		 sto:hasPublicationDate "2007-12"^^xsd:date ;
+         rami:hasRAMIHierarchyLevel sto:Prodcut,rami:Enterprise;
          rami:hasRAMIITLayer rami:Integeration;
          rami:hasAdminShellSubmodel rami:Engineering;
-         sto:relatedTo sto:IEC 19439;
          sto:isUtilizedIn sto:EnterpriseLevel.
 
 sto:ISO_16792
@@ -300,23 +312,22 @@ sto:ISO_16792
          sto:hasOfficialResource <https://www.iso.org/standard/56865.html> ;
          sto:norm "16792" ;
          sto:publisher sto:ISO ;
-         sto:scope sto:CAD;
-         sto:hasPublicationDate “2015-12” @xsd:Date;
+         sto:scope  sto:CAD;
+         sto:hasPublicationDate "2015-12"^^xsd:date ;
          rami:hasRAMIHierarchyLevel rami:Product;
          rami:hasRAMIITLayer rami:Asset;
-         sto:isUtilizedIn sto:Modelling practice.
+         sto:isUtilizedIn sto:ModellingPractice.
 
 sto:ISO_1101
          rdf:type sto:Standard ;
          dc:description "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Tolerances of form, orientation, location and run-out"@en ;
          sto:hasOfficialResource <https://www.iso.org/standard/66777.html> ;
          sto:publisher sto:ISO ;
-         sto:edition “4” @xsd:String;
-         sto:scope sto:CAD;
-         sto:hasPublicationDate “2017-02” @xsd:Date;
+         sto:edition "4"^^xsd:string;
+         sto:hasPublicationDate "2017-02"^^xsd:date;
          rami:hasRAMIHierarchyLevel rami:Product;
          rami:hasRAMIITLayer rami:Asset;
-         sto:isUtilizedIn sto:Modelling practice.
+         sto:isUtilizedIn sto:ModellingPractice.
          
 sto:ISO_14306  
         rdf:type sto:Standard ;
@@ -326,7 +337,7 @@ sto:ISO_14306
         sto:publisher sto:ISO ;
         sto:scope "CAD";
         sto:relatedTo sto:IEC_62541;
-        sto:hasPublicationDate "2017-07"@xsd:Date;
+        sto:hasPublicationDate "2017-07"^^xsd:date;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Asset;
         rami:hasAdminShellSubmodel rami:Identifikation,rami:Engineering;
@@ -340,7 +351,7 @@ sto:ISO_ASTM_52915
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
         sto:relatedTo sto:ISO_14306,sto:IEC_62541;
-        sto:hasPublicationDate "2016-02"@xsd:Date;
+        sto:hasPublicationDate "2016-02"^^xsd:date;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Asset;
         rami:hasAdminShellSubmodel rami:Identifikation,rami:Engineering;
@@ -354,7 +365,7 @@ sto:ISO_15926
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
         sto:relatedTo sto:ISO_ASTM_52915;
-        sto:hasPublicationDate "2003-12"@xsd:Date;
+        sto:hasPublicationDate "2003-12"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Integeration;
         rami:hasAdminShellSubmodel rami:Engineering,rami:Configuration;
@@ -368,7 +379,7 @@ sto:ISO_18629
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
         sto:relatedTo sto:ISO_ASTM_52915,sto:ISO_15926;
-        sto:hasPublicationDate "2004-11"@xsd:Date;
+        sto:hasPublicationDate "2004-11"^^xsd:date;
         rami:hasRAMIHierarchyLevel rami:Product,rami:ControlDevice , rami:FieldDevice;
         rami:hasRAMIITLayer rami:Integeration,rami:Communication,rami:Information,rami:Functional;
         rami:hasAdminShellSubmodel rami:Engineering,rami:Configuration;
@@ -382,7 +393,7 @@ sto:ISO_15746
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
         sto:relatedTo sto:ISO_15926;
-        sto:hasPublicationDate "2015-04"@xsd:Date;
+        sto:hasPublicationDate "2015-04"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Product,rami:ControlDevice , rami:FieldDevice;
         rami:hasRAMIITLayer rami:Integeration,rami:Communication,rami:Information,rami:Functional;
         rami:hasAdminShellSubmodel rami:Engineering,rami:Communication;
@@ -395,7 +406,7 @@ sto:ISO_13374
         sto:norm "13374" ;
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2012-02"@xsd:Date;
+        sto:hasPublicationDate "2012-02"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Enterprise;
         rami:hasRAMIITLayer rami:Business;
         rami:hasAdminShellSubmodel rami:Conditional_Monitoring;
@@ -408,7 +419,7 @@ sto:ISO_15704
         sto:norm "15704" ;
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2000-06"@xsd:Date;
+        sto:hasPublicationDate "2000-06"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Enterprise;
         rami:hasRAMIITLayer rami:Business;
         rami:hasAdminShellSubmodel rami:Other;
@@ -421,7 +432,7 @@ sto:ISO_22400
         sto:norm "22400" ;
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2014-01"@xsd:Date;
+        sto:hasPublicationDate "2014-01"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Station , rami:ControlDevice , rami:WorkCenter , rami:FieldDevice , rami:Enterprise , rami:ConnectedWorld ;;
         rami:hasRAMIITLayer rami:Business;
         rami:hasAdminShellSubmodel rami:Conditional_Monitoring ,rami:LifeCycle_Status;
@@ -434,7 +445,7 @@ sto:ISO_11898-1
         sto:norm "11898" ;
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2015-12"@xsd:Date;
+        sto:hasPublicationDate "2015-12"^^xsd:Date;
         sto:hasISA95Level sto:SCADALevel;
         rami:hasAdminShellSubmodel rami:Communication,rami:Safety,rami:Engineering;
         sto:relatedTo sto:IEC_61512.
@@ -454,28 +465,20 @@ sto:ISO_22745-11
         sto:norm "22745" ;
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2010-02"@xsd:Date;
+        sto:hasPublicationDate "2010-02"^^xsd:date;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Assest;
         sto:isUtilizedIn sto:ProductCatalogData.
 
 sto:ISO_TS_14649-201  
-        rdf:type sto:Standard ;
-        dc:description "SO/TS 14649-201:2011 specifies the technology-specific machine tool description data elements needed as process data for manufacturing and machine characteristics. The machine tool descriptions covered in this schema are, initially, milling machines, machining centres, turning machines and multi-tasking machines.
-        ISO/TS 14649-201:2011 is not intended to replace existing machine tool description standards, but to cover the specific needs of
-        manufacturing resource description for manufacturing needs in the technologies described in ISO 14649.
-        Examples of manufacturing applications of this model are:
-        part programming for CNC machining;
-        process planning;
-        a simulation of machining processes;
-        analysis of expected machining time and machine tool energy use;
-        a description of new machine tools for manufacturing evaluation and/or controller development.
-        The schema specified in ISO/TS 14649-201:2011 does not include representations, executable objects and base classes that are common for all technologies. These are referenced from the generic resources of ISO 10303 and from ISO 14649-10."@en;
+        rdf:type sto:Standard;
+		dc:description "SO/TS 14649-201:2011 specifies the technology-specific machine tool description data elements needed as process data for manufacturing and machine characteristics. The machine tool descriptions covered in this schema are, initially, milling machines, machining centres, turning machines and multi-tasking machines.ISO/TS 14649-201:2011 is not intended to replace existing machine tool description standards, but to cover the specific needs of manufacturing resource description for manufacturing needs in the technologies described in ISO 14649." @en;
+
         sto:hasOfficialResource <https://www.iso.org/standard/60042.html>;
         sto:norm "14649" ;
         sto:publisher sto:ISO ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2011-12"@xsd:Date;
+        sto:hasPublicationDate "2011-12"^^xsd:Date;
         rami:hasRAMIHierarchyLevel rami:Product;
         rami:hasRAMIITLayer rami:Integeration,rami:Assest;
         rami:hasAdminShellSubmodel rami:Configuration,rami:Safety,rami:Engineering;
@@ -488,7 +491,7 @@ sto:IEC_62337
         sto:norm "62337" ;
         sto:publisher sto:IEC ;
         sto:scope sto:Industrial_Automation;
-        sto:hasPublicationDate "2012-02-22"@xsd:Date;
+        sto:hasPublicationDate "2012-02-22"^^xsd:date;
         rami:hasRAMIHierarchyLevel rami:Work_Centers,rami:Enterprise;
         rami:hasRAMIITLayer rami:Functional;
         rami:hasAdminShellSubmodel rami:Conditional_Monitoring,rami:Lifecycle_Status;
@@ -501,7 +504,7 @@ sto:IEC_TS_62237
         sto:norm "62337" ;
         sto:scope sto:Industrial_Automation;
         sto:publisher sto:IEC ;
-        sto:hasPublicationDate "2003-10-26"@xsd:Date;
+        sto:hasPublicationDate "2003-10-26"^^xsd:Date;
         rami:hasRAMIHierarchyLevel  rami:ControlDevice , rami:FieldDevice , rami:Station , rami:WorkCenter ;
         rami:hasAdminShellSubmodel rami:GeneralAdminShell;
         sto:relatedTo sto:IEC_62337;
@@ -514,7 +517,7 @@ sto:ISO_16739
         sto:norm "16739" ;
         sto:scope sto:Industrial_Automation;
         sto:publisher sto:ISO ;
-        sto:hasPublicationDate "2013-04"@xsd:Date;
+        sto:hasPublicationDate "2013-04"^^xsd:date;
         rami:hasRAMIHierarchyLevel  rami:Station , rami:WorkCenter ;
         rami:hasAdminShellSubmodel rami:LifecycleStatus;
         sto:relatedTo sto:IEC_62890;
@@ -527,23 +530,21 @@ sto:ISO_18828-2
         sto:norm "18828" ;
         sto:scope sto:Industrial_Automation;
         sto:publisher sto:ISO ;
-        sto:hasPublicationDate "2016-10"@xsd:Date;
+        sto:hasPublicationDate "2016-10"^^xsd:date;
         rami:hasRAMIHierarchyLevel  rami:ControlDevice , sto:Prodcut, rami:FieldDevice , rami:Station , rami:Enterprise ,rami:WorkCenter ;
         rami:hasAdminShellSubmodel rami:Engineering;
         sto:relatedTo sto:IEC_61804;
         sto:isUtilizedIn sto:ProductionEngineering.
 
 sto:IEC_60839-5-2 
-        rdf:type  sto:Standard ;
-        dc:description "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition:
-        - reflects the current technological state of art (IP networks);
-        - harmonizes with the ATS categories introduced in IEC 60839-5-1:2014;
-        - introduces test requirements."@en;
+        rdf:type  sto:Standard;
+		dc:description "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition: reflects the current technological state of art (IP networks) ,harmonizes with the ATS categories introduced in IEC 60839-5-1:2014; introduces test requirements."@en;
+
         sto:hasUrl <https://webstore.iec.ch/publication/24120>;
         sto:norm "60839" ;
         sto:scope sto:M2M;
-        sto:publisher sto:IEC ;
-        sto:hasPublicationDate "2016-02-03"@xsd:Date;
+        sto:publisher sto:IEC;
+        sto:hasPublicationDate "2016-02-03"^^xsd:Date;
         rami:hasRAMIHierarchyLevel  rami:ControlDevice , rami:FieldDevice ;
         rami:hasRAMIITLayer rami:Communication;
         rami:hasAdminShellSubmodel rami:Security;
