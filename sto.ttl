@@ -19,6 +19,8 @@
 @prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix geo:     <http://www.geonames.org/ontology#> .
+@prefix dbo:     <http://dbpedia.org/ontology#> .
+
 
 rami:RAMIHierarchyLevel
       rdf:type owl:Class .
@@ -43,7 +45,7 @@ sto:Country a owl:Class.
 geo:name
       rdf:type owl:DatatypeProperty;
       rdfs:domain sto:Country;
-      rdfs:range xsd:string;
+      rdfs:range  xsd:string;
       rdfs:label "Country Name"@en.
 
 geo:countryCode
