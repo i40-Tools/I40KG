@@ -40,47 +40,28 @@ rami:hasAdminShellSubmodel
       rdf:type owl:AnnotationProperty .
 
 
-sto:Country a owl:Class.
-	  
-geo:name
-      rdf:type owl:DatatypeProperty;
-      rdfs:domain sto:Country;
-      rdfs:range  xsd:string;
-      rdfs:label "Country Name"@en.
-
-geo:countryCode
-      rdf:type owl:DatatypeProperty ;
-      rdfs:domain sto:Country;
-      rdfs:range xsd:string ;
-      rdfs:label "Country Code".
-
 sto:relatedTo a owl:ObjectProperty;
 	rdfs:domain sto:Standard;
 	rdfs:range sto:Standard.
 
 
 	
-sto:Germany a sto:Country;
-	geo:name "Federal Republic of Germany"@en;
-	geo:countryCode "DE".	
+sto:Germany a dbo:Country;
+	dbo:name "Federal Republic of Germany"@en.	
   
-sto:USA a sto:Country;
-	geo:name "United States of America"@en;
-	geo:countryCode "US".
+sto:USA a dbo:Country;
+	dbo:name "United States of America"@en.
   
-sto:China a sto:Country;
-	geo:name "People's Republic of China"@en;
-	geo:countryCode "CN".
-  
-sto:Switzerland  a sto:Country;
-	geo:name "Swiss Confederation"@en;
-	geo:countryCode "CH".    
-
+sto:China a dbo:Country;
+    dbo:name "People's Republic of China"@en.
+      
+sto:Switzerland  a dbo:Country;
+	dbo:name "Swiss Confederation"@en.
   
 
 sto:belongsTo a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
-	rdfs:range sto:Country.
+	rdfs:range dbo:Country.
 
 sto:  rdf:type owl:Ontology ;
       dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
