@@ -37,23 +37,48 @@ rami:hasRAMILifeCycleLayer
 rami:hasAdminShellSubmodel
       rdf:type owl:AnnotationProperty .
 
-	
+
+sto:Country a owl:Class.
+	  
 geo:name
-      rdf:type owl:DatatypeProperty ;
-      rdfs:domain sto:SDO ;
-      rdfs:range xsd:string ;
+      rdf:type owl:DatatypeProperty;
+      rdfs:domain sto:Country;
+      rdfs:range xsd:string;
       rdfs:label "Country Name"@en.
 
 geo:countryCode
       rdf:type owl:DatatypeProperty ;
-      rdfs:domain sto:SDO ;
+      rdfs:domain sto:Country;
       rdfs:range xsd:string ;
-      rdfs:label "Country Code"@en.
+      rdfs:label "Country Code".
 
 sto:relatedTo a owl:ObjectProperty;
 	rdfs:domain sto:Standard;
 	rdfs:range sto:Standard.
 
+
+	
+sto:Germany a sto:Country;
+	geo:name "Federal Republic of Germany"@en;
+	geo:countryCode "DE".	
+  
+sto:USA a sto:Country;
+	geo:name "United States of America"@en;
+	geo:countryCode "US".
+  
+sto:China a sto:Country;
+	geo:name "People's Republic of China"@en;
+	geo:countryCode "CN".
+  
+sto:Switzerland  a sto:Country;
+	geo:name "Swiss Confederation"@en;
+	geo:countryCode "CH".    
+
+  
+
+sto:belongsTo a owl:ObjectProperty;	
+	rdfs:domain sto:SDO;
+	rdfs:range sto:Country.
 
 sto:  rdf:type owl:Ontology ;
       dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
@@ -89,9 +114,8 @@ sto:ISO
               <https://www.iso.org/about-us.html> ;
     sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/International_Organization_for_Standardization> ;
-    geo:name "Switzerland"@en;
-    geo:countryCode "CH";
-    sto:orgName "The International Organization for Standardization"@en.
+    sto:orgName "The International Organization for Standardization"@en;
+    sto:belongsTo sto:Switzerland.  
       
       
 sto:NIST
@@ -104,8 +128,7 @@ sto:NIST
     sto:hasWikidataEntity   <https://www.wikidata.org/wiki/Q176691> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology> ;
-    geo:name "United States"@en;
-    geo:countryCode "US";
+    sto:belongsTo sto:USA;  
     sto:orgName "National Institute of Standards and Technology"@en.	  
 	  
 
@@ -118,8 +141,7 @@ sto:DIN
               <http://www.din.de/en/about-standards/din-standards> ;
     sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
-    geo:name "Germany"@en;
-    geo:countryCode "DE";
+    sto:belongsTo sto:Germany;            
     sto:orgName "Deutsches Institut für Normung"@en.      
       
 
@@ -136,8 +158,7 @@ sto:MIIT
               <https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/OASIS_(organization)>;
-    geo:name "China"@en;
-    geo:countryCode "CN";
+    sto:belongsTo sto:China;  
     sto:orgName "Ministry of Industry and Information Technology"@en.	  
 	  
 sto:ASAM
@@ -153,8 +174,7 @@ sto:ASAM
               <https://m.wikidata.org/entity/Q743638> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems>;
-    geo:name "United States"@en;
-    geo:countryCode "US";
+    sto:belongsTo sto:USA;  
     sto:orgName "Association for Standardization of Automation and Measuring Systems"@en .
 
 sto:ASAM_ODS
