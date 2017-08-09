@@ -58,6 +58,10 @@ sto:China a dbo:Country;
 sto:Switzerland  a dbo:Country;
 	dbo:name "Swiss Confederation"@en.
   
+sto:hasHeadquaterIn a owl:ObjectProperty;	
+	rdfs:domain sto:SDO;
+	rdfs:range dbo:Country.
+
 
 sto:belongsTo a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
@@ -85,7 +89,8 @@ sto:ANSI
     sto:hasDBpediaResource <http://dbpedia.org/resource/American_National_Standards_Institute> ;
     sto:hasOfficialResource <https://www.ansi.org/> ;
     sto:hasWikidataEntity <http://www.wikidata.org/entity/Q180003> ;
-    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true>;       
+    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true>;
+	sto:hasHeadquaterIn	sto:USA;  
     sto:orgName "American National Standards Institute"@en.
 
 sto:ISO
@@ -98,6 +103,7 @@ sto:ISO
     sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/International_Organization_for_Standardization> ;
     sto:orgName "The International Organization for Standardization"@en;
+	sto:hasHeadquaterIn	sto:Switzerland;  
     sto:belongsTo sto:Switzerland.  
       
       
@@ -111,7 +117,8 @@ sto:NIST
     sto:hasWikidataEntity   <https://www.wikidata.org/wiki/Q176691> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology> ;
-    sto:belongsTo sto:USA;  
+    sto:belongsTo sto:USA;
+	sto:hasHeadquaterIn	sto:USA;  
     sto:orgName "National Institute of Standards and Technology"@en.	  
 	  
 
@@ -124,7 +131,8 @@ sto:DIN
               <http://www.din.de/en/about-standards/din-standards> ;
     sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
-    sto:belongsTo sto:Germany;            
+    sto:belongsTo sto:Germany;
+	sto:hasHeadquaterIn	sto:Germany;
     sto:orgName "Deutsches Institut für Normung"@en.      
       
 
@@ -141,7 +149,8 @@ sto:MIIT
               <https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/OASIS_(organization)>;
-    sto:belongsTo sto:China;  
+    sto:belongsTo sto:China;
+	sto:hasHeadquaterIn	sto:China;	
     sto:orgName "Ministry of Industry and Information Technology"@en.	  
 	  
 sto:ASAM
@@ -157,7 +166,8 @@ sto:ASAM
               <https://m.wikidata.org/entity/Q743638> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems>;
-    sto:belongsTo sto:USA;  
+    sto:belongsTo sto:Germany;
+	sto:hasHeadquaterIn	sto:Germany;	
     sto:orgName "Association for Standardization of Automation and Measuring Systems"@en .
 
 sto:ASAM_ODS
