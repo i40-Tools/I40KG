@@ -1,5 +1,6 @@
 # StandardsVocabulary
 Standards Vocabulary is the Industry 4.0 related standards vocabulary it’s also called Standard Ontology (STO).STO is designed tackled the problem of interoperability between Industry 4.0 standards from a semantic purpose. Having the vision of smart factories countries around the world like Germany, China & US etc. produced Reference architectures to meet their domestic industry needs. All of these Reference architectures based on standards which provide a description of components, systems, processes, as well as interactions among them. Reference architectures classify, align, and integrate industrial standards according to their purposes and features; interoperability among analogous standards in these reference architectures is hampered due to different granularity representation of similar processes or production parts.
+
 Standard Ontology (STO) is design to describe standards and their relations. Characteristics of I4.0 standards are described using STO, and these descriptions are exploited for classifying standards from different perspectives according to available reference architectures of industry 4.0. Moreover, semantics encoded in STO allows for the discovery of relations between I4.0 standards, and for mappings across reference architectures proposed by  different industrial communities.
 
 
