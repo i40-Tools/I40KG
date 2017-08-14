@@ -20,7 +20,7 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix geo:     <http://www.geonames.org/ontology#> .
 @prefix dbo:     <http://dbpedia.org/ontology#> .
-@prefix nist:    <https://dbpedia.org/ontologyt#> .
+
 
 rami:RAMIHierarchyLevel
       rdf:type owl:Class .
@@ -45,113 +45,7 @@ sto:relatedTo a owl:ObjectProperty;
 	rdfs:range sto:Standard.
 
 
-nist:hasNISTStandardLandscape a owl:ObjectProperty;
- 	rdfs:domain sto:Standard;
-        rdfs:range  nist:NISTProductDevelopmentLifeCycleStandard,nist:NISTProductionSystemLifecycleStandard,nist:NISTBusinessModelingStandard.
-			
 
-
-nist:NISTProductDevelopmentLifeCycleStandard
-      rdf:type owl:Class ;
-      rdfs:label "Product Developement Life Cycle Standard"@en.
-
-
-nist:ProductProcessPlanning
-    rdf:type owl:Class;      
-	rdfs:subClassOf nist:NISTProductDevelopmentLifeCycleStandard.
-
-nist:ProductEngineering
-    rdf:type owl:Class;      
-	rdfs:subClassOf nist:NISTProductDevelopmentLifeCycleStandard.
-
-
-nist:ProductDesign
-    rdf:type owl:Class;      
-	rdfs:subClassOf nist:NISTProductDevelopmentLifeCycleStandard.
-
-
-nist:ProductManufactruing
-    rdf:type owl:Class;      
-	rdfs:subClassOf nist:NISTProductDevelopmentLifeCycleStandard.
-
-	
-	
-	
-nist:hasProductDevelopmentLifeCycleStandard  a owl:ObjectProperty;
-	rdfs:domain sto:Standard;
-	rdfs:range  nist:NISTProductDevelopmentLifeCycleStandard;
-	rdfs:subPropertyOf  nist:hasNISTStandardLandscape.
-
-     
-
-nist:NISTProductionSystemLifecycleStandard
-      rdf:type owl:Class ;
-      rdfs:label "Production System Life cycle Standard"@en.
-
-
-nist:ProductionDesign
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTProductionSystemLifecycleStandard.
-
-nist:ProductionSystemEngineering
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTProductionSystemLifecycleStandard.
-
-nist:ProductionSystemMaintenance
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTProductionSystemLifecycleStandard.
-
-nist:ProductionSystemDataManagement
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTProductionSystemLifecycleStandard.
-	
-	
-
-nist:hasProductionSystemLifecycleStandard  a owl:ObjectProperty;
-	rdfs:domain sto:Standard;
-	rdfs:range  nist:NISTProductionSystemLifecycleStandard;
-	rdfs:subPropertyOf  nist:hasNISTStandardLandscape.
-
-
-
-
-nist:NISTBusinessModelingStandard
-      rdf:type owl:Class ;
-      rdfs:label "Business Modeling Standards of NIST"@en.
-
-
-
-
-nist:OMG
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTBusinessModelingStandard.
-	
-	
-nist:OASIS
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTBusinessModelingStandard.
-
-
-nist:W3C
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTBusinessModelingStandard.
-
-
-
-nist:WfMC
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTBusinessModelingStandard.	
-	
-
-nist:APICS
-    rdf:type owl:Class;      
-    rdfs:subClassOf nist:NISTBusinessModelingStandard.	
-
-nist:hasBusinessModelingStandard  a owl:ObjectProperty;
-	rdfs:domain sto:Standard;
-	rdfs:range  nist:NISTBusinessModelingStandard;
-	rdfs:subPropertyOf  nist:hasNISTStandardLandscape.
-	
 
 
 sto:Germany a dbo:Country;
