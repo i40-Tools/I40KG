@@ -1,5 +1,5 @@
 # StandardsVocabulary
-Standard Ontology is used for describing standards and their relations. Characteristics of I4.0 standards
+Standard Ontology (STO) is used for describing standards and their relations. Characteristics of I4.0 standards
 are described using STO, and these descriptions are exploited for classifying standards from different perspectives according
 to reference architectures. Moreover, semantics encoded in STO allows for the discovery of relations between I4.0 standards, and
 for mappings across reference architectures proposed by different industrial communities
