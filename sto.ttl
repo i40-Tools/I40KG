@@ -19,8 +19,8 @@
 @prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix geo:     <http://www.geonames.org/ontology#> .
-@prefix dbo:     <http://dbpedia.org/ontology#> .
-
+@prefix dbo:     <http://dbpedia.org/ontology#>.
+@prefix dbr:     <http://dbpedia.org/resource#>.
 
 rami:RAMIHierarchyLevel
       rdf:type owl:Class .
@@ -44,24 +44,9 @@ sto:relatedTo a owl:ObjectProperty;
 	rdfs:domain sto:Standard;
 	rdfs:range sto:Standard.
 
-
-	
-sto:Germany a dbo:Country;
-	dbo:name "Federal Republic of Germany"@en.	
-  
-sto:USA a dbo:Country;
-	dbo:name "United States of America"@en.
-  
-sto:China a dbo:Country;
-    dbo:name "People's Republic of China"@en.
-      
-sto:Switzerland  a dbo:Country;
-	dbo:name "Swiss Confederation"@en.
-  
 sto:hasHeadquaterIn a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
 	rdfs:range dbo:Country.
-
 
 sto:belongsTo a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
@@ -90,7 +75,7 @@ sto:ANSI
     sto:hasOfficialResource <https://www.ansi.org/> ;
     sto:hasWikidataEntity <http://www.wikidata.org/entity/Q180003> ;
     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true>;
-	sto:hasHeadquaterIn   sto:USA;  
+	sto:hasHeadquaterIn   dbr:United States;  
     sto:orgName "American National Standards Institute"@en.
 
 sto:ISO
@@ -103,8 +88,8 @@ sto:ISO
     sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/International_Organization_for_Standardization> ;
     sto:orgName "The International Organization for Standardization"@en;
-	sto:hasHeadquaterIn	 sto:Switzerland;  
-    sto:belongsTo sto:Switzerland.  
+	sto:hasHeadquaterIn	 dbr:Switzerland;  
+    sto:belongsTo dbr:Switzerland.  
       
       
 sto:NIST
@@ -117,8 +102,8 @@ sto:NIST
     sto:hasWikidataEntity   <https://www.wikidata.org/wiki/Q176691> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology> ;
-    sto:belongsTo sto:USA;
-	sto:hasHeadquaterIn	 sto:USA;  
+    sto:belongsTo dbr:United Sates;
+	sto:hasHeadquaterIn	 dbr:United Sates;  
     sto:orgName "National Institute of Standards and Technology"@en.	  
 	  
 
@@ -131,8 +116,8 @@ sto:DIN
               <http://www.din.de/en/about-standards/din-standards> ;
     sto:hasWikidataEntity
               <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
-    sto:belongsTo sto:Germany;
-	sto:hasHeadquaterIn	sto:Germany;
+    sto:belongsTo dbr:Germany;
+	sto:hasHeadquaterIn	dbr:Germany;
     sto:orgName "Deutsches Institut für Normung"@en.      
       
 
@@ -149,8 +134,8 @@ sto:MIIT
               <https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/OASIS_(organization)>;
-    sto:belongsTo  sto:China;
-	sto:hasHeadquaterIn	 sto:China;	
+    sto:belongsTo  dbr:China;
+	sto:hasHeadquaterIn	 dbr:China;	
     sto:orgName "Ministry of Industry and Information Technology"@en.	  
 	  
 sto:ASAM
@@ -166,8 +151,8 @@ sto:ASAM
               <https://m.wikidata.org/entity/Q743638> ;
     sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems>;
-    sto:belongsTo sto:Germany;
-	sto:hasHeadquaterIn	sto:Germany;	
+    sto:belongsTo dbr:Germany;
+	sto:hasHeadquaterIn	dbr:Germany;	
     sto:orgName "Association for Standardization of Automation and Measuring Systems"@en .
 
 sto:ASAM_ODS
