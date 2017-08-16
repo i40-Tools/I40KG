@@ -2,10 +2,10 @@
 Standard Ontology (STO) is used for describing standards and their relations. Characteristics of I4.0 standards
 are described using STO, and these descriptions are exploited for classifying standards from different perspectives according
 to reference architectures. Moreover, semantics encoded in STO allows for the discovery of relations between I4.0 standards, and
-for mappings across reference architectures proposed by different industrial communities
+for mappings across reference architectures proposed by different industrial communities.
 
 # LOV
-Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on the Web.We have reused the following linked open vocabularies in Standard Ontology<br/>
+Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on the Web<br/>
 foaf,vcard,cc,dbpedia,geonomes,purl,schema.org,purl & dcterms
 
 
@@ -20,5 +20,5 @@ Standard Ontology uses following organizations <br/>
 OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Institute, ASAM, ISO, BBF, ANSI, OMG, ODVA, OASIS, OPC_Foundation.
 
 # License
-<a href="https://www.iais.fraunhofer.de/de/institut/abteilungen/enterprise-information-systems.html">Fraunhofer Institute for Intelligent Analysis and Information Systems (IAIS),Sankt Augustin,Germany</a><br/>
+<a href="https://www.iais.fraunhofer.de/de/institut/abteilungen/enterprise-information-systems.html">Fraunhofer Institute for Intelligent Analysis and Information Systems (IAIS)</a><br/>
 
