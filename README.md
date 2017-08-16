@@ -9,17 +9,16 @@ Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on t
 foaf,vcard,cc,dbpedia,geonomes,purl,schema.org,purl & dcterms
 
 
-# Reference Architectures IOT 4.0 
-Standard Ontology is planned to add following reference architectures <br/>
-<a href="https://www.zvei.org/en/subjects/industry-4-0/the-reference-architectural-model-rami-40-and-the-industrie-40-component/">Reference Architecture Model for Industry 4.0 (RAMI 4.0)</a>
-<a href="https://www.nist.gov/">Standards Landscape for Smart Manufacturing Systems</a>
-<a href="https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology">National Smart Manufacturing Standards Architecture Construction Guidance</a>
+# Reference Architectures IOT 
+<a href="https://www.zvei.org/en/subjects/industry-4-0/the-reference-architectural-model-rami-40-and-the-industrie-40-component/">Reference Architecture Model for Industry 4.0 (RAMI 4.0)</a><br/>
+<a href="https://www.nist.gov/">Standards Landscape for Smart Manufacturing Systems</a><br/>
+<a href="https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology">National Smart Manufacturing Standards Architecture Construction Guidance</a><br/>
 
 
 # Organisations
-Standard Ontology links following organizations <br/> 
+Standard Ontology uses following organizations <br/> 
 OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Institute, ASAM, ISO, BBF, ANSI, OMG, ODVA, OASIS, OPC_Foundation.
 
 # License
-The standard ontology is proposed by Fraunhofer IAIS (Institute for Intelligent Analysis and Information Systems), Sankt Augustin, Germany with the help of EIS (Enterprise Information Systems) department of the University of Bonn.
+<a href="https://www.iais.fraunhofer.de/de/institut/abteilungen/enterprise-information-systems.html">Fraunhofer Institute for Intelligent Analysis and Information Systems (IAIS),Sankt Augustin,Germany</a><br/>
 
