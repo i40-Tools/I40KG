@@ -5,20 +5,19 @@ to reference architectures. Moreover, semantics encoded in STO allows for the di
 for mappings across reference architectures proposed by different industrial communities
 
 # LOV
-Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on the Web <br/>
-We have reused the following linked open vocabularies in Standard Ontology
+Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on the Web.We have reused the following linked open vocabularies in Standard Ontology<br/>
 foaf,vcard,cc,dbpedia,geonomes,purl,schema.org,purl & dcterms
 
 
 # Reference Architectures IOT 4.0 
 Standard Ontology is planned to add following reference architectures <br/>
-In Germany Deutsches Institut für Normung (DIN) published “Reference Architecture Model for Industry 4.0 (RAMI 4.0)” <br/>
-In United States National Institute of Standards and Technology (NIST) published “Standards Landscape for Smart Manufacturing Systems”<br/>
-In China, the Ministry of Industry and Information Technology (MIIT) and the Standardization Administration of China (SAC) published the “National Smart Manufacturing Standards Architecture Construction Guidance” <br/>
+<a href="https://www.zvei.org/en/subjects/industry-4-0/the-reference-architectural-model-rami-40-and-the-industrie-40-component/">Reference Architecture Model for Industry 4.0 (RAMI 4.0)</a>
+<a href="https://www.nist.gov/">Standards Landscape for Smart Manufacturing Systems</a>
+<a href="https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology">National Smart Manufacturing Standards Architecture Construction Guidance</a>
 
 
 # Organisations
-Standard Ontology used the following organizations 
+Standard Ontology links following organizations <br/> 
 OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Institute, ASAM, ISO, BBF, ANSI, OMG, ODVA, OASIS, OPC_Foundation.
 
 # License
