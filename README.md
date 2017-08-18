@@ -16,7 +16,7 @@ foaf,vcard,cc,dbpedia,geonomes,purl,schema.org,purl & dcterms
 
 
 # Organisations
-Standard Ontology uses following organizations <br/> 
+StandardsVocabulary uses following organizations <br/> 
 OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Institute, ASAM, ISO, BBF, ANSI, OMG, ODVA, OASIS, OPC_Foundation.
 
 # License
