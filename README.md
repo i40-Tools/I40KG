@@ -22,3 +22,4 @@ OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Ins
 
 # License
 TODO - Include CC 3
+
