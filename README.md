@@ -7,7 +7,7 @@ for mappings across reference architectures proposed by different industrial com
 
 # Reused Vocabularies
 To build the Standard Ontology, as well as to populate it we have reused the following vocabularies<br/>
-foaf, vcard, cc, dbpedia, geonomes, purl, schema.org, purl & dcterms
+<a href="http://xmlns.com/foaf/spec/">foaf</a>, vcard, cc, dbpedia, geonomes, purl, schema.org, purl & dcterms
 
 
 # Reference Architectures IOT 
