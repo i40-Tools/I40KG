@@ -1,12 +1,13 @@
-# StandardsVocabulary
-StandardsVocabulary is used for describing standards and their relations. Characteristics of I4.0 standards
-are described using StandardsVocabulary, and these descriptions are exploited for classifying standards from different perspectives according
-to reference architectures. Moreover, semantics encoded in StandardsVocabulary allows for the discovery of relations between I4.0 standards, and
-for mappings across reference architectures proposed by different industrial communities.
+# Standards Ontology (STO)
+This repository host the development of the Standard Ontology. 
+The Standards Ontology is used for describing standards and their relations. Characteristics of I4.0 standards
+are described and these descriptions are exploited for classifying standards from different perspectives according
+to reference architectures development in different countries. Moreover, semantics encoded in the Standard Ontology allows for the discovery of relations between I4.0 standards, and
+for mappings across reference architectures proposed by different industrial communities such as RAMI, NIST, etc.
 
-# LOV
-Linked Open Vocabularies (LOV): a gateway to reusable semantic vocabularies on the Web<br/>
-foaf,vcard,cc,dbpedia,geonomes,purl,schema.org,purl & dcterms
+# Reused Vocabularies
+To build the Standard Ontology, as well as to populate it we have reused the following vocabularies<br/>
+foaf, vcard, cc, dbpedia, geonomes, purl, schema.org, purl & dcterms
 
 
 # Reference Architectures IOT 
@@ -16,9 +17,8 @@ foaf,vcard,cc,dbpedia,geonomes,purl,schema.org,purl & dcterms
 
 
 # Organisations
-StandardsVocabulary uses following organizations <br/> 
+The Standards Ontology describes the following organizations <br/> 
 OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Institute, ASAM, ISO, BBF, ANSI, OMG, ODVA, OASIS, OPC_Foundation.
 
 # License
-<a href="https://www.iais.fraunhofer.de/de/institut/abteilungen/enterprise-information-systems.html">Fraunhofer Institute for Intelligent Analysis and Information Systems (IAIS)</a><br/>
-
+TODO - Include CC 3
