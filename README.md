@@ -21,5 +21,5 @@ The Standards Ontology describes the following organizations <br/>
 OAGi, ETSI, W3C, NIST, IBM, MESA, VDMA, IEC, SE, eClassAssoc, ISA, MTConnect_Institute, ASAM, ISO, BBF, ANSI, OMG, ODVA, OASIS, OPC_Foundation.
 
 # License
-TODO - Include CC 3
+  Standards vocabulary is licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC 3</a>
 
