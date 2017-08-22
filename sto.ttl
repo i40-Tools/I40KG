@@ -559,13 +559,13 @@ sto:DeviceLevel
 sto:Domain
       rdf:type owl:Class ;
       rdfs:label "Domain"@en ;
-      dc:description "Represents the Domains in which the Standards can be used"@en .
+      rdfs:comment "Represents the Domains in which the Standards can be used"@en .
     
 sto:StandardLicense
       rdf:type owl:Class ;
       rdfs:subClassOf foaf:Document; 
       rdfs:label "StandardLicense"@en ;
-      dc:description "Represents licenses that Standards can have, e.g., private, public, etc"@en .
+      rdfs:comment "Represents licenses that Standards can have, e.g., private, public, etc"@en .
 
 sto:ETSI
       rdf:type  sto:SDO ;
@@ -1480,7 +1480,7 @@ sto:SDO
       rdf:type owl:Class ;
       rdfs:label "StandardDevelopingOrganization"@en ;
       rdfs:subClassOf foaf:Organization ;
-      dc:description "Define the standards organizations that develop and publish industry standards"@en ;
+      rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
       owl:disjointWith sto:Standard .
 
 sto:SE
@@ -1502,7 +1502,7 @@ sto:Standard
       rdf:type owl:Class ;
       rdfs:label "Standard" ;
       rdfs:subClassOf foaf:Document ;
-      dc:description "Standards Class"@en ;
+      rdfs:comment "Standards Class"@en ;
 	.
 	
 sto:StandardPart
@@ -1657,7 +1657,7 @@ sto:licenseTerms
       rdfs:domain sto:StandardLicense ;
       rdfs:range xsd:string ;
       rdfs:label "licenseTerms"@en ;
-      dc:description "Terms described in the document of the Standard License"@en ;
+      rdfs:comment "Terms described in the document of the Standard License"@en ;
 	. 
 	
 sto:usageType
@@ -1665,7 +1665,7 @@ sto:usageType
       rdfs:domain sto:StandardLicense ;
       rdfs:range xsd:string ;
       rdfs:label "usageType"@en ;
-      dc:description "Type of usage for a given Standard License"@en ;
+      rdfs:comment "Type of usage for a given Standard License"@en ;
 	.  
 	
 sto:stoPartName
@@ -1673,7 +1673,7 @@ sto:stoPartName
       rdfs:domain sto:StandardPart ;
 	  rdfs:range xsd:string ;
       rdfs:label "stoPartName"@en ;
-      dc:description "Name of the standard part."@en ;
+      rdfs:comment "Name of the standard part."@en ;
 	.
 	
 sto:hasTimeFrame
@@ -1681,7 +1681,7 @@ sto:hasTimeFrame
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:date ;
       rdfs:label "hasTimeFrame"@en ;
-      dc:description "Time frame for the ISA95 level."@en ;
+      rdfs:comment "Time frame for the ISA95 level."@en ;
 	.
 	
 sto:hasObjective
@@ -1689,7 +1689,7 @@ sto:hasObjective
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:string ;
       rdfs:label "hasObjective"@en ;
-      dc:description "Specifies the objectives for the different ISA 95 levels."@en ;
+      rdfs:comment "Specifies the objectives for the different ISA 95 levels."@en ;
 	.	
 	
 sto:hasTask
@@ -1697,7 +1697,7 @@ sto:hasTask
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:string ;
       rdfs:label "hasTask"@en ;
-      dc:description "Specifies the taks for the different ISA 95 levels."@en ;
+      rdfs:comment "Specifies the taks for the different ISA 95 levels."@en ;
 	.
 	
 sto:isPartOf
@@ -1705,7 +1705,7 @@ sto:isPartOf
       rdfs:domain sto:StandardPart ;
 	  rdfs:range sto:Standard ;
       rdfs:label "isPartOf"@en ;
-      dc:description "Relates a given part of the Standard document with the complete document"@en ;
+      rdfs:comment "Relates a given part of the Standard document with the complete document"@en ;
 	.  
 	
 	
@@ -1714,7 +1714,7 @@ sto:abbreviation
       rdfs:domain sto:SDO ;
       rdfs:range xsd:string ;
       rdfs:label "hasAbbreviatedName"@en ;
-      dc:description "Abbreviated  name of the organization"@en .
+      rdfs:comment "Abbreviated  name of the organization"@en .
     
 sto:hasPublicationDate
       rdf:type owl:DatatypeProperty ;
@@ -1740,7 +1740,7 @@ sto:developed
       rdfs:label "Published" ;
       rdfs:range sto:Standard ;
       rdfs:subPropertyOf foaf:made ;
-      dc:description "A standard developed by this organization"@en ;
+      rdfs:comment "A standard developed by this organization"@en ;
       owl:inverseOf sto:developer .
 
 sto:developer
@@ -1749,7 +1749,7 @@ sto:developer
       rdfs:label "Developer" ;
       rdfs:range sto:SDO ;
       rdfs:subPropertyOf foaf:maker ;
-      dc:description "The organization that developed this Standard"@en .
+      rdfs:comment "The organization that developed this Standard"@en .
 
 sto:domainName
       rdf:type owl:DatatypeProperty ;
@@ -1797,18 +1797,18 @@ sto:formationDate
       rdfs:domain sto:SDO ;
       rdfs:label "hasFormationDate"@en ;
       rdfs:range xsd:date ;
-      dc:description "Abbreviated  name of the organization"@en .
+      rdfs:comment "Abbreviated  name of the organization"@en .
 
 sto:hasDBpediaResource
       rdf:type owl:ObjectProperty ;
       rdfs:label "DBpediaresource"@en ;
-      dc:description "Instance's DBpedia Resource"@en .
+      rdfs:comment "Instance's DBpedia Resource"@en .
 
 sto:hasISA95Level
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range sto:ISA95Level ;
-      dc:description "Points to the classfication level according to the ISA95 Standard"@en .
+      rdfs:comment "Points to the classfication level according to the ISA95 Standard"@en .
 
 sto:hasImplementationFormat
       rdf:type owl:DatatypeProperty ;
@@ -1822,7 +1822,7 @@ sto:hasImplementationFormat
 sto:hasOfficialResource
       rdf:type owl:ObjectProperty ;
       rdfs:label "hasOfficialResource"@en ;
-      dc:description "Instance's Official Website"@en .
+      rdfs:comment "Instance's Official Website"@en .
 
 sto:hasOntology
       rdf:type owl:DatatypeProperty ;
@@ -1846,7 +1846,7 @@ sto:hasTag
 sto:hasWikidataEntity
       rdf:type owl:ObjectProperty ;
       rdfs:label "hasWikidataEntity"@en ;
-      dc:description "Instance's Wikidata Entry"@en .
+      rdfs:comment "Instance's Wikidata Entry"@en .
 
 sto:hasWikipediaArticle
       rdf:type owl:ObjectProperty .
@@ -1896,7 +1896,7 @@ sto:norm
       rdfs:domain sto:Standard ;
       rdfs:range xsd:string ;
       rdfs:label "Norm"@en ;
-      dc:description "Norm under which the standard is published"@en .
+      rdfs:comment "Norm under which the standard is published"@en .
 
 sto:published
       rdf:type owl:ObjectProperty ;
@@ -1904,7 +1904,7 @@ sto:published
       rdfs:label "Published" ;
       rdfs:range sto:Standard ;
       rdfs:subPropertyOf foaf:made ;
-      dc:description "A standard published by this organization"@en ;
+      rdfs:comment "A standard published by this organization"@en ;
       owl:inverseOf sto:publisher .
 
 sto:publisher
@@ -1913,14 +1913,14 @@ sto:publisher
       rdfs:label "Publisher" ;
       rdfs:range sto:SDO ;
       rdfs:subPropertyOf foaf:maker ;
-      dc:description "The organization that published this Standard"@en .
+      rdfs:comment "The organization that published this Standard"@en .
 
 sto:ramiHierarchyLevel
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:label "RAMIHierarchyLevel"@en ;
       rdfs:range rami:RAMIHierarchyLevel ;
-      dc:description "associates the standards with the RAMI level in which they are applicable"@en .
+      rdfs:comment "associates the standards with the RAMI level in which they are applicable"@en .
 
 sto:relatedTo
       rdf:type owl:TransitiveProperty , owl:SymmetricProperty , owl:ObjectProperty ;
@@ -1928,7 +1928,7 @@ sto:relatedTo
       rdfs:label "isRelatedto"@en ;
       skos:altLabel "hasAssociatedStandard"@en ;
       rdfs:range sto:Standard ;
-      dc:description "Points to associated Standards"@en .
+      rdfs:comment "Points to associated Standards"@en .
 
 sto:scope
       rdf:type owl:ObjectProperty ;
