@@ -1116,7 +1116,7 @@ sto:ISA95Level
       rdf:type owl:Class ;
       rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
       rdfs:label "ISA95Level"@en ;
-      dc:description "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en .
+       
 
 sto:ISO
       rdf:type sto:SDO ;
@@ -1509,7 +1509,6 @@ sto:StandardPart
       rdf:type owl:Class ;
       rdfs:label "StandardPart" ;
       rdfs:subClassOf foaf:Document ;
-      dc:description "Typically Standards are divided into parts. E.g., ISA 95 has part Part 1: Models and Terminology, Part 2: Object Model Attributes, etc."@en ;
       rdfs:comment "Typically Standards are divided into parts. E.g., ISA 95 has part Part 1: Models and Terminology, Part 2: Object Model Attributes, etc."@en ;
 	.  
 
@@ -1719,9 +1718,8 @@ sto:abbreviation
 sto:hasPublicationDate
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:Standard ;
-	  rdfs:range xsd:date ;
+      rdfs:range xsd:date ;
       rdfs:label "hasPublicationDate"@en ;
-      dc:description "Publication date of the Standard"@en ;
       rdfs:comment "Publication date of the Standard"@en ;
   .
   
@@ -1730,7 +1728,6 @@ sto:hasStatus
       rdfs:domain sto:Standard ;
       rdfs:range xsd:string ;
       rdfs:label "hasStatus"@en ;
-      dc:description "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
       rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
   . 
 
@@ -1757,8 +1754,8 @@ sto:domainName
       rdfs:range rdf:PlainLiteral ;
       rdfs:label "hasDomainName"@en ;
       rdfs:comment "Points the Standard with the name of the Industrial Domain"@en ;
-      dc:description "Points the Standard with the name of the Industrial Domain"@en ;
-	.
+     
+	
 
 sto:eClass
       rdf:type sto:Standard ;
@@ -1815,7 +1812,6 @@ sto:hasImplementationFormat
       rdfs:domain sto:Standard ;
       rdfs:range xsd:string ;
       rdfs:label "hasImplementationFormat"@en ;
-      dc:description "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en ;
       rdfs:comment "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en ;
     .
 	  
@@ -1887,7 +1883,6 @@ sto:orgName
       rdfs:domain sto:SDO ;
       rdfs:range rdf:PlainLiteral;
       rdfs:label "OrgName"@en ;
-      dc:description "Name of the Organization"@en ;
       rdfs:commment "Name of the Organization"@en ;
 	.
 
