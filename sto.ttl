@@ -1862,7 +1862,7 @@ sto:isUtilizedIn
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range sto:PLMRelatedArea ;
-   . 
+   
    
 sto:hasPLMPhase
       rdf:type owl:DatatypeProperty ;
@@ -1870,13 +1870,15 @@ sto:hasPLMPhase
 	  rdfs:comment "Relates the PLM related area concept with areas of the lifecycle, e.g., Design, Process, etc"@en;
       rdfs:domain sto:PLMRelatedArea ;
       rdfs:range xsd:string ;
-   . 
+   
 
 sto:license
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range sto:StandardLicense ;
       rdfs:subPropertyOf dc:license ;
+      rdfs:label "license"@en;
+      rdfs:comment "Denotes the Standards license"@en .
   .
 
 sto:motivation
