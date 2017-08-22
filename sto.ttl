@@ -1838,8 +1838,8 @@ sto:hasTag
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range muto:Tag ;
-      rdfs:label "hasTag"@en;
-      rdfs:comment "Instance's Tag"@en .
+      rdfs:label "hasTag"@en ;
+      rdfs:comment "points to the identification of the standards"@en .
 
 sto:hasWikidataEntity
       rdf:type owl:ObjectProperty ;
@@ -1848,7 +1848,7 @@ sto:hasWikidataEntity
 
 sto:hasWikipediaArticle
       rdf:type owl:ObjectProperty
-      rdfs:label "hasWikipediaArticle"@en;
+      rdfs:label "hasWikipediaArticle"@en ;
       rdfs:comment "Information about standards"@en .
 
 sto:isRelatedTo
@@ -1856,13 +1856,14 @@ sto:isRelatedTo
       rdfs:domain sto:Standard ;
       rdfs:range sto:ProductionSystem
       rdfs:label "isRelatedTo"@en; 
-      rdfs:comment "points to the related standards"@en .
+      rdfs:comment "points to related standards"@en .
 
 sto:isUtilizedIn
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range sto:PLMRelatedArea ;
-      rdfs:label "isUtilizedIn"@en;
+      rdfs:label "isUtilizedIn"@en ;
+      rdfs:comment "Utilized in PLM related area concept with areas of PLMManagement, Modeling Practice, Product Model Data exchange, Manufacturing Model Data, Product Catalog Data"@en ; 
       
    
    
@@ -1886,15 +1887,17 @@ sto:license
 sto:motivation
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
-      rdfs:range deo:Motivation .
+      rdfs:range deo:Motivation ;
+      rdfs:label "Motivation"@en ;
+      rdfs:comment "provides the motivation of the standards"@en .
 
 sto:orgName
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:SDO ;
-      rdfs:range rdf:PlainLiteral;
+      rdfs:range rdf:PlainLiteral ;
       rdfs:label "OrgName"@en ;
-      rdfs:commment "Name of the Organization"@en ;
-	.
+      rdfs:commment "Name of the Organization"@en .
+	
 
 sto:norm
       rdf:type owl:DatatypeProperty ;
