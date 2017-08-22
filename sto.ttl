@@ -1696,7 +1696,7 @@ sto:hasTask
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:string ;
       rdfs:label "hasTask"@en ;
-      rdfs:comment "Specifies the taks for the different ISA 95 levels."@en ;
+      rdfs:comment "Specifies the tasks for the different ISA 95 levels."@en ;
 	.
 	
 sto:isPartOf
@@ -1849,19 +1849,21 @@ sto:hasWikidataEntity
 sto:hasWikipediaArticle
       rdf:type owl:ObjectProperty
       rdfs:label "hasWikipediaArticle"@en;
-      rdfs:comment "provides instances's information"@en .
+      rdfs:comment "Information about standards"@en .
 
 sto:isRelatedTo
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range sto:ProductionSystem
-      rdfs:label "isRelatedTo"; 
+      rdfs:label "isRelatedTo"@en; 
       rdfs:comment "points to the related standards"@en .
 
 sto:isUtilizedIn
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range sto:PLMRelatedArea ;
+      rdfs:label "isUtilizedIn"@en;
+      
    
    
 sto:hasPLMPhase
