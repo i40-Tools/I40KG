@@ -28,8 +28,8 @@ rami:RAMIHierarchyLevel
 
 rami:RAMIITLayer
       rdf:type owl:Class ;
-      rdfs:label "RAMIITLayer" ;
-      .
+      rdfs:label "RAMIITLayer" .
+      
 
 rami:hasRAMIHierarchyLevel
       rdf:type owl:AnnotationProperty .
@@ -719,8 +719,8 @@ sto:IEC_61850
       sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q168160> ;
       sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> ;
       sto:norm "61131" ;
-      sto:publisher sto:IEC ;
-	.  
+      sto:publisher sto:IEC .
+	 
 
 sto:IEC_61158
       rdf:type sto:Standard ;
@@ -1027,8 +1027,8 @@ sto:IEC_62714
       sto:relatedTo sto:IEC_61360 , 
 	                sto:IEC_61987_X , 
 					sto:IEC_62541 ,
-					sto:eClass ;
-	.
+					sto:eClass .
+	
 
 sto:IEC_62837
       rdf:type sto:Standard ;
@@ -1115,7 +1115,7 @@ sto:ISA-95
 sto:ISA95Level
       rdf:type owl:Class ;
       rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
-      rdfs:label "ISA95Level"@en ;
+      rdfs:label "ISA95Level"@en .
        
 
 sto:ISO
@@ -1143,8 +1143,8 @@ sto:ISO_10303
       sto:norm "10303" ;
       sto:publisher sto:ISO ;
       sto:scope "CAD" ;
-      sto:isUtilizedIn sto:ProductLifeCycleManagement;
-    .
+      sto:isUtilizedIn sto:ProductLifeCycleManagement .
+    
 
 sto:ISO_13584
       rdf:type sto:Standard ;
@@ -1163,8 +1163,8 @@ sto:ISO_13584
       sto:norm "13584" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_61360 , sto:eClass ;
-      sto:isUtilizedIn sto:ProductCatalogData;
-     .
+      sto:isUtilizedIn sto:ProductCatalogData .
+     
 
 sto:ISO_13849
       rdf:type  sto:Standard ;
@@ -1447,18 +1447,18 @@ sto:ProductModelDataExchange
 	  
 sto:ProductionSystemModelData
       rdf:type sto:ProductionSystem , owl:NamedIndividual ;
-	  rdfs:comment "Provide information models for factory and production system design. They enhance information exchange among stakeholders, and enable virtual commissioning, which can improve manufacturing agility and reduce manufacturing cost."@en ;
-	.
+	  rdfs:comment "Provide information models for factory and production system design. They enhance information exchange among stakeholders, and enable virtual commissioning, which can improve manufacturing agility and reduce manufacturing cost."@en .
+	
 	  
 sto:ProductionSystemEngineering
       rdf:type sto:ProductionSystem , owl:NamedIndividual ;
-	  rdfs:comment "Standards can interconnect engineering tools from different disciplines, e.g., system engineering, mechanical plant engineering, electrical design, process engineering, process control engineering, Human Machine Interface (HMI) development, PLC programming, and robotic programming."@en;
-	.
+	  rdfs:comment "Standards can interconnect engineering tools from different disciplines, e.g., system engineering, mechanical plant engineering, electrical design, process engineering, process control engineering, Human Machine Interface (HMI) development, PLC programming, and robotic programming."@en .
+	
 	  
 sto:ProductionSystemOperationMaintenance
       rdf:type sto:ProductionSystem , owl:NamedIndividual ;
-	  rdfs:comment "Classifies standards define data processing, communication, and presentation standards for condition monitoring and diagnostics of machines, for maintaining the adequate performance of the system, and for searching ways to improve performance"@en;
-	.  
+	  rdfs:comment "Classifies standards define data processing, communication, and presentation standards for condition monitoring and diagnostics of machines, for maintaining the adequate performance of the system, and for searching ways to improve performance"@en .
+	                                                                                                   
 
 sto:ProductionEngineering
       rdf:type sto:PLMRelatedArea, owl:NamedIndividual .
@@ -1467,8 +1467,8 @@ sto:ProductionSystem
       rdf:type owl:Class ;
       rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
       rdfs:label "ProductionSystem"@en ;
-	  rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf>;
-	.  
+	  rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> .
+	  
 
 sto:SCADALevel
       rdf:type  sto:ISA95Level ;
@@ -1502,15 +1502,15 @@ sto:Standard
       rdf:type owl:Class ;
       rdfs:label "Standard" ;
       rdfs:subClassOf foaf:Document ;
-      rdfs:comment "Standards Class"@en ;
-	.
+      rdfs:comment "Standards Class"@en .
+	
 	
 sto:StandardPart
       rdf:type owl:Class ;
       rdfs:label "StandardPart" ;
       rdfs:subClassOf foaf:Document ;
-      rdfs:comment "Typically Standards are divided into parts. E.g., ISA 95 has part Part 1: Models and Terminology, Part 2: Object Model Attributes, etc."@en ;
-	.  
+      rdfs:comment "Typically Standards are divided into parts. E.g., ISA 95 has part Part 1: Models and Terminology, Part 2: Object Model Attributes, etc."@en .
+	  
 
 sto:SysML
       rdf:type  sto:Standard ;
@@ -1656,56 +1656,55 @@ sto:licenseTerms
       rdfs:domain sto:StandardLicense ;
       rdfs:range xsd:string ;
       rdfs:label "licenseTerms"@en ;
-      rdfs:comment "Terms described in the document of the Standard License"@en ;
-	. 
+      rdfs:comment "Terms described in the document of the Standard License"@en .
+	 
 	
 sto:usageType
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:StandardLicense ;
       rdfs:range xsd:string ;
       rdfs:label "usageType"@en ;
-      rdfs:comment "Type of usage for a given Standard License"@en ;
-	.  
+      rdfs:comment "Type of usage for a given Standard License"@en .
+	  
 	
 sto:stoPartName
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:StandardPart ;
 	  rdfs:range xsd:string ;
       rdfs:label "stoPartName"@en ;
-      rdfs:comment "Name of the standard part."@en ;
-	.
+      rdfs:comment "Name of the standard part."@en .
+	
 	
 sto:hasTimeFrame
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:date ;
       rdfs:label "hasTimeFrame"@en ;
-      rdfs:comment "Time frame for the ISA95 level."@en ;
-	.
+      rdfs:comment "Time frame for the ISA95 level."@en .
+	
 	
 sto:hasObjective
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:string ;
       rdfs:label "hasObjective"@en ;
-      rdfs:comment "Specifies the objectives for the different ISA 95 levels."@en ;
-	.	
+      rdfs:comment "Specifies the objectives for the different ISA 95 levels."@en .
+		
 	
 sto:hasTask
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:ISA95Level ;
 	  rdfs:range xsd:string ;
       rdfs:label "hasTask"@en ;
-      rdfs:comment "Specifies the tasks for the different ISA 95 levels."@en ;
-	.
+      rdfs:comment "Specifies the tasks for the different ISA 95 levels."@en .
 	
 sto:isPartOf
       rdf:type owl:ObjectProperty ;
       rdfs:domain sto:StandardPart ;
 	  rdfs:range sto:Standard ;
       rdfs:label "isPartOf"@en ;
-      rdfs:comment "Relates a given part of the Standard document with the complete document"@en ;
-	.  
+      rdfs:comment "Relates a given part of the Standard document with the complete document"@en .
+	  
 	
 	
 sto:abbreviation
@@ -1720,16 +1719,16 @@ sto:hasPublicationDate
       rdfs:domain sto:Standard ;
       rdfs:range xsd:date ;
       rdfs:label "hasPublicationDate"@en ;
-      rdfs:comment "Publication date of the Standard"@en ;
-  .
+      rdfs:comment "Publication date of the Standard"@en .
+  
   
 sto:hasStatus
       rdf:type owl:DatatypeProperty ;
       rdfs:domain sto:Standard ;
       rdfs:range xsd:string ;
       rdfs:label "hasStatus"@en ;
-      rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
-  . 
+      rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en .
+   
 
 sto:developed
       rdf:type owl:ObjectProperty ;
@@ -1753,7 +1752,7 @@ sto:domainName
       rdfs:domain sto:Domain ;
       rdfs:range rdf:PlainLiteral ;
       rdfs:label "hasDomainName"@en ;
-      rdfs:comment "Points the Standard with the name of the Industrial Domain"@en ;
+      rdfs:comment "Points the Standard with the name of the Industrial Domain"@en .
      
 	
 
@@ -1812,8 +1811,8 @@ sto:hasImplementationFormat
       rdfs:domain sto:Standard ;
       rdfs:range xsd:string ;
       rdfs:label "hasImplementationFormat"@en ;
-      rdfs:comment "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en ;
-    .
+      rdfs:comment "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en .
+    
 	  
 sto:hasOfficialResource
       rdf:type owl:ObjectProperty ;
@@ -1872,7 +1871,7 @@ sto:hasPLMPhase
 	  rdfs:label "hasPLMPhase"@en;
 	  rdfs:comment "Relates the PLM related area concept with areas of the lifecycle, e.g., Design, Process, etc"@en;
       rdfs:domain sto:PLMRelatedArea ;
-      rdfs:range xsd:string ;
+      rdfs:range xsd:string .
    
 
 sto:license
@@ -1882,7 +1881,7 @@ sto:license
       rdfs:subPropertyOf dc:license ;
       rdfs:label "license"@en;
       rdfs:comment "Denotes the Standards license"@en .
-  .
+  
 
 sto:motivation
       rdf:type owl:ObjectProperty ;
