@@ -47,11 +47,16 @@ sto:relatedTo a owl:ObjectProperty;
 
 sto:hasHeadquaterIn a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
-	rdfs:range dbo:Country.
+	rdfs:range dbo:Country;
+        rdfs:label "hasHeadquaterIn"@en;
+        rdfs:comment "Denotes the countries headquarter"@en .
 
 sto:belongsTo a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
-	rdfs:range dbo:Country.
+	rdfs:range dbo:Country ;
+        rdfs:label "belongsto"@en ;
+        rdfs:comment "belongs to the country"@en .
+
 
 sto:  rdf:type owl:Ontology ;
       dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
