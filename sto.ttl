@@ -18,30 +18,34 @@
 @prefix geo:     <http://www.geonames.org/ontology#> .
 @prefix dbo:     <http://dbpedia.org/ontology#> .
 @prefix dbr:     <http://dbpedia.org/resource#>.
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix doap: <<http://usefulinc.com/ns/doap#> .
 
 
+sto:  rdf:type owl:Ontology ;
+      dc11:title "Standards Vocabulary"@en ;
+      dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
+      dc:created "2017-01-25"^^xsd:date ;
+      dc:creator <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> , <http://data.semanticweb.org/person/steffen-lohmann> , <https://www.linkedin.com/in/paul-baptista-601177b2> ;
+      dc:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
+      vann:preferredNamespacePrefix "sto" ;
+      vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
+	  doap: repository> <https://github.com/i40-Tools/StandardsVocabulary> ;
+      owl:versionInfo "0.2" ;
+	  dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+	  terms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
+	  dc:modified "2017-09-08"^^xsd:date ;
+.
 
-rami:RAMIHierarchyLevel
-      rdf:type owl:Class .
 
-rami:RAMIITLayer
-      rdf:type owl:Class ;
-      rdfs:label "RAMIITLayer" .
-      
-
-rami:hasRAMIHierarchyLevel
-      rdf:type owl:AnnotationProperty .
-
-rami:hasRAMILifeCycleLayer
-      rdf:type owl:AnnotationProperty .
-	  
-rami:hasAdminShellSubmodel
-      rdf:type owl:AnnotationProperty .
- 
-
-sto:relatedTo a owl:ObjectProperty;
+sto:relatedTo a owl:ObjectProperty,
+                owl:TransitiveProperty,
+				owl:SymmetricProperty;
+    rdfs:label "relatedTo"@en;
+    rdfs:comment "Represent any type of relation that connects two standards."@en;
 	rdfs:domain sto:Standard;
-	rdfs:range sto:Standard.
+	rdfs:range sto:Standard;
+.	
 
 sto:hasHeadquaterIn a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
@@ -52,21 +56,9 @@ sto:hasHeadquaterIn a owl:ObjectProperty;
 sto:belongsTo a owl:ObjectProperty;	
 	rdfs:domain sto:SDO;
 	rdfs:range dbo:Country ;
-        rdfs:label "belongsto"@en ;
-        rdfs:comment "belongs to the country"@en .
+    rdfs:label "belongsTo"@en ;
+    rdfs:comment "An Standard Organization that belongs to the country"@en .
 
-
-sto:  rdf:type owl:Ontology ;
-      dc11:description "A vocabulary to describe the relation between industry standards, and related concepts" ;
-      dc11:title "Standards Vocabulary"@en ;
-      dc:created "2017-01-25"^^xsd:date ;
-      dc:creator <http://eis.iai.uni-bonn.de/Irlan> , <http://data.semanticweb.org/person/steffen-lohmann> , <https://www.linkedin.com/in/paul-baptista-601177b2> ;
-      dc:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-      vann:preferredNamespacePrefix
-              "sto" ;
-      vann:preferredNamespaceUri
-              "https://w3id.org/i40/sto#" ;
-      owl:versionInfo "0.2" .
 
 sto:ANSI
 	rdf:type sto:SDO ;
@@ -2031,3 +2023,19 @@ sto:ODVA
       sto:hasWikidataEntity <http://www.wikidata.org/entity/Q7096000> ;
       sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ODVA_(company)> ;
       sto:orgName "ODVA, Inc"@en .
+	  
+rami:RAMIHierarchyLevel
+      rdf:type owl:Class .
+
+rami:RAMIITLayer
+      rdf:type owl:Class ;
+      rdfs:label "RAMIITLayer" . 
+
+rami:hasRAMIHierarchyLevel
+      rdf:type owl:AnnotationProperty .
+
+rami:hasRAMILifeCycleLayer
+      rdf:type owl:AnnotationProperty .
+	  
+rami:hasAdminShellSubmodel
+      rdf:type owl:AnnotationProperty .
