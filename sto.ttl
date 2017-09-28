@@ -1,4 +1,4 @@
-# Saved by TopBraid on Thu Sep 28 13:19:13 CEST 2017
+# Saved by TopBraid on Thu Sep 28 13:38:01 CEST 2017
 # baseURI: https://w3id.org/i40/sto#
 
 @prefix cc:      <http://creativecommons.org/ns#> .
@@ -101,6 +101,12 @@ sto:ASAM_ODS
       sto:norm "ODS" ;
       sto:publisher sto:ASAM .
 
+sto:Availability
+      rdf:type owl:Class ;
+      rdfs:comment "Represents licenses that Standards can have, e.g., private, public, etc"@en ;
+      rdfs:label "StandardLicense"@en ;
+      rdfs:subClassOf foaf:Document .
+
 sto:BBF
       rdf:type sto:SDO ;
       rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
@@ -131,6 +137,11 @@ sto:BBF_TR-069
               <https://en.wikipedia.org/wiki/TR-069> ;
       sto:norm "TR-069" ;
       sto:publisher sto:BBF .
+
+sto:Closed
+      rdf:type sto:Availability ;
+      rdfs:comment "Closed or controlled documents that contain trade secrets or classified information"@en ;
+      rdfs:label "Closed"@en .
 
 sto:CrossLevel
       rdf:type sto:ISA95Level ;
@@ -231,6 +242,11 @@ sto:EnterpriseLevel
       rdf:type sto:ISA95Level ;
       rdfs:comment "Describes the Enterprise level according to the ISA95 level classification."@en ;
       rdfs:label "EnterpriseLevel" .
+
+sto:ForPurchasing
+      rdf:type sto:Availability ;
+      rdfs:comment "Published documents available for purchase"@en ;
+      rdfs:label "ForPurchasing"@en .
 
 sto:IBM
       rdf:type sto:SDO ;
@@ -1644,14 +1660,9 @@ sto:SE
 
 sto:Standard
       rdf:type owl:Class ;
-      rdfs:comment "Standards Class"@en ;
+      rdfs:comment "Describes a technical standard related to the Industry, e.g., OPC UA and Technical area, e.g., RDF"@en ;
       rdfs:label "Standard" ;
-      rdfs:subClassOf foaf:Document .
-
-sto:StandardLicense
-      rdf:type owl:Class ;
-      rdfs:comment "Represents licenses that Standards can have, e.g., private, public, etc"@en ;
-      rdfs:label "StandardLicense"@en ;
+      rdfs:seeAlso <https://en.wikipedia.org/wiki/Technical_standard> ;
       rdfs:subClassOf foaf:Document .
 
 sto:StandardPart
@@ -1792,6 +1803,11 @@ sto:W3C_SPARQL
       sto:norm "SPARQL" ;
       sto:publisher sto:W3C ;
       sto:relatedTo sto:W3C_RDF .
+
+sto:WithCopyright
+      rdf:type sto:Availability ;
+      rdfs:comment "Private documents owned by an organization or corporation, used and circulated as the owner determines necessary or useful"@en ;
+      rdfs:label "WithCopyright"@en .
 
 sto:abbreviation
       rdf:type owl:DatatypeProperty ;
@@ -2001,13 +2017,13 @@ sto:license
       rdfs:comment "Denotes the Standards license"@en ;
       rdfs:domain sto:Standard ;
       rdfs:label "license"@en ;
-      rdfs:range sto:StandardLicense ;
+      rdfs:range sto:Availability ;
       rdfs:subPropertyOf terms:license .
 
 sto:licenseTerms
       rdf:type owl:DatatypeProperty ;
       rdfs:comment "Terms described in the document of the Standard License"@en ;
-      rdfs:domain sto:StandardLicense ;
+      rdfs:domain sto:Availability ;
       rdfs:label "licenseTerms"@en ;
       rdfs:range xsd:string .
 
@@ -2033,12 +2049,14 @@ sto:orgName
       rdfs:range rdf:PlainLiteral .
 
 sto:private
-      rdf:type sto:StandardLicense ;
+      rdf:type sto:Availability ;
+      rdfs:comment "Private documents owned by an organization or corporation, used and circulated as the owner determines necessary or useful"^^xsd:string ;
       rdfs:label "Private"@en ;
       skos:note "TODO, include in the current instances" .
 
 sto:public
-      rdf:type sto:StandardLicense ;
+      rdf:type sto:Availability ;
+      rdfs:comment "Public documents on the internet, public library, etc. (Some technical standards may be found at a major central library or at the library of a good technical university)"@en ;
       rdfs:label "Public"@en ;
       skos:note "TODO, include in the current instances" .
 
@@ -2091,6 +2109,6 @@ sto:stoPartName
 sto:usageType
       rdf:type owl:DatatypeProperty ;
       rdfs:comment "Type of usage for a given Standard License"@en ;
-      rdfs:domain sto:StandardLicense ;
+      rdfs:domain sto:Availability ;
       rdfs:label "usageType"@en ;
       rdfs:range xsd:string .
