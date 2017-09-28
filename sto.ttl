@@ -1,4 +1,4 @@
-# Saved by TopBraid on Thu Sep 28 13:38:01 CEST 2017
+# Saved by TopBraid on Thu Sep 28 13:57:08 CEST 2017
 # baseURI: https://w3id.org/i40/sto#
 
 @prefix cc:      <http://creativecommons.org/ns#> .
@@ -61,6 +61,7 @@ sto:ANSI
       rdfs:comment """
 		The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide.
 		ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."""@en , "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en ;
+      rdfs:label "ANSI"^^xsd:string ;
       sto:abbreviation "ANSI" ;
       sto:formationDate "1918-05-14"^^xsd:date ;
       sto:hasDBpediaResource
@@ -151,6 +152,7 @@ sto:CrossLevel
 sto:DIN
       rdf:type sto:SDO ;
       rdfs:comment "Deutsches Institut für Normung e.V. (DIN; in English, the German Institute for Standardization) is the German national organization for standardization and is the German ISO member body. DIN is a German Registered Association (e.V.) headquartered in Berlin. There are currently around thirty thousand DIN Standards, covering nearly every field of technology"@en ;
+      rdfs:label "DIN"^^xsd:string ;
       sto:abbreviation "DIN" ;
       sto:belongsTo dbr:Germany ;
       sto:formationDate "1918-01-01"^^xsd:date ;
@@ -280,9 +282,8 @@ sto:IEC
 
 sto:IEC_14443
       rdf:type sto:Standard ;
-      rdfs:comment """
-      The ISO/IEC 14443 standard is a four-part international standard for contact-less smart cards operating at 13.56 MHz in close proximity (~10cm) with a reader antenna. This ISO standard describes the modulation and transmission protocols between card and reader to create interoperability for contact-less smart card products. There are two main communication protocols supported by the ISO/IEC 14443 standard, they are addressed as Type A and Type B. Most High Frequency (13.56 MHz) proximity tags are using these guidelines for their communication.
-      """@en ;
+      rdfs:comment "The ISO/IEC 14443 standard is a four-part international standard for contact-less smart cards operating at 13.56 MHz in close proximity (~10cm) with a reader antenna. This ISO standard describes the modulation and transmission protocols between card and reader to create interoperability for contact-less smart card products. There are two main communication protocols supported by the ISO/IEC 14443 standard, they are addressed as Type A and Type B. Most High Frequency (13.56 MHz) proximity tags are using these guidelines for their communication."@en ;
+      rdfs:label "IEC 14443"^^xsd:string ;
       owl:sameAs sto:ISO_14443 ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/ISO/IEC_14443> ;
@@ -298,10 +299,8 @@ sto:IEC_14443
 
 sto:IEC_15459
       rdf:type sto:Standard ;
-      rdfs:comment """
-      ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type.
-      The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example.
-      """@en ;
+      rdfs:comment """ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type.
+ The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."""@en ;
       rdfs:label "IEC 15459"^^xsd:string ;
       owl:sameAs sto:ISO_15459 ;
       sto:hasOfficialResource
@@ -404,8 +403,8 @@ sto:IEC_61131
 
 sto:IEC_61158
       rdf:type sto:Standard ;
-      rdfs:comment "Fieldbus is the name of a family of industrial computer network protocols used for real-time distributed control, standardized as IEC 61158. A complex automated industrial system — such as manufacturing assembly line — usually needs a distributed control system—an organized hierarchy of controller systems—to function. In this hierarchy, there is usually a Human Machine Interface (HMI) at the top, where an operator can monitor or operate the system. This is typically linked to a middle layer of programmable logic controllers (PLC) via a non-time-critical communications system (e.g. Ethernet). At the bottom of the control chain is the fieldbus that links the PLCs to the components that actually do the work, such as sensors, actuators, electric motors, console lights, switches, valves and contactors"@en ;
-      rdfs:label "IEC 61158"^^xsd:string ;
+      rdfs:comment "Fieldbus is the name of a family of industrial computer network protocols used for real-time distributed control, standardized as IEC 61158. A complex automated industrial system  such as manufacturing assembly line  usually needs a distributed control systeman organized hierarchy of controller systemsto function. In this hierarchy, there is usually a Human Machine Interface (HMI) at the top, where an operator can monitor or operate the system. This is typically linked to a middle layer of programmable logic controllers (PLC) via a non-time-critical communications system (e.g. Ethernet). At the bottom of the control chain is the fieldbus that links the PLCs to the components that actually do the work, such as sensors, actuators, electric motors, console lights, switches, valves and contactors"@en ;
+      rdfs:label "IEC 61158"@en ;
       sto:hasDBpediaResource
               <http://dbpedia.org/page/Fieldbus> ;
       sto:hasISA95Level sto:DeviceLevel ;
@@ -1573,6 +1572,7 @@ sto:OMG_DDS
 sto:OPC_Foundation
       rdf:type sto:SDO ;
       rdfs:comment "Is an industry consortium that creates and maintains standards for open connectivity of industrial automation devices and systems, such as industrial control systems and process control generally"@en ;
+      rdfs:label "OPC Foundation"^^xsd:string ;
       sto:abbreviation "OPC" ;
       sto:formationDate "1994-01-01"^^xsd:date ;
       sto:hasDBpediaResource
@@ -1721,6 +1721,7 @@ sto:VDMA_24582
 sto:W3C
       rdf:type sto:SDO ;
       rdfs:comment "The World Wide Web Consortium (W3C) is the main international standards organization for the World Wide Web (abbreviated WWW or W3). Founded and currently led by Tim Berners-Lee, the consortium is made up of member organizations which maintain full-time staff for the purpose of working together in the development of standards for the World Wide Web. As of 4 November 2015, the World Wide Web Consortium (W3C) has 408 members. The W3C also engages in education and outreach, develops software and serves as an open forum for discussion about the Web."@en ;
+      rdfs:label "W3C"^^xsd:string ;
       sto:abbreviation "W3C" ;
       sto:formationDate "1994-10-01"^^xsd:date ;
       sto:hasDBpediaResource
