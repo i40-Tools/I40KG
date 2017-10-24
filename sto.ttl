@@ -58,10 +58,9 @@ sto:  rdf:type owl:Ontology ;
 
 sto:ANSI
       rdf:type sto:SDO ;
-      rdfs:comment """
-		The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide.
-		ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."""@en , "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en ;
-      rdfs:label "ANSI"^^xsd:string ;
+      rdfs:comment "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide.
+		ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en ; 
+      rdfs:label "ANSI"@en ;
       sto:abbreviation "ANSI" ;
       sto:formationDate "1918-05-14"^^xsd:date ;
       sto:hasDBpediaResource
@@ -96,7 +95,7 @@ sto:ASAM
 sto:ASAM_ODS
       rdf:type sto:Standard ;
       rdfs:comment "Set up a test data management system on top of test systems that produce measured or calculated data from testing activities"@en ;
-      rdfs:label "ASAM ODS"^^xsd:string ;
+      rdfs:label "ASAM ODS"@en ;
       sto:hasOfficialResource
               <https://wiki.asam.net/display/STANDARDS/ASAM+ODS> ;
       sto:norm "ODS" ;
@@ -126,7 +125,7 @@ sto:BBF
 sto:BBF_TR-069
       rdf:type sto:Standard ;
       rdfs:comment "Digital Enhanced Cordless Telecommunications (DECT™) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
-      rdfs:label "BBF TR-069"^^xsd:string ;
+      rdfs:label "BBF TR-069"@en ;
       sto:developer sto:BBF ;
       sto:hasDBpediaResource
               <http://dbpedia.org/resource/TR-069> ;
@@ -153,15 +152,15 @@ sto:CrossLevel
 sto:DIN
       rdf:type sto:SDO ;
       rdfs:comment "Deutsches Institut für Normung e.V. (DIN; in English, the German Institute for Standardization) is the German national organization for standardization and is the German ISO member body. DIN is a German Registered Association (e.V.) headquartered in Berlin. There are currently around thirty thousand DIN Standards, covering nearly every field of technology"@en ;
-      rdfs:label "DIN"^^xsd:string ;
-      sto:abbreviation "DIN" ;
+      rdfs:label "Deutsches Institut für Normung"@de,
+                 "German Institute for Standardization"@en;
+      sto:abbreviation "DIN"@de ;
       sto:belongsTo dbr:Germany ;
       sto:formationDate "1918-01-01"^^xsd:date ;
       sto:hasHeadquaterIn dbr:Germany ;
-      sto:hasOfficialResource
-              <http://www.din.de/en/about-standards/din-standards> ;
-      sto:hasWikidataEntity
-              <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
+      sto:hasDBpediaResource <http://dbpedia.org/page/Deutsches_Institut_f%C3%BCr_Normung>;
+      sto:hasOfficialResource <http://www.din.de/en/about-standards/din-standards> ;
+      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
       sto:orgName "Deutsches Institut für Normung"@en .
 
 sto:Design
