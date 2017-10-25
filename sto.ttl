@@ -23,6 +23,7 @@
 @prefix voaf:    <http://purl.org/vocommons/voaf#> .
 @prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dul <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
 
 rami:RAMIHierarchyLevel
       rdf:type owl:Class .
@@ -162,6 +163,22 @@ sto:DIN
       sto:hasOfficialResource <http://www.din.de/en/about-standards/din-standards> ;
       sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> ;
       sto:orgName "Deutsches Institut für Normung"@en .
+      
+sto:KATS
+      rdf:type sto:SDO ;
+      rdfs:comment "Korean Agency for Technology and Standards is the government standards organization for South Korea. It is part of the Ministry of Knowledge Economy. It is authorized to regulate and manage the legal measures of South Korea by the current Measures Act."@en ;
+      rdfs:label "Korean Agency for Technology and Standards"@en;
+      sto:abbreviation "KATS"@de ;
+      sto:belongsTo dbr:South_Korea ;
+      sto:hasHeadquaterIn dbr:South_Korea ;
+      sto:hasDBpediaResource <http://dbpedia.org/page/Korean_Agency_for_Technology_and_Standards>;
+      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Korean_Agency_for_Technology_and_Standards> ;
+      dul:isMemberOf sto:IEC,
+                     sto:ISO;
+      sto:orgName "Korean Agency for Technology and Standards"@en .      
+      
+      
+      
 
 sto:Design
       rdf:type owl:NamedIndividual .
@@ -336,8 +353,7 @@ sto:IEC_29161
       rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures. This International Standard specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities. The unique identification is a universal construct for any physical object, virtual object, or person. It is used in IoT information systems that need to track or otherwise refer to entities. It is intended for use with any IoT media."@en ;
       rdfs:label "IEC 29161"@en ;
       owl:sameAs sto:ISO_29161 ;
-      sto:hasOfficialResource
-              <https://www.iso.org/standard/45240.html> ;
+      sto:hasOfficialResource <https://www.iso.org/standard/45240.html> ;
       sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en ;
       sto:norm "29161" ;
       sto:publisher sto:IEC , sto:ISO .
@@ -346,19 +362,18 @@ sto:IEC_29182-1
       rdf:type sto:Standard ;
       rdfs:comment "ISO/IEC 29182-1: provides a general overview of the characteristics of a sensor network and the organization of the entities that comprise such a network. It also describes the general requirements that are identified for sensor networks."@en ;
       rdfs:label "IEC 29182-1"@en ;
-      rami:hasAdminShellSubmodel
-              rami:Communications ;
+      rami:hasAdminShellSubmodel rami:Communications ;
       rami:hasRAMIHierarchyLevel
-              rami:FieldDevice , rami:ControlDevice ;
+              rami:FieldDevice , 
+              rami:ControlDevice ;
       sto:Scope sto:M2M ;
       sto:hasISA95Level sto:DeviceLevel ;
-      sto:hasOfficialResource
-              <https://www.iso.org/standard/45261.html> ;
-      sto:hasPublicationDate
-              "2013-06"^^xsd:Date ;
+      sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
+      sto:hasPublicationDate "2013-06"^^xsd:Date ;
       sto:isUtilizedIn sto:ProductionSystemModelData ;
       sto:norm "24760" ;
-      sto:publisher sto:IEC ;
+      sto:publisher sto:IEC ,
+                    sto:ISO ;
       sto:relatedTo sto:IEC_61158 .
 
 sto:IEC_60839-5-2
@@ -370,8 +385,7 @@ sto:IEC_60839-5-2
       rami:hasRAMIHierarchyLevel
               rami:ControlDevice , rami:FieldDevice ;
       rami:hasRAMIITLayer rami:Communication ;
-      sto:hasPublicationDate
-              "2016-02-03"^^xsd:Date ;
+      sto:hasPublicationDate "2016-02-03"^^xsd:Date ;
       sto:hasUrl <https://webstore.iec.ch/publication/24120> ;
       sto:norm "60839" ;
       sto:publisher sto:IEC ;
@@ -383,12 +397,13 @@ sto:IEC_61131
       rdfs:comment "IEC 61131 is an IEC standard for programmable controllers. It was known as IEC 1131 before the change in numbering system by IEC. The parts of the IEC 61131 standard are prepared and maintained working group 7, programmable control systems, of subcommittee SC 65B of Technical Committee TC65 of the IEC."@en ;
       rdfs:label "IEC 60131"@en ;
       rami:hasRAMIHierarchyLevel
-              rami:Station , rami:ControlDevice , rami:WorkCenter ;
+              rami:Station , 
+              rami:ControlDevice , 
+              rami:WorkCenter ;
       sto:hasDBpediaResource  <http://dbpedia.org/page/IEC_61131> ;
       sto:hasOfficialResource <https://webstore.iec.ch/publication/4550> ;
       sto:hasTag "PLCOpen"@en ;
-      sto:hasWikidataEntity
-              <https://www.wikidata.org/entity/Q1275526> ;
+      sto:hasWikidataEntity <https://www.wikidata.org/entity/Q1275526> ;
       sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61131> ;
       sto:norm "61131" ;
       sto:publisher sto:IEC ;
@@ -398,16 +413,12 @@ sto:IEC_61158
       rdf:type sto:Standard ;
       rdfs:comment "Fieldbus is the name of a family of industrial computer network protocols used for real-time distributed control, standardized as IEC 61158. A complex automated industrial system such as manufacturing assembly line usually needs a distributed control system an organized hierarchy of controller systems to function. In this hierarchy, there is usually a Human Machine Interface (HMI) at the top, where an operator can monitor or operate the system. This is typically linked to a middle layer of programmable logic controllers (PLC) via a non-time-critical communications system (e.g. Ethernet). At the bottom of the control chain is the fieldbus that links the PLCs to the components that actually do the work, such as sensors, actuators, electric motors, console lights, switches, valves and contactors"@en ;
       rdfs:label "IEC 61158"@en ;
-      sto:hasDBpediaResource
-              <http://dbpedia.org/page/Fieldbus> ;
+      sto:hasDBpediaResource <http://dbpedia.org/page/Fieldbus> ;
       sto:hasISA95Level sto:DeviceLevel ;
-      sto:hasOfficialResource
-              <http://www.fieldbus.org/> ;
+      sto:hasOfficialResource <http://www.fieldbus.org/> ;
       sto:hasTag "Fieldbus"@en ;
-      sto:hasWikidataEntity
-              <https://m.wikidata.org/entity/Q1141640> ;
-      sto:hasWikipediaArticle
-              <https://en.wikipedia.org/wiki/Fieldbus> ;
+      sto:hasWikidataEntity <https://m.wikidata.org/entity/Q1141640> ;
+      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Fieldbus> ;
       sto:norm "61158" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_61784 .
@@ -434,15 +445,11 @@ sto:IEC_61499
       rdfs:label "IEC 61499"@en ;
       rami:hasRAMIHierarchyLevel
               rami:FieldDevice , rami:ControlDevice ;
-      sto:hasDBpediaResource
-              <http://dbpedia.org/resource/IEC_61499> ;
-      sto:hasOfficialResource
-              <https://webstore.iec.ch/publication/5506> ;
+      sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_61499> ;
+      sto:hasOfficialResource <https://webstore.iec.ch/publication/5506> ;
       sto:hasTag "FBs distributed systems"@en ;
-      sto:hasWikidataEntity
-              <https://www.wikidata.org/entity/Q188109> ;
-      sto:hasWikipediaArticle
-              <https://en.wikipedia.org/wiki/IEC_61499> ;
+      sto:hasWikidataEntity <https://www.wikidata.org/entity/Q188109> ;
+      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61499> ;
       sto:motivation "Functional description, informational representation and communication mapping of application functionality. This standard describes how a distributed control application is composed of functional units (FB), which are executed in different context. It may help to describe how functions are distributed between different I40-Components and how the execution of the functions between the different I40-Components is controled."@en ;
       sto:norm "61499" ;
       sto:publisher sto:IEC ;
