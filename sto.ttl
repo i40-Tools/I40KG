@@ -194,6 +194,7 @@ sto:Domain
 
 sto:ETSI
       rdf:type sto:SDO ;
+      rdfs:label "ETSI"@en;
       rdfs:comment "The European Telecommunications Standards Institute (ETSI) is an independent, not-for-profit, standardization organization in the telecommunications industry (equipment makers and network operators) in Europe, headquartered in Sophia-Antipolis, France, with worldwide projection. ETSI produces globally-applicable standards for Information and Communications Technologies (ICT), including fixed, mobile, radio, converged, broadcast and internet technologies."@en ;
       sto:abbreviation "ETSI"@en ;
       sto:formationDate "1988-01-01"^^xsd:date ;
@@ -202,6 +203,13 @@ sto:ETSI
       sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q899383> ;
       sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ETSI> ;
       sto:orgName "European Telecommunications Standards Institute"@en .
+
+sto:DMSC 
+    rdf:type sto:SDO;
+    rdfs:label "Dimensional Metrology Standards Consortium"@en;
+    rdfs:comment "Dimensional Metrology Standards Consortium (DMSC) is to identify urgently needed standards in the field of dimensional metrology, and to promote, foster, and encourage the development and interoperability of these standards, along with related and supporting standards that will benefit the industry as a whole."@en;
+    sto:hasOfficialResource <http://www.dmis.org/> ;
+.
 
 sto:ETSI_DECT
       rdf:type sto:Standard ;
@@ -306,6 +314,16 @@ sto:IEC_14443
               <https://en.wikipedia.org/wiki/ISO/IEC_14443> ;
       sto:norm "14443" ;
       sto:publisher sto:ISO , sto:IEC .
+
+sto:QIF
+      rdf:type sto:Standard ;
+      rdfs:label "Quality Information Framework"@en;
+      rdfs:comment " Quality Information Framework (QIF) standard defines an integrated set of information models which enable the effective exchange of metrology data throughout the entire manufacturing quality measurement process"@en;
+      rdfs:isDefinedBy <http://qifstandards.org/about-qif/>;
+      sto:hasOfficialResource <http://qifstandards.org/> ;
+      sto:publisher sto:DMSC;
+      skos:note "Is implemented in XML";
+.      
 
 sto:IEC_15459
       rdf:type sto:Standard ;
@@ -1913,7 +1931,7 @@ sto:eClass
       sto:developer sto:eClassAssoc ;
       sto:hasOfficialResource
               <https://www.eclass.eu/eclasscontent/standard/overview.html.en> ;
-      sto:hasTag "Properties"@en ;
+      sto:hasTag "eClass"@en ;
       sto:hasWikidataEntity
               <https://www.wikidata.org/entity/Q1274291> ;
       sto:hasWikipediaArticle
