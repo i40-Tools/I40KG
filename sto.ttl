@@ -32,6 +32,9 @@ rami:RAMIITLayer
       rdfs:subClassOf sto:CategorizationArea;
       rdfs:label "RAMIITLayer" .
 
+rami:InformationLayer rdf:type rami:RAMIITLayer;
+      .
+
 rami:hasAdminShellSubmodel
       rdf:type owl:AnnotationProperty .
 
@@ -768,6 +771,7 @@ sto:SCOR
       sto:hasTag "SCOR"@en ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Supply-chain_operations_reference> ;
+      sto:isEmployedBy sto:SCM;
       .      
 
 sto:IEC_62591
@@ -1777,12 +1781,28 @@ sto:NISTInitiative
       rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
       .
 
-sto:RAMI
+sto:PlattformI40
       rdf:type owl:Class ;
       rdfs:subClassOf sto:StandarizationInitiative;
       rdfs:comment "Describes the RAMI Initiative, i.e., NIST."@en ;
+      rdfs:label "PlattformI40"@en ;
+      .
+
+sto:RAMI
+      rdf:type sto:PlattformI40 ;
+      rdfs:comment "Describes the RAMI model"@en ;
       rdfs:label "RAMI"@en ;
       rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html> ;
+      sto:hasCategorizationArea rami:InformationLayer;      
+      .
+
+sto:NISTIR_8107
+      rdf:type sto:NISTInitiative ;
+      rdfs:comment "Describes the NIST Initiative"@en ;
+      rdfs:label "NISTIR_8107"@en ;
+      rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
+      sto:hasCategorizationArea sto:BusinessProcessExecution,
+                                sto:SCM; 
       .
 
 sto:ProductionSystemLifeCycle
@@ -2023,11 +2043,18 @@ sto:belongsTo
       rdfs:label "belongsTo"@en ;
       rdfs:range dbo:Country .
 
+sto:isEmployedBy
+      rdf:type owl:ObjectProperty ;
+      rdfs:comment "An Standard is Employed By given Categorization Area which is connected to a specific Standarization Initiative"@en ;
+      rdfs:domain sto:Standard ;
+      rdfs:label "isEmployedBy"@en ;
+      rdfs:range sto:CategorizationArea .
+
 sto:developed
       rdf:type owl:ObjectProperty ;
       rdfs:comment "A standard developed by this organization"@en ;
       rdfs:domain sto:SDO ;
-      rdfs:label "Published" ;
+      rdfs:label "developed" ;
       rdfs:range sto:Standard ;
       rdfs:subPropertyOf foaf:made ;
       owl:inverseOf sto:developer .
