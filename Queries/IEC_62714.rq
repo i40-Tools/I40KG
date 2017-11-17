@@ -1,0 +1,22 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sto: <https://w3id.org/i40/sto#>
+SELECT DISTINCT ?std ?pred ?prop ?relNorm ?relsdoAbbr
+WHERE {
+    ?std  a                sto:Standard .
+    ?std  sto:norm         "62714" .
+    ?std  sto:publisher    ?sdo .
+    ?sdo  sto:abbreviation "IEC" .
+    { {?std   ?pred  ?prop } UNION
+      {?prop  ?pred  ?std  } UNION {
+        ?std  (sto:relatedTo+|^sto:relatedTo+)*  ?mid .
+        ?mid  (sto:relatedTo|^sto:relatedTo)     ?prop .
+        {?mid   ?pred  ?prop } UNION
+        {?prop  ?pred  ?mid} 
+      }
+    } FILTER (?std!=?prop)
+    OPTIONAL {
+      ?prop    sto:norm         ?relNorm .
+      ?prop    sto:publisher    ?relsdo .
+      ?relsdo  sto:abbreviation ?relsdoAbbr .
+    }
+}

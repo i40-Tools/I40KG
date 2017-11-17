@@ -1,0 +1,19 @@
+PREFIX rami: <https://w3id.org/i40/rami#>
+PREFIX sto: <https://w3id.org/i40/sto#>
+SELECT DISTINCT
+  ?name ?RAMIITLayer ?ISA95Level ?PLM ?AdminShellSubmodel ?license ?publisher
+WHERE {
+    ?std  a                            sto:Standard ;
+      sto:norm                         ?norm ;
+	  (sto:publisher/sto:name)         ?publisher ;
+      (sto:publisher/sto:abbreviation) ?publisherAbbrv ;
+	  rami:hasRAMIITLayer              ?RAMIITLayer .
+    FILTER(LANGMATCHES(LANG(?publisher), "en"))
+    OPTIONAL { ?std sto:hasTag                   ?tag .}
+    OPTIONAL { ?std sto:license                  ?license ;
+          		    sto:hasOfficialResource      ?officialResource . }
+	OPTIONAL { ?std rami:hasAdminShellSubmodel  ?AdminShellSubmodel . }
+	OPTIONAL { ?std sto:hasISA95Level           ?ISA95Level . }
+    OPTIONAL { ?std sto:isUtilizedIn            ?PLM . }
+  	BIND(CONCAT(?publisherAbbrv," ",?norm," - ",?tag) as ?name)
+}
