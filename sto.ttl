@@ -23,10 +23,13 @@
 @prefix dul:     <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
 
 rami:RAMIHierarchyLevel
-      rdf:type owl:Class .
+      rdf:type owl:Class ;
+      rdfs:subClassOf sto:CategorizationArea;
+.
 
 rami:RAMIITLayer
       rdf:type owl:Class ;
+      rdfs:subClassOf sto:CategorizationArea;
       rdfs:label "RAMIITLayer" .
 
 rami:hasAdminShellSubmodel
@@ -1708,6 +1711,7 @@ sto:OPC_Foundation
 
 sto:ProductDevelopmentLifeCycle
       rdf:type owl:Class ;
+      rdfs:subClassOf sto:CategorizationArea;
       rdfs:comment "PLM is the process of managing the entire lifecycle of a product from inception, through engineering design and manufacture, to service and disposal of manufactured products. Related areas are PLMManagement, Modeling Practice, Product Model Data exchange, Manufacturing Model Data, Product Catalog Data."@en , "Product Development Life-Cycle Phase"@en ;
       rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Product_lifecycle> ;
       rdfs:label "ProductDevelopmentLifeCycle"@en .
@@ -1726,6 +1730,12 @@ sto:ProductModelDataExchange
 
 sto:ProductionEngineering
       rdf:type sto:ProductionSystemLifeCycle , owl:NamedIndividual .
+
+sto:CategorizationArea
+      rdf:type owl:Class ;
+      rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
+      rdfs:label "CategorizationArea"@en ;
+      .
 
 sto:StandarizationInitiative
       rdf:type owl:Class ;
@@ -1751,12 +1761,14 @@ sto:RAMI
 
 sto:ProductionSystemLifeCycle
       rdf:type owl:Class ;
+      rdfs:subClassOf sto:CategorizationArea;
       rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
       rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
       rdfs:label "ProductionSystemLifeCycle"@en .
 
 sto:BusinessCycleSCM
       rdf:type owl:Class ;
+      rdfs:subClassOf sto:CategorizationArea;
       rdfs:comment "Suply Chain Management Business Cycle."@en ;
       rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
       rdfs:seeAlso <https://en.wikipedia.org/wiki/Supply_chain_management>;
@@ -1987,6 +1999,14 @@ sto:developer
       rdfs:label "Developer" ;
       rdfs:range sto:SDO ;
       rdfs:subPropertyOf foaf:maker .
+
+sto:hasCategorizationArea
+      rdf:type owl:ObjectProperty ;
+      rdfs:comment "Links the Standarization Initiatives with the Categorization Areas"@en ;
+      rdfs:label "hasCategorizationArea" ;
+      rdfs:domain sto:StandarizationInitiative ;
+      rdfs:range sto:CategorizationArea ;
+    .
 
 sto:domainName
       rdf:type owl:DatatypeProperty ;
