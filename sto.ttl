@@ -961,9 +961,27 @@ sto:ISA-95
 
 sto:ISA95Level
       rdf:type owl:Class ;
-      rdfs:subClassOf sto:StandarizationInitiative; 
+      rdfs:subClassOf sto:CategorizationArea; 
       rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
       rdfs:label "ISA95Level"@en .
+
+sto:ISA95
+      rdf:type owl:Class ;
+      rdfs:subClassOf sto:StandarizationInitiative; 
+      rdfs:comment "Describes the ISA95 as other Standarization Initiative that classifies Standards"@en ;
+      rdfs:label "ISA95"@en .
+
+sto:ISA95Model
+      rdf:type sto:ISA95 ;
+      rdfs:comment "An Instance of the ISA 95 to link the existing levels"@en ;
+      rdfs:label "ISA95Model"@en ;
+      sto:hasCategorizationArea sto:CrossLevel,
+                                sto:DeviceLevel,
+                                sto:MOMLevel,
+                                sto:EnterpriseLevel,
+                                sto:SCADALevel;
+
+      .      
 
 sto:ISO
       rdf:type sto:SDO ;
@@ -2051,15 +2069,6 @@ sto:isEmployedBy
       rdfs:label "isEmployedBy"@en ;
       rdfs:range sto:CategorizationArea .
 
-sto:developed
-      rdf:type owl:ObjectProperty ;
-      rdfs:comment "A standard developed by this organization"@en ;
-      rdfs:domain sto:SDO ;
-      rdfs:label "developed" ;
-      rdfs:range sto:Standard ;
-      rdfs:subPropertyOf foaf:made ;
-      owl:inverseOf sto:developer .
-
 sto:developer
       rdf:type owl:ObjectProperty ;
       rdfs:comment "The organization that developed this Standard"@en ;
@@ -2296,15 +2305,6 @@ sto:public
       rdfs:comment "Public documents on the internet, public library, etc. (Some technical standards may be found at a major central library or at the library of a good technical university)"@en ;
       rdfs:label "Public"@en ;
       skos:note "TODO, include in the current instances" .
-
-sto:published
-      rdf:type owl:ObjectProperty ;
-      rdfs:comment "A standard published by this organization"@en ;
-      rdfs:domain sto:SDO ;
-      rdfs:label "Published" ;
-      rdfs:range sto:Standard ;
-      rdfs:subPropertyOf foaf:made ;
-      owl:inverseOf sto:publisher .
 
 sto:publisher
       rdf:type owl:ObjectProperty ;
