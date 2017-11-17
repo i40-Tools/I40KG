@@ -1730,7 +1730,24 @@ sto:ProductionEngineering
 sto:StandarizationInitiative
       rdf:type owl:Class ;
       rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-      rdfs:label "StandarizationInitiative"@en .
+      rdfs:label "StandarizationInitiative"@en ;
+      .
+
+sto:NISTInitiative
+      rdf:type owl:Class ;
+      rdfs:subClassOf sto:StandarizationInitiative;
+      rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST."@en ;
+      rdfs:label "NISTInitiative"@en ;
+      rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
+      .
+
+sto:RAMI
+      rdf:type owl:Class ;
+      rdfs:subClassOf sto:StandarizationInitiative;
+      rdfs:comment "Describes the RAMI Initiative, i.e., NIST."@en ;
+      rdfs:label "RAMI"@en ;
+      rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html> ;
+      .
 
 sto:ProductionSystemLifeCycle
       rdf:type owl:Class ;
