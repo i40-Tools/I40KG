@@ -110,6 +110,34 @@ sto:Availability
       rdfs:label "StandardLicense"@en ;
       rdfs:subClassOf foaf:Document .
 
+sto:Term
+      rdf:type owl:Class ;
+      rdfs:comment "Represents Terms that are described by Standards"@en ;
+      rdfs:label "Term"@en ;
+ .
+
+sto:hasTermName 
+      rdf:type owl:DatatypeProperty; 
+      rdfs:domain sto:Term;
+      rdfs:comment "Represents the name of the Term described by Standards"@en ;
+      rdfs:label "hasTermName"@en ;
+ .     
+
+ sto:hasTermDefinition
+      rdf:type owl:DatatypeProperty; 
+      rdfs:domain sto:Term;
+      rdfs:comment "Represents the description, i.e., the semantic of the Term described by Standards"@en ;
+      rdfs:label "hasTermDefinition"@en ;
+ .     
+
+sto:contains
+      rdf:type owl:ObjectProperty; 
+      rdfs:domain sto:Standard;
+      rdfs:range sto:Term;
+      rdfs:comment "Represents that a Standard contains, i.e., defines a given term in the Standard document"@en ;
+      rdfs:label "contains"@en ;
+ .     
+
 sto:BBF
       rdf:type sto:SDO ;
       rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
@@ -2242,13 +2270,6 @@ sto:isPartOf
       rdfs:domain sto:StandardPart ;
       rdfs:label "isPartOf"@en ;
       rdfs:range sto:Standard .
-
-sto:isRelatedTo
-      rdf:type owl:ObjectProperty ;
-      rdfs:comment "points to related standards"@en ;
-      rdfs:domain sto:Standard ;
-      rdfs:label "isRelatedTo"@en ;
-      rdfs:range sto:ProductionSystemLifeCycle .
 
 sto:license
       rdf:type owl:ObjectProperty ;
