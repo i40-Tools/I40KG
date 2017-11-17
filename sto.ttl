@@ -757,6 +757,19 @@ sto:IEC_62541
       sto:relatedTo sto:IEC_62714 , sto:IEC_61499 , sto:IEC_61850 ;
       sto:scope sto:Industrial_Automation .
 
+sto:SCOR
+      rdf:type sto:Standard ;
+      rdfs:comment "APICS Supply Chain Operations Reference."@en ;
+      rdfs:label "SCOR"@en ;
+      sto:developer sto:APICS ;
+      sto:hasDBpediaResource <http://dbpedia.org/page/Supply-chain_operations_reference> ;
+      sto:hasOfficialResource
+              <http://www.apics.org/apics-for-business/products-and-services/apics-scc-frameworks/scor> ;
+      sto:hasTag "SCOR"@en ;
+      sto:hasWikipediaArticle
+              <https://en.wikipedia.org/wiki/Supply-chain_operations_reference> ;
+      .      
+
 sto:IEC_62591
       rdf:type sto:Standard ;
       rdfs:comment "Industrial networks - Wireless communication network and communication profiles."@en ;
@@ -899,7 +912,7 @@ sto:IEC_TS_62832
 
 sto:ISA
       rdf:type sto:SDO ;
-      rdfs:comment "The Internatoinal Society of Automation (www.isa.org) is a nonprofit professional association that sets the standard for those who apply engineering and technology to improve the management, safety, and cybersecurity of modern automation and control systems used across industry and critical infrastructure. Founded in 1945, ISA develops widely used global standards; certifies industry professionals; provides education and training; publishes books and technical articles; hosts conferences and exhibits; and provides networking and career development programs for its 40,000 members and 400,000 customers around the world."@en , "The International Society of Automation (www.isa.org) is a nonprofit professional association that sets the standard for those who apply engineering and technology to improve the management, safety, and cybersecurity of modern automation and control systems used across industry and critical infrastructure. Founded in 1945, ISA develops widely used global standards; certifies industry professionals; provides education and training; publishes books and technical articles; hosts conferences and exhibits; and provides networking and career development programs for its 40,000 members and 400,000 customers around the world."@en ;
+      rdfs:comment "The International Society of Automation (www.isa.org) is a nonprofit professional association that sets the standard for those who apply engineering and technology to improve the management, safety, and cybersecurity of modern automation and control systems used across industry and critical infrastructure. Founded in 1945, ISA develops widely used global standards; certifies industry professionals; provides education and training; publishes books and technical articles; hosts conferences and exhibits; and provides networking and career development programs for its 40,000 members and 400,000 customers around the world."@en , "The International Society of Automation (www.isa.org) is a nonprofit professional association that sets the standard for those who apply engineering and technology to improve the management, safety, and cybersecurity of modern automation and control systems used across industry and critical infrastructure. Founded in 1945, ISA develops widely used global standards; certifies industry professionals; provides education and training; publishes books and technical articles; hosts conferences and exhibits; and provides networking and career development programs for its 40,000 members and 400,000 customers around the world."@en ;
       sto:abbreviation "ISA" ;
       sto:formationDate "1945-04-28"^^xsd:date ;
       sto:hasDBpediaResource
@@ -911,6 +924,19 @@ sto:ISA
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/International_Society_of_Automation> ;
       sto:orgName "International Society of Automation"@en .
+
+sto:APICS
+      rdf:type sto:SDO ;
+      rdfs:label "APICS"@en;
+      rdfs:comment "American Production and Inventory Control Society."@en ;
+      sto:formationDate "1957"^^xsd:date ;
+      sto:hasDBpediaResource
+              <http://dbpedia.org/page/APICS> ;
+      sto:hasOfficialResource
+              <http://www.apics.org/apics> ;
+      sto:hasWikipediaArticle
+              <https://en.wikipedia.org/wiki/APICS> ;
+      sto:orgName "American Production and Inventory Control Society"@en .
 
 sto:ISA-95
       rdf:type sto:Standard ;
@@ -1792,6 +1818,20 @@ sto:SCADALevel
       rdfs:label "SCADALevel" ;
       skos:definition "Supervisory control and data acquisition according to ISA 95"@en .
 
+sto:SCM
+      rdf:type sto:BusinessCycleSCM ;
+      rdfs:comment "Describes Plan-Source-Make-Deliver-Return cycle for managing the manufacturing supply chain."@en ;
+      rdfs:label "Supply Chain Management"@en ;
+      .
+
+sto:BusinessProcessExecution
+      rdf:type sto:BusinessCycleSCM ;
+      rdfs:comment "Describes Business Process Execution concept."@en ;
+      rdfs:label "Business Process Execution"@en ;
+      .
+
+
+
 sto:SDO
       rdf:type owl:Class ;
       rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
@@ -1974,7 +2014,7 @@ sto:abbreviation
       rdfs:comment "Abbreviated  name of the organization"@en ;
       rdfs:domain sto:SDO ;
       rdfs:label "hasAbbreviatedName"@en ;
-      rdfs:range xsd:string .
+      rdfs:range rdf:PlainLiteral .
 
 sto:belongsTo
       rdf:type owl:ObjectProperty ;
