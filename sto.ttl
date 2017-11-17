@@ -359,7 +359,7 @@ sto:IEC_24760
               <https://www.iso.org/standard/57914.html> ;
       sto:hasPublicationDate
               "2011-01-12"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductModelDataExchange ;
+      sto:isEmployedBy sto:ProductModelDataExchange ;
       sto:norm "24760" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62443 ;
@@ -390,7 +390,7 @@ sto:IEC_29182-1
       sto:hasISA95Level sto:DeviceLevel ;
       sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
       sto:hasPublicationDate "2013-06"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionSystemModelData ;
+      sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "24760" ;
       sto:publisher sto:IEC ,
                     sto:ISO ;
@@ -453,7 +453,7 @@ sto:IEC_61360
       sto:hasOfficialResource
               <https://webstore.iec.ch/publication/5380> , <http://cdd.iec.ch/cdd/iec61360/iec61360.nsf> ;
       sto:hasTag "IEC Common Data Dictionary"@en ;
-      sto:isUtilizedIn sto:ManufacturingModelData ;
+      sto:isEmployedBy sto:ManufacturingModelData ;
       sto:motivation "Standard data elements (properties) are used as elements in administration shell"@en ;
       sto:norm "IEC 61360" ;
       sto:publisher sto:IEC ;
@@ -676,10 +676,10 @@ sto:IEC_62337
               <https://webstore.iec.ch/publication/6871> ;
       sto:hasPublicationDate
               "2012-02-22"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionSystemModelData ;
+      sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "62337" ;
       sto:publisher sto:IEC ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:IEC_62424
       rdf:type sto:Standard ;
@@ -758,7 +758,7 @@ sto:IEC_62541
       sto:norm "62541" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62714 , sto:IEC_61499 , sto:IEC_61850 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:SCOR
       rdf:type sto:Standard ;
@@ -816,7 +816,7 @@ sto:IEC_62714
               <https://www.wikidata.org/entity/Q431851> ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/AutomationML> ;
-      sto:isUtilizedIn sto:ProductModelDataExchange ;
+      sto:isEmployedBy sto:ProductModelDataExchange ;
       sto:license "Open"@en ;
       sto:norm "62714" ;
       sto:publisher sto:IEC ;
@@ -861,7 +861,7 @@ sto:IEC_81714
               <https://www.iso.org/standard/40134.html> ;
       sto:hasPublicationDate
               "2004-10"^^xsd:date ;
-      sto:isUtilizedIn sto:ModellingPractice ;
+      sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "81714" ;
       sto:publisher sto:IEC , sto:ISO ;
       sto:scope sto:CAD .
@@ -894,11 +894,11 @@ sto:IEC_TS_62237
       sto:hasPublicationDate
               "2003-10-26"^^xsd:date ;
       sto:hasUrl <https://webstore.iec.ch/publication/6626> ;
-      sto:isUtilizedIn sto:ProductionSystemModelData ;
+      sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "62337" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62337 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:IEC_TS_62832
       rdf:type sto:Standard ;
@@ -961,6 +961,7 @@ sto:ISA-95
 
 sto:ISA95Level
       rdf:type owl:Class ;
+      rdfs:subClassOf sto:StandarizationInitiative; 
       rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
       rdfs:label "ISA95Level"@en .
 
@@ -989,7 +990,7 @@ sto:ISO_10303
       sto:hasTag "Automation systems and integration"@en ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/ISO_10303> ;
-      sto:isUtilizedIn sto:ProductLifeCycleManagement ;
+      sto:isEmployedBy sto:ProductLifeCycleManagement ;
       sto:norm "10303" ;
       sto:publisher sto:ISO ;
       sto:scope "CAD" .
@@ -1006,7 +1007,7 @@ sto:ISO_1101
               <https://www.iso.org/standard/66777.html> ;
       sto:hasPublicationDate
               "2017-02"^^xsd:date ;
-      sto:isUtilizedIn sto:ModellingPractice ;
+      sto:isEmployedBy sto:ModellingPractice ;
       sto:publisher sto:ISO .
 
 sto:ISO_11898-1
@@ -1023,7 +1024,7 @@ sto:ISO_11898-1
       sto:norm "11898" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_61512 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_1302
       rdf:type sto:Standard ;
@@ -1036,7 +1037,7 @@ sto:ISO_1302
               <https://www.iso.org/standard/28089.html> ;
       sto:hasPublicationDate
               "2002-02"^^xsd:date ;
-      sto:isUtilizedIn sto:ModellingPractice ;
+      sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "1302" .
 
 sto:ISO_13374
@@ -1052,10 +1053,10 @@ sto:ISO_13374
               <https://www.iso.org/standard/61131.html> ;
       sto:hasPublicationDate
               "2012-02"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionSystemEngineering ;
+      sto:isEmployedBy sto:ProductionSystemEngineering ;
       sto:norm "13374" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_13485
       rdf:type sto:Standard ;
@@ -1081,7 +1082,7 @@ sto:ISO_13584
               <https://www.wikidata.org/entity/Q5974206> ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/ISO_13584> ;
-      sto:isUtilizedIn sto:ProductCatalogData ;
+      sto:isEmployedBy sto:ProductCatalogData ;
       sto:license "Private"@en ;
       sto:motivation "Standard data elements (properties) are used as elements in administration shell"@en ;
       sto:norm "13584" ;
@@ -1119,7 +1120,7 @@ sto:ISO_14306
               <https://www.iso.org/standard/60572.html> ;
       sto:hasPublicationDate
               "2017-07"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionSystemModelData , sto:ProcessPlanning ;
+      sto:isEmployedBy sto:ProductionSystemModelData , sto:ProcessPlanning ;
       sto:norm "14306" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_62541 ;
@@ -1134,7 +1135,7 @@ sto:ISO_14739-1
               <https://www.iso.org/standard/54948.html> ;
       sto:hasPublicationDate
               "2014-12"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductModelDataExchange ;
+      sto:isEmployedBy sto:ProductModelDataExchange ;
       sto:norm "14739-1" ;
       sto:publisher sto:ISO ;
       sto:scope sto:CAD .
@@ -1155,7 +1156,7 @@ sto:ISO_15704
       sto:norm "15704" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_19439 , sto:ISO_13374 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_15746
       rdf:type sto:Standard ;
@@ -1170,11 +1171,11 @@ sto:ISO_15746
               <https://www.iso.org/standard/61131.html> ;
       sto:hasPublicationDate
               "2015-04"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductLifeCycleManagement ;
+      sto:isEmployedBy sto:ProductLifeCycleManagement ;
       sto:norm "15746" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_15926 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_15926
       rdf:type sto:Standard ;
@@ -1189,11 +1190,11 @@ sto:ISO_15926
               <https://www.iso.org/standard/29557.html> ;
       sto:hasPublicationDate
               "2003-12"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductLifeCycleManagement ;
+      sto:isEmployedBy sto:ProductLifeCycleManagement ;
       sto:norm "15926" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_ASTM_52915 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_16739
       rdf:type sto:Standard ;
@@ -1207,11 +1208,11 @@ sto:ISO_16739
               <https://www.iso.org/standard/51622.html> ;
       sto:hasPublicationDate
               "2013-04"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductLifeCycleManagement ;
+      sto:isEmployedBy sto:ProductLifeCycleManagement ;
       sto:norm "16739" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_62890 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_16792
       rdf:type sto:Standard ;
@@ -1224,7 +1225,7 @@ sto:ISO_16792
               <https://www.iso.org/standard/56865.html> ;
       sto:hasPublicationDate
               "2015-12"^^xsd:date ;
-      sto:isUtilizedIn sto:ModellingPractice ;
+      sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "16792" ;
       sto:publisher sto:ISO ;
       sto:scope sto:CAD .
@@ -1242,11 +1243,11 @@ sto:ISO_18629
               <https://www.iso.org/standard/35431.html> ;
       sto:hasPublicationDate
               "2004-11"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionEngineering , sto:ProductModelDataExchange ;
+      sto:isEmployedBy sto:ProductionEngineering , sto:ProductModelDataExchange ;
       sto:norm "18629" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_15926 , sto:ISO_ASTM_52915 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_18828-2
       rdf:type sto:Standard ;
@@ -1260,11 +1261,11 @@ sto:ISO_18828-2
               <https://www.iso.org/standard/63505.html> ;
       sto:hasPublicationDate
               "2016-10"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionEngineering ;
+      sto:isEmployedBy sto:ProductionEngineering ;
       sto:norm "18828" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_61804 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_19439
       rdf:type sto:Standard ;
@@ -1297,7 +1298,7 @@ sto:ISO_19440
               <https://www.iso.org/standard/33834.html> ;
       sto:hasPublicationDate
               "2007-12"^^xsd:date ;
-      sto:isUtilizedIn sto:EnterpriseLevel ;
+      sto:isEmployedBy sto:EnterpriseLevel ;
       sto:norm "19440" ;
       sto:publisher sto:ISO ;
       sto:scope sto:EnterpriseIntegration .
@@ -1377,7 +1378,7 @@ sto:ISO_22400
       sto:norm "22400" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_62541 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_22745-11
       rdf:type sto:Standard ;
@@ -1390,10 +1391,10 @@ sto:ISO_22745-11
               <https://www.iso.org/standard/53999.html> ;
       sto:hasPublicationDate
               "2010-02"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductCatalogData ;
+      sto:isEmployedBy sto:ProductCatalogData ;
       sto:norm "22745" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_27000
       rdf:type sto:Standard ;
@@ -1423,7 +1424,7 @@ sto:ISO_5459
               <https://www.iso.org/standard/40358.html> ;
       sto:hasPublicationDate
               "2011-08"^^xsd:date ;
-      sto:isUtilizedIn sto:ModellingPractice ;
+      sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "5459" ;
       sto:publisher sto:ISO ;
       sto:scope sto:M2M .
@@ -1439,7 +1440,7 @@ sto:ISO_8062-4
               <https://www.iso.org/standard/60774.html> ;
       sto:hasPublicationDate "2017-07"^^xsd:date ;
       sto:hasTag "Automation systems and integration"@en ;
-      sto:isUtilizedIn sto:ProductionSystemModelData ;
+      sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "8062" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_10303 ;
@@ -1458,11 +1459,11 @@ sto:ISO_ASTM_52915
               <https://www.iso.org/standard/60572.html> ;
       sto:hasPublicationDate
               "2016-02"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionSystemEngineering ;
+      sto:isEmployedBy sto:ProductionSystemEngineering ;
       sto:norm "52915" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_14306 , sto:IEC_62541 ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:ISO_PAS_17506
       rdf:type sto:Standard ;
@@ -1494,10 +1495,10 @@ sto:ISO_TS_14649-201
               <https://www.iso.org/standard/60042.html> ;
       sto:hasPublicationDate
               "2011-12"^^xsd:date ;
-      sto:isUtilizedIn sto:ProductionSystemModelData ;
+      sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "14649" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:Industrial_Automation .
+      sto:scope sto:IndustrialAutomation .
 
 sto:IEC_PAS_63088 
       rdf:type sto:Standard ;
@@ -1509,12 +1510,12 @@ sto:IEC_PAS_63088
       sto:publisher sto:ISO, sto:IEC ;
       .
 
-sto:Industrial_Automation
+sto:IndustrialAutomation
       rdf:type sto:Domain ;
       rdfs:comment "Industrial automation deals primarily with the automation of manufacturing, quality control and material handling processes. General purpose controllers for industrial processes include Programmable logic controllers, stand-alone I/O modules, and computers. Industrial automation is to replace the decision making of humans and manual command-response activities with the use of mechanized equipment and logical programming commands. One trend is increased use of Machine vision to provide automatic inspection and robot guidance functions, another is a continuing increase in the use of robots. Industrial automation is simply done at the industrial level."@en ;
       sto:domainName "Industrial Automation"@en ;
       sto:hasDBpediaResource
-              <http://dbpedia.org/resource/Category:Industrial_automation> ;
+              <http://dbpedia.org/resource/Category:IndustrialAutomation> ;
       sto:hasWikidataEntity
               <http://www.wikidata.org/entity/Q8547780> ;
       sto:hasWikipediaArticle
@@ -1616,7 +1617,7 @@ sto:ModBus
               <https://www.wikidata.org/wiki/Q1135322> ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Modbus> ;
-      sto:isUtilizedIn sto:ProductionEngineering ;
+      sto:isEmployedBy sto:ProductionEngineering ;
       sto:norm "ModBus" ;
       sto:publisher sto:SE .
 
@@ -2238,13 +2239,6 @@ sto:isRelatedTo
       rdfs:comment "points to related standards"@en ;
       rdfs:domain sto:Standard ;
       rdfs:label "isRelatedTo"@en ;
-      rdfs:range sto:ProductionSystemLifeCycle .
-
-sto:isUtilizedIn
-      rdf:type owl:ObjectProperty ;
-      rdfs:comment "Utilized in PLM related area concept with areas of PLMManagement, Modeling Practice, Product Model Data exchange, Manufacturing Model Data, Product Catalog Data"@en ;
-      rdfs:domain sto:Standard ;
-      rdfs:label "isUtilizedIn"@en ;
       rdfs:range sto:ProductionSystemLifeCycle .
 
 sto:license
