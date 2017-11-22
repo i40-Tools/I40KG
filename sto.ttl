@@ -140,17 +140,20 @@ sto:contains
 
 # Definition of terms
 
-sto:Resource1 rdf:type sto:Term
+sto:Resource1 
+       rdf:type sto:Term ;
        sto:hasTermName "Resource"@en;
        sto:hasTermDefinition "Any device, tool and means, except raw material and final product components, at the disposal of the enterprise to produce goods or services."@en ;
   .
 
-sto:Resource2 rdf:type sto:Term
+sto:Resource2
+       rdf:type sto:Term ;
        sto:hasTermName "Resource"@en;
        sto:hasTermDefinition "Something that may be described in terms of a behavior, a capability, or a performance measure that is pertinent to the process."@en ;
   .
 
-sto:Resource3 rdf:type sto:Term
+sto:Resource3 
+       rdf:type sto:Term ;
        sto:hasTermName "Resource"@en;
        sto:hasTermDefinition "An enterprise entity that provides some or all of the capabilities required by the execution of an enterprise activity and/or business process."@en ;
   .
@@ -1668,7 +1671,7 @@ sto:IndustrialProcessMeasurementControl
 
 sto:CAD
       rdf:type sto:Domain ;
-      rdfs:label "CAD"
+      rdfs:label "CAD";
       rdfs:comment "Computer-Aided Design"@en ;
       rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Computer-aided_design>;
       sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design>;
