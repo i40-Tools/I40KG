@@ -354,6 +354,41 @@ sto:QIF
       sto:hasOfficialResource <http://qifstandards.org/> ;
       sto:publisher sto:DMSC;
       skos:note "Is implemented in XML";
+.
+
+sto:ISO_15531
+      rdf:type sto:Standard ;
+      rdfs:label "ISO 15531"@en;
+      rdfs:comment "This Standard models manufacturing management data such as, Resources management data (Resource model); Time related features (Time model); Flow management data in manufacturing (Flow management model)."@en;
+      rdfs:isDefinedBy <https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management>;
+      sto:hasOfficialResource <https://www.iso.org/standard/28144.html> ;
+      sto:publisher sto:ISO;
+      sto:hasTag "MANDATE";
+      sto:domain sto:IndustrialProcessMeasurementControl;
+.
+
+sto:ISO_15531-2x
+      rdf:type sto:StandardPart ;
+      sto:isPartOf sto:ISO_15531;
+      rdfs:label "ISO 15531 2x series"@en;
+      rdfs:comment "Production data for external exchanges. refering to the representation of product information to be exchanged with the external environment (customers and suppliers), with the aim to model the main production information exchanged between industrial companies, in order to improve exchanges and integration through the use of EDI protocols."@en;
+      rdfs:isDefinedBy <https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management>;
+. 
+
+sto:ISO_15531-3x
+      rdf:type sto:StandardPart ;
+      sto:isPartOf sto:ISO_15531;
+      rdfs:label "ISO 15531 3x series"@en;
+      rdfs:comment "Manufacturing resource usage management data : refering to the way of managing the use of resources, such as resource configuration and capabilities, operation management of manufacturing devices, installations and facilities."@en;
+      rdfs:isDefinedBy <https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management>;
+. 
+
+sto:ISO_15531-4x
+      rdf:type sto:StandardPart ;
+      sto:isPartOf sto:ISO_15531;
+      rdfs:label "ISO 15531 4x series"@en;
+      rdfs:comment "Manufacturing flow management data : refering to the material flow control and aiming at the representation of data and elements supporting the control and monitoring of the flow of materials in manufacturing processes."@en;
+      rdfs:isDefinedBy <https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management>;
 .      
 
 sto:IEC_15459
@@ -391,7 +426,7 @@ sto:IEC_24760
       sto:norm "24760" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62443 ;
-      sto:scope sto:M2M .
+      sto:hasDomain sto:M2M .
 
 sto:IEC_27000
       rdf:type owl:NamedIndividual .
@@ -414,7 +449,7 @@ sto:IEC_29182-1
       rami:hasRAMIHierarchyLevel
               rami:FieldDevice , 
               rami:ControlDevice ;
-      sto:Scope sto:M2M ;
+      sto:hasDomain sto:M2M ;
       sto:hasISA95Level sto:DeviceLevel ;
       sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
       sto:hasPublicationDate "2013-06"^^xsd:date ;
@@ -438,7 +473,7 @@ sto:IEC_60839-5-2
       sto:norm "60839" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62443 ;
-      sto:scope sto:M2M .
+      sto:hasDomain sto:M2M .
 
 sto:IEC_61131
       rdf:type sto:Standard ;
@@ -707,7 +742,7 @@ sto:IEC_62337
       sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "62337" ;
       sto:publisher sto:IEC ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:IEC_62424
       rdf:type sto:Standard ;
@@ -787,7 +822,7 @@ sto:IEC_62541
       sto:norm "62541" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62714 , sto:IEC_61499 , sto:IEC_61850 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_9000
       rdf:type sto:Standard ;
@@ -915,7 +950,7 @@ sto:IEC_81714
       sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "81714" ;
       sto:publisher sto:IEC , sto:ISO ;
-      sto:scope sto:CAD .
+      sto:hasDomain sto:CAD .
 
 sto:IEC_TR_62794
       rdf:type sto:Standard ;
@@ -949,7 +984,7 @@ sto:IEC_TS_62237
       sto:norm "62337" ;
       sto:publisher sto:IEC ;
       sto:relatedTo sto:IEC_62337 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:IEC_TS_62832
       rdf:type sto:Standard ;
@@ -1055,14 +1090,13 @@ sto:ISO_10303
       rdf:type sto:Standard ;
       rdfs:comment "Standard for the Exchange of Product model data. ISO 10303 can represent 3D objects in Computer-aided design (CAD) and related information."@en ;
       rdfs:label "ISO 10303"@en ;
-      skos:altLabel "STEP"@en ;
-      sto:hasTag "Automation systems and integration"@en ;
-      sto:hasWikipediaArticle
-              <https://en.wikipedia.org/wiki/ISO_10303> ;
+      sto:hasTag "STEP"@en ;
+      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_10303> ;
+      sto:hasDBpediaResource <http://dbpedia.org/page/ISO_10303> ;
       sto:isEmployedBy sto:ProductLifeCycleManagement ;
       sto:norm "10303" ;
       sto:publisher sto:ISO ;
-      sto:scope "CAD" .
+      sto:scope sto:CAD .
 
 sto:ISO_1101
       rdf:type sto:Standard ;
@@ -1093,7 +1127,7 @@ sto:ISO_11898-1
       sto:norm "11898" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_61512 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_1302
       rdf:type sto:Standard ;
@@ -1125,7 +1159,7 @@ sto:ISO_13374
       sto:isEmployedBy sto:ProductionSystemEngineering ;
       sto:norm "13374" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_13485
       rdf:type sto:Standard ;
@@ -1193,7 +1227,7 @@ sto:ISO_14306
       sto:norm "14306" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_62541 ;
-      sto:scope "CAD" .
+      sto:scope sto:CAD .
 
 sto:ISO_14739-1
       rdf:type sto:Standard ;
@@ -1207,7 +1241,7 @@ sto:ISO_14739-1
       sto:isEmployedBy sto:ProductModelDataExchange ;
       sto:norm "14739-1" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:CAD .
+      sto:hasDomain sto:CAD .
 
 sto:ISO_15704
       rdf:type sto:Standard ;
@@ -1225,7 +1259,7 @@ sto:ISO_15704
       sto:norm "15704" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_19439 , sto:ISO_13374 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_15746
       rdf:type sto:Standard ;
@@ -1244,7 +1278,7 @@ sto:ISO_15746
       sto:norm "15746" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_15926 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_15926
       rdf:type sto:Standard ;
@@ -1263,7 +1297,7 @@ sto:ISO_15926
       sto:norm "15926" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_ASTM_52915 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_16739
       rdf:type sto:Standard ;
@@ -1281,7 +1315,7 @@ sto:ISO_16739
       sto:norm "16739" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_62890 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_16792
       rdf:type sto:Standard ;
@@ -1297,7 +1331,7 @@ sto:ISO_16792
       sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "16792" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:CAD .
+      sto:hasDomain sto:CAD .
 
 sto:ISO_18629
       rdf:type sto:Standard ;
@@ -1316,7 +1350,7 @@ sto:ISO_18629
       sto:norm "18629" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_15926 , sto:ISO_ASTM_52915 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_18828-2
       rdf:type sto:Standard ;
@@ -1334,7 +1368,7 @@ sto:ISO_18828-2
       sto:norm "18828" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_61804 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_19439
       rdf:type sto:Standard ;
@@ -1370,7 +1404,7 @@ sto:ISO_19440
       sto:isEmployedBy sto:EnterpriseLevel ;
       sto:norm "19440" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:EnterpriseIntegration .
+      sto:hasDomain sto:EnterpriseIntegration .
 
 sto:ISO_20140_5
       rdf:type sto:Standard ;
@@ -1447,7 +1481,7 @@ sto:ISO_22400
       sto:norm "22400" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:IEC_62541 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_22745-11
       rdf:type sto:Standard ;
@@ -1463,7 +1497,7 @@ sto:ISO_22745-11
       sto:isEmployedBy sto:ProductCatalogData ;
       sto:norm "22745" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_27000
       rdf:type sto:Standard ;
@@ -1496,7 +1530,7 @@ sto:ISO_5459
       sto:isEmployedBy sto:ModellingPractice ;
       sto:norm "5459" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:M2M .
+      sto:hasDomain sto:M2M .
 
 sto:ISO_8062-4
       rdf:type sto:Standard ;
@@ -1513,7 +1547,7 @@ sto:ISO_8062-4
       sto:norm "8062" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_10303 ;
-      sto:scope "CAD" .
+      sto:scope sto:CAD .
 
 sto:ISO_ASTM_52915
       rdf:type sto:Standard ;
@@ -1532,7 +1566,7 @@ sto:ISO_ASTM_52915
       sto:norm "52915" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_14306 , sto:IEC_62541 ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:ISO_PAS_17506
       rdf:type sto:Standard ;
@@ -1567,7 +1601,7 @@ sto:ISO_TS_14649-201
       sto:isEmployedBy sto:ProductionSystemModelData ;
       sto:norm "14649" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation .
 
 sto:IEC_PAS_63088 
       rdf:type sto:Standard ;
@@ -1600,6 +1634,21 @@ sto:M2M
               <http://www.wikidata.org/entity/Q251072> ;
       sto:hasWikipediaArticle
               <https://en.wikipedia.org/wiki/Machine_to_machine> .
+
+sto:IndustrialProcessMeasurementControl
+      rdf:type sto:Domain ;
+      rdfs:comment "Industrial process measurement and control"@en ;
+      sto:domainName "Industrial process measurement and control"@en ;
+  .
+
+sto:CAD
+      rdf:type sto:Domain ;
+      rdfs:label "CAD"
+      rdfs:comment "Computer-Aided Design"@en ;
+      rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Computer-aided_design>;
+      sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design>;
+      sto:domainName "Computer-Aided Design"@en ;
+  .
 
 sto:MESA
       rdf:type sto:SDO ;
@@ -2373,11 +2422,11 @@ sto:relatedTo
       rdfs:range sto:Standard ;
       skos:altLabel "hasAssociatedStandard"@en .
 
-sto:scope
+sto:hasDomain
       rdf:type owl:ObjectProperty ;
-      rdfs:comment "Describes the scope of the standard by defining specific goals and limitations"@en ;
+      rdfs:comment "Describes the domain, in which the standard is used"@en ;
       rdfs:domain sto:Standard ;
-      rdfs:label "scope"@en ;
+      rdfs:label "hasDomain"@en ;
       rdfs:range sto:Domain .
 
 sto:stoPartName
