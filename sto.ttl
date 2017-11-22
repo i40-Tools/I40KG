@@ -138,6 +138,28 @@ sto:contains
       rdfs:label "contains"@en ;
  .     
 
+# Definition of terms
+
+sto:Resource1 rdf:type sto:Term
+       sto:hasTermName "Resource"@en;
+       sto:hasTermDefinition "Any device, tool and means, except raw material and final product components, at the disposal of the enterprise to produce goods or services."@en ;
+  .
+
+sto:Resource2 rdf:type sto:Term
+       sto:hasTermName "Resource"@en;
+       sto:hasTermDefinition "Something that may be described in terms of a behavior, a capability, or a performance measure that is pertinent to the process."@en ;
+  .
+
+sto:Resource3 rdf:type sto:Term
+       sto:hasTermName "Resource"@en;
+       sto:hasTermDefinition "An enterprise entity that provides some or all of the capabilities required by the execution of an enterprise activity and/or business process."@en ;
+  .
+
+[ rdf:type 
+  owl:AllDifferent ;
+  owl:distinctMembers (sto:Resource1 sto:Resource2 sto:Resource3)] .
+
+
 sto:BBF
       rdf:type sto:SDO ;
       rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
@@ -365,6 +387,7 @@ sto:ISO_15531
       sto:publisher sto:ISO;
       sto:hasTag "MANDATE";
       sto:domain sto:IndustrialProcessMeasurementControl;
+      sto:contains sto:Resource1;
 .
 
 sto:ISO_15531-2x
@@ -393,12 +416,10 @@ sto:ISO_15531-4x
 
 sto:IEC_15459
       rdf:type sto:Standard ;
-      rdfs:comment """ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type.
- The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."""@en ;
+      rdfs:comment "ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type. The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."@en ;
       rdfs:label "IEC 15459"@en ;
       owl:sameAs sto:ISO_15459 ;
-      sto:hasOfficialResource
-              <https://www.iso.org/standard/54779.html> ;
+      sto:hasOfficialResource <https://www.iso.org/standard/54779.html> ;
       sto:hasTag "Information technology -- Automatic identification and data capture techniques -- Unique identification"@en ;
       sto:norm "15459" ;
       sto:publisher sto:IEC , sto:ISO .
@@ -1096,7 +1117,9 @@ sto:ISO_10303
       sto:isEmployedBy sto:ProductLifeCycleManagement ;
       sto:norm "10303" ;
       sto:publisher sto:ISO ;
-      sto:scope sto:CAD .
+      sto:scope sto:CAD ;
+      sto:contains sto:Resource2;
+    .  
 
 sto:ISO_1101
       rdf:type sto:Standard ;
@@ -1259,7 +1282,9 @@ sto:ISO_15704
       sto:norm "15704" ;
       sto:publisher sto:ISO ;
       sto:relatedTo sto:ISO_19439 , sto:ISO_13374 ;
-      sto:hasDomain sto:IndustrialAutomation .
+      sto:hasDomain sto:IndustrialAutomation ;
+      sto:contains sto:Resource3;
+      .
 
 sto:ISO_15746
       rdf:type sto:Standard ;
