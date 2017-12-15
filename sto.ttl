@@ -491,9 +491,8 @@ sto:Domain rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#ISA95
-sto:ISA95 rdf:type owl:Class ;
-          rdfs:subClassOf sto:StandarizationInitiative ;
-          rdfs:comment "Describes the ISA95 as other Standarization Initiative that classifies Standards"@en ;
+sto:ISA95 rdf:type sto:StandarizationInitiative ;
+          rdfs:comment "Describes the ISA95 as a Standarization Initiative that classifies Standards"@en ;
           rdfs:label "ISA95"@en .
 
 
@@ -505,18 +504,10 @@ sto:ISA95Level rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#NISTInitiative
-sto:NISTInitiative rdf:type owl:Class ;
-                   rdfs:subClassOf sto:StandarizationInitiative ;
-                   rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST."@en ;
+sto:NISTInitiative rdf:type sto:StandarizationInitiative ;
+                   rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST which provides a standard landascape"@en ;
                    rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                    rdfs:label "NISTInitiative"@en .
-
-
-###  https://w3id.org/i40/sto#PlattformI40
-sto:PlattformI40 rdf:type owl:Class ;
-                 rdfs:subClassOf sto:StandarizationInitiative ;
-                 rdfs:comment "Describes the RAMI Initiative, i.e., NIST."@en ;
-                 rdfs:label "PlattformI40"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -534,6 +525,12 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
                               rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
                               rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                               rdfs:label "ProductionSystemLifeCycle"@en .
+
+
+###  https://w3id.org/i40/sto#RAMI40
+sto:RAMI40 rdf:type sto:StandarizationInitiative ;
+           rdfs:comment "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
+           rdfs:label "RAMI 4.0"@en .
 
 
 ###  https://w3id.org/i40/sto#Standard
@@ -2335,8 +2332,7 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISA95Model
-sto:ISA95Model rdf:type owl:NamedIndividual ,
-                        sto:ISA95 ;
+sto:ISA95Model rdf:type owl:NamedIndividual ;
                sto:hasCategorizationArea sto:CrossLevel ,
                                          sto:DeviceLevel ,
                                          sto:EnterpriseLevel ,
@@ -3088,8 +3084,7 @@ sto:NIST rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
-sto:NISTIR_8107 rdf:type owl:NamedIndividual ,
-                         sto:NISTInitiative ;
+sto:NISTIR_8107 rdf:type owl:NamedIndividual ;
                 sto:hasCategorizationArea sto:BusinessProcessExecution ,
                                           sto:SCM ;
                 rdfs:comment "Describes the NIST Initiative"@en ;
@@ -3243,8 +3238,7 @@ sto:QIF rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RAMI
-sto:RAMI rdf:type owl:NamedIndividual ,
-                  sto:PlattformI40 ;
+sto:RAMI rdf:type owl:NamedIndividual ;
          sto:hasCategorizationArea rami:InformationLayer ;
          rdfs:comment "Describes the RAMI model"@en ;
          rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html> ;
