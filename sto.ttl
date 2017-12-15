@@ -490,24 +490,11 @@ sto:Domain rdf:type owl:Class ;
            rdfs:label "Domain"@en .
 
 
-###  https://w3id.org/i40/sto#ISA95
-sto:ISA95 rdf:type sto:StandarizationInitiative ;
-          rdfs:comment "Describes the ISA95 as a Standarization Initiative that classifies Standards"@en ;
-          rdfs:label "ISA95"@en .
-
-
 ###  https://w3id.org/i40/sto#ISA95Level
 sto:ISA95Level rdf:type owl:Class ;
                rdfs:subClassOf sto:CategorizationArea ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA95Level"@en .
-
-
-###  https://w3id.org/i40/sto#NISTInitiative
-sto:NISTInitiative rdf:type sto:StandarizationInitiative ;
-                   rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST which provides a standard landascape"@en ;
-                   rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
-                   rdfs:label "NISTInitiative"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -525,12 +512,6 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
                               rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
                               rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                               rdfs:label "ProductionSystemLifeCycle"@en .
-
-
-###  https://w3id.org/i40/sto#RAMI40
-sto:RAMI40 rdf:type sto:StandarizationInitiative ;
-           rdfs:comment "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
-           rdfs:label "RAMI 4.0"@en .
 
 
 ###  https://w3id.org/i40/sto#Standard
@@ -2331,6 +2312,13 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
            sto:hasTag "Enterprise-Control System Integration"@en .
 
 
+###  https://w3id.org/i40/sto#ISA95
+sto:ISA95 rdf:type owl:NamedIndividual ,
+                   sto:StandarizationInitiative ;
+          rdfs:comment "Describes the ISA95 as a Standarization Initiative that classifies Standards"@en ;
+          rdfs:label "ISA95"@en .
+
+
 ###  https://w3id.org/i40/sto#ISA95Model
 sto:ISA95Model rdf:type owl:NamedIndividual ;
                sto:hasCategorizationArea sto:CrossLevel ,
@@ -2661,8 +2649,7 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/35431.html> ;
-              sto:isEmployedBy sto:ProductModelDataExchange ,
-                               sto:ProductionEngineering ;
+              sto:isEmployedBy sto:ProductModelDataExchange ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_15926 ,
                             sto:ISO_ASTM_52915 ;
@@ -2686,7 +2673,6 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasDomain sto:IndustrialAutomation ;
                 sto:hasOfficialResource <https://www.iso.org/standard/63505.html> ;
-                sto:isEmployedBy sto:ProductionEngineering ;
                 sto:publisher sto:ISO ;
                 sto:relatedTo sto:IEC_61804 ;
                 sto:hasPublicationDate "2016-10"^^xsd:date ;
@@ -3039,7 +3025,9 @@ sto:Manufacturing rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#ManufacturingModelData
 sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
-                                    sto:ProductionSystemLifeCycle .
+                                    sto:ProductDevelopmentLifeCycle ;
+                           rdfs:comment "Manufacturing Model Data Standards define the data needed to manufacture a product from a design."@en ;
+                           rdfs:label "Manufacturing Model Data"@en .
 
 
 ###  https://w3id.org/i40/sto#ModBus
@@ -3050,7 +3038,6 @@ sto:ModBus rdf:type owl:NamedIndividual ,
            sto:hasOfficialResource <http://www.modbus.org/> ;
            sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q1135322> ;
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Modbus> ;
-           sto:isEmployedBy sto:ProductionEngineering ;
            sto:publisher sto:SE ;
            sto:norm "ModBus" ;
            rdfs:comment "Modbus is a serial communications protocol to be used in Programmable logic controllers (PLCs)."@en ;
@@ -3061,7 +3048,9 @@ sto:ModBus rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ModelingPractice
 sto:ModelingPractice rdf:type owl:NamedIndividual ,
-                              sto:ProductionSystemLifeCycle .
+                              sto:ProductDevelopmentLifeCycle ;
+                     rdfs:comment "Modeling practice standards define digital product-definition data practices for both two-dimensional (2D) drawings and three-dimensional (3D) models."@en ;
+                     rdfs:label "Modeling Practice"@en .
 
 
 ###  https://w3id.org/i40/sto#ModellingPractice
@@ -3090,6 +3079,14 @@ sto:NISTIR_8107 rdf:type owl:NamedIndividual ;
                 rdfs:comment "Describes the NIST Initiative"@en ;
                 rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                 rdfs:label "NISTIR_8107"@en .
+
+
+###  https://w3id.org/i40/sto#NISTInitiative
+sto:NISTInitiative rdf:type owl:NamedIndividual ,
+                            sto:StandarizationInitiative ;
+                   rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST which provides a standard landascape"@en ;
+                   rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
+                   rdfs:label "NISTInitiative"@en .
 
 
 ###  https://w3id.org/i40/sto#OAGIS
@@ -3190,40 +3187,50 @@ sto:ProcessPlanning rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#ProductCatalogData
 sto:ProductCatalogData rdf:type owl:NamedIndividual ,
-                                sto:ProductionSystemLifeCycle .
+                                sto:ProductDevelopmentLifeCycle ;
+                       rdfs:comment "Product catalog data standards support the description of particular instances of products or parts in a uniform, vendor-neutral way."@en ;
+                       rdfs:label "Product Catalog Data"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductLifeCycleManagement
 sto:ProductLifeCycleManagement rdf:type owl:NamedIndividual ,
-                                        sto:ProductionSystemLifeCycle .
+                                        sto:ProductDevelopmentLifeCycle ;
+                               rdfs:comment "Product lifecycle data management focuses on the needs of long-term retention and access to data consistently throughout the product lifecycle."@en ;
+                               rdfs:label "Production Life Cycle Management"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductModelDataExchange
 sto:ProductModelDataExchange rdf:type owl:NamedIndividual ,
-                                      sto:ProductionSystemLifeCycle .
+                                      sto:ProductDevelopmentLifeCycle ;
+                             rdfs:comment "These standards capture the representation of product and engineering information to enable data exchange between CAD software from different vendors."@en ;
+                             rdfs:label "Product Model Data Exchange"@en .
 
 
-###  https://w3id.org/i40/sto#ProductionEngineering
-sto:ProductionEngineering rdf:type owl:NamedIndividual ,
-                                   sto:ProductionSystemLifeCycle .
+###  https://w3id.org/i40/sto#ProductionLifeCycleDataManagement
+sto:ProductionLifeCycleDataManagement rdf:type owl:NamedIndividual ,
+                                               sto:ProductionSystemLifeCycle ;
+                                      rdfs:label "Production Life Cycle Data Management"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductionSystemEngineering
 sto:ProductionSystemEngineering rdf:type owl:NamedIndividual ,
                                          sto:ProductionSystemLifeCycle ;
-                                rdfs:comment "Standards can interconnect engineering tools from different disciplines, e.g., system engineering, mechanical plant engineering, electrical design, process engineering, process control engineering, Human Machine Interface (HMI) development, PLC programming, and robotic programming."@en .
+                                rdfs:comment "Standards can interconnect engineering tools from different disciplines, e.g., system engineering, mechanical plant engineering, electrical design, process engineering, process control engineering, Human Machine Interface (HMI) development, PLC programming, and robotic programming."@en ;
+                                rdfs:label "Production System Engineering"@en .
+
+
+###  https://w3id.org/i40/sto#ProductionSystemMaintenance
+sto:ProductionSystemMaintenance rdf:type owl:NamedIndividual ,
+                                         sto:ProductionSystemLifeCycle ;
+                                rdfs:comment "Classifies standards define data processing, communication, and presentation standards for condition monitoring and diagnostics of machines, for maintaining the adequate performance of the system, and for searching ways to improve performance"@en ;
+                                rdfs:label "Production System Maintenance"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductionSystemModelData
 sto:ProductionSystemModelData rdf:type owl:NamedIndividual ,
                                        sto:ProductionSystemLifeCycle ;
-                              rdfs:comment "Provide information models for factory and production system design. They enhance information exchange among stakeholders, and enable virtual commissioning, which can improve manufacturing agility and reduce manufacturing cost."@en .
-
-
-###  https://w3id.org/i40/sto#ProductionSystemOperationMaintenance
-sto:ProductionSystemOperationMaintenance rdf:type owl:NamedIndividual ,
-                                                  sto:ProductionSystemLifeCycle ;
-                                         rdfs:comment "Classifies standards define data processing, communication, and presentation standards for condition monitoring and diagnostics of machines, for maintaining the adequate performance of the system, and for searching ways to improve performance"@en .
+                              rdfs:comment "Provide information models for factory and production system design. They enhance information exchange among stakeholders, and enable virtual commissioning, which can improve manufacturing agility and reduce manufacturing cost."@en ;
+                              rdfs:label "Production System Model Data"@en .
 
 
 ###  https://w3id.org/i40/sto#QIF
@@ -3243,6 +3250,13 @@ sto:RAMI rdf:type owl:NamedIndividual ;
          rdfs:comment "Describes the RAMI model"@en ;
          rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html> ;
          rdfs:label "RAMI"@en .
+
+
+###  https://w3id.org/i40/sto#RAMI40
+sto:RAMI40 rdf:type owl:NamedIndividual ,
+                    sto:StandarizationInitiative ;
+           rdfs:comment "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
+           rdfs:label "RAMI 4.0"@en .
 
 
 ###  https://w3id.org/i40/sto#Resource1
