@@ -196,7 +196,7 @@ sto:hasRAMIITLayer rdf:type owl:ObjectProperty ;
                    rdfs:domain sto:Standard ;
                    rdfs:range rami:RAMIITLayer ;
                    rdfs:comment "Point to the IT RAMI Layer"@en ;
-                   rdfs:label "hasRAMIITLayer"@en .
+                   rdfs:label "has RAMI IT Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTag
@@ -259,8 +259,8 @@ sto:publisher rdf:type owl:ObjectProperty ;
 sto:ramiHierarchyLevel rdf:type owl:ObjectProperty ;
                        rdfs:domain sto:Standard ;
                        rdfs:range rami:RAMIHierarchyLevel ;
-                       rdfs:comment "associates the standards with the RAMI level in which they are applicable"@en ;
-                       rdfs:label "RAMIHierarchyLevel"@en .
+                       rdfs:comment "Associates the standards with the RAMI level in which they are applicable"@en ;
+                       rdfs:label "RAMI Hierarchy Level"@en .
 
 
 ###  https://w3id.org/i40/sto#relatedTo
@@ -453,13 +453,68 @@ foaf:Organization rdf:type owl:Class .
 
 ###  https://w3id.org/i40/rami#RAMIHierarchyLevel
 rami:RAMIHierarchyLevel rdf:type owl:Class ;
-                        rdfs:subClassOf sto:CategorizationArea .
+                        rdfs:subClassOf sto:CategorizationArea ;
+                        rdfs:label "RAMI Hierarchy Level"@en ;
+                        owl:oneOf (rami:ConnectedWorld rami:Enterprise rami:WorkCenter rami:Station rami:ControlDevice rami:FieldDevice rami:Product) ;
+                        .
+
+rami:RAMILifeCycleLayer a owl:Class ;
+      rdfs:subClassOf sto:CategorizationArea ; 
+      skos:prefLabel "RAMI Life Cycle Layer"@en ;
+      rdfs:label "RAMI Life Cycle Layer"@en ;
+      skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
+      rdfs:seeAlso <http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx> ;
+  .                        
 
 
 ###  https://w3id.org/i40/rami#RAMIITLayer
 rami:RAMIITLayer rdf:type owl:Class ;
                  rdfs:subClassOf sto:CategorizationArea ;
-                 rdfs:label "RAMIITLayer" .
+                 rdfs:label "RAMI IT Layer"@en ;
+                 owl:oneOf (rami:Business rami:Functional rami:Information rami:Communication rami:Integration rami:Asset) ;
+           .      
+
+
+rami:Business a  rami:RAMIITLayer;
+.
+
+rami:Functional a  rami:RAMIITLayer;
+.
+
+rami:Information a  rami:RAMIITLayer;
+.
+
+rami:Communication a  rami:RAMIITLayer;
+.
+
+rami:Integration a  rami:RAMIITLayer;
+.
+
+rami:Asset a  rami:RAMIITLayer;
+.
+
+
+rami:ConnectedWorld a rami:RAMIHierarchyLevel;
+.
+
+rami:Enterprise a rami:RAMIHierarchyLevel;
+.
+
+rami:WorkCenter a rami:RAMIHierarchyLevel;
+.
+
+rami:Station a rami:RAMIHierarchyLevel;
+.
+
+rami:ControlDevice a rami:RAMIHierarchyLevel;
+.
+
+rami:FieldDevice a rami:RAMIHierarchyLevel;
+.
+
+rami:Product a rami:RAMIHierarchyLevel;
+.
+
 
 
 ###  https://w3id.org/i40/sto#Availability
@@ -474,7 +529,7 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:subClassOf sto:CategorizationArea ;
                      rdfs:comment "Suply Chain Management Business Cycle."@en ;
                      rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
-                     rdfs:label "BusinessCycleSCM"@en ;
+                     rdfs:label "Business Cycle SCM"@en ;
                      rdfs:seeAlso <https://en.wikipedia.org/wiki/Supply_chain_management> .
 
 
@@ -494,7 +549,7 @@ sto:Domain rdf:type owl:Class ;
 sto:ISA95Level rdf:type owl:Class ;
                rdfs:subClassOf sto:CategorizationArea ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
-               rdfs:label "ISA95Level"@en .
+               rdfs:label "ISA95 Level"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -503,7 +558,7 @@ sto:ProductDevelopmentLifeCycle rdf:type owl:Class ;
                                 rdfs:comment "PLM is the process of managing the entire lifecycle of a product from inception, through engineering design and manufacture, to service and disposal of manufactured products. Related areas are PLMManagement, Modeling Practice, Product Model Data exchange, Manufacturing Model Data, Product Catalog Data."@en ,
                                              "Product Development Life-Cycle Phase"@en ;
                                 rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Product_lifecycle> ;
-                                rdfs:label "ProductDevelopmentLifeCycle"@en .
+                                rdfs:label "Product Development Life Cycle"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductionSystemLifeCycle
@@ -511,7 +566,7 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
                               rdfs:subClassOf sto:CategorizationArea ;
                               rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
                               rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
-                              rdfs:label "ProductionSystemLifeCycle"@en .
+                              rdfs:label "Production System Life Cycle"@en .
 
 
 ###  https://w3id.org/i40/sto#Standard
@@ -1346,7 +1401,8 @@ dbr:United_States rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/rami#InformationLayer
 rami:InformationLayer rdf:type owl:NamedIndividual ,
-                               rami:RAMIITLayer .
+                               rami:RAMIITLayer ;
+                      rdfs:label "Information Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#
@@ -1462,7 +1518,7 @@ sto:Closed rdf:type owl:NamedIndividual ,
 sto:CrossLevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
                rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
-               rdfs:label "CrossLevel" .
+               rdfs:label "Cross Level"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN
@@ -1497,7 +1553,7 @@ sto:Design rdf:type owl:NamedIndividual .
 sto:DeviceLevel rdf:type owl:NamedIndividual ,
                          sto:ISA95Level ;
                 rdfs:comment "Describes the device level according to the ISA95 level classification."@en ;
-                rdfs:label "DeviceLevel"@en .
+                rdfs:label "Device Level"@en .
 
 
 ###  https://w3id.org/i40/sto#ETSI
@@ -1572,7 +1628,7 @@ sto:EnterpriseIntegration rdf:type owl:NamedIndividual .
 sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
                              sto:ISA95Level ;
                     rdfs:comment "Describes the Enterprise level according to the ISA95 level classification."@en ;
-                    rdfs:label "EnterpriseLevel" .
+                    rdfs:label "Enterprise Level"@en .
 
 
 ###  https://w3id.org/i40/sto#ForPurchasing
@@ -2316,7 +2372,7 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
 sto:ISA95 rdf:type owl:NamedIndividual ,
                    sto:StandarizationInitiative ;
           rdfs:comment "Describes the ISA95 as a Standarization Initiative that classifies Standards"@en ;
-          rdfs:label "ISA95"@en .
+          rdfs:label "ISA 95"@en .
 
 
 ###  https://w3id.org/i40/sto#ISA95Model
@@ -2988,7 +3044,7 @@ sto:MIIT rdf:type owl:NamedIndividual ,
 sto:MOMLevel rdf:type owl:NamedIndividual ,
                       sto:ISA95Level ;
              rdfs:comment "Describes the MOM level according to the ISA95 level classification."@en ;
-             rdfs:label "MOMLevel" ;
+             rdfs:label "MOM Level"@en ;
              skos:definition "Manufacturing Operation Management Level according to ISA 95"@en .
 
 
@@ -3086,7 +3142,7 @@ sto:NISTInitiative rdf:type owl:NamedIndividual ,
                             sto:StandarizationInitiative ;
                    rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST which provides a standard landascape"@en ;
                    rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
-                   rdfs:label "NISTInitiative"@en .
+                   rdfs:label "NIST Initiative"@en .
 
 
 ###  https://w3id.org/i40/sto#OAGIS
@@ -3209,6 +3265,7 @@ sto:ProductModelDataExchange rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ProductionLifeCycleDataManagement
 sto:ProductionLifeCycleDataManagement rdf:type owl:NamedIndividual ,
                                                sto:ProductionSystemLifeCycle ;
+                                      rdfs:comment "Production lifecycle data management standards define general models of data integration, sharing, exchange, and hand-over for lifecycle support of production facilities."@en ;
                                       rdfs:label "Production Life Cycle Data Management"@en .
 
 
@@ -3287,7 +3344,7 @@ sto:Resource3 rdf:type owl:NamedIndividual ,
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
                rdfs:comment "Describes the SCADA level according to the ISA95 level classification."@en ;
-               rdfs:label "SCADALevel" ;
+               rdfs:label "SCADA Level"@en ;
                skos:definition "Supervisory control and data acquisition according to ISA 95"@en .
 
 
