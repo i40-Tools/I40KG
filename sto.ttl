@@ -71,6 +71,10 @@ skos:definition rdf:type owl:AnnotationProperty .
 skos:note rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
 ###  https://w3id.org/i40/rami#hasAdminShellSubmodel
 rami:hasAdminShellSubmodel rdf:type owl:AnnotationProperty .
 
@@ -128,7 +132,7 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:domain sto:StandardOrganization ;
               rdfs:range dbo:Country ;
               rdfs:comment "A Standard Organization that belongs to the country"@en ;
-              rdfs:label "belongsTo"@en .
+              rdfs:label "belongs To"@en .
 
 
 ###  https://w3id.org/i40/sto#contains
@@ -236,8 +240,7 @@ sto:isPartOf rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#license
 sto:license rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf terms:license ;
-            rdfs:domain sto:Standard ;
-            rdfs:range sto:Availability .
+            rdfs:domain sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#motivation
@@ -270,7 +273,7 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:domain sto:Standard ;
               rdfs:range sto:Standard ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
-              rdfs:label "relatedTo"@en ;
+              rdfs:label "related To"@en ;
               skos:altLabel "hasAssociatedStandard"@en .
 
 
@@ -389,7 +392,6 @@ sto:hasVideoDescription rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#licenseTerms
 sto:licenseTerms rdf:type owl:DatatypeProperty ;
-                 rdfs:domain sto:Availability ;
                  rdfs:range xsd:string ;
                  rdfs:comment "Terms described in the document of the Standard License"@en ;
                  rdfs:label "licenseTerms"@en .
@@ -421,7 +423,6 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#usageType
 sto:usageType rdf:type owl:DatatypeProperty ;
-              rdfs:domain sto:Availability ;
               rdfs:range xsd:string ;
               rdfs:comment "Type of usage for a given Standard License"@en ;
               rdfs:label "usageType"@en .
@@ -453,75 +454,42 @@ foaf:Organization rdf:type owl:Class .
 
 ###  https://w3id.org/i40/rami#RAMIHierarchyLevel
 rami:RAMIHierarchyLevel rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( rami:ConnectedWorld
+                                                          rami:ControlDevice
+                                                          rami:Enterprise
+                                                          rami:FieldDevice
+                                                          rami:Product
+                                                          rami:Station
+                                                          rami:WorkCenter
+                                                        )
+                                            ] ;
                         rdfs:subClassOf sto:CategorizationArea ;
-                        rdfs:label "RAMI Hierarchy Level"@en ;
-                        owl:oneOf (rami:ConnectedWorld rami:Enterprise rami:WorkCenter rami:Station rami:ControlDevice rami:FieldDevice rami:Product) ;
-                        .
-
-rami:RAMILifeCycleLayer a owl:Class ;
-      rdfs:subClassOf sto:CategorizationArea ; 
-      skos:prefLabel "RAMI Life Cycle Layer"@en ;
-      rdfs:label "RAMI Life Cycle Layer"@en ;
-      skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
-      rdfs:seeAlso <http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx> ;
-  .                        
+                        rdfs:label "RAMI Hierarchy Level"@en .
 
 
 ###  https://w3id.org/i40/rami#RAMIITLayer
 rami:RAMIITLayer rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( rami:Asset
+                                                   rami:Business
+                                                   rami:Communication
+                                                   rami:Functional
+                                                   rami:Information
+                                                   rami:Integration
+                                                 )
+                                     ] ;
                  rdfs:subClassOf sto:CategorizationArea ;
-                 rdfs:label "RAMI IT Layer"@en ;
-                 owl:oneOf (rami:Business rami:Functional rami:Information rami:Communication rami:Integration rami:Asset) ;
-           .      
+                 rdfs:label "RAMI IT Layer"@en .
 
 
-rami:Business a  rami:RAMIITLayer;
-.
-
-rami:Functional a  rami:RAMIITLayer;
-.
-
-rami:Information a  rami:RAMIITLayer;
-.
-
-rami:Communication a  rami:RAMIITLayer;
-.
-
-rami:Integration a  rami:RAMIITLayer;
-.
-
-rami:Asset a  rami:RAMIITLayer;
-.
-
-
-rami:ConnectedWorld a rami:RAMIHierarchyLevel;
-.
-
-rami:Enterprise a rami:RAMIHierarchyLevel;
-.
-
-rami:WorkCenter a rami:RAMIHierarchyLevel;
-.
-
-rami:Station a rami:RAMIHierarchyLevel;
-.
-
-rami:ControlDevice a rami:RAMIHierarchyLevel;
-.
-
-rami:FieldDevice a rami:RAMIHierarchyLevel;
-.
-
-rami:Product a rami:RAMIHierarchyLevel;
-.
-
-
-
-###  https://w3id.org/i40/sto#Availability
-sto:Availability rdf:type owl:Class ;
-                 rdfs:subClassOf foaf:Document ;
-                 rdfs:comment "Represents licenses that Standards can have, e.g., private, public, etc"@en ;
-                 rdfs:label "StandardLicense"@en .
+###  https://w3id.org/i40/rami#RAMILifeCycleLayer
+rami:RAMILifeCycleLayer rdf:type owl:Class ;
+                        rdfs:subClassOf sto:CategorizationArea ;
+                        rdfs:label "RAMI Life Cycle Layer"@en ;
+                        rdfs:seeAlso <http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx> ;
+                        skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
+                        skos:prefLabel "RAMI Life Cycle Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -1399,10 +1367,75 @@ dbr:United_States rdf:type owl:NamedIndividual .
 <https://w3id.org/i40/OASIS_(organization> rdf:type owl:NamedIndividual .
 
 
+###  https://w3id.org/i40/rami#Asset
+rami:Asset rdf:type owl:NamedIndividual ,
+                    rami:RAMIITLayer .
+
+
+###  https://w3id.org/i40/rami#Business
+rami:Business rdf:type owl:NamedIndividual ,
+                       rami:RAMIITLayer .
+
+
+###  https://w3id.org/i40/rami#Communication
+rami:Communication rdf:type owl:NamedIndividual ,
+                            rami:RAMIITLayer .
+
+
+###  https://w3id.org/i40/rami#ConnectedWorld
+rami:ConnectedWorld rdf:type owl:NamedIndividual ,
+                             rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#ControlDevice
+rami:ControlDevice rdf:type owl:NamedIndividual ,
+                            rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#Enterprise
+rami:Enterprise rdf:type owl:NamedIndividual ,
+                         rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#FieldDevice
+rami:FieldDevice rdf:type owl:NamedIndividual ,
+                          rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#Functional
+rami:Functional rdf:type owl:NamedIndividual ,
+                         rami:RAMIITLayer .
+
+
+###  https://w3id.org/i40/rami#Information
+rami:Information rdf:type owl:NamedIndividual ,
+                          rami:RAMIITLayer .
+
+
 ###  https://w3id.org/i40/rami#InformationLayer
 rami:InformationLayer rdf:type owl:NamedIndividual ,
                                rami:RAMIITLayer ;
                       rdfs:label "Information Layer"@en .
+
+
+###  https://w3id.org/i40/rami#Integration
+rami:Integration rdf:type owl:NamedIndividual ,
+                          rami:RAMIITLayer .
+
+
+###  https://w3id.org/i40/rami#Product
+rami:Product rdf:type owl:NamedIndividual ,
+                      rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#Station
+rami:Station rdf:type owl:NamedIndividual ,
+                      rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#WorkCenter
+rami:WorkCenter rdf:type owl:NamedIndividual ,
+                         rami:RAMIHierarchyLevel .
 
 
 ###  https://w3id.org/i40/sto#
@@ -1505,13 +1538,6 @@ sto:CAD rdf:type owl:NamedIndividual ,
         rdfs:comment "Computer-Aided Design"@en ;
         rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Computer-aided_design> ;
         rdfs:label "CAD" .
-
-
-###  https://w3id.org/i40/sto#Closed
-sto:Closed rdf:type owl:NamedIndividual ,
-                    sto:Availability ;
-           rdfs:comment "Closed or controlled documents that contain trade secrets or classified information"@en ;
-           rdfs:label "Closed"@en .
 
 
 ###  https://w3id.org/i40/sto#CrossLevel
@@ -1629,13 +1655,6 @@ sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
                              sto:ISA95Level ;
                     rdfs:comment "Describes the Enterprise level according to the ISA95 level classification."@en ;
                     rdfs:label "Enterprise Level"@en .
-
-
-###  https://w3id.org/i40/sto#ForPurchasing
-sto:ForPurchasing rdf:type owl:NamedIndividual ,
-                           sto:Availability ;
-                  rdfs:comment "Published documents available for purchase"@en ;
-                  rdfs:label "ForPurchasing"@en .
 
 
 ###  https://w3id.org/i40/sto#IBM
@@ -3507,13 +3526,6 @@ sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
                sto:license "Public"@en .
 
 
-###  https://w3id.org/i40/sto#WithCopyright
-sto:WithCopyright rdf:type owl:NamedIndividual ,
-                           sto:Availability ;
-                  rdfs:comment "Private documents owned by an organization or corporation, used and circulated as the owner determines necessary or useful"@en ;
-                  rdfs:label "WithCopyright"@en .
-
-
 ###  https://w3id.org/i40/sto#eClass
 sto:eClass rdf:type owl:NamedIndividual ,
                     sto:Standard ;
@@ -3550,22 +3562,6 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
                 sto:formationDate "2000-11-14"^^xsd:date ;
                 sto:orgName "eCl@ss e. V."@de ;
                 rdfs:comment "Der eCl@ss e. V. ist eine Non-Profit-Organisation, die den gleichnamigen Klassifikationsstandard branchenübergreifend international definiert, weiterentwickelt und verbreitet. Der Verein wird getragen von ordentlichen und fördernden Mitgliedern aus Unternehmen, Verbänden und Institutionen."@de .
-
-
-###  https://w3id.org/i40/sto#private
-sto:private rdf:type owl:NamedIndividual ,
-                     sto:Availability ;
-            rdfs:comment "Private documents owned by an organization or corporation, used and circulated as the owner determines necessary or useful"@en ;
-            rdfs:label "Private"@en ;
-            skos:note "TODO, include in the current instances" .
-
-
-###  https://w3id.org/i40/sto#public
-sto:public rdf:type owl:NamedIndividual ,
-                    sto:Availability ;
-           rdfs:comment "Public documents on the internet, public library, etc. (Some technical standards may be found at a major central library or at the library of a good technical university)"@en ;
-           rdfs:label "Public"@en ;
-           skos:note "TODO, include in the current instances" .
 
 
 ###  https://webstore.iec.ch/publication/22797
