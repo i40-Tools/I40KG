@@ -31,7 +31,6 @@
                              owl:versionInfo "0.2" ;
                              terms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                              terms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-                             terms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
                              terms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
                                            <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
                              doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
@@ -64,22 +63,8 @@ terms:hasVersion rdf:type owl:AnnotationProperty .
 terms:issued rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/terms/license
-terms:license
-    a owl:ObjectProperty ;
-    rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "License"@en ;
-    rdfs:range terms:LicenseDocument ;
-.
-
-
-terms:LicenseDocument
-    a owl:Class ;
-    rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "License Document"@en ;
- .
+###  http://purl.org/dc/terms/modified
+terms:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
@@ -156,7 +141,15 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/dc/terms/license
 terms:license rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Standard .
+              rdfs:domain sto:Standard ;
+              rdfs:range terms:LicenseDocument ;
+              terms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+              terms:issued "2004-06-14"^^xsd:date ;
+              terms:modified "2017-12-19"^^xsd:date ;
+              rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
+                           "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
+              rdfs:isDefinedBy terms: ;
+              rdfs:label "License"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/maker
@@ -263,14 +256,6 @@ sto:publisher rdf:type owl:ObjectProperty ;
               rdfs:range sto:StandardOrganization ;
               rdfs:comment "The organization that published this Standard"@en ;
               rdfs:label "publisher"@en .
-
-
-###  https://w3id.org/i40/sto#ramiHierarchyLevel
-sto:ramiHierarchyLevel rdf:type owl:ObjectProperty ;
-                       rdfs:domain sto:Standard ;
-                       rdfs:range rami:RAMIHierarchyLevel ;
-                       rdfs:comment "Associates the standards with the RAMI level in which they are applicable"@en ;
-                       rdfs:label "RAMI Hierarchy Level"@en .
 
 
 ###  https://w3id.org/i40/sto#relatedTo
@@ -442,7 +427,10 @@ dbo:Country rdf:type owl:Class .
 
 
 ###  http://purl.org/dc/terms/LicenseDocument
-terms:LicenseDocument rdf:type owl:Class .
+terms:LicenseDocument rdf:type owl:Class ;
+                      rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
+                      rdfs:isDefinedBy terms: ;
+                      rdfs:label "License Document"@en .
 
 
 ###  http://purl.org/muto/core#Tag
@@ -1450,7 +1438,8 @@ rami:WorkCenter rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#
-<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual .
+<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual ;
+                            terms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> .
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -3947,14 +3936,6 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 #################################################################
 #    Annotations
 #################################################################
-
-terms:license terms:issued "2004-06-14"^^xsd:date ;
-              rdfs:label "License"@en ;
-              terms:modified "2017-12-19"^^xsd:date ;
-              terms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-              rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
-              rdfs:isDefinedBy terms: .
-
 
 sto:hasTag rdfs:label "hasTag"@en ;
            rdfs:comment "points to the identification of the standards"@en .
