@@ -51,6 +51,32 @@ cc:attributionName rdf:type owl:AnnotationProperty .
 cc:attributionURL rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/elements/1.1/rights
+dc11:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/hasVersion
+terms:hasVersion rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+terms:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf dc11:rights ,
+                                 terms:rights .
+
+
+###  http://purl.org/dc/terms/modified
+terms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+terms:rights rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
 dul:isMemberOf rdf:type owl:AnnotationProperty .
 
@@ -103,6 +129,10 @@ sto:edition rdf:type owl:AnnotationProperty .
 sto:hasUrl rdf:type owl:AnnotationProperty .
 
 
+###  https://w3id.org/i40/sto#license
+sto:license rdf:type owl:AnnotationProperty .
+
+
 ###  https://w3id.org/i40/sto#scope
 sto:scope rdf:type owl:AnnotationProperty .
 
@@ -120,7 +150,9 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 ###  http://purl.org/dc/terms/license
-terms:license rdf:type owl:ObjectProperty .
+terms:license rdf:type owl:ObjectProperty ;
+              rdfs:domain sto:Standard ;
+              rdfs:range terms:LicenseDocument .
 
 
 ###  http://xmlns.com/foaf/0.1/maker
@@ -149,7 +181,7 @@ sto:developer rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range sto:StandardOrganization ;
               rdfs:comment "The organization that developed this Standard"@en ;
-              rdfs:label "Developer" .
+              rdfs:label "developer"@en .
 
 
 ###  https://w3id.org/i40/sto#hasCategorizationArea
@@ -234,13 +266,7 @@ sto:isPartOf rdf:type owl:ObjectProperty ;
              rdfs:domain sto:StandardPart ;
              rdfs:range sto:Standard ;
              rdfs:comment "Relates a given part of the Standard document with the complete document"@en ;
-             rdfs:label "isPartOf"@en .
-
-
-###  https://w3id.org/i40/sto#license
-sto:license rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf terms:license ;
-            rdfs:domain sto:Standard .
+             rdfs:label "is Part Of"@en .
 
 
 ###  https://w3id.org/i40/sto#motivation
@@ -255,7 +281,7 @@ sto:publisher rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range sto:StandardOrganization ;
               rdfs:comment "The organization that published this Standard"@en ;
-              rdfs:label "Publisher" .
+              rdfs:label "publisher"@en .
 
 
 ###  https://w3id.org/i40/sto#ramiHierarchyLevel
@@ -436,6 +462,10 @@ sto:usageType rdf:type owl:DatatypeProperty ;
 dbo:Country rdf:type owl:Class .
 
 
+###  http://purl.org/dc/terms/LicenseDocument
+terms:LicenseDocument rdf:type owl:Class .
+
+
 ###  http://purl.org/muto/core#Tag
 muto:Tag rdf:type owl:Class .
 
@@ -515,6 +545,14 @@ sto:Domain rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#ISA95Level
 sto:ISA95Level rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( sto:CrossLevel
+                                                 sto:DeviceLevel
+                                                 sto:EnterpriseLevel
+                                                 sto:MOMLevel
+                                                 sto:SCADALevel
+                                               )
+                                   ] ;
                rdfs:subClassOf sto:CategorizationArea ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA95 Level"@en .
@@ -2170,9 +2208,9 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
 sto:IEC_62541 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:OPC_Foundation ;
+              sto:hasCategorizationArea sto:SCADALevel ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/OPC_Unified_Architecture> ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:hasISA95Level sto:SCADALevel ;
               sto:hasOfficialResource <https://opcfoundation.org/about/opc-technologies/opc-ua/> ;
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q623244> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Unified_Architecture> ;
@@ -2392,17 +2430,6 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
                    sto:StandarizationInitiative ;
           rdfs:comment "Describes the ISA95 as a Standarization Initiative that classifies Standards"@en ;
           rdfs:label "ISA 95"@en .
-
-
-###  https://w3id.org/i40/sto#ISA95Model
-sto:ISA95Model rdf:type owl:NamedIndividual ;
-               sto:hasCategorizationArea sto:CrossLevel ,
-                                         sto:DeviceLevel ,
-                                         sto:EnterpriseLevel ,
-                                         sto:MOMLevel ,
-                                         sto:SCADALevel ;
-               rdfs:comment "An Instance of the ISA 95 to link the existing levels"@en ;
-               rdfs:label "ISA95Model"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO
@@ -3968,16 +3995,20 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
+terms:license terms:issued "2004-06-14"^^xsd:date ;
+              rdfs:label "License"@en ;
+              terms:modified "2017-12-19"^^xsd:date ;
+              terms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+              rdfs:isDefinedBy terms: ;
+              rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en .
+
+
 sto:hasTag rdfs:label "hasTag"@en ;
            rdfs:comment "points to the identification of the standards"@en .
 
 
 sto:hasVideoDescription rdfs:commment "Points to an existing URL of a video describing the Standard, e.g., the functions of the Standard as well as examples of applications"@en ;
                         rdfs:label "hasVideoDescription"@en .
-
-
-sto:license rdfs:comment "Denotes the Standards license"@en ;
-            rdfs:label "license"@en .
 
 
 sto:motivation rdfs:label "Motivation"@en ;
