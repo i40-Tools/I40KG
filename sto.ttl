@@ -65,18 +65,21 @@ terms:issued rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-terms:license rdf:type owl:AnnotationProperty ;
-              rdfs:subPropertyOf dc11:rights ,
-                                 terms:rights ;
-              rdfs:range terms:LicenseDocument .
+terms:license
+    a owl:ObjectProperty ;
+    rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "License"@en ;
+    rdfs:range terms:LicenseDocument ;
+.
 
 
-###  http://purl.org/dc/terms/modified
-terms:modified rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/rights
-terms:rights rdf:type owl:AnnotationProperty .
+terms:LicenseDocument
+    a owl:Class ;
+    rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "License Document"@en ;
+ .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
