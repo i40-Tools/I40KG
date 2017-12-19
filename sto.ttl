@@ -20,24 +20,24 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix terms: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
-                             terms:modified "2017-09-08"^^xsd:date ;
+                             dcterms:modified "2017-09-08"^^xsd:date ;
                              dc11:title "Standards Ontology"@en ;
-                             terms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
+                             dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
                              owl:versionInfo "0.2" ;
-                             terms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-                             terms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-                             terms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
-                                           <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
+                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
+                             dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
+                                             <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
                              doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                              dc11:description "An ontology to describe industry standards related to Smart Manufacturing" ;
                              vann:preferredNamespacePrefix "sto" ;
                              vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
-                             terms:created "2017-01-25"^^xsd:date .
+                             dcterms:created "2017-01-25"^^xsd:date .
 
 #################################################################
 #    Annotation properties
@@ -56,15 +56,15 @@ dc11:rights rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/hasVersion
-terms:hasVersion rdf:type owl:AnnotationProperty .
+dcterms:hasVersion rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/issued
-terms:issued rdf:type owl:AnnotationProperty .
+dcterms:issued rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/modified
-terms:modified rdf:type owl:AnnotationProperty .
+dcterms:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
@@ -140,16 +140,16 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 ###  http://purl.org/dc/terms/license
-terms:license rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Standard ;
-              rdfs:range terms:LicenseDocument ;
-              terms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-              terms:issued "2004-06-14"^^xsd:date ;
-              terms:modified "2017-12-19"^^xsd:date ;
-              rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
-                           "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
-              rdfs:isDefinedBy terms: ;
-              rdfs:label "License"@en .
+dcterms:license rdf:type owl:ObjectProperty ;
+                rdfs:domain sto:Standard ;
+                rdfs:range dcterms:LicenseDocument ;
+                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+                dcterms:issued "2004-06-14"^^xsd:date ;
+                dcterms:modified "2017-12-19"^^xsd:date ;
+                rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
+                             "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
+                rdfs:isDefinedBy dcterms: ;
+                rdfs:label "License"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/maker
@@ -206,7 +206,7 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasOfficialResource
 sto:hasOfficialResource rdf:type owl:ObjectProperty ;
                         rdfs:comment "Instance's Official Website"@en ;
-                        rdfs:label "hasOfficialResource"@en .
+                        rdfs:label "has Official Resource"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTag
@@ -227,12 +227,12 @@ sto:hasWikipediaArticle rdf:type owl:ObjectProperty ;
                         rdfs:label "has Wikipedia Article"@en .
 
 
-###  https://w3id.org/i40/sto#isEmployedBy
-sto:isEmployedBy rdf:type owl:ObjectProperty ;
-                 rdfs:domain sto:Standard ;
-                 rdfs:range sto:CategorizationArea ;
-                 rdfs:comment "An Standard is Employed By given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                 rdfs:label "isEmployedBy"@en .
+###  https://w3id.org/i40/sto#isCategorizedBy
+sto:isCategorizedBy rdf:type owl:ObjectProperty ;
+                    rdfs:domain sto:Standard ;
+                    rdfs:range sto:CategorizationArea ;
+                    rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
+                    rdfs:label "is Categorized By"@en .
 
 
 ###  https://w3id.org/i40/sto#isPartOf
@@ -427,10 +427,10 @@ dbo:Country rdf:type owl:Class .
 
 
 ###  http://purl.org/dc/terms/LicenseDocument
-terms:LicenseDocument rdf:type owl:Class ;
-                      rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
-                      rdfs:isDefinedBy terms: ;
-                      rdfs:label "License Document"@en .
+dcterms:LicenseDocument rdf:type owl:Class ;
+                        rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
+                        rdfs:isDefinedBy dcterms: ;
+                        rdfs:label "License Document"@en .
 
 
 ###  http://purl.org/muto/core#Tag
@@ -1439,7 +1439,7 @@ rami:WorkCenter rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#
 <https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual ;
-                            terms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> .
+                            dcterms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> .
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -1725,7 +1725,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:M2M ;
               sto:hasOfficialResource <https://www.iso.org/standard/57914.html> ;
-              sto:isEmployedBy sto:ProductModelDataExchange ;
+              sto:isCategorizedBy sto:ProductModelDataExchange ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_62443 ;
               sto:hasPublicationDate "2011-01-12"^^xsd:date ;
@@ -1763,7 +1763,7 @@ sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasDomain sto:M2M ;
                 sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
-                sto:isEmployedBy sto:ProductionSystemModelData ;
+                sto:isCategorizedBy sto:ProductionSystemModelData ;
                 sto:publisher sto:IEC ,
                               sto:ISO ;
                 sto:relatedTo sto:IEC_61158 ;
@@ -1873,7 +1873,7 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasOfficialResource <http://cdd.iec.ch/cdd/iec61360/iec61360.nsf> ,
                                       <https://webstore.iec.ch/publication/5380> ;
-              sto:isEmployedBy sto:ManufacturingModelData ;
+              sto:isCategorizedBy sto:ManufacturingModelData ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:ISO_13584 ,
                             sto:eClass ;
@@ -2085,7 +2085,7 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/6871> ;
-              sto:isEmployedBy sto:ProductionSystemModelData ;
+              sto:isCategorizedBy sto:ProductionSystemModelData ;
               sto:publisher sto:IEC ;
               sto:hasPublicationDate "2012-02-22"^^xsd:date ;
               sto:norm "62337" ;
@@ -2124,7 +2124,7 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q1653422> ,
                                     <https://www.wikidata.org/wiki/Q1653422> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Cyber_security_standards#ISA.2FIEC-62443_.28formerly_ISA-99.29> ;
-              sto:isEmployedBy sto:CrossLevel ;
+              sto:isCategorizedBy sto:CrossLevel ;
               sto:publisher sto:ANSI ,
                             sto:IEC ,
                             sto:ISA ;
@@ -2217,7 +2217,7 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://www.automationml.org/> ;
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q431851> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/AutomationML> ;
-              sto:isEmployedBy sto:ProductModelDataExchange ;
+              sto:isCategorizedBy sto:ProductModelDataExchange ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61360 ,
                             sto:IEC_61987_X ,
@@ -2268,7 +2268,7 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:CAD ;
               sto:hasOfficialResource <https://www.iso.org/standard/40134.html> ;
-              sto:isEmployedBy sto:ModellingPractice ;
+              sto:isCategorizedBy sto:ModellingPractice ;
               sto:publisher sto:IEC ,
                             sto:ISO ;
               sto:hasPublicationDate "2004-10"^^xsd:date ;
@@ -2316,7 +2316,7 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
 sto:IEC_TS_62237 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasDomain sto:IndustrialAutomation ;
-                 sto:isEmployedBy sto:ProductionSystemModelData ;
+                 sto:isCategorizedBy sto:ProductionSystemModelData ;
                  sto:publisher sto:IEC ;
                  sto:relatedTo sto:IEC_62337 ;
                  sto:hasPublicationDate "2003-10-26"^^xsd:date ;
@@ -2412,7 +2412,7 @@ sto:ISO_10303 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDBpediaResource <http://dbpedia.org/page/ISO_10303> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_10303> ;
-              sto:isEmployedBy sto:ProductLifeCycleManagement ;
+              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:norm "10303" ;
               rdfs:comment "Standard for the Exchange of Product model data. ISO 10303 can represent 3D objects in Computer-aided design (CAD) and related information."@en ;
@@ -2425,7 +2425,7 @@ sto:ISO_10303 rdf:type owl:NamedIndividual ,
 sto:ISO_1101 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasOfficialResource <https://www.iso.org/standard/66777.html> ;
-             sto:isEmployedBy sto:ModellingPractice ;
+             sto:isCategorizedBy sto:ModellingPractice ;
              sto:publisher sto:ISO ;
              sto:hasPublicationDate "2017-02"^^xsd:date ;
              rdfs:comment "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Tolerances of form, orientation, location and run-out"@en ;
@@ -2455,7 +2455,7 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
 sto:ISO_1302 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasOfficialResource <https://www.iso.org/standard/28089.html> ;
-             sto:isEmployedBy sto:ModellingPractice ;
+             sto:isCategorizedBy sto:ModellingPractice ;
              sto:hasPublicationDate "2002-02"^^xsd:date ;
              sto:norm "1302" ;
              rdfs:comment "Geometrical product specifications Standards"@en ;
@@ -2469,7 +2469,7 @@ sto:ISO_13374 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/61131.html> ;
-              sto:isEmployedBy sto:ProductionSystemEngineering ;
+              sto:isCategorizedBy sto:ProductionSystemEngineering ;
               sto:publisher sto:ISO ;
               sto:hasPublicationDate "2012-02"^^xsd:date ;
               sto:norm "13374" ;
@@ -2498,7 +2498,7 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://webstore.iec.ch/publication/5380%0Ahttp://www.iso.org/iso/catalogue_detail.htm?csnumber=43423> ;
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q5974206> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13584> ;
-              sto:isEmployedBy sto:ProductCatalogData ;
+              sto:isCategorizedBy sto:ProductCatalogData ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:IEC_61360 ,
                             sto:eClass ;
@@ -2529,8 +2529,8 @@ sto:ISO_13849 rdf:type owl:NamedIndividual ,
 sto:ISO_14306 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasOfficialResource <https://www.iso.org/standard/60572.html> ;
-              sto:isEmployedBy sto:ProcessPlanning ,
-                               sto:ProductionSystemModelData ;
+              sto:isCategorizedBy sto:ProcessPlanning ,
+                                  sto:ProductionSystemModelData ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:IEC_62541 ;
               sto:hasPublicationDate "2017-07"^^xsd:date ;
@@ -2553,7 +2553,7 @@ sto:ISO_14739-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasDomain sto:CAD ;
                 sto:hasOfficialResource <https://www.iso.org/standard/54948.html> ;
-                sto:isEmployedBy sto:ProductModelDataExchange ;
+                sto:isCategorizedBy sto:ProductModelDataExchange ;
                 sto:publisher sto:ISO ;
                 sto:hasPublicationDate "2014-12"^^xsd:date ;
                 sto:norm "14739-1" ;
@@ -2627,7 +2627,7 @@ sto:ISO_15746 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/61131.html> ;
-              sto:isEmployedBy sto:ProductLifeCycleManagement ;
+              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_15926 ;
               sto:hasPublicationDate "2015-04"^^xsd:date ;
@@ -2650,7 +2650,7 @@ sto:ISO_15926 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/29557.html> ;
-              sto:isEmployedBy sto:ProductLifeCycleManagement ;
+              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_ASTM_52915 ;
               sto:hasPublicationDate "2003-12"^^xsd:date ;
@@ -2668,7 +2668,7 @@ sto:ISO_16739 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/51622.html> ;
-              sto:isEmployedBy sto:ProductLifeCycleManagement ;
+              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:IEC_62890 ;
               sto:hasPublicationDate "2013-04"^^xsd:date ;
@@ -2685,7 +2685,7 @@ sto:ISO_16792 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:CAD ;
               sto:hasOfficialResource <https://www.iso.org/standard/56865.html> ;
-              sto:isEmployedBy sto:ModellingPractice ;
+              sto:isCategorizedBy sto:ModellingPractice ;
               sto:publisher sto:ISO ;
               sto:hasPublicationDate "2015-12"^^xsd:date ;
               sto:norm "16792" ;
@@ -2700,7 +2700,7 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/35431.html> ;
-              sto:isEmployedBy sto:ProductModelDataExchange ;
+              sto:isCategorizedBy sto:ProductModelDataExchange ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_15926 ,
                             sto:ISO_ASTM_52915 ;
@@ -2759,7 +2759,7 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDomain sto:EnterpriseIntegration ;
               sto:hasOfficialResource <https://www.iso.org/standard/33834.html> ;
-              sto:isEmployedBy sto:EnterpriseLevel ;
+              sto:isCategorizedBy sto:EnterpriseLevel ;
               sto:publisher sto:ISO ;
               sto:hasPublicationDate "2007-12"^^xsd:date ;
               sto:norm "19440" ;
@@ -2829,7 +2829,7 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasDomain sto:IndustrialAutomation ;
                  sto:hasOfficialResource <https://www.iso.org/standard/53999.html> ;
-                 sto:isEmployedBy sto:ProductCatalogData ;
+                 sto:isCategorizedBy sto:ProductCatalogData ;
                  sto:publisher sto:ISO ;
                  sto:hasPublicationDate "2010-02"^^xsd:date ;
                  sto:norm "22745" ;
@@ -2862,7 +2862,7 @@ sto:ISO_29161 rdf:type owl:NamedIndividual .
 sto:ISO_50001 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDBpediaResource <http://dbpedia.org/page/ISO_50001> ;
-              sto:isEmployedBy sto:CrossLevel ;
+              sto:isCategorizedBy sto:CrossLevel ;
               sto:publisher sto:ISO ;
               rdfs:comment "Energy management systems – Requirements with guidance for use is a specification created by the International Organization for Standardization (ISO) for an energy management system."@en ;
               rdfs:label "ISO 50001"@en .
@@ -2873,7 +2873,7 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasDomain sto:M2M ;
              sto:hasOfficialResource <https://www.iso.org/standard/40358.html> ;
-             sto:isEmployedBy sto:ModellingPractice ;
+             sto:isCategorizedBy sto:ModellingPractice ;
              sto:publisher sto:ISO ;
              sto:hasPublicationDate "2011-08"^^xsd:date ;
              sto:norm "5459" ;
@@ -2887,7 +2887,7 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
 sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                sto:hasOfficialResource <https://www.iso.org/standard/60774.html> ;
-               sto:isEmployedBy sto:ProductionSystemModelData ;
+               sto:isCategorizedBy sto:ProductionSystemModelData ;
                sto:publisher sto:ISO ;
                sto:relatedTo sto:ISO_10303 ;
                sto:hasPublicationDate "2017-07"^^xsd:date ;
@@ -2905,7 +2905,7 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasDBpediaResource <http://dbpedia.org/page/ISO_9000> ;
              sto:hasOfficialResource <https://www.iso.org/iso-9001-quality-management.html> ;
-             sto:isEmployedBy sto:CrossLevel ;
+             sto:isCategorizedBy sto:CrossLevel ;
              sto:publisher sto:ISO ;
              rdfs:comment "The ISO 9000 family of quality management systems standards is designed to help organizations ensure that they meet the needs of customers and other stakeholders while meeting statutory and regulatory requirements related to a product or program."@en ;
              rdfs:label "ISO 9000"@en .
@@ -2916,7 +2916,7 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasDomain sto:IndustrialAutomation ;
                    sto:hasOfficialResource <https://www.iso.org/standard/60572.html> ;
-                   sto:isEmployedBy sto:ProductionSystemEngineering ;
+                   sto:isCategorizedBy sto:ProductionSystemEngineering ;
                    sto:publisher sto:ISO ;
                    sto:relatedTo sto:IEC_62541 ,
                                  sto:ISO_14306 ;
@@ -2951,7 +2951,7 @@ sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      sto:hasDomain sto:IndustrialAutomation ;
                      sto:hasOfficialResource <https://www.iso.org/standard/60042.html> ;
-                     sto:isEmployedBy sto:ProductionSystemModelData ;
+                     sto:isCategorizedBy sto:ProductionSystemModelData ;
                      sto:publisher sto:ISO ;
                      sto:hasPublicationDate "2011-12"^^xsd:date ;
                      sto:norm "14649" ;
@@ -3350,7 +3350,7 @@ sto:SCOR rdf:type owl:NamedIndividual ,
          sto:hasDBpediaResource <http://dbpedia.org/page/Supply-chain_operations_reference> ;
          sto:hasOfficialResource <http://www.apics.org/apics-for-business/products-and-services/apics-scc-frameworks/scor> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Supply-chain_operations_reference> ;
-         sto:isEmployedBy sto:SCM ;
+         sto:isCategorizedBy sto:SCM ;
          rdfs:comment "APICS Supply Chain Operations Reference."@en ;
          rdfs:label "SCOR"@en ;
          sto:hasTag "SCOR"@en .
@@ -3937,8 +3937,8 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
-sto:hasTag rdfs:label "hasTag"@en ;
-           rdfs:comment "points to the identification of the standards"@en .
+sto:hasTag rdfs:label "has Tag"@en ;
+           rdfs:comment "Points to the identification of the standards"@en .
 
 
 sto:hasVideoDescription rdfs:commment "Points to an existing URL of a video describing the Standard, e.g., the functions of the Standard as well as examples of applications"@en ;
