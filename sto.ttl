@@ -31,6 +31,7 @@
                              owl:versionInfo "0.2" ;
                              terms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                              terms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
+                             terms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> ;
                              terms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
                                            <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
                              doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
@@ -66,7 +67,8 @@ terms:issued rdf:type owl:AnnotationProperty .
 ###  http://purl.org/dc/terms/license
 terms:license rdf:type owl:AnnotationProperty ;
               rdfs:subPropertyOf dc11:rights ,
-                                 terms:rights .
+                                 terms:rights ;
+              rdfs:range terms:LicenseDocument .
 
 
 ###  http://purl.org/dc/terms/modified
@@ -151,8 +153,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/dc/terms/license
 terms:license rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Standard ;
-              rdfs:range terms:LicenseDocument .
+              rdfs:domain sto:Standard .
 
 
 ###  http://xmlns.com/foaf/0.1/maker
@@ -165,14 +166,6 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:range dbo:Country ;
               rdfs:comment "A Standard Organization that belongs to the country"@en ;
               rdfs:label "belongs To"@en .
-
-
-###  https://w3id.org/i40/sto#contains
-sto:contains rdf:type owl:ObjectProperty ;
-             rdfs:domain sto:Standard ;
-             rdfs:range sto:Term ;
-             rdfs:comment "Represents that a Standard contains, i.e., defines a given term in the Standard document"@en ;
-             rdfs:label "contains"@en .
 
 
 ###  https://w3id.org/i40/sto#developer
@@ -203,7 +196,7 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range sto:Domain ;
               rdfs:comment "Describes the domain, in which the standard is used"@en ;
-              rdfs:label "hasDomain"@en .
+              rdfs:label "has Domain"@en .
 
 
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
@@ -214,25 +207,10 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
                     rdfs:label "hasHeadquaterIn"@en .
 
 
-###  https://w3id.org/i40/sto#hasISA95Level
-sto:hasISA95Level rdf:type owl:ObjectProperty ;
-                  rdfs:domain sto:Standard ;
-                  rdfs:range sto:ISA95Level ;
-                  rdfs:comment "Points to the classfication level according to the ISA95 Standard"@en .
-
-
 ###  https://w3id.org/i40/sto#hasOfficialResource
 sto:hasOfficialResource rdf:type owl:ObjectProperty ;
                         rdfs:comment "Instance's Official Website"@en ;
                         rdfs:label "hasOfficialResource"@en .
-
-
-###  https://w3id.org/i40/sto#hasRAMIITLayer
-sto:hasRAMIITLayer rdf:type owl:ObjectProperty ;
-                   rdfs:domain sto:Standard ;
-                   rdfs:range rami:RAMIITLayer ;
-                   rdfs:comment "Point to the IT RAMI Layer"@en ;
-                   rdfs:label "has RAMI IT Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTag
@@ -244,13 +222,13 @@ sto:hasTag rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasWikidataEntity
 sto:hasWikidataEntity rdf:type owl:ObjectProperty ;
                       rdfs:comment "Instance's Wikidata Entry"@en ;
-                      rdfs:label "hasWikidataEntity"@en .
+                      rdfs:label "has Wikidata Entity"@en .
 
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
 sto:hasWikipediaArticle rdf:type owl:ObjectProperty ;
                         rdfs:comment "Information about standards"@en ;
-                        rdfs:label "hasWikipediaArticle"@en .
+                        rdfs:label "has Wikipedia Article"@en .
 
 
 ###  https://w3id.org/i40/sto#isEmployedBy
@@ -389,14 +367,12 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasTermDefinition
 sto:hasTermDefinition rdf:type owl:DatatypeProperty ;
-                      rdfs:domain sto:Term ;
                       rdfs:comment "Represents the description, i.e., the semantic of the Term described by Standards"@en ;
                       rdfs:label "hasTermDefinition"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTermName
 sto:hasTermName rdf:type owl:DatatypeProperty ;
-                rdfs:domain sto:Term ;
                 rdfs:range rdf:PlainLiteral ;
                 rdfs:comment "Represents the name of the Term described by Standards"@en ;
                 rdfs:label "hasTermName"@en .
@@ -605,12 +581,6 @@ sto:StandardPart rdf:type owl:Class ;
 sto:StandarizationInitiative rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
                              rdfs:label "StandarizationInitiative"@en .
-
-
-###  https://w3id.org/i40/sto#Term
-sto:Term rdf:type owl:Class ;
-         rdfs:comment "Represents Terms that are described by Standards"@en ;
-         rdfs:label "Term"@en .
 
 
 #################################################################
@@ -1477,8 +1447,7 @@ rami:WorkCenter rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#
-<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual ;
-                            terms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> .
+<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -1801,7 +1770,6 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
 sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasDomain sto:M2M ;
-                sto:hasISA95Level sto:DeviceLevel ;
                 sto:hasOfficialResource <https://www.iso.org/standard/45261.html> ;
                 sto:isEmployedBy sto:ProductionSystemModelData ;
                 sto:publisher sto:IEC ,
@@ -1888,7 +1856,6 @@ sto:IEC_61131 rdf:type owl:NamedIndividual ,
 sto:IEC_61158 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDBpediaResource <http://dbpedia.org/page/Fieldbus> ;
-              sto:hasISA95Level sto:DeviceLevel ;
               sto:hasOfficialResource <http://www.fieldbus.org/> ;
               sto:hasWikidataEntity <https://m.wikidata.org/entity/Q1141640> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Fieldbus> ;
@@ -1996,7 +1963,6 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
 sto:IEC_61512 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISA-88> ;
-              sto:hasISA95Level sto:SCADALevel ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/5528> ;
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q1512301> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISA-88> ;
@@ -2015,7 +1981,6 @@ sto:IEC_61512 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61784
 sto:IEC_61784 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasISA95Level sto:DeviceLevel ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/5878> ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61158 ;
@@ -2101,7 +2066,6 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:IEC ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_62264> ;
-              sto:hasISA95Level sto:EnterpriseLevel ;
               sto:hasOfficialResource <http://www.iso.org/iso/catalogue_detail.htm?csnumber=63740> ,
                                       <https://webstore.iec.ch/publication/6675> ,
                                       <https://www.iso.org/standard/57308.html> ;
@@ -2163,7 +2127,6 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:ANSI ,
                             sto:ISA ;
-              sto:hasISA95Level sto:CrossLevel ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/7029> ,
                                       <https://webstore.iec.ch/publication/7033> ;
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q1653422> ,
@@ -2235,7 +2198,6 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62591
 sto:IEC_62591 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasISA95Level sto:DeviceLevel ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/24433> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/WirelessHART> ;
               sto:publisher sto:IEC ;
@@ -2286,7 +2248,6 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62837
 sto:IEC_62837 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasISA95Level sto:MOMLevel ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/7446> ;
               sto:publisher sto:IEC ;
               rdfs:comment "Provides to the technical committees a framework for the development and adaptation of documents in order to improve energy efficiency in manufacturing, process control and industrial facility management."@en ;
@@ -2320,7 +2281,7 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
                             sto:ISO ;
               sto:hasPublicationDate "2004-10"^^xsd:date ;
               sto:norm "81714" ;
-              rdfs:comment "ISO/IEC 81714Design of graphical symbols for use in the technical documentation of products -- Part 3: Classification of connect nodes, networks and their encoding-- specifies requirements concerning the classification of connect nodes assigned to graphical symbols, being a representation of functional and product concepts."@en ;
+              rdfs:comment "ISO/IEC 81714 Design of graphical symbols for use in the technical documentation of products -- Part 3: Classification of connect nodes, networks and their encoding-- specifies requirements concerning the classification of connect nodes assigned to graphical symbols, being a representation of functional and product concepts."@en ;
               rdfs:label "IEC 81714"@en ;
               rami:hasAdminShellSubmodel rami:Engineering ,
                                          rami:Identifikation ;
@@ -2457,7 +2418,6 @@ sto:ISO rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_10303
 sto:ISO_10303 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:contains sto:Resource2 ;
               sto:hasDBpediaResource <http://dbpedia.org/page/ISO_10303> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_10303> ;
               sto:isEmployedBy sto:ProductLifeCycleManagement ;
@@ -2487,7 +2447,6 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
 sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasDomain sto:IndustrialAutomation ;
-                sto:hasISA95Level sto:SCADALevel ;
                 sto:hasOfficialResource <https://www.iso.org/standard/63648.html> ;
                 sto:publisher sto:ISO ;
                 sto:relatedTo sto:IEC_61512 ;
@@ -2618,7 +2577,6 @@ sto:ISO_15459 rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#ISO_15531
 sto:ISO_15531 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:contains sto:Resource1 ;
               sto:hasOfficialResource <https://www.iso.org/standard/28144.html> ;
               sto:publisher sto:ISO ;
               rdfs:comment "This Standard models manufacturing management data such as, Resources management data (Resource model); Time related features (Time model); Flow management data in manufacturing (Flow management model)."@en ;
@@ -2658,7 +2616,6 @@ sto:ISO_15531-4x rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_15704
 sto:ISO_15704 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:contains sto:Resource3 ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/28777.html> ;
               sto:publisher sto:ISO ;
@@ -2794,7 +2751,6 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
 sto:ISO_19439 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasDBpediaResource <http://dbpedia.org/page/ISO_19439> ;
-              sto:hasISA95Level sto:EnterpriseLevel ;
               sto:hasOfficialResource <https://www.iso.org/standard/33833.html> ;
               sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q3146921> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_19439> ;
@@ -3099,7 +3055,6 @@ sto:MTConnect rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:MTConnect_Institute ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/MTConnect> ;
-              sto:hasISA95Level sto:DeviceLevel ;
               sto:hasOfficialResource <http://www.mtconnect.org/standard-documents> ;
               sto:hasWikidataEntity <http://www.wikidata.org/entity/Q6718422> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/MTConnect> ;
@@ -3136,7 +3091,6 @@ sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
 sto:ModBus rdf:type owl:NamedIndividual ,
                     sto:Standard ;
            sto:hasDBpediaResource <http://dbpedia.org/page/Modbus> ;
-           sto:hasISA95Level sto:SCADALevel ;
            sto:hasOfficialResource <http://www.modbus.org/> ;
            sto:hasWikidataEntity <https://www.wikidata.org/wiki/Q1135322> ;
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Modbus> ;
@@ -3257,7 +3211,6 @@ sto:OMG rdf:type owl:NamedIndividual ,
 sto:OMG_DDS rdf:type owl:NamedIndividual ,
                      sto:Standard ;
             sto:hasDBpediaResource <http://dbpedia.org/page/Data_Distribution_Service> ;
-            sto:hasISA95Level sto:DeviceLevel ;
             sto:hasOfficialResource <http://portals.omg.org/dds/> ;
             sto:hasWikidataEntity <http://www.wikidata.org/entity/Q1149607> ;
             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_Distribution_Service> ;
@@ -3363,24 +3316,21 @@ sto:RAMI40 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Resource1
-sto:Resource1 rdf:type owl:NamedIndividual ,
-                       sto:Term ;
+sto:Resource1 rdf:type owl:NamedIndividual ;
               sto:hasTermDefinition "Any device, tool and means, except raw material and final product components, at the disposal of the enterprise to produce goods or services."@en ;
               sto:hasTermName "Resource"@en ;
               rdfs:label "Resource"@en .
 
 
 ###  https://w3id.org/i40/sto#Resource2
-sto:Resource2 rdf:type owl:NamedIndividual ,
-                       sto:Term ;
+sto:Resource2 rdf:type owl:NamedIndividual ;
               sto:hasTermDefinition "Something that may be described in terms of a behavior, a capability, or a performance measure that is pertinent to the process."@en ;
               sto:hasTermName "Resource"@en ;
               rdfs:label "Resource"@en .
 
 
 ###  https://w3id.org/i40/sto#Resource3
-sto:Resource3 rdf:type owl:NamedIndividual ,
-                       sto:Term ;
+sto:Resource3 rdf:type owl:NamedIndividual ;
               sto:hasTermDefinition "An enterprise entity that provides some or all of the capabilities required by the execution of an enterprise activity and/or business process."@en ;
               sto:hasTermName "Resource"@en ;
               rdfs:label "Resource"@en .
@@ -3999,8 +3949,8 @@ terms:license terms:issued "2004-06-14"^^xsd:date ;
               rdfs:label "License"@en ;
               terms:modified "2017-12-19"^^xsd:date ;
               terms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-              rdfs:isDefinedBy terms: ;
-              rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en .
+              rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
+              rdfs:isDefinedBy terms: .
 
 
 sto:hasTag rdfs:label "hasTag"@en ;
