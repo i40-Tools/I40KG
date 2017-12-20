@@ -1,6 +1,5 @@
-@prefix : <https://w3id.org/i40/sto##> .
+@prefix : <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/terms/> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
 @prefix deo: <http://purl.org/spar/deo/> .
@@ -173,14 +172,6 @@ sto:developer rdf:type owl:ObjectProperty ;
               rdfs:label "developer"@en .
 
 
-###  https://w3id.org/i40/sto#hasCategorizationArea
-sto:hasCategorizationArea rdf:type owl:ObjectProperty ;
-                          rdfs:domain sto:StandarizationInitiative ;
-                          rdfs:range sto:CategorizationArea ;
-                          rdfs:comment "Links the Standarization Initiatives with the Categorization Areas"@en ;
-                          rdfs:label "hasCategorizationArea" .
-
-
 ###  https://w3id.org/i40/sto#hasDBpediaResource
 sto:hasDBpediaResource rdf:type owl:ObjectProperty ;
                        rdfs:comment "Instance's DBpedia Resource"@en ;
@@ -230,9 +221,17 @@ sto:hasWikipediaArticle rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#isCategorizedBy
 sto:isCategorizedBy rdf:type owl:ObjectProperty ;
                     rdfs:domain sto:Standard ;
-                    rdfs:range sto:CategorizationArea ;
+                    rdfs:range sto:StandardClassification ;
                     rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
                     rdfs:label "is Categorized By"@en .
+
+
+###  https://w3id.org/i40/sto#isClassifiedBy
+sto:isClassifiedBy rdf:type owl:ObjectProperty ;
+                   rdfs:domain sto:StandardClassification ;
+                   rdfs:range sto:StandarizationInitiative ;
+                   rdfs:comment "Links the Standarization Initiatives with the Classification of Standards"@en ;
+                   rdfs:label "is Classified by"@en .
 
 
 ###  https://w3id.org/i40/sto#isPartOf
@@ -461,7 +460,7 @@ rami:RAMIHierarchyLevel rdf:type owl:Class ;
                                                           rami:WorkCenter
                                                         )
                                             ] ;
-                        rdfs:subClassOf sto:CategorizationArea ;
+                        rdfs:subClassOf sto:StandardClassification ;
                         rdfs:label "RAMI Hierarchy Level"@en .
 
 
@@ -476,13 +475,13 @@ rami:RAMIITLayer rdf:type owl:Class ;
                                                    rami:Integration
                                                  )
                                      ] ;
-                 rdfs:subClassOf sto:CategorizationArea ;
+                 rdfs:subClassOf sto:StandardClassification ;
                  rdfs:label "RAMI IT Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#RAMILifeCycleLayer
 rami:RAMILifeCycleLayer rdf:type owl:Class ;
-                        rdfs:subClassOf sto:CategorizationArea ;
+                        rdfs:subClassOf sto:StandardClassification ;
                         rdfs:label "RAMI Life Cycle Layer"@en ;
                         rdfs:seeAlso <http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx> ;
                         skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
@@ -491,17 +490,11 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
 sto:BusinessCycleSCM rdf:type owl:Class ;
-                     rdfs:subClassOf sto:CategorizationArea ;
+                     rdfs:subClassOf sto:StandardClassification ;
                      rdfs:comment "Suply Chain Management Business Cycle."@en ;
                      rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                      rdfs:label "Business Cycle SCM"@en ;
                      rdfs:seeAlso <https://en.wikipedia.org/wiki/Supply_chain_management> .
-
-
-###  https://w3id.org/i40/sto#CategorizationArea
-sto:CategorizationArea rdf:type owl:Class ;
-                       rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
-                       rdfs:label "CategorizationArea"@en .
 
 
 ###  https://w3id.org/i40/sto#Domain
@@ -520,14 +513,14 @@ sto:ISA95Level rdf:type owl:Class ;
                                                  sto:SCADALevel
                                                )
                                    ] ;
-               rdfs:subClassOf sto:CategorizationArea ;
+               rdfs:subClassOf sto:StandardClassification ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA95 Level"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
 sto:ProductDevelopmentLifeCycle rdf:type owl:Class ;
-                                rdfs:subClassOf sto:CategorizationArea ;
+                                rdfs:subClassOf sto:StandardClassification ;
                                 rdfs:comment "PLM is the process of managing the entire lifecycle of a product from inception, through engineering design and manufacture, to service and disposal of manufactured products. Related areas are PLMManagement, Modeling Practice, Product Model Data exchange, Manufacturing Model Data, Product Catalog Data."@en ,
                                              "Product Development Life-Cycle Phase"@en ;
                                 rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Product_lifecycle> ;
@@ -536,7 +529,7 @@ sto:ProductDevelopmentLifeCycle rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#ProductionSystemLifeCycle
 sto:ProductionSystemLifeCycle rdf:type owl:Class ;
-                              rdfs:subClassOf sto:CategorizationArea ;
+                              rdfs:subClassOf sto:StandardClassification ;
                               rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
                               rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                               rdfs:label "Production System Life Cycle"@en .
@@ -552,6 +545,12 @@ sto:Standard rdf:type owl:Class ;
              rdfs:isDefinedBy sto:IEC ;
              rdfs:label "Standard" ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
+
+
+###  https://w3id.org/i40/sto#StandardClassification
+sto:StandardClassification rdf:type owl:Class ;
+                           rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
+                           rdfs:label "Standard Classification"@en .
 
 
 ###  https://w3id.org/i40/sto#StandardOrganization
@@ -571,7 +570,7 @@ sto:StandardPart rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#StandarizationInitiative
 sto:StandarizationInitiative rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-                             rdfs:label "StandarizationInitiative"@en .
+                             rdfs:label "Standarization Initiative"@en .
 
 
 #################################################################
@@ -1378,7 +1377,8 @@ rami:Business rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/rami#Communication
 rami:Communication rdf:type owl:NamedIndividual ,
-                            rami:RAMIITLayer .
+                            rami:RAMIITLayer ;
+                   sto:isClassifiedBy sto:RAMI40 .
 
 
 ###  https://w3id.org/i40/rami#ConnectedWorld
@@ -2163,12 +2163,13 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
 sto:IEC_62541 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:OPC_Foundation ;
-              sto:hasCategorizationArea sto:SCADALevel ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/OPC_Unified_Architecture> ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://opcfoundation.org/about/opc-technologies/opc-ua/> ;
               sto:hasWikidataEntity <https://www.wikidata.org/entity/Q623244> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Unified_Architecture> ;
+              sto:isCategorizedBy rami:Communication ,
+                                  sto:SCADALevel ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61499 ,
                             sto:IEC_61850 ,
@@ -3122,8 +3123,8 @@ sto:NIST rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
 sto:NISTIR_8107 rdf:type owl:NamedIndividual ;
-                sto:hasCategorizationArea sto:BusinessProcessExecution ,
-                                          sto:SCM ;
+                sto:isClassifiedBy sto:BusinessProcessExecution ,
+                                   sto:SCM ;
                 rdfs:comment "Describes the NIST Initiative"@en ;
                 rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                 rdfs:label "NISTIR_8107"@en .
@@ -3294,7 +3295,7 @@ sto:QIF rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#RAMI
 sto:RAMI rdf:type owl:NamedIndividual ;
-         sto:hasCategorizationArea rami:InformationLayer ;
+         sto:isClassifiedBy rami:InformationLayer ;
          rdfs:comment "Describes the RAMI model"@en ;
          rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html> ;
          rdfs:label "RAMI"@en .
@@ -3331,6 +3332,7 @@ sto:Resource3 rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#SCADALevel
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
+               sto:isClassifiedBy sto:ISA95 ;
                rdfs:comment "Describes the SCADA level according to the ISA95 level classification."@en ;
                rdfs:label "SCADA Level"@en ;
                skos:definition "Supervisory control and data acquisition according to ISA 95"@en .
