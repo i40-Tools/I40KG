@@ -175,7 +175,7 @@ sto:developer rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasDBpediaResource
 sto:hasDBpediaResource rdf:type owl:ObjectProperty ;
                        rdfs:comment "Instance's DBpedia Resource"@en ;
-                       rdfs:label "DBpediaresource"@en .
+                       rdfs:label "has DBpedia Resource"@en .
 
 
 ###  https://w3id.org/i40/sto#hasDomain
@@ -267,7 +267,12 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:label "related To"@en ;
               skos:altLabel "hasAssociatedStandard"@en .
 
-
+###  https://w3id.org/i40/sto#relatedTo
+sto:isImplementationOf rdf:type owl:ObjectProperty ,
+                       rdfs:subPropertyOf sto:relatedTo;
+              rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en ;
+              rdfs:label "is Implementation Of"@en .
+              
 #################################################################
 #    Data properties
 #################################################################
@@ -505,14 +510,6 @@ sto:Domain rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#ISA95Level
 sto:ISA95Level rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Class ;
-                                     owl:oneOf ( sto:CrossLevel
-                                                 sto:DeviceLevel
-                                                 sto:EnterpriseLevel
-                                                 sto:MOMLevel
-                                                 sto:SCADALevel
-                                               )
-                                   ] ;
                rdfs:subClassOf sto:StandardClassification ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA95 Level"@en .
@@ -2063,8 +2060,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
                                       <https://www.iso.org/standard/57308.html> ;
               sto:hasWikidataEntity <http://www.wikidata.org/entity/Q1653426> ,
                                     <https://www.wikidata.org/entity/Q1653426> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/B2MML> ,
-                                      <https://en.wikipedia.org/wiki/IEC_62264> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_62264> ;
               sto:publisher sto:IEC ,
                             sto:MESA ;
               sto:relatedTo sto:ISA-95 ;
@@ -2077,8 +2073,24 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
               sto:hasTag "Enterprise control systems"@en ,
                          "Enterprise-control system integration"@en ;
               sto:license "Private"@en ;
+              rdfs:seeAlso <https://en.wikipedia.org/wiki/B2MML>;
               sto:motivation "Informational representation of MES and ERP models."@en .
 
+
+sto:B2MML rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:developer sto:MESA ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/B2MML> ;
+              sto:hasOfficialResource <https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a> ;                            
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/B2MML> ;
+              sto:publisher sto:MESA ;
+              sto:isImplementationOf sto:ISA-95 ;
+              rdfs:comment "B2MML or Business To Manufacturing Markup Language is an XML implementation of the ANSI/ISA-95 family of standards (ISA-95)"@en;
+              rdfs:label "IEC 62264"@en ;
+              skos:altLabel "B2MML" ;
+              sto:hasTag "B2MML"@en ;
+              skos:note "TODO - to link it with Supply Chain regarding NIST";
+              .
 
 ###  https://w3id.org/i40/sto#IEC_62337
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
@@ -3330,8 +3342,7 @@ sto:Resource3 rdf:type owl:NamedIndividual ;
 
 
 ###  https://w3id.org/i40/sto#SCADALevel
-sto:SCADALevel rdf:type owl:NamedIndividual ,
-                        sto:ISA95Level ;
+sto:SCADALevel rdf:type owl:NamedIndividual ;
                sto:isClassifiedBy sto:ISA95 ;
                rdfs:comment "Describes the SCADA level according to the ISA95 level classification."@en ;
                rdfs:label "SCADA Level"@en ;
@@ -3356,6 +3367,17 @@ sto:SCOR rdf:type owl:NamedIndividual ,
          rdfs:comment "APICS Supply Chain Operations Reference."@en ;
          rdfs:label "SCOR"@en ;
          sto:hasTag "SCOR"@en .
+
+###  https://w3id.org/i40/sto#SCOR
+sto:BPMN rdf:type owl:NamedIndividual ,
+                  sto:Standard ;
+         sto:developer sto:OMG ;
+         sto:hasDBpediaResource <http://dbpedia.org/page/Business_Process_Model_and_Notation> ;
+         sto:hasOfficialResource <http://www.bpmn.org/> ;
+         sto:isCategorizedBy sto:SCM ;
+         rdfs:comment "Business Process Model and Notation  is a graphical representation for specifying business processes in a business process model."@en ;
+         rdfs:label "BPMN"@en ;
+         sto:hasTag "BPMN"@en .      
 
 
 ###  https://w3id.org/i40/sto#SE
