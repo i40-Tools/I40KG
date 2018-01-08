@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -2235,6 +2234,28 @@ sto:IEC_62591 rdf:type owl:NamedIndividual ,
               sto:hasTag "WirelessHART"@en .
 
 
+sto:BPEL rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasOfficialResource <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Business_Process_Execution_Language> ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/Business_Process_Execution_Language>;
+              sto:publisher sto:OASIS ;
+              rdfs:comment "The Web Services Business Process Execution Language (WS-BPEL), commonly known as BPEL Business Process Execution Language, is a standard executable language for specifying actions within business processes with web services."@en ;
+              rdfs:label "BPEL"@en ;
+              sto:hasTag "BPEL"@en ;
+              sto:isCategorizedBy sto:BusinessProcessExecution.
+
+sto:ebXML rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/24433> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/EbXML>;
+              sto:publisher sto:OASIS, sto:UN-CEFACT ;
+              rdfs:comment "Electronic Business using eXtensible Markup Language, commonly known as e-business XML, or ebXML is a family of XML based standards whose mission is to provide an open, XML-based infrastructure that enables the global use of electronic business information in an interoperable, secure, and consistent manner by all trading partners."@en ;
+              rdfs:label "ebXML"@en ;
+              sto:hasTag "ebXML"@en ;
+              sto:isCategorizedBy sto:BusinessProcessExecution.              
+
 ###  https://w3id.org/i40/sto#IEC_62656
 sto:IEC_62656 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -3207,15 +3228,23 @@ sto:OAGi rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#OASIS
 sto:OASIS rdf:type owl:NamedIndividual ,
                    sto:StandardOrganization ;
-          sto:hasDBpediaResource <file:/E:/Deutch/MyPhD/OntologyDevelopment/StandardsVocabulary/OASIS_(organization> ,
-                                 <https://w3id.org/i40/OASIS_(organization> ;
+          sto:hasDBpediaResource <http://dbpedia.org/page/OASIS_(organization)> ;
           sto:hasOfficialResource <https://www.oasis-open.org/> ;
-          sto:hasWikidataEntity <http://www.wikidata.org/entity/Q1455952> ;
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OASIS_(organization)> ;
           sto:abbreviation "OASIS" ;
           sto:formationDate "1993-01-01"^^xsd:date ;
           sto:orgName "Organization for the Advancement of Structured Information Standards"@en ;
           rdfs:comment "The Organization for the Advancement of Structured Information Standards (OASIS) is a global nonprofit consortium that works on the development, convergence, and adoption of standards for security, Internet of Things, energy, content technologies, emergency management, and other areas."@en .
+
+
+sto:UN-CEFACT rdf:type owl:NamedIndividual ,
+                   sto:StandardOrganization ;
+          sto:hasDBpediaResource <http://dbpedia.org/page/UN/CEFACT> ;
+          sto:hasOfficialResource <https://www.unece.org/cefact/> ;
+          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> ;
+          sto:abbreviation "UN/CEFACT" ;
+          sto:orgName "United Nations Centre for Trade Facilitation and Electronic Business"@en ;
+          rdfs:comment "UN/CEFACT is the United Nations Centre for Trade Facilitation and Electronic Business. It was established as an intergovernmental body of the United Nations Economic Commission for Europe (UNECE) in 1996 and evolved from UNECE’s long tradition of work in trade facilitation."@en .
 
 
 ###  https://w3id.org/i40/sto#ODVA
