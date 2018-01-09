@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/i40/sto##> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -20,6 +21,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
@@ -232,6 +234,13 @@ sto:isClassifiedBy rdf:type owl:ObjectProperty ;
                    rdfs:label "is Classified by"@en .
 
 
+###  https://w3id.org/i40/sto#isImplementationOf
+sto:isImplementationOf rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf sto:relatedTo ;
+                       rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en ;
+                       rdfs:label "is Implementation Of"@en .
+
+
 ###  https://w3id.org/i40/sto#isPartOf
 sto:isPartOf rdf:type owl:ObjectProperty ;
              rdfs:domain sto:StandardPart ;
@@ -265,11 +274,6 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:label "related To"@en ;
               skos:altLabel "hasAssociatedStandard"@en .
 
-###  https://w3id.org/i40/sto#relatedTo
-sto:isImplementationOf rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf sto:relatedTo;
-                       rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en ;
-                       rdfs:label "is Implementation Of"@en .
 
 #################################################################
 #    Data properties
@@ -596,6 +600,10 @@ sto:StandarizationInitiative rdf:type owl:Class ;
 <http://dbpedia.org/page/APICS> rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/page/Business_Process_Model_and_Notation
+<http://dbpedia.org/page/Business_Process_Model_and_Notation> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/page/Data_Distribution_Service
 <http://dbpedia.org/page/Data_Distribution_Service> rdf:type owl:NamedIndividual .
 
@@ -676,6 +684,18 @@ sto:StandarizationInitiative rdf:type owl:Class ;
 <http://dbpedia.org/page/Deutsches_Institut_f%C3%BCr_Normung> rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/page/ISO/IEC_42010
+<http://dbpedia.org/page/ISO/IEC_42010> rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/page/OASIS_(organization)
+<http://dbpedia.org/page/OASIS_(organization)> rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/page/UN/CEFACT
+<http://dbpedia.org/page/UN/CEFACT> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#China
 dbr:China rdf:type owl:NamedIndividual .
 
@@ -696,6 +716,14 @@ dbr:Switzerland rdf:type owl:NamedIndividual .
 dbr:United_States rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/resource/ASME
+<http://dbpedia.org/resource/ASME> rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource/ASME_Y14.41
+<http://dbpedia.org/resource/ASME_Y14.41> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/American_National_Standards_Institute
 <http://dbpedia.org/resource/American_National_Standards_Institute> rdf:type owl:NamedIndividual .
 
@@ -708,8 +736,16 @@ dbr:United_States rdf:type owl:NamedIndividual .
 <http://dbpedia.org/resource/AutomationML> rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/resource/B2MML
+<http://dbpedia.org/resource/B2MML> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource/Broadband_Forum
 <http://dbpedia.org/resource/Broadband_Forum> rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource/Business_Process_Execution_Language
+<http://dbpedia.org/resource/Business_Process_Execution_Language> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/CAEX
@@ -734,6 +770,10 @@ dbr:United_States rdf:type owl:NamedIndividual .
 
 ###  http://dbpedia.org/resource/ETSI
 <http://dbpedia.org/resource/ETSI> rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource/EbXML
+<http://dbpedia.org/resource/EbXML> rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource/IBM
@@ -880,6 +920,10 @@ dbr:United_States rdf:type owl:NamedIndividual .
 <http://www.apics.org/apics-for-business/products-and-services/apics-scc-frameworks/scor> rdf:type owl:NamedIndividual .
 
 
+###  http://www.bpmn.org/
+<http://www.bpmn.org/> rdf:type owl:NamedIndividual .
+
+
 ###  http://www.din.de/en/about-standards/din-standards
 <http://www.din.de/en/about-standards/din-standards> rdf:type owl:NamedIndividual .
 
@@ -912,12 +956,20 @@ dbr:United_States rdf:type owl:NamedIndividual .
 <http://www.iec.ch/> rdf:type owl:NamedIndividual .
 
 
+###  http://www.iec.ch/dyn/www/f?p=103:38:0::::FSP_LANG_ID,FSP_APEX_PAGE,FSP_ORG_ID,FSP_PROJECT:25?q=emc%20e-tech%20tools,20,1250,IEC%2062890%20Ed.%201.0
+<http://www.iec.ch/dyn/www/f?p=103:38:0::::FSP_LANG_ID,FSP_APEX_PAGE,FSP_ORG_ID,FSP_PROJECT:25?q=emc%20e-tech%20tools,20,1250,IEC%2062890%20Ed.%201.0> rdf:type owl:NamedIndividual .
+
+
 ###  http://www.iec.ch/dyn/www/f?p=103:38:16824039984463::::FSP_ORG_ID,FSP_APEX_PAGE,FSP_PROJECT_ID:1250,23,20929
 <http://www.iec.ch/dyn/www/f?p=103:38:16824039984463::::FSP_ORG_ID,FSP_APEX_PAGE,FSP_PROJECT_ID:1250,23,20929> rdf:type owl:NamedIndividual .
 
 
 ###  http://www.iec.ch/functionalsafety/
 <http://www.iec.ch/functionalsafety/> rdf:type owl:NamedIndividual .
+
+
+###  http://www.iso-architecture.org/ieee-1471/
+<http://www.iso-architecture.org/ieee-1471/> rdf:type owl:NamedIndividual .
 
 
 ###  http://www.iso.org/iso/catalogue_detail.htm?csnumber=54809
@@ -1092,6 +1144,14 @@ dbr:United_States rdf:type owl:NamedIndividual .
 <https://en.wikipedia.org/wiki/APICS> rdf:type owl:NamedIndividual .
 
 
+###  https://en.wikipedia.org/wiki/ASME
+<https://en.wikipedia.org/wiki/ASME> rdf:type owl:NamedIndividual .
+
+
+###  https://en.wikipedia.org/wiki/ASME_Y14.41
+<https://en.wikipedia.org/wiki/ASME_Y14.41> rdf:type owl:NamedIndividual .
+
+
 ###  https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems
 <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems> rdf:type owl:NamedIndividual .
 
@@ -1110,6 +1170,10 @@ dbr:United_States rdf:type owl:NamedIndividual .
 
 ###  https://en.wikipedia.org/wiki/Broadband_Forum
 <https://en.wikipedia.org/wiki/Broadband_Forum> rdf:type owl:NamedIndividual .
+
+
+###  https://en.wikipedia.org/wiki/Business_Process_Execution_Language
+<https://en.wikipedia.org/wiki/Business_Process_Execution_Language> rdf:type owl:NamedIndividual .
 
 
 ###  https://en.wikipedia.org/wiki/CAEX
@@ -1138,6 +1202,10 @@ dbr:United_States rdf:type owl:NamedIndividual .
 
 ###  https://en.wikipedia.org/wiki/ETSI
 <https://en.wikipedia.org/wiki/ETSI> rdf:type owl:NamedIndividual .
+
+
+###  https://en.wikipedia.org/wiki/EbXML
+<https://en.wikipedia.org/wiki/EbXML> rdf:type owl:NamedIndividual .
 
 
 ###  https://en.wikipedia.org/wiki/Fieldbus
@@ -1324,12 +1392,20 @@ dbr:United_States rdf:type owl:NamedIndividual .
 <https://en.wikipedia.org/wiki/ISO/IEC_27000> rdf:type owl:NamedIndividual .
 
 
+###  https://en.wikipedia.org/wiki/ISO/IEC_42010
+<https://en.wikipedia.org/wiki/ISO/IEC_42010> rdf:type owl:NamedIndividual .
+
+
 ###  https://en.wikipedia.org/wiki/OASIS_(organization)
 <https://en.wikipedia.org/wiki/OASIS_(organization)> rdf:type owl:NamedIndividual .
 
 
 ###  https://en.wikipedia.org/wiki/ODVA_(company)
 <https://en.wikipedia.org/wiki/ODVA_(company)> rdf:type owl:NamedIndividual .
+
+
+###  https://en.wikipedia.org/wiki/UN/CEFACT
+<https://en.wikipedia.org/wiki/UN/CEFACT> rdf:type owl:NamedIndividual .
 
 
 ###  https://en.wikipedia.org/wiki/Web_Ontology_Language?oldformat=true
@@ -1350,6 +1426,10 @@ dbr:United_States rdf:type owl:NamedIndividual .
 
 ###  https://opcfoundation.org/about/opc-technologies/opc-ua/
 <https://opcfoundation.org/about/opc-technologies/opc-ua/> rdf:type owl:NamedIndividual .
+
+
+###  https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a
+<https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a> rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/www.mtconnect.org
@@ -1489,6 +1569,46 @@ sto:ASAM_ODS rdf:type owl:NamedIndividual ,
              rdfs:label "ASAM ODS"@en .
 
 
+###  https://w3id.org/i40/sto#ASME
+sto:ASME rdf:type owl:NamedIndividual ,
+                  sto:StandardOrganization ;
+         sto:hasDBpediaResource <http://dbpedia.org/resource/ASME> ;
+         sto:hasOfficialResource <https://www.asme.org/> ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME> ;
+         sto:abbreviation "ASME" ;
+         sto:formationDate "1880"^^xsd:date ;
+         sto:orgName "American Society of Mechanical Engineers"@en ;
+         rdfs:comment "The American Society of Mechanical Engineers (ASME) is a professional association that, promotes the art, science, and practice of multidisciplinary engineering and allied sciences around the globe via continuing education, training and professional development, codes and standards, research, conferences and publications, government relations, and other forms of outreach."@en .
+
+
+###  https://w3id.org/i40/sto#ASME_Y1441
+sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
+                        sto:Standard ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/ASME_Y14.41> ;
+               sto:hasOfficialResource <https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data> ;
+               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME_Y14.41> ;
+               sto:publisher sto:ASME ;
+               sto:norm "ASME Y14.41" ;
+               rdfs:comment "ASME Y14.41 establishs requirements for model-based definition upon CAD software and those who use CAD software to create product definition within the 3D model."@en ;
+               rdfs:label "ASME Y14.41"@en .
+
+
+###  https://w3id.org/i40/sto#B2MML
+sto:B2MML rdf:type owl:NamedIndividual ,
+                   sto:Standard ;
+          sto:developer sto:MESA ;
+          sto:hasDBpediaResource <http://dbpedia.org/resource/B2MML> ;
+          sto:hasOfficialResource <https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a> ;
+          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/B2MML> ;
+          sto:isImplementationOf sto:ISA-95 ;
+          sto:publisher sto:MESA ;
+          rdfs:comment "B2MML or Business To Manufacturing Markup Language is an XML implementation of the ANSI/ISA-95 family of standards (ISA-95)"@en ;
+          rdfs:label "IEC 62264"@en ;
+          skos:altLabel "B2MML" ;
+          skos:note "TODO - to link it with Supply Chain regarding NIST" ;
+          sto:hasTag "B2MML"@en .
+
+
 ###  https://w3id.org/i40/sto#BBF
 sto:BBF rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
@@ -1515,6 +1635,31 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
                rdfs:comment "Digital Enhanced Cordless Telecommunications (DECT™) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
                rdfs:label "BBF TR-069"@en ;
                sto:hasTag "CPE WAN Management Protocol"@en .
+
+
+###  https://w3id.org/i40/sto#BPEL
+sto:BPEL rdf:type owl:NamedIndividual ,
+                  sto:Standard ;
+         sto:hasDBpediaResource <http://dbpedia.org/resource/Business_Process_Execution_Language> ;
+         sto:hasOfficialResource <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel> ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Business_Process_Execution_Language> ;
+         sto:isCategorizedBy sto:BusinessProcessExecution ;
+         sto:publisher sto:OASIS ;
+         rdfs:comment "The Web Services Business Process Execution Language (WS-BPEL), commonly known as BPEL Business Process Execution Language, is a standard executable language for specifying actions within business processes with web services."@en ;
+         rdfs:label "BPEL"@en ;
+         sto:hasTag "BPEL"@en .
+
+
+###  https://w3id.org/i40/sto#BPMN
+sto:BPMN rdf:type owl:NamedIndividual ,
+                  sto:Standard ;
+         sto:developer sto:OMG ;
+         sto:hasDBpediaResource <http://dbpedia.org/page/Business_Process_Model_and_Notation> ;
+         sto:hasOfficialResource <http://www.bpmn.org/> ;
+         sto:isCategorizedBy sto:SCM ;
+         rdfs:comment "Business Process Model and Notation  is a graphical representation for specifying business processes in a business process model."@en ;
+         rdfs:label "BPMN"@en ;
+         sto:hasTag "BPMN"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessProcessExecution
@@ -1678,29 +1823,6 @@ sto:IEC rdf:type owl:NamedIndividual ,
         rdfs:comment "Is a non-profit, non-governmental international standards organization that prepares and publishes International Standards for all electrical, electronic and related technologies – collectively known as \"electrotechnology\". IEC standards cover a vast range of technologies from power generation, transmission and distribution to home appliances and office equipment, semiconductors, fiber optics, batteries, solar energy, nanotechnology and marine energy as well as many others. The IEC also manages three global conformity assessment systems that certify whether equipment, system or components conform to its International Standards."@en .
 
 
-###  https://w3id.org/i40/sto#IEC
-sto:ASME rdf:type owl:NamedIndividual ,
-                 sto:StandardOrganization ;
-        sto:hasDBpediaResource <http://dbpedia.org/resource/ASME> ;
-        sto:hasOfficialResource <https://www.asme.org/> ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME> ;
-        sto:abbreviation "ASME" ;
-        sto:formationDate "1880"^^xsd:date ;
-        sto:orgName "American Society of Mechanical Engineers"@en ;
-        rdfs:comment "The American Society of Mechanical Engineers (ASME) is a professional association that, promotes the art, science, and practice of multidisciplinary engineering and allied sciences around the globe via continuing education, training and professional development, codes and standards, research, conferences and publications, government relations, and other forms of outreach."@en .
-
-
-sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/ASME_Y14.41> ;
-              sto:hasOfficialResource <https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME_Y14.41> ;
-              sto:publisher sto:ASME ;
-              sto:norm "ASME Y14.41" ;
-              rdfs:comment "ASME Y14.41 establishs requirements for model-based definition upon CAD software and those who use CAD software to create product definition within the 3D model."@en ;
-              rdfs:label "ASME Y14.41"@en .
-
-
 ###  https://w3id.org/i40/sto#IEC_14443
 sto:IEC_14443 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -1792,6 +1914,21 @@ sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                 rami:hasAdminShellSubmodel rami:Communications ;
                 rami:hasRAMIHierarchyLevel rami:ControlDevice ,
                                            rami:FieldDevice .
+
+
+###  https://w3id.org/i40/sto#IEC_42010
+sto:IEC_42010 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/ISO/IEC_42010> ;
+              sto:hasOfficialResource <http://www.iso-architecture.org/ieee-1471/> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> ;
+              sto:publisher sto:IEC ,
+                            sto:ISO ;
+              sto:norm "ISO/IEC/IEEE 42010" ;
+              rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
+              rdfs:label "IEC 42010"@en ;
+              skos:note "The IIRA is based in this standards" ;
+              sto:hasTag "ISO/IEC/IEEE 42010"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_60364
@@ -2089,29 +2226,14 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
               rdfs:comment "Enterprise-control system integration - Models and terminology"@en ,
                            "IEC 62264 is an international standard for enterprise-control system integration. This standard is based upon ANSI/ISA-95."@en ;
               rdfs:label "IEC 62264"@en ;
+              rdfs:seeAlso <https://en.wikipedia.org/wiki/B2MML> ;
               skos:altLabel "B2MML" ;
               rami:hasRAMIITLayer rami:Functional ;
               sto:hasTag "Enterprise control systems"@en ,
                          "Enterprise-control system integration"@en ;
               sto:license "Private"@en ;
-              rdfs:seeAlso <https://en.wikipedia.org/wiki/B2MML>;
               sto:motivation "Informational representation of MES and ERP models."@en .
 
-
-sto:B2MML rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:developer sto:MESA ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/B2MML> ;
-              sto:hasOfficialResource <https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a> ;                            
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/B2MML> ;
-              sto:publisher sto:MESA ;
-              sto:isImplementationOf sto:ISA-95 ;
-              rdfs:comment "B2MML or Business To Manufacturing Markup Language is an XML implementation of the ANSI/ISA-95 family of standards (ISA-95)"@en;
-              rdfs:label "IEC 62264"@en ;
-              skos:altLabel "B2MML" ;
-              sto:hasTag "B2MML"@en ;
-              skos:note "TODO - to link it with Supply Chain regarding NIST";
-              .
 
 ###  https://w3id.org/i40/sto#IEC_62337
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
@@ -2233,42 +2355,6 @@ sto:IEC_62591 rdf:type owl:NamedIndividual ,
               sto:hasTag "WirelessHART"@en .
 
 
-
-sto:IEC_42010 rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:hasOfficialResource <http://www.iso-architecture.org/ieee-1471/> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> ;
-              sto:hasDBpediaResource <http://dbpedia.org/page/ISO/IEC_42010> ;
-              sto:publisher sto:IEC, sto:ISO ;
-              sto:norm "ISO/IEC/IEEE 42010" ;
-              rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
-              rdfs:label "IEC 42010"@en ;
-              sto:hasTag "ISO/IEC/IEEE 42010"@en ;
-              skos:note "The IIRA is based in this standards";
-              .
-
-sto:BPEL rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:hasOfficialResource <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Business_Process_Execution_Language> ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/Business_Process_Execution_Language>;
-              sto:publisher sto:OASIS ;
-              rdfs:comment "The Web Services Business Process Execution Language (WS-BPEL), commonly known as BPEL Business Process Execution Language, is a standard executable language for specifying actions within business processes with web services."@en ;
-              rdfs:label "BPEL"@en ;
-              sto:hasTag "BPEL"@en ;
-              sto:isCategorizedBy sto:BusinessProcessExecution.
-
-sto:ebXML rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:hasOfficialResource <https://webstore.iec.ch/publication/24433> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/EbXML>;
-              sto:publisher sto:OASIS, sto:UN-CEFACT ;
-              rdfs:comment "Electronic Business using eXtensible Markup Language, commonly known as e-business XML, or ebXML is a family of XML based standards whose mission is to provide an open, XML-based infrastructure that enables the global use of electronic business information in an interoperable, secure, and consistent manner by all trading partners."@en ;
-              rdfs:label "ebXML"@en ;
-              sto:hasTag "ebXML"@en ;
-              sto:isCategorizedBy sto:BusinessProcessExecution.              
-
 ###  https://w3id.org/i40/sto#IEC_62656
 sto:IEC_62656 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -2320,10 +2406,13 @@ sto:IEC_62837 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62890
 sto:IEC_62890 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasOfficialResource <http://www.iec.ch/dyn/www/f?p=103:38:16824039984463::::FSP_ORG_ID,FSP_APEX_PAGE,FSP_PROJECT_ID:1250,23,20929> ;
+              sto:hasOfficialResource <http://www.iec.ch/dyn/www/f?p=103:38:0::::FSP_LANG_ID,FSP_APEX_PAGE,FSP_ORG_ID,FSP_PROJECT:25?q=emc%20e-tech%20tools,20,1250,IEC%2062890%20Ed.%201.0> ,
+                                      <http://www.iec.ch/dyn/www/f?p=103:38:16824039984463::::FSP_ORG_ID,FSP_APEX_PAGE,FSP_PROJECT_ID:1250,23,20929> ;
+              sto:isCategorizedBy sto:ProductionLifeCycleDataManagement ;
               sto:publisher sto:IEC ;
               sto:norm "62890" ;
-              rdfs:comment "MES KPIs"@en ;
+              rdfs:comment "Defines standards for lifecycle management for systems and products used in industrial process measurement, control and automation"@en ,
+                           "MES KPIs"@en ;
               rdfs:label "IEC 62890"@en ;
               rami:hasAdminShellSubmodel rami:LifecycleStatus ;
               rami:hasRAMIHierarchyLevel rami:Station ,
@@ -2502,16 +2591,6 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
              rdfs:label "ISO 1101"@en ;
              rami:hasRAMIHierarchyLevel rami:Product ;
              rami:hasRAMIITLayer rami:Asset .
-
-
-sto:IEC_62890 rdf:type owl:NamedIndividual ,
-                      sto:Standard ;
-             sto:hasOfficialResource <http://www.iec.ch/dyn/www/f?p=103:38:0::::FSP_LANG_ID,FSP_APEX_PAGE,FSP_ORG_ID,FSP_PROJECT:25?q=emc%20e-tech%20tools,20,1250,IEC%2062890%20Ed.%201.0> ;
-             sto:isCategorizedBy sto:ProductionLifeCycleDataManagement ;
-             sto:publisher sto:IEC ;
-             rdfs:comment "Defines standards for lifecycle management for systems and products used in industrial process measurement, control and automation"@en ;
-             rdfs:label "IEC 62890"@en ;
-.       
 
 
 ###  https://w3id.org/i40/sto#ISO_11898-1
@@ -3251,16 +3330,6 @@ sto:OASIS rdf:type owl:NamedIndividual ,
           rdfs:comment "The Organization for the Advancement of Structured Information Standards (OASIS) is a global nonprofit consortium that works on the development, convergence, and adoption of standards for security, Internet of Things, energy, content technologies, emergency management, and other areas."@en .
 
 
-sto:UN-CEFACT rdf:type owl:NamedIndividual ,
-                   sto:StandardOrganization ;
-          sto:hasDBpediaResource <http://dbpedia.org/page/UN/CEFACT> ;
-          sto:hasOfficialResource <https://www.unece.org/cefact/> ;
-          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> ;
-          sto:abbreviation "UN/CEFACT" ;
-          sto:orgName "United Nations Centre for Trade Facilitation and Electronic Business"@en ;
-          rdfs:comment "UN/CEFACT is the United Nations Centre for Trade Facilitation and Electronic Business. It was established as an intergovernmental body of the United Nations Economic Commission for Europe (UNECE) in 1996 and evolved from UNECE’s long tradition of work in trade facilitation."@en .
-
-
 ###  https://w3id.org/i40/sto#ODVA
 sto:ODVA rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -3443,17 +3512,6 @@ sto:SCOR rdf:type owl:NamedIndividual ,
          rdfs:label "SCOR"@en ;
          sto:hasTag "SCOR"@en .
 
-###  https://w3id.org/i40/sto#SCOR
-sto:BPMN rdf:type owl:NamedIndividual ,
-                  sto:Standard ;
-         sto:developer sto:OMG ;
-         sto:hasDBpediaResource <http://dbpedia.org/page/Business_Process_Model_and_Notation> ;
-         sto:hasOfficialResource <http://www.bpmn.org/> ;
-         sto:isCategorizedBy sto:SCM ;
-         rdfs:comment "Business Process Model and Notation  is a graphical representation for specifying business processes in a business process model."@en ;
-         rdfs:label "BPMN"@en ;
-         sto:hasTag "BPMN"@en .      
-
 
 ###  https://w3id.org/i40/sto#SE
 sto:SE rdf:type owl:NamedIndividual ,
@@ -3482,6 +3540,17 @@ sto:SysML rdf:type owl:NamedIndividual ,
           rdfs:comment "The OMG Systems Modeling Language™ (OMG SysML™) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML™ for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
           rdfs:label "SysML"@en ;
           sto:hasTag "Systems Modeling Language"@en .
+
+
+###  https://w3id.org/i40/sto#UN-CEFACT
+sto:UN-CEFACT rdf:type owl:NamedIndividual ,
+                       sto:StandardOrganization ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/UN/CEFACT> ;
+              sto:hasOfficialResource <https://www.unece.org/cefact/> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> ;
+              sto:abbreviation "UN/CEFACT" ;
+              sto:orgName "United Nations Centre for Trade Facilitation and Electronic Business"@en ;
+              rdfs:comment "UN/CEFACT is the United Nations Centre for Trade Facilitation and Electronic Business. It was established as an intergovernmental body of the United Nations Economic Commission for Europe (UNECE) in 1996 and evolved from UNECE’s long tradition of work in trade facilitation."@en .
 
 
 ###  https://w3id.org/i40/sto#UseService
@@ -3632,6 +3701,20 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
                 rdfs:comment "Der eCl@ss e. V. ist eine Non-Profit-Organisation, die den gleichnamigen Klassifikationsstandard branchenübergreifend international definiert, weiterentwickelt und verbreitet. Der Verein wird getragen von ordentlichen und fördernden Mitgliedern aus Unternehmen, Verbänden und Institutionen."@de .
 
 
+###  https://w3id.org/i40/sto#ebXML
+sto:ebXML rdf:type owl:NamedIndividual ,
+                   sto:Standard ;
+          sto:hasDBpediaResource <http://dbpedia.org/resource/EbXML> ;
+          sto:hasOfficialResource <https://webstore.iec.ch/publication/24433> ;
+          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> ;
+          sto:isCategorizedBy sto:BusinessProcessExecution ;
+          sto:publisher sto:OASIS ,
+                        sto:UN-CEFACT ;
+          rdfs:comment "Electronic Business using eXtensible Markup Language, commonly known as e-business XML, or ebXML is a family of XML based standards whose mission is to provide an open, XML-based infrastructure that enables the global use of electronic business information in an interoperable, secure, and consistent manner by all trading partners."@en ;
+          rdfs:label "ebXML"@en ;
+          sto:hasTag "ebXML"@en .
+
+
 ###  https://webstore.iec.ch/publication/22797
 <https://webstore.iec.ch/publication/22797> rdf:type owl:NamedIndividual .
 
@@ -3730,6 +3813,14 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 
 ###  https://www.asam.net/
 <https://www.asam.net/> rdf:type owl:NamedIndividual .
+
+
+###  https://www.asme.org/
+<https://www.asme.org/> rdf:type owl:NamedIndividual .
+
+
+###  https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data
+<https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data> rdf:type owl:NamedIndividual .
 
 
 ###  https://www.automationml.org/
@@ -3886,6 +3977,14 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 
 ###  https://www.oasis-open.org/
 <https://www.oasis-open.org/> rdf:type owl:NamedIndividual .
+
+
+###  https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel
+<https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel> rdf:type owl:NamedIndividual .
+
+
+###  https://www.unece.org/cefact/
+<https://www.unece.org/cefact/> rdf:type owl:NamedIndividual .
 
 
 ###  https://www.vdma.org/documents/105628/2244593/Inhalt+VDMA+24582_en.pdf/
