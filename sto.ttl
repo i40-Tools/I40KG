@@ -396,6 +396,14 @@ foaf:Document rdf:type owl:Class .
 foaf:Organization rdf:type owl:Class .
 
 
+###  https://w3id.org/i40/rami#AdminShellSubmodel
+rami:AdminShellSubmodel rdf:type owl:Class ;
+                        rdfs:subClassOf sto:StandardClassification ;
+                        rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
+                        rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
+                        rdfs:label "Admin Shell Sub Model"@en .
+
+
 ###  https://w3id.org/i40/rami#RAMIHierarchyLevel
 rami:RAMIHierarchyLevel rdf:type owl:Class ;
                         owl:equivalentClass [ rdf:type owl:Class ;
@@ -434,14 +442,6 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
                         rdfs:seeAlso "http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx" ;
                         skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
                         skos:prefLabel "RAMI Life Cycle Layer"@en .
-
-
-###  https://w3id.org/i40/sto#AdminShellSubmodel
-rami:AdminShellSubmodel rdf:type owl:Class ;
-                       rdfs:subClassOf sto:StandardClassification ;
-                       rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
-                       rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
-                       rdfs:label "Admin Shell Sub Model"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -571,6 +571,16 @@ rami:ControlDevice rdf:type owl:NamedIndividual ,
                             rami:RAMIHierarchyLevel .
 
 
+###  https://w3id.org/i40/rami#EnergyEfficiency
+rami:EnergyEfficiency rdf:type owl:NamedIndividual ,
+                               rami:AdminShellSubmodel .
+
+
+###  https://w3id.org/i40/rami#Engineering
+rami:Engineering rdf:type owl:NamedIndividual ,
+                          rami:AdminShellSubmodel .
+
+
 ###  https://w3id.org/i40/rami#Enterprise
 rami:Enterprise rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel .
@@ -584,6 +594,11 @@ rami:FieldDevice rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#Functional
 rami:Functional rdf:type owl:NamedIndividual ,
                          rami:RAMIITLayer .
+
+
+###  https://w3id.org/i40/rami#Identification
+rami:Identification rdf:type owl:NamedIndividual ,
+                             rami:AdminShellSubmodel .
 
 
 ###  https://w3id.org/i40/rami#Information
@@ -602,9 +617,24 @@ rami:Integration rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer .
 
 
+###  https://w3id.org/i40/rami#LifecycleStatus
+rami:LifecycleStatus rdf:type owl:NamedIndividual ,
+                              rami:AdminShellSubmodel .
+
+
 ###  https://w3id.org/i40/rami#Product
 rami:Product rdf:type owl:NamedIndividual ,
                       rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#Safety
+rami:Safety rdf:type owl:NamedIndividual ,
+                     rami:AdminShellSubmodel .
+
+
+###  https://w3id.org/i40/rami#Security
+rami:Security rdf:type owl:NamedIndividual ,
+                       rami:AdminShellSubmodel .
 
 
 ###  https://w3id.org/i40/rami#Station
@@ -783,7 +813,7 @@ sto:Communication rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ConditionMonitoring
 sto:ConditionMonitoring rdf:type owl:NamedIndividual ,
-                               rami:AdminShellSubmodel .
+                                 rami:AdminShellSubmodel .
 
 
 ###  https://w3id.org/i40/sto#Configuration
@@ -886,16 +916,6 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
 sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
 
 
-###  https://w3id.org/i40/sto#EnergyEfficiency
-rami:EnergyEfficiency rdf:type owl:NamedIndividual ,
-                              rami:AdminShellSubmodel .
-
-
-###  https://w3id.org/i40/sto#Engineering
-rami:Engineering rdf:type owl:NamedIndividual ,
-                         rami:AdminShellSubmodel .
-
-
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
 sto:EnterpriseIntegration rdf:type owl:NamedIndividual .
 
@@ -993,8 +1013,10 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
               sto:publisher sto:IEC ,
                             sto:ISO ;
               sto:hasOfficialResource "https://www.iso.org/standard/45240.html" ;
+              sto:hasPublicationDate "2016-08"^^xsd:date ;
               rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures. This International Standard specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities. The unique identification is a universal construct for any physical object, virtual object, or person. It is used in IoT information systems that need to track or otherwise refer to entities. It is intended for use with any IoT media."@en ;
               rdfs:label "IEC 29161"@en ;
+              sto:domain "Automatic identification and data capture techniques"@en ;
               sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en .
 
 
@@ -2135,11 +2157,6 @@ sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                                          rami:Integration .
 
 
-###  https://w3id.org/i40/sto#Identification
-rami:Identification rdf:type owl:NamedIndividual ,
-                            rami:AdminShellSubmodel .
-
-
 ###  https://w3id.org/i40/sto#IndustrialAutomation
 sto:IndustrialAutomation rdf:type owl:NamedIndividual ,
                                   sto:Domain ;
@@ -2156,6 +2173,18 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
                                         rdfs:comment "Industrial process measurement and control"@en .
 
 
+###  https://w3id.org/i40/sto#InstanceMaintenance
+rami:InstanceMaintenance rdf:type owl:NamedIndividual ,
+                                 rami:RAMILifeCycleLayer ;
+                        rdfs:label "Instance Maintenance"@en .
+
+
+###  https://w3id.org/i40/sto#InstanceProduction
+rami:InstanceProduction rdf:type owl:NamedIndividual ,
+                                rami:RAMILifeCycleLayer ;
+                       rdfs:label "Instance Production"@en .
+
+
 ###  https://w3id.org/i40/sto#KATS
 sto:KATS rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -2169,11 +2198,6 @@ sto:KATS rdf:type owl:NamedIndividual ,
                         sto:ISO ;
          rdfs:comment "Korean Agency for Technology and Standards is the government standards organization for South Korea. It is part of the Ministry of Knowledge Economy. It is authorized to regulate and manage the legal measures of South Korea by the current Measures Act."@en ;
          rdfs:label "Korean Agency for Technology and Standards"@en .
-
-
-###  https://w3id.org/i40/sto#LifecycleStatus
-rami:LifecycleStatus rdf:type owl:NamedIndividual ,
-                             rami:AdminShellSubmodel .
 
 
 ###  https://w3id.org/i40/sto#M2M
@@ -2511,16 +2535,6 @@ sto:SE rdf:type owl:NamedIndividual ,
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
 
 
-###  https://w3id.org/i40/sto#Safety
-rami:Safety rdf:type owl:NamedIndividual ,
-                    rami:AdminShellSubmodel .
-
-
-###  https://w3id.org/i40/sto#Security
-rami:Security rdf:type owl:NamedIndividual ,
-                      rami:AdminShellSubmodel .
-
-
 ###  https://w3id.org/i40/sto#SysML
 sto:SysML rdf:type owl:NamedIndividual ,
                    sto:Standard ;
@@ -2533,6 +2547,18 @@ sto:SysML rdf:type owl:NamedIndividual ,
           rdfs:comment "The OMG Systems Modeling Language™ (OMG SysML™) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML™ for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
           rdfs:label "SysML"@en ;
           sto:hasTag "Systems Modeling Language"@en .
+
+
+###  https://w3id.org/i40/sto#TypeDevelopment
+rami:TypeDevelopment rdf:type owl:NamedIndividual ,
+                             rami:RAMILifeCycleLayer ;
+                    rdfs:label "Type Development"@en .
+
+
+###  https://w3id.org/i40/sto#TypeMaintenance
+rami:TypeMaintenance rdf:type owl:NamedIndividual ,
+                             rami:RAMILifeCycleLayer ;
+                    rdfs:label "Type Maintenance"@en .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
