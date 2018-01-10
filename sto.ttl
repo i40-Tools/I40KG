@@ -155,6 +155,11 @@ dcterms:license rdf:type owl:ObjectProperty ;
                 rdfs:label "License"@en .
 
 
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf sto:relatedTo .
+
+
 ###  http://xmlns.com/foaf/0.1/maker
 foaf:maker rdf:type owl:ObjectProperty .
 
@@ -252,7 +257,7 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:range sto:Standard ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
-              skos:altLabel "hasAssociatedStandard"@en .
+              skos:altLabel "has Associated Standard"@en .
 
 
 #################################################################
@@ -285,8 +290,7 @@ sto:formationDate rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasDBpediaResource
 sto:hasDBpediaResource rdf:type owl:DatatypeProperty ;
-                       rdfs:domain sto:Standard ;
-                       rdfs:range xsd:anyURI .
+                       rdfs:range xsd:string .
 
 
 ###  https://w3id.org/i40/sto#hasImplementationFormat
@@ -307,8 +311,7 @@ sto:hasObjective rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasOfficialResource
 sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
-                        rdfs:domain sto:Standard ;
-                        rdfs:range xsd:anyURI .
+                        rdfs:range xsd:string .
 
 
 ###  https://w3id.org/i40/sto#hasOntology
@@ -345,8 +348,7 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
 sto:hasWikipediaArticle rdf:type owl:DatatypeProperty ;
-                        rdfs:domain sto:Standard ;
-                        rdfs:range xsd:anyURI .
+                        rdfs:range xsd:string .
 
 
 ###  https://w3id.org/i40/sto#orgName
@@ -612,6 +614,18 @@ rami:InformationLayer rdf:type owl:NamedIndividual ,
                       rdfs:label "Information Layer"@en .
 
 
+###  https://w3id.org/i40/rami#InstanceMaintenance
+rami:InstanceMaintenance rdf:type owl:NamedIndividual ,
+                                  rami:RAMILifeCycleLayer ;
+                         rdfs:label "Instance Maintenance"@en .
+
+
+###  https://w3id.org/i40/rami#InstanceProduction
+rami:InstanceProduction rdf:type owl:NamedIndividual ,
+                                 rami:RAMILifeCycleLayer ;
+                        rdfs:label "Instance Production"@en .
+
+
 ###  https://w3id.org/i40/rami#Integration
 rami:Integration rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer .
@@ -640,6 +654,18 @@ rami:Security rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#Station
 rami:Station rdf:type owl:NamedIndividual ,
                       rami:RAMIHierarchyLevel .
+
+
+###  https://w3id.org/i40/rami#TypeDevelopment
+rami:TypeDevelopment rdf:type owl:NamedIndividual ,
+                              rami:RAMILifeCycleLayer ;
+                     rdfs:label "Type Development"@en .
+
+
+###  https://w3id.org/i40/rami#TypeMaintenance
+rami:TypeMaintenance rdf:type owl:NamedIndividual ,
+                              rami:RAMILifeCycleLayer ;
+                     rdfs:label "Type Maintenance"@en .
 
 
 ###  https://w3id.org/i40/rami#WorkCenter
@@ -842,6 +868,17 @@ sto:DIN rdf:type owl:NamedIndividual ,
         sto:hasDBpediaResource <http://dbpedia.org/page/Deutsches_Institut_f%C3%BCr_Normung> ;
         sto:hasOfficialResource <http://www.din.de/en/about-standards/din-standards> ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> .
+
+
+###  https://w3id.org/i40/sto#DIN_SPEC_16592
+sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   <http://www.w3.org/ns/prov#wasDerivedFrom> sto:IEC_62541 ,
+                                                              sto:IEC_62714 ;
+                   sto:developer sto:DIN ;
+                   sto:publisher sto:DIN ;
+                   rdfs:comment "Combining OPC Unified Architecture and Automation Markup Language."@en ;
+                   rdfs:label "DIN SPEC 16592"@en .
 
 
 ###  https://w3id.org/i40/sto#DMSC
@@ -2173,18 +2210,6 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
                                         rdfs:comment "Industrial process measurement and control"@en .
 
 
-###  https://w3id.org/i40/sto#InstanceMaintenance
-rami:InstanceMaintenance rdf:type owl:NamedIndividual ,
-                                 rami:RAMILifeCycleLayer ;
-                        rdfs:label "Instance Maintenance"@en .
-
-
-###  https://w3id.org/i40/sto#InstanceProduction
-rami:InstanceProduction rdf:type owl:NamedIndividual ,
-                                rami:RAMILifeCycleLayer ;
-                       rdfs:label "Instance Production"@en .
-
-
 ###  https://w3id.org/i40/sto#KATS
 sto:KATS rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -2547,18 +2572,6 @@ sto:SysML rdf:type owl:NamedIndividual ,
           rdfs:comment "The OMG Systems Modeling Language™ (OMG SysML™) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML™ for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
           rdfs:label "SysML"@en ;
           sto:hasTag "Systems Modeling Language"@en .
-
-
-###  https://w3id.org/i40/sto#TypeDevelopment
-rami:TypeDevelopment rdf:type owl:NamedIndividual ,
-                             rami:RAMILifeCycleLayer ;
-                    rdfs:label "Type Development"@en .
-
-
-###  https://w3id.org/i40/sto#TypeMaintenance
-rami:TypeMaintenance rdf:type owl:NamedIndividual ,
-                             rami:RAMILifeCycleLayer ;
-                    rdfs:label "Type Maintenance"@en .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
