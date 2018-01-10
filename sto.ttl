@@ -436,6 +436,14 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
                         skos:prefLabel "RAMI Life Cycle Layer"@en .
 
 
+###  https://w3id.org/i40/sto#AdminShellSubmodel
+rami:AdminShellSubmodel rdf:type owl:Class ;
+                       rdfs:subClassOf sto:StandardClassification ;
+                       rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
+                       rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
+                       rdfs:label "Admin Shell Sub Model"@en .
+
+
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
 sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:subClassOf sto:StandardClassification ;
@@ -516,10 +524,6 @@ sto:StandarizationInitiative rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://creativecommons.org/licenses/by-nc-sa/3.0/
-<http://creativecommons.org/licenses/by-nc-sa/3.0/> rdf:type owl:NamedIndividual .
-
 
 ###  http://dbpedia.org/resource#China
 dbr:China rdf:type owl:NamedIndividual .
@@ -611,11 +615,6 @@ rami:Station rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#WorkCenter
 rami:WorkCenter rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel .
-
-
-###  https://w3id.org/i40/sto#
-<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual ;
-                            dcterms:license <http://creativecommons.org/licenses/by-nc-sa/3.0/> .
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -777,6 +776,21 @@ sto:CAD rdf:type owl:NamedIndividual ,
         sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design> .
 
 
+###  https://w3id.org/i40/sto#Communication
+sto:Communication rdf:type owl:NamedIndividual ,
+                           rami:AdminShellSubmodel .
+
+
+###  https://w3id.org/i40/sto#ConditionMonitoring
+sto:ConditionMonitoring rdf:type owl:NamedIndividual ,
+                               rami:AdminShellSubmodel .
+
+
+###  https://w3id.org/i40/sto#Configuration
+sto:Configuration rdf:type owl:NamedIndividual ,
+                           rami:AdminShellSubmodel .
+
+
 ###  https://w3id.org/i40/sto#CrossLevel
 sto:CrossLevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
@@ -806,10 +820,6 @@ sto:DMSC rdf:type owl:NamedIndividual ,
          rdfs:comment "Dimensional Metrology Standards Consortium (DMSC) is to identify urgently needed standards in the field of dimensional metrology, and to promote, foster, and encourage the development and interoperability of these standards, along with related and supporting standards that will benefit the industry as a whole."@en ;
          rdfs:label "Dimensional Metrology Standards Consortium"@en ;
          sto:hasOfficialResource <http://www.dmis.org/> .
-
-
-###  https://w3id.org/i40/sto#Design
-sto:Design rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#DeviceLevel
@@ -874,6 +884,16 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EndOfLifeReclying
 sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#EnergyEfficiency
+rami:EnergyEfficiency rdf:type owl:NamedIndividual ,
+                              rami:AdminShellSubmodel .
+
+
+###  https://w3id.org/i40/sto#Engineering
+rami:Engineering rdf:type owl:NamedIndividual ,
+                         rami:AdminShellSubmodel .
 
 
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
@@ -964,10 +984,6 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
                                          rami:Product ,
                                          rami:Station ;
               rami:hasRAMIITLayer rami:Information .
-
-
-###  https://w3id.org/i40/sto#IEC_27000
-sto:IEC_27000 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#IEC_29161
@@ -1328,7 +1344,6 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
               sto:publisher sto:ANSI ,
                             sto:IEC ,
                             sto:ISA ;
-              sto:relatedTo sto:IEC_27000 ;
               sto:hasOfficialResource "https://webstore.iec.ch/publication/7029" ,
                                       "https://webstore.iec.ch/publication/7033" ;
               rdfs:comment "Defines procedures for implementing electronically secure Industrial Automation and Control Systems."@en ,
@@ -2004,13 +2019,19 @@ sto:ISO_27000 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource "http://www.27000.org/" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_27000" ;
               rdfs:comment "The ISO/IEC 27000 family of standards helps organizations keep information assets secure. Using this family of standards will help your organization manage the security of assets such as financial information, intellectual property, employee details or information entrusted to you by third parties."@en ;
-              rdfs:label "ISO 27000"@en ;
+              rdfs:label "IEC 27000"@en ,
+                         "ISO 27000"@en ,
+                         "ISO/IEC 27000"@en ;
               sto:hasTag "Information Security Management Systems"@en ;
               sto:motivation "Provides best practices for information security management. A critical issue for Industry 4.0 "@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_29161
-sto:ISO_29161 rdf:type owl:NamedIndividual .
+sto:ISO_29161 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasOfficialResource "https://www.iso.org/standard/45240.html" ;
+              rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures."@en ;
+              rdfs:label "ISO 29161" .
 
 
 ###  https://w3id.org/i40/sto#ISO_50001
@@ -2114,6 +2135,11 @@ sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                                          rami:Integration .
 
 
+###  https://w3id.org/i40/sto#Identification
+rami:Identification rdf:type owl:NamedIndividual ,
+                            rami:AdminShellSubmodel .
+
+
 ###  https://w3id.org/i40/sto#IndustrialAutomation
 sto:IndustrialAutomation rdf:type owl:NamedIndividual ,
                                   sto:Domain ;
@@ -2143,6 +2169,11 @@ sto:KATS rdf:type owl:NamedIndividual ,
                         sto:ISO ;
          rdfs:comment "Korean Agency for Technology and Standards is the government standards organization for South Korea. It is part of the Ministry of Knowledge Economy. It is authorized to regulate and manage the legal measures of South Korea by the current Measures Act."@en ;
          rdfs:label "Korean Agency for Technology and Standards"@en .
+
+
+###  https://w3id.org/i40/sto#LifecycleStatus
+rami:LifecycleStatus rdf:type owl:NamedIndividual ,
+                             rami:AdminShellSubmodel .
 
 
 ###  https://w3id.org/i40/sto#M2M
@@ -2439,21 +2470,6 @@ sto:RAMI40 rdf:type owl:NamedIndividual ,
            rdfs:label "RAMI 4.0"@en .
 
 
-###  https://w3id.org/i40/sto#Resource1
-sto:Resource1 rdf:type owl:NamedIndividual ;
-              rdfs:label "Resource"@en .
-
-
-###  https://w3id.org/i40/sto#Resource2
-sto:Resource2 rdf:type owl:NamedIndividual ;
-              rdfs:label "Resource"@en .
-
-
-###  https://w3id.org/i40/sto#Resource3
-sto:Resource3 rdf:type owl:NamedIndividual ;
-              rdfs:label "Resource"@en .
-
-
 ###  https://w3id.org/i40/sto#SCADALevel
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
@@ -2495,6 +2511,16 @@ sto:SE rdf:type owl:NamedIndividual ,
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
 
 
+###  https://w3id.org/i40/sto#Safety
+rami:Safety rdf:type owl:NamedIndividual ,
+                    rami:AdminShellSubmodel .
+
+
+###  https://w3id.org/i40/sto#Security
+rami:Security rdf:type owl:NamedIndividual ,
+                      rami:AdminShellSubmodel .
+
+
 ###  https://w3id.org/i40/sto#SysML
 sto:SysML rdf:type owl:NamedIndividual ,
                    sto:Standard ;
@@ -2518,10 +2544,6 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/UN/CEFACT" ;
               sto:orgName "United Nations Centre for Trade Facilitation and Electronic Business"@en ;
               rdfs:comment "UN/CEFACT is the United Nations Centre for Trade Facilitation and Electronic Business. It was established as an intergovernmental body of the United Nations Economic Commission for Europe (UNECE) in 1996 and evolved from UNECE’s long tradition of work in trade facilitation."@en .
-
-
-###  https://w3id.org/i40/sto#UseService
-sto:UseService rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#VDMA
@@ -2689,18 +2711,6 @@ sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
 
 sto:motivation rdfs:label "Motivation"@en ;
                rdfs:comment "Describes the motivation of the standards"@en .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( sto:Resource1
-                        sto:Resource2
-                        sto:Resource3
-                      )
-] .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
