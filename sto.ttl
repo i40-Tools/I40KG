@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/i40/sto##> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -181,6 +180,14 @@ sto:developer rdf:type owl:ObjectProperty ;
               rdfs:label "developer"@en .
 
 
+###  https://w3id.org/i40/sto#hasClassification
+sto:hasClassification rdf:type owl:ObjectProperty ;
+                      rdfs:domain sto:Standard ;
+                      rdfs:range sto:StandardClassification ;
+                      rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
+                      rdfs:label "has Classification"@en .
+
+
 ###  https://w3id.org/i40/sto#hasDomain
 sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Standard ;
@@ -203,20 +210,12 @@ sto:hasTag rdf:type owl:ObjectProperty ;
            rdfs:range muto:Tag .
 
 
-###  https://w3id.org/i40/sto#isCategorizedBy
-sto:isCategorizedBy rdf:type owl:ObjectProperty ;
-                    rdfs:domain sto:Standard ;
-                    rdfs:range sto:StandardClassification ;
-                    rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                    rdfs:label "is Categorized By"@en .
-
-
-###  https://w3id.org/i40/sto#isClassifiedBy
-sto:isClassifiedBy rdf:type owl:ObjectProperty ;
-                   rdfs:domain sto:StandardClassification ;
-                   rdfs:range sto:StandarizationInitiative ;
-                   rdfs:comment "Links the Standarization Initiatives with the Classification of Standards"@en ;
-                   rdfs:label "is Classified by"@en .
+###  https://w3id.org/i40/sto#isDescribedin
+sto:isDescribedin rdf:type owl:ObjectProperty ;
+                  rdfs:domain sto:StandardClassification ;
+                  rdfs:range sto:StandarizationInitiative ;
+                  rdfs:comment "Links the Standarization Initiatives with the Classification of Standards"@en ;
+                  rdfs:label "is Described in"@en .
 
 
 ###  https://w3id.org/i40/sto#isImplementationOf
@@ -228,9 +227,10 @@ sto:isImplementationOf rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#isPartOf
 sto:isPartOf rdf:type owl:ObjectProperty ;
-             rdfs:domain sto:StandardPart ;
+             rdfs:subPropertyOf sto:relatedTo ;
+             rdfs:domain sto:Standard ;
              rdfs:range sto:Standard ;
-             rdfs:comment "Relates a given part of the Standard document with the complete document"@en ;
+             rdfs:comment "Represents Standards that are part of other Standards"@en ;
              rdfs:label "is Part Of"@en .
 
 
@@ -560,7 +560,7 @@ rami:Business rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#Communication
 rami:Communication rdf:type owl:NamedIndividual ,
                             rami:RAMIITLayer ;
-                   sto:isClassifiedBy sto:RAMI40 .
+                   sto:isDescribedin sto:RAMI40 .
 
 
 ###  https://w3id.org/i40/rami#ConnectedWorld
@@ -793,7 +793,7 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BPEL
 sto:BPEL rdf:type owl:NamedIndividual ,
                   sto:Standard ;
-         sto:isCategorizedBy sto:BusinessProcessExecution ;
+         sto:hasClassification sto:BusinessProcessExecution ;
          sto:publisher sto:OASIS ;
          sto:hasDBpediaResource "http://dbpedia.org/resource/Business_Process_Execution_Language" ;
          sto:hasOfficialResource "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel" ;
@@ -807,7 +807,7 @@ sto:BPEL rdf:type owl:NamedIndividual ,
 sto:BPMN rdf:type owl:NamedIndividual ,
                   sto:Standard ;
          sto:developer sto:OMG ;
-         sto:isCategorizedBy sto:SCM ;
+         sto:hasClassification sto:SCM ;
          sto:hasDBpediaResource "http://dbpedia.org/page/Business_Process_Model_and_Notation" ;
          sto:hasOfficialResource "http://www.bpmn.org/" ;
          rdfs:comment "Business Process Model and Notation  is a graphical representation for specifying business processes in a business process model."@en ;
@@ -1026,8 +1026,8 @@ sto:IEC_20140_5 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_24760
 sto:IEC_24760 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductModelDataExchange ;
               sto:hasDomain sto:M2M ;
-              sto:isCategorizedBy sto:ProductModelDataExchange ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_62443 ;
               sto:hasOfficialResource "https://www.iso.org/standard/57914.html" ;
@@ -1036,11 +1036,11 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 24760"@en ;
               rami:hasAdminShellSubmodel rami:Safety ,
                                          rami:Security ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ,
                                          rami:Product ,
                                          rami:Station ;
-              rami:hasRAMIITLayer rami:Information .
+              sto:hasClassification rami:Information .
 
 
 ###  https://w3id.org/i40/sto#IEC_29161
@@ -1060,8 +1060,8 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_29182-1
 sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
+                sto:hasClassification sto:ProductionSystemModelData ;
                 sto:hasDomain sto:M2M ;
-                sto:isCategorizedBy sto:ProductionSystemModelData ;
                 sto:publisher sto:IEC ,
                               sto:ISO ;
                 sto:relatedTo sto:IEC_61158 ;
@@ -1069,8 +1069,8 @@ sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                 sto:hasPublicationDate "2013-06"^^xsd:date ;
                 rdfs:comment "ISO/IEC 29182-1: provides a general overview of the characteristics of a sensor network and the organization of the entities that comprise such a network. It also describes the general requirements that are identified for sensor networks."@en ;
                 rdfs:label "IEC 29182-1"@en ;
-                rami:hasAdminShellSubmodel rami:Communications ;
-                rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                sto:hasClassification rami:Communications ;
+                sto:hasClassification rami:ControlDevice ,
                                            rami:FieldDevice .
 
 
@@ -1108,10 +1108,10 @@ sto:IEC_60839-5-2 rdf:type owl:NamedIndividual ,
                   sto:hasPublicationDate "2016-02-03"^^xsd:date ;
                   rdfs:comment "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition: reflects the current technological state of art (IP networks) ,harmonizes with the ATS categories introduced in IEC 60839-5-1:2014; introduces test requirements."@en ;
                   rdfs:label "IEC 60839-5-2"@en ;
-                  rami:hasAdminShellSubmodel rami:Security ;
-                  rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                  sto:hasClassification rami:Security ;
+                  sto:hasClassification rami:ControlDevice ,
                                              rami:FieldDevice ;
-                  rami:hasRAMIITLayer rami:Communication .
+                  sto:hasClassification rami:Communication .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870
@@ -1137,6 +1137,7 @@ sto:IEC_60904 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61131
 sto:IEC_61131 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:isPartOf sto:IEC_62714 ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61499 ;
               sto:hasDBpediaResource "http://dbpedia.org/page/IEC_61131" ;
@@ -1144,10 +1145,10 @@ sto:IEC_61131 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_61131" ;
               rdfs:comment "IEC 61131 is an IEC standard for programmable controllers. It was known as IEC 1131 before the change in numbering system by IEC. The parts of the IEC 61131 standard are prepared and maintained working group 7, programmable control systems, of subcommittee SC 65B of Technical Committee TC65 of the IEC."@en ;
               rdfs:label "IEC 60131"@en ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:Station ,
                                          rami:WorkCenter ;
-              sto:hasTag "PLCOpen"@en .
+              sto:hasTag "PLC Open"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_61158
@@ -1175,7 +1176,7 @@ sto:IEC_61334 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61360
 sto:IEC_61360 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:ManufacturingModelData ;
+              sto:hasClassification sto:ManufacturingModelData ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:ISO_13584 ,
                             sto:eClass ;
@@ -1183,8 +1184,8 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
                                       "https://webstore.iec.ch/publication/5380" ;
               rdfs:comment "IEC Common Data Dictionary (IEC CDD) is a common repository of concepts for all electrotechnical domains based on the methodology and the information model of IEC 61360 series. Standard data elements types with associated classification scheme for electric items."@en ;
               rdfs:label "IEC 61360"@en ;
-              rami:hasAdminShellSubmodel rami:Engineering ;
-              rami:hasRAMIITLayer rami:Asset ;
+              sto:hasClassification rami:Engineering ;
+              sto:hasClassification rami:Asset ;
               sto:hasTag "IEC Common Data Dictionary"@en ;
               sto:motivation "Standard data elements (properties) are used as elements in administration shell"@en .
 
@@ -1209,7 +1210,7 @@ sto:IEC_61499 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_61499" ;
               rdfs:comment "Function Blocks - Architecture Related Applications http://www.eclipse.org/4diac/ (sourceforge.net/projects/oooneida-fbench/) http://timeme.io/  not accepted by the Industry yet. http://www.holobloc.com/Proposed for IEC to overcome the restricctions of IEC 61131"@en ;
               rdfs:label "IEC 61499"@en ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ;
               sto:hasTag "FBs distributed systems"@en ;
               sto:motivation "Functional description, informational representation and communication mapping of application functionality. This standard describes how a distributed control application is composed of functional units (FB), which are executed in different context. It may help to describe how functions are distributed between different I40-Components and how the execution of the functions between the different I40-Components is controled."@en .
@@ -1225,7 +1226,7 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_61508" ;
               rdfs:comment "Functional safety is a concept applicable across all industry sectors. It is fundamental to the enabling of complex technology used for safety-related systems. It provides the assurance that the safety-related systems will offer the necessary risk reduction required to achieve safety for the equipment. The oil and gas industry, nuclear plants and the machinery sector, to name but a few, all rely heavily on functional safety to achieve safety for the equipment giving rise to the hazards."@en ;
               rdfs:label "IEC 60508"@en ;
-              rami:hasAdminShellSubmodel rami:Safety ;
+              sto:hasClassification rami:Safety ;
               sto:hasTag "Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems"@en ;
               sto:license "Private"@en ;
               sto:motivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en .
@@ -1256,7 +1257,7 @@ sto:IEC_61512 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISA-88" ;
               rdfs:comment "Batch control - Models and terminology"@en ;
               rdfs:label "IEC 61512"@en ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:Product ,
                                          rami:Station ,
                                          rami:WorkCenter ;
@@ -1272,8 +1273,8 @@ sto:IEC_61784 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource "https://webstore.iec.ch/publication/5878" ;
               rdfs:comment "Industrial communication networks - Profiles - Ethernet-real-time-enabled"@en ;
               rdfs:label "IEC 61784"@en ;
-              rami:hasAdminShellSubmodel rami:CommunicationSubModel ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:CommunicationSubModel ;
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ;
               sto:hasTag "IEC Fieldbus (Profibus)"@en ;
               sto:license "Private"@en ;
@@ -1290,8 +1291,8 @@ sto:IEC_61804 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Device_Description_Language" ;
               rdfs:comment "Function blocks (FB) for process control - Overview of system aspects "@en ;
               rdfs:label "IEC 61804"@en ;
-              rami:hasAdminShellSubmodel rami:Configuration ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:Configuration ;
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ;
               sto:hasTag "EDDL"@en .
 
@@ -1314,8 +1315,8 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
                 sto:hasOfficialResource "https://webstore.iec.ch/publication/6225" ;
                 rdfs:comment "Industrial-process measurement and control - Data structures and elements in process equipment catalogs - Measuring equipment with analogue and digital output"@en ;
                 rdfs:label "IEC 61987_X"@en ;
-                rami:hasAdminShellSubmodel rami:Engineering ;
-                rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                sto:hasClassification rami:Engineering ;
+                sto:hasClassification rami:ControlDevice ,
                                            rami:Enterprise ,
                                            rami:FieldDevice ,
                                            rami:Product ,
@@ -1335,7 +1336,7 @@ sto:IEC_62061 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_62061" ;
               rdfs:comment "provides requirements that are applicable to the system level design of all types of machinery safety-related electrical control systems and also for the design of non-complex subsystems or devices."@en ;
               rdfs:label "IEC 60061"@en ;
-              rami:hasAdminShellSubmodel rami:Safety ;
+              sto:hasClassification rami:Safety ;
               sto:hasTag "Safety of machinery"@en .
 
 
@@ -1356,7 +1357,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 62264"@en ;
               rdfs:seeAlso "https://en.wikipedia.org/wiki/B2MML" ;
               skos:altLabel "B2MML" ;
-              rami:hasRAMIITLayer rami:Functional ;
+              sto:hasClassification rami:Functional ;
               sto:hasTag "Enterprise control systems"@en ,
                          "Enterprise-control system integration"@en ;
               sto:license "Private"@en ;
@@ -1366,25 +1367,25 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62337
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductionSystemModelData ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy sto:ProductionSystemModelData ;
               sto:publisher sto:IEC ;
               sto:hasOfficialResource "https://webstore.iec.ch/publication/6871" ;
               sto:hasPublicationDate "2012-02-22"^^xsd:date ;
               rdfs:comment "Commissioning of electrical, instrumentation and control systems in the process industry - Specific phases and milestones."@en ;
               rdfs:label "IEC 62337"@en ;
-              rami:hasAdminShellSubmodel rami:Conditional_Monitoring ,
+              sto:hasClassification rami:Conditional_Monitoring ,
                                          rami:Lifecycle_Status ;
-              rami:hasRAMIHierarchyLevel rami:Enterprise ,
+              sto:hasClassification rami:Enterprise ,
                                          rami:Work_Centers ;
-              rami:hasRAMIITLayer rami:Functional .
+              sto:hasClassification rami:Functional .
 
 
 ###  https://w3id.org/i40/sto#IEC_62424
 sto:IEC_62424 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:isPartOf sto:IEC_62714 ;
               sto:publisher sto:IEC ;
-              sto:relatedTo sto:IEC_62714 ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/CAEX" ;
               sto:hasOfficialResource "https://webstore.iec.ch/publication/25442" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/CAEX" ;
@@ -1399,7 +1400,7 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:ANSI ,
                             sto:ISA ;
-              sto:isCategorizedBy sto:CrossLevel ;
+              sto:hasClassification sto:CrossLevel ;
               sto:publisher sto:ANSI ,
                             sto:IEC ,
                             sto:ISA ;
@@ -1410,7 +1411,7 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 62443"@en ;
               skos:altLabel "ISA 99" ;
               skos:note "TODO" ;
-              rami:hasAdminShellSubmodel rami:Security ;
+              sto:hasClassification rami:Security ;
               sto:hasTag "Electronically secure Industrial Automation and Control Systems"@en ,
                          "Network and system security for industrial-process measurement and control"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Cyber_security_standards#ISA.2FIEC-62443_.28formerly_ISA-99.29> ;
@@ -1426,7 +1427,7 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
               rdfs:comment "Field device tool (FDT) interface specification - Overview and guidance"@en ;
               rdfs:label "IEC 62453"@en ;
               rami:hasAdminShellSubmodel rami:Configuration ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ,
                                          rami:Station ;
               sto:hasTag "FDT"@en ;
@@ -1437,9 +1438,9 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
 sto:IEC_62541 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:developer sto:OPC_Foundation ;
+              sto:hasClassification rami:Communication ,
+                                    sto:SCADALevel ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy rami:Communication ,
-                                  sto:SCADALevel ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61499 ,
                             sto:IEC_61850 ,
@@ -1449,13 +1450,13 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/OPC_Unified_Architecture" ;
               rdfs:comment "OPC Unified Architecture (OPC UA) is an industrial M2M communication protocol for interoperability developed by the OPC Foundation. It is the successor to Open Platform Communications (OPC). Although developed by the same organization, OPC UA differs significantly from its predecessor. The Foundation's goal for this project was to provide a path forward from the original OPC communications model (namely the Microsoft Windows only process exchange COM/DCOM) to a cross-platform service-oriented architecture (SOA) for process control, while enhancing security and providing an information model."@en ;
               rdfs:label "IEC 62541"@en ;
-              rami:hasRAMIHierarchyLevel rami:ConnectedWorld ,
+              sto:hasClassification rami:ConnectedWorld ,
                                          rami:ControlDevice ,
                                          rami:Enterprise ,
                                          rami:FieldDevice ,
                                          rami:Station ,
                                          rami:WorkCenter ;
-              rami:hasRAMIITLayer rami:Communication ;
+              sto:hasClassification rami:Communication ;
               sto:hasTag "OPC UA"@en ;
               sto:license "Open"@en .
 
@@ -1483,7 +1484,7 @@ sto:IEC_62656 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62714
 sto:IEC_62714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:ProductionSystemEngineering ;
+              sto:hasClassification sto:ProductionSystemEngineering ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61360 ,
                             sto:IEC_61987_X ,
@@ -1494,12 +1495,12 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/AutomationML" ;
               rdfs:comment "Engineering data exchange format for use in industrial automation systems engineering - Automation markup language - Architecture and general requirements"@en ;
               rdfs:label "IEC 62714"@en ;
-              rami:hasAdminShellSubmodel rami:Engineering ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:Engineering ;
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ,
                                          rami:Product ,
                                          rami:Station ;
-              rami:hasRAMIITLayer rami:Information ;
+              sto:hasClassification rami:Information ;
               sto:hasTag "AML"@en ,
                          "AutomationML"@en ;
               sto:license "Open"@en .
@@ -1518,14 +1519,14 @@ sto:IEC_62837 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62890
 sto:IEC_62890 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:ProductionLifeCycleDataManagement ;
+              sto:hasClassification sto:ProductionLifeCycleDataManagement ;
               sto:publisher sto:IEC ;
               sto:hasOfficialResource "http://www.iec.ch/dyn/www/f?p=103:38:16824039984463::::FSP_ORG_ID,FSP_APEX_PAGE,FSP_PROJECT_ID:1250,23,20929" ;
               rdfs:comment "Defines standards for lifecycle management for systems and products used in industrial process measurement, control and automation"@en ,
                            "MES KPIs"@en ;
               rdfs:label "IEC 62890"@en ;
-              rami:hasAdminShellSubmodel rami:LifecycleStatus ;
-              rami:hasRAMIHierarchyLevel rami:Station ,
+              sto:hasClassification rami:LifecycleStatus ;
+              sto:hasClassification rami:Station ,
                                          rami:WorkCenter ;
               sto:hasTag "IEC 62890"@en ;
               sto:license "Private"@en ;
@@ -1535,18 +1536,18 @@ sto:IEC_62890 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_81714
 sto:IEC_81714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ModellingPractice ;
               sto:hasDomain sto:CAD ;
-              sto:isCategorizedBy sto:ModellingPractice ;
               sto:publisher sto:IEC ,
                             sto:ISO ;
               sto:hasOfficialResource "https://www.iso.org/standard/40134.html" ;
               sto:hasPublicationDate "2004-10"^^xsd:date ;
               rdfs:comment "ISO/IEC 81714 Design of graphical symbols for use in the technical documentation of products -- Part 3: Classification of connect nodes, networks and their encoding-- specifies requirements concerning the classification of connect nodes assigned to graphical symbols, being a representation of functional and product concepts."@en ;
               rdfs:label "IEC 81714"@en ;
-              rami:hasAdminShellSubmodel rami:Engineering ,
+              sto:hasClassification rami:Engineering ,
                                          rami:Identifikation ;
-              rami:hasRAMIHierarchyLevel rami:Product ;
-              rami:hasRAMIITLayer rami:Asset .
+              sto:hasClassification rami:Product ;
+              sto:hasClassification rami:Asset .
 
 
 ###  https://w3id.org/i40/sto#IEC_PAS_63088
@@ -1568,8 +1569,8 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
                  sto:relatedTo sto:IEC_TS_62832 ;
                  rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
                  rdfs:label "IEC TR 62794"@en ;
-                 rami:hasAdminShellSubmodel rami:GeneralAdminShell ;
-                 rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                 sto:hasClassification rami:GeneralAdminShell ;
+                 sto:hasClassification rami:ControlDevice ,
                                             rami:FieldDevice ,
                                             rami:Station ,
                                             rami:WorkCenter ;
@@ -1582,16 +1583,16 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_TS_62237
 sto:IEC_TS_62237 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
+                 sto:hasClassification sto:ProductionSystemModelData ;
                  sto:hasDomain sto:IndustrialAutomation ;
-                 sto:isCategorizedBy sto:ProductionSystemModelData ;
                  sto:publisher sto:IEC ;
                  sto:relatedTo sto:IEC_62337 ;
                  sto:hasOfficialResource "https://webstore.iec.ch/publication/6626" ;
                  sto:hasPublicationDate "2003-10-26"^^xsd:date ;
                  rdfs:comment "Live working - Insulating hoses with fittings for use with hydraulic tools and equipment."@en ;
                  rdfs:label "IEC TS 62237"@en ;
-                 rami:hasAdminShellSubmodel rami:GeneralAdminShell ;
-                 rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                 sto:hasClassification rami:GeneralAdminShell ;
+                 sto:hasClassification rami:ControlDevice ,
                                             rami:FieldDevice ,
                                             rami:Station ,
                                             rami:WorkCenter .
@@ -1604,7 +1605,7 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                  rdfs:comment "Digital Factory Reference model TS"@en ;
                  rdfs:label "IEC TS 62832"@en ;
                  rami:hasAdminShellSubmodel rami:GeneralAdminShell ;
-                 rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                 sto:hasClassification rami:ControlDevice ,
                                             rami:FieldDevice ,
                                             rami:Station ,
                                             rami:WorkCenter ;
@@ -1670,7 +1671,7 @@ sto:ISO rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_10303
 sto:ISO_10303 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
+              sto:hasClassification sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/page/ISO_10303" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_10303" ;
@@ -1682,14 +1683,14 @@ sto:ISO_10303 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_1101
 sto:ISO_1101 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:isCategorizedBy sto:ModellingPractice ;
+             sto:hasClassification sto:ModellingPractice ;
              sto:publisher sto:ISO ;
              sto:hasOfficialResource "https://www.iso.org/standard/66777.html" ;
              sto:hasPublicationDate "2017-02"^^xsd:date ;
              rdfs:comment "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Tolerances of form, orientation, location and run-out"@en ;
              rdfs:label "ISO 1101"@en ;
-             rami:hasRAMIHierarchyLevel rami:Product ;
-             rami:hasRAMIITLayer rami:Asset .
+             sto:hasClassification rami:Product ;
+             sto:hasClassification rami:Asset .
 
 
 ###  https://w3id.org/i40/sto#ISO_11898-1
@@ -1702,7 +1703,7 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                 sto:hasPublicationDate "2015-12"^^xsd:date ;
                 rdfs:comment "Used mainly for Road vehicles Controller area network (CAN) Data link layer and physical signalling."@en ;
                 rdfs:label "ISO 11898-1"@en ;
-                rami:hasAdminShellSubmodel rami:Communication ,
+                sto:hasClassification rami:Communication ,
                                            rami:Engineering ,
                                            rami:Safety .
 
@@ -1710,27 +1711,27 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_1302
 sto:ISO_1302 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:isCategorizedBy sto:ModellingPractice ;
+             sto:hasClassification sto:ModellingPractice ;
              sto:hasOfficialResource "https://www.iso.org/standard/28089.html" ;
              sto:hasPublicationDate "2002-02"^^xsd:date ;
              rdfs:comment "Geometrical product specifications Standards"@en ;
              rdfs:label "ISO 1302"@en ;
-             rami:hasRAMIITLayer rami:Asst .
+             sto:hasClassification rami:Asst .
 
 
 ###  https://w3id.org/i40/sto#ISO_13374
 sto:ISO_13374 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductionSystemEngineering ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy sto:ProductionSystemEngineering ;
               sto:publisher sto:ISO ;
               sto:hasOfficialResource "https://www.iso.org/standard/61131.html" ;
               sto:hasPublicationDate "2012-02"^^xsd:date ;
               rdfs:comment "Condition monitoring and diagnostics of machines -- Data processing, communication and presentation"@en ;
               rdfs:label "ISO 13374"@en ;
-              rami:hasAdminShellSubmodel rami:Conditional_Monitoring ;
-              rami:hasRAMIHierarchyLevel rami:Enterprise ;
-              rami:hasRAMIITLayer rami:Business .
+              sto:hasClassification rami:Conditional_Monitoring ;
+              sto:hasClassification rami:Enterprise ;
+              sto:hasClassification rami:Business .
 
 
 ###  https://w3id.org/i40/sto#ISO_13485
@@ -1740,13 +1741,13 @@ sto:ISO_13485 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource "https://www.iso.org/iso-9001-quality-management.html" ;
               rdfs:comment "Medical devices -- Quality management systems -- Requirements for regulatory purposes."@en ;
               rdfs:label "ISO 13485"@en ;
-              rami:hasAdminShellSubmodel rami:Safety .
+              sto:hasClassification rami:Safety .
 
 
 ###  https://w3id.org/i40/sto#ISO_13584
 sto:ISO_13584 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:ProductCatalogData ;
+              sto:hasClassification sto:ProductCatalogData ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:IEC_61360 ,
                             sto:eClass ;
@@ -1769,15 +1770,15 @@ sto:ISO_13849 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_13849" ;
               rdfs:comment "Provides safety requirements and guidance on the principles for the design and integration of safety-related parts of control systems (SRP/CS), including the design of software."@en ;
               rdfs:label "ISO 13849"@en ;
-              rami:hasAdminShellSubmodel rami:Safety ;
+              sto:hasClassification rami:Safety ;
               sto:hasTag "Safety of machinery"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_14306
 sto:ISO_14306 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:ProcessPlanning ,
-                                  sto:ProductionSystemModelData ;
+              sto:hasClassification sto:ProcessPlanning ,
+                                    sto:ProductionSystemModelData ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:IEC_62541 ;
               sto:hasOfficialResource "https://www.iso.org/standard/60572.html" ;
@@ -1786,8 +1787,8 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
               rdfs:label "ISO 14306"@en ;
               rami:hasAdminShellSubmodel rami:Engineering ,
                                          rami:Identifikation ;
-              rami:hasRAMIHierarchyLevel rami:Product ;
-              rami:hasRAMIITLayer rami:Asset ;
+              sto:hasClassification rami:Product ;
+              sto:hasClassification rami:Asset ;
               sto:domain sto:CAD .
 
 
@@ -1798,8 +1799,8 @@ sto:ISO_14443 rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#ISO_14739-1
 sto:ISO_14739-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
+                sto:hasClassification sto:ProductModelDataExchange ;
                 sto:hasDomain sto:CAD ;
-                sto:isCategorizedBy sto:ProductModelDataExchange ;
                 sto:publisher sto:ISO ;
                 sto:hasOfficialResource "https://www.iso.org/standard/54948.html" ;
                 sto:hasPublicationDate "2014-12"^^xsd:date ;
@@ -1862,85 +1863,85 @@ sto:ISO_15704 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2000-06"^^xsd:date ;
               rdfs:comment "Identifies requirements for enterprise-reference architectures and methodologies"@en ;
               rdfs:label "ISO 15704"@en ;
-              rami:hasAdminShellSubmodel rami:Other ;
-              rami:hasRAMIHierarchyLevel rami:Enterprise ;
-              rami:hasRAMIITLayer rami:Business .
+              sto:hasClassification rami:Other ;
+              sto:hasClassification rami:Enterprise ;
+              sto:hasClassification rami:Business .
 
 
 ###  https://w3id.org/i40/sto#ISO_15746
 sto:ISO_15746 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductLifeCycleManagement ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_15926 ;
               sto:hasOfficialResource "https://www.iso.org/standard/61131.html" ;
               sto:hasPublicationDate "2015-04"^^xsd:date ;
               rdfs:comment "Automation systems and integration -- Integration of advanced process control and optimization capabilities for manufacturing systems."@en ;
               rdfs:label "ISO 15746"@en ;
-              rami:hasAdminShellSubmodel rami:Communication ,
+              sto:hasClassification rami:Communication ,
                                          rami:Engineering ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ,
                                          rami:Product ;
-              rami:hasRAMIITLayer rami:Communication ,
+              sto:hasClassification rami:Communication ,
                                   rami:Functional ,
                                   rami:Information ,
-                                  rami:Integeration .
+                                  rami:Integration .
 
 
 ###  https://w3id.org/i40/sto#ISO_15926
 sto:ISO_15926 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductLifeCycleManagement ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_ASTM_52915 ;
               sto:hasOfficialResource "https://www.iso.org/standard/29557.html" ;
               sto:hasPublicationDate "2003-12"^^xsd:date ;
               rdfs:comment "Industrial automation systems and integration -- Integration of life-cycle data for process plants including oil and gas production facilities."@en ;
               rdfs:label "ISO 15926"@en ;
-              rami:hasAdminShellSubmodel rami:Configuration ,
+              sto:hasClassification rami:Configuration ,
                                          rami:Engineering ;
-              rami:hasRAMIHierarchyLevel rami:Product ;
-              rami:hasRAMIITLayer rami:Integeration .
+              sto:hasClassification rami:Product ;
+              sto:hasClassification rami:Integration .
 
 
 ###  https://w3id.org/i40/sto#ISO_16739
 sto:ISO_16739 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductLifeCycleManagement ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:IEC_62890 ;
               sto:hasOfficialResource "https://www.iso.org/standard/51622.html" ;
               sto:hasPublicationDate "2013-04"^^xsd:date ;
               rdfs:comment "Industry Foundation Classes (IFC) for data sharing in the construction and facility management industries."@en ;
               rdfs:label "ISO 16739"@en ;
-              rami:hasAdminShellSubmodel rami:LifecycleStatus ;
-              rami:hasRAMIHierarchyLevel rami:Station ,
+              sto:hasClassification rami:LifecycleStatus ;
+              sto:hasClassification rami:Station ,
                                          rami:WorkCenter .
 
 
 ###  https://w3id.org/i40/sto#ISO_16792
 sto:ISO_16792 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ModellingPractice ;
               sto:hasDomain sto:CAD ;
-              sto:isCategorizedBy sto:ModellingPractice ;
               sto:publisher sto:ISO ;
               sto:hasOfficialResource "https://www.iso.org/standard/56865.html" ;
               sto:hasPublicationDate "2015-12"^^xsd:date ;
               rdfs:comment "ISO 16792 Technical product documentation -- Digital product definition data practices-It supports two methods of application: model-only and model and drawing in digital format."@en ;
               rdfs:label "ISO 16792"@en ;
-              rami:hasRAMIHierarchyLevel rami:Product ;
-              rami:hasRAMIITLayer rami:Asset .
+              sto:hasClassification rami:Product ;
+              sto:hasClassification rami:Asset .
 
 
 ###  https://w3id.org/i40/sto#ISO_18629
 sto:ISO_18629 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:ProductModelDataExchange ;
               sto:hasDomain sto:IndustrialAutomation ;
-              sto:isCategorizedBy sto:ProductModelDataExchange ;
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_15926 ,
                             sto:ISO_ASTM_52915 ;
@@ -1948,15 +1949,15 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2004-11"^^xsd:date ;
               rdfs:comment "ISO 18629-1:2004 provides a general overview of the different series of parts of ISO 18629, which defines a process specification language aimed at identifying, formally defining and structuring the semantic concepts intrinsic to the capture and exchange of process information related to discrete manufacturing."@en ;
               rdfs:label "ISO 19629"@en ;
-              rami:hasAdminShellSubmodel rami:Configuration ,
+              sto:hasClassification rami:Configuration ,
                                          rami:Engineering ;
-              rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+              sto:hasClassification rami:ControlDevice ,
                                          rami:FieldDevice ,
                                          rami:Product ;
-              rami:hasRAMIITLayer rami:Communication ,
+              sto:hasClassification rami:Communication ,
                                   rami:Functional ,
                                   rami:Information ,
-                                  rami:Integeration .
+                                  rami:Integration .
 
 
 ###  https://w3id.org/i40/sto#ISO_18828-2
@@ -1969,8 +1970,8 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                 sto:hasPublicationDate "2016-10"^^xsd:date ;
                 rdfs:comment "Industrial automation systems and integration -- Standardized procedures for production systems engineering."@en ;
                 rdfs:label "ISO 18828-2"@en ;
-                rami:hasAdminShellSubmodel rami:Engineering ;
-                rami:hasRAMIHierarchyLevel rami:ControlDevice ,
+                sto:hasClassification rami:Engineering ;
+                sto:hasClassification rami:ControlDevice ,
                                            rami:Enterprise ,
                                            rami:FieldDevice ,
                                            rami:Station ,
@@ -1987,24 +1988,24 @@ sto:ISO_19439 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_19439" ;
               rdfs:comment "Provides a unified conceptual basis for model-based enterprise engineering that enables consistency, convergence and interoperability of the various modelling methodologies and supporting tools."@en ;
               rdfs:label "ISO 19439"@en ;
-              rami:hasRAMIITLayer rami:Business ;
+              sto:hasClassification rami:Business ;
               sto:hasTag "19439"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_19440
 sto:ISO_19440 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasClassification sto:EnterpriseLevel ;
               sto:hasDomain sto:EnterpriseIntegration ;
-              sto:isCategorizedBy sto:EnterpriseLevel ;
               sto:publisher sto:ISO ;
               sto:hasOfficialResource "https://www.iso.org/standard/33834.html" ;
               sto:hasPublicationDate "2007-12"^^xsd:date ;
               rdfs:comment "Enterprise integration -- Constructs for enterprise modelling-specifies the characteristics of the core constructs necessary for computer-supported modelling of enterprises conforming to ISO 19439.."@en ;
               rdfs:label "ISO 19440"@en ;
-              rami:hasAdminShellSubmodel rami:Engineering ;
-              rami:hasRAMIHierarchyLevel rami:Enterprise ,
+              sto:hasClassification rami:Engineering ;
+              sto:hasClassification rami:Enterprise ,
                                          sto:Prodcut ;
-              rami:hasRAMIITLayer rami:Integeration .
+              sto:hasClassification rami:Integration .
 
 
 ###  https://w3id.org/i40/sto#ISO_20140_5
@@ -2014,7 +2015,7 @@ sto:ISO_20140_5 rdf:type owl:NamedIndividual ,
                 sto:hasOfficialResource "http://www.iso.org/iso/catalogue_detail.htm?csnumber=54809" ;
                 rdfs:comment "Automation systems and integration -- Evaluating energy efficiency and other factors of manufacturing systems that influence the environment"@en ;
                 rdfs:label "ISO 20140-5"@en ;
-                rami:hasAdminShellSubmodel rami:EnergyEfficiency ;
+                sto:hasClassification rami:EnergyEfficiency ;
                 sto:hasTag "Energy Efficiency"@en .
 
 
@@ -2045,29 +2046,29 @@ sto:ISO_22400 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2014-01"^^xsd:date ;
               rdfs:comment "Automation systems and integration -- Key performance indicators (KPIs) for manufacturing operations management."@en ;
               rdfs:label "ISO 22400"@en ;
-              rami:hasAdminShellSubmodel rami:Conditional_Monitoring ,
+              sto:hasClassification rami:Conditional_Monitoring ,
                                          rami:LifeCycle_Status ;
-              rami:hasRAMIHierarchyLevel rami:ConnectedWorld ,
+              sto:hasClassification rami:ConnectedWorld ,
                                          rami:ControlDevice ,
                                          rami:Enterprise ,
                                          rami:FieldDevice ,
                                          rami:Station ,
                                          rami:WorkCenter ;
-              rami:hasRAMIITLayer rami:Business .
+              sto:hasClassification rami:Business .
 
 
 ###  https://w3id.org/i40/sto#ISO_22745-11
 sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
+                 sto:hasClassification sto:ProductCatalogData ;
                  sto:hasDomain sto:IndustrialAutomation ;
-                 sto:isCategorizedBy sto:ProductCatalogData ;
                  sto:publisher sto:ISO ;
                  sto:hasOfficialResource "https://www.iso.org/standard/53999.html" ;
                  sto:hasPublicationDate "2010-02"^^xsd:date ;
                  rdfs:comment "ISO 22745-11:2010 provides guidelines that are recommended for the development of terminology for concepts in an open technical dictionary (OTD).Compliance with these guidelines is not required in order for a term or definition to be included in an OTD. These guidelines are provided as a framework for developers of industrial terminology to ensure that definitions are consistent and understandable. Terminology that complies with these guidelines will be marked as such in the OTD. This will allow a user to perform a search that filters terminology based on compliance with ISO 22745-11:2010."@en ;
                  rdfs:label "ISO 22745-11"@en ;
-                 rami:hasRAMIHierarchyLevel rami:Product ;
-                 rami:hasRAMIITLayer rami:Assest .
+                 sto:hasClassification rami:Product ;
+                 sto:hasClassification rami:Assest .
 
 
 ###  https://w3id.org/i40/sto#ISO_27000
@@ -2096,7 +2097,7 @@ sto:ISO_29161 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_50001
 sto:ISO_50001 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:isCategorizedBy sto:CrossLevel ;
+              sto:hasClassification sto:CrossLevel ;
               sto:publisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/page/ISO_50001" ;
               rdfs:comment "Energy management systems – Requirements with guidance for use is a specification created by the International Organization for Standardization (ISO) for an energy management system."@en ;
@@ -2106,36 +2107,36 @@ sto:ISO_50001 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_5459
 sto:ISO_5459 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
+             sto:hasClassification sto:ModellingPractice ;
              sto:hasDomain sto:M2M ;
-             sto:isCategorizedBy sto:ModellingPractice ;
              sto:publisher sto:ISO ;
              sto:hasOfficialResource "https://www.iso.org/standard/40358.html" ;
              sto:hasPublicationDate "2011-08"^^xsd:date ;
              rdfs:comment "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Datums and datum systems--ISO 5459:2011 specifies terminology, rules and methodology for the indication and understanding of datums and datum systems in technical product documentation"@en ;
              rdfs:label "ISO 5459"@en ;
-             rami:hasRAMIHierarchyLevel rami:Product ;
-             rami:hasRAMIITLayer rami:Asset .
+             sto:hasClassification rami:Product ;
+             sto:hasClassification rami:Asset .
 
 
 ###  https://w3id.org/i40/sto#ISO_8062-4
 sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
-               sto:isCategorizedBy sto:ProductionSystemModelData ;
+               sto:hasClassification sto:ProductionSystemModelData ;
                sto:publisher sto:ISO ;
                sto:relatedTo sto:ISO_10303 ;
                sto:hasOfficialResource "https://www.iso.org/standard/60774.html" ;
                sto:hasPublicationDate "2017-07"^^xsd:date ;
                rdfs:comment "Geometrical product specifications (GPS) -- Dimensional and geometrical tolerances for moulded parts -- General tolerances for castings using profile tolerancing in a general datum system"@en ;
                rdfs:label "ISO 8062-4"@en ;
-               rami:hasRAMIHierarchyLevel rami:Product ;
-               rami:hasRAMIITLayer rami:Asset ;
+               sto:hasClassification rami:Product ;
+               sto:hasClassification rami:Asset ;
                sto:hasTag "Automation systems and integration"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_9000
 sto:ISO_9000 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:isCategorizedBy sto:CrossLevel ;
+             sto:hasClassification sto:CrossLevel ;
              sto:publisher sto:ISO ;
              sto:hasDBpediaResource "http://dbpedia.org/page/ISO_9000" ;
              sto:hasOfficialResource "https://www.iso.org/iso-9001-quality-management.html" ;
@@ -2147,8 +2148,8 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_ASTM_52915
 sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
+                   sto:hasClassification sto:ProductionSystemEngineering ;
                    sto:hasDomain sto:IndustrialAutomation ;
-                   sto:isCategorizedBy sto:ProductionSystemEngineering ;
                    sto:publisher sto:ISO ;
                    sto:relatedTo sto:IEC_62541 ,
                                  sto:ISO_14306 ;
@@ -2156,16 +2157,17 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                    sto:hasPublicationDate "2016-02"^^xsd:date ;
                    rdfs:comment "ISO ASTM 52915:2016 provides the specification for the Additive Manufacturing File Format (AMF), an interchange format to address the current and future needs of additive manufacturing technology."@en ;
                    rdfs:label "ISO ASTM 52915"@en ;
-                   rami:hasAdminShellSubmodel rami:Engineering ,
+                   sto:hasClassification rami:Engineering ,
                                               rami:Identifikation ;
-                   rami:hasRAMIHierarchyLevel rami:Product ;
-                   rami:hasRAMIITLayer rami:Asset .
+                   sto:hasClassification rami:Product ;
+                   sto:hasClassification rami:Asset .
 
 
 ###  https://w3id.org/i40/sto#ISO_PAS_17506
 sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
                            sto:Standard ;
                   sto:developer sto:ISO ;
+                  sto:isPartOf sto:IEC_62714 ;
                   sto:publisher sto:ISO ;
                   sto:hasDBpediaResource "http://dbpedia.org/resource/COLLADA" ;
                   sto:hasOfficialResource "https://www.iso.org/standard/59902.html" ;
@@ -2179,18 +2181,18 @@ sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_TS_14649-201
 sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
+                     sto:hasClassification sto:ProductionSystemModelData ;
                      sto:hasDomain sto:IndustrialAutomation ;
-                     sto:isCategorizedBy sto:ProductionSystemModelData ;
                      sto:publisher sto:ISO ;
                      sto:hasOfficialResource "https://www.iso.org/standard/60042.html" ;
                      sto:hasPublicationDate "2011-12"^^xsd:date ;
                      rdfs:comment "SO/TS 14649-201:2011 specifies the technology-specific machine tool description data elements needed as process data for manufacturing and machine characteristics. The machine tool descriptions covered in this schema are, initially, milling machines, machining centres, turning machines and multi-tasking machines.ISO/TS 14649-201:2011 is not intended to replace existing machine tool description standards, but to cover the specific needs of manufacturing resource description for manufacturing needs in the technologies described in ISO 14649."@en ;
                      rdfs:label "ISO TS 14649-201"@en ;
-                     rami:hasAdminShellSubmodel rami:Configuration ,
+                     sto:hasClassification rami:Configuration ,
                                                 rami:Engineering ,
                                                 rami:Safety ;
-                     rami:hasRAMIHierarchyLevel rami:Product ;
-                     rami:hasRAMIITLayer rami:Assest ,
+                     sto:hasClassification rami:Product ;
+                     sto:hasClassification rami:Assest ,
                                          rami:Integration .
 
 
@@ -2310,7 +2312,7 @@ sto:ModBus rdf:type owl:NamedIndividual ,
            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Modbus" ;
            rdfs:comment "Modbus is a serial communications protocol to be used in Programmable logic controllers (PLCs)."@en ;
            rdfs:label "ModBus"@en ;
-           rami:hasRAMIITLayer rami:Integration ;
+           sto:hasClassification rami:Integration ;
            sto:hasTag "Modbus"@en .
 
 
@@ -2341,8 +2343,8 @@ sto:NIST rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
 sto:NISTIR_8107 rdf:type owl:NamedIndividual ;
-                sto:isClassifiedBy sto:BusinessProcessExecution ,
-                                   sto:SCM ;
+                sto:isDescribedin sto:BusinessProcessExecution ,
+                                  sto:SCM ;
                 rdfs:comment "Describes the NIST Initiative"@en ;
                 rdfs:isDefinedBy "http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf" ;
                 rdfs:label "NISTIR_8107"@en ;
@@ -2506,7 +2508,7 @@ sto:QIF rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#RAMI
 sto:RAMI rdf:type owl:NamedIndividual ;
-         sto:isClassifiedBy rami:InformationLayer ;
+         sto:isDescribedin rami:InformationLayer ;
          rdfs:comment "Describes the RAMI model"@en ;
          rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html" ;
          rdfs:label "RAMI"@en .
@@ -2522,7 +2524,7 @@ sto:RAMI40 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#SCADALevel
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
-               sto:isClassifiedBy sto:ISA95 ;
+               sto:isDescribedin sto:ISA95 ;
                rdfs:comment "Describes the SCADA level according to the ISA95 level classification."@en ;
                rdfs:label "SCADA Level"@en ;
                skos:definition "Supervisory control and data acquisition according to ISA 95"@en .
@@ -2539,7 +2541,7 @@ sto:SCM rdf:type owl:NamedIndividual ,
 sto:SCOR rdf:type owl:NamedIndividual ,
                   sto:Standard ;
          sto:developer sto:APICS ;
-         sto:isCategorizedBy sto:SCM ;
+         sto:hasClassification sto:SCM ;
          sto:hasDBpediaResource "http://dbpedia.org/page/Supply-chain_operations_reference" ;
          sto:hasOfficialResource "http://www.apics.org/apics-for-business/products-and-services/apics-scc-frameworks/scor" ;
          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Supply-chain_operations_reference" ;
@@ -2605,7 +2607,7 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
                sto:hasOfficialResource "https://www.vdma.org/documents/105628/2244593/Inhalt+VDMA+24582_en.pdf/" ;
                rdfs:comment "Fieldbus neutral reference architecture for Condition Monitoring in production automation"@en ;
                rdfs:label "VDMA 24582"@en ;
-               rami:hasAdminShellSubmodel rami:ConditionMonitoring ;
+               sto:hasClassification rami:ConditionMonitoring ;
                sto:hasTag "Condition Monitoring"@en .
 
 
@@ -2691,8 +2693,8 @@ sto:eClass rdf:type owl:NamedIndividual ,
            sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/ECl@ss" ;
            rdfs:comment "eCl@ss is THE cross-industry product data standard for classification and clear description of products and services."@en ;
            rdfs:label "eClass"@en ;
-           rami:hasAdminShellSubmodel rami:Engineering ;
-           rami:hasRAMIHierarchyLevel rami:ConnectedWorld ,
+           sto:hasClassification rami:Engineering ;
+           sto:hasClassification rami:ConnectedWorld ,
                                       rami:ControlDevice ,
                                       rami:Enterprise ,
                                       rami:Product ,
@@ -2717,7 +2719,7 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ebXML
 sto:ebXML rdf:type owl:NamedIndividual ,
                    sto:Standard ;
-          sto:isCategorizedBy sto:BusinessProcessExecution ;
+          sto:hasClassification sto:BusinessProcessExecution ;
           sto:publisher sto:OASIS ,
                         sto:UN-CEFACT ;
           sto:hasDBpediaResource "http://dbpedia.org/resource/EbXML" ;
