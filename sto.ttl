@@ -19,23 +19,24 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
-                             dcterms:modified "2017-09-08"^^xsd:date ;
+                             dct:modified "2017-09-08"^^xsd:date ;
                              dc11:title "Standards Ontology"@en ;
-                             dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
+                             dct:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
                              owl:versionInfo "0.2" ;
-                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-                             dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
+                             dct:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+                             dct:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
+                             dct:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
                                              <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
                              doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                              dc11:description "An ontology to describe industry standards related to Smart Manufacturing" ;
                              vann:preferredNamespacePrefix "sto" ;
                              vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
-                             dcterms:created "2017-01-25"^^xsd:date .
+                             dct:created "2017-01-25"^^xsd:date .
 
 #################################################################
 #    Annotation properties
@@ -54,15 +55,15 @@ dc11:rights rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/hasVersion
-dcterms:hasVersion rdf:type owl:AnnotationProperty .
+dct:hasVersion rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
+dct:issued rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
+dct:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
@@ -89,20 +90,12 @@ skos:note rdf:type owl:AnnotationProperty .
 skos:prefLabel rdf:type owl:AnnotationProperty .
 
 
-###  https://w3id.org/i40/rami#hasAdminShellSubmodel
-rami:hasAdminShellSubmodel rdf:type owl:AnnotationProperty .
-
-
 ###  https://w3id.org/i40/sto#domain
 sto:domain rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/i40/sto#edition
 sto:edition rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#license
-sto:license rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -118,21 +111,21 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 ###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:ObjectProperty ;
+dct:license rdf:type owl:ObjectProperty ;
                 rdfs:domain sto:Standard ;
-                rdfs:range dcterms:LicenseDocument ;
-                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-                dcterms:issued "2004-06-14"^^xsd:date ;
-                dcterms:modified "2017-12-19"^^xsd:date ;
+                rdfs:range dct:LicenseDocument ;
+                dct:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+                dct:issued "2004-06-14"^^xsd:date ;
+                dct:modified "2017-12-19"^^xsd:date ;
                 rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
                              "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
-                rdfs:isDefinedBy dcterms: ;
+                rdfs:isDefinedBy dct: ;
                 rdfs:label "License"@en .
 
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
-<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
-                                           rdfs:subPropertyOf sto:relatedTo .
+prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf sto:relatedTo .
 
 
 ###  http://xmlns.com/foaf/0.1/maker
@@ -352,9 +345,9 @@ dbo:Country rdf:type owl:Class .
 
 
 ###  http://purl.org/dc/terms/LicenseDocument
-dcterms:LicenseDocument rdf:type owl:Class ;
+dct:LicenseDocument rdf:type owl:Class ;
                         rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
-                        rdfs:isDefinedBy dcterms: ;
+                        rdfs:isDefinedBy dct: ;
                         rdfs:label "License Document"@en .
 
 
@@ -587,6 +580,13 @@ rami:EnergyEfficiency rdf:type owl:NamedIndividual ,
                       sto:isDescribedin sto:AdministrationShell .
 
 
+###  https://w3id.org/i40/rami#EnergyEfficiency
+rami:AdminShellGeneral rdf:type owl:NamedIndividual ,
+                               rami:AdminShellSubmodel ;
+                      sto:isDescribedin sto:AdministrationShell .
+
+
+
 ###  https://w3id.org/i40/rami#Engineering
 rami:Engineering rdf:type owl:NamedIndividual ,
                           rami:AdminShellSubmodel ;
@@ -815,7 +815,7 @@ sto:B2MML rdf:type owl:NamedIndividual ,
           rdfs:comment "B2MML or Business To Manufacturing Markup Language is an XML implementation of the ANSI/ISA-95 family of standards (ISA-95)"@en ;
           rdfs:label "B2MML" ;
           skos:altLabel "IEC 62264"@en ;
-          skos:note "TODO - to link it with Supply Chain regarding NIST" ;
+          sto:hasClassification sto:BusinessProcessExecution;
           sto:hasTag "B2MML"@en .
 
 
@@ -1288,7 +1288,7 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
               rdfs:comment "Functional safety is a concept applicable across all industry sectors. It is fundamental to the enabling of complex technology used for safety-related systems. It provides the assurance that the safety-related systems will offer the necessary risk reduction required to achieve safety for the equipment. The oil and gas industry, nuclear plants and the machinery sector, to name but a few, all rely heavily on functional safety to achieve safety for the equipment giving rise to the hazards."@en ;
               rdfs:label "IEC 60508"@en ;
               sto:hasTag "Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems"@en ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en .
 
 
@@ -1304,7 +1304,7 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
               rdfs:comment "IEC 61511 is a technical standard which sets out practices in the engineering of systems that ensure the safety of an industrial process through the use of instrumentation."@en ;
               rdfs:label "IEC 61511" ;
               sto:hasTag "Functional safety - Safety instrumented systems for the process industry sector"@en ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en .
 
 
@@ -1330,6 +1330,7 @@ sto:IEC_61784 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:CommunicationSubModel ,
                                     rami:ControlDevice ,
+                                    rami:Communication ,
                                     rami:FieldDevice ;
               sto:publisher sto:IEC ;
               sto:relatedTo sto:IEC_61158 ;
@@ -1338,7 +1339,7 @@ sto:IEC_61784 rdf:type owl:NamedIndividual ,
               rdfs:comment "Industrial communication networks - Profiles - Ethernet-real-time-enabled"@en ;
               rdfs:label "IEC 61784"@en ;
               sto:hasTag "IEC Fieldbus (Profibus)"@en ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Information description and communication mapping for fieldbus profiles"@en .
 
 
@@ -1384,7 +1385,7 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
                 rdfs:comment "Industrial-process measurement and control - Data structures and elements in process equipment catalogs - Measuring equipment with analogue and digital output"@en ;
                 rdfs:label "IEC 61987_X"@en ;
                 sto:hasTag "LOPs in PA"@en ;
-                sto:license "Private"@en ;
+                dct:license "Private"@en ;
                 sto:motivation "Properties and LOPs as an informational representation of the features of measuring equipment. The referenced standards define general principles (e.g. part 11) as well as specific LOPs for specific device types. These international standards also may serve as examples for description of products."@en .
 
 
@@ -1421,7 +1422,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
               skos:altLabel "B2MML" ;
               sto:hasTag "Enterprise control systems"@en ,
                          "Enterprise-control system integration"@en ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Informational representation of MES and ERP models."@en .
 
 
@@ -1453,7 +1454,7 @@ sto:IEC_62424 rdf:type owl:NamedIndividual ,
               rdfs:comment "CAEX (Computer Aided Engineering Exchange) is a neutral data format that allows storage of hierarchical object information, e.g. the hierarchical architecture of a plant. On a certain abstraction level, a plant consists in modules or components that are interconnected. CAEX allows storage of those modules or components by means of objects. Object oriented concepts as encapsulation, classes, class libraries, instances, instance hierarchies, inheritance, relations, attributes and interfaces are explicitly supported. CAEX bases on XML and is defined as XML schema (xsd file). The original intention of developing CAEX was the industrial lack of a common and established data exchange between process engineering tools and process control engineering tools. However, CAEX can be applied to all types of static object information, e.g. plant topologies, document topologies, product topologies, petri nets, but also for non-technical applications like phylogenetic trees."@en ;
               rdfs:label "IEC 62424"@en ;
               sto:hasTag "CAEX"@en ;
-              sto:license "Private"@en .
+              dct:license "Private"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_62443
@@ -1476,7 +1477,7 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
               sto:hasTag "Electronically secure Industrial Automation and Control Systems"@en ,
                          "Network and system security for industrial-process measurement and control"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Cyber_security_standards#ISA.2FIEC-62443_.28formerly_ISA-99.29> ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Cyber attacks threat the industry and can cause damage to property and personal injury and affect the image of companies. The Standard allows to define procedures for implementing electronically secure Industrial Automation and Control Systems (IACS). This guidance applies to end-users, system integrators, security practitioners, and control systems manufacturers responsible for manufacturing, designing, implementing, or managing industrial automation and control systems"@en .
 
 
@@ -1506,6 +1507,7 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
                                     rami:FieldDevice ,
                                     rami:Station ,
                                     rami:WorkCenter ,
+                                    sto:Communication ,
                                     sto:SCADALevel ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:publisher sto:IEC ;
@@ -1518,7 +1520,7 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               rdfs:comment "OPC Unified Architecture (OPC UA) is an industrial M2M communication protocol for interoperability developed by the OPC Foundation. It is the successor to Open Platform Communications (OPC). Although developed by the same organization, OPC UA differs significantly from its predecessor. The Foundation's goal for this project was to provide a path forward from the original OPC communications model (namely the Microsoft Windows only process exchange COM/DCOM) to a cross-platform service-oriented architecture (SOA) for process control, while enhancing security and providing an information model."@en ;
               rdfs:label "IEC 62541"@en ;
               sto:hasTag "OPC UA"@en ;
-              sto:license "Open"@en .
+              dct:license "Open"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_62591
@@ -1563,7 +1565,7 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 62714"@en ;
               sto:hasTag "AML"@en ,
                          "AutomationML"@en ;
-              sto:license "Open"@en .
+              dct:license "Open"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_62837
@@ -1589,7 +1591,7 @@ sto:IEC_62890 rdf:type owl:NamedIndividual ,
                            "MES KPIs"@en ;
               rdfs:label "IEC 62890"@en ;
               sto:hasTag "IEC 62890"@en ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Stations need to describe their operational state and performance parameters towards superior I4.0-Components"@en .
 
 
@@ -1631,12 +1633,13 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
                                        rami:Station ,
                                        rami:WorkCenter ;
                  sto:publisher sto:IEC ;
+                 sto:hasClassification rami:AdminShellGeneral ;
                  sto:relatedTo sto:IEC_TS_62832 ;
                  rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
                  rdfs:label "IEC TR 62794"@en ;
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/7433> ;
                  sto:hasTag "DF/TR"@en ;
-                 sto:license "Private"@en ;
+                 dct:license "Private"@en ;
                  sto:motivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. "@en .
 
 
@@ -1667,10 +1670,11 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                                        rami:Station ,
                                        rami:WorkCenter ;
                  sto:publisher sto:IEC ;
+                 sto:hasClassification rami:AdminShellGeneral ;
                  rdfs:comment "Digital Factory Reference model TS"@en ;
                  rdfs:label "IEC TS 62832"@en ;
                  sto:hasTag "DF/TS"@en ;
-                 sto:license "Private"@en ;
+                 dct:license "Private"@en ;
                  sto:motivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. IEC TS 62832 defines methods, which allow to validate or plan connections between assets."@en .
 
 
@@ -1737,6 +1741,7 @@ sto:ISO_10303 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_10303" ;
               rdfs:comment "Standard for the Exchange of Product model data. ISO 10303 can represent 3D objects in Computer-aided design (CAD) and related information."@en ;
               rdfs:label "ISO 10303"@en ;
+              skos:note "TODO - Split properly and classify it - check the NIST paper";
               sto:hasTag "STEP"@en .
 
 
@@ -1817,7 +1822,7 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
               rdfs:comment "ISO 13584 is a series of International Standards for the computer-sensible representation and exchange of parts library data. The objective is to provide a mechanism capable of transferring parts library data, independent from any particular system. The nature of this description makes it suitable not only for the exchange of files containing parts libraries, but also as a basis for implementing and sharing databases of parts library data, and archiving"@en ;
               rdfs:label "ISO 13584"@en ;
               sto:hasTag "Industrial automation systems and integration"@en ;
-              sto:license "Private"@en ;
+              dct:license "Private"@en ;
               sto:motivation "Standard data elements (properties) are used as elements in administration shell"@en .
 
 
@@ -2705,7 +2710,7 @@ sto:W3C_OWL rdf:type owl:NamedIndividual ,
                          "The W3C Web Ontology Language (OWL) is a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things. OWL is a computational logic-based language such that knowledge expressed in OWL can be exploited by computer programs, e.g., to verify the consistency of that knowledge or to make implicit knowledge explicit. OWL documents, known as ontologies, can be published in the World Wide Web and may refer to or be referred from other OWL ontologies. OWL is part of the W3C’s Semantic Web technology stack, which includes RDF, RDFS, SPARQL, etc. "@en ;
             rdfs:label "OWL"@en ;
             sto:hasTag "OWL"@en ;
-            sto:license "Public"@en .
+            dct:license "Public"@en .
 
 
 ###  https://w3id.org/i40/sto#W3C_RDF
@@ -2719,7 +2724,7 @@ sto:W3C_RDF rdf:type owl:NamedIndividual ,
                          "RDF is a standard model for data interchange on the Web. RDF has features that facilitate data merging even if the underlying schemas differ, and it specifically supports the evolution of schemas over time without requiring all the data consumers to be changed. "@en ;
             rdfs:label "RDF"@en ;
             sto:hasTag "RDF"@en ;
-            sto:license "Public"@en .
+            dct:license "Public"@en .
 
 
 ###  https://w3id.org/i40/sto#W3C_RIF
@@ -2734,7 +2739,7 @@ sto:W3C_RIF rdf:type owl:NamedIndividual ,
                          "The Rule Interchange Format (RIF) is a W3C Recommendation. RIF is part of the infrastructure for the semantic web, along with (principally) SPARQL, RDF and OWL. Although originally envisioned by many as a rules layer for the semantic web, in reality the design of RIF is based on the observation that there are many rules languages in existence, and what is needed is to exchange rules between them."@en ;
             rdfs:label "RIF"@en ;
             sto:hasTag "RIF"@en ;
-            sto:license "Public"@en .
+            dct:license "Public"@en .
 
 
 ###  https://w3id.org/i40/sto#W3C_SPARQL
@@ -2748,7 +2753,7 @@ sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
                rdfs:comment "The SPARQL Protocol and RDF Query Language (SPARQL) is a query language and protocol for RDF. This document specifies the SPARQL Protocol; it describes a means for conveying SPARQL queries and updates to a SPARQL processing service and returning the results via HTTP to the entity that requested them. This protocol was developed by the W3C SPARQL Working Group, part of the Semantic Web Activity as described in the activity statement ."@en ;
                rdfs:label "SPARQL"@en ;
                sto:hasTag "SPARQL"@en ;
-               sto:license "Public"@en .
+               dct:license "Public"@en .
 
 
 ###  https://w3id.org/i40/sto#eClass

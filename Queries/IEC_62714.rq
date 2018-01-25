@@ -3,9 +3,8 @@ PREFIX sto: <https://w3id.org/i40/sto#>
 SELECT DISTINCT ?std ?pred ?prop ?relNorm ?relsdoAbbr
 WHERE {
     ?std  a                sto:Standard .
-    ?std  sto:norm         "62714" .
+    ?std  rdfs:label "IEC 62714"@en .
     ?std  sto:publisher    ?sdo .
-    ?sdo  sto:abbreviation "IEC" .
     { {?std   ?pred  ?prop } UNION
       {?prop  ?pred  ?std  } UNION {
         ?std  (sto:relatedTo+|^sto:relatedTo+)*  ?mid .
