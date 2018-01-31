@@ -1,0 +1,17 @@
+PREFIX rami: <https://w3id.org/i40/rami#>
+PREFIX sto: <https://w3id.org/i40/sto#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+
+SELECT DISTINCT  ?name ?classification 
+?stdFramework ?publisher ?license
+WHERE {
+    ?classification sto:isDescribedin ?stdFramework .
+    ?std sto:hasClassification ?classification .
+    ?std rdfs:label ?sto .
+    ?std sto:publisher ?publisher .
+  OPTIONAL { ?std  sto:hasTag ?tag .}
+  OPTIONAL { ?std  dct:license ?license .}
+BIND(CONCAT(str(?sto)," - ",?tag) as ?name)
+}
