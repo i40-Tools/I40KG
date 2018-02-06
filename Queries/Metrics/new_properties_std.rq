@@ -1,0 +1,42 @@
+PREFIX sto: <https://w3id.org/i40/sto#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX db: <http://dbpedia.org/ontology:/>
+PREFIX st: <http://semweb.mmlab.be/ns/stoptimes#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?std ?pred
+WHERE {
+    ?std sto:hasDBpediaResource ?r . 
+    ?std sto:hasClassification ?classification .
+    ?std ?pred ?obj .
+  FILTER (
+    ?pred != rdf:type &&
+    ?pred != rdfs:label &&
+    ?pred != rdfs:comment &&
+    ?pred != sto:publisher && 
+    ?pred != sto:hasOfficialResource &&
+    ?pred != sto:hasDBpediaResource &&
+    ?pred != sto:hasWikipediaArticle &&
+    ?pred != sto:hasClassification &&
+    ?pred != prov:wasDerivedFrom && 
+    ?pred != sto:hasTag && 
+    ?pred != sto:isImplementationOf &&
+    ?pred != sto:developer &&
+    ?pred != sto:relatedTo &&
+    ?pred != sto:motivation &&
+    ?pred != sto:hasDomain &&
+    ?pred != sto:isPartOf &&
+    ?pred != skos:altLabel &&
+    ?pred != skos:note &&
+    ?pred != rdfs:seeAlso &&
+    ?pred != owl:sameAs &&
+    ?pred != dct:license &&
+    ?pred != <http://dbpedia.org/ontology/wikiPageID> &&
+    ?pred != <http://dbpedia.org/ontology/wikiPageRevisionID>
+  )
+} 
+
