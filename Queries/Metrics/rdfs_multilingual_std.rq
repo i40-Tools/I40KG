@@ -8,5 +8,11 @@ WHERE {
     ?std sto:hasDBpediaResource ?r . 
     ?std rdf:type sto:Standard .
     ?std ?pred ?obj .
-  FILTER (?pred = rdfs:label && !LANGMATCHES(LANG(?obj), "en"))
+  FILTER (
+    ((?pred = rdfs:label) || 
+    (?pred = rdfs:comment) ||
+      (?pred = <http://dbpedia.org/ontology/abstract> ))
+    && 
+    (!LANGMATCHES(LANG(?obj), "en"))
+  )
 } 

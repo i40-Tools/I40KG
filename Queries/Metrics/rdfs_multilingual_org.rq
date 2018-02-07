@@ -3,13 +3,16 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?org ?pred ?obj
+SELECT DISTINCT ?std ?pred ?obj
 WHERE {
-    ?org sto:hasDBpediaResource ?r . 
-    ?org rdf:type sto:StandardOrganization .
-    ?org ?pred ?obj .
-  FILTER ( 
-    (?pred = rdfs:label) || 
-    (?pred = rdfs:comment)   
-    && !LANGMATCHES(LANG(?obj), "en"))
+    ?std sto:hasDBpediaResource ?r . 
+    ?std rdf:type sto:StandardOrganization .
+    ?std ?pred ?obj .
+  FILTER (
+    ((?pred = rdfs:label) || 
+    (?pred = rdfs:comment) ||
+      (?pred = <http://dbpedia.org/ontology/abstract> ))
+    && 
+    (!LANGMATCHES(LANG(?obj), "en"))
+  )
 } 
