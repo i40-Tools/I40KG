@@ -1,11 +1,12 @@
 PREFIX sto: <https://w3id.org/i40/sto#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?obj
+SELECT (COUNT(?std) as ?sameAsLinks)
 WHERE {
     ?std sto:hasDBpediaResource ?r . 
-    ?std sto:hasClassification ?classification .
+    ?std rdf:type sto:StandardOrganization .
     ?std ?pred ?obj .
-    FILTER ( ?obj!=sto:Standard && ?obj!= owl:NamedIndividual && ?pred = rdf:type && ?obj!= owl:Thing)
+  FILTER (?pred = owl:sameAs)
 } 

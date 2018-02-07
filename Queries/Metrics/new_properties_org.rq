@@ -8,36 +8,35 @@ PREFIX st: <http://semweb.mmlab.be/ns/stoptimes#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX dct: <http://purl.org/dc/terms/>
 
-SELECT DISTINCT ?std ?pred
+SELECT DISTINCT ?org ?pred
 WHERE {
-    ?std sto:hasDBpediaResource ?r . 
-    ?std sto:hasClassification ?classification .
-    ?std ?pred ?obj .
+    ?org sto:hasDBpediaResource ?r . 
+    ?org rdf:type sto:StandardOrganization .
+    ?org ?pred ?obj .
   FILTER (
     ?pred != rdf:type &&
     ?pred != rdfs:label &&
     ?pred != rdfs:comment &&
+    ?pred != rdfs:isDefinedBy &&
     ?pred != sto:publisher && 
     ?pred != sto:hasOfficialResource &&
     ?pred != sto:hasDBpediaResource &&
     ?pred != sto:hasWikipediaArticle &&
-    ?pred != sto:hasClassification &&
-    ?pred != prov:wasDerivedFrom && 
-    ?pred != sto:hasTag && 
-    ?pred != sto:isImplementationOf &&
-    ?pred != sto:developer &&
-    ?pred != sto:relatedTo &&
-    ?pred != sto:motivation &&
-    ?pred != sto:hasDomain &&
-    ?pred != sto:isPartOf &&
+    ?pred != sto:abbreviation && 
+    ?pred != sto:belongsTo && 
+    ?pred != sto:developer && 
+    ?pred != sto:domainName &&
+    ?pred != sto:hasHeadquaterIn &&
+    ?pred != sto:formationDate &&
+    ?pred != sto:orgName &&
     ?pred != skos:altLabel &&
     ?pred != skos:note &&
     ?pred != rdfs:seeAlso &&
     ?pred != owl:sameAs &&
     ?pred != dct:license &&
+    ?pred != prov:wasDerivedFrom &&
     ?pred != <http://dbpedia.org/ontology/wikiPageID> &&
-    ?pred != <http://dbpedia.org/ontology/wikiPageRevisionID> &&
+    ?pred != <http://dbpedia.org/ontology/wikiPageRevisionID> && 
     ?pred != <http://dbpedia.org/ontology/thumbnail> 
   )
 } 
-

@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT DISTINCT ?std ?pred ?obj
 WHERE {
     ?std sto:hasDBpediaResource ?r . 
-    ?std sto:hasClassification ?classification .
+    ?std rdf:type sto:Standard .
     ?std ?pred ?obj .
   FILTER (?pred = rdfs:label && !LANGMATCHES(LANG(?obj), "en"))
 } 

@@ -5,7 +5,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT DISTINCT ?obj
 WHERE {
     ?std sto:hasDBpediaResource ?r . 
-    ?std sto:hasClassification ?classification .
+    ?std rdf:type sto:StandardOrganization.
     ?std ?pred ?obj .
-    FILTER ( ?obj!=sto:Standard && ?obj!= owl:NamedIndividual && ?pred = rdf:type && ?obj!= owl:Thing)
+    FILTER ( ?obj!=sto:StandardOrganization && ?obj!= owl:NamedIndividual && ?pred = rdf:type && ?obj!= owl:Thing)
 } 
