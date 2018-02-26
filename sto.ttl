@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/i40/sto##> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -170,8 +169,8 @@ sto:hasTag rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#isDescribedin
 sto:isDescribedin rdf:type owl:ObjectProperty ;
                   rdfs:domain sto:StandardClassification ;
-                  rdfs:range sto:StandarizationInitiative ;
-                  rdfs:comment "Links the Standarization Initiatives with the Classification of Standards"@en ;
+                  rdfs:range sto:StandardizationFramework ;
+                  rdfs:comment "Links the Standarization Frameworks with the Classification of Standards"@en ;
                   rdfs:label "is Described in"@en .
 
 
@@ -474,10 +473,10 @@ sto:StandardPart rdf:type owl:Class ;
                  rdfs:label "StandardPart" .
 
 
-###  https://w3id.org/i40/sto#StandarizationInitiative
-sto:StandarizationInitiative rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#StandardizationFramework
+sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-                             rdfs:label "Standarization Initiative"@en .
+                             rdfs:label "Standarization Framework"@en .
 
 
 #################################################################
@@ -789,7 +788,7 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#AdministrationShell
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
-                                 sto:StandarizationInitiative ;
+                                 sto:StandardizationFramework ;
                         rdfs:comment "Represents the classifications of the standards according to the submodels of the administration shell."@en ;
                         rdfs:label "Administration Shell"@en .
 
@@ -1702,7 +1701,7 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISA95
 sto:ISA95 rdf:type owl:NamedIndividual ,
-                   sto:StandarizationInitiative ;
+                   sto:StandardizationFramework ;
           rdfs:comment "Describes the ISA95 as a Standarization Initiative that classifies Standards"@en ;
           rdfs:label "ISA 95"@en .
 
@@ -2428,7 +2427,7 @@ sto:NISTIR_8107 rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/i40/sto#NISTInitiative
 sto:NISTInitiative rdf:type owl:NamedIndividual ,
-                            sto:StandarizationInitiative ;
+                            sto:StandardizationFramework ;
                    rdfs:comment "Describes the National Institute of Standards and Technology Initiative, i.e., NIST which provides a standard landascape"@en ;
                    rdfs:isDefinedBy "http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf" ;
                    rdfs:label "NIST Initiative"@en .
@@ -2606,7 +2605,7 @@ sto:RAMI rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/i40/sto#RAMI40
 sto:RAMI40 rdf:type owl:NamedIndividual ,
-                    sto:StandarizationInitiative ;
+                    sto:StandardizationFramework ;
            rdfs:comment "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
            rdfs:label "RAMI 4.0"@en .
 
