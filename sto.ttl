@@ -113,7 +113,7 @@ dcterms:license rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
-prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf sto:relatedTo .
 
 
@@ -924,7 +924,7 @@ sto:DIN rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_SPEC_16592
 sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
-                   prov:wasDerivedFrom sto:IEC_62541 ,
+                   prov:wasGeneratedBy sto:IEC_62541 ,
                                        sto:IEC_62714 ;
                    sto:developer sto:DIN ;
                    sto:publisher sto:DIN ;
@@ -1394,6 +1394,15 @@ sto:IEC_62061 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 60061"@en ;
               sto:hasTag "Safety of machinery"@en .
 
+
+sto:IEC_60086 rdf:type sto:Standard ;
+              sto:publisher sto:IEC ;
+              sto:hasDBpediaResource "http://dbpedia.org/page/Battery_nomenclature#IEC_60086" ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Battery_nomenclature#IEC_60086" ;
+              rdfs:label "IEC 60086"@en ;
+              rdfs:comment "Standard battery nomenclature describes portable dry cell batteries that have physical dimensions and electrical characteristics interchangeable between manufacturers."@en;
+              sto:hasOfficialResource "https://webstore.iec.ch/publication/22991";
+              .
 
 ###  https://w3id.org/i40/sto#IEC_62264
 sto:IEC_62264 rdf:type owl:NamedIndividual ,
