@@ -1,0 +1,30 @@
+PREFIX sto: <https://w3id.org/i40/sto#>
+PREFIX er: <https://w3id.org/i40/er#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT
+{
+?s1 er:problem er:prob1 .
+   er:prob1 rdfs:label "Publication Date must be a correct xsd:date." .
+   
+?s2 er:problem er:prob2 .
+   er:prob2 rdfs:label "Publication URI must be a correct URI." .
+}
+WHERE 
+{ 
+  {
+	  ?s1 a sto:Standard .
+	  ?s1 sto:hasPublicationDate ?db
+		FILTER ((datatype(?db)) != xsd:date)
+  }
+  
+  UNION 
+  
+  {
+	  ?s2 a sto:Standard .
+	  ?s2 sto:hasOfficialResource ?or
+	  FILTER (!(isURI(?or)))
+  }
+  
+} 

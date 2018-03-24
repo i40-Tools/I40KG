@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/i40/sto##> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -21,7 +22,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto> .
+@base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
@@ -112,9 +113,10 @@ dcterms:license rdf:type owl:ObjectProperty ;
                 rdfs:range dcterms:LicenseDocument .
 
 
-###  http://www.w3.org/ns/prov#wasDerivedFrom
+###  http://www.w3.org/ns/prov#wasGeneratedBy
 prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf sto:relatedTo .
+                    rdfs:subPropertyOf sto:relatedTo ;
+                    rdfs:comment "Standard A has influences in Standard B. For example, IEC_61499 hasInfluenceIn IEC_61804-2(EDDL)"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/maker
@@ -214,6 +216,20 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
               skos:altLabel "has Associated Standard"@en .
+
+
+###  https://w3id.org/i40/sto#uses
+sto:uses rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf sto:relatedTo ;
+         rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
+         rdfs:label "uses"@en .
+
+
+###  https://w3id.org/i40/sto#usesStructureOf
+sto:useStructureOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf sto:relatedTo ;
+                    rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
+                    rdfs:label "useStructureOf"@en .
 
 
 #################################################################
@@ -1108,6 +1124,16 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
               sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en .
 
 
+sto:MathML a sto:Standard ;
+         rdfs:label "MathML"@en;
+         rdfs:comment "MathML is a low-level specification for mathematical and scientific content on the Web and beyond"@en;
+         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/MathML" ;
+         sto:hasDBpediaResource "http://dbpedia.org/page/MathML";
+         sto:hasOfficialResource "https://www.w3.org/Math/" ;
+         sto:publisher sto:W3C;
+         .
+
+
 ###  https://w3id.org/i40/sto#IEC_29182-1
 sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
@@ -1137,6 +1163,17 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 42010"@en ;
               skos:note "The IIRA is based in this standards" ;
               sto:hasTag "ISO/IEC/IEEE 42010"@en .
+
+
+###  https://w3id.org/i40/sto#IEC_60086
+sto:IEC_60086 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:publisher sto:IEC ;
+              sto:hasDBpediaResource "http://dbpedia.org/page/Battery_nomenclature#IEC_60086" ;
+              sto:hasOfficialResource "https://webstore.iec.ch/publication/22991" ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Battery_nomenclature#IEC_60086" ;
+              rdfs:comment "Standard battery nomenclature describes portable dry cell batteries that have physical dimensions and electrical characteristics interchangeable between manufacturers."@en ;
+              rdfs:label "IEC 60086"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_60364
@@ -1395,15 +1432,6 @@ sto:IEC_62061 rdf:type owl:NamedIndividual ,
               sto:hasTag "Safety of machinery"@en .
 
 
-sto:IEC_60086 rdf:type sto:Standard ;
-              sto:publisher sto:IEC ;
-              sto:hasDBpediaResource "http://dbpedia.org/page/Battery_nomenclature#IEC_60086" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Battery_nomenclature#IEC_60086" ;
-              rdfs:label "IEC 60086"@en ;
-              rdfs:comment "Standard battery nomenclature describes portable dry cell batteries that have physical dimensions and electrical characteristics interchangeable between manufacturers."@en;
-              sto:hasOfficialResource "https://webstore.iec.ch/publication/22991";
-              .
-
 ###  https://w3id.org/i40/sto#IEC_62264
 sto:IEC_62264 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -1518,6 +1546,7 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               sto:relatedTo sto:IEC_61499 ,
                             sto:IEC_61850 ,
                             sto:IEC_62714 ;
+              sto:useStructureOf sto:IEC_61804 ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/OPC_Unified_Architecture" ;
               sto:hasOfficialResource "https://opcfoundation.org/about/opc-technologies/opc-ua/" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/OPC_Unified_Architecture" ;
@@ -1561,6 +1590,7 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
                             sto:IEC_61987_X ,
                             sto:IEC_62541 ,
                             sto:eClass ;
+              sto:uses sto:MathML;
               sto:hasDBpediaResource "http://dbpedia.org/resource/AutomationML" ;
               sto:hasOfficialResource "https://www.automationml.org/" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/AutomationML" ;
@@ -2339,9 +2369,9 @@ sto:MIIT rdf:type owl:NamedIndividual ,
          sto:hasHeadquaterIn dbr:China ;
          sto:abbreviation "MIIT" ;
          sto:formationDate "2008-03-01"^^xsd:date ;
+         sto:hasDBpediaResource "http://dbpedia.org/page/Ministry_of_Industry_and_Information_Technology" ;
          sto:hasOfficialResource "http://www.miit.gov.cn/" ;
          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Ministry_of_Industry_and_Information_Technology" ;
-         sto:hasDBpediaResource "http://dbpedia.org/page/Ministry_of_Industry_and_Information_Technology";
          sto:orgName "Ministry of Industry and Information Technology"@en ;
          rdfs:comment "Ministry of Industry and Information Technology (MIIT) of the Chinese government, established in March 2008, is the state agency of the People's Republic of China responsible for regulation and development of the postal service, Internet, wireless, broadcasting, communications, production of electronic and information goods, software industry and the promotion of the national knowledge economy."@en .
 

@@ -1,9 +1,7 @@
 PREFIX rami: <https://w3id.org/i40/rami#>
 PREFIX sto: <https://w3id.org/i40/sto#>
 
-SELECT ?std ?classification  ?initiative
+SELECT ?std ?classification 
 WHERE {
-    ?classification sto:isDescribedin ?initiative .
     ?std sto:hasClassification ?classification .
-    ?std  sto:hasTag "OPC UA"@en . 
 }
