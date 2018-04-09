@@ -157,7 +157,7 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
 sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
                     rdfs:domain sto:StandardOrganization ;
-                    rdfs:range dbo:Country ;
+                    rdfs:range dbo:Place ;
                     rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en ;
                     rdfs:label "has Headquater In"@en .
 
@@ -756,7 +756,7 @@ sto:APICS rdf:type owl:NamedIndividual ,
 sto:ASAM rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:Germany ;
-         sto:hasHeadquaterIn dbr:Germany ;
+         sto:hasHeadquaterIn dbr:Höhenkirchen-Siegertsbrunn ;
          sto:abbreviation "ASAM" ;
          sto:formationDate "1998-12-01"^^xsd:date ;
          sto:hasDBpediaResource "http://dbpedia.org/page/Association_for_Standardisation_of_Automation_and_Measuring_Systems" ;
@@ -783,6 +783,7 @@ sto:ASME rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:abbreviation "ASME" ;
          sto:formationDate "1880-01-01"^^xsd:date ;
+         sto:hasHeadquaterIn dbr:New_York_City ;
          sto:orgName "American Society of Mechanical Engineers"@en ;
          rdfs:comment "The American Society of Mechanical Engineers (ASME) is a professional association that, promotes the art, science, and practice of multidisciplinary engineering and allied sciences around the globe via continuing education, training and professional development, codes and standards, research, conferences and publications, government relations, and other forms of outreach."@en ;
          sto:hasDBpediaResource <http://dbpedia.org/resource/ASME> ;
@@ -925,7 +926,7 @@ sto:CrossLevel rdf:type owl:NamedIndividual ,
 sto:DIN rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
         sto:belongsTo dbr:Germany ;
-        sto:hasHeadquaterIn dbr:Germany ;
+        sto:hasHeadquaterIn dbr:Berlin ;
         sto:abbreviation "DIN"@de ;
         sto:formationDate "1918-01-01"^^xsd:date ;
         sto:orgName "Deutsches Institut für Normung"@en ;
@@ -953,7 +954,8 @@ sto:DMSC rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          rdfs:comment "Dimensional Metrology Standards Consortium (DMSC) is to identify urgently needed standards in the field of dimensional metrology, and to promote, foster, and encourage the development and interoperability of these standards, along with related and supporting standards that will benefit the industry as a whole."@en ;
          rdfs:label "Dimensional Metrology Standards Consortium"@en ;
-         sto:hasOfficialResource <http://www.dmis.org/> .
+         sto:hasOfficialResource <http://www.dmis.org/> ;
+         sto:hasHeadquaterIn dbr:Burleson_County\,_Texas .
 
 
 ###  https://w3id.org/i40/sto#DeviceLevel
@@ -1715,6 +1717,7 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
 sto:ISA rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
         sto:abbreviation "ISA" ;
+        sto:hasHeadquaterIn dbr:Durham\,_North_Carolina ;
         sto:formationDate "1945-04-28"^^xsd:date ;
         sto:orgName "International Society of Automation"@en ;
         rdfs:comment "The International Society of Automation (www.isa.org) is a nonprofit professional association that sets the standard for those who apply engineering and technology to improve the management, safety, and cybersecurity of modern automation and control systems used across industry and critical infrastructure. Founded in 1945, ISA develops widely used global standards; certifies industry professionals; provides education and training; publishes books and technical articles; hosts conferences and exhibits; and provides networking and career development programs for its 40,000 members and 400,000 customers around the world."@en ;
@@ -1749,7 +1752,7 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
 sto:ISO rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
         sto:belongsTo dbr:Switzerland ;
-        sto:hasHeadquaterIn dbr:Switzerland ;
+        sto:hasHeadquaterIn dbr:Geneva ;
         sto:abbreviation "ISO" ;
         sto:formationDate "1947-02-23"^^xsd:date ;
         sto:orgName "International Organization for Standardization"@en ,
@@ -2488,6 +2491,7 @@ sto:OAGi rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:abbreviation "OAGi" ;
          sto:formationDate "1994-01-01"^^xsd:date ;
+         sto:hasHeadquaterIn dbr:Marietta\,_Georgia ;
          sto:hasOfficialResource "http://www.oagi.org/dnn2/Home.aspx" ;
          sto:orgName "Open Applications Group"@en ;
          rdfs:comment "The Open Applications Group is a not-for-profit standards development organization. Founded in 1994, is focused on building enterprise ready process-based data exchange standards for both B2B and A2A integration."@en ;
@@ -2498,6 +2502,7 @@ sto:OAGi rdf:type owl:NamedIndividual ,
 sto:OASIS rdf:type owl:NamedIndividual ,
                    sto:StandardOrganization ;
           sto:abbreviation "OASIS" ;
+          sto:hasHeadquaterIn dbr:Boston ;
           sto:formationDate "1993-01-01"^^xsd:date ;
           sto:hasDBpediaResource "http://dbpedia.org/page/OASIS_(organization)" ;
           sto:hasOfficialResource "https://www.oasis-open.org/" ;
@@ -2746,6 +2751,7 @@ sto:W3C rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
         sto:abbreviation "W3C" ;
         sto:formationDate "1994-10-01"^^xsd:date ;
+        sto:hasHeadquaterIn dbr:Cambridge\,_Massachusetts ;
         sto:hasDBpediaResource "http://dbpedia.org/resource/World_Wide_Web_Consortium" ;
         sto:hasOfficialResource "https://www.w3.org/" ;
         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" ;
@@ -2840,6 +2846,7 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
                          sto:StandardOrganization ;
                 sto:abbreviation "eCl@ss" ,
                                  "eClass" ;
+                sto:hasHeadquaterIn dbr:Cologne ;
                 sto:formationDate "2000-11-14"^^xsd:date ;
                 sto:hasOfficialResource "https://www.eclass.eu" ;
                 sto:hasWikipediaArticle "https://www.wikiwand.com/de/ECl@ss" ;
