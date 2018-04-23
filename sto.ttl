@@ -624,10 +624,6 @@ rami:Identification rdf:type owl:NamedIndividual ,
                     sto:isDescribedin sto:AdministrationShell .
 
 
-###  https://w3id.org/i40/rami#Identifikation
-rami:Identifikation rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/rami#Information
 rami:Information rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer ;
@@ -1626,7 +1622,7 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Asset ,
                                     rami:Engineering ,
-                                    rami:Identifikation ,
+                                    rami:Identification ,
                                     rami:Product ,
                                     sto:ModelingPractice ;
               sto:hasDomain sto:CAD ;
@@ -1883,7 +1879,7 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Asset ,
                                     rami:Engineering ,
-                                    rami:Identifikation ,
+                                    rami:Identification ,
                                     rami:Product ,
                                     sto:ProcessPlanning ,
                                     sto:ProductionSystemModelData ;
@@ -2267,7 +2263,7 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasClassification rami:Asset ,
                                          rami:Engineering ,
-                                         rami:Identifikation ,
+                                         rami:Identification ,
                                          rami:Product ,
                                          sto:ProductionSystemEngineering ;
                    sto:hasDomain sto:IndustrialAutomation ;
@@ -2895,7 +2891,8 @@ sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
                        rdfs:comment "Instance's DBpedia Resource"@en .
 
 
-sto:hasDomain rdfs:label "has Domain"@en ;
+sto:hasDomain rdf:type owl:ObjectProperty;
+              rdfs:label "has Domain"@en ;
               rdfs:comment "Describes the domain, in which the standard is used"@en .
 
 
