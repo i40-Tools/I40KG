@@ -218,18 +218,18 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               skos:altLabel "has Associated Standard"@en .
 
 
+###  https://w3id.org/i40/sto#useStructureOf
+sto:useStructureOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf sto:relatedTo ;
+                   rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
+                   rdfs:label "useStructureOf"@en .
+
+
 ###  https://w3id.org/i40/sto#uses
 sto:uses rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf sto:relatedTo ;
          rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
-
-
-###  https://w3id.org/i40/sto#usesStructureOf
-sto:useStructureOf rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf sto:relatedTo ;
-                    rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
-                    rdfs:label "useStructureOf"@en .
 
 
 #################################################################
@@ -492,7 +492,8 @@ sto:StandardPart rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#StandardizationFramework
 sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-                             rdfs:label "Standarization Framework"@en .
+                             rdfs:label "Standarization Framework"@en ;
+                             skos:altLabel "Reference Architecture"@en .
 
 
 #################################################################
@@ -1124,16 +1125,6 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
               sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en .
 
 
-sto:MathML a sto:Standard ;
-         rdfs:label "MathML"@en;
-         rdfs:comment "MathML is a low-level specification for mathematical and scientific content on the Web and beyond"@en;
-         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/MathML" ;
-         sto:hasDBpediaResource "http://dbpedia.org/page/MathML";
-         sto:hasOfficialResource "https://www.w3.org/Math/" ;
-         sto:publisher sto:W3C;
-         .
-
-
 ###  https://w3id.org/i40/sto#IEC_29182-1
 sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
@@ -1235,7 +1226,7 @@ sto:IEC_61131 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource "https://webstore.iec.ch/publication/4550" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_61131" ;
               rdfs:comment "IEC 61131 is an IEC standard for programmable controllers. It was known as IEC 1131 before the change in numbering system by IEC. The parts of the IEC 61131 standard are prepared and maintained working group 7, programmable control systems, of subcommittee SC 65B of Technical Committee TC65 of the IEC."@en ;
-              rdfs:label "IEC 60131"@en ;
+              rdfs:label "IEC 61131"@en ; 
               sto:hasTag "PLC Open"@en .
 
 
@@ -1590,7 +1581,7 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
                             sto:IEC_61987_X ,
                             sto:IEC_62541 ,
                             sto:eClass ;
-              sto:uses sto:MathML;
+              sto:uses sto:MathML ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/AutomationML" ;
               sto:hasOfficialResource "https://www.automationml.org/" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/AutomationML" ;
@@ -1691,7 +1682,7 @@ sto:IEC_TS_62237 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource "https://webstore.iec.ch/publication/6626" ;
                  sto:hasPublicationDate "2003-10-26"^^xsd:date ;
                  rdfs:comment "Live working - Insulating hoses with fittings for use with hydraulic tools and equipment."@en ;
-                 rdfs:label "IEC TS 62237"@en .
+                 rdfs:label "IEC 62237"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_TS_62832
@@ -1709,6 +1700,14 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                  rdfs:label "IEC TS 62832"@en ;
                  sto:hasTag "DF/TS"@en ;
                  sto:motivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. IEC TS 62832 defines methods, which allow to validate or plan connections between assets."@en .
+
+
+###  https://w3id.org/i40/sto#IIRA
+sto:IIRA rdf:type owl:NamedIndividual ,
+                  sto:StandardizationFramework ;
+         sto:hasOfficialResource "http://www.iiconsortium.org/IIRA.htm" ;
+         rdfs:comment "Industrial Internet Reference Architecture"@en ;
+         rdfs:label "IIRA"@en .
 
 
 ###  https://w3id.org/i40/sto#ISA
@@ -2128,6 +2127,7 @@ sto:ISO_20922 rdf:type owl:NamedIndividual ,
               sto:publisher sto:IEC ,
                             sto:ISO ;
               sto:relatedTo sto:IEC_62541 ;
+              sto:hasDomain sto:M2M;
               sto:hasDBpediaResource "http://dbpedia.org/resource/MQTT" ;
               sto:hasOfficialResource "http://mqtt.org/" ,
                                       "https://www.iso.org/standard/69466.html" ;
@@ -2418,6 +2418,17 @@ sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
                            sto:isDescribedin sto:NISTInitiative ;
                            rdfs:comment "Manufacturing Model Data Standards define the data needed to manufacture a product from a design."@en ;
                            rdfs:label "Manufacturing Model Data"@en .
+
+
+###  https://w3id.org/i40/sto#MathML
+sto:MathML rdf:type owl:NamedIndividual ,
+                    sto:Standard ;
+           sto:publisher sto:W3C ;
+           sto:hasDBpediaResource "http://dbpedia.org/page/MathML" ;
+           sto:hasOfficialResource "https://www.w3.org/Math/" ;
+           sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/MathML" ;
+           rdfs:comment "MathML is a low-level specification for mathematical and scientific content on the Web and beyond"@en ;
+           rdfs:label "MathML"@en .
 
 
 ###  https://w3id.org/i40/sto#ModBus
@@ -2763,8 +2774,7 @@ sto:W3C_OWL rdf:type owl:NamedIndividual ,
             sto:hasOfficialResource "https://www.w3.org/OWL/" ;
             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Web_Ontology_Language?oldformat=true" ;
             dcterms:license "Public"@en ;
-            rdfs:comment "The W3C Web Ontology Language (OWL) is a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things. OWL is a computational logic-based language such that knowledge expressed in OWL can be exploited by computer programs, e.g., to verify the consistency of that knowledge or to make implicit knowledge explicit. OWL documents, known as ontologies, can be published in the World Wide Web and may refer to or be referred from other OWL ontologies. OWL is part of the W3C’s Semantic Web technology stack, which includes RDF, RDFS, SPARQL, etc."@en ,
-                         "The W3C Web Ontology Language (OWL) is a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things. OWL is a computational logic-based language such that knowledge expressed in OWL can be exploited by computer programs, e.g., to verify the consistency of that knowledge or to make implicit knowledge explicit. OWL documents, known as ontologies, can be published in the World Wide Web and may refer to or be referred from other OWL ontologies. OWL is part of the W3C’s Semantic Web technology stack, which includes RDF, RDFS, SPARQL, etc. "@en ;
+            rdfs:comment "The W3C Web Ontology Language (OWL) is a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things. OWL is a computational logic-based language such that knowledge expressed in OWL can be exploited by computer programs, e.g., to verify the consistency of that knowledge or to make implicit knowledge explicit. OWL documents, known as ontologies, can be published in the World Wide Web and may refer to or be referred from other OWL ontologies. OWL is part of the W3C’s Semantic Web technology stack, which includes RDF, RDFS, SPARQL, etc."@en;
             rdfs:label "OWL"@en ;
             sto:hasTag "OWL"@en .
 
