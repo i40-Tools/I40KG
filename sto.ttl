@@ -109,6 +109,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://purl.org/dc/terms/license
 dcterms:license rdf:type owl:ObjectProperty ;
+                rdfs:label "License"@en;
+                rdfs:comment "Represent the license document for a given Standard"@en;
                 rdfs:domain sto:Standard ;
                 rdfs:range dcterms:LicenseDocument .
 
@@ -2170,8 +2172,10 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
               sto:publisher sto:ISO ;
               sto:relatedTo sto:ISO_15926 ,
                             sto:ISO_ASTM_52915 ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Process_Specification_Language" ;             
               sto:hasOfficialResource "https://www.iso.org/standard/35431.html" ;
               sto:hasPublicationDate "2004-11-01"^^xsd:date ;
+              sto:hasTag "PSL"@en;
               rdfs:comment "ISO 18629-1:2004 provides a general overview of the different series of parts of ISO 18629, which defines a process specification language aimed at identifying, formally defining and structuring the semantic concepts intrinsic to the capture and exchange of process information related to discrete manufacturing."@en ;
               rdfs:label "ISO 19629"@en .
 
@@ -2218,6 +2222,7 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
                                     sto:Product ;
               sto:hasDomain sto:EnterpriseIntegration ;
               sto:publisher sto:ISO ;
+              sto:relatedTo sto:BPMN;
               sto:hasOfficialResource "https://www.iso.org/standard/33834.html" ;
               sto:hasPublicationDate "2007-12-01"^^xsd:date ;
               rdfs:comment "Enterprise integration -- Constructs for enterprise modelling-specifies the characteristics of the core constructs necessary for computer-supported modelling of enterprises conforming to ISO 19439.."@en ;
