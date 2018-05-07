@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/i40/sto##> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -324,7 +325,7 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
 sto:hasWikipediaArticle rdf:type owl:DatatypeProperty ;
-                        rdfs:range xsd:string .
+                        rdfs:range rdfs:Literal .
 
 
 ###  https://w3id.org/i40/sto#orgName
@@ -508,6 +509,10 @@ sto:StandardizationFramework rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://dbpedia.org/resource#Beijing
+dbr:Beijing rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#Berlin
 dbr:Berlin rdf:type owl:NamedIndividual .
 
@@ -516,12 +521,24 @@ dbr:Berlin rdf:type owl:NamedIndividual .
 dbr:Boston rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/resource#Chicago
+dbr:Chicago rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#China
 dbr:China rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource#Cologne
 dbr:Cologne rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#Eumseong
+dbr:Eumseong rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#Frankfurt
+dbr:Frankfurt rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource#Geneva
@@ -540,6 +557,10 @@ dbr:Höhenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual .
 dbr:New_York_City rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/resource#Paris
+dbr:Paris rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#South_Korea
 dbr:South_Korea rdf:type owl:NamedIndividual .
 
@@ -552,12 +573,36 @@ dbr:Switzerland rdf:type owl:NamedIndividual .
 dbr:United_States rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/resource#Valbonne
+dbr:Valbonne rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#_Arizona
+dbr:_Arizona rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#_California
+dbr:_California rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#_Georgia
 dbr:_Georgia rdf:type owl:NamedIndividual .
 
 
+###  http://dbpedia.org/resource#_Maryland
+dbr:_Maryland rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#_Massachusetts
 dbr:_Massachusetts rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#_Michigan
+dbr:_Michigan rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#_New_York
+dbr:_New_York rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource#_North_Carolina
@@ -566,6 +611,10 @@ dbr:_North_Carolina rdf:type owl:NamedIndividual .
 
 ###  http://dbpedia.org/resource#_Texas
 dbr:_Texas rdf:type owl:NamedIndividual .
+
+
+###  http://dbpedia.org/resource#Washington,_D.C.
+<http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/rami#AdminShellGeneral
@@ -774,7 +823,7 @@ rami:safety rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#ANSI
 sto:ANSI rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
-         sto:hasHeadquaterIn dbr:Washington\,_D\.C\. ;
+         sto:hasHeadquaterIn <http://dbpedia.org/resource#Washington,_D.C.> ;
          sto:abbreviation "ANSI" ;
          sto:formationDate "1918-05-14"^^xsd:date ;
          sto:orgName "American National Standards Institute"@en ;
@@ -788,8 +837,8 @@ sto:ANSI rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#APICS
 sto:APICS rdf:type owl:NamedIndividual ,
                    sto:StandardOrganization ;
-          sto:formationDate "1957-01-01"^^xsd:date ;
           sto:hasHeadquaterIn dbr:Chicago ;
+          sto:formationDate "1957-01-01"^^xsd:date ;
           sto:orgName "American Production and Inventory Control Society"@en ;
           rdfs:comment "American Production and Inventory Control Society."@en ;
           rdfs:label "APICS"@en ;
@@ -848,15 +897,6 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
                rdfs:comment "ASME Y14.41 establishs requirements for model-based definition upon CAD software and those who use CAD software to create product definition within the 3D model."@en ;
                rdfs:label "ASME Y14.41"@en .
 
-sto:ISO_11783 rdf:type owl:NamedIndividual ,
-                        sto:Standard ;
-               sto:publisher sto:ISO ;
-               sto:hasDBpediaResource "http://dbpedia.org/resource/ISO_11783" ;
-               sto:hasOfficialResource "https://www.iso.org/standard/61646.html" ;
-               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_11783" ;
-               sto:hasTag "ISOBUS"@en;
-               rdfs:comment "ISO 11783, known as Tractors and machinery for agriculture and forestry—Serial control and communications data network is a communication protocol for the agriculture industry based on the SAE J1939 protocol (which includes CANbus)."@en ;
-               rdfs:label "ISO 11783"@en .
 
 ###  https://w3id.org/i40/sto#AdministrationShell
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
@@ -885,13 +925,13 @@ sto:B2MML rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BBF
 sto:BBF rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
+        sto:hasHeadquaterIn dbr:_California ;
         sto:abbreviation "BBF" ;
         sto:formationDate "2008-01-01"^^xsd:date ;
         sto:hasDBpediaResource "http://dbpedia.org/resource/Broadband_Forum" ;
         sto:hasOfficialResource "https://www.broadband-forum.org/" ;
         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Broadband_Forum" ;
         sto:orgName "Broadband Forum"@en ;
-        sto:hasHeadquaterIn dbr:Fremont\,_California ;
         rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
         rdfs:label "Broadband Forum"@en .
 
@@ -928,6 +968,7 @@ sto:BPMN rdf:type owl:NamedIndividual ,
          sto:developer sto:OMG ;
          sto:hasClassification sto:SCM ;
          sto:hasDBpediaResource "http://dbpedia.org/page/Business_Process_Model_and_Notation" ;
+         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation";
          sto:hasOfficialResource "http://www.bpmn.org/" ;
          sto:hasTag "BPMN"@en ;
          rdfs:comment "Business Process Model and Notation is a graphical representation for specifying business processes in a business process model."@en ;
@@ -1001,6 +1042,7 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
                                        sto:IEC_62714 ;
                    sto:developer sto:DIN ;
                    sto:publisher sto:DIN ;
+                   sto:hasOfficialResource <https://www.beuth.de/de/technische-regel/din-spec-16592/265597431>;
                    rdfs:comment "Combining OPC Unified Architecture and Automation Markup Language."@en ;
                    rdfs:label "DIN SPEC 16592"@en .
 
@@ -1024,9 +1066,9 @@ sto:DeviceLevel rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ETSI
 sto:ETSI rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
+         sto:hasHeadquaterIn dbr:Valbonne ;
          sto:abbreviation "ETSI"@en ;
          sto:formationDate "1988-01-01"^^xsd:date ;
-         sto:hasHeadquaterIn dbr:Valbonne ;
          sto:hasDBpediaResource "http://dbpedia.org/resource/ETSI" ;
          sto:hasOfficialResource "http://www.etsi.org/" ;
          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ETSI" ;
@@ -1100,22 +1142,22 @@ sto:FunctionalSafety rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IBM
 sto:IBM rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
+        sto:hasHeadquaterIn dbr:_New_York ;
         sto:abbreviation "IBM" ;
         sto:formationDate "1911-06-16"^^xsd:date ;
         sto:orgName "International Business Machines Corporation"@en ;
         rdfs:comment "International Business Machines Corporation (commonly referred to as IBM) is an American multinational technology and consulting corporation, with corporate headquarters in Armonk, New York. IBM manufactures and markets computer hardware, middleware and software, and offers infrastructure, hosting and consulting services in areas ranging from mainframe computers to nanotechnology.On August 6, 2015, IBM announced that it will buy Merge Healthcare Inc for $1 billion." ;
         sto:hasDBpediaResource <http://dbpedia.org/resource/IBM> ;
         sto:hasOfficialResource <http://www.ibm.com> ;
-        sto:hasHeadquaterIn dbr:Armonk\,_New_York ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IBM> .
 
 
 ###  https://w3id.org/i40/sto#IEC
 sto:IEC rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
+        sto:hasHeadquaterIn dbr:Geneva ;
         sto:abbreviation "IEC" ;
         sto:formationDate "1906-06-26"^^xsd:date ;
-        sto:hasHeadquaterIn dbr:Geneva ;
         sto:orgName "Commission électrotechnique internationale"@fr ,
                     "International Electrotechnical Commission"@en ;
         rdfs:comment "Is a non-profit, non-governmental international standards organization that prepares and publishes International Standards for all electrical, electronic and related technologies – collectively known as \"electrotechnology\". IEC standards cover a vast range of technologies from power generation, transmission and distribution to home appliances and office equipment, semiconductors, fiber optics, batteries, solar energy, nanotechnology and marine energy as well as many others. The IEC also manages three global conformity assessment systems that certify whether equipment, system or components conform to its International Standards."@en ;
@@ -1148,14 +1190,6 @@ sto:IEC_15459 rdf:type owl:NamedIndividual ,
               sto:hasTag "Information technology -- Automatic identification and data capture techniques -- Unique identification"@en ;
               rdfs:comment "ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type. The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."@en ;
               rdfs:label "IEC 15459"@en .
-
-
-###  https://w3id.org/i40/sto#IEC_20140_5
-sto:IEC_20140_5 rdf:type owl:NamedIndividual ,
-                         sto:Standard ;
-                owl:sameAs sto:ISO_20140_5 ;
-                sto:publisher sto:IEC ;
-                rdfs:label "IEC 20140"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_24760
@@ -1313,6 +1347,7 @@ sto:IEC_61334 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:publisher sto:IEC ;
               sto:hasDBpediaResource "http://dbpedia.org/page/IEC_61334" ;
+              sto:hasOfficialResource "https://webstore.iec.ch/publication/5308" ;
               rdfs:comment "IEC 61334 , known as Distribution automation using distribution line carrier systems, is a standard for low-speed reliable power line communications by electricity meters, water meters and SCADA."@en ;
               rdfs:label "IEC 61334"@en .
 
@@ -1713,7 +1748,7 @@ sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
                   sto:hasPublicationDate "2017-03-07"^^xsd:date ;
                   rdfs:comment "IEC PAS 63088:2017(E) describes a reference architecture model in the form of a cubic layer model, RAMI model"@en ;
                   rdfs:label "IEC PAS 63088"@en ;
-                  skos:altLabel "RAMI 4.0" .
+                  sto:hasTag "RAMI 4.0" .
 
 
 ###  https://w3id.org/i40/sto#IEC_TR_62794
@@ -1727,7 +1762,6 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
                                        rami:WorkCenter ;
                  sto:publisher sto:IEC ;
                  sto:relatedTo sto:IEC_TS_62832 ;
-                 sto:hasOfficialResource "https://webstore.iec.ch/publication/7433" ;
                  sto:hasTag "DF/TR"@en ;
                  dcterms:license "Private"@en ;
                  rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
@@ -1841,6 +1875,7 @@ sto:ISO_10303 rdf:type owl:NamedIndividual ,
               sto:hasClassification sto:ProductLifeCycleManagement ;
               sto:publisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/page/ISO_10303" ;
+              sto:hasOfficialResource "https://www.steptools.com/stds/step/" ;
               sto:hasTag "STEP"@en ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_10303" ;
               rdfs:comment "Standard for the Exchange of Product model data. ISO 10303 can represent 3D objects in Computer-aided design (CAD) and related information."@en ;
@@ -1861,6 +1896,18 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
              rdfs:label "ISO 1101"@en .
 
 
+###  https://w3id.org/i40/sto#ISO_11783
+sto:ISO_11783 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:publisher sto:ISO ;
+              sto:hasDBpediaResource "http://dbpedia.org/resource/ISO_11783" ;
+              sto:hasOfficialResource "https://www.iso.org/standard/61646.html" ;
+              sto:hasTag "ISOBUS"@en ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_11783" ;
+              rdfs:comment "ISO 11783, known as Tractors and machinery for agriculture and forestry—Serial control and communications data network is a communication protocol for the agriculture industry based on the SAE J1939 protocol (which includes CANbus)."@en ;
+              rdfs:label "ISO 11783"@en .
+
+
 ###  https://w3id.org/i40/sto#ISO_11898-1
 sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
@@ -1869,7 +1916,7 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                                       rami:Safety ;
                 sto:hasDomain sto:IndustrialAutomation ;
                 sto:publisher sto:ISO ;
-                sto:relatedTo sto:IEC_61512 ;
+                sto:relatedTo sto:ISO_11783 ;
                 sto:hasDBpediaResource "http://dbpedia.org/page/CAN_bus" ;
                 sto:hasOfficialResource "https://www.iso.org/standard/63648.html" ;
                 sto:hasPublicationDate "2015-12-01"^^xsd:date ;
@@ -1881,8 +1928,7 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_1302
 sto:ISO_1302 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:hasClassification rami:Asst ,
-                                   sto:ModelingPractice ;
+             sto:hasClassification sto:ModelingPractice ;
              sto:hasOfficialResource "https://www.iso.org/standard/28089.html" ;
              sto:hasPublicationDate "2002-02-01"^^xsd:date ;
              rdfs:comment "Geometrical product specifications Standards"@en ;
@@ -1935,8 +1981,7 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_13849
 sto:ISO_13849 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification rami:Safety ,
-                                    rami:safety ;
+              sto:hasClassification rami:Safety ;
               sto:publisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/ISO_13849" ;
               sto:hasOfficialResource "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=69883" ;
@@ -2285,6 +2330,7 @@ sto:ISO_50001 rdf:type owl:NamedIndividual ,
               sto:hasClassification sto:CrossLevel ;
               sto:publisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/page/ISO_50001" ;
+              sto:hasOfficialResource "https://www.iso.org/iso-50001-energy-management.html" ;
               rdfs:comment "Energy management systems – Requirements with guidance for use is a specification created by the International Organization for Standardization (ISO) for an energy management system."@en ;
               rdfs:label "ISO 50001"@en .
 
@@ -2430,8 +2476,8 @@ sto:M2M rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#MESA
 sto:MESA rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
+         sto:hasHeadquaterIn dbr:_Arizona ;
          sto:abbreviation "MESA" ;
-         sto:hasHeadquaterIn dbr:Chandler\,_Arizona ;
          sto:formationDate "1992-01-01"^^xsd:date ;
          sto:hasDBpediaResource "http://dbpedia.org/page/Manufacturing_Enterprise_Solutions_Association" ;
          sto:hasOfficialResource "http://www.mesa.org/en/index.asp" ;
@@ -2534,7 +2580,7 @@ sto:ModelingPractice rdf:type owl:NamedIndividual ,
 sto:NIST rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:United_States ;
-         sto:hasHeadquaterIn dbr:Gaithersburg\,_Maryland ;
+         sto:hasHeadquaterIn dbr:_Maryland ;
          sto:abbreviation "NIST" ;
          sto:formationDate "1901-01-01"^^xsd:date ;
          sto:hasDBpediaResource "http://dbpedia.org/page/National_Institute_of_Standards_and_Technology" ;
@@ -2566,6 +2612,7 @@ sto:NISTInitiative rdf:type owl:NamedIndividual ,
 sto:OAGIS rdf:type owl:NamedIndividual ,
                    sto:Standard ;
           sto:publisher sto:OAGi ;
+          sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Open_Application_Group_Integration_Specification";
           sto:hasOfficialResource "http://www.oagi.org/dnn2/DownloadsandResources/OAGIS100PublicDownload.aspx" ;
           sto:hasTag "Open Applications Group Integration Specification"@en ;
           rdfs:comment "The Open Applications Group Integration Specification (OAGIS) is an effort to provide a canonical business language for information integration. It uses XML as the common alphabet for defining business messages, and for identifying business processes (scenarios) that allow businesses and business applications to communicate."@en ;
@@ -2600,9 +2647,9 @@ sto:OASIS rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ODVA
 sto:ODVA rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
+         sto:hasHeadquaterIn dbr:_Michigan ;
          sto:abbreviation "ODVA" ;
          sto:formationDate "1995-01-01"^^xsd:date ;
-         sto:hasHeadquaterIn dbr:Ann_Arbor\,_Michigan ;
          sto:hasDBpediaResource "http://dbpedia.org/resource/ODVA_(company)" ;
          sto:hasOfficialResource "https://www.odva.org" ;
          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ODVA_(company)" ;
@@ -2613,9 +2660,9 @@ sto:ODVA rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#OMG
 sto:OMG rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
+        sto:hasHeadquaterIn dbr:_Massachusetts ;
         sto:abbreviation "OMG" ;
         sto:formationDate "1989-01-01"^^xsd:date ;
-        sto:hasHeadquaterIn dbr:Needham\,_Massachusetts ;
         sto:hasDBpediaResource "http://dbpedia.org/resource/Object_Management_Group" ;
         sto:hasOfficialResource "http://www.omg.org/" ;
         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Object_Management_Group" ;
@@ -2639,9 +2686,9 @@ sto:OMG_DDS rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#OPC_Foundation
 sto:OPC_Foundation rdf:type owl:NamedIndividual ,
                             sto:StandardOrganization ;
+                   sto:hasHeadquaterIn dbr:_Arizona ;
                    sto:abbreviation "OPC" ;
                    sto:formationDate "1994-01-01"^^xsd:date ;
-                   sto:hasHeadquaterIn dbr:Scottsdale\,_Arizona ;
                    sto:hasDBpediaResource "http://dbpedia.org/page/OPC_Foundation" ;
                    sto:hasOfficialResource "https://opcfoundation.org/" ;
                    sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/OPC_Foundation" ;
@@ -2777,9 +2824,9 @@ sto:SCOR rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#SE
 sto:SE rdf:type owl:NamedIndividual ,
                 sto:StandardOrganization ;
+       sto:hasHeadquaterIn dbr:Paris ;
        sto:abbreviation "SE" ;
        sto:formationDate "1936-01-01"^^xsd:date ;
-       sto:hasHeadquaterIn dbr:Paris ;
        sto:hasDBpediaResource "http://dbpedia.org/page/Schneider_Electric" ;
        sto:hasOfficialResource "http://www.schneider-electric.com/ww/en/" ;
        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Schneider_Electric" ;
@@ -2792,20 +2839,21 @@ sto:SysML rdf:type owl:NamedIndividual ,
                    sto:Standard ;
           sto:developer sto:OMG ;
           sto:publisher sto:OMG ;
+          sto:relatedTo sto:IEC_62714;
           sto:hasDBpediaResource "http://dbpedia.org/resource/Systems_Modeling_Language" ;
           sto:hasOfficialResource "http://sysml.org/" ,
                                   "http://www.omgsysml.org/what-is-sysml.htm" ;
-          sto:hasTag "Systems Modeling Language"@en ;
+          rdfs:label "Systems Modeling Language"@en ;
           sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Systems_Modeling_Language" ;
-          rdfs:comment "The OMG Systems Modeling Language™ (OMG SysML™) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML™ for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
-          rdfs:label "SysML"@en .
+          rdfs:comment "The OMG Systems Modeling Language (OMG SysML) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
+          sto:hasTag "SysML"@en .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
 sto:UN-CEFACT rdf:type owl:NamedIndividual ,
                        sto:StandardOrganization ;
-              sto:abbreviation "UN/CEFACT" ;
               sto:hasHeadquaterIn dbr:Geneva ;
+              sto:abbreviation "UN/CEFACT" ;
               sto:hasDBpediaResource "http://dbpedia.org/page/UN/CEFACT" ;
               sto:hasOfficialResource "https://www.unece.org/cefact/" ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/UN/CEFACT" ;
@@ -2816,9 +2864,9 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#VDMA
 sto:VDMA rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
+         sto:hasHeadquaterIn dbr:Frankfurt ;
          sto:abbreviation "VDMA" ;
          sto:formationDate "1892-11-15"^^xsd:date ;
-         sto:hasHeadquaterIn dbr:Frankfurt ;
          sto:hasDBpediaResource "http://dbpedia.org/resource/VDMA" ;
          sto:hasOfficialResource "http://www.vdma.org" ;
          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Mechanical_Engineering_Industry_Association" ;
@@ -2863,7 +2911,7 @@ sto:W3C_OWL rdf:type owl:NamedIndividual ,
             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Web_Ontology_Language?oldformat=true" ;
             dcterms:license "Public"@en ;
             rdfs:comment "The W3C Web Ontology Language (OWL) is a Semantic Web language designed to represent rich and complex knowledge about things, groups of things, and relations between things. OWL is a computational logic-based language such that knowledge expressed in OWL can be exploited by computer programs, e.g., to verify the consistency of that knowledge or to make implicit knowledge explicit. OWL documents, known as ontologies, can be published in the World Wide Web and may refer to or be referred from other OWL ontologies. OWL is part of the W3C’s Semantic Web technology stack, which includes RDF, RDFS, SPARQL, etc."@en ;
-            rdfs:label "OWL"@en .
+            rdfs:label "Web Ontology Language"@en .
 
 
 ###  https://w3id.org/i40/sto#W3C_RDF
