@@ -95,17 +95,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/i40/sto#edition
 sto:edition rdf:type owl:AnnotationProperty .
 
-###  https://w3id.org/i40/sto#language
-sto:language rdf:type owl:AnnotationProperty .
 
-###  https://w3id.org/i40/sto#committee
-sto:committee rdf:type owl:AnnotationProperty .
-
-###  https://w3id.org/i40/sto#stability_date
-sto:stability_date rdf:type owl:AnnotationProperty .
-
-###  https://w3id.org/i40/sto#ICS_Code
-sto:ICS_Code rdf:type owl:AnnotationProperty .
 
 
 
@@ -325,6 +315,13 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
               rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
               rdfs:label "has Status"@en .
 
+###  https://w3id.org/i40/sto#hasDocumentInLanguage
+sto:hasDocumentInLanguage rdf:type owl:DatatypeProperty ;
+              rdfs:domain sto:Standard ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
+              rdfs:label "hasDocumentInLanguage"@en .
+
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
@@ -358,6 +355,10 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
                 rdfs:range xsd:string ;
                 rdfs:comment "Name of the standard part."@en ;
                 rdfs:label "std Part Name"@en .
+
+
+
+
 
 
 #################################################################
