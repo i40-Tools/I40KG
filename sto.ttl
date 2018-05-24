@@ -315,12 +315,14 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
               rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
               rdfs:label "has Status"@en .
 
-###  https://w3id.org/i40/sto#hasDocumentInLanguage
-sto:hasDocumentInLanguage rdf:type owl:DatatypeProperty ;
+###  https://w3id.org/i40/sto#sto:hasAvailableLanguage
+sto:sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
+			  rdfs:subPropertyOf sto:relatedTo ;
               rdfs:domain sto:Standard ;
               rdfs:range xsd:string ;
               rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
-              rdfs:label "hasDocumentInLanguage"@en .
+              rdfs:label "sto:hasAvailableLanguage"@en .
+
 
 
 ###  https://w3id.org/i40/sto#hasTag
