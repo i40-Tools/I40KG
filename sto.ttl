@@ -237,7 +237,7 @@ sto:uses rdf:type owl:ObjectProperty ;
          rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
 
-         
+
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
 			  rdfs:subPropertyOf dcterms:language;
@@ -521,6 +521,17 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
                              rdfs:label "Standarization Framework"@en ;
                              skos:altLabel "Reference Architecture"@en .
+
+###  https://w3id.org/i40/sto#TechnicalCommitteeOrSubCommittee
+###    sto:hastitle property needs to be added. Description of the Committee Code
+###    sto:         a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added
+sto:TechnicalCommitteeOrSubCommittee rdf:type owl:Class ;
+                             rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
+                             rdfs:label "TechnicalCommitte/Sub-Committe"@en ;
+                             sto:abbreviation "TC/SC";
+                             rdfs:isDefinedBy sto:IEC ;
+                             rdfs:seeAlso "http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25".
+
 
 
 #################################################################
