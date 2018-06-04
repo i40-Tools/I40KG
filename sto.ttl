@@ -244,7 +244,8 @@ sto:hasTechnicalCommitteeOrSubCommittee rdf:type owl:ObjectProperty ;
               rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
               rdfs:label "sto:hasTechnicalCommitteeOrSubCommittee"@en ;
               rdfs:domain sto:Standard ;
-              rdfs:range sto:TechnicalCommitteeOrSubCommittee.
+              rdfs:range sto:TechnicalCommitteeOrSubCommittee
+              .
 
 
 #################################################################
@@ -365,6 +366,16 @@ sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
               rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
               rdfs:label "sto:hasAvailableLanguage"@en .
 
+
+
+###  https://w3id.org/i40/sto#hasStabilityDate
+###  The data specified is not actually a Date but an Year  
+sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
+              rdfs:domain sto:Standard ;
+              rdfs:range xsd:gYear ;
+              rdfs:comment "The contents of the publications will remain unchanged up to the Stability date. At this date, the publication will be either reconfirmed, withdrawn, replaced by a revised edition or amended. If there is a revision or amendment on-going then this is mentioned under the publication in the "Work in progress" tab, if you don't see this tab it means that there is no project under development."@en ;
+              rdfs:seeAlso "https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5";
+              rdfs:label "sto:hasStabilityDate"@en .
 
 
 
