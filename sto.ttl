@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/i40/sto#> .
+@prefix sto: <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -22,7 +22,8 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto#> .
+@base : <https://w3id.org/i40/sto#> .
+      
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              owl:imports <https://w3id.org/i40/sto#> ;
@@ -242,7 +243,7 @@ sto:uses rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
 sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
               rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
-              rdfs:label "hasTechnicalCommittee"@en ;
+              rdfs:label "has Technical Committee"@en ;
               rdfs:domain sto:Standard ;
               rdfs:range sto:TechnicalCommittee.
 
@@ -545,7 +546,7 @@ sto:StandardizationFramework rdf:type owl:Class ;
 ###    sto:         a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added
 sto:TechnicalCommittee rdf:type owl:Class ;
                              rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
-                             rdfs:label "TechnicalCommitte"@en ;
+                             rdfs:label "Technical Committe"@en ;
                              sto:abbreviation "TC";
                              rdfs:isDefinedBy sto:IEC ;
                              rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25>.
