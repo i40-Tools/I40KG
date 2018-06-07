@@ -239,13 +239,12 @@ sto:uses rdf:type owl:ObjectProperty ;
 
 
 
-###  https://w3id.org/i40/sto#hasTechnicalCommitteeOrSubCommittee
-sto:hasTechnicalCommitteeOrSubCommittee rdf:type owl:ObjectProperty ;
+###  https://w3id.org/i40/sto#hasTechnicalCommittee
+sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
               rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
-              rdfs:label "sto:hasTechnicalCommitteeOrSubCommittee"@en ;
+              rdfs:label "hasTechnicalCommittee"@en ;
               rdfs:domain sto:Standard ;
-              rdfs:range sto:TechnicalCommitteeOrSubCommittee
-              .
+              rdfs:range sto:TechnicalCommittee.
 
 
 #################################################################
@@ -364,7 +363,7 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
 sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
 			  rdfs:subPropertyOf dcterms:language;
               rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
-              rdfs:label "sto:hasAvailableLanguage"@en .
+              rdfs:label "has Available Language"@en .
 
 
 
@@ -374,8 +373,8 @@ sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range xsd:gYear ;
               rdfs:comment "The contents of the publications will remain unchanged up to the Stability date. At this date, the publication will be either reconfirmed, withdrawn, replaced by a revised edition or amended. If there is a revision or amendment on-going then this is mentioned under the publication in the "Work in progress" tab, if you don't see this tab it means that there is no project under development."@en ;
-              rdfs:seeAlso "https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5";
-              rdfs:label "sto:hasStabilityDate"@en .
+              rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5>;
+              rdfs:label "has Stability Date"@en .
 
 
 
@@ -541,15 +540,15 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:label "Standarization Framework"@en ;
                              skos:altLabel "Reference Architecture"@en .
 
-###  https://w3id.org/i40/sto#TechnicalCommitteeOrSubCommittee
+###  https://w3id.org/i40/sto#TechnicalCommittee
 ###    sto:hastitle property needs to be added. Description of the Committee Code
 ###    sto:         a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added
-sto:TechnicalCommitteeOrSubCommittee rdf:type owl:Class ;
+sto:TechnicalCommittee rdf:type owl:Class ;
                              rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
-                             rdfs:label "TechnicalCommitte/Sub-Committe"@en ;
-                             sto:abbreviation "TC/SC";
+                             rdfs:label "TechnicalCommitte"@en ;
+                             sto:abbreviation "TC";
                              rdfs:isDefinedBy sto:IEC ;
-                             rdfs:seeAlso "http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25".
+                             rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25>.
 
 
 
