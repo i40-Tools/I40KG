@@ -252,12 +252,12 @@ sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
 sto:hasFileSize rdf:type owl:ObjectProperty ;
               rdfs:domain foaf:Document ;
               rdfs:range om2:Measure ;
-              skos:note "1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
+              skos:note """1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
                          2. om2:Measure om2:hasNumericalValue xsd:float;
                          3. om2:Measure om2:hasUnit om2:Unit;
                          4. om2:hasUnit om2:InformationCapacityUnit; is another possibility for range that could not be verified.
                          5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
-                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>";
+                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""";
               rdfs:comment "The size of document file in some unit e.g. 104 Kilobyte."@en ;
               rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5>;
               rdfs:label "has File Size"@en .
@@ -389,7 +389,7 @@ sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
 sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range xsd:gYear ;
-              rdfs:comment "The contents of the publications will remain unchanged up to the Stability date. At this date, the publication will be either reconfirmed, withdrawn, replaced by a revised edition or amended. If there is a revision or amendment on-going then this is mentioned under the publication in the "Work in progress" tab, if you don't see this tab it means that there is no project under development."@en ;
+              rdfs:comment "The contents of the publications will remain unchanged up to the Stability date. At this date, the publication will be either reconfirmed, withdrawn, replaced by a revised edition or amended. If there is a revision or amendment on-going then this is mentioned under the publication in the \"Work in progress\" tab, if you don't see this tab it means that there is no project under development."@en ;
               skos:note "The data specified is not actually a Date but an Year ";
               rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5>;
               rdfs:label "has Stability Date"@en .
@@ -565,8 +565,8 @@ sto:StandardizationFramework rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#TechnicalCommittee
 sto:TechnicalCommittee rdf:type owl:Class ;
                        rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
-                       skos:note "1.sto:hastitle property needs to be added. Description of the Committee Code
-                                  2. sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added";
+                       skos:note """1.sto:hastitle property needs to be added. Description of the Committee Code
+                                  2. sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added""";
                        rdfs:label "Technical Committe"@en ;
                        sto:abbreviation "TC";
                        rdfs:isDefinedBy sto:IEC ;
