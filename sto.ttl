@@ -251,10 +251,17 @@ sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasFileSize
 sto:hasFileSize rdf:type owl:ObjectProperty ;
               rdfs:domain foaf:Document ;
-              rdfs:range sto:FileSize ;
+              rdfs:range om2:Measure ;
+              ### om2:Measure om2:hasNumericalValue xsd:float;
+              ### om2:Measure om2:hasUnit om2:Unit;
+              ### om2:hasUnit om2:InformationCapacityUnit; is another possibility that could not be verified.
+              ### rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
+              ### rdfs:seeAlso <https://github.com/HajoRijgersberg/OM>;
               rdfs:comment "The size of document file in some unit e.g. 104 KiloByte."@en ;
               rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5>;
               rdfs:label "has File Size"@en .
+
+
 
 
 #################################################################
@@ -564,15 +571,7 @@ sto:TechnicalCommittee rdf:type owl:Class ;
                              rdfs:isDefinedBy sto:IEC ;
                              rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25>.
 
-###  https://w3id.org/i40/sto#FileSize
-sto:FileSize rdf:type om2:Measure ;
-              om2:hasNumericalValue xsd:float;
-              om2:hasUnit om2:Unit;
-              ### om2:hasUnit om2:InformationCapacityUnit; is another possibility that could not be verified.
-              ### rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
-              rdfs:comment "Represents the size of document file."@en ;
-              rdfs:seeAlso <https://github.com/HajoRijgersberg/OM>;
-              rdfs:label "File Size"@en .
+
 
 
 
