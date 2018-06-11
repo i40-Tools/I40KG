@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/i40/sto##> .
+@prefix sto: <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -22,9 +22,12 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto#> .
+@prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>.
+@base  <https://w3id.org/i40/sto> .
+      
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
+                             owl:imports <https://w3id.org/i40/sto#> ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
                              dc11:title "Standards Ontology"@en ;
                              dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
@@ -93,6 +96,11 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/i40/sto#edition
 sto:edition rdf:type owl:AnnotationProperty .
+
+
+
+
+
 
 
 #################################################################
@@ -234,13 +242,38 @@ sto:uses rdf:type owl:ObjectProperty ;
          rdfs:label "uses"@en .
 
 
+
+###  https://w3id.org/i40/sto#hasTechnicalCommittee
+sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
+              rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
+              rdfs:label "has Technical Committee"@en ;
+              rdfs:domain sto:Standard ;
+              rdfs:range sto:TechnicalCommittee.
+
+###  https://w3id.org/i40/sto#hasFileSize
+sto:hasFileSize rdf:type owl:ObjectProperty ;
+              rdfs:domain foaf:Document ;
+              rdfs:range om2:Measure ;
+              skos:note """1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
+                         2. om2:Measure om2:hasNumericalValue xsd:float;
+                         3. om2:Measure om2:hasUnit om2:Unit;
+                         4. om2:hasUnit om2:InformationCapacityUnit; is another possibility for range that could not be verified.
+                         5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
+                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""";
+              rdfs:comment "The size of document file in some unit e.g. 104 Kilobyte."@en ;
+              rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5>;
+              rdfs:label "has File Size"@en .
+
+
+
+
 #################################################################
 #    Data properties
 #################################################################
 
 ###  https://w3id.org/i40/sto#abbreviation
 sto:abbreviation rdf:type owl:DatatypeProperty ;
-                 rdfs:domain sto:StandardOrganization ;
+                 rdfs:domain owl:thing ;
                  rdfs:range rdf:PlainLiteral ;
                  rdfs:comment "Abbreviated  name of the organization"@en ;
                  rdfs:label "has Abbreviated Name"@en .
@@ -312,6 +345,7 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
               rdfs:label "has Status"@en .
 
 
+
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
            rdfs:range rdfs:Literal .
@@ -344,6 +378,30 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
                 rdfs:range xsd:string ;
                 rdfs:comment "Name of the standard part."@en ;
                 rdfs:label "std Part Name"@en .
+
+###  https://w3id.org/i40/sto#hasAvailableLanguage
+sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
+			  rdfs:subPropertyOf dcterms:language;
+              rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
+              rdfs:label "has Available Language"@en .
+
+
+
+###  https://w3id.org/i40/sto#hasStabilityDate 
+sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
+              rdfs:domain sto:Standard ;
+              rdfs:range xsd:gYear ;
+              rdfs:comment "The contents of the publications will remain unchanged up to the Stability date. At this date, the publication will be either reconfirmed, withdrawn, replaced by a revised edition or amended. If there is a revision or amendment on-going then this is mentioned under the publication in the \"Work in progress\" tab, if you don't see this tab it means that there is no project under development."@en ;
+              skos:note "The data specified is not actually a Date but an Year ";
+              rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5>;
+              rdfs:label "has Stability Date"@en .
+
+
+
+
+
+
+
 
 
 #################################################################
@@ -505,6 +563,19 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
                              rdfs:label "Standarization Framework"@en ;
                              skos:altLabel "Reference Architecture"@en .
+
+###  https://w3id.org/i40/sto#TechnicalCommittee
+sto:TechnicalCommittee rdf:type owl:Class ;
+                       rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
+                       skos:note """1.sto:hastitle property needs to be added. Description of the Committee Code
+                                  2. sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added""";
+                       rdfs:label "Technical Committe"@en ;
+                       sto:abbreviation "TC";
+                       rdfs:isDefinedBy sto:IEC ;
+                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25>.
+
+
+
 
 
 #################################################################
@@ -970,9 +1041,9 @@ sto:BPMN rdf:type owl:NamedIndividual ,
          sto:developer sto:OMG ;
          sto:hasClassification sto:SCM ;
          sto:hasDBpediaResource "http://dbpedia.org/page/Business_Process_Model_and_Notation" ;
-         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation";
          sto:hasOfficialResource "http://www.bpmn.org/" ;
          sto:hasTag "BPMN"@en ;
+         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation" ;
          rdfs:comment "Business Process Model and Notation is a graphical representation for specifying business processes in a business process model."@en ;
          rdfs:label "Business Process Model Notation"@en .
 
@@ -1044,9 +1115,9 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
                                        sto:IEC_62714 ;
                    sto:developer sto:DIN ;
                    sto:publisher sto:DIN ;
-                   sto:hasOfficialResource <https://www.beuth.de/de/technische-regel/din-spec-16592/265597431>;
                    rdfs:comment "Combining OPC Unified Architecture and Automation Markup Language."@en ;
-                   rdfs:label "DIN SPEC 16592"@en .
+                   rdfs:label "DIN SPEC 16592"@en ;
+                   sto:hasOfficialResource <https://www.beuth.de/de/technische-regel/din-spec-16592/265597431> .
 
 
 ###  https://w3id.org/i40/sto#DMSC
@@ -1139,6 +1210,16 @@ sto:FunctionalSafety rdf:type owl:NamedIndividual ,
                               sto:Domain ;
                      rdfs:comment "Functional Safety"@en ;
                      rdfs:label "Functional Safety"@en .
+
+
+###  https://w3id.org/i40/sto#GPLv2
+sto:GPLv2 rdf:type owl:NamedIndividual ,
+                   dcterms:LicenseDocument ;
+	    rdfs:label "GNU General Public License"@en ;
+          rdfs:comment "Published under Open Content License."@en;
+
+          rdfs:seeAlso "<https://opcfoundation.org/license/gpl.htm>" ;
+          skos:prefLabel "OCL 1.0" .
 
 
 ###  https://w3id.org/i40/sto#IBM
@@ -1378,7 +1459,7 @@ sto:IEC_61400 rdf:type owl:NamedIndividual ,
               sto:publisher sto:IEC ;
               sto:hasDBpediaResource "http://dbpedia.org/page/IEC_61400" ;
               sto:hasOfficialResource "https://webstore.iec.ch/publication/26603" ;
-              sto:hasPublicationDate "2017-03-03" ;
+              sto:hasPublicationDate "2017-03-03"^^xsd:date ;
               rdfs:comment "IEC 61334 , known as Distribution automation using distribution line carrier systems, is a standard for low-speed reliable power line communications by electricity meters, water meters and SCADA."@en ;
               rdfs:label "IEC 61400"@en .
 
@@ -1649,7 +1730,8 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/OPC_Unified_Architecture" ;
               dcterms:license "Open"@en ;
               rdfs:comment "OPC Unified Architecture (OPC UA) is an industrial M2M communication protocol for interoperability developed by the OPC Foundation. It is the successor to Open Platform Communications (OPC). Although developed by the same organization, OPC UA differs significantly from its predecessor. The Foundation's goal for this project was to provide a path forward from the original OPC communications model (namely the Microsoft Windows only process exchange COM/DCOM) to a cross-platform service-oriented architecture (SOA) for process control, while enhancing security and providing an information model."@en ;
-              rdfs:label "IEC 62541"@en .
+              rdfs:label "IEC 62541"@en ;
+              dcterms:license sto:GPLv2 .
 
 
 ###  https://w3id.org/i40/sto#IEC_62591
@@ -1748,9 +1830,9 @@ sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
                                 sto:ISO ;
                   sto:hasOfficialResource "https://webstore.iec.ch/publication/30082?lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3B2vZf0%2FOGS2CeRjny8ARziQ%3D%3D" ;
                   sto:hasPublicationDate "2017-03-07"^^xsd:date ;
+                  sto:hasTag "RAMI 4.0" ;
                   rdfs:comment "IEC PAS 63088:2017(E) describes a reference architecture model in the form of a cubic layer model, RAMI model"@en ;
-                  rdfs:label "IEC PAS 63088"@en ;
-                  sto:hasTag "RAMI 4.0" .
+                  rdfs:label "IEC PAS 63088"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_TR_62794
@@ -2617,9 +2699,9 @@ sto:NISTInitiative rdf:type owl:NamedIndividual ,
 sto:OAGIS rdf:type owl:NamedIndividual ,
                    sto:Standard ;
           sto:publisher sto:OAGi ;
-          sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Open_Application_Group_Integration_Specification";
           sto:hasOfficialResource "http://www.oagi.org/dnn2/DownloadsandResources/OAGIS100PublicDownload.aspx" ;
           sto:hasTag "Open Applications Group Integration Specification"@en ;
+          sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Open_Application_Group_Integration_Specification" ;
           rdfs:comment "The Open Applications Group Integration Specification (OAGIS) is an effort to provide a canonical business language for information integration. It uses XML as the common alphabet for defining business messages, and for identifying business processes (scenarios) that allow businesses and business applications to communicate."@en ;
           rdfs:label "OAGIS"@en .
 
@@ -2844,14 +2926,14 @@ sto:SysML rdf:type owl:NamedIndividual ,
                    sto:Standard ;
           sto:developer sto:OMG ;
           sto:publisher sto:OMG ;
-          sto:relatedTo sto:IEC_62714;
+          sto:relatedTo sto:IEC_62714 ;
           sto:hasDBpediaResource "http://dbpedia.org/resource/Systems_Modeling_Language" ;
           sto:hasOfficialResource "http://sysml.org/" ,
                                   "http://www.omgsysml.org/what-is-sysml.htm" ;
-          rdfs:label "Systems Modeling Language"@en ;
+          sto:hasTag "SysML"@en ;
           sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Systems_Modeling_Language" ;
           rdfs:comment "The OMG Systems Modeling Language (OMG SysML) is a general-purpose graphical modeling language for specifying, analyzing, designing, and verifying complex systems that may include hardware, software, information, personnel, procedures, and facilities. In particular, the language provides graphical representations with a semantic foundation for modeling system requirements, behavior, structure, and parametrics, which is used to integrate with other engineering analysis models. It represents a subset of UML 2 with extensions needed to satisfy the requirements of the UML for Systems Engineering RFP as indicated in Figure 1. SysML leverages the OMG XML Metadata Interchange (XMI®) to exchange modeling data between tools, and is also intended to be compatible with the evolving ISO 10303-233 systems engineering data interchange standard."@en ;
-          sto:hasTag "SysML"@en .
+          rdfs:label "Systems Modeling Language"@en .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
