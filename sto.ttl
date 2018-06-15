@@ -360,6 +360,14 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
               rdfs:label "has Status"@en .
 
 
+###  https://w3id.org/i40/sto#hasTitle
+sto:hasTitle rdf:type owl:DatatypeProperty ;
+              rdfs:domain owl:thing ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Gives Title of the Thing"@en ;
+              rdfs:label "has Title"@en .
+
+
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
            rdfs:range rdfs:Literal .
@@ -563,8 +571,6 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              skos:altLabel "Reference Architecture"@en .
 
 
-###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:Class .
 
 
 #################################################################
@@ -1238,6 +1244,10 @@ sto:IEC rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://www.iec.ch/> ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> .
 
+sto:TC_8 rdf:type owl:NamedIndividual,
+                 sto:TechnicalCommittee;
+        sto:hasTitle "Systems aspects of electrical energy supply".
+
 
 ###  https://w3id.org/i40/sto#IEC_14443
 sto:IEC_14443 rdf:type owl:NamedIndividual ,
@@ -1339,10 +1349,10 @@ sto:IEC_60038 rdf:type owl:NamedIndividual ,
               sto:hasStabilityDate "2020"^^xsd:gYear;
               sto:hasFileSize om2: "946 KB";
               sto:hasImplementationFormat "Document"@en;
-              sto:hasDBpediaResource "http://dbpedia.org/page/IEC_60038" ;
-              sto:hasOfficialResource "https://webstore.iec.ch/publication/153" ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
               sto:hasTag "IEC 60038"@en ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_60038" ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> ;
               rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are:
        		  -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;
               -the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;
@@ -3125,10 +3135,12 @@ dcterms:hasLicense rdfs:label "has License"@en ;
 
 sto:TechnicalCommittee skos:note """1.sto:hastitle property needs to be added. Description of the Committee Code
                                   2. sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added""" ;
-                       rdfs:label "Technical Committe"@en ;
+                       rdfs:label "Technical Committe"@en 
                        rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
                        rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
                        rdfs:isDefinedBy sto:IEC .
+
+
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
