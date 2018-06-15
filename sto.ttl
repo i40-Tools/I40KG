@@ -1342,12 +1342,15 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_42010
 sto:IEC_60038 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasTitle "IEC standard voltages"@en;
               sto:hasPublisher sto:IEC ;
               sto:hasPublicationDate "2009-06-17"^^xsd:date;
               sto:hasAvailableLanguage "English/French, Spanish"@en;
-              sto:hasTechnicalCommittee sto:TC8;
+              sto:hasTechnicalCommittee sto:TC_8;
               sto:hasStabilityDate "2020"^^xsd:gYear;
-              sto:hasFileSize om2: "946 KB";
+              sto:hasFileSize [om2:hasNumericalValue "946"^^xsd:float;
+                               om2:hasUnit om2:byte;
+                               om2:hasPrefix om2:kilo].
               sto:hasImplementationFormat "Document"@en;
               sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
