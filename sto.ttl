@@ -174,6 +174,17 @@ sto:hasFileSize rdf:type owl:ObjectProperty ;
                          5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
                          6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""" .
 
+               
+
+###  https://w3id.org/i40/sto#hasAvailableLanguage
+sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf dcterms:language ;
+                         rdfs:domain foaf:Document ;
+                         rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
+                         skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
+                         """;
+                         rdfs:label "has Available Language"@en .
+
 
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
 sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
@@ -265,8 +276,6 @@ sto:uses rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://purl.org/dc/terms/language
-dcterms:language rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#abbreviation
@@ -293,11 +302,6 @@ sto:formationDate rdf:type owl:DatatypeProperty ;
                   rdfs:label "has Formation Date"@en .
 
 
-###  https://w3id.org/i40/sto#hasAvailableLanguage
-sto:hasAvailableLanguage rdf:type owl:DatatypeProperty ;
-                         rdfs:subPropertyOf dcterms:language ;
-                         rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
-                         rdfs:label "has Available Language"@en .
 
 
 ###  https://w3id.org/i40/sto#hasDBpediaResource
@@ -569,6 +573,12 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
                              rdfs:label "Standarization Framework"@en ;
                              skos:altLabel "Reference Architecture"@en .
+
+###  https://w3id.org/i40/sto#Written
+sto:Written rdf:type dcterms:linguisticSystem ;
+            rdfs:comment "Describes a Written Linguistic System"@en ;
+            rdfs:label "Written"@en.
+
 
 
 
@@ -1350,7 +1360,7 @@ sto:IEC_60038 rdf:type owl:NamedIndividual ,
               sto:hasStabilityDate "2020"^^xsd:gYear;
               sto:hasFileSize [om2:hasNumericalValue "946"^^xsd:float;
                                om2:hasUnit om2:byte;
-                               om2:hasPrefix om2:kilo].
+                               om2:hasPrefix om2:kilo.]
               sto:hasImplementationFormat "Document"@en;
               sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
@@ -1363,6 +1373,10 @@ sto:IEC_60038 rdf:type owl:NamedIndividual ,
               - the replacement of the value of 1 050 kV by 1 100 kV in Table 5.
               It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
               rdfs:label "IEC 60038"@en.
+
+
+
+
 
 
 ###  https://w3id.org/i40/sto#IEC_60086
@@ -2961,9 +2975,6 @@ sto:SysML rdf:type owl:NamedIndividual ,
           rdfs:label "Systems Modeling Language"@en .
 
 
-###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
-                       sto:abbreviation "TC" .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
@@ -3136,10 +3147,13 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
-sto:TechnicalCommittee skos:note """1.sto:hastitle property needs to be added. Description of the Committee Code
-                                  2. sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added""" ;
-                       rdfs:label "Technical Committe"@en 
-                       rdfs:comment "Specifies the representitive code name of the Technical or Sub-Committee that covers a Standard for e.g, TC 1, SC 3C."@en ;
+###  https://w3id.org/i40/sto#TechnicalCommittee
+sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
+					   sto:hasTitle xsd:string;
+                       sto:abbreviation "TC";
+                       skos:note """1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added""" ;
+                       rdfs:label "Technical Committe"@en;
+                       rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
                        rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
                        rdfs:isDefinedBy sto:IEC .
 
