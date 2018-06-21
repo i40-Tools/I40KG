@@ -282,7 +282,7 @@ sto:uses rdf:type owl:ObjectProperty ;
 sto:abbreviation rdf:type owl:DatatypeProperty ;
                  rdfs:domain owl:thing ;
                  rdfs:range rdf:PlainLiteral ;
-                 rdfs:comment "Abbreviated  name of the organization"@en ;
+                 rdfs:comment "Abbreviated  name of the thing."@en ;
                  rdfs:label "has Abbreviated Name"@en .
 
 
@@ -539,6 +539,7 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
              rdfs:subClassOf foaf:Document ;
+             sto:abbreviation "IS";
              owl:disjointWith sto:StandardOrganization ;
              cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
              cc:attributionURL "http://www.iec.ch" ;
@@ -546,6 +547,17 @@ sto:Standard rdf:type owl:Class ;
              rdfs:isDefinedBy sto:IEC ;
              rdfs:label "Standard" ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
+
+
+
+sto:TechnicalSpecification rdf:type owl:Class ;
+             			   rdfs:subClassOf foaf:Document ;
+             			   sto:abbreviation "TS";
+                           cc:attributionURL "http://www.iec.ch" ;
+                           rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
+                           rdfs:isDefinedBy sto:IEC ;
+                           rdfs:label "Technical Specification" ;
+                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
