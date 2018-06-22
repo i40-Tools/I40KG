@@ -228,6 +228,11 @@ sto:hasTag rdf:type owl:ObjectProperty ;
            rdfs:domain sto:Standard ;
            rdfs:range muto:Tag .
 
+sto:hasICS rdf:type owl:ObjectProperty ;
+           rdfs:domain sto:Standard ;
+           rdfs:range sto:InternationalClassificationForStandards ;
+           rdfs:comment "Serves as a catalogue of International Classification For Standards"@en;
+           rdfs:label "has ICS"@en .
 
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
 sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
@@ -1301,7 +1306,8 @@ sto:IEC_62832 rdf:type owl:NamedIndividual,
               sto:hasStabilityDate "2020"^^xsd:gYear ;
               sto:hasPages 47 ;
               sto:hasFileSize sto:FileSizeIEC_62832 ;
-              sto:hasTechnicalCommittee sto:TC_65 .
+              sto:hasTechnicalCommittee sto:TC_65 ;
+              sto:hasICS sto:ICS_25_040_40.
 
 
 ###  https://w3id.org/i40/sto#IEC_14443
@@ -3004,6 +3010,10 @@ sto:TC_8 rdf:type owl:NamedIndividual ,
 sto:TC_65 rdf:type owl:NamedIndividual,
                   sto:TechnicalCommittee ;
          sto:hasTitle "Industrial-process measurement, control and automation"@en .
+
+sto:ICS_25_040_40 rdf:type owl:NamedIndividual,
+                  sto:InternationalClassificationForStandards ;
+         sto:hasTitle "Industrial process measurement and control"@en .
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
 sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
