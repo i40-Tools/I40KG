@@ -1291,6 +1291,22 @@ sto:IEC rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://www.iec.ch/> ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> .
 
+sto:IEC_62832 rdf:type owl:NamedIndividual ,
+                       sto:TechnicalSpecification ;
+              rdfs:comment "Industrial-process measurement, control and automation - Digital factory framework - Part 1: General principles"@en;
+              rdfs:label "IEC TS 62832-1:2016 "@en;
+              sto:hasPublicationDate "2016-12-16"^^xsd:date ;
+              sto:hasEdition "1.0"^^xsd:float ;
+              sto:hasAvailableLanguage "English"@en ;
+              sto:hasStabilityDate "2020"^^xsd:gYear ;
+              sto:hasPages 47 ;
+              sto:hasFileSize sto:FileSizeIEC_62832 ;
+              sto:hasTechnicalCommittee sto:TC_65 .
+
+
+
+
+
 
 ###  https://w3id.org/i40/sto#IEC_14443
 sto:IEC_14443 rdf:type owl:NamedIndividual ,
@@ -2987,8 +3003,11 @@ sto:SysML rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#TC_8
 sto:TC_8 rdf:type owl:NamedIndividual ,
                   sto:TechnicalCommittee ;
-         sto:hasTitle "Systems aspects of electrical energy supply" .
+         sto:hasTitle "Systems aspects of electrical energy supply"@en .
 
+sto:TC_65 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Industrial-process measurement, control and automation"@en .
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
 sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
@@ -3168,6 +3187,11 @@ sto:ebXML rdf:type owl:NamedIndividual ,
 sto:FileSizeIEC_60038:2009 rdf:type owl:NamedIndividual ,
               om2:Measure ;
      om2:hasNumericalValue "946.0"^^xsd:float ;
+     om2:hasUnit om2:kilobyte .
+
+sto:FileSizeIEC_62832 rdf:type owl:NamedIndividual ,
+              om2:Measure ;
+     om2:hasNumericalValue "2722.0"^^xsd:float ;
      om2:hasUnit om2:kilobyte .
 
 
