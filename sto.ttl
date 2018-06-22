@@ -271,6 +271,8 @@ sto:uses rdf:type owl:ObjectProperty ;
          rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
 
+sto:hasPreviousVersions 
+
 
 #################################################################
 #    Data properties
@@ -416,6 +418,9 @@ sto:hasEdition rdf:type owl:DatatypeProperty ;
                rdfs:range xsd:float;
                rdfs:comment "Indicates the current Edition/Version number of the document."@en;
                rdfs:label "has Edition."@en.
+
+
+
 
 
 #################################################################
@@ -1374,7 +1379,7 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               skos:note "The IIRA is based in this standards" .
 
 ###  https://w3id.org/i40/sto#IEC_42010
-sto:IEC_60038 rdf:type owl:NamedIndividual ,
+sto:IEC_60038:2009 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasTitle "IEC standard voltages"@en;
               sto:hasPublisher sto:IEC ;
@@ -1385,16 +1390,16 @@ sto:IEC_60038 rdf:type owl:NamedIndividual ,
               sto:hasTechnicalCommittee sto:TC_8;
               sto:hasStabilityDate "2020"^^xsd:gYear;
               sto:hasPages "26"^^xsd:integer;
-              sto:hasFileSize sto:FileSizeIEC60038;
+              sto:hasFileSize sto:FileSizeIEC60038:2009;
               sto:hasImplementationFormat "Document"@en;
               sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
               sto:hasTag "IEC 60038"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> ;
               rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
-              rdfs:label "IEC 60038"@en.
+              rdfs:label "IEC 60038:2009"@en.
 
-sto:FileSizeIEC60038 a om2:Measure;
+sto:FileSizeIEC60038:2009 a om2:Measure;
            om2:hasNumericalValue "946"^^xsd:float;
           om2:hasUnit om2:kilobyte.
 
