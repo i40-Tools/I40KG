@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/i40/sto##> .
+@prefix : <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -69,6 +69,14 @@ dcterms:issued rdf:type owl:AnnotationProperty .
 dcterms:modified rdf:type owl:AnnotationProperty .
 
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
+om2:hasNumericalValue rdf:type owl:AnnotationProperty .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+om2:hasUnit rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
 dul:isMemberOf rdf:type owl:AnnotationProperty .
 
@@ -119,6 +127,10 @@ dcterms:hasLicense rdf:type owl:ObjectProperty ;
                    rdfs:range dcterms:LicenseDocument .
 
 
+###  http://purl.org/dc/terms/language
+dcterms:language rdf:type owl:ObjectProperty .
+
+
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
 prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf sto:relatedTo ;
@@ -135,6 +147,12 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:range dbo:Country ;
               rdfs:comment "A Standard Organization that belongs to the country"@en ;
               rdfs:label "belongs To"@en .
+
+
+###  https://w3id.org/i40/sto#hasAvailableLanguage
+sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf dcterms:language ;
+                         rdfs:domain foaf:Document .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
@@ -174,17 +192,6 @@ sto:hasFileSize rdf:type owl:ObjectProperty ;
                          5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
                          6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""" .
 
-               
-
-###  https://w3id.org/i40/sto#hasAvailableLanguage
-sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf dcterms:language ;
-                         rdfs:domain foaf:Document ;
-                         rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
-                         skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
-                         """;
-                         rdfs:label "has Available Language"@en .
-
 
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
 sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
@@ -198,6 +205,13 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
 sto:hasMotivation rdf:type owl:ObjectProperty ;
                   rdfs:domain sto:Standard ;
                   rdfs:range deo:Motivation .
+
+
+###  https://w3id.org/i40/sto#hasPreviousVersion
+sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf sto:relatedTo ;
+                       rdfs:comment "Indicates the list of Standards that are previous versions of a Standard. For example,IEC 60038:2009 has IEC 60038:1983+AMD1:1994+AMD2:1997,IEC 60038:1983/AMD2:1997,IEC 60038:1983/AMD1:1994,IEC 60038:1983,IEC 60038:1975/AMD1:1977,IEC 60038:1975,IEC 60038:1967,IEC 60038:1954,IEC 60038:1938,IEC 60038:1927 as previous versions."@en ;
+                       rdfs:label "hasPrieviousVersion"@en .
 
 
 ###  https://w3id.org/i40/sto#hasPublisher
@@ -221,6 +235,12 @@ sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
                           rdfs:range sto:TechnicalCommittee ;
                           rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
                           rdfs:label "has Technical Committee"@en .
+
+
+###  https://w3id.org/i40/sto#hasTitle
+sto:hasTitle rdf:type owl:ObjectProperty ;
+             rdfs:domain owl:thing ;
+             rdfs:range rdfs:literal .
 
 
 ###  https://w3id.org/i40/sto#isDescribedin
@@ -271,17 +291,10 @@ sto:uses rdf:type owl:ObjectProperty ;
          rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
 
-sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf sto:relatedTo ;
-                       rdfs:comment "Indicates the list of Standards that are previous versions of a Standard. For example,IEC 60038:2009 has IEC 60038:1983+AMD1:1994+AMD2:1997,IEC 60038:1983/AMD2:1997,IEC 60038:1983/AMD1:1994,IEC 60038:1983,IEC 60038:1975/AMD1:1977,IEC 60038:1975,IEC 60038:1967,IEC 60038:1954,IEC 60038:1938,IEC 60038:1927 as previous versions."@en ;
-                       rdfs:label "hasPrieviousVersion"@en .
-
 
 #################################################################
 #    Data properties
 #################################################################
-
-
 
 ###  https://w3id.org/i40/sto#abbreviation
 sto:abbreviation rdf:type owl:DatatypeProperty ;
@@ -307,17 +320,23 @@ sto:formationDate rdf:type owl:DatatypeProperty ;
                   rdfs:label "has Formation Date"@en .
 
 
-
-
 ###  https://w3id.org/i40/sto#hasDBpediaResource
 sto:hasDBpediaResource rdf:type owl:DatatypeProperty ;
                        rdfs:range xsd:string .
 
 
+###  https://w3id.org/i40/sto#hasEdition
+sto:hasEdition rdf:type owl:DatatypeProperty ;
+               rdfs:domain foaf:Document ;
+               rdfs:range xsd:float ;
+               rdfs:comment "Indicates the current Edition/Version number of the document."@en ;
+               rdfs:label "has Edition."@en .
+
+
 ###  https://w3id.org/i40/sto#hasImplementationFormat
 sto:hasImplementationFormat rdf:type owl:DatatypeProperty ;
                             rdfs:domain sto:Standard ;
-                            rdfs:range rdfs:literal ;
+                            rdfs:range rdfs:Literal ;
                             rdfs:comment "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en ;
                             rdfs:label "has Implementation Format"@en .
 
@@ -343,6 +362,14 @@ sto:hasOntology rdf:type owl:DatatypeProperty ;
                 rdfs:label "has Ontology"@en .
 
 
+###  https://w3id.org/i40/sto#hasPages
+sto:hasPages rdf:type owl:DatatypeProperty ;
+             rdfs:domain foaf:Document ;
+             rdfs:range xsd:integer ;
+             rdfs:comment "Indicates the number of the pages in the document."@en ;
+             rdfs:label "has Pages."@en .
+
+
 ###  https://w3id.org/i40/sto#hasPublicationDate
 sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
                        rdfs:domain sto:Standard ;
@@ -364,17 +391,9 @@ sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/i40/sto#hasStatus
 sto:hasStatus rdf:type owl:DatatypeProperty ;
               rdfs:domain sto:Standard ;
-              rdfs:range xsd:string ;
+              rdfs:range rdfs:Literal ;
               rdfs:comment "Publication status of the Standard, e.g., Valid, Revised, Published, under preparation, Released"@en ;
               rdfs:label "has Status"@en .
-
-
-###  https://w3id.org/i40/sto#hasTitle
-sto:hasTitle rdf:type owl:DatatypeProperty ;
-              rdfs:domain owl:thing ;
-              rdfs:range rdfs:literal ;
-              rdfs:comment "Gives Title of the Thing"@en ;
-              rdfs:label "has Title"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTag
@@ -388,6 +407,10 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
             rdfs:range xsd:string ;
             rdfs:comment "Specifies the tasks for the different ISA 95 levels."@en ;
             rdfs:label "has Task"@en .
+
+
+###  https://w3id.org/i40/sto#hasTitle
+sto:hasTitle rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
@@ -410,21 +433,6 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
                 rdfs:comment "Name of the standard part."@en ;
                 rdfs:label "std Part Name"@en .
 
-sto:hasPages rdf:type owl:DatatypeProperty ;
-             rdfs:domain foaf:Document;
-             rdfs:range xsd:integer;
-             rdfs:comment "Indicates the number of the pages in the document."@en;
-             rdfs:label "has Pages."@en.
-
-sto:hasEdition rdf:type owl:DatatypeProperty ;
-               rdfs:domain foaf:Document;
-               rdfs:range xsd:float;
-               rdfs:comment "Indicates the current Edition/Version number of the document."@en;
-               rdfs:label "has Edition."@en.
-
-
-
-
 
 #################################################################
 #    Classes
@@ -445,6 +453,10 @@ dcterms:LicenseDocument rdf:type owl:Class ;
                         rdfs:label "License Document"@en .
 
 
+###  http://purl.org/dc/terms/linguisticSystem
+dcterms:linguisticSystem rdf:type owl:Class .
+
+
 ###  http://purl.org/muto/core#Tag
 muto:Tag rdf:type owl:Class .
 
@@ -455,6 +467,10 @@ deo:Motivation rdf:type owl:Class .
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
 om2:Measure rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#literal
+rdfs:literal rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2002/07/owl#thing
@@ -559,25 +575,7 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
              rdfs:subClassOf foaf:Document ;
-             sto:abbreviation "IS";
-             owl:disjointWith sto:StandardOrganization ;
-             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             cc:attributionURL "http://www.iec.ch" ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:label "Standard" ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
-
-
-
-sto:TechnicalSpecification rdf:type owl:Class ;
-             			   rdfs:subClassOf foaf:Document ;
-             			   sto:abbreviation "TS";
-                           cc:attributionURL "http://www.iec.ch" ;
-                           rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
-                           rdfs:isDefinedBy sto:IEC ;
-                           rdfs:label "Technical Specification" ;
-                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
+             owl:disjointWith sto:StandardOrganization .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -606,13 +604,14 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:label "Standarization Framework"@en ;
                              skos:altLabel "Reference Architecture"@en .
 
-###  https://w3id.org/i40/sto#Written
-sto:Written rdf:type dcterms:linguisticSystem ;
-            rdfs:comment "Describes a Written Linguistic System"@en ;
-            rdfs:label "Written"@en.
+
+###  https://w3id.org/i40/sto#TechnicalCommittee
+sto:TechnicalCommittee rdf:type owl:Class .
 
 
-
+###  https://w3id.org/i40/sto#TechnicalSpecification
+sto:TechnicalSpecification rdf:type owl:Class ;
+                           rdfs:subClassOf foaf:Document .
 
 
 #################################################################
@@ -725,6 +724,10 @@ dbr:_Texas rdf:type owl:NamedIndividual .
 
 ###  http://dbpedia.org/resource#Washington,_D.C.
 <http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3.org/2001/XMLSchema#string
+xsd:string rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/rami#AdminShellGeneral
@@ -1227,8 +1230,6 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
              rdfs:label "Ultra Low Energy"@en .
 
 
-
-
 ###  https://w3id.org/i40/sto#EndOfLifeReclying
 sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
 
@@ -1285,10 +1286,6 @@ sto:IEC rdf:type owl:NamedIndividual ,
         sto:hasDBpediaResource <http://dbpedia.org/resource/International_Electrotechnical_Commission> ;
         sto:hasOfficialResource <http://www.iec.ch/> ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> .
-
-sto:TC_8 rdf:type owl:NamedIndividual,
-                 sto:TechnicalCommittee;
-        sto:hasTitle "Systems aspects of electrical energy supply".
 
 
 ###  https://w3id.org/i40/sto#IEC_14443
@@ -1380,34 +1377,6 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
               rdfs:label "IEC 42010"@en ;
               skos:note "The IIRA is based in this standards" .
-
-###  https://w3id.org/i40/sto#IEC_42010
-sto:IEC_60038:2009 rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:hasTitle "IEC standard voltages"@en;
-              sto:hasPublisher sto:IEC ;
-              sto:hasPublicationDate "2009-06-17"^^xsd:date;
-              sto:hasEdition "7.0"^^xsd:float;
-              sto:hasStatus "Valid"@en;
-              sto:hasAvailableLanguage "English/French, Spanish"@en;
-              sto:hasTechnicalCommittee sto:TC_8;
-              sto:hasStabilityDate "2020"^^xsd:gYear;
-              sto:hasPages "26"^^xsd:integer;
-              sto:hasFileSize sto:FileSizeIEC60038:2009;
-              sto:hasImplementationFormat "Document"@en;
-              sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
-              sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
-              sto:hasTag "IEC 60038"@en ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> ;
-              rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
-              rdfs:label "IEC 60038:2009"@en.
-
-sto:FileSizeIEC60038:2009 a om2:Measure;
-           om2:hasNumericalValue "946"^^xsd:float;
-          om2:hasUnit om2:kilobyte.
-
-
-
 
 
 ###  https://w3id.org/i40/sto#IEC_60086
@@ -2991,6 +2960,11 @@ sto:SE rdf:type owl:NamedIndividual ,
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
 
 
+###  https://w3id.org/i40/sto#Standard
+sto:Standard rdf:type owl:NamedIndividual ;
+             sto:abbreviation "IS" .
+
+
 ###  https://w3id.org/i40/sto#SysML
 sto:SysML rdf:type owl:NamedIndividual ,
                    sto:Standard ;
@@ -3006,6 +2980,21 @@ sto:SysML rdf:type owl:NamedIndividual ,
           rdfs:label "Systems Modeling Language"@en .
 
 
+###  https://w3id.org/i40/sto#TC_8
+sto:TC_8 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Systems aspects of electrical energy supply" .
+
+
+###  https://w3id.org/i40/sto#TechnicalCommittee
+sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
+                       sto:hasTitle xsd:string ;
+                       sto:abbreviation "TC" .
+
+
+###  https://w3id.org/i40/sto#TechnicalSpecification
+sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
+                           sto:abbreviation "TS" .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
@@ -3114,6 +3103,13 @@ sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
                rdfs:label "SPARQL"@en .
 
 
+###  https://w3id.org/i40/sto#Written
+sto:Written rdf:type owl:NamedIndividual ,
+                     dcterms:linguisticSystem ;
+            rdfs:comment "Describes a Written Linguistic System"@en ;
+            rdfs:label "Written"@en .
+
+
 ###  https://w3id.org/i40/sto#eClass
 sto:eClass rdf:type owl:NamedIndividual ,
                     sto:Standard ;
@@ -3164,31 +3160,75 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           rdfs:label "ebXML"@en .
 
 
+###  https://w3id.org/i40/sto#FileSizeIEC60038:2009
+sto: rdf:type owl:NamedIndividual ,
+              om2:Measure ;
+     om2:hasNumericalValue "946.0"^^xsd:float ;
+     om2:hasUnit om2:kilobyte .
+
+
+###  https://w3id.org/i40/sto#IEC_60038:2009
+sto: rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto: ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_8 ;
+     sto:hasEdition "7.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 26 ;
+     sto:hasPublicationDate "2009-06-17"^^xsd:date ;
+     sto:hasStabilityDate "2020"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60038"@en ;
+     sto:hasTitle "IEC standard voltages"@en ;
+     rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+     rdfs:label "IEC 60038:2009"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
+     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> .
+
+
 #################################################################
 #    Annotations
 #################################################################
 
 dcterms:hasLicense rdfs:label "has License"@en ;
-                   rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ,
-                                "A legal document giving official permission to do something with the resource."@en ;
+                   rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
                    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+                   rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
                    dcterms:modified "2017-12-19"^^xsd:date ;
                    rdfs:comment "Represent the license document for a given Standard"@en ;
                    dcterms:issued "2004-06-14"^^xsd:date ;
                    rdfs:isDefinedBy dcterms: .
 
 
-###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
-					   sto:hasTitle xsd:string;
-                       sto:abbreviation "TC";
-                       skos:note """1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added""" ;
-                       rdfs:label "Technical Committe"@en;
+sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             rdfs:label "Standard" ;
+             cc:attributionURL "http://www.iec.ch" ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
+
+
+sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
+                       skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
                        rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
                        rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
                        rdfs:isDefinedBy sto:IEC .
 
 
+sto:TechnicalSpecification rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
+                           cc:attributionURL "http://www.iec.ch" ;
+                           rdfs:label "Technical Specification" ;
+                           rdfs:isDefinedBy sto:IEC ;
+                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
+
+
+sto:hasAvailableLanguage skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
+                         """ ;
+                         rdfs:label "has Available Language"@en ;
+                         rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
@@ -3209,6 +3249,10 @@ sto:hasOfficialResource rdfs:comment "Standard Official Website"@en ;
 
 sto:hasTag rdfs:label "has Tag"@en ;
            rdfs:comment "Points to the identification of the standards"@en .
+
+
+sto:hasTitle rdfs:label "has Title"@en ;
+             rdfs:comment "Gives Title of the Thing"@en .
 
 
 sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
