@@ -360,7 +360,7 @@ sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
 sto:hasStatus rdf:type owl:DatatypeProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range xsd:string ;
-              rdfs:comment "Publication status of the Standard, e.g., Published, under preparation, Released"@en ;
+              rdfs:comment "Publication status of the Standard, e.g., Valid, Revised, Published, under preparation, Released"@en ;
               rdfs:label "has Status"@en .
 
 
@@ -410,6 +410,13 @@ sto:hasPages rdf:type owl:DatatypeProperty ;
              rdfs:range xsd:integer;
              rdfs:comment "Indicates the number of the pages in the document."@en;
              rdfs:label "has Pages."@en.
+
+sto:hasEdition rdf:type owl:DatatypeProperty ;
+               rdfs:domain foaf:Document;
+               rdfs:range xsd:float;
+               rdfs:comment "Indicates the current Edition/Version number of the document."@en;
+               rdfs:label "has Edition."@en.
+
 
 #################################################################
 #    Classes
@@ -1372,9 +1379,12 @@ sto:IEC_60038 rdf:type owl:NamedIndividual ,
               sto:hasTitle "IEC standard voltages"@en;
               sto:hasPublisher sto:IEC ;
               sto:hasPublicationDate "2009-06-17"^^xsd:date;
+              sto:hasEdition "7.0"^^xsd:float;
+              sto:hasStatus "Valid"@en;
               sto:hasAvailableLanguage "English/French, Spanish"@en;
               sto:hasTechnicalCommittee sto:TC_8;
               sto:hasStabilityDate "2020"^^xsd:gYear;
+              sto:hasPages "26"^^xsd:integer;
               sto:hasFileSize sto:FileSizeIEC60038;
               sto:hasImplementationFormat "Document"@en;
               sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
