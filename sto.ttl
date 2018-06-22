@@ -271,7 +271,10 @@ sto:uses rdf:type owl:ObjectProperty ;
          rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
 
-sto:hasPreviousVersions 
+sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf sto:relatedTo ;
+                       rdfs:comment "Indicates the list of Standards that are previous versions of a Standard. For example,IEC 60038:2009 has IEC 60038:1983+AMD1:1994+AMD2:1997,IEC 60038:1983/AMD2:1997,IEC 60038:1983/AMD1:1994,IEC 60038:1983,IEC 60038:1975/AMD1:1977,IEC 60038:1975,IEC 60038:1967,IEC 60038:1954,IEC 60038:1938,IEC 60038:1927 as previous versions."@en ;
+                       rdfs:label "hasPrieviousVersion"@en .
 
 
 #################################################################
@@ -314,7 +317,7 @@ sto:hasDBpediaResource rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/i40/sto#hasImplementationFormat
 sto:hasImplementationFormat rdf:type owl:DatatypeProperty ;
                             rdfs:domain sto:Standard ;
-                            rdfs:range xsd:string ;
+                            rdfs:range rdfs:literal ;
                             rdfs:comment "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en ;
                             rdfs:label "has Implementation Format"@en .
 
@@ -369,7 +372,7 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/i40/sto#hasTitle
 sto:hasTitle rdf:type owl:DatatypeProperty ;
               rdfs:domain owl:thing ;
-              rdfs:range xsd:string ;
+              rdfs:range rdfs:literal ;
               rdfs:comment "Gives Title of the Thing"@en ;
               rdfs:label "has Title"@en .
 
