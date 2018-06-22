@@ -166,7 +166,7 @@ sto:hasClassification rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasDeveloper
 sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
-                 rdfs:domain sto:Standard ;
+                 rdfs:domain sto:Publication ;
                  rdfs:range sto:StandardOrganization ;
                  rdfs:comment "The organization that developed this Standard"@en ;
                  rdfs:label "has Developer"@en .
@@ -174,7 +174,7 @@ sto:hasDeveloper rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasDomain
 sto:hasDomain rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Standard ;
+              rdfs:domain sto:Publication ;
               rdfs:range sto:Domain .
 
 
@@ -203,7 +203,7 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasMotivation
 sto:hasMotivation rdf:type owl:ObjectProperty ;
-                  rdfs:domain sto:Standard ;
+                  rdfs:domain sto:Publication ;
                   rdfs:range deo:Motivation .
 
 
@@ -217,7 +217,7 @@ sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasPublisher
 sto:hasPublisher rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
-                 rdfs:domain sto:Standard ;
+                 rdfs:domain sto:Publication ;
                  rdfs:range sto:StandardOrganization ;
                  rdfs:comment "The organization that published this Standard"@en ;
                  rdfs:label "has Publisher"@en .
@@ -225,26 +225,27 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:ObjectProperty ;
-           rdfs:domain sto:Standard ;
+           rdfs:domain sto:Publication  ;
            rdfs:range muto:Tag .
 
 sto:hasICS rdf:type owl:ObjectProperty ;
-           rdfs:domain foaf:Document ;
+           rdfs:domain sto:Publication  ;
            rdfs:range sto:InternationalClassificationForStandards ;
            rdfs:comment "Serves as a catalogue of International Classification For Standards"@en;
            rdfs:label "has ICS"@en .
 
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
 sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
-                          rdfs:domain sto:Standard ;
+                          rdfs:domain sto:Publication  ;
                           rdfs:range sto:TechnicalCommittee ;
                           rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
-                          rdfs:label "has Technical Committee"@en .
+                          rdfs:label "has Technical Committee"@en 
+                          .
 
 
 ###  https://w3id.org/i40/sto#hasTitle
 sto:hasTitle rdf:type owl:ObjectProperty ;
-             rdfs:domain owl:thing ;
+             rdfs:domain sto:Publication  ;
              rdfs:range rdfs:literal .
 
 
@@ -276,8 +277,8 @@ sto:isPartOf rdf:type owl:ObjectProperty ;
 sto:relatedTo rdf:type owl:ObjectProperty ,
                        owl:SymmetricProperty ,
                        owl:TransitiveProperty ;
-              rdfs:domain sto:Standard ;
-              rdfs:range sto:Standard ;
+              rdfs:domain sto:Publication  ;
+              rdfs:range sto:Publication  ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
               skos:altLabel "has Associated Standard"@en .
@@ -340,9 +341,9 @@ sto:hasEdition rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasImplementationFormat
 sto:hasImplementationFormat rdf:type owl:DatatypeProperty ;
-                            rdfs:domain sto:Standard ;
+                            rdfs:domain  sto:Publication ;
                             rdfs:range rdfs:Literal ;
-                            rdfs:comment "Describes the name of the implementation or serialization format of the standard, e.g., XML, Document, binary, batch"@en ;
+                            rdfs:comment "Describes the name of the implementation or serialization format of the Publication, e.g., XML, Document, binary, batch"@en ;
                             rdfs:label "has Implementation Format"@en .
 
 
@@ -361,7 +362,7 @@ sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasOntology
 sto:hasOntology rdf:type owl:DatatypeProperty ;
-                rdfs:domain sto:Standard ;
+                rdfs:domain  sto:Publication ;
                 rdfs:range xsd:anyURI ;
                 rdfs:comment "Point to the URL of a recognized Ontology representation of the Standard"@en ;
                 rdfs:label "has Ontology"@en .
@@ -377,15 +378,15 @@ sto:hasPages rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasPublicationDate
 sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
-                       rdfs:domain sto:Standard ;
+                       rdfs:domain sto:Publication ;
                        rdfs:range xsd:date ;
-                       rdfs:comment "Publication date of the Standard"@en ;
+                       rdfs:comment "Publication date of the Publication"@en ;
                        rdfs:label "has Publication Date"@en .
 
 
 ###  https://w3id.org/i40/sto#hasStabilityDate
 sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
-                     rdfs:domain sto:Standard ;
+                     rdfs:domain  sto:Publication ;
                      rdfs:range xsd:gYear ;
                      rdfs:comment "The contents of the publications will remain unchanged up to the Stability date. At this date, the publication will be either reconfirmed, withdrawn, replaced by a revised edition or amended. If there is a revision or amendment on-going then this is mentioned under the publication in the \"Work in progress\" tab, if you don't see this tab it means that there is no project under development."@en ;
                      rdfs:label "has Stability Date"@en ;
@@ -395,7 +396,7 @@ sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasStatus
 sto:hasStatus rdf:type owl:DatatypeProperty ;
-              rdfs:domain sto:Standard ;
+              rdfs:domain  sto:Publication ;
               rdfs:range rdfs:Literal ;
               rdfs:comment "Publication status of the Standard, e.g., Valid, Revised, Published, under preparation, Released"@en ;
               rdfs:label "has Status"@en .
@@ -576,11 +577,24 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
                               rdfs:isDefinedBy "http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf" ;
                               rdfs:label "Production System Life Cycle"@en .
 
+sto:Publication rdf:type owl:Class ;
+             rdfs:subClassOf foaf:Document;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:label "Publication"@en;
+             rdfs:comment "Specifies a Publicaion. Eg: International Standards,Technical Specifications,Publicly Available Specifications,Amendments
+             Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"@en .
+
 
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf foaf:Document ;
-             owl:disjointWith sto:StandardOrganization .
+             rdfs:subClassOf sto:Publication ;
+             sto:abbreviation "IS";
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> ;
+             rdfs:isDefinedBy sto:IEC ;
+             owl:disjointWith sto:StandardOrganization;
+             rdfs:label "Standard"@en;
+             rdfs:comment "Specifies that a given Publicaion is an International Standard"@en .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -610,13 +624,15 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              skos:altLabel "Reference Architecture"@en .
 
 
-###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
-                           rdfs:subClassOf foaf:Document .
+                           rdfs:subClassOf sto:Publication;
+                           sto:abbreviation "TS";
+                           rdfs:label "Technical Specification"@en;
+                           rdfs:comment "Specifies that a given Publication is a Technical Specification"@en .
+
 
 sto:InternationalClassificationForStandards rdf:type owl:Class;
                                             sto:abbreviation "ICS"@en ;
@@ -2983,10 +2999,6 @@ sto:SE rdf:type owl:NamedIndividual ,
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:NamedIndividual ;
-             sto:abbreviation "IS" .
-
 
 ###  https://w3id.org/i40/sto#SysML
 sto:SysML rdf:type owl:NamedIndividual ,
@@ -3023,14 +3035,15 @@ sto:ICS_25_040_40 rdf:type owl:NamedIndividual,
          rdfs:label "ICS 25.040.40"@en .
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
+sto:TechnicalCommittee rdf:type owl:Class ;
                        sto:hasTitle xsd:string ;
-                       sto:abbreviation "TC" .
-
-
-###  https://w3id.org/i40/sto#TechnicalSpecification
-sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
-                           sto:abbreviation "TS" .
+                       sto:abbreviation "TC" ;
+                       rdfs:label "Technical Committe"@en;
+                       skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
+                       rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
+                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
+                       rdfs:isDefinedBy sto:IEC  .
+                 
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
@@ -3298,12 +3311,6 @@ sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
              rdfs:isDefinedBy sto:IEC ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
-
-sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
-                       skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
-                       rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
-                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
-                       rdfs:isDefinedBy sto:IEC .
 
 
 sto:TechnicalSpecification rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
