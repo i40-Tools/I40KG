@@ -28,19 +28,35 @@
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              owl:imports <https://w3id.org/i40/sto#> ;
-                             dcterms:modified "2017-09-08"^^xsd:date ;
+                             sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
+                             sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
+                             sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
+                             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> ;
                              dc11:title "Standards Ontology"@en ;
-                             dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
+                             sto:hasAvailableLanguage "English/French, Spanish"@en ;
+                             sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
                              owl:versionInfo "0.2" ;
                              dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-                             dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
-                                             <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
+                             dcterms:creator <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
                              doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                              dc11:description "An ontology to describe industry standards related to Smart Manufacturing" ;
                              vann:preferredNamespacePrefix "sto" ;
-                             vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
-                             dcterms:created "2017-01-25"^^xsd:date .
+                             dcterms:created "2017-01-25"^^xsd:date ;
+                             dcterms:modified "2017-09-08"^^xsd:date ;
+                             om2:hasNumericalValue "1712.0"^^xsd:float ;
+                             om2:hasUnit om2:kilobyte ;
+                             rdfs:label "IEC 60050-101:1998"@en ;
+                             rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+                             om2:hasNumericalValue "946.0"^^xsd:float ;
+                             rdfs:label "FileSize IEC_60050-101:1998"@en ;
+                             rdfs:comment "Specifies the file sice of the document for standard IEC_60050-101:1998 "@en ;
+                             rdfs:label "IEC 60038:2009"@en ;
+                             dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
+                             rdfs:comment "It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
+                             dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ;
+                             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> ;
+                             vann:preferredNamespaceUri "https://w3id.org/i40/sto#" .
 
 #################################################################
 #    Annotation properties
@@ -128,14 +144,14 @@ dcterms:hasLicense rdf:type owl:ObjectProperty ;
 dcterms:language rdf:type owl:ObjectProperty .
 
 
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
 dul:isComponentOf rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf sto:relatedTo ;
-                 rdfs:domain sto:Standard ;
-                 rdfs:range sto:Standard ;
-                 rdfs:comment "Represents Standards that are component of other Standards. This relation is not transitive"@en ;
-                 rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
-                 rdfs:label "is Component Of"@en .
+                  rdfs:subPropertyOf sto:relatedTo ;
+                  rdfs:domain sto:Standard ;
+                  rdfs:range sto:Standard ;
+                  rdfs:comment "Represents Standards that are component of other Standards. This relation is not transitive"@en ;
+                  rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
+                  rdfs:label "is Component Of"@en .
 
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
@@ -551,6 +567,14 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:seeAlso "https://en.wikipedia.org/wiki/Supply_chain_management" .
 
 
+###  https://w3id.org/i40/sto#ConnectivityLayer
+sto:ConnectivityLayer rdf:type owl:Class ;
+                      rdfs:subClassOf sto:StandardClassification ;
+                      rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
+                      rdfs:isDefinedBy "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" ;
+                      rdfs:label "Connectivity Layer"@en .
+
+
 ###  https://w3id.org/i40/sto#Domain
 sto:Domain rdf:type owl:Class ;
            rdfs:comment "Represents the Domains in which the Standards can be used"@en ;
@@ -956,6 +980,30 @@ rami:Work_Centers rdf:type owl:NamedIndividual .
 rami:safety rdf:type owl:NamedIndividual .
 
 
+###  https://w3id.org/i40/sto#
+<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual ,
+                                     om2:Measure ,
+                                     sto:Standard ;
+                            sto:hasFileSize <https://w3id.org/i40/sto#> ;
+                            sto:hasICS sto:ICS_01_040_07 ;
+                            sto:hasPublisher sto:IEC ;
+                            sto:hasTechnicalCommittee sto:TC_1 ,
+                                                      sto:TC_8 ;
+                            sto:hasEdition "2.0"^^xsd:float ,
+                                           "7.0"^^xsd:float ;
+                            sto:hasImplementationFormat "Document"@en ;
+                            sto:hasPages 129 ,
+                                         26 ;
+                            sto:hasPublicationDate "1998-04-30"^^xsd:date ,
+                                                   "2009-06-17"^^xsd:date ;
+                            sto:hasStabilityDate "2020"^^xsd:gYear ;
+                            sto:hasStatus "Valid"@en ;
+                            sto:hasTag "IEC 60038:2009"@en ,
+                                       "IEC 60050-101:1998"@en ;
+                            sto:hasTitle "IEC standard voltages"@en ,
+                                         "International Electrotechnical Vocabulary - Part 101: Mathematics"@en .
+
+
 ###  https://w3id.org/i40/sto#ANSI
 sto:ANSI rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -1275,6 +1323,14 @@ sto:FileSizeIEC_62832 rdf:type owl:NamedIndividual ,
                       om2:hasUnit om2:kilobyte .
 
 
+###  https://w3id.org/i40/sto#FrameworkLayer
+sto:FrameworkLayer rdf:type owl:NamedIndividual ,
+                            sto:ConnectivityLayer ;
+                   rdfs:comment "Framework Layer"@en ,
+                                "Framework Layer an instance of the Connectivity Layer"@en ;
+                   rdfs:isDefinedBy "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" .
+
+
 ###  https://w3id.org/i40/sto#FunctionalSafety
 sto:FunctionalSafety rdf:type owl:NamedIndividual ,
                               sto:Domain ;
@@ -1483,6 +1539,7 @@ sto:IEC_60904 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61131
 sto:IEC_61131 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              dul:isComponentOf sto:IEC_62714 ;
               sto:hasClassification rami:ControlDevice ,
                                     rami:Station ,
                                     rami:WorkCenter ;
@@ -1493,8 +1550,7 @@ sto:IEC_61131 rdf:type owl:NamedIndividual ,
               sto:hasTag "PLC Open"@en ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEC_61131" ;
               rdfs:comment "IEC 61131 is an IEC standard for programmable controllers. It was known as IEC 1131 before the change in numbering system by IEC. The parts of the IEC 61131 standard are prepared and maintained working group 7, programmable control systems, of subcommittee SC 65B of Technical Committee TC65 of the IEC."@en ;
-              rdfs:label "IEC 61131"@en ;
-              dul:isComponentOf sto:IEC_62714 .
+              rdfs:label "IEC 61131"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_61158
@@ -1739,6 +1795,7 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62424
 sto:IEC_62424 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              dul:isComponentOf sto:IEC_62714 ;
               sto:hasPublisher sto:IEC ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/CAEX" ;
               sto:hasOfficialResource "https://webstore.iec.ch/publication/25442" ;
@@ -1746,8 +1803,7 @@ sto:IEC_62424 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/CAEX" ;
               dcterms:hasLicense "Private"@en ;
               rdfs:comment "CAEX (Computer Aided Engineering Exchange) is a neutral data format that allows storage of hierarchical object information, e.g. the hierarchical architecture of a plant. On a certain abstraction level, a plant consists in modules or components that are interconnected. CAEX allows storage of those modules or components by means of objects. Object oriented concepts as encapsulation, classes, class libraries, instances, instance hierarchies, inheritance, relations, attributes and interfaces are explicitly supported. CAEX bases on XML and is defined as XML schema (xsd file). The original intention of developing CAEX was the industrial lack of a common and established data exchange between process engineering tools and process control engineering tools. However, CAEX can be applied to all types of static object information, e.g. plant topologies, document topologies, product topologies, petri nets, but also for non-technical applications like phylogenetic trees."@en ;
-              rdfs:label "IEC 62424"@en ;
-              dul:isComponentOf sto:IEC_62714 .
+              rdfs:label "IEC 62424"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_62443
@@ -1998,6 +2054,15 @@ sto:IIRA rdf:type owl:NamedIndividual ,
          rdfs:label "IIRA"@en .
 
 
+###  https://w3id.org/i40/sto#IIRC
+sto:IIRC rdf:type owl:NamedIndividual ,
+                  sto:StandardizationFramework ;
+         rdfs:comment "Industrial Internet Connectivity Framework"@en ;
+         rdfs:isDefinedBy "https://www.iiconsortium.org/IICF.htm"@en ;
+         rdfs:label "IICF"@en ;
+         rdfs:seeAlso "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" .
+
+
 ###  https://w3id.org/i40/sto#ISA
 sto:ISA rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
@@ -2232,28 +2297,28 @@ sto:ISO_15531 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_15531-2x
 sto:ISO_15531-2x rdf:type owl:NamedIndividual ,
                           sto:StandardPart ;
+                 dul:isComponentOf sto:ISO_15531 ;
                  rdfs:comment "Production data for external exchanges. refering to the representation of product information to be exchanged with the external environment (customers and suppliers), with the aim to model the main production information exchanged between industrial companies, in order to improve exchanges and integration through the use of EDI protocols."@en ;
                  rdfs:isDefinedBy "https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management" ;
-                 rdfs:label "ISO 15531 2x series"@en ;
-                 dul:isComponentOf sto:ISO_15531 .
+                 rdfs:label "ISO 15531 2x series"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_15531-3x
 sto:ISO_15531-3x rdf:type owl:NamedIndividual ,
                           sto:StandardPart ;
+                 dul:isComponentOf sto:ISO_15531 ;
                  rdfs:comment "Manufacturing resource usage management data : refering to the way of managing the use of resources, such as resource configuration and capabilities, operation management of manufacturing devices, installations and facilities."@en ;
                  rdfs:isDefinedBy "https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management" ;
-                 rdfs:label "ISO 15531 3x series"@en ;
-                 dul:isComponentOf sto:ISO_15531 .
+                 rdfs:label "ISO 15531 3x series"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_15531-4x
 sto:ISO_15531-4x rdf:type owl:NamedIndividual ,
                           sto:StandardPart ;
+                 dul:isComponentOf sto:ISO_15531 ;
                  rdfs:comment "Manufacturing flow management data : refering to the material flow control and aiming at the representation of data and elements supporting the control and monitoring of the flow of materials in manufacturing processes."@en ;
                  rdfs:isDefinedBy "https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management" ;
-                 rdfs:label "ISO 15531 4x series"@en ;
-                 dul:isComponentOf sto:ISO_15531 .
+                 rdfs:label "ISO 15531 4x series"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_15704
@@ -2587,6 +2652,7 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_PAS_17506
 sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
                            sto:Standard ;
+                  dul:isComponentOf sto:IEC_62714 ;
                   sto:hasDeveloper sto:ISO ;
                   sto:hasPublisher sto:ISO ;
                   sto:hasDBpediaResource "http://dbpedia.org/resource/COLLADA" ;
@@ -2595,8 +2661,7 @@ sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
                   sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/COLLADA" ;
                   rdfs:comment "ISO-PAS 17506-2012 describes the COLLADA schema. COLLADA is a COLLAborative Design Activity that defines an XML-based schema to enable 3D authoring applications to freely exchange digital assets without loss of information, enabling multiple software packages to be combined into extremely powerful tool chains."@en ,
                                "SO/PAS 17506:2012 describes the COLLADA schema. COLLADA is a COLLAborative Design Activity that defines an XML-based schema to enable 3D authoring applications to freely exchange digital assets without loss of information, enabling multiple software packages to be combined into extremely powerful tool chains. The purpose of ISO/PAS 17506:2012 is to provide a specification for the COLLADA schema in sufficient detail to enable software developers to create tools to process COLLADA resources. In particular, it is relevant to those who import to or export from digital content creation (DCC) applications, 3D interactive applications and tool chains, prototyping tools, real-time visualization applications such as those used in the video game and movie industries, and CAD tools. ISO/PAS 17506:2012 covers the initial design and specifications of the COLLADA schema, as well as a minimal set of requirements for COLLADA exporters. "@en ;
-                  rdfs:label "ISO PAS 17506"@en ;
-                  dul:isComponentOf sto:IEC_62714 .
+                  rdfs:label "ISO PAS 17506"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_TS_14649-201
@@ -3245,66 +3310,6 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/EbXML" ;
           rdfs:comment "Electronic Business using eXtensible Markup Language, commonly known as e-business XML, or ebXML is a family of XML based standards whose mission is to provide an open, XML-based infrastructure that enables the global use of electronic business information in an interoperable, secure, and consistent manner by all trading partners."@en ;
           rdfs:label "ebXML"@en .
-
-
-###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
-sto: rdf:type owl:NamedIndividual ,
-              om2:Measure ;
-     om2:hasNumericalValue "946.0"^^xsd:float ;
-     om2:hasUnit om2:kilobyte .
-
-
-###  https://w3id.org/i40/sto#FileSizeIEC_60050-101:1998
-sto: rdf:type owl:NamedIndividual ,
-              om2:Measure ;
-     om2:hasNumericalValue "1712.0"^^xsd:float ;
-     om2:hasUnit om2:kilobyte ;
-     rdfs:comment "Specifies the file sice of the document for standard IEC_60050-101:1998 "@en ;
-     rdfs:label "FileSize IEC_60050-101:1998"@en .
-
-
-###  https://w3id.org/i40/sto#IEC_60038:2009
-sto: rdf:type owl:NamedIndividual ,
-              sto:Standard ;
-     sto:hasFileSize sto: ;
-     sto:hasPublisher sto:IEC ;
-     sto:hasTechnicalCommittee sto:TC_8 ;
-     sto:hasEdition "7.0"^^xsd:float ;
-     sto:hasImplementationFormat "Document"@en ;
-     sto:hasPages 26 ;
-     sto:hasPublicationDate "2009-06-17"^^xsd:date ;
-     sto:hasStabilityDate "2020"^^xsd:gYear ;
-     sto:hasStatus "Valid"@en ;
-     sto:hasTag "IEC 60038:2009"@en ;
-     sto:hasTitle "IEC standard voltages"@en ;
-     rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
-     rdfs:label "IEC 60038:2009"@en ;
-     sto:hasAvailableLanguage "English/French, Spanish"@en ;
-     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
-     sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
-     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> .
-
-
-###  https://w3id.org/i40/sto#IEC_60050-101:1998
-sto: rdf:type owl:NamedIndividual ,
-              sto:Standard ;
-     sto:hasFileSize sto: ;
-     sto:hasICS sto:ICS_01_040_07 ;
-     sto:hasPublisher sto:IEC ;
-     sto:hasTechnicalCommittee sto:TC_1 ;
-     sto:hasEdition "2.0"^^xsd:float ;
-     sto:hasImplementationFormat "Document"@en ;
-     sto:hasPages 129 ;
-     sto:hasPublicationDate "1998-04-30"^^xsd:date ;
-     sto:hasStatus "Valid"@en ;
-     sto:hasTag "IEC 60050-101:1998"@en ;
-     sto:hasTitle "International Electrotechnical Vocabulary - Part 101: Mathematics"@en ;
-     rdfs:comment "It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
-     rdfs:label "IEC 60050-101:1998"@en ;
-     sto:hasAvailableLanguage "English/French, Spanish"@en ;
-     sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
-     sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
-     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
 
 #################################################################
