@@ -121,6 +121,8 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+
+
 ###  http://purl.org/dc/terms/hasLicense
 dcterms:hasLicense rdf:type owl:ObjectProperty ;
                    rdfs:domain sto:Standard ;
@@ -264,14 +266,14 @@ sto:isImplementationOf rdf:type owl:ObjectProperty ;
                        rdfs:label "is Implementation Of"@en .
 
 
-###  https://w3id.org/i40/sto#isPartOf
-sto:isPartOf rdf:type owl:ObjectProperty ;
+dul:isPartOf rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf sto:relatedTo ;
              rdfs:domain sto:Standard ;
              rdfs:range sto:Standard ;
-             rdfs:comment "Represents Standards that are part of other Standards"@en ;
+             rdf:type owl:TransitiveProperty ;
+             rdfs:comment "Represents Standards that are part of other Standards."@en ;
+             rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
              rdfs:label "is Part Of"@en .
-
 
 ###  https://w3id.org/i40/sto#relatedTo
 sto:relatedTo rdf:type owl:ObjectProperty ,
