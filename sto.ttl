@@ -1481,8 +1481,54 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               sto:hasTag "ISO/IEC/IEEE 42010"@en ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010" ;
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
-              rdfs:label "IEC 42010"@en ;
+              rdfs:label "IEC 60038:1983+AMD1:1994+AMD2:1997"@en ;
               skos:note "The IIRA is based in this standards" .
+
+sto:TC_25 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Quantities and units"@en ;
+         rdfs:comment "To prepare international standards on quantities and units to be used in electrical technology. Such standards may relate to their definitions, names, letter symbols and use; to the relations in which they appear; and to the signs and symbols used with them."@en ;
+         rdfs:label "TC 25"@en .
+
+sto:ICS_01_060 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Quantities and units "@en ;
+                  rdfs:comment "This is ICS for Quantities and units"@en ;
+                  rdfs:label "ICS 01.060"@en .
+
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
+sto:FileSizeIEC_60027:2006 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "661.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC_60027:2006"@en ;
+     					   rdfs:label "FileSize IEC_60027:2006"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60027:2006
+sto:IEC_60027:2006 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60027:2006 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_25 ;
+     sto:hasICS sto:ICS_01_060 ;
+     sto:hasEdition "1.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 29 ;
+     sto:hasPublicationDate "2006-12-14"^^xsd:date ;
+     sto:hasStabilityDate "2019"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60027:2006"@en ;
+     sto:hasTitle "Letter symbols to be used in electrical technology - Part 6: Control technology"@en ;
+     rdfs:comment "This part of IEC 60027 is applicable to control technology. It gives names and symbols for quantities, signals and functions, and their units."@en ;
+     rdfs:label "IEC 60027-6:2006"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/96> ;
+     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
 
 
 sto:ICS_29_020 rdf:type owl:NamedIndividual ,
@@ -1492,12 +1538,13 @@ sto:ICS_29_020 rdf:type owl:NamedIndividual ,
                   rdfs:label "ICS 29.020"@en .
 
 
+
 ###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
 sto:FileSizeIEC_60038:2009 rdf:type owl:NamedIndividual ,
               			   om2:Measure ;
      					   om2:hasNumericalValue "946.0"^^xsd:float ;
      					   om2:hasUnit om2:kilobyte ;
-     					   rdfs:comment "Specifies the file sice of the document for standard IEC_60038:2009"@en ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC_60038:2009"@en ;
      					   rdfs:label "FileSize IEC_60038:2009"@en .
 
 
@@ -1536,7 +1583,7 @@ sto:FileSizeIEC_60050:1998 rdf:type owl:NamedIndividual ,
               			   om2:Measure ;
      					   om2:hasNumericalValue "1712.0"^^xsd:float ;
      					   om2:hasUnit om2:kilobyte ;
-     					   rdfs:comment "Specifies the file sice of the document for standard IEC_60050-101:1998 "@en ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC_60050-101:1998 "@en ;
      					   rdfs:label "FileSize IEC_60050-101:1998"@en .
 
 ###  https://w3id.org/i40/sto#IEC_60050:1998
