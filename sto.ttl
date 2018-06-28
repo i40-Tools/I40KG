@@ -613,7 +613,7 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 sto:Publication rdf:type owl:Class ;
                 rdfs:subClassOf foaf:Document ;
                 rdfs:comment """Specifies a Publicaion. Eg: International Standards,Technical Specifications,Publicly Available Specifications,Amendments
-             Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
+                Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
                 rdfs:isDefinedBy sto:IEC ;
                 rdfs:label "Publication"@en ;
                 rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> .
@@ -1369,12 +1369,7 @@ sto:IBM rdf:type owl:NamedIndividual ,
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IBM> .
 
 
-###  https://w3id.org/i40/sto#ICS_01_040_07
-sto:ICS_01_040_07 rdf:type owl:NamedIndividual ,
-                           sto:InternationalClassificationForStandards ;
-                  sto:hasTitle "Natural and applied sciences (Vocabularies)"@en ;
-                  rdfs:comment "This is ICS for Natural and applied sciences (Vocabularies)"@en ;
-                  rdfs:label "ICS 01.040.07"@en .
+
 
 
 ###  https://w3id.org/i40/sto#ICS_25_040_40
@@ -1488,6 +1483,82 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
               rdfs:label "IEC 42010"@en ;
               skos:note "The IIRA is based in this standards" .
+
+
+sto:ICS_29_020 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Electrical engineering in general "@en ;
+                  rdfs:comment "This is ICS for Electrical engineering in general"@en ;
+                  rdfs:label "ICS 29.020"@en .
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
+sto:FileSizeIEC_60038:2009 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "946.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file sice of the document for standard IEC_60038:2009"@en ;
+     					   rdfs:label "FileSize IEC_60038:2009"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60038:2009
+sto:IEC_60038:2009 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60038:2009 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_8 ;
+     sto:hasICS sto:ICS_29_020 ;
+     sto:hasEdition "7.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 26 ;
+     sto:hasPublicationDate "2009-06-17"^^xsd:date ;
+     sto:hasStabilityDate "2020"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60038:2009"@en ;
+     sto:hasTitle "IEC standard voltages"@en ;
+     rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+     rdfs:label "IEC 60038:2009"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
+     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> .
+
+###  https://w3id.org/i40/sto#ICS_01_040_07
+sto:ICS_01_040_07 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Natural and applied sciences (Vocabularies)"@en ;
+                  rdfs:comment "This is ICS for Natural and applied sciences (Vocabularies)"@en ;
+                  rdfs:label "ICS 01.040.07"@en .
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60050:1998
+sto:FileSizeIEC_60050:1998 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "1712.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file sice of the document for standard IEC_60050-101:1998 "@en ;
+     					   rdfs:label "FileSize IEC_60050-101:1998"@en .
+
+###  https://w3id.org/i40/sto#IEC_60050:1998
+sto:IEC_60050:1998 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   sto:hasFileSize sto:FileSizeIEC_60050:1998 ;
+                   sto:hasICS sto:ICS_01_040_07 ;
+                   sto:hasPublisher sto:IEC ;
+                   sto:hasTechnicalCommittee sto:TC_1 ;
+                   sto:hasEdition "2.0"^^xsd:float ;
+                   sto:hasImplementationFormat "Document"@en ;
+                   sto:hasPages 129 ;
+     sto:hasPublicationDate "1998-04-30"^^xsd:date ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60050-101:1998"@en ;
+     sto:hasTitle "International Electrotechnical Vocabulary - Part 101: Mathematics"@en ;
+     rdfs:comment "It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+     rdfs:label "IEC 60050-101:1998"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
+     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60086
