@@ -620,9 +620,18 @@ sto:Publication rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:Class ;
+sto:Standard rdf:type owl:Class, owl:NamedIndividual ;
              rdfs:subClassOf sto:Publication ;
-             owl:disjointWith sto:StandardOrganization .
+             owl:disjointWith sto:StandardOrganization ;
+             rdfs:comment "Specifies that a given Publicaion is an International Standard"@en ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             rdfs:label "Standard"@en ,
+                        "Standard" ;
+             sto:abbreviation "IS" ;
+             cc:attributionURL "http://www.iec.ch" ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -3094,10 +3103,6 @@ sto:SE rdf:type owl:NamedIndividual ,
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:NamedIndividual ;
-             sto:abbreviation "IS" .
-
 
 ###  https://w3id.org/i40/sto#SysML
 sto:SysML rdf:type owl:NamedIndividual ,
@@ -3331,14 +3336,6 @@ sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/pu
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard rdfs:comment "Specifies that a given Publicaion is an International Standard"@en ;
-             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:label "Standard"@en ,
-                        "Standard" ;
-             cc:attributionURL "http://www.iec.ch" ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
 sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
