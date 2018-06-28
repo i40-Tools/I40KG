@@ -1531,6 +1531,53 @@ sto:IEC_60027:2006 rdf:type owl:NamedIndividual ,
      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
 
 
+sto:TC_3 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Information structures and elements, identification and marking principles, documentation and graphical symbols"@en ;
+         rdfs:comment "To prepare standards for the electrotechnical and related fields regarding:1) methods and rules associated with the human interpretation of information. This refers to:- presentation of information in technical documentation,
+- graphical symbols for use in technical documentation,- graphical symbols for the human interaction with equipment,2) methods and rules associated with the handling of information in computer sensible form. This refers to:- information models for the purpose of technical documentation and the exchange of technical information, and the identification of further needs for such models,- definition of data element types and data sets for use in information models and technical documentation, and for exchange of technical information.It includes definition and co-ordination of the information required during the whole life cycle of a device, system, or plant.3) General and safety application concerning the man-machine interface, marking and identification in electrical installations and equipment, marking systems and general rules for:- the meanings of colours and alternative means, when used for marking and identification,- the arrangement of indicating devices and actuators,
+- coding principles for indicating and actuating devices,- terminal designation of electrical and electronic components, apparatus and equipment,- the termination designation of certain designated conductors,- marking of electrical and electronic equipment with ratings related to supply and to its properties,- marking of bare and insulated conductors.These standards are principally intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104: Guide to the drafting of Safety Standards, and the role of committees with Safety Pilot Functions and Safety Group Functions, and in ISO/IEC Guide 51: Guidelines for the inclusion of safety aspects in standards."@en ;
+         rdfs:label "TC 3"@en .
+
+sto:ICS_01_070 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Colour coding  "@en ;
+                  rdfs:comment "This is ICS for Colour coding "@en ;
+                  rdfs:label "ICS 01.070"@en .
+
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
+sto:FileSizeIEC_60073:2002 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "525.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC_60073:2002"@en ;
+     					   rdfs:label "FileSize IEC_60073:2002"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60073:2002
+sto:IEC_60073:2002 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60073:2002 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_3 ;
+     sto:hasICS sto:ICS_01_070,
+                sto:ICS_29_020 ;
+     sto:hasEdition "6.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 61 ;
+     sto:hasPublicationDate "2002-05-22"^^xsd:date ;
+     sto:hasStabilityDate "2025"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC_60073:2002"@en ;
+     sto:hasTitle "Basic and safety principles for man-machine interface, marking and identification - Coding principles for indicators and actuators"@en ;
+     rdfs:comment "Establishes general rules for assigning particular meanings to certain visual, acoustsic and tactile indications. It has the status of a Basic Safety Publication in accordance with IEC Guide 104."@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/587>.
+
+
 sto:ICS_29_020 rdf:type owl:NamedIndividual ,
                            sto:InternationalClassificationForStandards ;
                   sto:hasTitle "Electrical engineering in general "@en ;
