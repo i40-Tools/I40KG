@@ -613,16 +613,25 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 sto:Publication rdf:type owl:Class ;
                 rdfs:subClassOf foaf:Document ;
                 rdfs:comment """Specifies a Publicaion. Eg: International Standards,Technical Specifications,Publicly Available Specifications,Amendments
-             Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
+                Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
                 rdfs:isDefinedBy sto:IEC ;
                 rdfs:label "Publication"@en ;
                 rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> .
 
 
 ###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:Class ;
+sto:Standard rdf:type owl:Class, owl:NamedIndividual ;
              rdfs:subClassOf sto:Publication ;
-             owl:disjointWith sto:StandardOrganization .
+             owl:disjointWith sto:StandardOrganization ;
+             rdfs:comment "Specifies that a given Publicaion is an International Standard"@en ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             rdfs:label "Standard"@en ,
+                        "Standard" ;
+             sto:abbreviation "IS" ;
+             cc:attributionURL "http://www.iec.ch" ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -1360,12 +1369,7 @@ sto:IBM rdf:type owl:NamedIndividual ,
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IBM> .
 
 
-###  https://w3id.org/i40/sto#ICS_01_040_07
-sto:ICS_01_040_07 rdf:type owl:NamedIndividual ,
-                           sto:InternationalClassificationForStandards ;
-                  sto:hasTitle "Natural and applied sciences (Vocabularies)"@en ;
-                  rdfs:comment "This is ICS for Natural and applied sciences (Vocabularies)"@en ;
-                  rdfs:label "ICS 01.040.07"@en .
+
 
 
 ###  https://w3id.org/i40/sto#ICS_25_040_40
@@ -1477,8 +1481,301 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               sto:hasTag "ISO/IEC/IEEE 42010"@en ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010" ;
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
-              rdfs:label "IEC 42010"@en ;
+              rdfs:label "IEC 60038:1983+AMD1:1994+AMD2:1997"@en ;
               skos:note "The IIRA is based in this standards" .
+
+sto:TC_25 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Quantities and units"@en ;
+         rdfs:comment "To prepare international standards on quantities and units to be used in electrical technology. Such standards may relate to their definitions, names, letter symbols and use; to the relations in which they appear; and to the signs and symbols used with them."@en ;
+         rdfs:label "TC 25"@en .
+
+sto:ICS_01_060 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Quantities and units "@en ;
+                  rdfs:comment "This is ICS for Quantities and units"@en ;
+                  rdfs:label "ICS 01.060"@en .
+
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60038_2009
+sto:FileSizeIEC_60027_2006 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "661.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC 60027:2006"@en ;
+     					   rdfs:label "FileSize IEC 60027:2006"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60027:2006
+sto:IEC_60027_2006 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60027_2006 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_25 ;
+     sto:hasICS sto:ICS_01_060 ;
+     sto:hasEdition "1.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 29 ;
+     sto:hasPublicationDate "2006-12-14"^^xsd:date ;
+     sto:hasStabilityDate "2019"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60027:2006"@en ;
+     sto:hasTitle "Letter symbols to be used in electrical technology - Part 6: Control technology"@en ;
+     rdfs:comment "This part of IEC 60027 is applicable to control technology. It gives names and symbols for quantities, signals and functions, and their units."@en ;
+     rdfs:label "IEC 60027-6:2006"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/96> ;
+     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
+
+
+sto:TC_3 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Information structures and elements, identification and marking principles, documentation and graphical symbols"@en ;
+         rdfs:comment "To prepare standards for the electrotechnical and related fields regarding:1) methods and rules associated with the human interpretation of information. This refers to:- presentation of information in technical documentation,
+- graphical symbols for use in technical documentation,- graphical symbols for the human interaction with equipment,2) methods and rules associated with the handling of information in computer sensible form. This refers to:- information models for the purpose of technical documentation and the exchange of technical information, and the identification of further needs for such models,- definition of data element types and data sets for use in information models and technical documentation, and for exchange of technical information.It includes definition and co-ordination of the information required during the whole life cycle of a device, system, or plant.3) General and safety application concerning the man-machine interface, marking and identification in electrical installations and equipment, marking systems and general rules for:- the meanings of colours and alternative means, when used for marking and identification,- the arrangement of indicating devices and actuators,
+- coding principles for indicating and actuating devices,- terminal designation of electrical and electronic components, apparatus and equipment,- the termination designation of certain designated conductors,- marking of electrical and electronic equipment with ratings related to supply and to its properties,- marking of bare and insulated conductors.These standards are principally intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104: Guide to the drafting of Safety Standards, and the role of committees with Safety Pilot Functions and Safety Group Functions, and in ISO/IEC Guide 51: Guidelines for the inclusion of safety aspects in standards."@en ;
+         rdfs:label "TC 3"@en .
+
+sto:ICS_01_070 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Colour coding  "@en ;
+                  rdfs:comment "This is ICS for Colour coding "@en ;
+                  rdfs:label "ICS 01.070"@en .
+
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
+sto:FileSizeIEC_60073_2002 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "525.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC 60073:2002"@en ;
+     					   rdfs:label "FileSize IEC 60073:2002"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60073:2002
+sto:IEC_60073_2002 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60073_2002 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_3 ;
+     sto:hasICS sto:ICS_01_070,
+                sto:ICS_29_020 ;
+     sto:hasEdition "6.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 61 ;
+     sto:hasPublicationDate "2002-05-22"^^xsd:date ;
+     sto:hasStabilityDate "2025"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC_60073:2002"@en ;
+     sto:hasTitle "Basic and safety principles for man-machine interface, marking and identification - Coding principles for indicators and actuators"@en ;
+     rdfs:comment "Establishes general rules for assigning particular meanings to certain visual, acoustsic and tactile indications. It has the status of a Basic Safety Publication in accordance with IEC Guide 104."@en ;
+     rdfs:label "IEC 60073:2002 "@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/587>.
+
+
+sto:ICS_29_020 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Electrical engineering in general "@en ;
+                  rdfs:comment "This is ICS for Electrical engineering in general"@en ;
+                  rdfs:label "ICS 29.020"@en .
+
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60038:2009
+sto:FileSizeIEC_60038_2009 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "946.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC 60038:2009"@en ;
+     					   rdfs:label "FileSize IEC 60038:2009"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60038:2009
+sto:IEC_60038_2009 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60038_2009 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_8 ;
+     sto:hasICS sto:ICS_29_020 ;
+     sto:hasEdition "7.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 26 ;
+     sto:hasPublicationDate "2009-06-17"^^xsd:date ;
+     sto:hasStabilityDate "2020"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60038:2009"@en ;
+     sto:hasTitle "IEC standard voltages"@en ;
+     rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+     rdfs:label "IEC 60038:2009"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
+     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> .
+
+ sto:TC_44 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Safety of machinery - Electrotechnical aspects"@en ;
+         rdfs:comment "Standardization in the field of the application of electro-technical equipment and systems to machinery (including a group of machines working together in a coordinated manner, excluding higher-level systems aspects) not portable by hand while working, but which may include mobile equipment. The equipment covered commences at the point of connection of the electrical supply to the machinery.Standardization of interfaces (excluding local area networks and fieldbus) between control equipment and the electro-technical equipment of machinery.Standardization of electrotechnical equipment and systems relating to the safeguarding of persons from hazards of the
+machinery, its associated equipment and the environment.To coordinate with ISO all matters concerning the safety of machinery.."@en ;
+         rdfs:label "TC 44"@en .
+
+sto:ICS_13_110 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Safety of machinery"@en ;
+                  rdfs:comment "This is ICS for Safety of machinery "@en ;
+                  rdfs:label "ICS 13.110"@en .
+
+
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60204:2000
+sto:FileSizeIEC_60204_2000 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "494.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC 60204:2000"@en ;
+     					   rdfs:label "FileSize IEC 60204:2000"@en .
+
+
+
+###  https://w3id.org/i40/sto#IEC_60204:2000
+sto:IEC_60204_2000 rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60204_2000 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_44 ;
+     sto:hasICS sto:ICS_13_110,
+                sto:ICS_29_020 ;
+     sto:hasEdition "1.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 111 ;
+     sto:hasPublicationDate "2000-07-31"^^xsd:date ;
+     sto:hasStabilityDate "2018"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60204:2000"@en ;
+     sto:hasTitle "Safety of machinery - Electrical equipment of machines - Part 11: Requirements for HV equipment for voltages above 1 000 V a.c. or 1 500 V d.c. and not exceeding 36 kV"@en ;
+     rdfs:comment "Applies to the electrical and electronic equipment and systems of machines, including a group of machines working together in a coordinated manner, but excluding higher level system aspects (i.e. communications between systems)."@en ;
+     rdfs:label "IEC 60204-11:2000"@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/1022>.
+
+sto:TC_95 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalCommittee ;
+         sto:hasTitle "Measuring relays and protection equipment"@en ;
+         rdfs:comment "Standardisation of measuring relays and protection equipment used in various fields of electrical engineering covered by IEC, taking into a ccount combinations of devices to form schemes for power system protection including the control, monitoring and process interface equipment used with those systems.Excluded are the following:All devices covered by standards prepared by other IEC Technical Committees, for example instrument transformers (TC 38)."@en ;
+         rdfs:label "TC 95"@en .
+
+
+
+
+sto:ICS_29_120_70 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Relays"@en ;
+                  rdfs:comment "This is ICS for Relays"@en ;
+                  rdfs:label "ICS 29.120.70"@en .
+
+
+
+sto:FileSizeIEC_60255_2009 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "1411.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC_60255:2009"@en ;
+     					   rdfs:label "FileSize IEC_60255:2009"@en .
+
+
+
+sto:IEC_60255_2009  rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60255_2009 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_95 ;
+     sto:hasICS sto:ICS_29_120_70 ;
+     sto:hasEdition "1.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 89 ;
+     sto:hasPublicationDate "2009-08-18"^^xsd:date ;
+     sto:hasStabilityDate "2018"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60255-1:2009 "@en ;
+     sto:hasTitle "Measuring relays and protection equipment - Part 1: Common requirements"@en ;
+     rdfs:comment "IEC 60255-1:2009 specifies common rules and requirements applicable to measuring relays and protection equipment including any combination of devices to form schemes for power system protection such as control, monitoring and process interface equipment in order to obtain uniformity of requirements and tests. Covers all measuring relays and protection equipment used for protection within the power system environment."@en ;
+     rdfs:label "IEC 60255-1:2009 "@en ;
+     sto:hasAvailableLanguage "English/French, Spanish"@en ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/1160>.
+
+
+     
+sto:FileSizeIEC_60255_2013 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "2520.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC 60255:2013"@en ;
+     					   rdfs:label "FileSize IEC 60255:2013"@en .
+
+
+sto:IEC_60255:2013  rdf:type owl:NamedIndividual ,
+              sto:Standard ;
+     sto:hasFileSize sto:FileSizeIEC_60255:2013 ;
+     sto:hasPublisher sto:IEC ;
+     sto:hasTechnicalCommittee sto:TC_95 ;
+     sto:hasICS sto:ICS_29_120_70 ;
+     sto:hasEdition "2.0"^^xsd:float ;
+     sto:hasImplementationFormat "Document"@en ;
+     sto:hasPages 197 ;
+     sto:hasPublicationDate "2013-10-15"^^xsd:date ;
+     sto:hasStabilityDate "2018"^^xsd:gYear ;
+     sto:hasStatus "Valid"@en ;
+     sto:hasTag "IEC 60255-27:2013 "@en ;
+     sto:hasTitle "Measuring relays and protection equipment - Part 27: Product safety requirements"@en ;
+     rdfs:comment "IEC 60255-27:2013 describes the product safety requirements for measuring relays and protection equipment having a rated a.c. voltage up to 1 000 V with a rated frequency up to 65 Hz, or a rated d.c. voltage up to 1 500 V. Above these limits, IEC 60664-1 is applicable for the determination of clearance, creepage distance and withstand test voltage. This standard details essential safety requirements to minimize the risk of fire and hazards caused by electric shock or injury to the user. This new edition includes the following significant technical changes with respect to the previous edition:- the removal of tables and diagrams which are from other standards and referring instead directly to the source standard;- all aspects of IEC 60255-5 have been covered and this standard will be withdrawn."@en ;
+     rdfs:label "IEC 60255-27:2013 "@en ;
+     sto:hasAvailableLanguage "English/French"@en ;
+     sto:hasOfficialResource <https://webstore.iec.ch/publication/1172>.
+
+
+
+###  https://w3id.org/i40/sto#ICS_01_040_07
+sto:ICS_01_040_07 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Natural and applied sciences (Vocabularies)"@en ;
+                  rdfs:comment "This is ICS for Natural and applied sciences (Vocabularies)"@en ;
+                  rdfs:label "ICS 01.040.07"@en .
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60050:1998
+sto:FileSizeIEC_60050_1998 rdf:type owl:NamedIndividual ,
+              			   om2:Measure ;
+     					   om2:hasNumericalValue "1712.0"^^xsd:float ;
+     					   om2:hasUnit om2:kilobyte ;
+     					   rdfs:comment "Specifies the file size of the document for standard IEC 60050-101:1998 "@en ;
+     					   rdfs:label "FileSize IEC 60050-101:1998"@en .
+
+###  https://w3id.org/i40/sto#IEC_60050:1998
+sto:IEC_60050_1998 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   sto:hasFileSize sto:FileSizeIEC_60050_1998 ;
+                   sto:hasICS sto:ICS_01_040_07 ;
+                   sto:hasPublisher sto:IEC ;
+                   sto:hasTechnicalCommittee sto:TC_1 ;
+                   sto:hasEdition "2.0"^^xsd:float ;
+                   sto:hasImplementationFormat "Document"@en ;
+                   sto:hasPages 129 ;
+                   sto:hasPublicationDate "1998-04-30"^^xsd:date ;
+                   sto:hasStatus "Valid"@en ;
+                   sto:hasTag "IEC 60050-101:1998"@en ;
+                   sto:hasTitle "International Electrotechnical Vocabulary - Part 101: Mathematics"@en ;
+                   rdfs:comment "It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+                   rdfs:label "IEC 60050-101:1998"@en ;
+                   sto:hasAvailableLanguage "English/French, Spanish"@en ;
+                   sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
+                   sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60086
@@ -3094,10 +3391,6 @@ sto:SE rdf:type owl:NamedIndividual ,
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:NamedIndividual ;
-             sto:abbreviation "IS" .
-
 
 ###  https://w3id.org/i40/sto#SysML
 sto:SysML rdf:type owl:NamedIndividual ,
@@ -3331,14 +3624,6 @@ sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/pu
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard rdfs:comment "Specifies that a given Publicaion is an International Standard"@en ;
-             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:label "Standard"@en ,
-                        "Standard" ;
-             cc:attributionURL "http://www.iec.ch" ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
 sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
