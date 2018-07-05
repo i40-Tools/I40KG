@@ -1773,7 +1773,7 @@ sto:IEC_60050_1998 rdf:type owl:NamedIndividual ,
                    rdfs:label "IEC 60050-101:1998"@en ;
                    sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
                    sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;                   
-                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary>
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary>;
                    sto:hasPublisher sto:IEC ;                   
                    sto:hasImplementationFormat "Document"@en .
 
@@ -1802,6 +1802,45 @@ sto:IEC_60050_2013 rdf:type owl:NamedIndividual ,
                    rdfs:label "IEC 60050-351:2013"@en ;
                    sto:hasAvailableLanguage "English/French"@en ;
                    sto:hasOfficialResource https://webstore.iec.ch/publication/194>.
+
+sto:ICS_01_040_35 rdf:type owl:NamedIndividual ,
+                  sto:InternationalClassificationForStandards ;
+                  sto:hasTitle " Information technology. Office machines (Vocabularies)"@en ;
+                  rdfs:comment "This is ICS for  Information technology. Office machines (Vocabularies)"@en ;
+                  rdfs:label "ICS 01.040.35"@en .
+
+sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
+                  sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "IT applications in industry"@en ;
+                  rdfs:comment "This is ICS for IT applications in industry"@en ;
+                  rdfs:label "ICS 35.240.50"@en .
+
+sto:FileSizeIEC_60050_1984 rdf:type owl:NamedIndividual ,
+              	           om2:Measure ;
+     			   om2:hasNumericalValue "2485.0"^^xsd:float ;
+     			   om2:hasUnit om2:kilobyte ;
+     			   rdfs:comment "Specifies the file size of the document for standard IEC 60050-101:1998 "@en ;
+     			   rdfs:label "FileSize IEC 60050-371:1984"@en .
+
+sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
+                   sto:Standard ;
+                   sto:hasStatus "Valid"@en ;
+                   sto:hasFileSize sto:FileSizeIEC_60050_1984 ;
+                   sto:hasICS sto:ICS_01_040_35,
+			      sto:ICS_35_240_50 ;
+                   sto:hasTechnicalCommittee sto:TC_1 ;
+                   sto:hasTitle "International Electrotechnical Vocabulary. Chapter 371: Telecontrol"@en ;
+                   rdfs:comment "Terms on telecontrol, teleprotection and associated telecommunications for electric power systems. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+                   sto:hasPublicationDate "1984-11-30"^^xsd:date ;
+                   sto:hasEdition "1.0"^^xsd:float ;
+                   sto:hasAvailableLanguage "EN-FR-RU"@en ;
+                   sto:hasPages 44 ;
+                   sto:hasTag "IEC 60050-371:1984"@en ;
+                   rdfs:label "IEC 60050-371:1984"@en ;
+                   sto:hasOfficialResource <https://webstore.iec.ch/publication/196> ;
+                   sto:hasPublisher sto:IEC ;                   
+                   sto:hasImplementationFormat "Document"@en .
+                   
 
 
 ###  https://w3id.org/i40/sto#IEC_60086
