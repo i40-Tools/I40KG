@@ -2055,6 +2055,35 @@ sto:IEC_60381_1982  rdf:type owl:NamedIndividual ,
 
 
 
+sto:FileSizeIEC_60381_1978 rdf:type owl:NamedIndividual ,
+              	           om2:Measure ;
+     			   om2:hasNumericalValue "483.0"^^xsd:float ;
+     			   om2:hasUnit om2:kilobyte ;
+     			   rdfs:comment "Specifies the file size of the document for standard IEC 60381-2:1978"@en ;
+     			   rdfs:label "FileSize IEC 60381-2:1978"@en .
+
+sto:IEC_60381_1978  rdf:type owl:NamedIndividual ,
+                   sto:Standard ;
+                   sto:hasStatus "Valid"@en ;
+                   sto:hasFileSize sto:FileSizeIEC_60381_1978  ;
+                   sto:hasICS sto:ICS_33_200,
+			      sto:ICS_35_240_50	;
+                   sto:hasTechnicalCommittee sto:TC_65 ;
+                   sto:hasTitle "Analogue signals for process control systems. Part 2: Direct voltage signals"@en ;
+                   rdfs:comment "Applicable to analogue direct voltage signals used in industrial process measurement and control systems. lt specifies ranges of analogue direct voltage signals and the signal common; it also deals with ripple content. The analogue direct voltage signal, unlike the analogue direct current signal specified in IEC 60381-1, is not intended for transmission over long distances. This standard does not apply to signals used entirely within an element."@en ;
+                   sto:hasPublicationDate "1978-01-01"^^xsd:date ;
+                   sto:hasEdition "1.0"^^xsd:float ;
+                   sto:hasAvailableLanguage "English/French, Russian"@en ;
+                   sto:hasStabilityDate "2018"^^xsd:gYear ;
+                   sto:hasPages 9;
+                   sto:hasTag "IEC 60381-2:1978"@en ;
+                   rdfs:label "IEC 60381-2:1978"@en ;
+                   sto:hasOfficialResource <https://webstore.iec.ch/publication/1949> ;
+                   sto:hasPublisher sto:IEC ;                   
+                   sto:hasImplementationFormat "Document"@en .
+
+
+
 ###  https://w3id.org/i40/sto#IEC_60086
 sto:IEC_60086 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
