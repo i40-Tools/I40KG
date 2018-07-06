@@ -2021,6 +2021,39 @@ sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
                    sto:hasImplementationFormat "Document"@en .
 
 
+sto:ICS_33_200 rdf:type owl:NamedIndividual ,
+                  sto:InternationalClassificationForStandards ;
+                  sto:hasTitle "Telecontrol. Telemetering Including Supervising, Control and Data Acquisition System (SCADA)"@en ;
+                  rdfs:comment "This is ICS for Telecontrol. Telemetering Including Supervising, Control and Data Acquisition System (SCADA)"@en ;
+                  rdfs:label "ICS 33.200"@en .
+
+sto:FileSizeIEC_60381_1982 rdf:type owl:NamedIndividual ,
+              	           om2:Measure ;
+     			   om2:hasNumericalValue "507.0"^^xsd:float ;
+     			   om2:hasUnit om2:kilobyte ;
+     			   rdfs:comment "Specifies the file size of the document for standard IEC 60381-1:1982 "@en ;
+     			   rdfs:label "FileSize IEC 60381-1:1982"@en .
+
+sto:IEC_60381_1982  rdf:type owl:NamedIndividual ,
+                   sto:Standard ;
+                   sto:hasStatus "Valid"@en ;
+                   sto:hasFileSize sto:FileSizeIEC_60381_1982  ;
+                   sto:hasICS sto:ICS_33_200;
+                   sto:hasTechnicalCommittee sto:TC_40 ;
+                   sto:hasTitle "Analogue signals for process control systems. Part 1: Direct current signals"@en ;
+                   rdfs:comment "Applicable to analogue direct current signals used in industrial-process measurement and control systems to transmit information between elements of systems. Does not apply to signals used entirely within an element."@en ;
+                   sto:hasPublicationDate "1982-01-01"^^xsd:date ;
+                   sto:hasEdition "2.0"^^xsd:float ;
+                   sto:hasAvailableLanguage "English/French"@en ;
+                   sto:hasStabilityDate "2018"^^xsd:gYear ;
+                   sto:hasPages 9;
+                   sto:hasTag "IEC 60381-1:1982"@en ;
+                   rdfs:label "IEC 60381-1:1982"@en ;
+                   sto:hasOfficialResource <https://webstore.iec.ch/publication/1948> ;
+                   sto:hasPublisher sto:IEC ;                   
+                   sto:hasImplementationFormat "Document"@en .
+
+
 
 ###  https://w3id.org/i40/sto#IEC_60086
 sto:IEC_60086 rdf:type owl:NamedIndividual ,
