@@ -590,7 +590,11 @@ sto:ISA95Level rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
-sto:InternationalClassificationForStandards rdf:type owl:Class .
+sto:InternationalClassificationForStandards rdf:type owl:Class, owl:NamedIndividual ;
+                                            sto:abbreviation "ICS"@en ;
+                                            rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
+                                            rdfs:label "International Classification For Standards"@en ;
+                                            rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -4414,8 +4418,7 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
-sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
-                                            sto:abbreviation "ICS"@en .
+
 
 
 ###  https://w3id.org/i40/sto#KATS
@@ -5065,9 +5068,7 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
-sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
-                                            rdfs:label "International Classification For Standards"@en ;
-                                            rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
+
 
 
 
