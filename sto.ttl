@@ -1755,6 +1755,19 @@ sto:IEC_14443 rdf:type owl:NamedIndividual ,
               rdfs:comment "The ISO/IEC 14443 standard is a four-part international standard for contact-less smart cards operating at 13.56 MHz in close proximity (~10cm) with a reader antenna. This ISO standard describes the modulation and transmission protocols between card and reader to create interoperability for contact-less smart card products. There are two main communication protocols supported by the ISO/IEC 14443 standard, they are addressed as Type A and Type B. Most High Frequency (13.56 MHz) proximity tags are using these guidelines for their communication."@en ;
               rdfs:label "ISO/IEC 14443"@en .
 
+###  https://w3id.org/i40/sto#IEC_14443
+sto:ISO_27001 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasPublisher sto:ISO, sto:IEC ;
+              sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_27001" ;
+              sto:hasOfficialResource "https://www.iso.org/isoiec-27001-information-security.html" ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_27001" ;
+              rdfs:comment "ISO/IEC 27001 is an information security standard, part of the ISO/IEC 27000 family of standards."@en ;
+              rdfs:label "ISO/IEC 27001"@en ;
+              sto:hasDomain sto:ITSecurity;
+              .
+
+
 
 ###  https://w3id.org/i40/sto#IEC_15459
 sto:IEC_15459 rdf:type owl:NamedIndividual ,
@@ -4404,7 +4417,9 @@ sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ITSecurity
 sto:ITSecurity rdf:type owl:NamedIndividual ,
                         sto:Domain ;
-               rdfs:label "IT Security"@en .
+               rdfs:label "IT Security"@en ;
+               skos:altLabel "Information Security Management"@en;
+               .
 
 
 ###  https://w3id.org/i40/sto#IndustrialAutomation
