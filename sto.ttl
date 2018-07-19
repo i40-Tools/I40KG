@@ -5,6 +5,7 @@
 @prefix deo: <http://purl.org/spar/deo/> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
 @prefix geo: <http://www.geonames.org/ontology#> .
+@prefix ids: <https://w3id.org/ids/core/> .
 @prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -14,6 +15,7 @@
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iira: <http://example.org/iira#> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -22,6 +24,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/i40/sto#> .
@@ -483,6 +486,19 @@ dbo:Country rdf:type owl:Class .
 dbo:Place rdf:type owl:Class .
 
 
+###  http://example.org/iira#SystemCharacteristics
+iira:SystemCharacteristics rdf:type owl:Class ;
+                           rdfs:subClassOf sto:StandardClassification ;
+                           rdfs:comment "TODO: System Characteristics are partOf IIRA:FunctionalViewpoint"^^xsd:string ;
+                           rdfs:label "IIRA System Characteristics"^^xsd:string .
+
+
+###  http://example.org/iira#Viewpoint
+iira:Viewpoint rdf:type owl:Class ;
+               rdfs:subClassOf sto:StandardClassification ;
+               rdfs:label "IIRA Viewpoint"^^xsd:string .
+
+
 ###  http://purl.org/dc/terms/LicenseDocument
 dcterms:LicenseDocument rdf:type owl:Class ;
                         rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
@@ -500,6 +516,18 @@ muto:Tag rdf:type owl:Class .
 
 ###  http://purl.org/spar/deo/Motivation
 deo:Motivation rdf:type owl:Class .
+
+
+###  http://w3id.org/ids/ram/Perspective
+<http://w3id.org/ids/ram/Perspective> rdf:type owl:Class ;
+                                      owl:equivalentClass [ rdf:type owl:Class ;
+                                                            owl:oneOf ( idsram:Certification
+                                                                        idsram:Governance
+                                                                        idsram:Security
+                                                                      )
+                                                          ] ;
+                                      rdfs:subClassOf sto:StandardClassification ;
+                                      rdfs:label "IDS RAM Perspective"^^xsd:string .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
@@ -582,7 +610,8 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#ConnectivityLayer
 sto:ConnectivityLayer rdf:type owl:Class ;
                       rdfs:subClassOf sto:StandardClassification ;
-                      rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
+                      rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ,
+                                   "TODO: is this one really a class or better an instance of a Layer class?"^^xsd:string ;
                       rdfs:isDefinedBy "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" ;
                       rdfs:label "Connectivity Layer"@en .
 
@@ -593,39 +622,25 @@ sto:Domain rdf:type owl:Class ;
            rdfs:label "Domain"@en .
 
 
-###  https://w3id.org/i40/sto#IDS_Layer
-sto:IDS_Layer rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Class ;
-                                    owl:oneOf ( sto:IDS_BusinessLayer
-                                                sto:IDS_FunctionalLayer
-                                                sto:IDS_InformationLayer
-                                                sto:IDS_ProcessLayer
-                                                sto:IDS_SystemLayer
-                                              )
-                                  ] ;
-              rdfs:subClassOf sto:StandardClassification .
-
-
-###  https://w3id.org/i40/sto#IDS_Perspective
-sto:IDS_Perspective rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Class ;
-                                          owl:oneOf ( sto:IDS_Certification
-                                                      sto:IDS_Governance
-                                                      sto:IDS_Security
-                                                    )
-                                        ] ;
-                    rdfs:subClassOf sto:StandardClassification .
-
-
-###  https://w3id.org/i40/sto#IIRAViewpoint
-sto:IIRAViewpoint rdf:type owl:Class .
-
-
 ###  https://w3id.org/i40/sto#ISA95Level
 sto:ISA95Level rdf:type owl:Class ;
                rdfs:subClassOf sto:StandardClassification ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA95 Level"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_42010_ArchitectureDescription
+sto:ISO_42010_ArchitectureDescription rdf:type owl:Class ;
+                                      owl:equivalentClass sto:StandardizationFramework .
+
+
+###  https://w3id.org/i40/sto#ISO_42010_Concern
+sto:ISO_42010_Concern rdf:type owl:Class .
+
+
+###  https://w3id.org/i40/sto#ISO_42010_Viewpoint
+sto:ISO_42010_Viewpoint rdf:type owl:Class ;
+                        owl:equivalentClass sto:StandardClassification .
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
@@ -699,6 +714,20 @@ sto:TechnicalCommittee rdf:type owl:Class .
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
                            rdfs:subClassOf sto:Publication .
+
+
+###  https://w3id.org/ids/ram/Layer
+idsram:Layer rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:oneOf ( idsram:BusinessLayer
+                                               idsram:FunctionalLayer
+                                               idsram:InformationLayer
+                                               idsram:ProcessLayer
+                                               idsram:SystemLayer
+                                             )
+                                 ] ;
+             rdfs:subClassOf sto:StandardClassification ;
+             rdfs:label "IDS RAM Layer"^^xsd:string .
 
 
 #################################################################
@@ -811,6 +840,42 @@ dbr:_Texas rdf:type owl:NamedIndividual .
 
 ###  http://dbpedia.org/resource#Washington,_D.C.
 <http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual .
+
+
+###  http://example.org/iira#BusinessViewpoint
+iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
+                                iira:Viewpoint ;
+                       sto:isDescribedin iira:IIRA ;
+                       rdfs:label "IIRA Business Viewpoint"^^xsd:string .
+
+
+###  http://example.org/iira#FunctionalViewpoint
+iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
+                                  iira:Viewpoint ;
+                         sto:isDescribedin iira:IIRA ;
+                         rdfs:label "IIRA Functional Viewpoint"^^xsd:string .
+
+
+###  http://example.org/iira#IIRA
+iira:IIRA rdf:type owl:NamedIndividual ,
+                   sto:StandardizationFramework ;
+          sto:hasOfficialResource "http://www.iiconsortium.org/IIRA.htm" ;
+          rdfs:comment "Industrial Internet Reference Architecture"@en ;
+          rdfs:label "IIRA"@en .
+
+
+###  http://example.org/iira#ImplementationViewpoint
+iira:ImplementationViewpoint rdf:type owl:NamedIndividual ,
+                                      iira:Viewpoint ;
+                             sto:isDescribedin iira:IIRA ;
+                             rdfs:label "IIRA Implementation Viewpoint"^^xsd:string .
+
+
+###  http://example.org/iira#UsageViewpoint
+iira:UsageViewpoint rdf:type owl:NamedIndividual ,
+                             iira:Viewpoint ;
+                    sto:isDescribedin iira:IIRA ;
+                    rdfs:label "IIRA Usage Viewpoint"^^xsd:string .
 
 
 ###  http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation
@@ -1074,6 +1139,21 @@ sto:ANSI rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true> .
 
 
+###  https://w3id.org/i40/sto#ANSSI
+sto:ANSSI rdf:type owl:NamedIndividual ,
+                   sto:StandardOrganization ;
+          rdfs:label "ANSSI"^^xsd:string ,
+                     "Agence nationale de la sécurité des systèmes d'information"@fr .
+
+
+###  https://w3id.org/i40/sto#ANSSI_CC_PP_2015
+sto:ANSSI_CC_PP_2015 rdf:type owl:NamedIndividual ,
+                              sto:Standard ;
+                     sto:hasClassification idsram:Certification ;
+                     sto:hasPublisher sto:ANSSI ;
+                     rdfs:label "ANSSI CC PP 2015"^^xsd:string .
+
+
 ###  https://w3id.org/i40/sto#APICS
 sto:APICS rdf:type owl:NamedIndividual ,
                    sto:StandardOrganization ;
@@ -1215,6 +1295,33 @@ sto:BPMN rdf:type owl:NamedIndividual ,
          rdfs:label "Business Process Model Notation"@en .
 
 
+###  https://w3id.org/i40/sto#BSI
+sto:BSI rdf:type owl:NamedIndividual ,
+                 sto:StandardOrganization ;
+        sto:abbreviation "BSI"@de ;
+        sto:hasOfficialResource "https://www.bsi.bund.de/"^^xsd:anyURI ;
+        sto:orgName "Bundesamt für Sicherheit in der Informationstechnik"@de ;
+        rdfs:label "BSI"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#BSI_C5
+sto:BSI_C5 rdf:type owl:NamedIndividual ,
+                    sto:Standard ;
+           sto:hasClassification idsram:Certification ;
+           sto:hasPublisher sto:BSI ;
+           sto:hasOfficialResource "https://www.bsi.bund.de/DE/Themen/DigitaleGesellschaft/CloudComputing/Anforderungskatalog/Anforderungskatalog_node.html"@en ;
+           sto:hasTitle "Cloud Computing Compliance Control Catalogue"@en ;
+           rdfs:label "BSI C5"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#BSI_CC_PP_0030
+sto:BSI_CC_PP_0030 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   sto:hasClassification idsram:Certification ;
+                   sto:hasPublisher sto:BSI ;
+                   rdfs:label "BSI CC PP 0030"^^xsd:string .
+
+
 ###  https://w3id.org/i40/sto#BusinessProcessExecution
 sto:BusinessProcessExecution rdf:type owl:NamedIndividual ,
                                       sto:BusinessCycleSCM ;
@@ -1279,40 +1386,40 @@ sto:DIN rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_50128
 sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification sto:IDS_Certification ,
-                                       sto:IDS_Safety ;
+                 sto:hasClassification idsram:Certification ,
+                                       idsram:Safety ;
                  rdfs:label "DIN EN 50128"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50129
 sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification sto:IDS_Certification ,
-                                       sto:IDS_Safety ;
+                 sto:hasClassification idsram:Certification ,
+                                       idsram:Safety ;
                  rdfs:label "DIN EN 50129"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50155
 sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification sto:IDS_Certification ,
-                                       sto:IDS_Safety ;
+                 sto:hasClassification idsram:Certification ,
+                                       idsram:Safety ;
                  rdfs:label "DIN EN 50155"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50159
 sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification sto:IDS_Certification ,
-                                       sto:IDS_Safety ;
+                 sto:hasClassification idsram:Certification ,
+                                       idsram:Safety ;
                  rdfs:label "DIN EN 50159"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_61511
 sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification sto:IDS_Certification ,
-                                       sto:IDS_Safety ;
+                 sto:hasClassification idsram:Certification ,
+                                       idsram:Safety ;
                  sto:hasPublisher sto:DIN ;
                  rdfs:label "DIN EN 61511"^^xsd:string .
 
@@ -1320,15 +1427,15 @@ sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_13849
 sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
-                     sto:hasClassification sto:IDS_Certification ,
-                                           sto:IDS_Safety ;
+                     sto:hasClassification idsram:Certification ,
+                                           idsram:Safety ;
                      rdfs:label "DIN EN ISO 13849"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_IEC_17025
 sto:DIN_EN_ISO_IEC_17025 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         sto:hasClassification sto:IDS_Certification ;
+                         sto:hasClassification idsram:Certification ;
                          sto:hasPublisher sto:DIN ,
                                           sto:IEC ,
                                           sto:ISO ;
@@ -1350,7 +1457,7 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_SPEC_27070
 sto:DIN_SPEC_27070 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
-                   sto:hasClassification sto:IDS_Security ;
+                   sto:hasClassification idsram:Security ;
                    sto:hasPublisher sto:DIN ;
                    rdfs:label "DIN SPEC 27070"^^xsd:string .
 
@@ -1358,7 +1465,7 @@ sto:DIN_SPEC_27070 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_SPEC_92222
 sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
-                   sto:hasClassification sto:IDS_Security ;
+                   sto:hasClassification idsram:Security ;
                    sto:hasDeveloper sto:DIN ;
                    rdfs:label "DIN SPEC 92222"^^xsd:string .
 
@@ -1370,6 +1477,12 @@ sto:DMSC rdf:type owl:NamedIndividual ,
          rdfs:comment "Dimensional Metrology Standards Consortium (DMSC) is to identify urgently needed standards in the field of dimensional metrology, and to promote, foster, and encourage the development and interoperability of these standards, along with related and supporting standards that will benefit the industry as a whole."@en ;
          rdfs:label "Dimensional Metrology Standards Consortium"@en ;
          sto:hasOfficialResource <http://www.dmis.org/> .
+
+
+###  https://w3id.org/i40/sto#DataSovereignty
+sto:DataSovereignty rdf:type owl:NamedIndividual ,
+                             sto:ISO_42010_Concern ;
+                    rdfs:label "Data Sovereignty"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DeviceLevel
@@ -2163,68 +2276,6 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
                   sto:hasTitle "IT applications in industry"@en ;
                   rdfs:comment "This is ICS for IT applications in industry"@en ;
                   rdfs:label "ICS 35.240.50"@en .
-
-
-###  https://w3id.org/i40/sto#IDS_BusinessLayer
-sto:IDS_BusinessLayer rdf:type owl:NamedIndividual ,
-                               sto:IDS_Layer .
-
-
-###  https://w3id.org/i40/sto#IDS_Certification
-sto:IDS_Certification rdf:type owl:NamedIndividual ,
-                               sto:IDS_Perspective .
-
-
-###  https://w3id.org/i40/sto#IDS_DataMarket
-sto:IDS_DataMarket rdf:type owl:NamedIndividual ,
-                            sto:StandardClassification .
-
-
-###  https://w3id.org/i40/sto#IDS_DataSovereignty
-sto:IDS_DataSovereignty rdf:type owl:NamedIndividual ,
-                                 sto:StandardClassification .
-
-
-###  https://w3id.org/i40/sto#IDS_FunctionalLayer
-sto:IDS_FunctionalLayer rdf:type owl:NamedIndividual ,
-                                 sto:IDS_Layer .
-
-
-###  https://w3id.org/i40/sto#IDS_Governance
-sto:IDS_Governance rdf:type owl:NamedIndividual ,
-                            sto:IDS_Perspective .
-
-
-###  https://w3id.org/i40/sto#IDS_InformationLayer
-sto:IDS_InformationLayer rdf:type owl:NamedIndividual ,
-                                  sto:IDS_Layer .
-
-
-###  https://w3id.org/i40/sto#IDS_Interoperability
-sto:IDS_Interoperability rdf:type owl:NamedIndividual ,
-                                  sto:StandardClassification .
-
-
-###  https://w3id.org/i40/sto#IDS_ProcessLayer
-sto:IDS_ProcessLayer rdf:type owl:NamedIndividual ,
-                              sto:IDS_Layer .
-
-
-###  https://w3id.org/i40/sto#IDS_Safety
-sto:IDS_Safety rdf:type owl:NamedIndividual ,
-                        sto:StandardClassification ;
-               sto:isDescribedin sto:IndustrialDataSpace ;
-               rdfs:label "IDS Safety"^^xsd:string .
-
-
-###  https://w3id.org/i40/sto#IDS_Security
-sto:IDS_Security rdf:type owl:NamedIndividual ,
-                          sto:IDS_Perspective .
-
-
-###  https://w3id.org/i40/sto#IDS_SystemLayer
-sto:IDS_SystemLayer rdf:type owl:NamedIndividual ,
-                             sto:IDS_Layer .
 
 
 ###  https://w3id.org/i40/sto#IEC
@@ -3696,8 +3747,8 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Asset ,
                                     rami:Engineering ,
-                                    sto:IDS_InformationLayer ,
-                                    sto:ManufacturingModelData ;
+                                    sto:ManufacturingModelData ,
+                                    idsram:InformationLayer ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:ISO_13584 ,
                             sto:eClass ;
@@ -3968,7 +4019,7 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Security ,
                                     sto:CrossLevel ,
-                                    sto:IDS_Certification ;
+                                    idsram:Certification ;
               sto:hasDeveloper sto:ANSI ,
                                sto:ISA ;
               sto:hasPublisher sto:ANSI ,
@@ -4016,9 +4067,9 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
                                     rami:Station ,
                                     rami:WorkCenter ,
                                     sto:Communication ,
-                                    sto:IDS_DataSovereignty ,
-                                    sto:IDS_SystemLayer ,
-                                    sto:SCADALevel ;
+                                    sto:DataSovereignty ,
+                                    sto:SCADALevel ,
+                                    idsram:SystemLayer ;
               sto:hasDeveloper sto:OPC_Foundation ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasPublisher sto:IEC ;
@@ -4139,6 +4190,14 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
               rdfs:label "IEC 81714"@en .
 
 
+###  https://w3id.org/i40/sto#IEC_9594
+sto:IEC_9594 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             owl:sameAs sto:ISO_9594 ;
+             sto:hasPublisher sto:IEC ;
+             rdfs:label "IEC 9594"^^xsd:string .
+
+
 ###  https://w3id.org/i40/sto#IEC_PAS_63088
 sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
                            sto:Standard ;
@@ -4238,12 +4297,18 @@ sto:IETF rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Internet_Engineering_Task_Force> .
 
 
-###  https://w3id.org/i40/sto#IIRA
-sto:IIRA rdf:type owl:NamedIndividual ,
-                  sto:StandardizationFramework ;
-         sto:hasOfficialResource "http://www.iiconsortium.org/IIRA.htm" ;
-         rdfs:comment "Industrial Internet Reference Architecture"@en ;
-         rdfs:label "IIRA"@en .
+###  https://w3id.org/i40/sto#IETF_ACME
+sto:IETF_ACME rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasClassification sto:DataSovereignty ,
+                                    idsram:Security ;
+              sto:hasPublisher sto:IETF ;
+              sto:hasOfficialResource "https://tools.ietf.org/html/draft-ietf-acme-acme-13"^^xsd:anyURI ;
+              rdfs:label "ACME"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#IIRA_Security
+sto:IIRA_Security rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#IIRC
@@ -4291,7 +4356,11 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISA_62443
-sto:ISA_62443 rdf:type owl:NamedIndividual ;
+sto:ISA_62443 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasClassification idsram:Certification ;
+              sto:hasPublisher sto:ISA ;
+              rdfs:label "ISA/IEC 62443"^^xsd:string ;
               sto:publisher sto:ISA .
 
 
@@ -4344,7 +4413,7 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_11404
 sto:ISO_11404 rdf:type owl:NamedIndividual ;
-              sto:hasClassification sto:IDS_InformationLayer ;
+              sto:hasClassification idsram:InformationLayer ;
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
               rdfs:label "ISO/IEC 11404"^^xsd:string .
@@ -4436,8 +4505,8 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
 sto:ISO_13849 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Safety ,
-                                    sto:IDS_Certification ,
-                                    sto:IDS_Safety ;
+                                    idsram:Certification ,
+                                    idsram:Safety ;
               sto:hasPublisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/ISO_13849" ;
               sto:hasOfficialResource "http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=69883" ;
@@ -4759,8 +4828,8 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_26262
 sto:ISO_26262 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification sto:IDS_Certification ,
-                                    sto:IDS_Safety ;
+              sto:hasClassification idsram:Certification ,
+                                    idsram:Safety ;
               sto:hasPublisher sto:ISO ;
               rdfs:label "ISO 26262"^^xsd:string .
 
@@ -4768,7 +4837,7 @@ sto:ISO_26262 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_27000
 sto:ISO_27000 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification sto:IDS_Security ;
+              sto:hasClassification idsram:Security ;
               sto:hasPublisher sto:ISO ;
               sto:hasDBpediaResource "http://dbpedia.org/resource/IEC_27000" ;
               sto:hasOfficialResource "http://www.27000.org/" ;
@@ -4784,16 +4853,17 @@ sto:ISO_27000 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_27001
 sto:ISO_27001 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification sto:IDS_Certification ,
-                                    sto:IDS_Security ;
+              sto:hasClassification idsram:Certification ,
+                                    idsram:Security ;
               sto:hasPublisher sto:ISO ;
-              rdfs:label "ISO 27001"^^xsd:string .
+              rdfs:label "ISO 27001"^^xsd:string ,
+                         "Internationaler Standard für ein Informationssicherheitsmanagementsystem (ISMS)"@de .
 
 
 ###  https://w3id.org/i40/sto#ISO_27019
 sto:ISO_27019 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification sto:IDS_Certification ;
+              sto:hasClassification idsram:Certification ;
               sto:hasPublisher sto:ISO ;
               rdfs:label "ISO 27019"^^xsd:string .
 
@@ -4866,13 +4936,25 @@ sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
 sto:ISO_9000 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasClassification sto:CrossLevel ,
-                                   sto:IDS_Certification ;
+                                   idsram:Certification ;
              sto:hasPublisher sto:ISO ;
              sto:hasDBpediaResource "http://dbpedia.org/page/ISO_9000" ;
              sto:hasOfficialResource "https://www.iso.org/iso-9001-quality-management.html" ;
              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_9000" ;
              rdfs:comment "The ISO 9000 family of quality management systems standards is designed to help organizations ensure that they meet the needs of customers and other stakeholders while meeting statutory and regulatory requirements related to a product or program."@en ;
              rdfs:label "ISO 9000"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_9594
+sto:ISO_9594 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:DataSovereignty ,
+                                   idsram:Certification ,
+                                   idsram:Security ;
+             sto:hasPublisher sto:ISO ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc5280"^^xsd:anyURI ;
+             rdfs:label "ISO/IEC 9594"@en ,
+                        "X.509"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#ISO_ASTM_52915
@@ -4932,9 +5014,9 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
                rdfs:label "IT Security"@en .
 
 
-###  https://w3id.org/i40/sto#ImplementationViewpoint
-sto:ImplementationViewpoint rdf:type owl:NamedIndividual ,
-                                     sto:IIRAViewpoint .
+###  https://w3id.org/i40/sto#IdentityAuthentication
+sto:IdentityAuthentication rdf:type owl:NamedIndividual ,
+                                    sto:ISO_42010_Concern .
 
 
 ###  https://w3id.org/i40/sto#IndustrialAutomation
@@ -4944,11 +5026,6 @@ sto:IndustrialAutomation rdf:type owl:NamedIndividual ,
                          sto:hasDBpediaResource "http://dbpedia.org/resource/Category:IndustrialAutomation" ;
                          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Automation" ;
                          rdfs:comment "Industrial automation deals primarily with the automation of manufacturing, quality control and material handling processes. General purpose controllers for industrial processes include Programmable logic controllers, stand-alone I/O modules, and computers. Industrial automation is to replace the decision making of humans and manual command-response activities with the use of mechanized equipment and logical programming commands. One trend is increased use of Machine vision to provide automatic inspection and robot guidance functions, another is a continuing increase in the use of robots. Industrial automation is simply done at the industrial level."@en .
-
-
-###  https://w3id.org/i40/sto#IndustrialDataSpace
-sto:IndustrialDataSpace rdf:type owl:NamedIndividual ,
-                                 sto:StandardizationFramework .
 
 
 ###  https://w3id.org/i40/sto#IndustrialProcessMeasurementControl
@@ -5171,9 +5248,11 @@ sto:OASIS rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ODRL
 sto:ODRL rdf:type owl:NamedIndividual ,
                   sto:Standard ;
-         sto:hasClassification sto:IDS_InformationLayer ;
+         sto:hasClassification idsram:InformationLayer ,
+                               idsram:Security ;
          sto:hasPublisher sto:W3C ;
-         rdfs:label "ODRL"^^xsd:string .
+         rdfs:label "ODRL"^^xsd:string ,
+                    "Open Digital Rights Language"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#ODVA
@@ -5323,6 +5402,74 @@ sto:RAMI40 rdf:type owl:NamedIndividual ,
            rdfs:label "RAMI 4.0"@en .
 
 
+###  https://w3id.org/i40/sto#RFC_2616
+sto:RFC_2616 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification iira:FunctionalViewpoint ,
+                                   rami:Communication ,
+                                   idsram:SystemLayer ;
+             sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc2817"^^xsd:anyURI ;
+             rdfs:label "HTTP/1.1"^^xsd:string ,
+                        "RFC 2616"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#RFC_2818
+sto:RFC_2818 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification idsram:Security ,
+                                   idsram:SystemLayer ;
+             sto:hasPublisher sto:IETF ;
+             rdfs:label "HTTPS"^^xsd:string ,
+                        "RFC 2818"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#RFC_5246
+sto:RFC_5246 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:DataSovereignty ,
+                                   idsram:Security ;
+             sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc5246"^^xsd:anyURI ;
+             dcterms:description "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
+             rdfs:label "RFC 5246"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#RFC_6749
+sto:RFC_6749 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification idsram:Security ;
+             sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc6750"^^xsd:anyURI ;
+             dcterms:description "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
+             rdfs:label "RFC 6750"^^xsd:string ;
+             skos:altLabel "OAuth2.0"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#RFC_7519
+sto:RFC_7519 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:DataSovereignty ,
+                                   idsram:Security ;
+             sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc7519"^^xsd:anyURI ;
+             dcterms:description "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
+             rdfs:label "JSON Web Token"^^xsd:string ,
+                        "RFC 7519"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#RFC_7540
+sto:RFC_7540 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification iira:FunctionalViewpoint ,
+                                   rami:Communication ,
+                                   idsram:Interoperability ,
+                                   idsram:SystemLayer ;
+             sto:hasPublisher sto:IETF ;
+             rdfs:label "HTTP/2"^^xsd:string ,
+                        "RFC 7540"^^xsd:string .
+
+
 ###  https://w3id.org/i40/sto#SCADALevel
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
@@ -5364,6 +5511,11 @@ sto:SE rdf:type owl:NamedIndividual ,
        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Schneider_Electric" ;
        sto:orgName "Schneider Electric"@en ;
        rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
+
+
+###  https://w3id.org/i40/sto#SecureCommunication
+sto:SecureCommunication rdf:type owl:NamedIndividual ,
+                                 sto:ISO_42010_Concern .
 
 
 ###  https://w3id.org/i40/sto#Standard
@@ -5563,11 +5715,6 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
               rdfs:comment "UN/CEFACT is the United Nations Centre for Trade Facilitation and Electronic Business. It was established as an intergovernmental body of the United Nations Economic Commission for Europe (UNECE) in 1996 and evolved from UNECE’s long tradition of work in trade facilitation."@en .
 
 
-###  https://w3id.org/i40/sto#UsageViewpoint
-sto:UsageViewpoint rdf:type owl:NamedIndividual ,
-                            sto:IIRAViewpoint .
-
-
 ###  https://w3id.org/i40/sto#VDMA
 sto:VDMA rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -5669,6 +5816,10 @@ sto:Written rdf:type owl:NamedIndividual ,
             rdfs:label "Written"@en .
 
 
+###  https://w3id.org/i40/sto#_020
+sto:_020 rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/i40/sto#eClass
 sto:eClass rdf:type owl:NamedIndividual ,
                     sto:Standard ;
@@ -5719,8 +5870,88 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           rdfs:label "ebXML"@en .
 
 
-###  https://w3id.org/i40/sto#19_020
-sto:_020 rdf:type owl:NamedIndividual .
+###  https://w3id.org/ids/ram/BusinessLayer
+idsram:BusinessLayer rdf:type owl:NamedIndividual ,
+                              idsram:Layer ;
+                     sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                     rdfs:label "IDS RAM Business Layer"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/Certification
+idsram:Certification rdf:type owl:NamedIndividual ,
+                              <http://w3id.org/ids/ram/Perspective> ;
+                     sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                     rdfs:label "IDS RAM Certification Perspective"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/DataMarket
+idsram:DataMarket rdf:type owl:NamedIndividual ,
+                           sto:StandardClassification ;
+                  sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                  rdfs:label "IDS Data Market"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/FunctionalLayer
+idsram:FunctionalLayer rdf:type owl:NamedIndividual ,
+                                idsram:Layer ;
+                       sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                       rdfs:label "IDS RAM Functional Layer"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/Governance
+idsram:Governance rdf:type owl:NamedIndividual ,
+                           <http://w3id.org/ids/ram/Perspective> ;
+                  sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                  rdfs:label "IDS RAM Governance Perspective"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/InformationLayer
+idsram:InformationLayer rdf:type owl:NamedIndividual ,
+                                 idsram:Layer ;
+                        sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                        rdfs:label "IDS RAM Information Layer"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/Interoperability
+idsram:Interoperability rdf:type owl:NamedIndividual ,
+                                 sto:StandardClassification ;
+                        sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                        rdfs:label "IDS Interoperability"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/ProcessLayer
+idsram:ProcessLayer rdf:type owl:NamedIndividual ,
+                             idsram:Layer ;
+                    sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                    rdfs:label "IDS RAM Process Layer"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/ReferenceArchitectureModel
+idsram:ReferenceArchitectureModel rdf:type owl:NamedIndividual ,
+                                           sto:StandardizationFramework ;
+                                  rdfs:label "IDS RAM"^^xsd:string ,
+                                             "Industrial Data Space Reference Architecture Model"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/Safety
+idsram:Safety rdf:type owl:NamedIndividual ,
+                       sto:StandardClassification ;
+              sto:isDescribedin idsram:ReferenceArchitectureModel ;
+              rdfs:label "IDS RAM Safety"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/Security
+idsram:Security rdf:type owl:NamedIndividual ,
+                         <http://w3id.org/ids/ram/Perspective> ;
+                sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                rdfs:label "IDS RAM Security Perspective"^^xsd:string .
+
+
+###  https://w3id.org/ids/ram/SystemLayer
+idsram:SystemLayer rdf:type owl:NamedIndividual ,
+                            idsram:Layer ;
+                   sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                   rdfs:label "IDS RAM System Layer"^^xsd:string .
 
 
 ###  https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation
