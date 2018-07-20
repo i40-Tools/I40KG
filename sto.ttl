@@ -640,12 +640,6 @@ sto:Publication rdf:type owl:Class ;
                 rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication ;
-             owl:disjointWith sto:StandardOrganization .
-
-
 ###  https://w3id.org/i40/sto#StandardClassification
 sto:StandardClassification rdf:type owl:Class ;
                            rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
@@ -6903,12 +6897,12 @@ sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/pu
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:comment "Specifies that a given Publicaion is an International Standard"@en ;
-             rdfs:label "Standard"@en ,
-                        "Standard" ;
-             cc:attributionURL "http://www.iec.ch" ;
+sto:Standard rdf:type owl:Class ;
+             rdfs:subClassOf sto:Publication ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             rdfs:label "Standard"@en ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             cc:attributionURL <http://www.iec.ch> ;
              rdfs:isDefinedBy sto:IEC ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
