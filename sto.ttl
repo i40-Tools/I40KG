@@ -24,6 +24,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lang:    <http://lexvo.org/id/iso639-3/> .
 @base <https://w3id.org/i40/sto> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
@@ -33,7 +34,6 @@
                              sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
                              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> ;
                              dc11:title "Standards Ontology"@en ;
-                             sto:hasAvailableLanguage "English/French, Spanish"@en ;
                              sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
                              owl:versionInfo "0.2" ;
                              dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
@@ -2454,6 +2454,9 @@ sto:IEC_60027_2006 rdf:type owl:NamedIndividual ,
                    rdfs:comment "This part of IEC 60027 is applicable to control technology. It gives names and symbols for quantities, signals and functions, and their units."@en ;
                    rdfs:label "IEC 60027-6:2006"@en ;
                    sto:hasAvailableLanguage "English/French, Spanish"@en ;
+                   sto:hasAvailableLanguage lang:eng, 
+                                            lang:fra,
+                                            lang:spa;
                    sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
                    sto:hasOfficialResource <https://webstore.iec.ch/publication/96> ;
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
