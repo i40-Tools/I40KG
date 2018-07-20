@@ -16,6 +16,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix iira: <http://example.org/iira#> .
+@prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -30,38 +31,25 @@
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
-                             owl:imports <https://w3id.org/i40/sto#> ;
+                             dcterms:modified "2017-09-08"^^xsd:date ;
                              sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
                              sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
-                             sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
-                             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> ;
-                             dc11:title "Standards Ontology"@en ;
-                             sto:hasAvailableLanguage "English/French, Spanish"@en ;
-                             sto:hasTitle "International Electrotechnical Vocabulary - Part 101: Mathematics"@en ;
-                             sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
-                             owl:versionInfo "0.2" ;
-                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-                             dcterms:creator <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
-                             doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
-                             dc11:description "An ontology to describe industry standards related to Smart Manufacturing" ;
-                             vann:preferredNamespacePrefix "sto" ;
-                             dcterms:created "2017-01-25"^^xsd:date ;
-                             dcterms:modified "2017-09-08"^^xsd:date ;
-                             om2:hasNumericalValue "1712.0"^^xsd:float ;
-                             om2:hasUnit om2:kilobyte ;
-                             rdfs:label "IEC 60050-101:1998"@en ;
                              sto:hasTitle "IEC standard voltages"@en ;
-                             rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
-                             om2:hasNumericalValue "946.0"^^xsd:float ;
-                             rdfs:label "FileSize IEC_60050-101:1998"@en ;
-                             rdfs:comment "Specifies the file sice of the document for standard IEC_60050-101:1998 "@en ;
-                             rdfs:label "IEC 60038:2009"@en ;
+                             sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
+                             owl:versionInfo "0.3" ;
+                             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> ;
+                             dcterms:title "Standards Ontology"@en ;
+                             sto:hasTitle "International Electrotechnical Vocabulary - Part 101: Mathematics"@en ;
                              dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
-                             rdfs:comment "It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
+                             rdfs:comment "An ontology to describe standards related to Industry 4.0 and Smart Manufacturing"@en ;
+                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                              dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-                             dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ;
-                             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> ;
-                             vann:preferredNamespaceUri "https://w3id.org/i40/sto#" .
+                             dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
+                                             <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
+                             doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
+                             vann:preferredNamespacePrefix "sto" ;
+                             vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
+                             dcterms:created "2017-01-25"^^xsd:date .
 
 #################################################################
 #    Annotation properties
@@ -73,18 +61,6 @@ cc:attributionName rdf:type owl:AnnotationProperty .
 
 ###  http://creativecommons.org/ns#attributionURL
 cc:attributionURL rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/description
-dc11:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/rights
-dc11:rights rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/title
-dc11:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
@@ -101,6 +77,10 @@ dcterms:issued rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/modified
 dcterms:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
@@ -147,10 +127,6 @@ sto:publisher rdf:type owl:AnnotationProperty .
 #    Datatypes
 #################################################################
 
-###  http://purl.org/muto/core#Tag
-muto:Tag rdf:type rdfs:Datatype .
-
-
 ###  http://www.w3.org/2001/XMLSchema#date
 xsd:date rdf:type rdfs:Datatype .
 
@@ -171,12 +147,6 @@ dcterms:hasLicense rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/dc/terms/language
 dcterms:language rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Publication ;
-              rdfs:range rdfs:literal .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
@@ -246,7 +216,7 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
 sto:hasFileSize rdf:type owl:ObjectProperty ;
                 rdfs:domain foaf:Document ;
                 rdfs:range om2:Measure ;
-                rdfs:comment "The size of document file in some unit e.g. 104 Kilobyte."@en ;
+                rdfs:comment "The size of document file in some unit, e.g., 104 Kilobyte."@en ;
                 rdfs:label "has File Size"@en ;
                 rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5> ;
                 skos:note """1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
@@ -297,7 +267,8 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:ObjectProperty ;
-           rdfs:domain sto:Publication .
+           rdfs:domain sto:Publication ;
+           rdfs:range muto:Tag .
 
 
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
@@ -327,8 +298,8 @@ sto:isImplementationOf rdf:type owl:ObjectProperty ;
 sto:relatedTo rdf:type owl:ObjectProperty ,
                        owl:SymmetricProperty ,
                        owl:TransitiveProperty ;
-              rdfs:domain sto:Publication ;
-              rdfs:range sto:Publication ;
+              rdfs:domain sto:Standard ;
+              rdfs:range sto:Standard ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
               skos:altLabel "has Associated Standard"@en .
@@ -455,8 +426,7 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
-           rdfs:range muto:Tag ,
-                      rdfs:Literal .
+           rdfs:range rdfs:Literal .
 
 
 ###  https://w3id.org/i40/sto#hasTask
@@ -469,7 +439,7 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
 sto:hasWikipediaArticle rdf:type owl:DatatypeProperty ;
-                        rdfs:range rdfs:Literal .
+                        rdfs:range xsd:anyURI .
 
 
 ###  https://w3id.org/i40/sto#orgName
@@ -538,6 +508,10 @@ dcterms:LicenseDocument rdf:type owl:Class ;
 
 ###  http://purl.org/dc/terms/linguisticSystem
 dcterms:linguisticSystem rdf:type owl:Class .
+
+
+###  http://purl.org/muto/core#Tag
+muto:Tag rdf:type owl:Class .
 
 
 ###  http://purl.org/spar/deo/Motivation
@@ -692,7 +666,7 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#Publication
 sto:Publication rdf:type owl:Class ;
                 rdfs:subClassOf foaf:Document ;
-                rdfs:comment """Specifies a Publicaion. Eg: International Standards,Technical Specifications,Publicly Available Specifications,Amendments
+                rdfs:comment """Specifies a Publication. E.g., International Standards,Technical Specifications,Publicly Available Specifications,Amendments
                 Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
                 rdfs:isDefinedBy sto:IEC ;
                 rdfs:label "Publication"@en ;
@@ -701,8 +675,7 @@ sto:Publication rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication ;
-             owl:disjointWith sto:StandardOrganization .
+             rdfs:subClassOf sto:Publication .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -989,6 +962,22 @@ iira:UsageViewpoint rdf:type owl:NamedIndividual ,
                     rdfs:label "IIRA Usage Viewpoint"^^xsd:string .
 
 
+###  http://lexvo.org/id/iso639-3/eng
+lang:eng rdf:type owl:NamedIndividual .
+
+
+###  http://lexvo.org/id/iso639-3/fra
+lang:fra rdf:type owl:NamedIndividual .
+
+
+###  http://lexvo.org/id/iso639-3/spa
+lang:spa rdf:type owl:NamedIndividual .
+
+
+###  http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation
+<http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation> rdf:type owl:NamedIndividual .
+
+
 ###  http://wikipedia.org/wiki/IEEE_Smart_Grid
 <http://wikipedia.org/wiki/IEEE_Smart_Grid> rdf:type owl:NamedIndividual .
 
@@ -1272,12 +1261,11 @@ sto:ASAM rdf:type owl:NamedIndividual ,
          sto:hasHeadquaterIn dbr:Höhenkirchen-Siegertsbrunn ;
          sto:abbreviation "ASAM" ;
          sto:formationDate "1998-12-01"^^xsd:date ;
-         sto:hasDBpediaResource "http://dbpedia.org/page/Association_for_Standardisation_of_Automation_and_Measuring_Systems" ;
-         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems" ;
          sto:orgName "Association for Standardization of Automation and Measuring Systems"@en ;
          rdfs:comment "Association for Standardization of Automation and Measuring Systems or ASAM is an incorporated association under German law. Its members are primarily international car manufacturers, suppliers and engineering service providers from the automotive industry. The association coordinates the development of technical standards, which are developed by working groups composed of experts from its member companies. ASAM pursues the vision that the tools of a development process chain can be freely interconnected and allow a seamless exchange of data. The standards define protocols, data models, file formats and application programming interfaces (APIs) for the use in the development and testing of automotive electronic control units. A large amount of popular tools in the areas of simulation, measurement, calibration and test automation are compliant to ASAM standards. Compliance shall guarantee interoperability of tools from different vendors, allow data exchange without the need for converters, and facilitate the exchange of unambiguous specification between customers and suppliers."@en ;
          rdfs:label "ASAM" ;
-         sto:hasDBpediaResource <http://dbpedia.org/resource/Association_for_Standardisation_of_Automation_and_Measuring_Systems> ;
+         sto:hasDBpediaResource <http://dbpedia.org/page/Association_for_Standardisation_of_Automation_and_Measuring_Systems> ,
+                                <http://dbpedia.org/resource/Association_for_Standardisation_of_Automation_and_Measuring_Systems> ;
          sto:hasOfficialResource <https://www.asam.net/> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems> .
 
@@ -1286,9 +1274,9 @@ sto:ASAM rdf:type owl:NamedIndividual ,
 sto:ASAM_ODS rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasPublisher sto:ASAM ;
-             sto:hasOfficialResource "https://wiki.asam.net/display/STANDARDS/ASAM+ODS" ;
              rdfs:comment "Set up a test data management system on top of test systems that produce measured or calculated data from testing activities"@en ;
-             rdfs:label "ASAM ODS"@en .
+             rdfs:label "ASAM ODS"@en ;
+             sto:hasOfficialResource <https://wiki.asam.net/display/STANDARDS/ASAM+ODS> .
 
 
 ###  https://w3id.org/i40/sto#ASME
@@ -1309,11 +1297,11 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                sto:hasClassification sto:ModelingPractice ;
                sto:hasPublisher sto:ASME ;
-               sto:hasDBpediaResource "http://dbpedia.org/resource/ASME_Y14.41" ;
-               sto:hasOfficialResource "https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data" ;
-               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ASME_Y14.41" ;
                rdfs:comment "ASME Y14.41 establishs requirements for model-based definition upon CAD software and those who use CAD software to create product definition within the 3D model."@en ;
-               rdfs:label "ASME Y14.41"@en .
+               rdfs:label "ASME Y14.41"@en ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/ASME_Y14.41> ;
+               sto:hasOfficialResource <https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data> ;
+               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME_Y14.41> .
 
 
 ###  https://w3id.org/i40/sto#AdministrationShell
@@ -1331,13 +1319,13 @@ sto:B2MML rdf:type owl:NamedIndividual ,
           sto:hasDeveloper sto:MESA ;
           sto:hasPublisher sto:MESA ;
           sto:isImplementationOf sto:ISA-95 ;
-          sto:hasDBpediaResource "http://dbpedia.org/resource/B2MML" ;
-          sto:hasOfficialResource "https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a" ;
           sto:hasTag "B2MML"@en ;
-          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/B2MML" ;
           rdfs:comment "B2MML or Business To Manufacturing Markup Language is an XML implementation of the ANSI/ISA-95 family of standards (ISA-95)"@en ;
           rdfs:label "Business To Manufacturing Markup Language" ;
-          skos:altLabel "IEC 62264"@en .
+          skos:altLabel "IEC 62264"@en ;
+          sto:hasDBpediaResource <http://dbpedia.org/resource/B2MML> ;
+          sto:hasOfficialResource <https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a> ;
+          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/B2MML> .
 
 
 ###  https://w3id.org/i40/sto#BBF
@@ -1346,12 +1334,12 @@ sto:BBF rdf:type owl:NamedIndividual ,
         sto:hasHeadquaterIn dbr:_California ;
         sto:abbreviation "BBF" ;
         sto:formationDate "2008-01-01"^^xsd:date ;
-        sto:hasDBpediaResource "http://dbpedia.org/resource/Broadband_Forum" ;
-        sto:hasOfficialResource "https://www.broadband-forum.org/" ;
-        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Broadband_Forum" ;
         sto:orgName "Broadband Forum"@en ;
         rdfs:comment "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en ;
-        rdfs:label "Broadband Forum"@en .
+        rdfs:label "Broadband Forum"@en ;
+        sto:hasDBpediaResource <http://dbpedia.org/resource/Broadband_Forum> ;
+        sto:hasOfficialResource <https://www.broadband-forum.org/> ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Broadband_Forum> .
 
 
 ###  https://w3id.org/i40/sto#BBF_TR-069
@@ -1359,12 +1347,12 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                sto:hasDeveloper sto:BBF ;
                sto:hasPublisher sto:BBF ;
-               sto:hasDBpediaResource "http://dbpedia.org/resource/TR-069" ;
-               sto:hasOfficialResource "https://www.broadband-forum.org/standards-and-software/technical-specifications/tr-069-files-tools" ;
                sto:hasTag "CPE WAN Management Protocol"@en ;
-               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/TR-069" ;
-               rdfs:comment "Digital Enhanced Cordless Telecommunications (DECT™) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
-               rdfs:label "BBF TR-069"@en .
+               rdfs:comment "Digital Enhanced Cordless Telecommunications (DECT) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
+               rdfs:label "BBF TR-069"@en ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/TR-069> ;
+               sto:hasOfficialResource <https://www.broadband-forum.org/standards-and-software/technical-specifications/tr-069-files-tools> ;
+               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/TR-069> .
 
 
 ###  https://w3id.org/i40/sto#BPEL
@@ -1372,12 +1360,12 @@ sto:BPEL rdf:type owl:NamedIndividual ,
                   sto:Standard ;
          sto:hasClassification sto:BusinessProcessExecution ;
          sto:hasPublisher sto:OASIS ;
-         sto:hasDBpediaResource "http://dbpedia.org/resource/Business_Process_Execution_Language" ;
-         sto:hasOfficialResource "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel" ;
          sto:hasTag "BPEL"@en ;
-         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_Process_Execution_Language" ;
          rdfs:comment "The Web Services Business Process Execution Language (WS-BPEL), commonly known as BPEL Business Process Execution Language, is a standard executable language for specifying actions within business processes with web services."@en ;
-         rdfs:label "Business Process Execution Language"@en .
+         rdfs:label "Business Process Execution Language"@en ;
+         sto:hasDBpediaResource <http://dbpedia.org/resource/Business_Process_Execution_Language> ;
+         sto:hasOfficialResource <https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel> ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Business_Process_Execution_Language> .
 
 
 ###  https://w3id.org/i40/sto#BPMN
@@ -1385,12 +1373,12 @@ sto:BPMN rdf:type owl:NamedIndividual ,
                   sto:Standard ;
          sto:hasClassification sto:SCM ;
          sto:hasDeveloper sto:OMG ;
-         sto:hasDBpediaResource "http://dbpedia.org/page/Business_Process_Model_and_Notation" ;
-         sto:hasOfficialResource "http://www.bpmn.org/" ;
          sto:hasTag "BPMN"@en ;
-         sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation" ;
          rdfs:comment "Business Process Model and Notation is a graphical representation for specifying business processes in a business process model."@en ;
-         rdfs:label "Business Process Model Notation"@en .
+         rdfs:label "Business Process Model Notation"@en ;
+         sto:hasDBpediaResource <http://dbpedia.org/page/Business_Process_Model_and_Notation> ;
+         sto:hasOfficialResource <http://www.bpmn.org/> ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation> .
 
 
 ###  https://w3id.org/i40/sto#BusinessProcessExecution
@@ -2579,7 +2567,6 @@ sto:IEC_29100 rdf:type owl:NamedIndividual ;
 sto:IEC_29115 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29115 ;
-              dcterms:description ""@en ;
               rdfs:label "IEC 29115"^^xsd:string .
 
 
@@ -2629,13 +2616,16 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               sto:hasTag "ISO/IEC/IEEE 42010"@en ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010" ;
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
-              rdfs:label "IEC 60038:1983+AMD1:1994+AMD2:1997"@en ;
-              skos:note "The IIRA is based in this standards" .
+              rdfs:label "IEC 42010"@en ;
+              skos:note "The IIRA is based on this standards" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60027_2006
 sto:IEC_60027_2006 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
+                   sto:hasAvailableLanguage lang:eng ,
+                                            lang:fra ,
+                                            lang:spa ;
                    sto:hasFileSize sto:FileSizeIEC_60027_2006 ;
                    sto:hasICS sto:ICS_01_060 ;
                    sto:hasPublisher sto:IEC ;
@@ -2650,7 +2640,6 @@ sto:IEC_60027_2006 rdf:type owl:NamedIndividual ,
                    dcterms:title "Letter symbols to be used in electrical technology - Part 6: Control technology"@en ;
                    rdfs:comment "This part of IEC 60027 is applicable to control technology. It gives names and symbols for quantities, signals and functions, and their units."@en ;
                    rdfs:label "IEC 60027-6:2006"@en ;
-                   sto:hasAvailableLanguage "English/French, Spanish"@en ;
                    sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
                    sto:hasOfficialResource <https://webstore.iec.ch/publication/96> ;
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
@@ -2709,7 +2698,8 @@ sto:IEC_60050_1998 rdf:type owl:NamedIndividual ,
                    sto:hasTechnicalCommittee sto:TC_1 ;
                    sto:hasEdition "2.0"^^xsd:float ;
                    sto:hasImplementationFormat "Document"@en ;
-                   sto:hasPages 129 ;
+                   sto:hasPages "129"^^xsd:int ,
+                                129 ;
                    sto:hasPublicationDate "1998-04-30"^^xsd:date ;
                    sto:hasStatus "Replaced"@en ;
                    sto:hasTag "IEC 60050-101:1998"@en ;
@@ -2718,7 +2708,8 @@ sto:IEC_60050_1998 rdf:type owl:NamedIndividual ,
                    rdfs:label "IEC 60050-101:1998"@en ;
                    sto:hasAvailableLanguage "English/French, Spanish"@en ;
                    sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
-                   sto:hasOfficialResource <https://webstore.iec.ch/publication/159> ;
+                   sto:hasOfficialResource <https://webstore.iec.ch/publication/1163> ,
+                                           <https://webstore.iec.ch/publication/159> ;
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
 
@@ -3326,8 +3317,6 @@ sto:IEC_60870_P5_S101_2003 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-5-101:2003"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 5-101: Transmissionprotocols - Companion standard for basic telecontrol tasks"@en ;
                            rdfs:comment """IEC 60870-5-101:2003+A1:2015 Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. Defines a telecontrol companion standard that enables interoperability among compatible telecontrol equipment. The defined telecontrol companion standard utilizes standards of the IEC 60870-5 series of documents. 
-This publication is of high relevance for Smart Grid. This consolidated version consists of the second edition (2003) and its amendment 1 (2015). Therefore, no need to order amendment in addition to this publication."""@en ,
-                                        """IEC 60870-5-101:2003+A1:2015 Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. Defines a telecontrol companion standard that enables interoperability among compatible telecontrol equipment. The defined telecontrol companion standard utilizes standards of the IEC 60870-5 series of documents. 
 This publication is of high relevance for Smart Grid. This consolidated version consists of the second edition (2003) and its amendment 1 (2015). Therefore, no need to order amendment in addition to this publication."""@en ;
                            rdfs:label "IEC 60870-5-101:2003"@en ;
                            sto:hasAvailableLanguage "English"@en ;
@@ -3350,8 +3339,6 @@ sto:IEC_60870_P5_S102_1996 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-5-102:1996"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 5: Transmission protocols - Section 102: Companion standard for the transmission of integrated totals in electric power systems"@en ;
                            rdfs:comment """Standardizes the transmission of integrated totals representing the amount of electrical energy transferred between power utilities, or between a power utility and independent producers on a high voltage or medium voltage network.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Standardizes the transmission of integrated totals representing the amount of electrical energy transferred between power utilities, or between a power utility and independent producers on a high voltage or medium voltage network.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 60870-5-102:1996"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3374,8 +3361,6 @@ sto:IEC_60870_P5_S103_1997 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-5-103:1997"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 5-103: Transmission protocols - Companion standard for the informative interface of protection equipment"@en ;
                            rdfs:comment """Applies to protection equipment with coded bit serial data transmission for exchanging information with control systems. Defines a companion standard that enables interoperability between protection equipment and devices of a control system in a substation.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Applies to protection equipment with coded bit serial data transmission for exchanging information with control systems. Defines a companion standard that enables interoperability between protection equipment and devices of a control system in a substation.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 60870-5-103:1997"@en ;
                            sto:hasAvailableLanguage " English/French"@en ,
@@ -3400,8 +3385,6 @@ sto:IEC_60870_P5_S104_2016 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-5-104:2006"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 5-104: Transmission protocols - Network access for IEC 60870-5-101 using standardtransport profiles"@en ;
                            rdfs:comment """IEC 60870-5-104:2006+A1:2016 Defines a telecontrol companion standard that enables interoperability among compatible telecontrol equipment. Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. 
-This publication is of high relevance for Smart Grid. This consolidated version consists of the second edition (2006) and its amendment 1 (2012). Therefore, no need to order amendment in addition to this publication."""@en ,
-                                        """IEC 60870-5-104:2006+A1:2016 Defines a telecontrol companion standard that enables interoperability among compatible telecontrol equipment. Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. 
 This publication is of high relevance for Smart Grid. This consolidated version consists of the second edition (2006) and its amendment 1 (2012). Therefore, no need to order amendment in addition to this publication."""@en ;
                            rdfs:label "IEC 60870-5-104:2006"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3445,8 +3428,6 @@ sto:IEC_60870_P5_S2_1992 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-5-2:1992"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 5: Transmission protocols - Section 2: Link transmission procedures"@en ;
                          rdfs:comment """Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. 
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. 
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 60870-5-2:1992"@en ;
                          sto:hasAvailableLanguage " English/French"@en ,
@@ -3470,8 +3451,6 @@ sto:IEC_60870_P5_S3_1992 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-5-3:1992"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 5: Transmission protocols - Section 3: General structure of application data"@en ;
                          rdfs:comment """Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes; specifies rules for structuring application data units in transmission frames of telecontrol systems.
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes; specifies rules for structuring application data units in transmission frames of telecontrol systems.
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 60870-5-3:1992"@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -3494,8 +3473,6 @@ sto:IEC_60870_P5_S4_1993 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-5-4:1993"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 5: Transmission protocols - Section 4: Definition and coding of application information elements"@en ;
                          rdfs:comment """Gives rules for defining information elements and presents a set of information elements, in particular of digital and analog process variables frequently used in telecontrol applications. 
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Gives rules for defining information elements and presents a set of information elements, in particular of digital and analog process variables frequently used in telecontrol applications. 
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 60870-5-4:1993"@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -3518,8 +3495,6 @@ sto:IEC_60870_P5_S5_1995 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-5-5:1995"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 5: Transmission protocols - Section 5: Basic application functions"@en ;
                          rdfs:comment """Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. It defines a telecontrol companion standard that enables interoperability among compatible telecontrol equipment. 
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Applies to telecontrol equipment and systems with coded bit serial data transmission for monitoring and controlling geographically widespread processes. It defines a telecontrol companion standard that enables interoperability among compatible telecontrol equipment. 
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 60870-5-5:1995"@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -3564,8 +3539,6 @@ sto:IEC_60870_P6_S2_1995 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-6-2:1995"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Section 2: Use of basic standards (OSI layers 1-4)"@en ;
                          rdfs:comment """Considers the standards related to layers 1-4 of the OSI reference model and describes the role and the functions carried out by each layer.
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Considers the standards related to layers 1-4 of the OSI reference model and describes the role and the functions carried out by each layer.
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 60870-6-2:1995"@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -3588,8 +3561,6 @@ sto:IEC_60870_P6_S501_1995 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-6-501:1995"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Section 501: TASE.1 Service definitions"@en ;
                            rdfs:comment """Defines the services provided by a telecontrol specific application-service-element - the Telecontrol Application Service Element No. 1 (TASE.1) - for the exchange of process data in telecontrol systems.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Defines the services provided by a telecontrol specific application-service-element - the Telecontrol Application Service Element No. 1 (TASE.1) - for the exchange of process data in telecontrol systems.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 60870-6-501:1995"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3612,8 +3583,6 @@ sto:IEC_60870_P6_S502_1995 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-6-502:1995"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Section 502: TASE.1 Protocol definitions"@en ;
                            rdfs:comment """Specifies the protocol for the services provided by an application-service-element - the Telecontrol Application Service Element No. 1 (TASE.1) - to support the exchange of process data between telecontrol systems.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Specifies the protocol for the services provided by an application-service-element - the Telecontrol Application Service Element No. 1 (TASE.1) - to support the exchange of process data between telecontrol systems.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 60870-6-502:1995"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3638,10 +3607,6 @@ sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
                            rdfs:comment """IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:
 - certain objects were made informative;
 - services associated with the informative objects were made informative;
-- certain TASE.2 conformance blocks were made out-of-scope."""@en ,
-                                        """IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:
-- certain objects were made informative;
-- services associated with the informative objects were made informative;
 - certain TASE.2 conformance blocks were made out-of-scope."""@en ;
                            rdfs:label "IEC 60870-6-503:2014"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3664,8 +3629,6 @@ sto:IEC_60870_P6_S601_1994 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-6-601:1994"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6: Telecontrol protocol s compatible with ISO standards and ITU-T recommendations - Sect ion 601: Functional profile for providing the connection-oriente d transport service in an end system connected via permanent acc ess to a packet switched data network"@en ;
                            rdfs:comment """Defines the functional profile which provides the connection-oriented transport service in an end system connected via permanent access to a packet switched data network.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Defines the functional profile which provides the connection-oriented transport service in an end system connected via permanent access to a packet switched data network.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 60870-6-601:1994"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3688,8 +3651,6 @@ sto:IEC_60870_P6_S701_1998 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-6-701:1998"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6-701: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Functional profile for providing the TASE.1 application service in end systems"@en ;
                            rdfs:comment """Describes the functional profile which defines the provision of the TASE.1 communication services between two control centre end systems.
-This publication is of high relevance for Smart Grid"""@en ,
-                                        """Describes the functional profile which defines the provision of the TASE.1 communication services between two control centre end systems.
 This publication is of high relevance for Smart Grid"""@en ;
                            rdfs:label "IEC 60870-6-701:1998"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3713,9 +3674,6 @@ sto:IEC_60870_P6_S702_2014 rdf:type owl:NamedIndividual ,
                            dcterms:title "Telecontrol equipment and systems - Part 6-702: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Functional profile for providing the TASE.2 application service in end systems"@en ;
                            rdfs:comment """IEC 60870-6-702:2014 is a functional profile (FP) and defines the provision of the TASE.2 communications services between two control centre end systems. It is supported by the transport services implemented in accordance with transport-profiles defined for the type of network that interconnects the control centre end systems. The main changes with respect to the previous edition are listed below:
 - certain objects were moved from being normative to informative;
-- certain TASE.2 conformance blocks have been made out-of-scope. These changes were made in order to remove TASE.2 blocks that were seldom used and whose capabilities are typically implemented by some other means besides TASE.2. This was done to promote interoperability of implementations from an application perspective."""@en ,
-                                        """IEC 60870-6-702:2014 is a functional profile (FP) and defines the provision of the TASE.2 communications services between two control centre end systems. It is supported by the transport services implemented in accordance with transport-profiles defined for the type of network that interconnects the control centre end systems. The main changes with respect to the previous edition are listed below:
-- certain objects were moved from being normative to informative;
 - certain TASE.2 conformance blocks have been made out-of-scope. These changes were made in order to remove TASE.2 blocks that were seldom used and whose capabilities are typically implemented by some other means besides TASE.2. This was done to promote interoperability of implementations from an application perspective."""@en ;
                            rdfs:label "IEC 60870-6-702:2014"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -3738,9 +3696,6 @@ sto:IEC_60870_P6_S802_2014 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 60870-6-802:2014"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6-802: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - TASE.2 Object models"@en ;
                            rdfs:comment """IEC 60870-6-802:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. The standard includes the exchange of real-time data indications, control operations, time series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:
-- certain objects have been changed from informative to normative;
-- certain TASE.2 conformance blocks have been made out of scope."""@en ,
-                                        """IEC 60870-6-802:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. The standard includes the exchange of real-time data indications, control operations, time series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:
 - certain objects have been changed from informative to normative;
 - certain TASE.2 conformance blocks have been made out of scope."""@en ;
                            rdfs:label "IEC 60870-6-802:2014"@en ;
@@ -3793,8 +3748,6 @@ sto:IEC_61000_P6_S2_2016 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 61000-6-2:2016"@en ;
                          dcterms:title "Electromagnetic compatibility (EMC) - Part 6-2: Generic standards - Immunity standard for industrial environments"@en ;
                          rdfs:comment """IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
-IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."""@en ,
-                                      """IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
 IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."""@en ;
                          rdfs:label "IEC 61000-6-2:2016"@en ;
                          sto:hasAvailableLanguage "English"@en ;
@@ -3815,15 +3768,6 @@ sto:IEC_61010_P2_S012_2016 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 61010-2-012:2016"@en ;
                            dcterms:title "Safety requirements for electrical equipment for measurement, control, and laboratory use - Part 2-012: Particular requirements for climatic and environmental testing and other temperature conditioning equipment"@en ;
                            rdfs:comment """IEC 61010-2-012:2016 specifies safety requirements for electrical equipment and their accessories within the categories a) through c), wherever they are intended to be used, whenever that equipment incorporates one or more of the following characteristics:
-- A REFRIGERATING SYSTEM that is acted on or impacted by an integral heating function such that the combined heating and cooling system generates additional and/or more severe HAZARDS than those for the two systems if treated separately.
-- The materials being treated in the intended application introduce significant heat into the REFRIGERATING SYSTEM that the cooling system in the application yield additional and/or more severe HAZARDS than those for the cooling system if operated at the maximum RATED ambient alone.
-- An irradiation function for the materials being treated presenting additional HAZARDS.
-- A function to expose the materials being treated to excessive humidity, carbon dioxide, salt mist, or other substances which may result in additional HAZARDS.
-- A function of MECHANICAL MOVEMENT presenting additional HAZARDS.
-- Provision for an OPERATOR to walk-in to the operating area to load or unload the materials being treated.
-It has the status of a group safety publication in accordance with IEC Guide 104.
-This publication is to be read in conjunction with IEC 61010-1:2010."""@en ,
-                                        """IEC 61010-2-012:2016 specifies safety requirements for electrical equipment and their accessories within the categories a) through c), wherever they are intended to be used, whenever that equipment incorporates one or more of the following characteristics:
 - A REFRIGERATING SYSTEM that is acted on or impacted by an integral heating function such that the combined heating and cooling system generates additional and/or more severe HAZARDS than those for the two systems if treated separately.
 - The materials being treated in the intended application introduce significant heat into the REFRIGERATING SYSTEM that the cooling system in the application yield additional and/or more severe HAZARDS than those for the cooling system if operated at the maximum RATED ambient alone.
 - An irradiation function for the materials being treated presenting additional HAZARDS.
@@ -3863,18 +3807,6 @@ c) change documentation methodologies allowed,
 d) change some terminal markings,
 e) add clarity to some of the informative annexes,
 f) add Annex E with changes,
-g) add Annexes AA – FF."""@en ,
-                                        """
-IEC 61010-2-201:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
-
-IEC 61010-2-201:2017 specifies safety requirements and related verification tests for any product performing the function of control equipment and/or their associated peripherals. In addition, these products have as their intended use the command and control of machines, automated manufacturing and industrial processes, e.g. discrete and continuous control.
-This second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This second edition includes the following significant technical changes with respect to the previous edition;
-a) clarify, change, delete definitions which were causing confusion,
-b) change and clarify the temperature testing methodology,
-c) change documentation methodologies allowed,
-d) change some terminal markings,
-e) add clarity to some of the informative annexes,
-f) add Annex E with changes,
 g) add Annexes AA – FF."""@en ;
                            rdfs:label "IEC 61010-2-201:2017"@en ;
                            sto:hasAvailableLanguage "English"@en ;
@@ -3897,9 +3829,6 @@ sto:IEC_61010_P2_S202_2016 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 61010-2-202:2016"@en ;
                            dcterms:title "Safety requirements for electrical equipment for measurement, control and laboratory use - Part 2-202: Particular requirements for electrically operated valve actuators"@en ;
                            rdfs:comment """IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. 
-
-This publication is to be read in conjunction with IEC 61010-1:2010."""@en ,
-                                        """IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. 
 
 This publication is to be read in conjunction with IEC 61010-1:2010."""@en ;
                            rdfs:label "IEC 61010-2-202:2016"@en ;
@@ -3962,8 +3891,6 @@ sto:IEC_61334_P3_S1_1998 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 61334-3-1:1998 "@en ;
                          dcterms:title "Distribution automation using distribution line carrier systems - Part 3-1: Mains signalling requirements - Frequency bands and output levels"@en ;
                          rdfs:comment """Applies to electrical equipment used in distribution line carrier systems on both medium-voltage and low-voltage distribution networks. Specifies requirements such as frequency bands, output levels, spurious emissions, etc.
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Applies to electrical equipment used in distribution line carrier systems on both medium-voltage and low-voltage distribution networks. Specifies requirements such as frequency bands, output levels, spurious emissions, etc.
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 61334-3-1:1998 "@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -3987,8 +3914,6 @@ sto:IEC_61334_P3_S21_1996 rdf:type owl:NamedIndividual ,
                           sto:hasTag "IEC 61334-3-21:1996 "@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 3: Mains signalling requirements - Section 21: MV phase-to-phase isolated capacitive coupling device"@en ;
                           rdfs:comment """Establishes definitions, requirements, methods of testing and rated values for phase-to-phase isolated capacitive coupling devices to be used in medium-voltage (MV) distribution line carrier systems.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Establishes definitions, requirements, methods of testing and rated values for phase-to-phase isolated capacitive coupling devices to be used in medium-voltage (MV) distribution line carrier systems.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-3-21:1996 "@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4012,8 +3937,6 @@ sto:IEC_61334_P3_S22_2001 rdf:type owl:NamedIndividual ,
                           sto:hasTag "IEC 61334-3-22:2001 "@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 3-22: Mains signalling requirements - MV phase-to-earth and screen-to-earth intrusive coupling devices"@en ;
                           rdfs:comment """Establishes definitions, requirements, methods of testing and rated values for phase-to-earth capacitive and screen-to-earth intrusive inductive coupling devices to be used in medium voltage DLC systems.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Establishes definitions, requirements, methods of testing and rated values for phase-to-earth capacitive and screen-to-earth intrusive inductive coupling devices to be used in medium voltage DLC systems.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-3-22:2001�"@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4037,8 +3960,6 @@ sto:IEC_61334_P4_S1_1996 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 61334-4-1:1996 "@en ;
                          dcterms:title "Distribution automation using distribution line carrier systems - Part 4: Data communication protocols - Section 1: Reference model of the communication system"@en ;
                          rdfs:comment """Provides a basic description of the communication system based on a three layer model. Application examples are control and monitoring of the distribution network, order broadcast, control of user interfaces, public lighting, automatic meter reading, etc.
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Provides a basic description of the communication system based on a three layer model. Application examples are control and monitoring of the distribution network, order broadcast, control of user interfaces, public lighting, automatic meter reading, etc.
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 61334-4-1:1996 "@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -4062,8 +3983,6 @@ sto:IEC_61334_P4_S32_1996 rdf:type owl:NamedIndividual ,
                           sto:hasTag "IEC 61334-4-32:1996 "@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 4: Data communication protocols - Section 32: Data link layer - Logical link control (LLC)"@en ;
                           rdfs:comment """Covers the services required of, or by, the DCP Logical Link Control (LLC) sublayer entity at the logical interfaces with the application layer and the MAC sublayer.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Covers the services required of, or by, the DCP Logical Link Control (LLC) sublayer entity at the logical interfaces with the application layer and the MAC sublayer.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-4-32:1996 "@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4087,8 +4006,6 @@ sto:IEC_61334_P4_S33_1998 rdf:type owl:NamedIndividual ,
                           sto:hasTag "IEC 61334-4-33:1998 "@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 4-33: Data communication protocols - Data link layer - Connection oriented protocol"@en ;
                           rdfs:comment """Covers the services required by the data communication protocol (DCP) logical link control (LLC) sublayer entity at the logical interfaces with the LLC -user layer and the MAC sublayer, using the connection-oriented LLC procedures.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Covers the services required by the data communication protocol (DCP) logical link control (LLC) sublayer entity at the logical interfaces with the LLC -user layer and the MAC sublayer, using the connection-oriented LLC procedures.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-4-33:1998 "@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4109,11 +4026,10 @@ sto:IEC_61334_P4_S41_1996 rdf:type owl:NamedIndividual ,
                           sto:hasPages "247"^^xsd:int ;
                           sto:hasPublicationDate "1996-08-13"^^xsd:date ;
                           sto:hasStabilityDate "2018"^^xsd:gYear ;
-                          sto:hasTag "IEC 61334-4-41:1996�"@en ;
+                          sto:hasTag "IEC 61334-4-41:1996"@en ,
+                                     "IEC 61334-4-41:1996�"@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 4: Data communication protocols - Section 41: Application protocol - Distribution line message specification"@en ;
                           rdfs:comment """Defines the distribution line message specification (DLMS) within the OSI application layer.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Defines the distribution line message specification (DLMS) within the OSI application layer.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-4-41:1996�"@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4137,8 +4053,6 @@ sto:IEC_61334_P4_S42_1996 rdf:type owl:NamedIndividual ,
                           sto:hasTag "IEC 61334-4-42:1996"@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems -Part 4: Data communication protocols - Section 42: Applicationprotocols - Application laye"@en ;
                           rdfs:comment """Describes the rules used to design an application service element, the ISO connectionless ACSE (Application Control Service Element), and the DLMS Application Service Element.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Describes the rules used to design an application service element, the ISO connectionless ACSE (Application Control Service Element), and the DLMS Application Service Element.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-4-42:1996"@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4162,8 +4076,6 @@ sto:IEC_61334_P4_S511_2000 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 61334-4-511:2000"@en ;
                            dcterms:title "Distribution automation using distribution line carrier systems - Part 4-511: Data communication protocols - Systems management - CIASE protocol"@en ;
                            rdfs:comment """Specifies the data communication protocol (DCP) management requirements. Describes the management services in an abstract way as well as the underlying protocol.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Specifies the data communication protocol (DCP) management requirements. Describes the management services in an abstract way as well as the underlying protocol.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 61334-4-511:2000"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -4186,8 +4098,6 @@ sto:IEC_61334_P4_S512_2001 rdf:type owl:NamedIndividual ,
                            sto:hasTag "IEC 61334-4-512:2001"@en ;
                            dcterms:title "Distribution automation using distribution line carrier systems - Part 4-512: Data communication protocols - System management using profile 61334-5-1 - Management Information Base (MIB)"@en ;
                            rdfs:comment """Specifies the Management Information Base (MIB), which is used for the management of the communication profile defined by the following standards: IEC 61334-5-1, IEC 61334-4-32, IEC 61334-4-42, and IEC 61334-4-41.
-This publication is of high relevance for Smart Grid."""@en ,
-                                        """Specifies the Management Information Base (MIB), which is used for the management of the communication profile defined by the following standards: IEC 61334-5-1, IEC 61334-4-32, IEC 61334-4-42, and IEC 61334-4-41.
 This publication is of high relevance for Smart Grid."""@en ;
                            rdfs:label "IEC 61334-4-512:2001"@en ;
                            sto:hasAvailableLanguage "English/French"@en ;
@@ -4211,8 +4121,6 @@ sto:IEC_61334_P4_S61_1998 rdf:type owl:NamedIndividual ,
                           sto:hasTag "IEC 61334-4-61:1998"@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 4-61: Data communication protocols - Network layer - Connectionless protocol"@en ;
                           rdfs:comment """Covers the services required by the data communication protocol (DCP) network layer (N) sublayer entity at the logical interfaces with the N user layer and the LLC sublayer, using the connectionless N procedures.
-This publication is of high relevance for Smart Grid."""@en ,
-                                       """Covers the services required by the data communication protocol (DCP) network layer (N) sublayer entity at the logical interfaces with the N user layer and the LLC sublayer, using the connectionless N procedures.
 This publication is of high relevance for Smart Grid."""@en ;
                           rdfs:label "IEC 61334-4-61:1998"@en ;
                           sto:hasAvailableLanguage "English/French"@en ;
@@ -4235,8 +4143,6 @@ sto:IEC_61334_P5_S1_2001 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 61334-5-1:2001"@en ;
                          dcterms:title "Distribution automation using distribution line carrier systems - Part 5-1: Lower layer profiles - The spread frequency shift keying (S-FSK) profile"@en ;
                          rdfs:comment """Describes the requirements of S-FSK (frequency shift keying modulation) in conjunction with the services provided by the physical layer entity and the MAC sublayer. The transmission medium is assumed to be the distribution network on both MV or LV level. To be used in conjunction with IEC 61334-4-32.
-This publication is of high relevance for Smart Grid."""@en ,
-                                      """Describes the requirements of S-FSK (frequency shift keying modulation) in conjunction with the services provided by the physical layer entity and the MAC sublayer. The transmission medium is assumed to be the distribution network on both MV or LV level. To be used in conjunction with IEC 61334-4-32.
 This publication is of high relevance for Smart Grid."""@en ;
                          rdfs:label "IEC 61334-5-1:2001"@en ;
                          sto:hasAvailableLanguage "English/French"@en ;
@@ -4260,8 +4166,6 @@ sto:IEC_61334_P6_2000 rdf:type owl:NamedIndividual ,
                       sto:hasTag "IEC 61334-6:2000"@en ;
                       dcterms:title "Distribution automation using distribution line carrier systems - Part 6: A-XDR encoding rule"@en ;
                       rdfs:comment """Defines a set of encoding rules that may be used to derive the specification of a transfer syntax for values of types defined in the DLMS core standard using the ASN.1 notation (see IEC 61334-4-41).
-This publication is of high relevance for Smart Grid."""@en ,
-                                   """Defines a set of encoding rules that may be used to derive the specification of a transfer syntax for values of types defined in the DLMS core standard using the ASN.1 notation (see IEC 61334-4-41).
 This publication is of high relevance for Smart Grid."""@en ;
                       rdfs:label "IEC 61334-6:2000"@en ;
                       sto:hasAvailableLanguage "English/French"@en ;
@@ -4844,6 +4748,14 @@ sto:IETF rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Internet_Engineering_Task_Force> .
 
 
+###  https://w3id.org/i40/sto#IIRA
+sto:IIRA rdf:type owl:NamedIndividual ,
+                  sto:StandardizationFramework ;
+         sto:hasOfficialResource "http://www.iiconsortium.org/IIRA.htm" ;
+         rdfs:comment "Industrial Internet Reference Architecture"@en ;
+         rdfs:label "IIRA"@en .
+
+
 ###  https://w3id.org/i40/sto#IIRC
 sto:IIRC rdf:type owl:NamedIndividual ,
                   sto:StandardizationFramework ;
@@ -5386,7 +5298,7 @@ sto:ISO_26262 rdf:type owl:NamedIndividual ,
               sto:hasDBpediaResource "http://dbpedia.org/resource/ISO_26262"^^xsd:anyURI ;
               sto:hasOfficialResource "https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en"^^xsd:anyURI ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_26262"^^xsd:anyURI ;
-              dc11:title "Road vehicles – Functional safety"@en ;
+              dcterms:title "Road vehicles – Functional safety"@en ;
               rdfs:comment "ISO 26262, titled \"Road vehicles – Functional safety\", is an international standard for functional safety of electrical and/or electronic systems in production automobiles defined by the International Organization for Standardization (ISO) in 2011."@en ;
               rdfs:label "ISO 26262"^^xsd:string .
 
@@ -6482,7 +6394,6 @@ sto:TC_95 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
 sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
-                       dcterms:title xsd:string ;
                        sto:abbreviation "TC" .
 
 
@@ -6773,10 +6684,8 @@ sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/pu
 
 
 sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:comment "Specifies that a given Publicaion is an International Standard"@en ;
-             rdfs:label "Standard"@en ,
-                        "Standard" ;
-             cc:attributionURL "http://www.iec.ch" ;
+             rdfs:label "Standard"@en ;
+             cc:attributionURL <http://www.iec.ch> ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
              rdfs:isDefinedBy sto:IEC ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
@@ -6786,7 +6695,8 @@ sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
                        skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
                        rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
                        rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
-                       rdfs:isDefinedBy sto:IEC .
+                       rdfs:isDefinedBy sto:IEC ;
+                       dcterms:title xsd:string .
 
 
 sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ;
@@ -6798,22 +6708,20 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 
-sto:hasAvailableLanguage skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
+sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ;
+                         skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
                          """ ;
                          rdfs:label "has Available Language"@en ;
-                         rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
+                         rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
+                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
                        rdfs:comment "Instance's DBpedia Resource"@en .
 
 
-sto:hasDomain rdfs:label "has Domain"@en ;
-              rdfs:comment "Describes the domain, in which the standard is used"@en .
-
-
-sto:hasMotivation rdfs:label "has Motivation"@en ;
-                  rdfs:comment "Describes the motivation of the standards"@en .
+sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
+              rdfs:label "has Domain"@en .
 
 
 sto:hasOfficialResource rdfs:comment "Standard Official Website"@en ;
