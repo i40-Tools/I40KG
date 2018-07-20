@@ -592,7 +592,7 @@ sto:Domain rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#IDS_Layer
-sto:IDS_Layer rdf:type owl:Class ;
+sto:IDSLayer rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Class ;
                                     owl:oneOf ( sto:IDS_BusinessLayer
                                                 sto:IDS_FunctionalLayer
@@ -605,7 +605,7 @@ sto:IDS_Layer rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#IDS_Perspective
-sto:IDS_Perspective rdf:type owl:Class ;
+sto:IDSPerspective rdf:type owl:Class ;
                     owl:equivalentClass [ rdf:type owl:Class ;
                                           owl:oneOf ( sto:IDS_Certification
                                                       sto:IDS_Governance
@@ -2388,8 +2388,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_29115
 sto:IEC_29115 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              owl:sameAs sto:ISO_29115 ;
-              dcterms:description ""@en .
+              owl:sameAs sto:ISO_29115 .
 
 
 ###  https://w3id.org/i40/sto#IEC_29161
@@ -2433,8 +2432,8 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               sto:hasTag "ISO/IEC/IEEE 42010"@en ;
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010" ;
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
-              rdfs:label "IEC 60038:1983+AMD1:1994+AMD2:1997"@en ;
-              skos:note "The IIRA is based in this standards" .
+              rdfs:label "IEC 42010"@en ;
+              skos:note "The IIRA is based on this standards" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60027_2006
@@ -2470,8 +2469,7 @@ sto:FileSizeIEC_60038_2009 rdf:type owl:NamedIndividual ,
      					   rdfs:comment "Specifies the file size of the document for standard IEC 60038:2009"@en ;
      					   rdfs:label "FileSize IEC 60038:2009"@en .
 
-sto:IEC_61690_P2_2000
-       rdf:type                        owl:NamedIndividual , sto:Standard ;
+sto:IEC_61690_P2_2000  rdf:type                        owl:NamedIndividual , sto:Standard ;
         rdfs:comment               "IEC 61690-2:2000 defines the syntax and semantics for EDIF Version 4 0 0. EDIF Version 4 0 0 addresses EDIF Level 0 and Level 1. EDIF Version 3 0 0 provides support for Connectivity and Schematics; EDIF Version 4 0 0 offers additional capability by providing support for the representation of Printed Circuit Boards (PCBs) and Multi-chip Modules (MCMs) including technology rules and assembly drawings."@en ;
         rdfs:label                 "IEC 61690-2:2000"@en ;
         sto:hasAvailableLanguage   "English"@en , " French"@en ;
@@ -2518,6 +2516,8 @@ sto:IEC_61010_P2_S202_2016
         sto:hasTag                 "IEC 61010-2-202:2016"@en ;
         sto:hasTechnicalCommittee  sto:TC_65 ;
         dcterms:title               "Safety requirements for electrical equipment for measurement, control and laboratory use - Part 2-202: Particular requirements for electrically operated valve actuators"@en .
+
+
 sto:IEC_61010_P2_S201_2017
        rdf:type                        sto:Standard , owl:NamedIndividual ;
         rdfs:comment               "\nIEC 61010-2-201:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.\n\nIEC 61010-2-201:2017 specifies safety requirements and related verification tests for any product performing the function of control equipment and/or their associated peripherals. In addition, these products have as their intended use the command and control of machines, automated manufacturing and industrial processes, e.g. discrete and continuous control.\nThis second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This second edition includes the following significant technical changes with respect to the previous edition;\na) clarify, change, delete definitions which were causing confusion,\nb) change and clarify the temperature testing methodology,\nc) change documentation methodologies allowed,\nd) change some terminal markings,\ne) add clarity to some of the informative annexes,\nf) add Annex E with changes,\ng) add Annexes AA – FF."@en ;
@@ -3238,7 +3238,7 @@ sto:IEC_61334_P4_S41_1996
         sto:hasPublicationDate     "1996-08-13"^^xsd:date ;
         sto:hasPublisher           sto:IEC ;
         sto:hasStabilityDate       "2018"^^xsd:gYear ;
-        sto:hasTag                 "IEC 61334-4-41:1996�"@en ;
+        sto:hasTag                 "IEC 61334-4-41:1996"@en ;
         sto:hasTechnicalCommittee  sto:TC_57 ;
         dcterms:title               "Distribution automation using distribution line carrier systems - Part 4: Data communication protocols - Section 41: Application protocol - Distribution line message specification"@en ;
         sto:hasWikipediaArticle    <https://en.wikipedia.org/wiki/IEC_61334> .
