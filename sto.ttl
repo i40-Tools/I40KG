@@ -189,8 +189,9 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
-                         rdfs:domain foaf:Document .
-
+                         rdfs:domain foaf:Document ;
+                         rdfs:label "hasAvailableLanguage"@en;
+                         rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en .
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
@@ -2453,7 +2454,6 @@ sto:IEC_60027_2006 rdf:type owl:NamedIndividual ,
                    dcterms:title "Letter symbols to be used in electrical technology - Part 6: Control technology"@en ;
                    rdfs:comment "This part of IEC 60027 is applicable to control technology. It gives names and symbols for quantities, signals and functions, and their units."@en ;
                    rdfs:label "IEC 60027-6:2006"@en ;
-                   sto:hasAvailableLanguage "English/French, Spanish"@en ;
                    sto:hasAvailableLanguage lang:eng, 
                                             lang:fra,
                                             lang:spa;
