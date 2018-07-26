@@ -928,7 +928,7 @@ iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#IIRA
 iira:IIRA rdf:type owl:NamedIndividual ,
                    sto:StandardizationFramework ;
-          sto:hasOfficialResource "http://www.iiconsortium.org/IIRA.htm" ;
+          sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> ;
           rdfs:comment "Industrial Internet Reference Architecture"@en ;
           rdfs:label "IIRA"@en .
 
@@ -6896,7 +6896,7 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13584> ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/5380%0Ahttp://www.iso.org/iso/catalogue_detail.htm?csnumber=43423> ;
               sto:hasTag "Industrial automation systems and integration"@en ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_13584" ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13584> ;
               dcterms:hasLicense "Private"@en ;
               rdfs:comment "ISO 13584 is a series of International Standards for the computer-sensible representation and exchange of parts library data. The objective is to provide a mechanism capable of transferring parts library data, independent from any particular system. The nature of this description makes it suitable not only for the exchange of files containing parts libraries, but also as a basis for implementing and sharing databases of parts library data, and archiving"@en ;
               rdfs:label "ISO 13584"@en ;
@@ -7305,7 +7305,7 @@ sto:ISO_27017 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasOfficialResource <https://www.iso.org/standard/43757.html> ;
-              sto:hasPublicationDate "2015-12-01" ;
+              sto:hasPublicationDate "2015-12-01"^^xsd:date ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27000-series> ;
               dc11:title "Code of practice for information security controls based on ISO/IEC 27002 for cloud services"@en ;
               rdfs:comment "The ISO/IEC 270172 standard provides guidance on the information security elements of cloud computing. It assists with the implementation of cloud-specific information security controls, supplementing the guidance in ISO 27000 series standards."@en ;
@@ -7435,7 +7435,7 @@ sto:ISO_29134 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_29161
 sto:ISO_29161 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasOfficialResource "https://www.iso.org/standard/45240.html" ;
+              sto:hasOfficialResource <https://www.iso.org/standard/45240.html> ;
               rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures."@en ;
               rdfs:label "ISO 29161" .
 
@@ -7507,6 +7507,18 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
              rdfs:label "ISO 9000"@en .
 
 
+
+###  https://w3id.org/i40/sto#ISO_9594
+sto:ISO_9594 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:DataSovereignty ,
+                                   idsram:Certification ,
+                                   idsram:Security ;
+             sto:hasPublisher sto:ISO ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> ;
+             rdfs:label "ISO/IEC 9594"@en ,
+                        "X.509"^^xsd:string .
+
 ###  https://w3id.org/i40/sto#ISO_9594-8
 sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
@@ -7525,6 +7537,7 @@ sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
                rdfs:label "ISO/IEC 9594-8"@en ,
                           "X.509"^^xsd:string ;
                rdfs:seeAlso "https://tools.ietf.org/html/rfc5280" .
+
 
 
 
