@@ -145,6 +145,21 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+
+###  https://w3id.org/i40/sto#alignesWith
+sto:alignesWith rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf dul:associatedWith ;
+             rdf:type owl:SymmetricProperty ;
+             rdfs:domain sto:StandardClassification ;
+             rdfs:range sto:StandardClassification ;
+             rdfs:comment "indicates that some Standard Classification entity has a similar scope as another. This property most probably is symmetric but not transitive."@en ;
+             rdfs:label "alignes With"@en .
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
+dul:associatedWith rdf:type owl:ObjectProperty .
+
+
+
 ###  http://purl.org/dc/terms/hasLicense
 dcterms:hasLicense rdf:type owl:ObjectProperty ;
                    rdfs:domain sto:Standard ;
@@ -474,6 +489,13 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://example.org/iira#CrosscuttingFunction
+iira:CrosscuttingFunction rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty dul:isPartOf ;
+                                            owl:hasValue iira:FunctionalViewpoint
+                                          ] .
+
+
 ###  http://dbpedia.org/ontology#Country
 dbo:Country rdf:type owl:Class .
 
@@ -501,7 +523,10 @@ iira:FunctionalDomain rdf:type owl:Class ;
 ###  http://example.org/iira#SystemCharacteristics
 iira:SystemCharacteristics rdf:type owl:Class ;
                            rdfs:subClassOf sto:StandardClassification ;
-                           rdfs:comment "TODO: System Characteristics are partOf IIRA:FunctionalViewpoint"^^xsd:string ;
+						   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty dul:isPartOf ;
+                                             owl:hasValue iira:FunctionalViewpoint
+                                           ] ;
                            rdfs:label "IIRA System Characteristic"^^xsd:string .
 
 
@@ -643,6 +668,11 @@ sto:ISA95Level rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#ISO_42010_ArchitectureDescription
 sto:ISO_42010_ArchitectureDescription rdf:type owl:Class ;
                                       owl:equivalentClass sto:StandardizationFramework .
+									  
+									  
+###  https://w3id.org/i40/sto#ISO_42010_Concern
+sto:ISO_42010_Concern rdf:type owl:Class ;
+                   rdfs:label "Concern" .
 
 
 ###  https://w3id.org/i40/sto#ISO_42010_Concern
@@ -1250,7 +1280,7 @@ sto:ANSI rdf:type owl:NamedIndividual ,
          sto:orgName "American National Standards Institute"@en ;
          rdfs:comment "The American National Standards Institute is a private non-profit organization that oversees the development of voluntary consensus standards for products, services, processes, systems, and personnel in the United States. The organization also coordinates U.S. standards with international standards so that American products can be used worldwide. ANSI accredits standards that are developed by representatives of other standards organizations, government agencies, consumer groups, companies, and others. These standards ensure that the characteristics and performance of products are consistent, that people use the same definitions and terms, and that products are tested the same way. ANSI also accredits organizations that carry out product or personnel certification in accordance with requirements defined in international standards."@en ;
          rdfs:label "ANSI"@en ;
-         sto:hasDBpediaResource "http://dbpedia.org/resource/American_National_Standards_Institute";
+         sto:hasDBpediaResource <http://dbpedia.org/resource/American_National_Standards_Institute>;
          sto:hasOfficialResource <https://www.ansi.org/> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true> .
 
@@ -1600,7 +1630,7 @@ sto:DeviceLevel rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ENISA
 sto:ENISA rdf:type owl:NamedIndividual ,
                    sto:StandardOrganization ;
-          sto:hasOfficialResource "https://www.enisa.europa.eu/" ;
+          sto:hasOfficialResource <https://www.enisa.europa.eu/> ;
           dcterms:title "European Union Agency for Network and Information Security"@en ;
           rdfs:comment "ENISA provides recommendations on cybersecurity, supports policy development and its implementation, and collaborates with operational teams throughout Europe."@en ;
           rdfs:label "ENISA"@en .
@@ -1612,7 +1642,7 @@ sto:ENISA_CloudComputing rdf:type owl:NamedIndividual ,
                          sto:hasClassification iira:Security ;
                          sto:hasPublisher sto:ENISA ;
                          sto:domainName "Cloud Computing"@en ;
-                         sto:hasOfficialResource "https://resilience.enisa.europa.eu/cloud-security-and-resilience/publications/cloud-computing-benefits-risks-and-recommendations-for-information-security" ;
+                         sto:hasOfficialResource <https://resilience.enisa.europa.eu/cloud-security-and-resilience/publications/cloud-computing-benefits-risks-and-recommendations-for-information-security> ;
                          sto:hasPublicationDate "2012-12-01"^^xsd:date ;
                          dcterms:title "Cloud Computing - Benefits, risks and recommendations for information security"@en ;
                          rdfs:comment "ENISA, supported by a group of subject matter expert comprising representatives from Industries, Academia and Governmental Organizations, has conducted, in the context of the Emerging and Future Risk Framework project, an risks assessment on cloud computing business model and technologies. The result is an in-depth and independent analysis that outlines some of the information security benefits and key security risks of cloud computing. The report provide also a set of practical recommendations.Produced by ENISA with contributions from a group of subject matter expert comprising representatives from Industry, Academia and Governmental Organizations, a risk assessment of cloud computing business model and technologies. This is an in-depth and independent analysis that outlines some of the information security benefits and key security risks of cloud computing. The report provide also a set of practical recommendations. It is produced in the context of the Emerging and Future Risk Framework project."@en ;
@@ -2750,7 +2780,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
               sto:hasDomain sto:ITSecurity ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62443 ;
-              sto:hasOfficialResource "https://www.iso.org/standard/57914.html" ;
+              sto:hasOfficialResource <https://www.iso.org/standard/57914.html> ;
               sto:hasPublicationDate "2011-01-12"^^xsd:date ;
               rdfs:comment "ISO/IEC 24760: it defines terms for identity management, and also specifies core concepts of identity and identity management and their relationships. It is applicable to any information system that processes identity information. A bibliography of documents describing various aspects of identity information management is provided."@en ;
               rdfs:label "IEC 24760"@en .
@@ -3896,9 +3926,9 @@ sto:IEC_60073_2002 rdf:type owl:NamedIndividual ,
 sto:IEC_60086 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasPublisher sto:IEC ;
-              sto:hasDBpediaResource "http://dbpedia.org/page/Battery_nomenclature#IEC_60086" ;
-              sto:hasOfficialResource "https://webstore.iec.ch/publication/22991" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Battery_nomenclature#IEC_60086" ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/Battery_nomenclature#IEC_60086> ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/22991> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Battery_nomenclature#IEC_60086> ;
               rdfs:comment "Standard battery nomenclature describes portable dry cell batteries that have physical dimensions and electrical characteristics interchangeable between manufacturers."@en ;
               rdfs:label "IEC 60086"@en .
 
@@ -5221,14 +5251,11 @@ sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
                            sto:hasStabilityDate "2018"^^xsd:gYear ;
                            sto:hasTag "IEC 60870-6-503:2014"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6-503: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - TASE.2 Services and protocol"@en ;
-                           rdfs:comment """IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:
-- certain objects were made informative;
-- services associated with the informative objects were made informative;
-- certain TASE.2 conformance blocks were made out-of-scope."""@en;
+                           rdfs:comment """IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition: - certain objects were made informative; - services associated with the informative objects were made informative; - certain TASE.2 conformance blocks were made out-of-scope."""@en ;
                            rdfs:label "IEC 60870-6-503:2014"@en ;
                            sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                            sto:hasOfficialResource <https://webstore.iec.ch/publication/3760> ;
-                           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870>.
+                           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S601_1994
@@ -6317,7 +6344,7 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
                                       rami:Station ,
                                       rami:WorkCenter ;
                 sto:hasPublisher sto:IEC ;
-                sto:hasOfficialResource "https://webstore.iec.ch/publication/6225" ;
+                sto:hasOfficialResource <https://webstore.iec.ch/publication/6225> ;
                 sto:hasTag "LOPs in PA"@en ;
                 dcterms:hasLicense "Private"@en ;
                 rdfs:comment "Industrial-process measurement and control - Data structures and elements in process equipment catalogs - Measuring equipment with analogue and digital output"@en ;
@@ -7487,8 +7514,8 @@ sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
                                      idsram:Certification ,
                                      idsram:Security ;
                sto:hasPublisher sto:ISO ;
-               sto:hasOfficialResource <https://www.iso.org/standard/72557.html"^^xsd:anyURI ;
-               sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280>^^xsd:string ;
+               sto:hasOfficialResource <https://www.iso.org/standard/72557.html> ;
+               sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> ;
                dcterms:title "Information technology -- Open Systems Interconnection -- The Directory -- Part 8: Public-key and attribute certificate frameworks"@en ;
                rdfs:comment """ISO/IEC 9594-8:2017 addresses some of the security requirements in the areas of authentication and other security services through the provision of a set of frameworks upon which full services can be based. Specifically, this Recommendation | International Standard defines frameworks for:
 
@@ -7743,7 +7770,7 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasClassification iira:Privacy ;
                 sto:hasPublisher sto:NIST ;
-                sto:hasOfficialResource <https://doi.org/10.6028/NIST.IR.8062>^^xsd:string ;
+                sto:hasOfficialResource <https://doi.org/10.6028/NIST.IR.8062> ;
                 sto:hasPublicationDate "2017-04-01"^^xsd:date ;
                 dc11:title "Privacy Risk Management for Federal Information Systems"@en ;
                 rdfs:comment "This document provides an introduction to the concepts of privacy engineering and risk management for federal information systems. These concepts establish the basis for a common vocabulary to facilitate better understanding and communication of privacy risk within federal information systems, and the effective implementation of privacy principles. This publication introduces two key components to support the application of privacy engineering and risk management: privacy engineering objectives and a privacy risk model."@en ;
@@ -7816,7 +7843,7 @@ sto:NIST_800-144 rdf:type owl:NamedIndividual ,
                  sto:hasPublisher sto:NIST ;
                  sto:domainName "Cloud Computing"@en ;
                  sto:hasOfficialResource <https://csrc.nist.gov/publications/detail/sp/800-144/final> ;
-                 sto:hasPublicationDate "2011-12-01" ;
+                 sto:hasPublicationDate "2011-12-01"^^xsd:date ;
                  dcterms:title "Guidelines on Security and Privacy in Public Cloud Computing"@en ;
                  rdfs:comment "Cloud computing can and does mean different things to different people. The common characteristics most interpretations share are on-demand scalability of highly available and reliable pooled computing resources, secure access to metered services from nearly anywhere, and displacement of data and services from inside to outside the organization. While aspects of these characteristics have been realized to a certain extent, cloud computing remains a work in progress. This publication provides an overview of the security and privacy challenges pertinent to public cloud computing and points out considerations organizations should take when outsourcing data, applications, and infrastructure to a public cloud environment."@en ;
                  rdfs:label "NIST 800-144"@en .
@@ -8740,6 +8767,327 @@ sto:hasTag rdfs:label "has Tag"@en ;
 
 sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
                         rdfs:comment "Wikipedia Article about the Standard"@en .
+						
+						
+						
+###  http://example.org/iira#ApplicationDomain
+iira:ApplicationDomain :alignesWith <https://w3id.org/ids/ram/ProcessLayer> .
+
+
+###  http://example.org/iira#BusinessDomain
+iira:BusinessDomain :alignesWith <https://w3id.org/i40/rami#Business> ,
+                                 <https://w3id.org/ids/ram/BusinessLayer> ;
+                    rdfs:label "IIRA Business Domain"^^xsd:string .
+
+
+###  http://example.org/iira#Connectivity
+iira:Connectivity dul:associatedWith iira:LinkLayer ,
+                                     iira:NetworkLayer ,
+                                     iira:PhysicalLayer ,
+                                     iira:TansportLayer ,
+                                     sto:FrameworkLayer ,
+                                     sto:IIRC ;
+                  dul:isPartOf <https://w3id.org/i40/rami#Asset> ;
+                  rdfs:label "IIRA Connectivity"^^xsd:string .
+
+
+###  http://example.org/iira#ControlDomain
+iira:ControlDomain :alignesWith <https://w3id.org/i40/rami#Integration> ;
+                   rdfs:label "IIRA Control Domain"^^xsd:string ;
+                   sto:isDescribedin iira:IIRA .
+
+
+###  http://example.org/iira#FunctionalViewpoint
+iira:FunctionalViewpoint :alignesWith <https://w3id.org/ids/ram/ReferenceArchitectureModel> .
+
+
+###  http://example.org/iira#InformationDomain
+iira:InformationDomain :alignesWith <https://w3id.org/i40/rami#Information> ;
+                       rdfs:label "IIRA Information Domain"^^xsd:string ;
+                       sto:isDescribedin iira:IIRA .
+
+
+###  http://example.org/iira#LinkLayer
+iira:LinkLayer rdf:type owl:NamedIndividual ,
+                        sto:ConnectivityLayer ;
+               rdfs:label "IICF Link Layer"@en .
+
+
+###  http://example.org/iira#NetworkLayer
+iira:NetworkLayer rdf:type owl:NamedIndividual ,
+                           sto:ConnectivityLayer ;
+                  rdfs:label "IICF Network Layer"@en .
+
+
+###  http://example.org/iira#OperationDomain
+iira:OperationDomain :alignesWith <https://w3id.org/i40/rami#Functional> ;
+                     rdfs:label "IIRA Operation Domain"^^xsd:string ;
+                     sto:isDescribedin iira:IIRA .
+
+
+###  http://example.org/iira#PhysicalLayer
+iira:PhysicalLayer rdf:type owl:NamedIndividual ,
+                            sto:ConnectivityLayer ;
+                   sto:hasClassification iira:Connectivity ;
+                   rdfs:label "IICF Physical Layer" .
+
+
+###  http://example.org/iira#PhysicalSystems
+iira:PhysicalSystems rdf:type owl:NamedIndividual ,
+                              sto:StandardClassification ;
+                     :alignesWith <https://w3id.org/i40/rami#Asset> ;
+                     dul:isPartOf iira:FunctionalViewpoint ;
+                     rdfs:label "IIRA Physical Systems"^^xsd:string ;
+                     sto:isDescribedin iira:IIRA .
+
+
+###  http://example.org/iira#TansportLayer
+iira:TansportLayer rdf:type owl:NamedIndividual ,
+                            sto:ConnectivityLayer ;
+                   rdfs:label "IICF Transport Layer"@en .
+
+
+###  https://w3id.org/i40/sto#Authentication
+sto:Authentication rdf:type owl:NamedIndividual ,
+                         :ISO_42010_Concern .
+
+
+###  https://w3id.org/i40/sto#Certification
+sto:Certification rdf:type owl:NamedIndividual ,
+                        :ISO_42010_Concern .
+
+
+###  https://w3id.org/i40/sto#ISO_20546
+sto:ISO_20546 rdf:type owl:NamedIndividual ,
+                    sto:Standard ;
+           sto:hasPublisher sto:IEC ,
+                            sto:ISO ;
+           <http://purl.org/dc/terms/title> "Big data -- Overview and vocabulary"@en ;
+           rdfs:comment "TODO: check with other reference architecture standards"@en ;
+           rdfs:label "ISO/IEC 20546"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_20547-3
+sto:ISO_20547-3 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasPublisher sto:IEC ,
+                              sto:ISO ;
+             sto:hasOfficialResource "https://www.iso.org/standard/71277.html"^^xsd:anyURI ;
+             <http://purl.org/dc/terms/title> "Big data reference architecture -- Part 3: Reference architecture"@en ;
+             rdfs:comment "TODO: how is this standard related to other reference architecture description formats?"@en ,
+                          "under development (as from 2018-07-23)"@en ;
+             rdfs:label "ISO/IEC DIS 20547-3"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_20547-4
+sto:ISO_20547-4 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasPublisher sto:IEC ,
+                              sto:ISO ;
+             sto:hasOfficialResource "https://www.iso.org/standard/71278.html"^^xsd:anyURI ;
+             <http://purl.org/dc/terms/title> "Big data reference architecture -- Part 4: Security and privacy"@en ;
+             rdfs:comment "TODO: check with other reference architecture description frameworks"@en ,
+                          "under development (as from 2018-07-23)"@en ;
+             rdfs:label "ISO/IEC AWI 20547-4"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_24760
+sto:ISO_24760 rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#ISO_42010
+sto:ISO_42010 rdf:type owl:NamedIndividual ,
+                    sto:Standard ;
+           sto:hasPublisher sto:IEC ,
+                            sto:ISO ;
+           sto:domainName "Reference Architecture Description"^^xsd:string ;
+           sto:hasOfficialResource "https://www.iso.org/standard/50508.html"^^xsd:anyURI ;
+           sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010"^^xsd:anyURI ;
+           <http://purl.org/dc/terms/title> "Systems and software engineering — Architecture description"@en ;
+           rdfs:comment """ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages.
+
+Following its predecessor, IEEE Std 1471, the standard makes a strict distinction between Architectures and Architecture Descriptions.
+
+The description of ISO/IEC/IEEE 42010 in this article is based upon the standard published in 2011."""@en ;
+           rdfs:label "ISO/IEC 42010"@en .
+
+
+###  https://w3id.org/i40/sto#Identification
+sto:Identification rdf:type owl:NamedIndividual ,
+                         :ISO_42010_Concern ;
+                <http://purl.org/dc/elements/1.1/description> "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
+                rdfs:label "Identification"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#Interoperability
+sto:Interoperability rdf:type owl:NamedIndividual ,
+                           :ISO_42010_Concern ;
+                  rdfs:comment "A systems ability to connect with other systems."@en ;
+                  rdfs:label "Interoperability"@en .
+
+
+###  https://w3id.org/i40/sto#Safety
+sto:Safety rdf:type owl:NamedIndividual ,
+                 :ISO_42010_Concern .
+
+
+###  https://w3id.org/i40/rami#Asset
+<https://w3id.org/i40/rami#Asset> rdfs:label "RAMI Asset Layer"^^xsd:string .
+
+
+###  https://w3id.org/i40/rami#Business
+<https://w3id.org/i40/rami#Business> :alignesWith iira:BusinessDomain ,
+                                                  <https://w3id.org/ids/ram/BusinessLayer> .
+
+
+###  https://w3id.org/i40/rami#Communication
+<https://w3id.org/i40/rami#Communication> :alignesWith <https://w3id.org/ids/ram/SystemLayer> .
+
+
+###  https://w3id.org/i40/rami#Functional
+<https://w3id.org/i40/rami#Functional> :alignesWith iira:OperationDomain ,
+                                                    <https://w3id.org/ids/ram/ProcessLayer> ;
+                                       rdfs:label "RAMI Functional Layer"^^xsd:string .
+
+
+###  https://w3id.org/i40/rami#Identification
+<https://w3id.org/i40/rami#Identification> :alignesWith :Identification ;
+                                           rdfs:label "RAMI Identification"^^xsd:string .
+
+
+###  https://w3id.org/i40/rami#Information
+<https://w3id.org/i40/rami#Information> :alignesWith iira:InformationDomain ,
+                                                     <https://w3id.org/ids/ram/InformationLayer> .
+
+
+###  https://w3id.org/i40/rami#Integration
+<https://w3id.org/i40/rami#Integration> :alignesWith iira:ControlDomain ,
+                                                     <https://w3id.org/ids/ram/SystemLayer> ;
+                                        rdfs:label "RAMI Integration Layer"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#DIN_SPEC_27070
+sto:DIN_SPEC_27070 :alignesWith <ids:TrustedConnector> .
+
+
+###  https://w3id.org/i40/sto#FrameworkLayer
+sto:FrameworkLayer :alignesWith <https://w3id.org/ids/ram/Governance> ,
+                                <https://w3id.org/ids/ram/SystemLayer> ;
+                   dul:associatedWith :Interoperability ;
+                   rdfs:label "IICF Framework Layer"@en .
+
+
+###  https://w3id.org/i40/sto#IEC_24760
+sto:IEC_24760 :alignesWith :Identification .
+
+
+###  https://w3id.org/i40/sto#IEC_61508
+sto:IEC_61508 :alignesWith :Safety .
+
+
+###  https://w3id.org/i40/sto#IEC_62443
+sto:IEC_62443 :alignesWith :Identification ;
+              sto:hasClassification iira:Security .
+
+
+###  https://w3id.org/i40/sto#IEC_62541
+sto:IEC_62541 sto:hasClassification iira:ApplicationDomain ,
+                                    iira:OperationDomain ,
+                                    sto:FrameworkLayer .
+
+
+###  https://w3id.org/i40/sto#ISO_19439
+sto:ISO_19439 dul:associatedWith :Certification .
+
+
+###  https://w3id.org/i40/sto#ISO_20922
+sto:ISO_20922 sto:hasClassification iira:InformationDomain ,
+                                    iira:TansportLayer .
+
+
+###  https://w3id.org/i40/sto#ISO_29115
+sto:ISO_29115 :alignesWith sto:Authentication ,
+                           sto:Identification .
+
+
+###  https://w3id.org/i40/sto#OMG_DDS
+sto:OMG_DDS sto:hasClassification sto:FrameworkLayer ,
+                                  sto:IIRC .
+
+
+###  https://w3id.org/i40/sto#RFC_1122
+sto:RFC_1122 sto:hasClassification iira:Connectivity ,
+                                   iira:NetworkLayer .
+
+
+###  https://w3id.org/i40/sto#RFC_2616
+sto:RFC_2616 sto:hasClassification iira:TansportLayer .
+
+
+###  https://w3id.org/i40/sto#RFC_7252
+sto:RFC_7252 sto:hasClassification iira:OperationDomain ,
+                                   iira:TansportLayer .
+
+
+###  https://w3id.org/i40/sto#RFC_7540
+sto:RFC_7540 sto:hasClassification iira:TansportLayer .
+
+
+###  https://w3id.org/i40/sto#RFC_768
+sto:RFC_768 sto:hasClassification iira:TansportLayer .
+
+
+###  https://w3id.org/i40/sto#RFC_793
+sto:RFC_793 sto:hasClassification iira:TansportLayer .
+
+
+###  https://w3id.org/i40/sto#TS-0009
+sto:TS-0009 sto:hasClassification sto:FrameworkLayer .
+
+
+###  https://w3id.org/ids/ram/BusinessLayer
+<https://w3id.org/ids/ram/BusinessLayer> sto:alignesWith iira:BusinessDomain ,
+                                                      <https://w3id.org/i40/rami#Business> .
+
+
+###  https://w3id.org/ids/ram/FunctionalLayer
+<https://w3id.org/ids/ram/FunctionalLayer> dul:associatedWith sto:Interoperability ,
+                                                              sto:DataSovereignty .
+
+
+###  https://w3id.org/ids/ram/Security
+<https://w3id.org/ids/ram/Security> sto:alignesWith iira:Security .
+
+
+###  https://w3id.org/ids/core/TrustedConnector
+ids:TrustedConnector rdf:type owl:NamedIndividual ,
+                                sto:StandardizationFramework ;
+                       sto:alignesWith sto:AdministrationShell ;
+                       sto:hasPublisher <https://w3id.org/ids/ram/ReferenceArchitectureModel> ;
+                       rdfs:comment "TODO: model IDS concepts correctly"@en ;
+                       rdfs:label "Trusted Connector"@en .
+
+
+###  http://example.org/iira#Safety
+iira:Safety rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/rami#Body
+rami:Body rdf:type owl:NamedIndividual ,
+                     sto:StandardizationFramework ;
+            dul:isPartOf sto:AdministrationShell ;
+            rdfs:comment "TODO: Find better class assignement"@en ;
+            rdfs:label "Administration Shell Body"@en .
+
+
+###  https://w3id.org/i40/rami#Header
+rami:Header rdf:type owl:NamedIndividual ,
+                       sto:StandardizationFramework ;
+              dul:isPartOf sto:AdministrationShell ;
+              rdfs:comment "TODO: find better class assignment"@en ;
+              rdfs:label "Administration Shell Header"@en .
+
+
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
