@@ -5598,11 +5598,13 @@ sto:IEEE rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEEE_1686
 sto:IEEE_1686 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:description "The functions and features to be provided in intelligent electronic devices (IEDs) to accommodate critical infrastructure protection programs are defined in this standard. Security regarding the access, operation, configuration, firmware revision and data retrieval from an IED are addressed. Communications for the purpose of power system protection (teleprotection) are not addressed in this standard."@en ;
-              sto:hasWikipediaArticle <http://wikipedia.org/wiki/IEEE_Smart_Grid> ;
-              sto:norm "IEEE 1686"^^xsd:string ,
-                       "Standard for Intelligent Electronic Devices Cyber Security Capabilities"@en ;
-              sto:publisher sto:IEEE .
+              sto:hasClassification idsram:Security ;
+              sto:hasDeveloper sto:IEEE ;
+              sto:hasPublisher sto:IEEE ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEEE_Smart_Grid"^^xsd:anyURI ;
+              dcterms:title "Standard for Intelligent Electronic Devices Cyber Security Capabilities"@en ;
+              rdfs:comment "The functions and features to be provided in intelligent electronic devices (IEDs) to accommodate critical infrastructure protection programs are defined in this standard. Security regarding the access, operation, configuration, firmware revision and data retrieval from an IED are addressed. Communications for the purpose of power system protection (teleprotection) are not addressed in this standard."@en ;
+              rdfs:label "IEEE 1686"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#IETF
@@ -6083,8 +6085,13 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
 sto:ISO_19770 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification iira:Security ;
+              sto:hasDeveloper sto:ISO ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
+              sto:hasPublicationDate "2017-12-01"^^xsd:date ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_19770"^^xsd:anyURI ;
+              dcterms:title "Information technology — Software asset management"@en ;
+              rdfs:comment "International standards in the ISO/IEC 19770 family of standards for IT asset management (ITAM) address both the processes and technology for managing software assets and related IT assets. Broadly speaking, the standard family belongs to the set of Software Asset Management (or SAM) standards and is integrated with other Management System Standards."@en ;
               rdfs:label "ISO/IEC 19770"^^xsd:string .
 
 
@@ -6349,9 +6356,9 @@ sto:ISO_29101 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2013-10-01"^^xsd:date ;
-              dcterms:title "Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ,
-                            "Privacy architecture framework"@en ,
+              dcterms:title "Privacy architecture framework"@en ,
                             "Privacy impact assessment–Guidelines"@en ;
+              rdfs:comment "Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ;
               rdfs:label "ISO/IEC 29101"@en ;
               sto:hasOfficialResource <https://www.iso.org/standard/45124.html> .
 
@@ -6464,10 +6471,10 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:CrossLevel ,
                                    idsram:Certification ;
              sto:hasPublisher sto:ISO ;
+             sto:hasOfficialResource "https://www.iso.org/iso-9001-quality-management.html"^^xsd:anyURI ;
              rdfs:comment "The ISO 9000 family of quality management systems standards is designed to help organizations ensure that they meet the needs of customers and other stakeholders while meeting statutory and regulatory requirements related to a product or program."@en ;
              rdfs:label "ISO 9000"@en ;
              sto:hasDBpediaResource <http://dbpedia.org/page/ISO_9000> ;
-             sto:hasOfficialResource <https://www.iso.org/iso-9001-quality-management.html> ;
              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_9000> .
 
 
@@ -7057,6 +7064,8 @@ sto:RFC_2616 rdf:type owl:NamedIndividual ,
                                    rami:Communication ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://www.ietf.org/rfc/rfc2616"^^xsd:anyURI ;
+             rdfs:comment "The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers. A feature of HTTP is the typing and negotiation of data representation, allowing systems to be built independently of the data being transferred."@en ;
              rdfs:label "HTTP/1.1"^^xsd:string ,
                         "RFC 2616"^^xsd:string ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc2817> .
@@ -7079,7 +7088,7 @@ sto:RFC_5246 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:DataSovereignty ,
                                    idsram:Security ;
              sto:hasPublisher sto:IETF ;
-             dcterms:description "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
+             rdfs:comment "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
              rdfs:label "RFC 5246"^^xsd:string ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc5246> .
 
@@ -7089,16 +7098,24 @@ sto:RFC_6750 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasClassification idsram:Security ;
              sto:hasPublisher sto:IETF ;
-             dcterms:description "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
+             rdfs:comment "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
              rdfs:label "RFC 6750"^^xsd:string ;
              skos:altLabel "OAuth2.0"^^xsd:string ;
-             sto:hasOfficialResource <https://tools.ietf.org/html/rfc6750> .
+             sto:hasOfficialResource <https://w3id.org/i40/sto> .
 
 
 ###  https://w3id.org/i40/sto#RFC_7252
-sto:RFC_7252 rdf:type owl:NamedIndividual ;
+sto:RFC_7252 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
              sto:hasClassification iira:OperationDomain ,
-                                   iira:TansportLayer .
+                                   iira:TansportLayer ;
+             sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc7252"^^xsd:anyURI ;
+             sto:hasPublicationDate "2014-06-01"^^xsd:date ;
+             dcterms:title "The Constrained Application Protocol"@en ;
+             rdfs:comment "The Constrained Application Protocol (CoAP) is a specialized web transfer protocol for use with constrained nodes and constrained (e.g., low-power, lossy) networks.  The nodes often have 8-bit microcontrollers with small amounts of ROM and RAM, while constrained networks such as IPv6 over Low-Power Wireless Personal Area Networks (6LoWPANs) often have high packet error rates and a typical throughput of 10s of kbit/s.  The protocol is designed for machine-to-machine (M2M) applications such as smart energy and building automation."@en ;
+             rdfs:label "RFC 7252" ;
+             skos:altLabel "CoAP"@en .
 
 
 ###  https://w3id.org/i40/sto#RFC_7519
@@ -7107,7 +7124,7 @@ sto:RFC_7519 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:DataSovereignty ,
                                    idsram:Security ;
              sto:hasPublisher sto:IETF ;
-             dcterms:description "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
+             rdfs:comment "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
              rdfs:label "JSON Web Token"^^xsd:string ,
                         "RFC 7519"^^xsd:string ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc7519> .
