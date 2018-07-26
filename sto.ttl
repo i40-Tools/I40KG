@@ -1032,7 +1032,7 @@ rami:Assest rdf:type owl:NamedIndividual .
 rami:Asset rdf:type owl:NamedIndividual ,
                     rami:RAMIITLayer ;
            sto:isDescribedin sto:RAMI40 ;
-           rdfs:label "RAMI Asset Layer" ^^xsd:string .
+           rdfs:label "RAMI Asset Layer"^^xsd:string .
 
 
 ###  https://w3id.org/i40/rami#Business
@@ -1054,7 +1054,8 @@ rami:CommunicationSubModel rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/rami#Communications
-rami:Communications rdf:type owl:NamedIndividual .
+rami:Communications rdf:type owl:NamedIndividual ;
+	rdfs:label "RAMI Communication Layer"^^xsd:string .
 
 
 ###  https://w3id.org/i40/rami#ConditionMonitoring
@@ -1126,14 +1127,7 @@ rami:Identification rdf:type owl:NamedIndividual ,
 rami:Information rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer ;
                  sto:isDescribedin sto:RAMI40 ;
-                 rdfs:label "RAMI Information Layer"^^xsd:string .
-
-
-###  https://w3id.org/i40/rami#InformationLayer
-rami:InformationLayer rdf:type owl:NamedIndividual ,
-                               rami:RAMIITLayer ;
-                      sto:isDescribedin sto:RAMI40 ;
-                      rdfs:label "RAMI Information Layer"@en .
+                 rdfs:label "RAMI Information Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#InstanceMaintenance
@@ -1466,6 +1460,10 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
+                 sto:hasPublisher sto:DIN ;
+                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50128/148018416"^^xsd:anyURI ;
+                 sto:hasPublicationDate "2012-03-01"^^xsd:date ;
+                 rdfs:comment "Die EN 50128 ist eine Europäische Norm für sicherheitsrelevante Software der Eisenbahn, sowohl strecken- als auch zugseitig. Zusammen mit der EN 50129 für die Hardware und den Zulassungsprozessen ist die EN 50128 eine Spezialisierung der EN 61508. Die EN 50128 ist eine Prozessnorm. Sie stellt dar, welche Verfahren, Prinzipien und Maßnahmen anzuwenden sind, damit die Software als sicher gilt."@de ;
                  rdfs:label "DIN EN 50128"^^xsd:string .
 
 
@@ -1474,6 +1472,11 @@ sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
+                 sto:hasPublisher sto:DIN ;
+                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50129/67478433"^^xsd:anyURI ;
+                 dcterms:title "Railway applications - Communications, signalling and processing systems - Safety related electronic systems for signalling"@en ;
+                 rdfs:comment "Für alle Eisenbahnsignalsysteme, -Teilsysteme und -Einrichtungen sind jedoch Gefährdungsanalyse und Risikobewertungsprozesse, wie in DIN EN 50126 und in dieser Norm definiert, notwendig, um die Sicherheitsanforderungen zu identifizieren."@de ,
+                              "Specifies risk analysis for railway systems"@en ;
                  rdfs:label "DIN EN 50129"^^xsd:string .
 
 
@@ -1482,6 +1485,11 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
+                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50155/275256249"^^xsd:anyURI ;
+                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/EN_50155"^^xsd:anyURI ;
+                 dcterms:title "Railway applications - Rolling stock - Electronic equipment"@en ;
+                 rdfs:comment "Diese Norm wird bei der Konstruktion, Fertigung und Prüfung von auf Schienenfahrzeugen eingebauten elektronischen Betriebsmitteln verwendet. Sie beschreibt außerdem die elektrischen sowie die Umweltbedingungen für den Betrieb. Die Norm gilt für alle elektronischen Betriebsmittel für die Steuerung, die Regelung, den Schutz, die Diagnose, die Versorgung und so weiter, die auf Schienenfahrzeugen installiert sind. Als ein elektronisches Betriebsmittel gilt dabei ein Betriebsmittel, das hauptsächlich aus Halbleiterbauelementen und üblicherweise zugehörigen Bauelementen aufgebaut ist. Auch Sensoren (Strom, Spannung, Geschwindigkeit und so weiter) und bestückte Leiterplatten von Zündeinheiten für leistungselektronische Geräte sind von dieser Norm umfasst. Vollständige Zündeinheiten und leistungselektronische Schaltkreise sind in EN 61287-1 enthalten. Die Norm umfasst die Betriebsbedingungen, die Konstruktionsanforderungen, die Dokumentation und die Prüfung der elektronischen Betriebsmittel sowie die grundlegenden Hardware- und Softwareanforderungen, die für ein leistungsfähiges, zuverlässiges Betriebsmittel als erforderlich erachtet werden. Zuständig ist das DKE/UK 351.1 \"Fahrzeuge\" der DKE Deutsche Kommission Elektrotechnik Elektronik Informationstechnik in DIN und VDE."@de ,
+                              "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
                  rdfs:label "DIN EN 50155"^^xsd:string .
 
 
@@ -1490,6 +1498,9 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
+                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50159/137853742"^^xsd:anyURI ;
+                 dcterms:title "Railway applications - Communication, signalling and processing systems - Safety-related communication in transmission systems"@en ;
+                 rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
                  rdfs:label "DIN EN 50159"^^xsd:string .
 
 
@@ -1499,6 +1510,8 @@ sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
                  sto:hasPublisher sto:DIN ;
+                 dcterms:title "Functional safety - Safety instrumented systems for the process industry sector - Part 1: Framework, definitions, system, hardware and software requirements"@en ;
+                 rdfs:comment "This standard gives requirements for the specification, design, installation, operation and maintenance of a safety instrumented system (SIS), so that it can be confidently entrusted to achieve or maintain a safe state of the process. This standard has been developed as a process sector implementation of IEC 61508."@en ;
                  rdfs:label "DIN EN 61511"^^xsd:string .
 
 
@@ -1507,6 +1520,13 @@ sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      sto:hasClassification idsram:Certification ,
                                            idsram:Safety ;
+                     sto:hasPublisher sto:DIN ,
+                                      sto:ISO ;
+                     sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_13849"^^xsd:anyURI ;
+                     rdfs:comment """ISO 13849 is a safety standard which deals with safety-related design principles of employed control systems to establish different safety Performance Levels (PL). It replaced EN 954-1 in December 2011.
+
+    Part 1 defines the general principles for design.
+    Part 2 describes the validation."""@en ;
                      rdfs:label "DIN EN ISO 13849"^^xsd:string .
 
 
@@ -1517,6 +1537,10 @@ sto:DIN_EN_ISO_IEC_17025 rdf:type owl:NamedIndividual ,
                          sto:hasPublisher sto:DIN ,
                                           sto:IEC ,
                                           sto:ISO ;
+                         sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-iso-iec-17025/278030106"^^xsd:anyURI ;
+                         dcterms:title "General requirements for the competence of testing and calibration laboratories"@en ;
+                         rdfs:comment "DIN EN ISO/IEC 17025 legt allgemeine Anforderungen an die Kompetenz, an die Unparteilichkeit und für die einheitliche Arbeitsweise von Laboratorien fest. Die Norm ist auf alle Organisationen anwendbar, die Labortätigkeiten durchführen, unabhängig von der Anzahl der Mitarbeiter. Sie reiht sich in die Normenreihe DIN EN ISO/IEC 17000 ein. Kunden von Laboratorien, Behörden, Organisationen und Programme, die eine Begutachtung unter Gleichrangigen anwenden, Akkreditierungsstellen und andere können diese Norm zur Bestätigung oder Anerkennung der Kompetenz von Laboratorien nutzen."@de ,
+                                      "ISO 17025 specifies general requirements for laboratories."@en ;
                          rdfs:label "DIN EN ISO/IEC 17025"^^xsd:string .
 
 
@@ -1527,6 +1551,7 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
                                        sto:IEC_62714 ;
                    sto:hasDeveloper sto:DIN ;
                    sto:hasPublisher sto:DIN ;
+                   sto:hasOfficialResource "https://www.beuth.de/de/technische-regel/din-spec-16592/265597431"^^xsd:anyURI ;
                    rdfs:comment "Combining OPC Unified Architecture and Automation Markup Language."@en ;
                    rdfs:label "DIN SPEC 16592"@en ;
                    sto:hasOfficialResource <https://www.beuth.de/de/technische-regel/din-spec-16592/265597431> .
@@ -1537,6 +1562,8 @@ sto:DIN_SPEC_27070 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasClassification idsram:Security ;
                    sto:hasPublisher sto:DIN ;
+                   dcterms:title "Reference architecture of a security gateway for the exchange of industry data and services"@en ;
+                   rdfs:comment "security gateway for data protection of personal data"@en ;
                    rdfs:label "DIN SPEC 27070"^^xsd:string .
 
 
@@ -1545,6 +1572,8 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasClassification idsram:Security ;
                    sto:hasDeveloper sto:DIN ;
+                   dcterms:title "Reference Model for Industrial Cloud Federation"@en ;
+                   rdfs:comment "ensuring interoperability and communication of IT systems in cloud scenarios"@en ;
                    rdfs:label "DIN SPEC 92222"^^xsd:string .
 
 
@@ -1586,6 +1615,7 @@ sto:ENISA_CloudComputing rdf:type owl:NamedIndividual ,
                          sto:hasOfficialResource <https://resilience.enisa.europa.eu/cloud-security-and-resilience/publications/cloud-computing-benefits-risks-and-recommendations-for-information-security> ;
                          sto:hasPublicationDate "2012-12-01"^^xsd:date ;
                          dcterms:title "Cloud Computing - Benefits, risks and recommendations for information security"@en ;
+                         rdfs:comment "ENISA, supported by a group of subject matter expert comprising representatives from Industries, Academia and Governmental Organizations, has conducted, in the context of the Emerging and Future Risk Framework project, an risks assessment on cloud computing business model and technologies. The result is an in-depth and independent analysis that outlines some of the information security benefits and key security risks of cloud computing. The report provide also a set of practical recommendations.Produced by ENISA with contributions from a group of subject matter expert comprising representatives from Industry, Academia and Governmental Organizations, a risk assessment of cloud computing business model and technologies. This is an in-depth and independent analysis that outlines some of the information security benefits and key security risks of cloud computing. The report provide also a set of practical recommendations. It is produced in the context of the Emerging and Future Risk Framework project."@en ;
                          rdfs:label "ENISA Cloud Computing"@en .
 
 
@@ -2750,6 +2780,22 @@ sto:IEC_29100 rdf:type owl:NamedIndividual ;
 sto:IEC_29115 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29115 ;
+              sto:hasClassification iira:Security ;
+              sto:hasPublisher sto:IEC ,
+                               sto:ISO ;
+              sto:hasOfficialResource "https://www.iso.org/standard/45138.html"^^xsd:anyURI ;
+              dcterms:title "Information technology -- Security techniques -- Entity authentication assurance framework"@en ;
+              rdfs:comment """ISO/IEC 29115:2013 provides a framework for managing entity authentication assurance in a given context. In particular, it:
+
+- specifies four levels of entity authentication assurance;
+
+- specifies criteria and guidelines for achieving each of the four levels of entity authentication assurance;
+
+- provides guidance for mapping other authentication assurance schemes to the four LoAs;
+
+- provides guidance for exchanging the results of authentication that are based on the four LoAs; and
+
+- provides guidance concerning controls that should be used to mitigate authentication threats."""@en ;
               rdfs:label "IEC 29115"^^xsd:string .
 
 
@@ -6049,9 +6095,7 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
               sto:relatedTo sto:IEC_61511 ;
               sto:hasTag "Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems"@en ;
               dcterms:hasLicense "Private"@en ;
-              rdfs:comment "Functional safety is a concept applicable across all industry sectors. It is fundamental to the enabling of complex technology used for safety-related systems. It provides the assurance that the safety-related systems will offer the necessary risk reduction required to achieve safety for the equipment. The oil and gas industry, nuclear plants and the machinery sector, to name but a few, all rely heavily on functional safety to achieve safety for the equipment giving rise to the hazards."@en ,
-                           """TODO: 61508 or 60508??
-61508 is related to IDS_Safety and IDS_Certification"""^^xsd:string ;
+              rdfs:comment "Functional safety is a concept applicable across all industry sectors. It is fundamental to the enabling of complex technology used for safety-related systems. It provides the assurance that the safety-related systems will offer the necessary risk reduction required to achieve safety for the equipment. The oil and gas industry, nuclear plants and the machinery sector, to name but a few, all rely heavily on functional safety to achieve safety for the equipment giving rise to the hazards."@en ;
               rdfs:label "IEC 61508"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_61508> ;
               sto:hasMotivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en ;
@@ -6407,7 +6451,8 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
 sto:IEC_62541 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:hasLicense sto:GPLv2 ;
-              sto:hasClassification rami:Communication ,
+              sto:hasClassification iira:InformationDomain ,
+                                    rami:Communication ,
                                     rami:ConnectedWorld ,
                                     rami:ControlDevice ,
                                     rami:Enterprise ,
@@ -7260,6 +7305,9 @@ sto:ISO_27019 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification idsram:Certification ;
               sto:hasPublisher sto:ISO ;
+              sto:hasOfficialResource "https://www.beuth.de/de/technische-regel/din-iso-iec-tr-27019/223679647"^^xsd:anyURI ;
+              dcterms:title "Guidance for information security management of power supply control systems based on ISO/IEC 27002"@en ;
+              rdfs:comment "The specification serves as a guidance for introducing ISO/IEC 27002 into the energy domain."@en ;
               rdfs:label "ISO 27019"^^xsd:string .
 
 
@@ -7316,9 +7364,9 @@ sto:ISO_29100 rdf:type owl:NamedIndividual ,
                                sto:ISO ;
               sto:hasOfficialResource <https://www.iso.org/standard/45123.html> ;
               sto:hasPublicationDate "2011-12-01"^^xsd:date ;
-              dc11:description """‘Privacy framework’1 provides a guideline that specifies a common privacy terminology, defines actors and roles in processing PII, describes privacy safeguarding considerations, and includes references to known privacy principles for Information technology.
+	          dcterms:title "Privacy framework"@en ;
+              rdfs:comment """‘Privacy framework’1 provides a guideline that specifies a common privacy terminology, defines actors and roles in processing PII, describes privacy safeguarding considerations, and includes references to known privacy principles for Information technology.
 source: IIC SF"""@en ;
-              dc11:title "Privacy framework"@en ;
               rdfs:label "ISO/IEC 29100"^^xsd:string .
 
 
@@ -7330,9 +7378,6 @@ sto:ISO_29101 rdf:type owl:NamedIndividual ,
                                sto:ISO ;
               sto:hasOfficialResource <https://www.iso.org/standard/45124.html> ;
               sto:hasPublicationDate "2013-10-01"^^xsd:date ;
-              dc11:description "‘Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors’ establishes commonly accepted control objectives, controls and guidelines for implementing measures to protect PII in accordance with principles described in ISO/IEC 29100."@en ,
-                               "‘Privacy architecture framework’2 specifies concerns for information and communication systems processing PII, lists components for implementation of such systems and provides architectural views that contextualize these components."@en ,
-                               "‘Privacy impact assessment–Guidelines’ proposes a methodology to conduct assessments on the impact of privacy."@en ;
               dcterms:title "Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ,
                             "Privacy architecture framework"@en ,
                             "Privacy impact assessment–Guidelines"@en ;
@@ -7377,8 +7422,8 @@ sto:ISO_29190 rdf:type owl:NamedIndividual ,
                                sto:ISO ;
               sto:hasOfficialResource <https://www.iso.org/standard/45269.html> ;
               sto:hasPublicationDate "2015-08-01"^^xsd:date ;
-              dc11:description "‘Privacy capability assessment model’ provides high-level guidance to organizations about assessing their capability to manage privacy-related processes."@en ;
               dcterms:title "Privacy capability assessment model"@en ;
+              rdfs:comment "‘Privacy capability assessment model’ provides high-level guidance to organizations about assessing their capability to manage privacy-related processes."@en ;
               rdfs:label "ISO/IEC 29190"^^xsd:string .
 
 
@@ -7435,6 +7480,7 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
              rdfs:label "ISO 9000"@en .
 
 
+<<<<<<< HEAD
 ###  https://w3id.org/i40/sto#ISO_9594
 sto:ISO_9594 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
@@ -7445,6 +7491,27 @@ sto:ISO_9594 rdf:type owl:NamedIndividual ,
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> ;
              rdfs:label "ISO/IEC 9594"@en ,
                         "X.509"^^xsd:string .
+=======
+###  https://w3id.org/i40/sto#ISO_9594-8
+sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
+                        sto:Standard ;
+               sto:hasClassification sto:DataSovereignty ,
+                                     idsram:Certification ,
+                                     idsram:Security ;
+               sto:hasPublisher sto:ISO ;
+               sto:hasOfficialResource <https://www.iso.org/standard/72557.html"^^xsd:anyURI ;
+               sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280>^^xsd:string ;
+               dcterms:title "Information technology -- Open Systems Interconnection -- The Directory -- Part 8: Public-key and attribute certificate frameworks"@en ;
+               rdfs:comment """ISO/IEC 9594-8:2017 addresses some of the security requirements in the areas of authentication and other security services through the provision of a set of frameworks upon which full services can be based. Specifically, this Recommendation | International Standard defines frameworks for:
+
+- public-key certificates; and
+
+- attribute certificates."""@en ;
+               rdfs:label "ISO/IEC 9594-8"@en ,
+                          "X.509"^^xsd:string ;
+               rdfs:seeAlso "https://tools.ietf.org/html/rfc5280" .
+
+>>>>>>> 2002b90ac6ad4537a8428588b4413d30c1491a08
 
 
 ###  https://w3id.org/i40/sto#ISO_ASTM_52915
@@ -7692,6 +7759,7 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
                 sto:hasOfficialResource <https://doi.org/10.6028/NIST.IR.8062> ;
                 sto:hasPublicationDate "2017-04-01"^^xsd:date ;
                 dc11:title "Privacy Risk Management for Federal Information Systems"@en ;
+                rdfs:comment "This document provides an introduction to the concepts of privacy engineering and risk management for federal information systems. These concepts establish the basis for a common vocabulary to facilitate better understanding and communication of privacy risk within federal information systems, and the effective implementation of privacy principles. This publication introduces two key components to support the application of privacy engineering and risk management: privacy engineering objectives and a privacy risk model."@en ;
                 rdfs:label "NIST Internal Report (NISTIR) 8062"^^xsd:string ,
                            "NISTIR 8062"^^xsd:string .
 
@@ -7821,6 +7889,10 @@ sto:ODRL rdf:type owl:NamedIndividual ,
          sto:hasClassification idsram:InformationLayer ,
                                idsram:Security ;
          sto:hasPublisher sto:W3C ;
+         sto:hasOfficialResource "https://www.w3.org/TR/odrl-model/"^^xsd:anyURI ;
+         rdfs:comment """The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. The ODRL Information Model describes the underlying concepts, entities, and relationships that form the foundational basis for the semantics of the ODRL policies.
+
+Policies are used to represent permitted and prohibited actions over a certain asset, as well as the obligations required to be meet by stakeholders. In addition, policies may be limited by constraints (e.g., temporal or spatial constraints) and duties (e.g. payments) may be imposed on permissions."""@en ;
          rdfs:label "ODRL"^^xsd:string ,
                     "Open Digital Rights Language"^^xsd:string .
 
@@ -7959,7 +8031,7 @@ sto:QIF rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#RAMI
 sto:RAMI rdf:type owl:NamedIndividual ;
-         sto:isDescribedin rami:InformationLayer ;
+         sto:isDescribedin rami:Information ;
          rdfs:comment "Describes the RAMI model"@en ;
          rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html" ;
          rdfs:label "RAMI"@en .
@@ -7970,6 +8042,16 @@ sto:RAMI40 rdf:type owl:NamedIndividual ,
                     sto:StandardizationFramework ;
            rdfs:comment "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
            rdfs:label "RAMI 4.0"@en .
+
+
+###  https://w3id.org/i40/sto#RFC_1122
+sto:RFC_1122 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasPublisher sto:IETF ;
+             sto:hasOfficialResource "https://tools.ietf.org/html/rfc1122"^^xsd:anyURI ;
+             dcterms:title "Requirements for Internet Hosts -- Communication Layers"@en ;
+             rdfs:comment "This is one RFC of a pair that defines and discusses the requirements for Internet host software.  This RFC covers the communications protocol layers: link layer, IP layer, and transport layer; its companion RFC-1123 covers the application and support protocols."@en ;
+             rdfs:label "RFC 1122"@en .
 
 
 ###  https://w3id.org/i40/sto#RFC_2616
@@ -7990,6 +8072,7 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
              sto:hasClassification idsram:Security ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
+             rdfs:comment "This memo describes how to use TLS to secure HTTP connections over  the Internet. Current practice is to layer HTTP over SSL (the predecessor to TLS), distinguishing secured traffic from insecure traffic by the use of a different server port. This document documents that practice using TLS. A companion document describes a method for using HTTP/TLS over the same port as normal HTTP [RFC2817]."@en ;
              rdfs:label "HTTPS"^^xsd:string ,
                         "RFC 2818"^^xsd:string .
 
@@ -8005,8 +8088,8 @@ sto:RFC_5246 rdf:type owl:NamedIndividual ,
              rdfs:label "RFC 5246"^^xsd:string .
 
 
-###  https://w3id.org/i40/sto#RFC_6749
-sto:RFC_6749 rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#RFC_6750
+sto:RFC_6750 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasClassification idsram:Security ;
              sto:hasPublisher sto:IETF ;
@@ -8036,8 +8119,39 @@ sto:RFC_7540 rdf:type owl:NamedIndividual ,
                                    idsram:Interoperability ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
+             rdfs:comment """This specification describes an optimized expression of the semantics of the Hypertext Transfer Protocol (HTTP), referred to as HTTP version 2 (HTTP/2).  HTTP/2 enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection.  It also introduces unsolicited push of  representations from servers to clients.
+
+This specification is an alternative to, but does not obsolete, the HTTP/1.1 message syntax.  HTTP's existing semantics remain unchanged."""@en ;
              rdfs:label "HTTP/2"^^xsd:string ,
                         "RFC 7540"^^xsd:string .
+
+
+###  https://w3id.org/i40/sto#RFC_768
+sto:RFC_768 rdf:type owl:NamedIndividual ,
+                     sto:Standard ;
+            sto:hasPublisher sto:IETF ;
+            sto:hasOfficialResource "https://tools.ietf.org/html/rfc768"^^xsd:anyURI ;
+            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/User_Datagram_Protocol"^^xsd:anyURI ;
+            dcterms:title "User Datagram Protocol (UDP)"@en ;
+            rdfs:comment "In computer networking, the User Datagram Protocol (UDP) is one of the core members of the Internet protocol suite. The protocol was designed by David P. Reed in 1980 and formally defined in RFC 768. With UDP, computer applications can send messages, in this case referred to as datagrams, to other hosts on an Internet Protocol (IP) network. Prior communications are not required in order to set up communication channels or data paths."@en ;
+            rdfs:label "RFC 768"@en .
+
+
+###  https://w3id.org/i40/sto#RFC_793
+sto:RFC_793 rdf:type owl:NamedIndividual ,
+                     sto:Standard ;
+            sto:hasClassification idsram:SystemLayer ;
+            sto:hasPublisher sto:IETF ;
+            sto:hasOfficialResource "https://tools.ietf.org/html/rfc793"^^xsd:anyURI ;
+            dcterms:title "TRANSMISSION CONTROL PROTOCOL"@en ;
+            rdfs:comment """This document describes the DoD Standard Transmission Control Protocol
+(TCP).  There have been nine earlier editions of the ARPA TCP
+specification on which this standard is based, and the present text
+draws heavily from them.  There have been many contributors to this work
+both in terms of concepts and in terms of text.  This edition clarifies
+several details and removes the end-of-letter buffer-size adjustments,
+and redescribes the letter mechanism as a push function."""@en ;
+            rdfs:label "RFC 793"@en .
 
 
 ###  https://w3id.org/i40/sto#SCADALevel
@@ -8283,6 +8397,21 @@ sto:TC_95 rdf:type owl:NamedIndividual ,
           rdfs:label "TC 95"@en .
 
 
+###  https://w3id.org/i40/sto#TS-0009
+sto:TS-0009 rdf:type owl:NamedIndividual ,
+                     sto:Standard ;
+            sto:hasPublisher sto:oneM2M ;
+            sto:hasOfficialResource "www.onem2m.org/images/files/deliverables/Release2A/TS-0009-HTTP_Protocol_Binding-v_2_13_1.pdf"^^xsd:anyURI ;
+            dcterms:title "HTTP Protocol Binding"@en ;
+            rdfs:comment """The present document will cover the protocol specific part of communication protocol used by oneM2M compliant systems as RESTful HTTP binding.
+The scope of the present document is (not limited to as shown below):
+• Binding oneM2M Protocol primitive types to HTTP method.
+• Binding oneM2M response status codes (successful/unsuccessful) to HTTP response codes.
+• Binding oneM2M RESTful resources to HTTP resources.
+The present document is depending on Core Protocol specification (oneM2M TS-0004) for data types."""@en ;
+            rdfs:label "TS-0009"@en .
+
+
 ###  https://w3id.org/i40/sto#TechnicalCommittee
 sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
                        sto:abbreviation "TC" .
@@ -8460,8 +8589,12 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           rdfs:label "ebXML"@en .
 
 
-###  https://w3id.org/i40/sto#19_020
-sto:_020 rdf:type owl:NamedIndividual .
+###  https://w3id.org/i40/sto#oneM2M
+sto:oneM2M rdf:type owl:NamedIndividual ,
+                    sto:StandardOrganization ;
+           sto:hasOfficialResource "http://www.onem2m.org/about-onem2m/why-onem2m"^^xsd:anyURI ;
+           rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
+           rdfs:label "oneM2M"@en .
 
 
 ###  https://w3id.org/ids/ram/BusinessLayer
@@ -8570,7 +8703,8 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    dcterms:modified "2017-12-19"^^xsd:date ;
                    rdfs:comment "Represent the license document for a given Standard"@en ;
                    dcterms:issued "2004-06-14"^^xsd:date ;
-                   rdfs:isDefinedBy dcterms: .
+	dcterms:issued "2004-06-14"^^xsd:date ;
+	rdfs:isDefinedBy <http://purl.org/dc/terms/> .
 
 
 sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
@@ -8597,7 +8731,6 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                            rdfs:label "Technical Specification"@en ;
                            rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
                            cc:attributionURL "http://www.iec.ch" ;
-                           rdfs:label "Technical Specification" ;
                            rdfs:isDefinedBy sto:IEC ;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
