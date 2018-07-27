@@ -28,7 +28,7 @@
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto#> .
+@base <https://w3id.org/i40/sto> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
@@ -67,6 +67,10 @@ dc11:description rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/elements/1.1/title
 dc11:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
@@ -115,6 +119,18 @@ skos:note rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#prefLabel
 skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/familyName
+foaf:familyName rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/i40/sto#edition
@@ -206,7 +222,8 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
-                         rdfs:domain foaf:Document .
+                         rdfs:domain foaf:Document ;
+                         dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
@@ -214,7 +231,8 @@ sto:hasClassification rdf:type owl:ObjectProperty ;
                       rdfs:domain sto:Standard ;
                       rdfs:range sto:StandardClassification ;
                       rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                      rdfs:label "has Classification"@en .
+                      rdfs:label "has Classification"@en ;
+                      dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasDeveloper
@@ -223,13 +241,16 @@ sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  rdfs:domain sto:Publication ;
                  rdfs:range sto:StandardOrganization ;
                  rdfs:comment "The organization that developed this Standard"@en ;
-                 rdfs:label "has Developer"@en .
+                 rdfs:label "has Developer"@en ;
+                 dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasDomain
 sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Publication ;
-              rdfs:range sto:Domain .
+              rdfs:range sto:Domain ;
+              rdfs:comment "Points to the domain in which the standard is used"@en ;
+              dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasFileSize
@@ -252,7 +273,8 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
                     rdfs:domain sto:StandardOrganization ;
                     rdfs:range dbo:Place ;
                     rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en ;
-                    rdfs:label "has Headquater In"@en .
+                    rdfs:label "has Headquater In"@en ;
+                    dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasICS
@@ -282,7 +304,8 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
                  rdfs:domain sto:Publication ;
                  rdfs:range sto:StandardOrganization ;
                  rdfs:comment "The organization that published this Standard"@en ;
-                 rdfs:label "has Publisher"@en .
+                 rdfs:label "has Publisher"@en ;
+                 dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasTag
@@ -577,6 +600,10 @@ foaf:Document rdf:type owl:Class .
 foaf:Organization rdf:type owl:Class .
 
 
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
 ###  https://w3id.org/i40/rami#AdminShellSubmodel
 rami:AdminShellSubmodel rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
@@ -714,6 +741,7 @@ sto:StandardClassification rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#StandardOrganization
 sto:StandardOrganization rdf:type owl:Class ;
                          rdfs:subClassOf foaf:Organization ;
+                         dcterms:creator sto:irlan ;
                          rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
                          rdfs:label "StandardOrganization"@en .
 
@@ -729,6 +757,7 @@ sto:StandardPart rdf:type owl:Class ;
 sto:StandardizationFramework rdf:type owl:Class ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
                              rdfs:label "Standarization Framework"@en ;
+                             dcterms:creator sto:irlan ;
                              skos:altLabel "Reference Architecture"@en .
 
 
@@ -939,9 +968,9 @@ iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#IIRA
 iira:IIRA rdf:type owl:NamedIndividual ,
                    sto:StandardizationFramework ;
-          sto:hasOfficialResource "http://www.iiconsortium.org/IIRA.htm" ;
           rdfs:comment "Industrial Internet Reference Architecture"@en ;
-          rdfs:label "IIRA"@en .
+          rdfs:label "IIRA"@en ;
+          sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> .
 
 
 ###  http://example.org/iira#ImplementationViewpoint
@@ -1578,10 +1607,14 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
                  sto:hasPublisher sto:DIN ;
-                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50128/148018416"^^xsd:anyURI ;
                  sto:hasPublicationDate "2012-03-01"^^xsd:date ;
                  rdfs:comment "Die EN 50128 ist eine Europäische Norm für sicherheitsrelevante Software der Eisenbahn, sowohl strecken- als auch zugseitig. Zusammen mit der EN 50129 für die Hardware und den Zulassungsprozessen ist die EN 50128 eine Spezialisierung der EN 61508. Die EN 50128 ist eine Prozessnorm. Sie stellt dar, welche Verfahren, Prinzipien und Maßnahmen anzuwenden sind, damit die Software als sicher gilt."@de ;
+<<<<<<< HEAD
                  rdfs:label "DIN EN 50128"@en .
+=======
+                 rdfs:label "DIN EN 50128"@en ;
+                 sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50128/148018416> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50129
@@ -1590,11 +1623,15 @@ sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
                  sto:hasPublisher sto:DIN ;
-                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50129/67478433"^^xsd:anyURI ;
                  dcterms:title "Railway applications - Communications, signalling and processing systems - Safety related electronic systems for signalling"@en ;
                  rdfs:comment "Für alle Eisenbahnsignalsysteme, -Teilsysteme und -Einrichtungen sind jedoch Gefährdungsanalyse und Risikobewertungsprozesse, wie in DIN EN 50126 und in dieser Norm definiert, notwendig, um die Sicherheitsanforderungen zu identifizieren."@de ,
                               "Specifies risk analysis for railway systems"@en ;
+<<<<<<< HEAD
                  rdfs:label "DIN EN 50129"@en .
+=======
+                 rdfs:label "DIN EN 50129"@en ;
+                 sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50129/67478433> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50155
@@ -1602,12 +1639,16 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
-                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50155/275256249"^^xsd:anyURI ;
-                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/EN_50155"^^xsd:anyURI ;
                  dcterms:title "Railway applications - Rolling stock - Electronic equipment"@en ;
                  rdfs:comment "Diese Norm wird bei der Konstruktion, Fertigung und Prüfung von auf Schienenfahrzeugen eingebauten elektronischen Betriebsmitteln verwendet. Sie beschreibt außerdem die elektrischen sowie die Umweltbedingungen für den Betrieb. Die Norm gilt für alle elektronischen Betriebsmittel für die Steuerung, die Regelung, den Schutz, die Diagnose, die Versorgung und so weiter, die auf Schienenfahrzeugen installiert sind. Als ein elektronisches Betriebsmittel gilt dabei ein Betriebsmittel, das hauptsächlich aus Halbleiterbauelementen und üblicherweise zugehörigen Bauelementen aufgebaut ist. Auch Sensoren (Strom, Spannung, Geschwindigkeit und so weiter) und bestückte Leiterplatten von Zündeinheiten für leistungselektronische Geräte sind von dieser Norm umfasst. Vollständige Zündeinheiten und leistungselektronische Schaltkreise sind in EN 61287-1 enthalten. Die Norm umfasst die Betriebsbedingungen, die Konstruktionsanforderungen, die Dokumentation und die Prüfung der elektronischen Betriebsmittel sowie die grundlegenden Hardware- und Softwareanforderungen, die für ein leistungsfähiges, zuverlässiges Betriebsmittel als erforderlich erachtet werden. Zuständig ist das DKE/UK 351.1 \"Fahrzeuge\" der DKE Deutsche Kommission Elektrotechnik Elektronik Informationstechnik in DIN und VDE."@de ,
                               "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
+<<<<<<< HEAD
                  rdfs:label "DIN EN 50155"@en .
+=======
+                 rdfs:label "DIN EN 50155"@en ;
+                 sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50155/275256249> ;
+                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EN_50155> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50159
@@ -1615,10 +1656,14 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification idsram:Certification ,
                                        idsram:Safety ;
-                 sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50159/137853742"^^xsd:anyURI ;
                  dcterms:title "Railway applications - Communication, signalling and processing systems - Safety-related communication in transmission systems"@en ;
                  rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
+<<<<<<< HEAD
                  rdfs:label "DIN EN 50159"@en .
+=======
+                 rdfs:label "DIN EN 50159"@en ;
+                 sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50159/137853742> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_61511
@@ -1639,12 +1684,15 @@ sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
                                            idsram:Safety ;
                      sto:hasPublisher sto:DIN ,
                                       sto:ISO ;
-                     sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_13849"^^xsd:anyURI ;
                      rdfs:comment """ISO 13849 is a safety standard which deals with safety-related design principles of employed control systems to establish different safety Performance Levels (PL). It replaced EN 954-1 in December 2011.
-
     Part 1 defines the general principles for design.
     Part 2 describes the validation."""@en ;
+<<<<<<< HEAD
                      rdfs:label "DIN EN ISO 13849"@en .
+=======
+                     rdfs:label "DIN EN ISO 13849"@en ;
+                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13849> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_IEC_17025
@@ -1654,11 +1702,15 @@ sto:DIN_EN_ISO_IEC_17025 rdf:type owl:NamedIndividual ,
                          sto:hasPublisher sto:DIN ,
                                           sto:IEC ,
                                           sto:ISO ;
-                         sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-iso-iec-17025/278030106"^^xsd:anyURI ;
                          dcterms:title "General requirements for the competence of testing and calibration laboratories"@en ;
                          rdfs:comment "DIN EN ISO/IEC 17025 legt allgemeine Anforderungen an die Kompetenz, an die Unparteilichkeit und für die einheitliche Arbeitsweise von Laboratorien fest. Die Norm ist auf alle Organisationen anwendbar, die Labortätigkeiten durchführen, unabhängig von der Anzahl der Mitarbeiter. Sie reiht sich in die Normenreihe DIN EN ISO/IEC 17000 ein. Kunden von Laboratorien, Behörden, Organisationen und Programme, die eine Begutachtung unter Gleichrangigen anwenden, Akkreditierungsstellen und andere können diese Norm zur Bestätigung oder Anerkennung der Kompetenz von Laboratorien nutzen."@de ,
                                       "ISO 17025 specifies general requirements for laboratories."@en ;
+<<<<<<< HEAD
                          rdfs:label "DIN EN ISO/IEC 17025"@en .
+=======
+                         rdfs:label "DIN EN ISO/IEC 17025"@en ;
+                         sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-iso-iec-17025/278030106> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#DIN_SPEC_16592
@@ -1668,7 +1720,6 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
                                        sto:IEC_62714 ;
                    sto:hasDeveloper sto:DIN ;
                    sto:hasPublisher sto:DIN ;
-                   sto:hasOfficialResource "https://www.beuth.de/de/technische-regel/din-spec-16592/265597431"^^xsd:anyURI ;
                    rdfs:comment "Combining OPC Unified Architecture and Automation Markup Language."@en ;
                    rdfs:label "DIN SPEC 16592"@en ;
                    sto:hasOfficialResource <https://www.beuth.de/de/technische-regel/din-spec-16592/265597431> .
@@ -2906,7 +2957,6 @@ sto:IEC_29115 rdf:type owl:NamedIndividual ,
               sto:hasClassification iira:Security ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              sto:hasOfficialResource "https://www.iso.org/standard/45138.html"^^xsd:anyURI ;
               dcterms:title "Information technology -- Security techniques -- Entity authentication assurance framework"@en ;
               rdfs:comment """ISO/IEC 29115:2013 provides a framework for managing entity authentication assurance in a given context. In particular, it:
 
@@ -2919,7 +2969,12 @@ sto:IEC_29115 rdf:type owl:NamedIndividual ,
 - provides guidance for exchanging the results of authentication that are based on the four LoAs; and
 
 - provides guidance concerning controls that should be used to mitigate authentication threats."""@en ;
+<<<<<<< HEAD
               rdfs:label "IEC 29115"@en .
+=======
+              rdfs:label "IEC 29115"@en ;
+              sto:hasOfficialResource <https://www.iso.org/standard/45138.html> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#IEC_29161
@@ -4623,8 +4678,7 @@ sto:IEC_61334_P4_S41_1996 rdf:type owl:NamedIndividual ,
                           sto:hasPages "247"^^xsd:int ;
                           sto:hasPublicationDate "1996-08-13"^^xsd:date ;
                           sto:hasStabilityDate "2018"^^xsd:gYear ;
-                          sto:hasTag "IEC 61334-4-41:1996"@en ,
-                                     "IEC 61334-4-41:1996�"@en ;
+                          sto:hasTag "IEC 61334-4-41:1996"@en ;
                           dcterms:title "Distribution automation using distribution line carrier systems - Part 4: Data communication protocols - Section 41: Application protocol - Distribution line message specification"@en ;
                           rdfs:comment """Defines the distribution line message specification (DLMS) within the OSI application layer.
 This publication is of high relevance for Smart Grid."""@en ,
@@ -4835,7 +4889,10 @@ sto:IEC_61400_P25_1 rdf:type owl:NamedIndividual ,
                     sto:hasStabilityDate "2020"^^xsd:gYear ;
                     sto:hasTag "IEC 61400-25-1:2017"@en ;
                     dcterms:title "Wind energy generation systems - Part 25-1: Communications for monitoring and control of wind power plants - Overall description of principles and models"@en ;
-                    rdfs:comment "IEC 61400-25-1:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.IEC 61400-25-1:2017 gives an overall description of the principles and models used in the IEC 61400�25 series, which is designed for a communication environment supported by a client-server model. Three areas are defined, that are modelled separately to ensure the scalability of implementations: wind power plant information models, information exchange model, and mapping of these two models to a standard communication profile. This new edition includes the following significant technical changes with respect to the previous edition: general harmonization of text and overview models with the other parts of the IEC 61400�25 series, harmonization of definitions in other related standards."@en ,
+                    rdfs:comment """IEC 61400-25-1:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
+
+IEC 61400-25-1:2017 gives an overall description of the principles and models used in the IEC 61400�25 series, which is designed for a communication environment supported by a client-server model. Three areas are defined, that are modelled separately to ensure the scalability of implementations: wind power plant information models, information exchange model, and mapping of these two models to a standard communication profile. This new edition includes the following significant technical changes with respect to the previous edition: general harmonization of text and overview models with the other parts of the IEC 61400�25 series, harmonization of definitions in other related standards."""@en ,
+                                 "IEC 61400-25-1:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.IEC 61400-25-1:2017 gives an overall description of the principles and models used in the IEC 61400�25 series, which is designed for a communication environment supported by a client-server model. Three areas are defined, that are modelled separately to ensure the scalability of implementations: wind power plant information models, information exchange model, and mapping of these two models to a standard communication profile. This new edition includes the following significant technical changes with respect to the previous edition: general harmonization of text and overview models with the other parts of the IEC 61400�25 series, harmonization of definitions in other related standards."@en ,
                                  "IEC 61400-25-1:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nnIEC 61400-25-1:2017 gives an overall description of the principles and models used in the IEC 61400�25 series, which is designed for a communication environment supported by a client-server model. Three areas are defined, that are modelled separately to ensure the scalability of implementations: wind power plant information models, information exchange model, and mapping of these two models to a standard communication profile. This new edition includes the following significant technical changes with respect to the previous edition: general harmonization of text and overview models with the other parts of the IEC 61400�25 series, harmonization of definitions in other related standards."@en ;
                     rdfs:label "IEC 61400-25-1:2017"@en ;
                     sto:hasAvailableLanguage "English "@en ;
@@ -4857,7 +4914,12 @@ sto:IEC_61400_P25_2 rdf:type owl:NamedIndividual ,
                     sto:hasStabilityDate "2018"^^xsd:gYear ;
                     sto:hasTag "IEC 61400-25-2:2015 "@en ;
                     dcterms:title "Wind turbines - Part 25-2: Communications for monitoring and control of wind power plants - Information models"@en ;
-                    rdfs:comment "IEC 61400-25-2:2015 specifies the information model of devices and functions related to wind power plant applications. In particular, it specifies the compatible logical node names, and data names for communication between wind power plant components. This includes the relationship between logical devices, logical nodes and data. The names defined in the IEC 61400-25 series are used to build the hierarchical object references applied for communicating with components in wind power plants. Main changes with respect to the previous edition consist of:- harmonization with newer editions of IEC 61850 standards;- reduction of overlap between standards and simplification by increased referencing,- extension of data objects for operation of smart grids,- extended and enhanced semantics for existing data objects, etc."@en ,
+                    rdfs:comment """IEC 61400-25-2:2015 specifies the information model of devices and functions related to wind power plant applications. In particular, it specifies the compatible logical node names, and data names for communication between wind power plant components. This includes the relationship between logical devices, logical nodes and data. The names defined in the IEC 61400-25 series are used to build the hierarchical object references applied for communicating with components in wind power plants. Main changes with respect to the previous edition consist of:
+- harmonization with newer editions of IEC 61850 standards;
+- reduction of overlap between standards and simplification by increased referencing,
+- extension of data objects for operation of smart grids,
+- extended and enhanced semantics for existing data objects, etc."""@en ,
+                                 "IEC 61400-25-2:2015 specifies the information model of devices and functions related to wind power plant applications. In particular, it specifies the compatible logical node names, and data names for communication between wind power plant components. This includes the relationship between logical devices, logical nodes and data. The names defined in the IEC 61400-25 series are used to build the hierarchical object references applied for communicating with components in wind power plants. Main changes with respect to the previous edition consist of:- harmonization with newer editions of IEC 61850 standards;- reduction of overlap between standards and simplification by increased referencing,- extension of data objects for operation of smart grids,- extended and enhanced semantics for existing data objects, etc."@en ,
                                  "IEC 61400-25-2:2015 specifies the information model of devices and functions related to wind power plant applications. In particular, it specifies the compatible logical node names, and data names for communication between wind power plant components. This includes the relationship between logical devices, logical nodes and data. The names defined in the IEC 61400-25 series are used to build the hierarchical object references applied for communicating with components in wind power plants. Main changes with respect to the previous edition consist of:n- harmonization with newer editions of IEC 61850 standards;n- reduction of overlap between standards and simplification by increased referencing,n- extension of data objects for operation of smart grids,n- extended and enhanced semantics for existing data objects, etc."@en ;
                     rdfs:label "IEC 61400-25-2:2015 "@en ;
                     sto:hasAvailableLanguage "English/French"@en ;
@@ -4878,7 +4940,17 @@ sto:IEC_61400_P25_3 rdf:type owl:NamedIndividual ,
                     sto:hasStabilityDate "2018"^^xsd:gYear ;
                     sto:hasTag "IEC 61400-25-3:2015"@en ;
                     dcterms:title "Wind turbines - Part 25-3: Communications for monitoring and control of wind power plants - Information exchange models"@en ;
-                    rdfs:comment "IEC 61400-25-3:2015 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.IEC 61400-25-3:2015 specifies an abstract communication service interface describing the information exchange between a client and a server for:- data access and retrieval,- device control,- event reporting and logging,- self-description of devices (device data dictionary),- data typing and discovery of data types.Main changes with respect to the previous edition consist of:- harmonization with newer editions of IEC 61850 standards;- reduction of overlap between standards and simplification by increased referencing, etc."@en ,
+                    rdfs:comment """IEC 61400-25-3:2015 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
+IEC 61400-25-3:2015 specifies an abstract communication service interface describing the information exchange between a client and a server for:
+- data access and retrieval,
+- device control,
+- event reporting and logging,
+- self-description of devices (device data dictionary),
+- data typing and discovery of data types.
+Main changes with respect to the previous edition consist of:
+- harmonization with newer editions of IEC 61850 standards;
+- reduction of overlap between standards and simplification by increased referencing, etc."""@en ,
+                                 "IEC 61400-25-3:2015 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.IEC 61400-25-3:2015 specifies an abstract communication service interface describing the information exchange between a client and a server for:- data access and retrieval,- device control,- event reporting and logging,- self-description of devices (device data dictionary),- data typing and discovery of data types.Main changes with respect to the previous edition consist of:- harmonization with newer editions of IEC 61850 standards;- reduction of overlap between standards and simplification by increased referencing, etc."@en ,
                                  "IEC 61400-25-3:2015 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nIEC 61400-25-3:2015 specifies an abstract communication service interface describing the information exchange between a client and a server for:n- data access and retrieval,n- device control,n- event reporting and logging,n- self-description of devices (device data dictionary),n- data typing and discovery of data types.nMain changes with respect to the previous edition consist of:n- harmonization with newer editions of IEC 61850 standards;n- reduction of overlap between standards and simplification by increased referencing, etc."@en ;
                     rdfs:label "IEC 61400-25-3:2015"@en ;
                     sto:hasAvailableLanguage "English"@en ;
@@ -4900,6 +4972,17 @@ sto:IEC_61400_P25_4 rdf:type owl:NamedIndividual ,
                     sto:hasTag "IEC 61400-25-4:2016"@en ;
                     dcterms:title "Wind energy generation systems - Part 25-4: Communications for monitoring and control of wind power plants - Mapping to communication profile"@en ;
                     rdfs:comment """IEC 61400-25-4:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
+
+IEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding the messages required for the information exchange between a client and a remote server for: data access and retrieval, device control, event reporting and logging, publisher/subscriber, self-description of devices (device data dictionary), data typing and discovery of data types. The mappings specified in this part of IEC 61400-25 comprise:
+- a mapping to SOAP-based web services,
+- a mapping to OPC/XML-DA,
+- a mapping to IEC 61850-8-1 MMS,
+- a mapping to IEC 60870-5-104,
+- a mapping to DNP3.
+The main technical changes with regard to the previous edition are as follows:
+- general harmonization with information models in IEC 61400-25-2 and information exchange services in IEC 61400-25-3;
+- reduction of overlap between standards and simplification by increased referencing."""@en ,
+                                 """IEC 61400-25-4:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
 
 IEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding the messages required for the information exchange between a client and a remote server for: data access and retrieval, device control, event reporting and logging, publisher/subscriber, self-description of devices (device data dictionary), data typing and discovery of data types. The mappings specified in this part of IEC 61400-25 comprise:
 - a mapping to SOAP-based web services,
@@ -4933,6 +5016,9 @@ sto:IEC_61400_P25_5 rdf:type owl:NamedIndividual ,
                     rdfs:comment """IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition:
 - harmonization with structure and test cases in IEC 61850-10:2012;
 - reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."""@en ,
+                                 """IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition:
+- harmonization with structure and test cases in IEC 61850-10:2012;
+- reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."""@en ,
                                  "IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition:n- harmonization with structure and test cases in IEC 61850-10:2012;n- reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."@en ;
                     rdfs:label "IEC 61400-25-5:2017"@en ;
                     sto:hasAvailableLanguage "English"@en ;
@@ -4954,6 +5040,10 @@ sto:IEC_61400_P25_6 rdf:type owl:NamedIndividual ,
                     sto:hasTag "IEC 61400-25-6:2016"@en ;
                     dcterms:title "Wind energy generation systems - Part 25-6: Communications for monitoring and control of wind power plants - Logical node classes and data classes for condition monitoring"@en ;
                     rdfs:comment """IEC 61400-25-6:2016(E) specifies the information models related to condition monitoring for wind power plants and the information exchange of data values related to these models. This standard is to be used with other standards of the IEC 61400-25 series. This new edition includes the following significant technical changes with respect to the previous edition:
+- major restructuring of the data model to accommodate flexibility; removal of UFF58 format;
+- access to data using the standard reporting and logging functions;
+- recommendations for creating data names to accommodate flexibility."""@en ,
+                                 """IEC 61400-25-6:2016(E) specifies the information models related to condition monitoring for wind power plants and the information exchange of data values related to these models. This standard is to be used with other standards of the IEC 61400-25 series. This new edition includes the following significant technical changes with respect to the previous edition:
 - major restructuring of the data model to accommodate flexibility; removal of UFF58 format;
 - access to data using the standard reporting and logging functions;
 - recommendations for creating data names to accommodate flexibility."""@en ,
@@ -5195,6 +5285,17 @@ This edition includes the following significant technical changes with respect t
 - annexes have been restructured into an Annex A for data analysis (normative) and Annex B (informative) where various examples of the data analysis are given;
 - the former Annex C has been incorporated into the modified Annex B;
 - a new Annex C replaces the old Annex D."""@en ,
+                              """IEC 61810-2:2017 covers test conditions and provisions for the evaluation of endurance tests using appropriate statistical methods to obtain reliability characteristics for relays.
+This document applies to electromechanical elementary relays considered as non-repaired items (i.e. items which are not repaired after failure).
+This document does not cover procedures for electromechanical elementary relays where enhanced requirements for the verification of reliability apply.
+This edition includes the following significant technical changes with respect to the previous edition:
+- not only graphical but also numerical methods are added;
+- reduction of number of samples in specified cases;
+- new subclauses of confidence intervals are added;
+- the WeiBayes approach is added to facilitate compliance tests (routine test) with lower effort;
+- annexes have been restructured into an Annex A for data analysis (normative) and Annex B (informative) where various examples of the data analysis are given;
+- the former Annex C has been incorporated into the modified Annex B;
+- a new Annex C replaces the old Annex D."""@en ,
                               "IEC 61810-2:2017 covers test conditions and provisions for the evaluation of endurance tests using appropriate statistical methods to obtain reliability characteristics for relays.nThis document applies to electromechanical elementary relays considered as non-repaired items (i.e. items which are not repaired after failure).nThis document does not cover procedures for electromechanical elementary relays where enhanced requirements for the verification of reliability apply.nThis edition includes the following significant technical changes with respect to the previous edition:n- not only graphical but also numerical methods are added;n- reduction of number of samples in specified cases;n- new subclauses of confidence intervals are added;n- the WeiBayes approach is added to facilitate compliance tests (routine test) with lower effort;n- annexes have been restructured into an Annex A for data analysis (normative) and Annex B (informative) where various examples of the data analysis are given;n- the former Annex C has been incorporated into the modified Annex B;n- a new Annex C replaces the old Annex D."@en ;
                  rdfs:label "IEC 61810-2:2017"@en ;
                  sto:hasAvailableLanguage " English/French"@en ;
@@ -5282,7 +5383,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
               rdfs:comment "Enterprise-control system integration - Models and terminology"@en ,
                            "IEC 62264 is an international standard for enterprise-control system integration. This standard is based upon ANSI/ISA-95."@en ;
               rdfs:label "IEC 62264"@en ;
-              rdfs:seeAlso "https://en.wikipedia.org/wiki/B2MML" ;
+              rdfs:seeAlso <https://en.wikipedia.org/wiki/B2MML> ;
               skos:altLabel "B2MML" ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_62264> ;
               sto:hasDomain "Enterprise Control"@en ;
@@ -5588,8 +5689,8 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEEE
 sto:IEEE rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
-         sto:abbreviation "IEEE"^^xsd:string ;
-         sto:orgName "Institute of Electrical and Electronics Engineers"^^xsd:string ;
+         sto:abbreviation "IEEE"@en ;
+         sto:orgName "Institute of Electrical and Electronics Engineers"@en ;
          dcterms:description "IEEE and its members inspire a global community to innovate for a better tomorrow through highly cited publications, conferences, technology standards, and professional and educational activities. IEEE is the trusted “voice” for engineering, computing, and technology information around the globe."@en ;
          rdfs:seeAlso "https://www.ieee.org/"@en ;
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers> .
@@ -5601,17 +5702,21 @@ sto:IEEE_1686 rdf:type owl:NamedIndividual ,
               sto:hasClassification idsram:Security ;
               sto:hasDeveloper sto:IEEE ;
               sto:hasPublisher sto:IEEE ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEEE_Smart_Grid"^^xsd:anyURI ;
               dcterms:title "Standard for Intelligent Electronic Devices Cyber Security Capabilities"@en ;
               rdfs:comment "The functions and features to be provided in intelligent electronic devices (IEDs) to accommodate critical infrastructure protection programs are defined in this standard. Security regarding the access, operation, configuration, firmware revision and data retrieval from an IED are addressed. Communications for the purpose of power system protection (teleprotection) are not addressed in this standard."@en ;
+<<<<<<< HEAD
               rdfs:label "IEEE 1686"@en .
+=======
+              rdfs:label "IEEE 1686"@en ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEEE_Smart_Grid> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#IETF
 sto:IETF rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
-         sto:abbreviation "IETF"^^xsd:string ;
-         sto:orgName "Internet Engineering Task Force"^^xsd:string ;
+         sto:abbreviation "IETF"@en ;
+         sto:orgName "Internet Engineering Task Force"@en ;
          rdfs:comment "TODO: complete annotations etc." ;
          rdfs:label "IETF"@en ;
          rdfs:seeAlso <http://wikipedia.org/wiki/Internet_Engineering_Task_Force> ,
@@ -5804,13 +5909,13 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
               sto:relatedTo sto:IEC_61360 ,
                             sto:eClass ;
               sto:hasTag "Industrial automation systems and integration"@en ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO_13584" ;
               dcterms:hasLicense "Private"@en ;
               rdfs:comment "ISO 13584 is a series of International Standards for the computer-sensible representation and exchange of parts library data. The objective is to provide a mechanism capable of transferring parts library data, independent from any particular system. The nature of this description makes it suitable not only for the exchange of files containing parts libraries, but also as a basis for implementing and sharing databases of parts library data, and archiving"@en ;
               rdfs:label "ISO 13584"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13584> ;
               sto:hasMotivation "Standard data elements (properties) are used as elements in administration shell"@en ;
-              sto:hasOfficialResource <https://webstore.iec.ch/publication/5380%0Ahttp://www.iso.org/iso/catalogue_detail.htm?csnumber=43423> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/5380%0Ahttp://www.iso.org/iso/catalogue_detail.htm?csnumber=43423> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13584> .
 
 
 ###  https://w3id.org/i40/sto#ISO_13849
@@ -6089,10 +6194,14 @@ sto:ISO_19770 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2017-12-01"^^xsd:date ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_19770"^^xsd:anyURI ;
               dcterms:title "Information technology — Software asset management"@en ;
               rdfs:comment "International standards in the ISO/IEC 19770 family of standards for IT asset management (ITAM) address both the processes and technology for managing software assets and related IT assets. Broadly speaking, the standard family belongs to the set of Software Asset Management (or SAM) standards and is integrated with other Management System Standards."@en ;
+<<<<<<< HEAD
               rdfs:label "ISO/IEC 19770"@en .
+=======
+              rdfs:label "ISO/IEC 19770"@en ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_19770> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#ISO_20140_5
@@ -6121,11 +6230,11 @@ sto:ISO_20547-3 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasPublisher sto:IEC ,
                                  sto:ISO ;
-                sto:hasOfficialResource "https://www.iso.org/standard/71277.html"^^xsd:anyURI ;
                 dcterms:title "Big data reference architecture -- Part 3: Reference architecture"@en ;
                 rdfs:comment "TODO: how is this standard related to other reference architecture description formats?"@en ,
                              "under development (as from 2018-07-23)"@en ;
-                rdfs:label "ISO/IEC DIS 20547-3"@en .
+                rdfs:label "ISO/IEC DIS 20547-3"@en ;
+                sto:hasOfficialResource <https://www.iso.org/standard/71277.html> .
 
 
 ###  https://w3id.org/i40/sto#ISO_20547-4
@@ -6133,11 +6242,11 @@ sto:ISO_20547-4 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:hasPublisher sto:IEC ,
                                  sto:ISO ;
-                sto:hasOfficialResource "https://www.iso.org/standard/71278.html"^^xsd:anyURI ;
                 dcterms:title "Big data reference architecture -- Part 4: Security and privacy"@en ;
                 rdfs:comment "TODO: check with other reference architecture description frameworks"@en ,
                              "under development (as from 2018-07-23)"@en ;
-                rdfs:label "ISO/IEC AWI 20547-4"@en .
+                rdfs:label "ISO/IEC AWI 20547-4"@en ;
+                sto:hasOfficialResource <https://www.iso.org/standard/71278.html> .
 
 
 ###  https://w3id.org/i40/sto#ISO_20922
@@ -6256,7 +6365,7 @@ sto:ISO_27017 rdf:type owl:NamedIndividual ,
               sto:hasDomain sto:ITSecurity ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              sto:hasPublicationDate "2015-12-01" ;
+              sto:hasPublicationDate "2015-12-01"^^xsd:date ;
               dc11:title "Code of practice for information security controls based on ISO/IEC 27002 for cloud services"@en ;
               rdfs:comment "The ISO/IEC 270172 standard provides guidance on the information security elements of cloud computing. It assists with the implementation of cloud-specific information security controls, supplementing the guidance in ISO 27000 series standards."@en ;
               rdfs:label "ISO/IEC 27017"@en ;
@@ -6284,10 +6393,14 @@ sto:ISO_27019 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification idsram:Certification ;
               sto:hasPublisher sto:ISO ;
-              sto:hasOfficialResource "https://www.beuth.de/de/technische-regel/din-iso-iec-tr-27019/223679647"^^xsd:anyURI ;
               dcterms:title "Guidance for information security management of power supply control systems based on ISO/IEC 27002"@en ;
               rdfs:comment "The specification serves as a guidance for introducing ISO/IEC 27002 into the energy domain."@en ;
+<<<<<<< HEAD
               rdfs:label "ISO 27019"@en .
+=======
+              rdfs:label "ISO 27019"@en ;
+              sto:hasOfficialResource <https://www.beuth.de/de/technische-regel/din-iso-iec-tr-27019/223679647> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#ISO_27031
@@ -6389,9 +6502,9 @@ sto:ISO_29134 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_29161
 sto:ISO_29161 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasOfficialResource "https://www.iso.org/standard/45240.html" ;
               rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures."@en ;
-              rdfs:label "ISO 29161" .
+              rdfs:label "ISO 29161" ;
+              sto:hasOfficialResource <https://www.iso.org/standard/45240.html> .
 
 
 ###  https://w3id.org/i40/sto#ISO_29190
@@ -6413,16 +6526,16 @@ sto:ISO_42010 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              sto:domainName "Reference Architecture Description"^^xsd:string ;
-              sto:hasOfficialResource "https://www.iso.org/standard/50508.html"^^xsd:anyURI ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010"^^xsd:anyURI ;
+              sto:domainName "Reference Architecture Description"@en ;
               dcterms:title "Systems and software engineering — Architecture description"@en ;
               rdfs:comment """ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages.
 
 Following its predecessor, IEEE Std 1471, the standard makes a strict distinction between Architectures and Architecture Descriptions.
 
 The description of ISO/IEC/IEEE 42010 in this article is based upon the standard published in 2011."""@en ;
-              rdfs:label "ISO/IEC 42010"@en .
+              rdfs:label "ISO/IEC 42010"@en ;
+              sto:hasOfficialResource <https://www.iso.org/standard/50508.html> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> .
 
 
 ###  https://w3id.org/i40/sto#ISO_50001
@@ -6471,11 +6584,23 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:CrossLevel ,
                                    idsram:Certification ;
              sto:hasPublisher sto:ISO ;
-             sto:hasOfficialResource "https://www.iso.org/iso-9001-quality-management.html"^^xsd:anyURI ;
              rdfs:comment "The ISO 9000 family of quality management systems standards is designed to help organizations ensure that they meet the needs of customers and other stakeholders while meeting statutory and regulatory requirements related to a product or program."@en ;
              rdfs:label "ISO 9000"@en ;
              sto:hasDBpediaResource <http://dbpedia.org/page/ISO_9000> ;
+             sto:hasOfficialResource <https://www.iso.org/iso-9001-quality-management.html> ;
              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_9000> .
+
+
+###  https://w3id.org/i40/sto#ISO_9594
+sto:ISO_9594 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:DataSovereignty ,
+                                   idsram:Certification ,
+                                   idsram:Security ;
+             sto:hasPublisher sto:ISO ;
+             rdfs:label "ISO/IEC 9594"@en ,
+                        "X.509"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> .
 
 
 ###  https://w3id.org/i40/sto#ISO_9594-8
@@ -6728,7 +6853,7 @@ sto:ModelingPractice rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#NERC
 sto:NERC rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
-         sto:abbreviation "NERC"^^xsd:string ;
+         sto:abbreviation "NERC"@en ;
          sto:orgName "North American Electric Reliability Corporation"@en ;
          dcterms:description "The North American Electric Reliability Corporation (NERC) is a not-for-profit international regulatory authority whose mission is to assure the effective and efficient reduction of risks to the reliability and security of the grid. NERC develops and enforces Reliability Standards; annually assesses seasonal and long‐term reliability; monitors the bulk power system through system awareness; and educates, trains, and certifies industry personnel. NERC’s area of responsibility spans the continental United States, Canada, and the northern portion of Baja California, Mexico. NERC is the electric reliability organization (ERO) for North America, subject to oversight by the Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. NERC's jurisdiction includes users, owners, and operators of the bulk power system, which serves more than 334 million people."@en ;
          rdfs:seeAlso "https://www.nerc.com/Pages/default.aspx"@en ;
@@ -6887,12 +7012,15 @@ sto:ODRL rdf:type owl:NamedIndividual ,
          sto:hasClassification idsram:InformationLayer ,
                                idsram:Security ;
          sto:hasPublisher sto:W3C ;
-         sto:hasOfficialResource "https://www.w3.org/TR/odrl-model/"^^xsd:anyURI ;
          rdfs:comment """The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. The ODRL Information Model describes the underlying concepts, entities, and relationships that form the foundational basis for the semantics of the ODRL policies.
-
 Policies are used to represent permitted and prohibited actions over a certain asset, as well as the obligations required to be meet by stakeholders. In addition, policies may be limited by constraints (e.g., temporal or spatial constraints) and duties (e.g. payments) may be imposed on permissions."""@en ;
          rdfs:label "ODRL"@en ,
+<<<<<<< HEAD
                     "Open Digital Rights Language"@en .
+=======
+                    "Open Digital Rights Language"@en ;
+         sto:hasOfficialResource <https://www.w3.org/TR/odrl-model/> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#ODVA
@@ -7050,10 +7178,10 @@ sto:RFC_1122 rdf:type owl:NamedIndividual ,
              sto:hasClassification iira:Connectivity ,
                                    iira:NetworkLayer ;
              sto:hasPublisher sto:IETF ;
-             sto:hasOfficialResource "https://tools.ietf.org/html/rfc1122"^^xsd:anyURI ;
              dcterms:title "Requirements for Internet Hosts -- Communication Layers"@en ;
              rdfs:comment "This is one RFC of a pair that defines and discusses the requirements for Internet host software.  This RFC covers the communications protocol layers: link layer, IP layer, and transport layer; its companion RFC-1123 covers the application and support protocols."@en ;
-             rdfs:label "RFC 1122"@en .
+             rdfs:label "RFC 1122"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc1122> .
 
 
 ###  https://w3id.org/i40/sto#RFC_2616
@@ -7064,11 +7192,15 @@ sto:RFC_2616 rdf:type owl:NamedIndividual ,
                                    rami:Communication ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
-             sto:hasOfficialResource "https://www.ietf.org/rfc/rfc2616"^^xsd:anyURI ;
              rdfs:comment "The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers. A feature of HTTP is the typing and negotiation of data representation, allowing systems to be built independently of the data being transferred."@en ;
              rdfs:label "HTTP/1.1"@en ,
                         "RFC 2616"@en ;
+<<<<<<< HEAD
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc2817> .
+=======
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc2817> ,
+                                     <https://www.ietf.org/rfc/rfc2616> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#RFC_2818
@@ -7078,7 +7210,11 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "This memo describes how to use TLS to secure HTTP connections over  the Internet. Current practice is to layer HTTP over SSL (the predecessor to TLS), distinguishing secured traffic from insecure traffic by the use of a different server port. This document documents that practice using TLS. A companion document describes a method for using HTTP/TLS over the same port as normal HTTP [RFC2817]."@en ;
+<<<<<<< HEAD
              rdfs:label "HTTPS"^^@en ,
+=======
+             rdfs:label "HTTPS"@en ,
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
                         "RFC 2818"@en .
 
 
@@ -7088,6 +7224,7 @@ sto:RFC_5246 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:DataSovereignty ,
                                    idsram:Security ;
              sto:hasPublisher sto:IETF ;
+             dcterms:description "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
              rdfs:comment "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
              rdfs:label "RFC 5246"@en ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc5246> .
@@ -7098,10 +7235,16 @@ sto:RFC_6750 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasClassification idsram:Security ;
              sto:hasPublisher sto:IETF ;
+             dcterms:description "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
              rdfs:comment "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
              rdfs:label "RFC 6750"@en ;
              skos:altLabel "OAuth2.0"@en ;
+<<<<<<< HEAD
              sto:hasOfficialResource <https://w3id.org/i40/sto> .
+=======
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc6750> ,
+                                     <https://w3id.org/i40/sto> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#RFC_7252
@@ -7110,12 +7253,17 @@ sto:RFC_7252 rdf:type owl:NamedIndividual ,
              sto:hasClassification iira:OperationDomain ,
                                    iira:TansportLayer ;
              sto:hasPublisher sto:IETF ;
-             sto:hasOfficialResource "https://tools.ietf.org/html/rfc7252"^^xsd:anyURI ;
              sto:hasPublicationDate "2014-06-01"^^xsd:date ;
              dcterms:title "The Constrained Application Protocol"@en ;
              rdfs:comment "The Constrained Application Protocol (CoAP) is a specialized web transfer protocol for use with constrained nodes and constrained (e.g., low-power, lossy) networks.  The nodes often have 8-bit microcontrollers with small amounts of ROM and RAM, while constrained networks such as IPv6 over Low-Power Wireless Personal Area Networks (6LoWPANs) often have high packet error rates and a typical throughput of 10s of kbit/s.  The protocol is designed for machine-to-machine (M2M) applications such as smart energy and building automation."@en ;
+<<<<<<< HEAD
              rdfs:label "RFC 7252"@en ;
              skos:altLabel "CoAP"@en .
+=======
+             rdfs:label "RFC 7252" ;
+             skos:altLabel "CoAP"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc7252> .
+>>>>>>> 8d96dcca21e22b398cf9b7a260d8fbdf99d8cd27
 
 
 ###  https://w3id.org/i40/sto#RFC_7519
@@ -7124,6 +7272,7 @@ sto:RFC_7519 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:DataSovereignty ,
                                    idsram:Security ;
              sto:hasPublisher sto:IETF ;
+             dcterms:description "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
              rdfs:comment "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
              rdfs:label "JSON Web Token"@en ,
                         "RFC 7519"@en ;
@@ -7151,11 +7300,11 @@ sto:RFC_768 rdf:type owl:NamedIndividual ,
                      sto:Standard ;
             sto:hasClassification iira:TansportLayer ;
             sto:hasPublisher sto:IETF ;
-            sto:hasOfficialResource "https://tools.ietf.org/html/rfc768"^^xsd:anyURI ;
-            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/User_Datagram_Protocol"^^xsd:anyURI ;
             dcterms:title "User Datagram Protocol (UDP)"@en ;
             rdfs:comment "In computer networking, the User Datagram Protocol (UDP) is one of the core members of the Internet protocol suite. The protocol was designed by David P. Reed in 1980 and formally defined in RFC 768. With UDP, computer applications can send messages, in this case referred to as datagrams, to other hosts on an Internet Protocol (IP) network. Prior communications are not required in order to set up communication channels or data paths."@en ;
-            rdfs:label "RFC 768"@en .
+            rdfs:label "RFC 768"@en ;
+            sto:hasOfficialResource <https://tools.ietf.org/html/rfc768> ;
+            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/User_Datagram_Protocol> .
 
 
 ###  https://w3id.org/i40/sto#RFC_793
@@ -7164,7 +7313,6 @@ sto:RFC_793 rdf:type owl:NamedIndividual ,
             sto:hasClassification iira:TansportLayer ,
                                   idsram:SystemLayer ;
             sto:hasPublisher sto:IETF ;
-            sto:hasOfficialResource "https://tools.ietf.org/html/rfc793"^^xsd:anyURI ;
             dcterms:title "TRANSMISSION CONTROL PROTOCOL"@en ;
             rdfs:comment """This document describes the DoD Standard Transmission Control Protocol
 (TCP).  There have been nine earlier editions of the ARPA TCP
@@ -7173,7 +7321,8 @@ draws heavily from them.  There have been many contributors to this work
 both in terms of concepts and in terms of text.  This edition clarifies
 several details and removes the end-of-letter buffer-size adjustments,
 and redescribes the letter mechanism as a push function."""@en ;
-            rdfs:label "RFC 793"@en .
+            rdfs:label "RFC 793"@en ;
+            sto:hasOfficialResource <https://tools.ietf.org/html/rfc793> .
 
 
 ###  https://w3id.org/i40/sto#SCADALevel
@@ -7623,6 +7772,15 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
            sto:hasOfficialResource "http://www.onem2m.org/about-onem2m/why-onem2m"^^xsd:anyURI ;
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
            rdfs:label "oneM2M"@en .
+
+
+###  https://w3id.org/i40/sto#sto_irlan
+sto:irlan rdf:type owl:NamedIndividual ,
+                       foaf:Person ;
+              rdfs:label "Irlan Grangel" ;
+              foaf:familyName "Grangel" ;
+              foaf:mbox "irlangrangel2003@gmail.com" ;
+              foaf:name "Irlan" .
 
 
 ###  https://w3id.org/ids/core/TrustedConnector
