@@ -222,17 +222,16 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
-                         rdfs:domain foaf:Document ;
-                         dcterms:creator sto:irlan .
+                         rdfs:domain foaf:Document .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
                       rdfs:domain sto:Standard ;
                       rdfs:range sto:StandardClassification ;
+                      dcterms:creator sto:irlan ;
                       rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                      rdfs:label "has Classification"@en ;
-                      dcterms:creator sto:irlan .
+                      rdfs:label "has Classification"@en .
 
 
 ###  https://w3id.org/i40/sto#hasDeveloper
@@ -240,17 +239,15 @@ sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
                  rdfs:domain sto:Publication ;
                  rdfs:range sto:StandardOrganization ;
+                 dcterms:creator sto:irlan ;
                  rdfs:comment "The organization that developed this Standard"@en ;
-                 rdfs:label "has Developer"@en ;
-                 dcterms:creator sto:irlan .
+                 rdfs:label "has Developer"@en .
 
 
 ###  https://w3id.org/i40/sto#hasDomain
 sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Publication ;
-              rdfs:range sto:Domain ;
-              rdfs:comment "Points to the domain in which the standard is used"@en ;
-              dcterms:creator sto:irlan .
+              rdfs:range sto:Domain .
 
 
 ###  https://w3id.org/i40/sto#hasFileSize
@@ -272,9 +269,9 @@ sto:hasFileSize rdf:type owl:ObjectProperty ;
 sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
                     rdfs:domain sto:StandardOrganization ;
                     rdfs:range dbo:Place ;
+                    dcterms:creator sto:irlan ;
                     rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en ;
-                    rdfs:label "has Headquater In"@en ;
-                    dcterms:creator sto:irlan .
+                    rdfs:label "has Headquater In"@en .
 
 
 ###  https://w3id.org/i40/sto#hasICS
@@ -294,7 +291,8 @@ sto:hasMotivation rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasPreviousVersion
 sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf sto:relatedTo ;
-                       rdfs:comment "Indicates the list of Standards that are previous versions of a Standard. For example,IEC 60038:2009 has IEC 60038:1983+AMD1:1994+AMD2:1997,IEC 60038:1983/AMD2:1997,IEC 60038:1983/AMD1:1994,IEC 60038:1983,IEC 60038:1975/AMD1:1977,IEC 60038:1975,IEC 60038:1967,IEC 60038:1954,IEC 60038:1938,IEC 60038:1927 as previous versions."@en ;
+                       rdfs:comment sto:irlan ,
+                                    "Indicates the list of Standards that are previous versions of a Standard. For example,IEC 60038:2009 has IEC 60038:1983+AMD1:1994+AMD2:1997,IEC 60038:1983/AMD2:1997,IEC 60038:1983/AMD1:1994,IEC 60038:1983,IEC 60038:1975/AMD1:1977,IEC 60038:1975,IEC 60038:1967,IEC 60038:1954,IEC 60038:1938,IEC 60038:1927 as previous versions."@en ;
                        rdfs:label "has Previous Version"@en .
 
 
@@ -303,9 +301,9 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
                  rdfs:domain sto:Publication ;
                  rdfs:range sto:StandardOrganization ;
+                 dcterms:creator sto:irlan ;
                  rdfs:comment "The organization that published this Standard"@en ;
-                 rdfs:label "has Publisher"@en ;
-                 dcterms:creator sto:irlan .
+                 rdfs:label "has Publisher"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTag
@@ -326,14 +324,16 @@ sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
 sto:isDescribedin rdf:type owl:ObjectProperty ;
                   rdfs:domain sto:StandardClassification ;
                   rdfs:range sto:StandardizationFramework ;
-                  rdfs:comment "Links the Standarization Frameworks with the Classification of Standards"@en ;
+                  rdfs:comment sto:irlan ,
+                               "Links the Standarization Frameworks with the Classification of Standards"@en ;
                   rdfs:label "is Described in"@en .
 
 
 ###  https://w3id.org/i40/sto#isImplementationOf
 sto:isImplementationOf rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf sto:relatedTo ;
-                       rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en ;
+                       rdfs:comment sto:irlan ,
+                                    "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en ;
                        rdfs:label "is Implementation Of"@en .
 
 
@@ -343,7 +343,8 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
                        owl:TransitiveProperty ;
               rdfs:domain sto:Standard ;
               rdfs:range sto:Standard ;
-              rdfs:comment "Represent any type of relation that connects two standards."@en ;
+              rdfs:comment sto:irlan ,
+                           "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
               skos:altLabel "has Associated Standard"@en .
 
@@ -351,14 +352,16 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
 ###  https://w3id.org/i40/sto#useStructureOf
 sto:useStructureOf rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf sto:relatedTo ;
-                   rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
+                   rdfs:comment sto:irlan ,
+                                "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
                    rdfs:label "use Structure Of"@en .
 
 
 ###  https://w3id.org/i40/sto#uses
 sto:uses rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf sto:relatedTo ;
-         rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
+         rdfs:comment sto:irlan ,
+                      "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
 
 
@@ -607,6 +610,7 @@ foaf:Person rdf:type owl:Class .
 ###  https://w3id.org/i40/rami#AdminShellSubmodel
 rami:AdminShellSubmodel rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
+                        dcterms:creator sto:irlan ;
                         rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
                         rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
                         rdfs:label "Admin Shell Sub Model"@en .
@@ -625,6 +629,7 @@ rami:RAMIHierarchyLevel rdf:type owl:Class ;
                                                         )
                                             ] ;
                         rdfs:subClassOf sto:StandardClassification ;
+                        dcterms:creator sto:irlan ;
                         rdfs:label "RAMI Hierarchy Level"@en .
 
 
@@ -640,12 +645,14 @@ rami:RAMIITLayer rdf:type owl:Class ;
                                                  )
                                      ] ;
                  rdfs:subClassOf sto:StandardClassification ;
+                 dcterms:creator sto:irlan ;
                  rdfs:label "RAMI IT Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#RAMILifeCycleLayer
 rami:RAMILifeCycleLayer rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
+                        dcterms:creator sto:irlan ;
                         rdfs:label "RAMI Life Cycle Layer"@en ;
                         rdfs:seeAlso "http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx" ;
                         skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
@@ -663,6 +670,7 @@ sto:ArchitectureDescription rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
 sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:subClassOf sto:StandardClassification ;
+                     dcterms:creator sto:irlan ;
                      rdfs:comment "Suply Chain Management Business Cycle."@en ;
                      rdfs:isDefinedBy "http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf" ;
                      rdfs:label "Business Cycle SCM"@en ;
@@ -679,6 +687,7 @@ sto:ConnectivityLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#Domain
 sto:Domain rdf:type owl:Class ;
+           dcterms:creator sto:irlan ;
            rdfs:comment "Represents the Domains in which the Standards can be used"@en ;
            rdfs:label "Domain"@en .
 
@@ -686,6 +695,7 @@ sto:Domain rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#ISA95Level
 sto:ISA95Level rdf:type owl:Class ;
                rdfs:subClassOf sto:StandardClassification ;
+               dcterms:creator sto:irlan ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA 95 Level"@en .
 
@@ -702,6 +712,7 @@ sto:InternationalClassificationForStandards rdf:type owl:Class .
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
 sto:ProductDevelopmentLifeCycle rdf:type owl:Class ;
                                 rdfs:subClassOf sto:StandardClassification ;
+                                dcterms:creator sto:irlan ;
                                 rdfs:comment "PLM is the process of managing the entire lifecycle of a product from inception, through engineering design and manufacture, to service and disposal of manufactured products. Related areas are PLMManagement, Modeling Practice, Product Model Data exchange, Manufacturing Model Data, Product Catalog Data."@en ,
                                              "Product Development Life-Cycle Phase"@en ;
                                 rdfs:isDefinedBy "https://en.wikipedia.org/wiki/Product_lifecycle" ;
@@ -711,6 +722,7 @@ sto:ProductDevelopmentLifeCycle rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#ProductionSystemLifeCycle
 sto:ProductionSystemLifeCycle rdf:type owl:Class ;
                               rdfs:subClassOf sto:StandardClassification ;
+                              dcterms:creator sto:irlan ;
                               rdfs:comment "Collections of machines, equipment, and auxiliary systems organized to create goods and services from various resources."@en ;
                               rdfs:isDefinedBy "http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf" ;
                               rdfs:label "Production System Life Cycle"@en .
@@ -734,6 +746,7 @@ sto:Standard rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#StandardClassification
 sto:StandardClassification rdf:type owl:Class ;
                            owl:equivalentClass sto:Viewpoint ;
+                           dcterms:creator sto:irlan ;
                            rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
                            rdfs:label "Standard Classification"@en .
 
@@ -755,9 +768,9 @@ sto:StandardPart rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#StandardizationFramework
 sto:StandardizationFramework rdf:type owl:Class ;
+                             dcterms:creator sto:irlan ;
                              rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
                              rdfs:label "Standarization Framework"@en ;
-                             dcterms:creator sto:irlan ;
                              skos:altLabel "Reference Architecture"@en .
 
 
@@ -4954,17 +4967,6 @@ IEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding 
 The main technical changes with regard to the previous edition are as follows:
 - general harmonization with information models in IEC 61400-25-2 and information exchange services in IEC 61400-25-3;
 - reduction of overlap between standards and simplification by increased referencing."""@en ,
-                                 """IEC 61400-25-4:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
-
-IEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding the messages required for the information exchange between a client and a remote server for: data access and retrieval, device control, event reporting and logging, publisher/subscriber, self-description of devices (device data dictionary), data typing and discovery of data types. The mappings specified in this part of IEC 61400-25 comprise:
-- a mapping to SOAP-based web services,
-- a mapping to OPC/XML-DA,
-- a mapping to IEC 61850-8-1 MMS,
-- a mapping to IEC 60870-5-104,
-- a mapping to DNP3.
-The main technical changes with regard to the previous edition are as follows:
-- general harmonization with information models in IEC 61400-25-2 and information exchange services in IEC 61400-25-3;
-- reduction of overlap between standards and simplification by increased referencing."""@en ,
                                  "IEC 61400-25-4:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nnIEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding the messages required for the information exchange between a client and a remote server for: data access and retrieval, device control, event reporting and logging, publisher/subscriber, self-description of devices (device data dictionary), data typing and discovery of data types. The mappings specified in this part of IEC 61400-25 comprise:n- a mapping to SOAP-based web services,n- a mapping to OPC/XML-DA,n- a mapping to IEC 61850-8-1 MMS,n- a mapping to IEC 60870-5-104,n- a mapping to DNP3.nThe main technical changes with regard to the previous edition are as follows:n- general harmonization with information models in IEC 61400-25-2 and information exchange services in IEC 61400-25-3;n- reduction of overlap between standards and simplification by increased referencing."@en ;
                     rdfs:label "IEC 61400-25-4:2016"@en ;
                     sto:hasAvailableLanguage "English"@en ;
@@ -4988,9 +4990,6 @@ sto:IEC_61400_P25_5 rdf:type owl:NamedIndividual ,
                     rdfs:comment """IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition:
 - harmonization with structure and test cases in IEC 61850-10:2012;
 - reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."""@en ,
-                                 """IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition:
-- harmonization with structure and test cases in IEC 61850-10:2012;
-- reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."""@en ,
                                  "IEC 61400-25-5:2017 specifies standard techniques for testing of compliance of implementations, as well as specific measurement techniques to be applied when declaring performance parameters. The use of these techniques will enhance the ability of users to purchase systems that integrate easily, operate correctly, and support the applications as intended. This part of IEC 61400-25 defines: the methods and abstract test cases for compliance testing of server and client devices used in wind power plants; the metrics to be measured in said devices according to the communication requirements specified in IEC 61400-25 (all parts). This new edition includes the following significant technical changes with respect to the previous edition:n- harmonization with structure and test cases in IEC 61850-10:2012;n- reduction of overlap between standards and simplification by increased referencing to the IEC 61850 standard series."@en ;
                     rdfs:label "IEC 61400-25-5:2017"@en ;
                     sto:hasAvailableLanguage "English"@en ;
@@ -5012,10 +5011,6 @@ sto:IEC_61400_P25_6 rdf:type owl:NamedIndividual ,
                     sto:hasTag "IEC 61400-25-6:2016"@en ;
                     dcterms:title "Wind energy generation systems - Part 25-6: Communications for monitoring and control of wind power plants - Logical node classes and data classes for condition monitoring"@en ;
                     rdfs:comment """IEC 61400-25-6:2016(E) specifies the information models related to condition monitoring for wind power plants and the information exchange of data values related to these models. This standard is to be used with other standards of the IEC 61400-25 series. This new edition includes the following significant technical changes with respect to the previous edition:
-- major restructuring of the data model to accommodate flexibility; removal of UFF58 format;
-- access to data using the standard reporting and logging functions;
-- recommendations for creating data names to accommodate flexibility."""@en ,
-                                 """IEC 61400-25-6:2016(E) specifies the information models related to condition monitoring for wind power plants and the information exchange of data values related to these models. This standard is to be used with other standards of the IEC 61400-25 series. This new edition includes the following significant technical changes with respect to the previous edition:
 - major restructuring of the data model to accommodate flexibility; removal of UFF58 format;
 - access to data using the standard reporting and logging functions;
 - recommendations for creating data names to accommodate flexibility."""@en ,
@@ -5247,17 +5242,6 @@ sto:IEC_61810_P2 rdf:type owl:NamedIndividual ,
                  sto:hasTag "IEC 61810-2:2017"@en ;
                  dcterms:title "Electromechanical elementary relays - Part 2: Reliability"@en ;
                  rdfs:comment """IEC 61810-2:2017 covers test conditions and provisions for the evaluation of endurance tests using appropriate statistical methods to obtain reliability characteristics for relays.
-This document applies to electromechanical elementary relays considered as non-repaired items (i.e. items which are not repaired after failure).
-This document does not cover procedures for electromechanical elementary relays where enhanced requirements for the verification of reliability apply.
-This edition includes the following significant technical changes with respect to the previous edition:
-- not only graphical but also numerical methods are added;
-- reduction of number of samples in specified cases;
-- new subclauses of confidence intervals are added;
-- the WeiBayes approach is added to facilitate compliance tests (routine test) with lower effort;
-- annexes have been restructured into an Annex A for data analysis (normative) and Annex B (informative) where various examples of the data analysis are given;
-- the former Annex C has been incorporated into the modified Annex B;
-- a new Annex C replaces the old Annex D."""@en ,
-                              """IEC 61810-2:2017 covers test conditions and provisions for the evaluation of endurance tests using appropriate statistical methods to obtain reliability characteristics for relays.
 This document applies to electromechanical elementary relays considered as non-repaired items (i.e. items which are not repaired after failure).
 This document does not cover procedures for electromechanical elementary relays where enhanced requirements for the verification of reliability apply.
 This edition includes the following significant technical changes with respect to the previous edition:
@@ -7705,21 +7689,21 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> .
 
 
+###  https://w3id.org/i40/sto#irlan
+sto:irlan rdf:type owl:NamedIndividual ,
+                   foaf:Person ;
+          rdfs:label "Irlan Grangel" ;
+          foaf:familyName "Grangel" ;
+          foaf:mbox "irlangrangel2003@gmail.com" ;
+          foaf:name "Irlan" .
+
+
 ###  https://w3id.org/i40/sto#oneM2M
 sto:oneM2M rdf:type owl:NamedIndividual ,
                     sto:StandardOrganization ;
            sto:hasOfficialResource "http://www.onem2m.org/about-onem2m/why-onem2m"^^xsd:anyURI ;
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
            rdfs:label "oneM2M"@en .
-
-
-###  https://w3id.org/i40/sto#sto_irlan
-sto:irlan rdf:type owl:NamedIndividual ,
-                       foaf:Person ;
-              rdfs:label "Irlan Grangel" ;
-              foaf:familyName "Grangel" ;
-              foaf:mbox "irlangrangel2003@gmail.com" ;
-              foaf:name "Irlan" .
 
 
 ###  https://w3id.org/ids/core/TrustedConnector
@@ -7854,7 +7838,8 @@ sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/pu
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+sto:Standard dcterms:creator sto:irlan ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
              rdfs:label "Standard"@en ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
              cc:attributionURL <http://www.iec.ch> ;
@@ -7877,10 +7862,11 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 
-sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ,
-                                    "has Available Language"@en ;
+sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ;
                          skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
                          """ ;
+                         dcterms:creator sto:irlan ;
+                         rdfs:label "has Available Language"@en ;
                          rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
                                       "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
@@ -7890,7 +7876,9 @@ sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
 
 
 sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
-              rdfs:label "has Domain"@en .
+              rdfs:label "has Domain"@en ;
+              dcterms:creator sto:irlan ;
+              rdfs:comment "Points to the domain in which the standard is used"@en .
 
 
 sto:hasOfficialResource rdfs:comment "Standard Official Website"@en ;
