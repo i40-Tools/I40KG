@@ -497,7 +497,7 @@ iira:CrosscuttingFunction rdf:type owl:Class ;
                                             owl:onProperty dul:isPartOf ;
                                             owl:hasValue iira:FunctionalViewpoint
                                           ] ;
-                          rdfs:label "IIRA Crosscutting Function"^^xsd:string .
+                          rdfs:label "IIRA Crosscutting Function"@en .
 
 
 ###  http://example.org/iira#FunctionalDomain
@@ -507,7 +507,7 @@ iira:FunctionalDomain rdf:type owl:Class ;
                                         owl:onProperty sto:isDescribedin ;
                                         owl:hasValue iira:IIRA
                                       ] ;
-                      rdfs:label "IIRA Functional Domain"^^xsd:string .
+                      rdfs:label "IIRA Functional Domain"@en .
 
 
 ###  http://example.org/iira#SystemCharacteristics
@@ -517,13 +517,13 @@ iira:SystemCharacteristics rdf:type owl:Class ;
                                              owl:onProperty dul:isPartOf ;
                                              owl:hasValue iira:FunctionalViewpoint
                                            ] ;
-                           rdfs:label "IIRA System Characteristic"^^xsd:string .
+                           rdfs:label "IIRA System Characteristic"@en .
 
 
 ###  http://example.org/iira#Viewpoint
 iira:Viewpoint rdf:type owl:Class ;
                rdfs:subClassOf sto:StandardClassification ;
-               rdfs:label "IIRA Viewpoint"^^xsd:string .
+               rdfs:label "IIRA Viewpoint"@en .
 
 
 ###  http://purl.org/dc/terms/LicenseDocument
@@ -554,7 +554,7 @@ deo:Motivation rdf:type owl:Class .
                                                                       )
                                                           ] ;
                                       rdfs:subClassOf sto:StandardClassification ;
-                                      rdfs:label "IDS RAM Perspective"^^xsd:string .
+                                      rdfs:label "IDS RAM Perspective"@en .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
@@ -759,7 +759,7 @@ idsram:Layer rdf:type owl:Class ;
                                              )
                                  ] ;
              rdfs:subClassOf sto:StandardClassification ;
-             rdfs:label "IDS RAM Layer"^^xsd:string .
+             rdfs:label "IDS RAM Layer"@en .
 
 
 #################################################################
@@ -884,7 +884,7 @@ iira:ApplicationDomain rdf:type owl:NamedIndividual ,
                        dul:isPartOf iira:FunctionalViewpoint ;
                        sto:alignesWith idsram:ProcessLayer ;
                        sto:isDescribedin iira:IIRA ;
-                       rdfs:label "IIRA Application Domain"^^xsd:string .
+                       rdfs:label "IIRA Application Domain"@en .
 
 
 ###  http://example.org/iira#BusinessDomain
@@ -892,14 +892,14 @@ iira:BusinessDomain rdf:type owl:NamedIndividual ,
                              iira:FunctionalDomain ;
                     sto:alignesWith rami:Business ,
                                     idsram:BusinessLayer ;
-                    rdfs:label "IIRA Business Domain"^^xsd:string .
+                    rdfs:label "IIRA Business Domain"@en .
 
 
 ###  http://example.org/iira#BusinessViewpoint
 iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
                                 iira:Viewpoint ;
                        sto:isDescribedin iira:IIRA ;
-                       rdfs:label "IIRA Business Viewpoint"^^xsd:string .
+                       rdfs:label "IIRA Business Viewpoint"@en .
 
 
 ###  http://example.org/iira#Connectivity
@@ -912,7 +912,7 @@ iira:Connectivity rdf:type owl:NamedIndividual ,
                                      sto:FrameworkLayer ,
                                      sto:IIRC ;
                   dul:isPartOf rami:Asset ;
-                  rdfs:label "IIRA Connectivity"^^xsd:string .
+                  rdfs:label "IIRA Connectivity"@en .
 
 
 ###  http://example.org/iira#ControlDomain
@@ -920,7 +920,7 @@ iira:ControlDomain rdf:type owl:NamedIndividual ,
                             iira:FunctionalDomain ;
                    sto:alignesWith rami:Integration ;
                    sto:isDescribedin iira:IIRA ;
-                   rdfs:label "IIRA Control Domain"^^xsd:string .
+                   rdfs:label "IIRA Control Domain"@en .
 
 
 ###  http://example.org/iira#DistributedDataManagement
@@ -933,7 +933,7 @@ iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
                                   iira:Viewpoint ;
                          sto:alignesWith idsram:ReferenceArchitectureModel ;
                          sto:isDescribedin iira:IIRA ;
-                         rdfs:label "IIRA Functional Viewpoint"^^xsd:string .
+                         rdfs:label "IIRA Functional Viewpoint"@en .
 
 
 ###  http://example.org/iira#IIRA
@@ -948,7 +948,7 @@ iira:IIRA rdf:type owl:NamedIndividual ,
 iira:ImplementationViewpoint rdf:type owl:NamedIndividual ,
                                       iira:Viewpoint ;
                              sto:isDescribedin iira:IIRA ;
-                             rdfs:label "IIRA Implementation Viewpoint"^^xsd:string .
+                             rdfs:label "IIRA Implementation Viewpoint"@en .
 
 
 ###  http://example.org/iira#IndustrialAnalytics
@@ -961,7 +961,7 @@ iira:InformationDomain rdf:type owl:NamedIndividual ,
                                 iira:FunctionalDomain ;
                        sto:alignesWith rami:Information ;
                        sto:isDescribedin iira:IIRA ;
-                       rdfs:label "IIRA Information Domain"^^xsd:string .
+                       rdfs:label "IIRA Information Domain"@en .
 
 
 ###  http://example.org/iira#IntelligentAndResilientControl
@@ -986,7 +986,7 @@ iira:OperationDomain rdf:type owl:NamedIndividual ,
                               iira:FunctionalDomain ;
                      sto:alignesWith rami:Functional ;
                      sto:isDescribedin iira:IIRA ;
-                     rdfs:label "IIRA Operation Domain"^^xsd:string .
+                     rdfs:label "IIRA Operation Domain"@en .
 
 
 ###  http://example.org/iira#PhysicalLayer
@@ -1002,43 +1002,43 @@ iira:PhysicalSystems rdf:type owl:NamedIndividual ,
                      dul:isPartOf iira:FunctionalViewpoint ;
                      sto:alignesWith rami:Asset ;
                      sto:isDescribedin iira:IIRA ;
-                     rdfs:label "IIRA Physical Systems"^^xsd:string .
+                     rdfs:label "IIRA Physical Systems"@en .
 
 
 ###  http://example.org/iira#Privacy
 iira:Privacy rdf:type owl:NamedIndividual ,
                       iira:SystemCharacteristics ;
-             rdfs:label "IIRA Privacy"^^xsd:string .
+             rdfs:label "IIRA Privacy"@en .
 
 
 ###  http://example.org/iira#Reliability
 iira:Reliability rdf:type owl:NamedIndividual ,
                           iira:SystemCharacteristics ;
-                 rdfs:label "IIRA Reliability"^^xsd:string .
+                 rdfs:label "IIRA Reliability"@en .
 
 
 ###  http://example.org/iira#Resilience
 iira:Resilience rdf:type owl:NamedIndividual ,
                          iira:SystemCharacteristics ;
-                rdfs:label "IIRA Resilience"^^xsd:string .
+                rdfs:label "IIRA Resilience"@en .
 
 
 ###  http://example.org/iira#Safety
 iira:Safety rdf:type owl:NamedIndividual ,
                      iira:SystemCharacteristics ;
-            rdfs:label "IIRA Safety"^^xsd:string .
+            rdfs:label "IIRA Safety"@en .
 
 
 ###  http://example.org/iira#Scalability
 iira:Scalability rdf:type owl:NamedIndividual ,
                           iira:SystemCharacteristics ;
-                 rdfs:label "IIRA Scalability"^^xsd:string .
+                 rdfs:label "IIRA Scalability"@en .
 
 
 ###  http://example.org/iira#Security
 iira:Security rdf:type owl:NamedIndividual ,
                        iira:SystemCharacteristics ;
-              rdfs:label "IIRA Security"^^xsd:string .
+              rdfs:label "IIRA Security"@en .
 
 
 ###  http://example.org/iira#TansportLayer
@@ -1051,7 +1051,7 @@ iira:TansportLayer rdf:type owl:NamedIndividual ,
 iira:UsageViewpoint rdf:type owl:NamedIndividual ,
                              iira:Viewpoint ;
                     sto:isDescribedin iira:IIRA ;
-                    rdfs:label "IIRA Usage Viewpoint"^^xsd:string .
+                    rdfs:label "IIRA Usage Viewpoint"@en .
 
 
 ###  http://lexvo.org/id/iso639-3/en
@@ -1112,7 +1112,7 @@ rami:Assest rdf:type owl:NamedIndividual .
 rami:Asset rdf:type owl:NamedIndividual ,
                     rami:RAMIITLayer ;
            sto:isDescribedin sto:RAMI40 ;
-           rdfs:label "RAMI Asset Layer"^^xsd:string .
+           rdfs:label "RAMI Asset Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#Body
@@ -1129,7 +1129,7 @@ rami:Business rdf:type owl:NamedIndividual ,
               sto:alignesWith iira:BusinessDomain ,
                               idsram:BusinessLayer ;
               sto:isDescribedin sto:RAMI40 ;
-              rdfs:label "RAMI Business Layer"^^xsd:string .
+              rdfs:label "RAMI Business Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#Communication
@@ -1137,7 +1137,7 @@ rami:Communication rdf:type owl:NamedIndividual ,
                             rami:RAMIITLayer ;
                    sto:alignesWith idsram:SystemLayer ;
                    sto:isDescribedin sto:RAMI40 ;
-                   rdfs:label "RAMI Communication Layer"^^xsd:string .
+                   rdfs:label "RAMI Communication Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#CommunicationSubModel
@@ -1146,7 +1146,7 @@ rami:CommunicationSubModel rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/rami#Communications
 rami:Communications rdf:type owl:NamedIndividual ;
-                    rdfs:label "RAMI Communication Layer"^^xsd:string .
+                    rdfs:label "RAMI Communication Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#ConditionMonitoring
@@ -1203,7 +1203,7 @@ rami:Functional rdf:type owl:NamedIndividual ,
                 sto:alignesWith iira:OperationDomain ,
                                 idsram:ProcessLayer ;
                 sto:isDescribedin sto:RAMI40 ;
-                rdfs:label "RAMI Functional Layer"^^xsd:string .
+                rdfs:label "RAMI Functional Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#GeneralAdminShell
@@ -1223,7 +1223,7 @@ rami:Identification rdf:type owl:NamedIndividual ,
                              rami:AdminShellSubmodel ;
                     sto:alignesWith sto:Identification ;
                     sto:isDescribedin sto:AdministrationShell ;
-                    rdfs:label "RAMI Identification"^^xsd:string .
+                    rdfs:label "RAMI Identification"@en .
 
 
 ###  https://w3id.org/i40/rami#Information
@@ -1253,7 +1253,7 @@ rami:Integration rdf:type owl:NamedIndividual ,
                  sto:alignesWith iira:ControlDomain ,
                                  idsram:SystemLayer ;
                  sto:isDescribedin sto:RAMI40 ;
-                 rdfs:label "RAMI Integration Layer"^^xsd:string .
+                 rdfs:label "RAMI Integration Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#LifeCycle_Status
@@ -1284,14 +1284,14 @@ rami:Product rdf:type owl:NamedIndividual ,
 rami:Safety rdf:type owl:NamedIndividual ,
                      rami:AdminShellSubmodel ;
             sto:isDescribedin sto:AdministrationShell ;
-            rdfs:label "RAMI Safety"^^xsd:string .
+            rdfs:label "RAMI Safety"@en .
 
 
 ###  https://w3id.org/i40/rami#Security
 rami:Security rdf:type owl:NamedIndividual ,
                        rami:AdminShellSubmodel ;
               sto:isDescribedin sto:AdministrationShell ;
-              rdfs:label "RAMI Security"^^xsd:string .
+              rdfs:label "RAMI Security"@en .
 
 
 ###  https://w3id.org/i40/rami#Station
@@ -1564,7 +1564,7 @@ sto:DIN rdf:type owl:NamedIndividual ,
         sto:formationDate "1918-01-01"^^xsd:date ;
         sto:orgName "Deutsches Institut für Normung"@en ;
         rdfs:comment "Deutsches Institut für Normung e.V. (DIN; in English, the German Institute for Standardization) is the German national organization for standardization and is the German ISO member body. DIN is a German Registered Association (e.V.) headquartered in Berlin. There are currently around thirty thousand DIN Standards, covering nearly every field of technology"@en ;
-        rdfs:label "DIN"^^xsd:string ,
+        rdfs:label "DIN"@en ,
                    "Deutsches Institut für Normung"@de ,
                    "German Institute for Standardization"@en ;
         sto:hasDBpediaResource <http://dbpedia.org/page/Deutsches_Institut_f%C3%BCr_Normung> ;
@@ -1581,7 +1581,7 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50128/148018416"^^xsd:anyURI ;
                  sto:hasPublicationDate "2012-03-01"^^xsd:date ;
                  rdfs:comment "Die EN 50128 ist eine Europäische Norm für sicherheitsrelevante Software der Eisenbahn, sowohl strecken- als auch zugseitig. Zusammen mit der EN 50129 für die Hardware und den Zulassungsprozessen ist die EN 50128 eine Spezialisierung der EN 61508. Die EN 50128 ist eine Prozessnorm. Sie stellt dar, welche Verfahren, Prinzipien und Maßnahmen anzuwenden sind, damit die Software als sicher gilt."@de ;
-                 rdfs:label "DIN EN 50128"^^xsd:string .
+                 rdfs:label "DIN EN 50128"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50129
@@ -1594,7 +1594,7 @@ sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                  dcterms:title "Railway applications - Communications, signalling and processing systems - Safety related electronic systems for signalling"@en ;
                  rdfs:comment "Für alle Eisenbahnsignalsysteme, -Teilsysteme und -Einrichtungen sind jedoch Gefährdungsanalyse und Risikobewertungsprozesse, wie in DIN EN 50126 und in dieser Norm definiert, notwendig, um die Sicherheitsanforderungen zu identifizieren."@de ,
                               "Specifies risk analysis for railway systems"@en ;
-                 rdfs:label "DIN EN 50129"^^xsd:string .
+                 rdfs:label "DIN EN 50129"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50155
@@ -1607,7 +1607,7 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                  dcterms:title "Railway applications - Rolling stock - Electronic equipment"@en ;
                  rdfs:comment "Diese Norm wird bei der Konstruktion, Fertigung und Prüfung von auf Schienenfahrzeugen eingebauten elektronischen Betriebsmitteln verwendet. Sie beschreibt außerdem die elektrischen sowie die Umweltbedingungen für den Betrieb. Die Norm gilt für alle elektronischen Betriebsmittel für die Steuerung, die Regelung, den Schutz, die Diagnose, die Versorgung und so weiter, die auf Schienenfahrzeugen installiert sind. Als ein elektronisches Betriebsmittel gilt dabei ein Betriebsmittel, das hauptsächlich aus Halbleiterbauelementen und üblicherweise zugehörigen Bauelementen aufgebaut ist. Auch Sensoren (Strom, Spannung, Geschwindigkeit und so weiter) und bestückte Leiterplatten von Zündeinheiten für leistungselektronische Geräte sind von dieser Norm umfasst. Vollständige Zündeinheiten und leistungselektronische Schaltkreise sind in EN 61287-1 enthalten. Die Norm umfasst die Betriebsbedingungen, die Konstruktionsanforderungen, die Dokumentation und die Prüfung der elektronischen Betriebsmittel sowie die grundlegenden Hardware- und Softwareanforderungen, die für ein leistungsfähiges, zuverlässiges Betriebsmittel als erforderlich erachtet werden. Zuständig ist das DKE/UK 351.1 \"Fahrzeuge\" der DKE Deutsche Kommission Elektrotechnik Elektronik Informationstechnik in DIN und VDE."@de ,
                               "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
-                 rdfs:label "DIN EN 50155"^^xsd:string .
+                 rdfs:label "DIN EN 50155"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50159
@@ -1618,7 +1618,7 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource "https://www.beuth.de/de/norm/din-en-50159/137853742"^^xsd:anyURI ;
                  dcterms:title "Railway applications - Communication, signalling and processing systems - Safety-related communication in transmission systems"@en ;
                  rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
-                 rdfs:label "DIN EN 50159"^^xsd:string .
+                 rdfs:label "DIN EN 50159"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_61511
@@ -1629,7 +1629,7 @@ sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
                  sto:hasPublisher sto:DIN ;
                  dcterms:title "Functional safety - Safety instrumented systems for the process industry sector - Part 1: Framework, definitions, system, hardware and software requirements"@en ;
                  rdfs:comment "This standard gives requirements for the specification, design, installation, operation and maintenance of a safety instrumented system (SIS), so that it can be confidently entrusted to achieve or maintain a safe state of the process. This standard has been developed as a process sector implementation of IEC 61508."@en ;
-                 rdfs:label "DIN EN 61511"^^xsd:string .
+                 rdfs:label "DIN EN 61511"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_13849
@@ -1644,7 +1644,7 @@ sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
 
     Part 1 defines the general principles for design.
     Part 2 describes the validation."""@en ;
-                     rdfs:label "DIN EN ISO 13849"^^xsd:string .
+                     rdfs:label "DIN EN ISO 13849"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_IEC_17025
@@ -1658,7 +1658,7 @@ sto:DIN_EN_ISO_IEC_17025 rdf:type owl:NamedIndividual ,
                          dcterms:title "General requirements for the competence of testing and calibration laboratories"@en ;
                          rdfs:comment "DIN EN ISO/IEC 17025 legt allgemeine Anforderungen an die Kompetenz, an die Unparteilichkeit und für die einheitliche Arbeitsweise von Laboratorien fest. Die Norm ist auf alle Organisationen anwendbar, die Labortätigkeiten durchführen, unabhängig von der Anzahl der Mitarbeiter. Sie reiht sich in die Normenreihe DIN EN ISO/IEC 17000 ein. Kunden von Laboratorien, Behörden, Organisationen und Programme, die eine Begutachtung unter Gleichrangigen anwenden, Akkreditierungsstellen und andere können diese Norm zur Bestätigung oder Anerkennung der Kompetenz von Laboratorien nutzen."@de ,
                                       "ISO 17025 specifies general requirements for laboratories."@en ;
-                         rdfs:label "DIN EN ISO/IEC 17025"^^xsd:string .
+                         rdfs:label "DIN EN ISO/IEC 17025"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_SPEC_16592
@@ -1682,7 +1682,7 @@ sto:DIN_SPEC_27070 rdf:type owl:NamedIndividual ,
                    sto:hasPublisher sto:DIN ;
                    dcterms:title "Reference architecture of a security gateway for the exchange of industry data and services"@en ;
                    rdfs:comment "security gateway for data protection of personal data"@en ;
-                   rdfs:label "DIN SPEC 27070"^^xsd:string .
+                   rdfs:label "DIN SPEC 27070"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_SPEC_92222
@@ -1692,7 +1692,7 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
                    sto:hasDeveloper sto:DIN ;
                    dcterms:title "Reference Model for Industrial Cloud Federation"@en ;
                    rdfs:comment "ensuring interoperability and communication of IT systems in cloud scenarios"@en ;
-                   rdfs:label "DIN SPEC 92222"^^xsd:string .
+                   rdfs:label "DIN SPEC 92222"@en .
 
 
 ###  https://w3id.org/i40/sto#DMSC
@@ -2919,7 +2919,7 @@ sto:IEC_29115 rdf:type owl:NamedIndividual ,
 - provides guidance for exchanging the results of authentication that are based on the four LoAs; and
 
 - provides guidance concerning controls that should be used to mitigate authentication threats."""@en ;
-              rdfs:label "IEC 29115"^^xsd:string .
+              rdfs:label "IEC 29115"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_29161
@@ -5604,7 +5604,7 @@ sto:IEEE_1686 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/IEEE_Smart_Grid"^^xsd:anyURI ;
               dcterms:title "Standard for Intelligent Electronic Devices Cyber Security Capabilities"@en ;
               rdfs:comment "The functions and features to be provided in intelligent electronic devices (IEDs) to accommodate critical infrastructure protection programs are defined in this standard. Security regarding the access, operation, configuration, firmware revision and data retrieval from an IED are addressed. Communications for the purpose of power system protection (teleprotection) are not addressed in this standard."@en ;
-              rdfs:label "IEEE 1686"^^xsd:string .
+              rdfs:label "IEEE 1686"@en .
 
 
 ###  https://w3id.org/i40/sto#IETF
@@ -5613,7 +5613,7 @@ sto:IETF rdf:type owl:NamedIndividual ,
          sto:abbreviation "IETF"^^xsd:string ;
          sto:orgName "Internet Engineering Task Force"^^xsd:string ;
          rdfs:comment "TODO: complete annotations etc." ;
-         rdfs:label "IETF"^^xsd:string ;
+         rdfs:label "IETF"@en ;
          rdfs:seeAlso <http://wikipedia.org/wiki/Internet_Engineering_Task_Force> ,
                       <http://www.ietf.org/> ;
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Internet_Engineering_Task_Force> .
@@ -5728,7 +5728,7 @@ sto:ISO_11404 rdf:type owl:NamedIndividual ;
               sto:hasClassification idsram:InformationLayer ;
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
-              rdfs:label "ISO/IEC 11404"^^xsd:string .
+              rdfs:label "ISO/IEC 11404"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_11783
@@ -6092,7 +6092,7 @@ sto:ISO_19770 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_19770"^^xsd:anyURI ;
               dcterms:title "Information technology — Software asset management"@en ;
               rdfs:comment "International standards in the ISO/IEC 19770 family of standards for IT asset management (ITAM) address both the processes and technology for managing software assets and related IT assets. Broadly speaking, the standard family belongs to the set of Software Asset Management (or SAM) standards and is integrated with other Management System Standards."@en ;
-              rdfs:label "ISO/IEC 19770"^^xsd:string .
+              rdfs:label "ISO/IEC 19770"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_20140_5
@@ -6210,7 +6210,7 @@ sto:ISO_26262 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:ISO ;
               dcterms:title "Road vehicles – Functional safety"@en ;
               rdfs:comment "ISO 26262, titled \"Road vehicles – Functional safety\", is an international standard for functional safety of electrical and/or electronic systems in production automobiles defined by the International Organization for Standardization (ISO) in 2011."@en ;
-              rdfs:label "ISO 26262"^^xsd:string ;
+              rdfs:label "ISO 26262"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_26262> ;
               sto:hasOfficialResource <https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_26262> .
@@ -6242,7 +6242,7 @@ sto:ISO_27001 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               rdfs:comment "ISO/IEC 27001 is an information security standard, part of the ISO/IEC 27000 family of standards."@en ;
-              rdfs:label "ISO 27001"^^xsd:string ,
+              rdfs:label "ISO 27001"@en ,
                          "ISO/IEC 27001"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27001> ;
               sto:hasOfficialResource <https://www.iso.org/isoiec-27001-information-security.html> ;
@@ -6287,7 +6287,7 @@ sto:ISO_27019 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource "https://www.beuth.de/de/technische-regel/din-iso-iec-tr-27019/223679647"^^xsd:anyURI ;
               dcterms:title "Guidance for information security management of power supply control systems based on ISO/IEC 27002"@en ;
               rdfs:comment "The specification serves as a guidance for introducing ISO/IEC 27002 into the energy domain."@en ;
-              rdfs:label "ISO 27019"^^xsd:string .
+              rdfs:label "ISO 27019"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_27031
@@ -6345,7 +6345,7 @@ sto:ISO_29100 rdf:type owl:NamedIndividual ,
               dcterms:title "Privacy framework"@en ;
               rdfs:comment """‘Privacy framework’1 provides a guideline that specifies a common privacy terminology, defines actors and roles in processing PII, describes privacy safeguarding considerations, and includes references to known privacy principles for Information technology.
 source: IIC SF"""@en ;
-              rdfs:label "ISO/IEC 29100"^^xsd:string ;
+              rdfs:label "ISO/IEC 29100"@en ;
               sto:hasOfficialResource <https://www.iso.org/standard/45123.html> .
 
 
@@ -6369,7 +6369,7 @@ sto:ISO_29115 rdf:type owl:NamedIndividual ;
                               sto:Identification ;
               sto:hasClassification iira:Security ;
               sto:hasPublisher sto:ISO ;
-              rdfs:label "ISO/IEC 29115"^^xsd:string .
+              rdfs:label "ISO/IEC 29115"@en .
 
 
 ###  https://w3id.org/i40/sto#ISO_29134
@@ -6404,7 +6404,7 @@ sto:ISO_29190 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2015-08-01"^^xsd:date ;
               dcterms:title "Privacy capability assessment model"@en ;
               rdfs:comment "‘Privacy capability assessment model’ provides high-level guidance to organizations about assessing their capability to manage privacy-related processes."@en ;
-              rdfs:label "ISO/IEC 29190"^^xsd:string ;
+              rdfs:label "ISO/IEC 29190"@en ;
               sto:hasOfficialResource <https://www.iso.org/standard/45269.html> .
 
 
@@ -6492,7 +6492,7 @@ sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
 
 - attribute certificates."""@en ;
                rdfs:label "ISO/IEC 9594-8"@en ,
-                          "X.509"^^xsd:string ;
+                          "X.509"@en ;
                rdfs:seeAlso "https://tools.ietf.org/html/rfc5280" ;
                sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> ,
                                        <https://www.iso.org/standard/72557.html> .
@@ -6560,7 +6560,7 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
 sto:Identification rdf:type owl:NamedIndividual ,
                             sto:ISO_42010_Concern ;
                    dc11:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
-                   rdfs:label "Identification"^^xsd:string .
+                   rdfs:label "Identification"@en .
 
 
 ###  https://w3id.org/i40/sto#IndustrialAutomation
@@ -6757,8 +6757,8 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
                 sto:hasPublicationDate "2017-04-01"^^xsd:date ;
                 dc11:title "Privacy Risk Management for Federal Information Systems"@en ;
                 rdfs:comment "This document provides an introduction to the concepts of privacy engineering and risk management for federal information systems. These concepts establish the basis for a common vocabulary to facilitate better understanding and communication of privacy risk within federal information systems, and the effective implementation of privacy principles. This publication introduces two key components to support the application of privacy engineering and risk management: privacy engineering objectives and a privacy risk model."@en ;
-                rdfs:label "NIST Internal Report (NISTIR) 8062"^^xsd:string ,
-                           "NISTIR 8062"^^xsd:string ;
+                rdfs:label "NIST Internal Report (NISTIR) 8062"@en ,
+                           "NISTIR 8062"@en ;
                 sto:hasOfficialResource <https://doi.org/10.6028/NIST.IR.8062> .
 
 
@@ -6891,8 +6891,8 @@ sto:ODRL rdf:type owl:NamedIndividual ,
          rdfs:comment """The Open Digital Rights Language (ODRL) is a policy expression language that provides a flexible and interoperable information model, vocabulary, and encoding mechanisms for representing statements about the usage of content and services. The ODRL Information Model describes the underlying concepts, entities, and relationships that form the foundational basis for the semantics of the ODRL policies.
 
 Policies are used to represent permitted and prohibited actions over a certain asset, as well as the obligations required to be meet by stakeholders. In addition, policies may be limited by constraints (e.g., temporal or spatial constraints) and duties (e.g. payments) may be imposed on permissions."""@en ;
-         rdfs:label "ODRL"^^xsd:string ,
-                    "Open Digital Rights Language"^^xsd:string .
+         rdfs:label "ODRL"@en ,
+                    "Open Digital Rights Language"@en .
 
 
 ###  https://w3id.org/i40/sto#ODVA
@@ -7066,8 +7066,8 @@ sto:RFC_2616 rdf:type owl:NamedIndividual ,
              sto:hasPublisher sto:IETF ;
              sto:hasOfficialResource "https://www.ietf.org/rfc/rfc2616"^^xsd:anyURI ;
              rdfs:comment "The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers. A feature of HTTP is the typing and negotiation of data representation, allowing systems to be built independently of the data being transferred."@en ;
-             rdfs:label "HTTP/1.1"^^xsd:string ,
-                        "RFC 2616"^^xsd:string ;
+             rdfs:label "HTTP/1.1"@en ,
+                        "RFC 2616"@en ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc2817> .
 
 
@@ -7078,8 +7078,8 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "This memo describes how to use TLS to secure HTTP connections over  the Internet. Current practice is to layer HTTP over SSL (the predecessor to TLS), distinguishing secured traffic from insecure traffic by the use of a different server port. This document documents that practice using TLS. A companion document describes a method for using HTTP/TLS over the same port as normal HTTP [RFC2817]."@en ;
-             rdfs:label "HTTPS"^^xsd:string ,
-                        "RFC 2818"^^xsd:string .
+             rdfs:label "HTTPS"^^@en ,
+                        "RFC 2818"@en .
 
 
 ###  https://w3id.org/i40/sto#RFC_5246
@@ -7089,7 +7089,7 @@ sto:RFC_5246 rdf:type owl:NamedIndividual ,
                                    idsram:Security ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
-             rdfs:label "RFC 5246"^^xsd:string ;
+             rdfs:label "RFC 5246"@en ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc5246> .
 
 
@@ -7099,8 +7099,8 @@ sto:RFC_6750 rdf:type owl:NamedIndividual ,
              sto:hasClassification idsram:Security ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
-             rdfs:label "RFC 6750"^^xsd:string ;
-             skos:altLabel "OAuth2.0"^^xsd:string ;
+             rdfs:label "RFC 6750"@en ;
+             skos:altLabel "OAuth2.0"@en ;
              sto:hasOfficialResource <https://w3id.org/i40/sto> .
 
 
@@ -7114,7 +7114,7 @@ sto:RFC_7252 rdf:type owl:NamedIndividual ,
              sto:hasPublicationDate "2014-06-01"^^xsd:date ;
              dcterms:title "The Constrained Application Protocol"@en ;
              rdfs:comment "The Constrained Application Protocol (CoAP) is a specialized web transfer protocol for use with constrained nodes and constrained (e.g., low-power, lossy) networks.  The nodes often have 8-bit microcontrollers with small amounts of ROM and RAM, while constrained networks such as IPv6 over Low-Power Wireless Personal Area Networks (6LoWPANs) often have high packet error rates and a typical throughput of 10s of kbit/s.  The protocol is designed for machine-to-machine (M2M) applications such as smart energy and building automation."@en ;
-             rdfs:label "RFC 7252" ;
+             rdfs:label "RFC 7252"@en ;
              skos:altLabel "CoAP"@en .
 
 
@@ -7125,8 +7125,8 @@ sto:RFC_7519 rdf:type owl:NamedIndividual ,
                                    idsram:Security ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
-             rdfs:label "JSON Web Token"^^xsd:string ,
-                        "RFC 7519"^^xsd:string ;
+             rdfs:label "JSON Web Token"@en ,
+                        "RFC 7519"@en ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc7519> .
 
 
@@ -7142,8 +7142,8 @@ sto:RFC_7540 rdf:type owl:NamedIndividual ,
              rdfs:comment """This specification describes an optimized expression of the semantics of the Hypertext Transfer Protocol (HTTP), referred to as HTTP version 2 (HTTP/2).  HTTP/2 enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection.  It also introduces unsolicited push of  representations from servers to clients.
 
 This specification is an alternative to, but does not obsolete, the HTTP/1.1 message syntax.  HTTP's existing semantics remain unchanged."""@en ;
-             rdfs:label "HTTP/2"^^xsd:string ,
-                        "RFC 7540"^^xsd:string .
+             rdfs:label "HTTP/2"@en ,
+                        "RFC 7540"@en .
 
 
 ###  https://w3id.org/i40/sto#RFC_768
@@ -7640,21 +7640,21 @@ idsram:BusinessLayer rdf:type owl:NamedIndividual ,
                      sto:alignesWith iira:BusinessDomain ,
                                      rami:Business ;
                      sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                     rdfs:label "IDS RAM Business Layer"^^xsd:string .
+                     rdfs:label "IDS RAM Business Layer"@en .
 
 
 ###  https://w3id.org/ids/ram/Certification
 idsram:Certification rdf:type owl:NamedIndividual ,
                               <http://w3id.org/ids/ram/Perspective> ;
                      sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                     rdfs:label "IDS RAM Certification Perspective"^^xsd:string .
+                     rdfs:label "IDS RAM Certification Perspective"@en .
 
 
 ###  https://w3id.org/ids/ram/DataMarket
 idsram:DataMarket rdf:type owl:NamedIndividual ,
                            sto:StandardClassification ;
                   sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                  rdfs:label "IDS Data Market"^^xsd:string .
+                  rdfs:label "IDS Data Market"@en .
 
 
 ###  https://w3id.org/ids/ram/DataSovereignty
@@ -7668,42 +7668,42 @@ idsram:FunctionalLayer rdf:type owl:NamedIndividual ,
                        dul:associatedWith sto:DataSovereignty ,
                                           sto:Interoperability ;
                        sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                       rdfs:label "IDS RAM Functional Layer"^^xsd:string .
+                       rdfs:label "IDS RAM Functional Layer"@en .
 
 
 ###  https://w3id.org/ids/ram/Governance
 idsram:Governance rdf:type owl:NamedIndividual ,
                            <http://w3id.org/ids/ram/Perspective> ;
                   sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                  rdfs:label "IDS RAM Governance Perspective"^^xsd:string .
+                  rdfs:label "IDS RAM Governance Perspective"@en .
 
 
 ###  https://w3id.org/ids/ram/InformationLayer
 idsram:InformationLayer rdf:type owl:NamedIndividual ,
                                  idsram:Layer ;
                         sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                        rdfs:label "IDS RAM Information Layer"^^xsd:string .
+                        rdfs:label "IDS RAM Information Layer"@en .
 
 
 ###  https://w3id.org/ids/ram/Interoperability
 idsram:Interoperability rdf:type owl:NamedIndividual ,
                                  sto:StandardClassification ;
                         sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                        rdfs:label "IDS Interoperability"^^xsd:string .
+                        rdfs:label "IDS Interoperability"@en .
 
 
 ###  https://w3id.org/ids/ram/ProcessLayer
 idsram:ProcessLayer rdf:type owl:NamedIndividual ,
                              idsram:Layer ;
                     sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                    rdfs:label "IDS RAM Process Layer"^^xsd:string .
+                    rdfs:label "IDS RAM Process Layer"@en .
 
 
 ###  https://w3id.org/ids/ram/ReferenceArchitectureModel
 idsram:ReferenceArchitectureModel rdf:type owl:NamedIndividual ,
                                            sto:StandardizationFramework ;
-                                  rdfs:label "IDS RAM"^^xsd:string ,
-                                             "Industrial Data Space Reference Architecture Model"^^xsd:string .
+                                  rdfs:label "IDS RAM"@en ,
+                                             "Industrial Data Space Reference Architecture Model"@en .
 
 
 ###  https://w3id.org/ids/ram/Safety
@@ -7711,8 +7711,8 @@ idsram:Safety rdf:type owl:NamedIndividual ,
                        sto:StandardClassification ;
               sto:isDescribedin sto:IndustrialDataSpace ,
                                 idsram:ReferenceArchitectureModel ;
-              rdfs:label "IDS RAM Safety"^^xsd:string ,
-                         "IDS Safety"^^xsd:string .
+              rdfs:label "IDS RAM Safety"@en ,
+                         "IDS Safety"@en .
 
 
 ###  https://w3id.org/ids/ram/Security
@@ -7720,14 +7720,14 @@ idsram:Security rdf:type owl:NamedIndividual ,
                          <http://w3id.org/ids/ram/Perspective> ;
                 sto:alignesWith iira:Security ;
                 sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                rdfs:label "IDS RAM Security Perspective"^^xsd:string .
+                rdfs:label "IDS RAM Security Perspective"@en .
 
 
 ###  https://w3id.org/ids/ram/SystemLayer
 idsram:SystemLayer rdf:type owl:NamedIndividual ,
                             idsram:Layer ;
                    sto:isDescribedin idsram:ReferenceArchitectureModel ;
-                   rdfs:label "IDS RAM System Layer"^^xsd:string .
+                   rdfs:label "IDS RAM System Layer"@en .
 
 
 ###  https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation
