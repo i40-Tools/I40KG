@@ -587,10 +587,6 @@ deo:Motivation rdf:type owl:Class .
 om2:Measure rdf:type owl:Class .
 
 
-###  http://www.w3.org/2000/01/rdf-schema#literal
-rdfs:literal rdf:type owl:Class .
-
-
 ###  http://www.w3.org/2002/07/owl#Thing
 owl:Thing rdf:type owl:Class .
 
@@ -6148,7 +6144,7 @@ sto:ISO_19770 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2017-12-01"^^xsd:date ;
               dcterms:title "Information technology — Software asset management"@en ;
               rdfs:comment "International standards in the ISO/IEC 19770 family of standards for IT asset management (ITAM) address both the processes and technology for managing software assets and related IT assets. Broadly speaking, the standard family belongs to the set of Software Asset Management (or SAM) standards and is integrated with other Management System Standards."@en ;
-              rdfs:label "ISO/IEC 19770"@en .
+              rdfs:label "ISO/IEC 19770"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_19770> .
 
 
@@ -7148,8 +7144,8 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
                                    idsram:SystemLayer ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "This memo describes how to use TLS to secure HTTP connections over  the Internet. Current practice is to layer HTTP over SSL (the predecessor to TLS), distinguishing secured traffic from insecure traffic by the use of a different server port. This document documents that practice using TLS. A companion document describes a method for using HTTP/TLS over the same port as normal HTTP [RFC2817]."@en ;
-             rdfs:label "HTTPS"^^@en ,
-                        "RFC 2818"@en .
+             rdfs:label "HTTPS"@en ;
+             skos:altLabel "RFC 2818"@en .
 
 
 ###  https://w3id.org/i40/sto#RFC_5246
