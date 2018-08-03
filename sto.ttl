@@ -28,7 +28,7 @@
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto> .
+@base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
@@ -221,6 +221,16 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:label "belongs To"@en .
 
 
+###  https://w3id.org/i40/sto#frames
+sto:frames rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf dul:associatedWith ;
+           rdfs:domain sto:Viewpoint ;
+           rdfs:range sto:ISO_42010_Concern ;
+           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en ;
+           rdfs:label "frames"@en ;
+           sto:hasOfficialResource "http://www.iso-architecture.org/42010/" .
+
+
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
@@ -354,6 +364,15 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
               skos:altLabel "has Associated Standard"@en .
+
+
+###  https://w3id.org/i40/sto#targets
+sto:targets rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf dul:associatedWith ;
+            rdfs:domain sto:Standard ;
+            rdfs:range sto:ISO_42010_Concern ;
+            rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
+            rdfs:label "targets"@en .
 
 
 ###  https://w3id.org/i40/sto#useStructureOf
@@ -553,12 +572,6 @@ iira:SystemCharacteristics rdf:type owl:Class ;
                            rdfs:label "IIRA System Characteristic"@en .
 
 
-###  http://example.org/iira#Viewpoint
-iira:Viewpoint rdf:type owl:Class ;
-               rdfs:subClassOf sto:StandardClassification ;
-               rdfs:label "IIRA Viewpoint"@en .
-
-
 ###  http://purl.org/dc/terms/LicenseDocument
 dcterms:LicenseDocument rdf:type owl:Class ;
                         rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
@@ -698,7 +711,12 @@ sto:ISA95Level rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#ISO_42010_Concern
 sto:ISO_42010_Concern rdf:type owl:Class ;
-                      rdfs:label "Concern" .
+                      dcterms:creator "sebastian"@en ;
+                      rdfs:comment "A concern regards a specific challenge or topic. Each concern should at least be regarded by one view of an architecture."@en ;
+                      rdfs:label "Concern" ;
+                      sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
+                      sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
+                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
@@ -739,7 +757,6 @@ sto:Standard rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#StandardClassification
 sto:StandardClassification rdf:type owl:Class ;
-                           owl:equivalentClass sto:Viewpoint ;
                            rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
                            rdfs:label "Standard Classification"@en .
 
@@ -778,9 +795,14 @@ sto:TechnicalSpecification rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#Viewpoint
 sto:Viewpoint rdf:type owl:Class ;
+              rdfs:subClassOf sto:StandardClassification ;
+              dcterms:creator "sebastian" ;
               rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
               rdfs:label "Viewpoint" ;
-              rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
+              rdfs:seeAlso "https://www.iso.org/standard/50508.html" ;
+              sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
+              sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint" .
 
 
 ###  https://w3id.org/ids/ram/Layer
@@ -932,7 +954,7 @@ iira:BusinessDomain rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#BusinessViewpoint
 iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
-                                iira:Viewpoint ;
+                                sto:Viewpoint ;
                        sto:isDescribedin iira:IIRA ;
                        rdfs:label "IIRA Business Viewpoint"@en .
 
@@ -965,7 +987,7 @@ iira:DistributedDataManagement rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#FunctionalViewpoint
 iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
-                                  iira:Viewpoint ;
+                                  sto:Viewpoint ;
                          sto:alignesWith idsram:ReferenceArchitectureModel ;
                          sto:isDescribedin iira:IIRA ;
                          rdfs:label "IIRA Functional Viewpoint"@en .
@@ -981,7 +1003,7 @@ iira:IIRA rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#ImplementationViewpoint
 iira:ImplementationViewpoint rdf:type owl:NamedIndividual ,
-                                      iira:Viewpoint ;
+                                      sto:Viewpoint ;
                              sto:isDescribedin iira:IIRA ;
                              rdfs:label "IIRA Implementation Viewpoint"@en .
 
@@ -1084,7 +1106,7 @@ iira:TansportLayer rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#UsageViewpoint
 iira:UsageViewpoint rdf:type owl:NamedIndividual ,
-                             iira:Viewpoint ;
+                             sto:Viewpoint ;
                     sto:isDescribedin iira:IIRA ;
                     rdfs:label "IIRA Usage Viewpoint"@en .
 
@@ -3058,11 +3080,11 @@ sto:IEC_60038_2009 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050
 sto:IEC_60050 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              sto:hasDBpediaResource "http://dbpedia.org/page/International_Electrotechnical_Vocabulary" ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary" ;
               rdfs:comment "The International Electrotechnical Vocabulary (IEV) serves to promote the global unification of terminology in the field of electrotechnology, electronics and telecommunications."@en ;
               rdfs:label "IEC 60050"@en ;
-              skos:altLabel "Electropedia"@en ;
-              sto:hasDBpediaResource "http://dbpedia.org/page/International_Electrotechnical_Vocabulary" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary" .
+              skos:altLabel "Electropedia"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_1984
@@ -7433,6 +7455,22 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> .
 
 
+###  https://w3id.org/i40/sto#VDI
+sto:VDI rdf:type owl:NamedIndividual ,
+                 sto:StandardOrganization ;
+        sto:hasHeadquaterIn dbr:Berlin ;
+        sto:abbreviation "VDI"@en ;
+        sto:formationDate "1856-05-12"^^xsd:date ;
+        sto:hasDBpediaResource "http://dbpedia.org/resource/VDI" ;
+        sto:hasOfficialResource "http://www.vdi.eu/" ;
+        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/VDI" ;
+        sto:orgName "Association of German Engineers"@en ,
+                    "Verein Deutscher Ingenieure"@de ;
+        dcterms:creator "sebastian" ;
+        rdfs:comment "Verein Deutscher Ingenieure (VDI) (English: Association of German Engineers) is an organization with over 150,000 engineers and natural scientists. More than 12,000 honorary experts process the latest findings every year to promote the technology location. Established in 1856, the VDI is today the largest engineering association in Western Europe. The role of the VDI in Germany is comparable to that of the American Society of Civil Engineers (ASCE) in the United States or Engineers Australia (EA) in Australia barring the broader field of work of the VDI. The VDI is not a union. The association promotes the advancement of technology and represents the interests of engineers and of engineering businesses in Germany."@en ;
+        rdfs:label "VDI"@en .
+
+
 ###  https://w3id.org/i40/sto#VDMA
 sto:VDMA rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -7603,6 +7641,21 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
            sto:hasOfficialResource "http://www.onem2m.org/about-onem2m/why-onem2m"^^xsd:anyURI ;
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
            rdfs:label "oneM2M"@en .
+
+
+###  https://w3id.org/i40/sto#VDI/VDE_2182
+<https://w3id.org/i40/sto#VDI/VDE_2182> rdf:type owl:NamedIndividual ,
+                                                 sto:Standard ;
+                                        sto:hasClassification rami:Security ;
+                                        sto:hasDeveloper sto:VDI ;
+                                        sto:hasPublisher sto:VDI ;
+                                        sto:hasOfficialResource "http://www.vdi.eu/nc/guidelines/vdivde_2182_blatt_1-informationssicherheit_in_der_industriellen_automatisierung_allgemeines_vorgehensmode/" ;
+                                        dcterms:creator "sebastian" ;
+                                        dcterms:hasLicense "private"@en ;
+                                        dcterms:title "IT-security for industrial automation"@en ,
+                                                      "Informationssicherheit in der industriellen Automatisierung"@de ;
+                                        rdfs:comment "This guideline describes how specific measures can be implemented in order to guarantee the IT security of automated machines and plant; aspects of the automation devices, automation systems, and automation applications used are considered. A uniform, feasible procedure for ensuring IT security throughout the entire life cycle of automation devices, systems, and applications is described, based on common terms and definitions agreed by the manufacturers of automation devices and systems and their users (e.g., machine manufacturers, integrators, operators). The life cycle covers the development, integration, operation, migration, and decommissioning phases.This guideline defines a simple procedure model for the development and description of IT Security. The model consists of eight steps."@en ;
+                                        rdfs:label "VDI/VDE 2182"@en .
 
 
 ###  https://w3id.org/ids/core/TrustedConnector
