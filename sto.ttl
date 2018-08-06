@@ -225,10 +225,7 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 sto:frames rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf dul:associatedWith ;
            rdfs:domain sto:Viewpoint ;
-           rdfs:range sto:ISO_42010_Concern ;
-           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en ;
-           rdfs:label "frames"@en ;
-           sto:hasOfficialResource "http://www.iso-architecture.org/42010/" .
+           rdfs:range sto:ISO_42010_Concern .
 
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
@@ -670,7 +667,7 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#ArchitectureDescription
 sto:ArchitectureDescription rdf:type owl:Class ;
-                            owl:equivalentClass sto:StandardizationFramework ;
+                            rdfs:subClassOf sto:StandardizationFramework ;
                             rdfs:comment "ISO 42010 definition of an Architecture Description"@en ;
                             rdfs:label "Architecture Description" ;
                             rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
@@ -713,13 +710,7 @@ sto:ISA95Level rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#ISO_42010_Concern
-sto:ISO_42010_Concern rdf:type owl:Class ;
-                      dcterms:creator "sebastian"@en ;
-                      rdfs:comment "A concern regards a specific challenge or topic. Each concern should at least be regarded by one view of an architecture."@en ;
-                      rdfs:label "Concern" ;
-                      sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
-                      sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
-                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
+sto:ISO_42010_Concern rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
@@ -796,16 +787,16 @@ sto:TechnicalSpecification rdf:type owl:Class ;
                            rdfs:subClassOf sto:Publication .
 
 
+###  https://w3id.org/i40/sto#Technology
+sto:Technology rdf:type owl:Class ;
+               dcterms:creator "sebastian"@en ;
+               rdfs:comment "A Technology is an implementation of one or many standards in order to achieve a goal."@en ;
+               rdfs:label "Technology"@en .
+
+
 ###  https://w3id.org/i40/sto#Viewpoint
 sto:Viewpoint rdf:type owl:Class ;
-              rdfs:subClassOf sto:StandardClassification ;
-              dcterms:creator "sebastian" ;
-              rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
-              rdfs:label "Viewpoint" ;
-              rdfs:seeAlso "https://www.iso.org/standard/50508.html" ;
-              sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
-              sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint" .
+              rdfs:subClassOf sto:StandardClassification .
 
 
 ###  https://w3id.org/ids/ram/Layer
@@ -1052,9 +1043,13 @@ iira:PhysicalLayer rdf:type owl:NamedIndividual ,
 iira:PhysicalSystems rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
                      dul:isPartOf iira:FunctionalViewpoint ;
-                     sto:alignesWith rami:Asset ;
+                     sto:alignesWith rami:Asset ,
+                                     idsram:SystemLayer ;
                      sto:isDescribedin sto:IIRA ;
-                     rdfs:label "IIRA Physical Systems"@en .
+                     dcterms:creator "sebastian" ;
+                     rdfs:comment "Computational capabilities ranging from very limited (e.g. in a smart sensor) to reasonably rich (e.g. a cluster of servers) are placed in, attached to or collocated with physical systems (e.g. in smart sensors, devices or machines). These capabilities are connected through a variety of connectivity technologies including wireless."@en ;
+                     rdfs:label "IIRA Physical Systems"@en ;
+                     sto:hasOfficialResource "https://www.iiconsortium.org/IIRA.htm" .
 
 
 ###  http://example.org/iira#Privacy
@@ -1090,7 +1085,16 @@ iira:Scalability rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#Security
 iira:Security rdf:type owl:NamedIndividual ,
                        iira:SystemCharacteristics ;
+              sto:hasPublisher sto:IIC ;
               rdfs:label "IIRA Security"@en .
+
+
+###  http://example.org/iira#SecurityFramework
+iira:SecurityFramework rdf:type owl:NamedIndividual ,
+                                sto:StandardClassification ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:label "IIC Security Framework"@en ;
+                       sto:hasOfficialResource "https://www.iiconsortium.org/IISF.htm" .
 
 
 ###  http://example.org/iira#TansportLayer
@@ -1104,6 +1108,15 @@ iira:UsageViewpoint rdf:type owl:NamedIndividual ,
                              sto:Viewpoint ;
                     sto:isDescribedin sto:IIRA ;
                     rdfs:label "IIRA Usage Viewpoint"@en .
+
+
+###  http://example.org/iira#Vocabulary
+iira:Vocabulary rdf:type owl:NamedIndividual ,
+                         sto:StandardClassification ;
+                sto:alignesWith idsram:InformationLayer ;
+                sto:hasPublisher sto:IIC ;
+                dcterms:creator "sebastian"@en ;
+                rdfs:label "IIC Vocabulary"@en .
 
 
 ###  http://lexvo.org/id/iso639-3/en
@@ -1179,7 +1192,8 @@ rami:Body rdf:type owl:NamedIndividual ,
 rami:Business rdf:type owl:NamedIndividual ,
                        rami:RAMIITLayer ;
               sto:alignesWith iira:BusinessDomain ,
-                              idsram:BusinessLayer ;
+                              idsram:BusinessLayer ,
+                              idsram:Governance ;
               sto:isDescribedin sto:RAMI40 ;
               rdfs:label "RAMI Business Layer"@en .
 
@@ -1532,6 +1546,15 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/TR-069> .
 
 
+###  https://w3id.org/i40/sto#BDI
+sto:BDI rdf:type owl:NamedIndividual ,
+                 sto:StandardOrganization ;
+        dcterms:creator "sebastian"@en ;
+        dcterms:title "The Federation of German Industries"@en ;
+        rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en ;
+        sto:hasOfficialResource "https://english.bdi.eu/" .
+
+
 ###  https://w3id.org/i40/sto#BPEL
 sto:BPEL rdf:type owl:NamedIndividual ,
                   sto:Standard ;
@@ -1729,7 +1752,7 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_SPEC_27070
 sto:DIN_SPEC_27070 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
-                   sto:alignesWith <ids:TrustedConnector> ;
+                   sto:alignesWith sto:TrustedConnector ;
                    sto:hasClassification idsram:Security ;
                    sto:hasPublisher sto:DIN ;
                    dcterms:title "Reference architecture of a security gateway for the exchange of industry data and services"@en ;
@@ -1745,6 +1768,16 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
                    dcterms:title "Reference Model for Industrial Cloud Federation"@en ;
                    rdfs:comment "ensuring interoperability and communication of IT systems in cloud scenarios"@en ;
                    rdfs:label "DIN SPEC 92222"@en .
+
+
+###  https://w3id.org/i40/sto#DMA
+sto:DMA rdf:type owl:NamedIndividual ,
+                 sto:StandardOrganization ;
+        dcterms:creator "sebastian" ;
+        dcterms:title "Data & Marketing Association"@en ;
+        rdfs:comment "The Data & Marketing Association (formerly, Direct Marketing Association), also known as the DMA, is a trade organization for marketers which seeks to advance and protect responsible data-driven marketing."@en ;
+        rdfs:label "DMA"@en ;
+        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_%26_Marketing_Association" .
 
 
 ###  https://w3id.org/i40/sto#DMSC
@@ -1856,6 +1889,15 @@ sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
                              sto:ISA95Level ;
                     rdfs:comment "Describes the Enterprise level according to the ISA95 level classification."@en ;
                     rdfs:label "Enterprise Level"@en .
+
+
+###  https://w3id.org/i40/sto#FIWARE
+sto:FIWARE rdf:type owl:NamedIndividual ,
+                    sto:Technology ;
+           dcterms:creator "sebastian"@en ;
+           rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
+           rdfs:label "FIWARE"@en ;
+           sto:hasOfficialResource "https://www.fiware.org/" .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60027_2006
@@ -2641,7 +2683,7 @@ sto:GPLv2 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IBM
 sto:IBM rdf:type owl:NamedIndividual ,
-                 sto:StandardOrganization ;
+                 foaf:Organization ;
         sto:hasHeadquaterIn dbr:_New_York ;
         sto:abbreviation "IBM" ;
         sto:formationDate "1911-06-16"^^xsd:date ;
@@ -2852,6 +2894,17 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
                   rdfs:comment "This is ICS for IT applications in industry"@en ,
                                "This is ICS for “IT applications in industry)”"@en ;
                   rdfs:label "ICS 35.240.50"@en .
+
+
+###  https://w3id.org/i40/sto#IDSA
+sto:IDSA rdf:type owl:NamedIndividual ,
+                  sto:IIoTConsortium ;
+         dcterms:creator "sebastian" ;
+         dcterms:title "International Data Spaces Association"@en ;
+         rdfs:comment "IDSA ensures that the special economic interests of business are specifically integrated into the research work of Industrial Date Space."@en ;
+         rdfs:label "IDSA"@en ;
+         sto:hasOfficialResource "https://www.internationaldataspaces.org/en/" ;
+         sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association" .
 
 
 ###  https://w3id.org/i40/sto#IEC
@@ -5610,7 +5663,7 @@ sto:IIC rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IIRA
 sto:IIRA rdf:type owl:NamedIndividual ,
-                  sto:StandardizationFramework ;
+                  sto:ArchitectureDescription ;
          rdfs:comment "Industrial Internet Reference Architecture"@en ;
          rdfs:label "IIRA"@en ;
          sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> .
@@ -6417,6 +6470,13 @@ The description of ISO/IEC/IEEE 42010 in this article is based upon the standard
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
               sto:hasOfficialResource <https://www.iso.org/standard/50508.html> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> .
+
+
+###  https://w3id.org/i40/sto#ISO_42010_Concern
+sto:ISO_42010_Concern rdf:type owl:NamedIndividual ;
+                      sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
+                      sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
+                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
 
 
 ###  https://w3id.org/i40/sto#ISO_50001
@@ -7451,6 +7511,15 @@ sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
                            sto:abbreviation "TS" .
 
 
+###  https://w3id.org/i40/sto#TrustedConnector
+sto:TrustedConnector rdf:type owl:NamedIndividual ,
+                              sto:StandardizationFramework ;
+                     dcterms:creator "sebastian" ;
+                     rdfs:comment "The advent of the Industrial Internet of Things (IIoT) also raises challenges with respect to security and privacy of sensitive and personal data that is created by sensors and processed by services hosted in different administrative domains. The Industrial Data Space initiative addresses these challenges and proposes a secure edge gateway platform named \"Trusted Connector\". In this report, we introduce the main security building blocks of the Trusted Connector and point out how they help protecting business-critical data and preserving the user's privacy."@en ;
+                     rdfs:label "IDS Trusted Connector"@en ;
+                     sto:hasOfficialResource "https://arxiv.org/abs/1804.09442" .
+
+
 ###  https://w3id.org/i40/sto#UN-CEFACT
 sto:UN-CEFACT rdf:type owl:NamedIndividual ,
                        sto:StandardOrganization ;
@@ -7502,6 +7571,13 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
                rdfs:comment "Fieldbus neutral reference architecture for Condition Monitoring in production automation"@en ;
                rdfs:label "VDMA 24582"@en ;
                sto:hasOfficialResource <https://www.vdma.org/documents/105628/2244593/Inhalt+VDMA+24582_en.pdf/> .
+
+
+###  https://w3id.org/i40/sto#Viewpoint
+sto:Viewpoint rdf:type owl:NamedIndividual ;
+              sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
+              sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint" .
 
 
 ###  https://w3id.org/i40/sto#W3C
@@ -7580,8 +7656,29 @@ sto:Written rdf:type owl:NamedIndividual ,
             rdfs:label "Written"@en .
 
 
+###  https://w3id.org/i40/sto#ZVEI
+sto:ZVEI rdf:type owl:NamedIndividual ,
+                  sto:StandardOrganization ;
+         dcterms:title "German Electrical and Electronic Manufacturers' Association"@en ,
+                       "Zentralverband Elektrotechnik- und Elektronikindustrie"@de ;
+         rdfs:comment "The ZVEI is one of the most important manufacturers' associations in Germany. It represents the interests of a high-tech branch with a very widely varied and extremely dynamic product portfolio."@en ;
+         rdfs:label "ZVEI"@en ;
+         sto:hasOfficialResource "https://www.zvei.org/" .
+
+
 ###  https://w3id.org/i40/sto#_020
 sto:_020 rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#bitkom
+sto:bitkom rdf:type owl:NamedIndividual ,
+                    sto:StandardOrganization ;
+           dcterms:creator "sebastian"@en ;
+           dcterms:title "Bundesverband Informationswirtschaft, Telekommunikation und neue Medien"@de ,
+                         "German Association for IT, Telecommunications and New Media"@en ;
+           rdfs:label "Bitkom"@en ;
+           sto:hasOfficialResource "https://www.bitkom.org/" ;
+           sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Bundesverband_Informationswirtschaft,_Telekommunikation_und_neue_Medien" .
 
 
 ###  https://w3id.org/i40/sto#eClass
@@ -7634,6 +7731,11 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> .
 
 
+###  https://w3id.org/i40/sto#frames
+sto:frames rdf:type owl:NamedIndividual ;
+           sto:hasOfficialResource "http://www.iso-architecture.org/42010/" .
+
+
 ###  https://w3id.org/i40/sto#irlan
 sto:irlan rdf:type owl:NamedIndividual ,
                    foaf:Person ;
@@ -7649,6 +7751,17 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
            sto:hasOfficialResource "http://www.onem2m.org/about-onem2m/why-onem2m"^^xsd:anyURI ;
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
            rdfs:label "oneM2M"@en .
+
+
+###  https://w3id.org/i40/sto#openAAS
+sto:openAAS rdf:type owl:NamedIndividual ,
+                     sto:Technology ;
+            dcterms:creator "sebastian" ;
+            rdfs:comment """Im Open Source Projekt „openAAS“ – die Abkürzung „AAS“ steht für den englischen Begriff „Asset Administration Shell“, zu Deutsch „Verwaltungsschale“ – arbeitet der ZVEI gemeinsam mit der RWTH Aachen und Unternehmen aus Maschinenbau und Elektroindustrie daran, Industrie 4.0 in die Praxis
+umzusetzen. Die Veranschaulichung und Erprobung einer Industrie-4.0-konformen Verwaltungsschale stehen im Mittelpunkt. Dies ist Voraussetzung für eine international erfolgreiche Technologieverifikation
+und Standardisierung."""@de ,
+                         "openAAS is an open source project to establish a Platform Industry 4.0 conform Administration Shell with open software."@en ;
+            rdfs:label "openAAS"@en .
 
 
 ###  https://w3id.org/i40/sto#VDI/VDE_2182
@@ -7722,6 +7835,9 @@ idsram:Governance rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ids/ram/InformationLayer
 idsram:InformationLayer rdf:type owl:NamedIndividual ,
                                  idsram:Layer ;
+                        sto:alignesWith iira:InformationDomain ,
+                                        iira:Vocabulary ,
+                                        rami:Information ;
                         sto:isDescribedin idsram:ReferenceArchitectureModel ;
                         rdfs:label "IDS RAM Information Layer"@en .
 
@@ -7736,6 +7852,9 @@ idsram:Interoperability rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ids/ram/ProcessLayer
 idsram:ProcessLayer rdf:type owl:NamedIndividual ,
                              idsram:Layer ;
+                    sto:alignesWith iira:ApplicationDomain ,
+                                    iira:InformationDomain ,
+                                    iira:OperationDomain ;
                     sto:isDescribedin idsram:ReferenceArchitectureModel ;
                     rdfs:label "IDS RAM Process Layer"@en .
 
@@ -7749,17 +7868,22 @@ idsram:ReferenceArchitectureModel rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/ids/ram/Safety
 idsram:Safety rdf:type owl:NamedIndividual ,
+                       sto:ISO_42010_Concern ,
                        sto:StandardClassification ;
+              dul:associatedWith idsram:Safety ;
               sto:isDescribedin sto:IndustrialDataSpace ,
                                 idsram:ReferenceArchitectureModel ;
-              rdfs:label "IDS RAM Safety"@en ,
-                         "IDS Safety"@en .
+              dcterms:creator "Functional safety (as defined by the IDS) is the ability of a system to prevent physical damage."@en ,
+                              "sebastian"@en ;
+              rdfs:label "IDS RAM Safety"@en ;
+              skos:note "Needs to be clarified whether seafety is a concern or a classification category."@en .
 
 
 ###  https://w3id.org/ids/ram/Security
 idsram:Security rdf:type owl:NamedIndividual ,
                          <http://w3id.org/ids/ram/Perspective> ;
-                sto:alignesWith iira:Security ;
+                dul:associatedWith iira:Security ;
+                sto:alignesWith iira:SecurityFramework ;
                 sto:isDescribedin idsram:ReferenceArchitectureModel ;
                 rdfs:label "IDS RAM Security Perspective"@en .
 
@@ -7767,16 +7891,15 @@ idsram:Security rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ids/ram/SystemLayer
 idsram:SystemLayer rdf:type owl:NamedIndividual ,
                             idsram:Layer ;
+                   dul:associatedWith iira:ImplementationViewpoint ;
+                   sto:alignesWith iira:ControlDomain ;
                    sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                   dcterms:creator "sebastian" ;
                    rdfs:label "IDS RAM System Layer"@en .
 
 
 ###  https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation
 <https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation> rdf:type owl:NamedIndividual .
-
-
-###  ids:TrustedConnector
-<ids:TrustedConnector> rdf:type owl:NamedIndividual .
 
 
 #################################################################
@@ -7791,6 +7914,11 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:comment "Represent the license document for a given Standard"@en ;
                    dcterms:issued "2004-06-14"^^xsd:date ;
                    rdfs:isDefinedBy dcterms: .
+
+
+sto:ISO_42010_Concern dcterms:creator "sebastian"@en ;
+                      rdfs:label "Concern" ;
+                      rdfs:comment "A concern regards a specific challenge or topic. Each concern should at least be regarded by one view of an architecture."@en .
 
 
 sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
@@ -7819,6 +7947,16 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                            cc:attributionURL "http://www.iec.ch" ;
                            rdfs:isDefinedBy sto:IEC ;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
+
+
+sto:Viewpoint rdfs:seeAlso "https://www.iso.org/standard/50508.html" ;
+              rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
+              dcterms:creator "sebastian" ;
+              rdfs:label "Viewpoint" .
+
+
+sto:frames rdfs:label "frames"@en ;
+           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en .
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
