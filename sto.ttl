@@ -421,8 +421,7 @@ sto:formationDate rdf:type owl:DatatypeProperty ,
 
 
 ###  https://w3id.org/i40/sto#hasDBpediaResource
-sto:hasDBpediaResource rdf:type owl:DatatypeProperty ;
-                       rdfs:range xsd:anyURI .
+sto:hasDBpediaResource rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#hasEdition
@@ -450,8 +449,7 @@ sto:hasObjective rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
-                        rdfs:range xsd:anyURI .
+sto:hasOfficialResource rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#hasOntology
@@ -510,8 +508,7 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
-sto:hasWikipediaArticle rdf:type owl:DatatypeProperty ;
-                        rdfs:range xsd:anyURI .
+sto:hasWikipediaArticle rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#orgName
@@ -557,7 +554,7 @@ iira:FunctionalDomain rdf:type owl:Class ;
                       rdfs:subClassOf sto:StandardClassification ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty sto:isDescribedin ;
-                                        owl:hasValue iira:IIRA
+                                        owl:hasValue sto:IIRA
                                       ] ;
                       rdfs:label "IIRA Functional Domain"@en .
 
@@ -700,6 +697,12 @@ sto:ConnectivityLayer rdf:type owl:Class ;
 sto:Domain rdf:type owl:Class ;
            rdfs:comment "Represents the Domains in which the Standards can be used"@en ;
            rdfs:label "Domain"@en .
+
+
+###  https://w3id.org/i40/sto#IIoTConsortium
+sto:IIoTConsortium rdf:type owl:Class ;
+                   rdfs:subClassOf foaf:Organization ;
+                   dcterms:creator "sebastian" .
 
 
 ###  https://w3id.org/i40/sto#ISA95Level
@@ -940,7 +943,7 @@ iira:ApplicationDomain rdf:type owl:NamedIndividual ,
                                 iira:FunctionalDomain ;
                        dul:isPartOf iira:FunctionalViewpoint ;
                        sto:alignesWith idsram:ProcessLayer ;
-                       sto:isDescribedin iira:IIRA ;
+                       sto:isDescribedin sto:IIRA ;
                        rdfs:label "IIRA Application Domain"@en .
 
 
@@ -955,7 +958,7 @@ iira:BusinessDomain rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#BusinessViewpoint
 iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
                                 sto:Viewpoint ;
-                       sto:isDescribedin iira:IIRA ;
+                       sto:isDescribedin sto:IIRA ;
                        rdfs:label "IIRA Business Viewpoint"@en .
 
 
@@ -976,7 +979,7 @@ iira:Connectivity rdf:type owl:NamedIndividual ,
 iira:ControlDomain rdf:type owl:NamedIndividual ,
                             iira:FunctionalDomain ;
                    sto:alignesWith rami:Integration ;
-                   sto:isDescribedin iira:IIRA ;
+                   sto:isDescribedin sto:IIRA ;
                    rdfs:label "IIRA Control Domain"@en .
 
 
@@ -989,22 +992,14 @@ iira:DistributedDataManagement rdf:type owl:NamedIndividual ,
 iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
                                   sto:Viewpoint ;
                          sto:alignesWith idsram:ReferenceArchitectureModel ;
-                         sto:isDescribedin iira:IIRA ;
+                         sto:isDescribedin sto:IIRA ;
                          rdfs:label "IIRA Functional Viewpoint"@en .
-
-
-###  http://example.org/iira#IIRA
-iira:IIRA rdf:type owl:NamedIndividual ,
-                   sto:StandardizationFramework ;
-          rdfs:comment "Industrial Internet Reference Architecture"@en ;
-          rdfs:label "IIRA"@en ;
-          sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> .
 
 
 ###  http://example.org/iira#ImplementationViewpoint
 iira:ImplementationViewpoint rdf:type owl:NamedIndividual ,
                                       sto:Viewpoint ;
-                             sto:isDescribedin iira:IIRA ;
+                             sto:isDescribedin sto:IIRA ;
                              rdfs:label "IIRA Implementation Viewpoint"@en .
 
 
@@ -1017,7 +1012,7 @@ iira:IndustrialAnalytics rdf:type owl:NamedIndividual ,
 iira:InformationDomain rdf:type owl:NamedIndividual ,
                                 iira:FunctionalDomain ;
                        sto:alignesWith rami:Information ;
-                       sto:isDescribedin iira:IIRA ;
+                       sto:isDescribedin sto:IIRA ;
                        rdfs:label "IIRA Information Domain"@en .
 
 
@@ -1042,7 +1037,7 @@ iira:NetworkLayer rdf:type owl:NamedIndividual ,
 iira:OperationDomain rdf:type owl:NamedIndividual ,
                               iira:FunctionalDomain ;
                      sto:alignesWith rami:Functional ;
-                     sto:isDescribedin iira:IIRA ;
+                     sto:isDescribedin sto:IIRA ;
                      rdfs:label "IIRA Operation Domain"@en .
 
 
@@ -1058,7 +1053,7 @@ iira:PhysicalSystems rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
                      dul:isPartOf iira:FunctionalViewpoint ;
                      sto:alignesWith rami:Asset ;
-                     sto:isDescribedin iira:IIRA ;
+                     sto:isDescribedin sto:IIRA ;
                      rdfs:label "IIRA Physical Systems"@en .
 
 
@@ -1107,7 +1102,7 @@ iira:TansportLayer rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#UsageViewpoint
 iira:UsageViewpoint rdf:type owl:NamedIndividual ,
                              sto:Viewpoint ;
-                    sto:isDescribedin iira:IIRA ;
+                    sto:isDescribedin sto:IIRA ;
                     rdfs:label "IIRA Usage Viewpoint"@en .
 
 
@@ -5607,6 +5602,12 @@ sto:IETF rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Internet_Engineering_Task_Force> .
 
 
+###  https://w3id.org/i40/sto#IIC
+sto:IIC rdf:type owl:NamedIndividual ,
+                 sto:IIoTConsortium ;
+        dul:associatedWith sto:IIRA .
+
+
 ###  https://w3id.org/i40/sto#IIRA
 sto:IIRA rdf:type owl:NamedIndividual ,
                   sto:StandardizationFramework ;
@@ -6951,6 +6952,13 @@ sto:OPC_Foundation rdf:type owl:NamedIndividual ,
                    sto:hasDBpediaResource <http://dbpedia.org/page/OPC_Foundation> ;
                    sto:hasOfficialResource <https://opcfoundation.org/> ;
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Foundation> .
+
+
+###  https://w3id.org/i40/sto#PlatformIndustry40
+sto:PlatformIndustry40 rdf:type owl:NamedIndividual ,
+                                sto:IIoTConsortium ;
+                       dul:associatedWith sto:RAMI ,
+                                          sto:RAMI40 .
 
 
 ###  https://w3id.org/i40/sto#ProcessPlanning
