@@ -202,6 +202,15 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
 foaf:maker rdf:type owl:ObjectProperty .
 
 
+###  https://w3id.org/i40/hasTargetConcern
+<https://w3id.org/i40/hasTargetConcern> rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf dul:associatedWith ;
+                                        rdfs:domain sto:Standard ;
+                                        rdfs:range sto:ISO_42010_Concern ;
+                                        rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
+                                        rdfs:label "has Target Concern"@en .
+
+
 ###  https://w3id.org/i40/sto#alignesWith
 sto:alignesWith rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf dul:associatedWith ;
@@ -237,8 +246,7 @@ sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                                       "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ;
                          rdfs:label "has Available Language"@en ,
                                     "hasAvailableLanguage"@en ;
-                         skos:note """dcterms:language  rdfs:range dcterms:LinguisticSystem.
-                         """ .
+                         rdfs:range dcterms:LinguisticSystem .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
@@ -361,15 +369,6 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en ;
               skos:altLabel "has Associated Standard"@en .
-
-
-###  https://w3id.org/i40/sto#targets
-sto:targets rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf dul:associatedWith ;
-            rdfs:domain sto:Standard ;
-            rdfs:range sto:ISO_42010_Concern ;
-            rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
-            rdfs:label "targets"@en .
 
 
 ###  https://w3id.org/i40/sto#useStructureOf
@@ -543,6 +542,8 @@ iira:CrosscuttingFunction rdf:type owl:Class ;
                                             owl:onProperty dul:isPartOf ;
                                             owl:hasValue iira:FunctionalViewpoint
                                           ] ;
+                          dcterms:creator "sebastian"@en ;
+                          rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en ;
                           rdfs:label "IIRA Crosscutting Function"@en .
 
 
@@ -668,9 +669,19 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#ArchitectureDescription
 sto:ArchitectureDescription rdf:type owl:Class ;
                             rdfs:subClassOf sto:StandardizationFramework ;
-                            rdfs:comment "ISO 42010 definition of an Architecture Description"@en ;
+                            rdfs:comment """A Reference Architecture describes the structure of a system with its element types and their structures, as well as their interaction types, among each other and with their environment. Describing this, a Reference Architecture defines restrictions for an instantiation (concrete architecture). Through abstraction from individual details, a Reference Architecture is universally valid within a specific domain. Further architectures with the same functional requirements can be constructed based on the reference architecture. Along with reference architectures comes a recommendation, based on experiences from existing developments as well as from a wide acceptance and recognition by its users or per definition. [ISO/IEC42010]
+
+Note: It is important to distinguish the Reference Architecture from a Reference Architecture Description. While the first refers to a mental model or shared concept, the second is potentially only one of several different documents describing this model."""@en ,
+                                         "ISO 42010 definition of an Architecture Description"@en ;
                             rdfs:label "Architecture Description" ;
                             rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
+
+
+###  https://w3id.org/i40/sto#BdvaLayer
+sto:BdvaLayer rdf:type owl:Class ;
+              rdfs:subClassOf sto:StandardClassification ;
+              dcterms:creator "sebastian"@en ;
+              rdfs:label "BDVA Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -962,21 +973,26 @@ iira:Connectivity rdf:type owl:NamedIndividual ,
                                      iira:TansportLayer ,
                                      sto:FrameworkLayer ,
                                      sto:IIRC ;
-                  dul:isPartOf rami:Asset ;
+                  sto:alignesWith rami:Communication ;
                   rdfs:label "IIRA Connectivity"@en .
 
 
 ###  http://example.org/iira#ControlDomain
 iira:ControlDomain rdf:type owl:NamedIndividual ,
                             iira:FunctionalDomain ;
-                   sto:alignesWith rami:Integration ;
+                   sto:alignesWith rami:Integration ,
+                                   idsram:SystemLayer ;
                    sto:isDescribedin sto:IIRA ;
                    rdfs:label "IIRA Control Domain"@en .
 
 
 ###  http://example.org/iira#DistributedDataManagement
 iira:DistributedDataManagement rdf:type owl:NamedIndividual ,
-                                        iira:CrosscuttingFunction .
+                                        iira:CrosscuttingFunction ;
+                               sto:alignesWith rami:Communication ;
+                               sto:isDescribedin sto:IIRA ;
+                               dcterms:creator "sebastian"@en ;
+                               rdfs:label "IIRA Distributed Data Management"@en .
 
 
 ###  http://example.org/iira#FunctionalViewpoint
@@ -990,6 +1006,7 @@ iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#ImplementationViewpoint
 iira:ImplementationViewpoint rdf:type owl:NamedIndividual ,
                                       sto:Viewpoint ;
+                             dul:associatedWith idsram:SystemLayer ;
                              sto:isDescribedin sto:IIRA ;
                              rdfs:label "IIRA Implementation Viewpoint"@en .
 
@@ -1046,21 +1063,23 @@ iira:PhysicalSystems rdf:type owl:NamedIndividual ,
                      sto:alignesWith rami:Asset ,
                                      idsram:SystemLayer ;
                      sto:isDescribedin sto:IIRA ;
+                     sto:hasOfficialResource "https://www.iiconsortium.org/IIRA.htm" ;
                      dcterms:creator "sebastian" ;
                      rdfs:comment "Computational capabilities ranging from very limited (e.g. in a smart sensor) to reasonably rich (e.g. a cluster of servers) are placed in, attached to or collocated with physical systems (e.g. in smart sensors, devices or machines). These capabilities are connected through a variety of connectivity technologies including wireless."@en ;
-                     rdfs:label "IIRA Physical Systems"@en ;
-                     sto:hasOfficialResource "https://www.iiconsortium.org/IIRA.htm" .
+                     rdfs:label "IIRA Physical Systems"@en .
 
 
 ###  http://example.org/iira#Privacy
 iira:Privacy rdf:type owl:NamedIndividual ,
                       iira:SystemCharacteristics ;
+             sto:frames sto:Privacy ;
              rdfs:label "IIRA Privacy"@en .
 
 
 ###  http://example.org/iira#Reliability
 iira:Reliability rdf:type owl:NamedIndividual ,
                           iira:SystemCharacteristics ;
+                 sto:frames sto:Reliability ;
                  rdfs:label "IIRA Reliability"@en .
 
 
@@ -1079,22 +1098,26 @@ iira:Safety rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#Scalability
 iira:Scalability rdf:type owl:NamedIndividual ,
                           iira:SystemCharacteristics ;
+                 sto:frames sto:Scalability ;
                  rdfs:label "IIRA Scalability"@en .
 
 
 ###  http://example.org/iira#Security
 iira:Security rdf:type owl:NamedIndividual ,
                        iira:SystemCharacteristics ;
+              sto:frames sto:Identification ,
+                         sto:Security ;
               sto:hasPublisher sto:IIC ;
+              dcterms:creator "sebastian"@en ;
               rdfs:label "IIRA Security"@en .
 
 
 ###  http://example.org/iira#SecurityFramework
 iira:SecurityFramework rdf:type owl:NamedIndividual ,
                                 sto:StandardClassification ;
+                       sto:hasOfficialResource "https://www.iiconsortium.org/IISF.htm" ;
                        dcterms:creator "sebastian"@en ;
-                       rdfs:label "IIC Security Framework"@en ;
-                       sto:hasOfficialResource "https://www.iiconsortium.org/IISF.htm" .
+                       rdfs:label "IIC Security Framework"@en .
 
 
 ###  http://example.org/iira#TansportLayer
@@ -1106,6 +1129,7 @@ iira:TansportLayer rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#UsageViewpoint
 iira:UsageViewpoint rdf:type owl:NamedIndividual ,
                              sto:Viewpoint ;
+                    sto:frames sto:ServiceOrchestration ;
                     sto:isDescribedin sto:IIRA ;
                     rdfs:label "IIRA Usage Viewpoint"@en .
 
@@ -1176,7 +1200,8 @@ rami:Assest rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/rami#Asset
 rami:Asset rdf:type owl:NamedIndividual ,
                     rami:RAMIITLayer ;
-           sto:isDescribedin sto:RAMI40 ;
+           sto:alignesWith iira:PhysicalSystems ;
+           sto:isDescribedin sto:RAMI ;
            rdfs:label "RAMI Asset Layer"@en .
 
 
@@ -1194,25 +1219,22 @@ rami:Business rdf:type owl:NamedIndividual ,
               sto:alignesWith iira:BusinessDomain ,
                               idsram:BusinessLayer ,
                               idsram:Governance ;
-              sto:isDescribedin sto:RAMI40 ;
+              sto:isDescribedin sto:RAMI ;
               rdfs:label "RAMI Business Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#Communication
 rami:Communication rdf:type owl:NamedIndividual ,
                             rami:RAMIITLayer ;
-                   sto:alignesWith idsram:SystemLayer ;
-                   sto:isDescribedin sto:RAMI40 ;
+                   sto:alignesWith iira:Connectivity ,
+                                   iira:DistributedDataManagement ,
+                                   idsram:SystemLayer ;
+                   sto:isDescribedin sto:RAMI ;
                    rdfs:label "RAMI Communication Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#CommunicationSubModel
 rami:CommunicationSubModel rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Communications
-rami:Communications rdf:type owl:NamedIndividual ;
-                    rdfs:label "RAMI Communication Layer"@en .
 
 
 ###  https://w3id.org/i40/rami#ConditionMonitoring
@@ -1230,13 +1252,13 @@ rami:Configuration rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/rami#ConnectedWorld
 rami:ConnectedWorld rdf:type owl:NamedIndividual ,
                              rami:RAMIHierarchyLevel ;
-                    sto:isDescribedin sto:RAMI40 .
+                    sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#ControlDevice
 rami:ControlDevice rdf:type owl:NamedIndividual ,
                             rami:RAMIHierarchyLevel ;
-                   sto:isDescribedin sto:RAMI40 .
+                   sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#EnergyEfficiency
@@ -1254,21 +1276,22 @@ rami:Engineering rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#Enterprise
 rami:Enterprise rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel ;
-                sto:isDescribedin sto:RAMI40 .
+                sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#FieldDevice
 rami:FieldDevice rdf:type owl:NamedIndividual ,
                           rami:RAMIHierarchyLevel ;
-                 sto:isDescribedin sto:RAMI40 .
+                 sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#Functional
 rami:Functional rdf:type owl:NamedIndividual ,
                          rami:RAMIITLayer ;
-                sto:alignesWith iira:OperationDomain ,
+                sto:alignesWith iira:ApplicationDomain ,
+                                iira:OperationDomain ,
                                 idsram:ProcessLayer ;
-                sto:isDescribedin sto:RAMI40 ;
+                sto:isDescribedin sto:RAMI ;
                 rdfs:label "RAMI Functional Layer"@en .
 
 
@@ -1297,7 +1320,7 @@ rami:Information rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer ;
                  sto:alignesWith iira:InformationDomain ,
                                  idsram:InformationLayer ;
-                 sto:isDescribedin sto:RAMI40 ;
+                 sto:isDescribedin sto:RAMI ;
                  rdfs:label "RAMI Information Layer"@en .
 
 
@@ -1318,7 +1341,7 @@ rami:Integration rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer ;
                  sto:alignesWith iira:ControlDomain ,
                                  idsram:SystemLayer ;
-                 sto:isDescribedin sto:RAMI40 ;
+                 sto:isDescribedin sto:RAMI ;
                  rdfs:label "RAMI Integration Layer"@en .
 
 
@@ -1343,7 +1366,7 @@ rami:Other rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/rami#Product
 rami:Product rdf:type owl:NamedIndividual ,
                       rami:RAMIHierarchyLevel ;
-             sto:isDescribedin sto:RAMI40 .
+             sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#Safety
@@ -1363,7 +1386,7 @@ rami:Security rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#Station
 rami:Station rdf:type owl:NamedIndividual ,
                       rami:RAMIHierarchyLevel ;
-             sto:isDescribedin sto:RAMI40 .
+             sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#TypeDevelopment
@@ -1381,15 +1404,11 @@ rami:TypeMaintenance rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#WorkCenter
 rami:WorkCenter rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel ;
-                sto:isDescribedin sto:RAMI40 .
+                sto:isDescribedin sto:RAMI .
 
 
 ###  https://w3id.org/i40/rami#Work_Centers
 rami:Work_Centers rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#safety
-rami:safety rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#
@@ -1499,7 +1518,18 @@ sto:AdministrationShell rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Authentication
 sto:Authentication rdf:type owl:NamedIndividual ,
-                            sto:ISO_42010_Concern .
+                            sto:ISO_42010_Concern ;
+                   dcterms:creator "sebastian"@en ;
+                   rdfs:comment "Authentication before opening a valid connection; this can be done by just verifying the server identity or doing mutual authentication."@en ;
+                   rdfs:label "Authentication"@en .
+
+
+###  https://w3id.org/i40/sto#Availability
+sto:Availability rdf:type owl:NamedIndividual ,
+                          sto:ISO_42010_Concern ;
+                 dul:isPartOf sto:Security ;
+                 dcterms:creator "sebastian"@en ;
+                 rdfs:label "Availability"@en .
 
 
 ###  https://w3id.org/i40/sto#B2MML
@@ -1549,10 +1579,10 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BDI
 sto:BDI rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
+        sto:hasOfficialResource "https://english.bdi.eu/" ;
         dcterms:creator "sebastian"@en ;
         dcterms:title "The Federation of German Industries"@en ;
-        rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en ;
-        sto:hasOfficialResource "https://english.bdi.eu/" .
+        rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en .
 
 
 ###  https://w3id.org/i40/sto#BPEL
@@ -1599,15 +1629,33 @@ sto:CAD rdf:type owl:NamedIndividual ,
         sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design> .
 
 
+###  https://w3id.org/i40/sto#CardinalityOfDataSources
+sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
+                                      sto:ISO_42010_Concern ;
+                             dcterms:creator "sebastian"@en ;
+                             rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
+                             rdfs:label "Cardinality of Data Sources"@en .
+
+
 ###  https://w3id.org/i40/sto#Certification
 sto:Certification rdf:type owl:NamedIndividual ,
-                           sto:ISO_42010_Concern .
+                           sto:ISO_42010_Concern ;
+                  dul:isPartOf sto:Security ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:label "Certification"@en .
 
 
 ###  https://w3id.org/i40/sto#Communication
 sto:Communication rdf:type owl:NamedIndividual ,
                            rami:AdminShellSubmodel ;
                   sto:isDescribedin sto:AdministrationShell .
+
+
+###  https://w3id.org/i40/sto#Compliance
+sto:Compliance rdf:type owl:NamedIndividual ,
+                        sto:ISO_42010_Concern ;
+               dcterms:creator "sebastian"@en ;
+               rdfs:label "Compliance"@en .
 
 
 ###  https://w3id.org/i40/sto#ConditionMonitoring
@@ -1650,8 +1698,8 @@ sto:DIN rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_50128
 sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification idsram:Certification ,
-                                       idsram:Safety ;
+                 sto:hasClassification sto:Safety ,
+                                       idsram:Certification ;
                  sto:hasPublisher sto:DIN ;
                  sto:hasPublicationDate "2012-03-01"^^xsd:date ;
                  rdfs:comment "Die EN 50128 ist eine Europäische Norm für sicherheitsrelevante Software der Eisenbahn, sowohl strecken- als auch zugseitig. Zusammen mit der EN 50129 für die Hardware und den Zulassungsprozessen ist die EN 50128 eine Spezialisierung der EN 61508. Die EN 50128 ist eine Prozessnorm. Sie stellt dar, welche Verfahren, Prinzipien und Maßnahmen anzuwenden sind, damit die Software als sicher gilt."@de ;
@@ -1662,8 +1710,8 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_50129
 sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification idsram:Certification ,
-                                       idsram:Safety ;
+                 sto:hasClassification sto:Safety ,
+                                       idsram:Certification ;
                  sto:hasPublisher sto:DIN ;
                  dcterms:title "Railway applications - Communications, signalling and processing systems - Safety related electronic systems for signalling"@en ;
                  rdfs:comment "Für alle Eisenbahnsignalsysteme, -Teilsysteme und -Einrichtungen sind jedoch Gefährdungsanalyse und Risikobewertungsprozesse, wie in DIN EN 50126 und in dieser Norm definiert, notwendig, um die Sicherheitsanforderungen zu identifizieren."@de ,
@@ -1675,8 +1723,8 @@ sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_50155
 sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification idsram:Certification ,
-                                       idsram:Safety ;
+                 sto:hasClassification sto:Safety ,
+                                       idsram:Certification ;
                  dcterms:title "Railway applications - Rolling stock - Electronic equipment"@en ;
                  rdfs:comment "Diese Norm wird bei der Konstruktion, Fertigung und Prüfung von auf Schienenfahrzeugen eingebauten elektronischen Betriebsmitteln verwendet. Sie beschreibt außerdem die elektrischen sowie die Umweltbedingungen für den Betrieb. Die Norm gilt für alle elektronischen Betriebsmittel für die Steuerung, die Regelung, den Schutz, die Diagnose, die Versorgung und so weiter, die auf Schienenfahrzeugen installiert sind. Als ein elektronisches Betriebsmittel gilt dabei ein Betriebsmittel, das hauptsächlich aus Halbleiterbauelementen und üblicherweise zugehörigen Bauelementen aufgebaut ist. Auch Sensoren (Strom, Spannung, Geschwindigkeit und so weiter) und bestückte Leiterplatten von Zündeinheiten für leistungselektronische Geräte sind von dieser Norm umfasst. Vollständige Zündeinheiten und leistungselektronische Schaltkreise sind in EN 61287-1 enthalten. Die Norm umfasst die Betriebsbedingungen, die Konstruktionsanforderungen, die Dokumentation und die Prüfung der elektronischen Betriebsmittel sowie die grundlegenden Hardware- und Softwareanforderungen, die für ein leistungsfähiges, zuverlässiges Betriebsmittel als erforderlich erachtet werden. Zuständig ist das DKE/UK 351.1 \"Fahrzeuge\" der DKE Deutsche Kommission Elektrotechnik Elektronik Informationstechnik in DIN und VDE."@de ,
                               "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
@@ -1689,8 +1737,8 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_50159
 sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification idsram:Certification ,
-                                       idsram:Safety ;
+                 sto:hasClassification sto:Safety ,
+                                       idsram:Certification ;
                  dcterms:title "Railway applications - Communication, signalling and processing systems - Safety-related communication in transmission systems"@en ;
                  rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
                  rdfs:label "DIN EN 50159"@en ;
@@ -1700,8 +1748,8 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_61511
 sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification idsram:Certification ,
-                                       idsram:Safety ;
+                 sto:hasClassification sto:Safety ,
+                                       idsram:Certification ;
                  sto:hasPublisher sto:DIN ;
                  dcterms:title "Functional safety - Safety instrumented systems for the process industry sector - Part 1: Framework, definitions, system, hardware and software requirements"@en ;
                  rdfs:comment "This standard gives requirements for the specification, design, installation, operation and maintenance of a safety instrumented system (SIS), so that it can be confidently entrusted to achieve or maintain a safe state of the process. This standard has been developed as a process sector implementation of IEC 61508."@en ;
@@ -1711,8 +1759,8 @@ sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_13849
 sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
-                     sto:hasClassification idsram:Certification ,
-                                           idsram:Safety ;
+                     sto:hasClassification sto:Safety ,
+                                           idsram:Certification ;
                      sto:hasPublisher sto:DIN ,
                                       sto:ISO ;
                      rdfs:comment """ISO 13849 is a safety standard which deals with safety-related design principles of employed control systems to establish different safety Performance Levels (PL). It replaced EN 954-1 in December 2011.
@@ -1773,11 +1821,11 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DMA
 sto:DMA rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
+        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_%26_Marketing_Association" ;
         dcterms:creator "sebastian" ;
         dcterms:title "Data & Marketing Association"@en ;
         rdfs:comment "The Data & Marketing Association (formerly, Direct Marketing Association), also known as the DMA, is a trade organization for marketers which seeks to advance and protect responsible data-driven marketing."@en ;
-        rdfs:label "DMA"@en ;
-        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_%26_Marketing_Association" .
+        rdfs:label "DMA"@en .
 
 
 ###  https://w3id.org/i40/sto#DMSC
@@ -1789,8 +1837,79 @@ sto:DMSC rdf:type owl:NamedIndividual ,
          sto:hasOfficialResource <http://www.dmis.org/> .
 
 
+###  https://w3id.org/i40/sto#DataAccessControl
+sto:DataAccessControl rdf:type owl:NamedIndividual ,
+                               sto:ISO_42010_Concern ;
+                      dcterms:creator "sebastian"@en ;
+                      rdfs:comment "Automated access control based on formalized descriptions."@en ;
+                      rdfs:label "Data Access Control"@en .
+
+
+###  https://w3id.org/i40/sto#DataDescription
+sto:DataDescription rdf:type owl:NamedIndividual ,
+                             sto:ISO_42010_Concern ;
+                    dul:isPartOf sto:SemanticInteroperability ;
+                    dcterms:creator "sebastian"@en ;
+                    rdfs:comment "Methods to unambiguously describe data resources."@en ;
+                    rdfs:label "Data Description"@en .
+
+
+###  https://w3id.org/i40/sto#DataDiscovery
+sto:DataDiscovery rdf:type owl:NamedIndividual ,
+                           sto:ISO_42010_Concern ;
+                  dcterms:creator "How to find desired resources, Data Assets, Data Artefacts."@en ,
+                                  "sebastian"@en ;
+                  rdfs:label "Data Discovery"@en .
+
+
+###  https://w3id.org/i40/sto#DataEconomy
+sto:DataEconomy rdf:type owl:NamedIndividual ,
+                         sto:ISO_42010_Concern ;
+                dcterms:creator "sebastian"@en ;
+                rdfs:comment "Business aspects of data exchange"@en ;
+                rdfs:label "Data Economy"@en .
+
+
+###  https://w3id.org/i40/sto#DataMarkets
+sto:DataMarkets rdf:type owl:NamedIndividual ,
+                         sto:ISO_42010_Concern ;
+                dul:isPartOf sto:DataEconomy ;
+                dcterms:creator "sebastian"@en ;
+                rdfs:comment "Data as an economic good; it's offered, demanded, and priced."@en ;
+                rdfs:label "Data Markets"@en .
+
+
+###  https://w3id.org/i40/sto#DataProcessing
+sto:DataProcessing rdf:type owl:NamedIndividual ,
+                            sto:ISO_42010_Concern ;
+                   dcterms:creator "sebastian"@en ;
+                   rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
+                   rdfs:label "Data Processing"@en .
+
+
+###  https://w3id.org/i40/sto#DataSelection
+sto:DataSelection rdf:type owl:NamedIndividual ,
+                           sto:ISO_42010_Concern ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:label "Data Selection"@en ,
+                             "The ability of a system to query, filter, or request the desired data."@en .
+
+
 ###  https://w3id.org/i40/sto#DataSovereignty
-sto:DataSovereignty rdf:type owl:NamedIndividual .
+sto:DataSovereignty rdf:type owl:NamedIndividual ,
+                             sto:ISO_42010_Concern ,
+                             sto:StandardClassification ;
+                    dcterms:creator "sebastian"@en ;
+                    rdfs:label "Data Sovereignty"@en .
+
+
+###  https://w3id.org/i40/sto#DataUsageControl
+sto:DataUsageControl rdf:type owl:NamedIndividual ,
+                              sto:ISO_42010_Concern ;
+                     dul:isPartOf sto:Privacy ;
+                     dcterms:creator "sebastian"@en ;
+                     rdfs:comment "Data usage control can be seen as an extension of data access control. It is about the specification and enforcement of restrictions regulating what is allowed to happen with data, and what is not. Data usage control thus is concerned with requirements that pertain to data processing (obligations) rather than data access (provisions). It is primarily relevant in the context of intellectual property protection, privacy protection, compliance with regulations, and digital rights management."@en ;
+                     rdfs:label "Data Usage Control"@en .
 
 
 ###  https://w3id.org/i40/sto#DeviceLevel
@@ -1880,6 +1999,23 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
 sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
 
 
+###  https://w3id.org/i40/sto#EndpointDescription
+sto:EndpointDescription rdf:type owl:NamedIndividual ,
+                                 sto:ISO_42010_Concern ;
+                        dcterms:creator "sebastian"@en ;
+                        rdfs:comment "Methods to unambiguously describe client and server endpoints."@en ;
+                        rdfs:label "Endpoint Description"@en .
+
+
+###  https://w3id.org/i40/sto#EndpointInvocation
+sto:EndpointInvocation rdf:type owl:NamedIndividual ,
+                                sto:ISO_42010_Concern ;
+                       dul:isPartOf sto:Interoperability ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment "Mechanisms to interact with a service and to access it through the network."@en ;
+                       rdfs:label "Endpoint Invocation"@en .
+
+
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
 sto:EnterpriseIntegration rdf:type owl:NamedIndividual .
 
@@ -1891,13 +2027,21 @@ sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
                     rdfs:label "Enterprise Level"@en .
 
 
+###  https://w3id.org/i40/sto#ExecutionVariability
+sto:ExecutionVariability rdf:type owl:NamedIndividual ,
+                                  sto:ISO_42010_Concern ;
+                         dcterms:creator "sebastian"@en ;
+                         rdfs:comment "The system's ability to flexibly connect/adjust data flows in order to reach a defined target."@en ;
+                         rdfs:label "Execution Variability"@en .
+
+
 ###  https://w3id.org/i40/sto#FIWARE
 sto:FIWARE rdf:type owl:NamedIndividual ,
-                    sto:Technology ;
+                    sto:ArchitectureDescription ;
+           sto:hasOfficialResource "https://www.fiware.org/" ;
            dcterms:creator "sebastian"@en ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
-           rdfs:label "FIWARE"@en ;
-           sto:hasOfficialResource "https://www.fiware.org/" .
+           rdfs:label "FIWARE"@en .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60027_2006
@@ -2899,12 +3043,12 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IDSA
 sto:IDSA rdf:type owl:NamedIndividual ,
                   sto:IIoTConsortium ;
+         sto:hasOfficialResource "https://www.internationaldataspaces.org/en/" ;
+         sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association" ;
          dcterms:creator "sebastian" ;
          dcterms:title "International Data Spaces Association"@en ;
          rdfs:comment "IDSA ensures that the special economic interests of business are specifically integrated into the research work of Industrial Date Space."@en ;
-         rdfs:label "IDSA"@en ;
-         sto:hasOfficialResource "https://www.internationaldataspaces.org/en/" ;
-         sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association" .
+         rdfs:label "IDSA"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC
@@ -3044,7 +3188,7 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_29182-1
 sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
-                sto:hasClassification rami:Communications ,
+                sto:hasClassification rami:Communication ,
                                       rami:ControlDevice ,
                                       rami:FieldDevice ,
                                       sto:ProductionSystemModelData ;
@@ -5051,11 +5195,10 @@ sto:IEC_61506 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61508
 sto:IEC_61508 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:alignesWith sto:Safety ;
+              <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
               sto:hasClassification iira:Safety ,
                                     rami:Safety ,
-                                    idsram:Certification ,
-                                    idsram:Safety ;
+                                    idsram:Certification ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_61511 ;
               sto:hasPublicationDate "1997-02-28"^^xsd:date ;
@@ -5072,8 +5215,8 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61511
 sto:IEC_61511 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification idsram:Certification ,
-                                    idsram:Safety ;
+              sto:hasClassification sto:Safety ,
+                                    idsram:Certification ;
               sto:hasDomain sto:FunctionalSafety ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62061 ,
@@ -5429,9 +5572,9 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
                                     rami:Station ,
                                     rami:WorkCenter ,
                                     sto:Communication ,
+                                    sto:DataSovereignty ,
                                     sto:FrameworkLayer ,
                                     sto:SCADALevel ,
-                                    idsram:DataSovereignty ,
                                     idsram:SystemLayer ;
               sto:hasDeveloper sto:OPC_Foundation ;
               sto:hasDomain sto:IndustrialAutomation ;
@@ -5860,8 +6003,8 @@ sto:ISO_13849 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification iira:Security ,
                                     rami:Safety ,
-                                    idsram:Certification ,
-                                    idsram:Safety ;
+                                    sto:Safety ,
+                                    idsram:Certification ;
               sto:hasPublisher sto:ISO ;
               rdfs:comment "Provides safety requirements and guidance on the principles for the design and integration of safety-related parts of control systems (SRP/CS), including the design of software."@en ;
               rdfs:label "ISO 13849"@en ;
@@ -6247,8 +6390,8 @@ sto:ISO_24760 rdf:type owl:NamedIndividual .
 sto:ISO_26262 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification iira:Safety ,
-                                    idsram:Certification ,
-                                    idsram:Safety ;
+                                    sto:Safety ,
+                                    idsram:Certification ;
               sto:hasDomain sto:ITSecurity ;
               sto:hasPublisher sto:ISO ;
               dcterms:title "Road vehicles – Functional safety"@en ;
@@ -6411,8 +6554,8 @@ sto:ISO_29101 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_29115
 sto:ISO_29115 rdf:type owl:NamedIndividual ;
-              sto:alignesWith sto:Authentication ,
-                              sto:Identification ;
+              <https://w3id.org/i40/hasTargetConcern> sto:Authentication ,
+                                                      sto:Identification ;
               sto:hasClassification iira:Security ;
               sto:hasPublisher sto:ISO ;
               rdfs:label "ISO/IEC 29115"@en .
@@ -6628,6 +6771,14 @@ sto:Identification rdf:type owl:NamedIndividual ,
                    rdfs:label "Identification"@en .
 
 
+###  https://w3id.org/i40/sto#IdentityManagement
+sto:IdentityManagement rdf:type owl:NamedIndividual ,
+                                sto:ISO_42010_Concern ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment "Mechanisms to assure  identification."@en ;
+                       rdfs:label "Identity Management"@en .
+
+
 ###  https://w3id.org/i40/sto#IndustrialAutomation
 sto:IndustrialAutomation rdf:type owl:NamedIndividual ,
                                   sto:Domain ;
@@ -6650,6 +6801,14 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
                                         rdfs:comment "Industrial process measurement and control"@en .
 
 
+###  https://w3id.org/i40/sto#IntegrityProtection
+sto:IntegrityProtection rdf:type owl:NamedIndividual ,
+                                 sto:ISO_42010_Concern ;
+                        dcterms:creator "sebastian"@en ;
+                        rdfs:comment "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
+                        rdfs:label "Integrity Protection and Verification"@en .
+
+
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
 sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
                                             sto:abbreviation "ICS"@en .
@@ -6658,7 +6817,8 @@ sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#Interoperability
 sto:Interoperability rdf:type owl:NamedIndividual ,
                               sto:ISO_42010_Concern ;
-                     rdfs:comment "A systems ability to connect with other systems."@en ;
+                     rdfs:comment "A systems ability to connect with other systems."@en ,
+                                  "Interoperability refers to the ability of two or more devices from the same vendor, or different vendors, to exchange information and use that information for correct co-operation [IEC61850-2010]."@en ;
                      rdfs:label "Interoperability"@en .
 
 
@@ -6675,6 +6835,14 @@ sto:KATS rdf:type owl:NamedIndividual ,
          rdfs:label "Korean Agency for Technology and Standards"@en ;
          sto:hasDBpediaResource <http://dbpedia.org/page/Korean_Agency_for_Technology_and_Standards> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Korean_Agency_for_Technology_and_Standards> .
+
+
+###  https://w3id.org/i40/sto#LocalDataConfidentiality
+sto:LocalDataConfidentiality rdf:type owl:NamedIndividual ,
+                                      sto:ISO_42010_Concern ;
+                             dcterms:creator "sebastian"@en ;
+                             rdfs:comment "Describes the means by which local data is protected."@en ;
+                             rdfs:label "Local Data Confidentiality"@en .
 
 
 ###  https://w3id.org/i40/sto#M2M
@@ -6746,6 +6914,13 @@ sto:MTConnect_Institute rdf:type owl:NamedIndividual ,
                         sto:hasOfficialResource <https://w3id.org/i40/www.mtconnect.org> .
 
 
+###  https://w3id.org/i40/sto#MachineLearning
+sto:MachineLearning rdf:type owl:NamedIndividual ,
+                             sto:ISO_42010_Concern ;
+                    dcterms:creator "sebastian"@en ;
+                    rdfs:label "Machine Learning"@en .
+
+
 ###  https://w3id.org/i40/sto#Manufacturing
 sto:Manufacturing rdf:type owl:NamedIndividual .
 
@@ -6790,6 +6965,15 @@ sto:ModelingPractice rdf:type owl:NamedIndividual ,
                      rdfs:label "Modeling Practice"@en .
 
 
+###  https://w3id.org/i40/sto#Multilaterism
+sto:Multilaterism rdf:type owl:NamedIndividual ,
+                           sto:ISO_42010_Concern ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:comment "Data Artefacts are received by 1 to m Data Consumer."@en ;
+                  rdfs:label "Multilateralism"@en ;
+                  skos:altLabel "Cardinality of Participants"@en .
+
+
 ###  https://w3id.org/i40/sto#NERC
 sto:NERC rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -6798,6 +6982,20 @@ sto:NERC rdf:type owl:NamedIndividual ,
          dcterms:description "The North American Electric Reliability Corporation (NERC) is a not-for-profit international regulatory authority whose mission is to assure the effective and efficient reduction of risks to the reliability and security of the grid. NERC develops and enforces Reliability Standards; annually assesses seasonal and long‐term reliability; monitors the bulk power system through system awareness; and educates, trains, and certifies industry personnel. NERC’s area of responsibility spans the continental United States, Canada, and the northern portion of Baja California, Mexico. NERC is the electric reliability organization (ERO) for North America, subject to oversight by the Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. NERC's jurisdiction includes users, owners, and operators of the bulk power system, which serves more than 334 million people."@en ;
          rdfs:seeAlso "https://www.nerc.com/Pages/default.aspx"@en ;
          sto:hasWikipediaArticle <https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation> .
+
+
+###  https://w3id.org/i40/sto#NGSI
+sto:NGSI rdf:type owl:NamedIndividual ,
+                  sto:Technology ;
+         sto:hasPublisher sto:FIWARE ;
+         sto:hasOfficialResource "http://fiware.github.io/specifications/ngsiv2/stable/" ;
+         dcterms:creator "sebastian"@en ;
+         dcterms:title "Next Generation Service Interface"@en ;
+         rdfs:comment """The FIWARE NGSI (Next Generation Service Interface) API defines
+-    a data model for context information, based on a simple information model using the notion of context entities
+-    a context data interface for exchanging information by means of query, subscription, and update operations
+-    a context availability interface for exchanging information on how to obtain context information (whether to separate the two interfaces is currently under discussion)."""@en ;
+         rdfs:label "NGSI"@en .
 
 
 ###  https://w3id.org/i40/sto#NIST
@@ -7014,11 +7212,26 @@ sto:OPC_Foundation rdf:type owl:NamedIndividual ,
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Foundation> .
 
 
+###  https://w3id.org/i40/sto#OrionContextBroker
+sto:OrionContextBroker rdf:type owl:NamedIndividual ,
+                                sto:Technology ;
+                       dul:associatedWith sto:FIWARE ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:label "ORION Context Broker"@en .
+
+
 ###  https://w3id.org/i40/sto#PlatformIndustry40
 sto:PlatformIndustry40 rdf:type owl:NamedIndividual ,
                                 sto:IIoTConsortium ;
-                       dul:associatedWith sto:RAMI ,
-                                          sto:RAMI40 .
+                       dul:associatedWith sto:RAMI .
+
+
+###  https://w3id.org/i40/sto#Privacy
+sto:Privacy rdf:type owl:NamedIndividual ,
+                     sto:ISO_42010_Concern ;
+            dul:isPartOf sto:Trustworthiness ;
+            dcterms:creator "sebastian"@en ;
+            rdfs:label "Privacy"@en .
 
 
 ###  https://w3id.org/i40/sto#ProcessPlanning
@@ -7089,6 +7302,14 @@ sto:ProductionSystemModelData rdf:type owl:NamedIndividual ,
                               rdfs:label "Production System Model Data"@en .
 
 
+###  https://w3id.org/i40/sto#ProvenanceTracking
+sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
+                                sto:ISO_42010_Concern ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
+                       rdfs:label "Provenance Tracking"@en .
+
+
 ###  https://w3id.org/i40/sto#QIF
 sto:QIF rdf:type owl:NamedIndividual ,
                  sto:Standard ;
@@ -7101,18 +7322,13 @@ sto:QIF rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RAMI
-sto:RAMI rdf:type owl:NamedIndividual ;
+sto:RAMI rdf:type owl:NamedIndividual ,
+                  sto:StandardizationFramework ;
          sto:isDescribedin rami:Information ;
-         rdfs:comment "Describes the RAMI model"@en ;
+         rdfs:comment "Describes the RAMI model"@en ,
+                      "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
          rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html" ;
-         rdfs:label "RAMI"@en .
-
-
-###  https://w3id.org/i40/sto#RAMI40
-sto:RAMI40 rdf:type owl:NamedIndividual ,
-                    sto:StandardizationFramework ;
-           rdfs:comment "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
-           rdfs:label "RAMI 4.0"@en .
+         rdfs:label "RAMI 4.0"@en .
 
 
 ###  https://w3id.org/i40/sto#RFC_1122
@@ -7251,6 +7467,29 @@ and redescribes the letter mechanism as a push function."""@en ;
             sto:hasOfficialResource <https://tools.ietf.org/html/rfc793> .
 
 
+###  https://w3id.org/i40/sto#Reliability
+sto:Reliability rdf:type owl:NamedIndividual ,
+                         sto:ISO_42010_Concern ;
+                dul:isPartOf sto:Trustworthiness ;
+                dcterms:creator "sebastian"@en ;
+                rdfs:label "Reliability"@en .
+
+
+###  https://w3id.org/i40/sto#Resilience
+sto:Resilience rdf:type owl:NamedIndividual ,
+                        sto:ISO_42010_Concern ;
+               dul:isPartOf sto:Trustworthiness ;
+               dcterms:creator "sebastian"@en ;
+               rdfs:label "Resilience"@en .
+
+
+###  https://w3id.org/i40/sto#RoleCategorization
+sto:RoleCategorization rdf:type owl:NamedIndividual ,
+                                sto:ISO_42010_Concern ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:label "Role Categorization"@en .
+
+
 ###  https://w3id.org/i40/sto#SCADALevel
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ;
@@ -7296,17 +7535,109 @@ sto:SE rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Safety
 sto:Safety rdf:type owl:NamedIndividual ,
-                    sto:ISO_42010_Concern .
+                    sto:ISO_42010_Concern ,
+                    sto:StandardClassification ;
+           dul:isPartOf sto:Trustworthiness ;
+           sto:isDescribedin sto:IndustrialDataSpace ,
+                             idsram:ReferenceArchitectureModel ;
+           dcterms:creator "sebastian"@en ;
+           rdfs:comment "Functional safety (as defined by the IDS) is the ability of a system to prevent physical damage."@en ;
+           rdfs:label "Safety"@en .
+
+
+###  https://w3id.org/i40/sto#Scalability
+sto:Scalability rdf:type owl:NamedIndividual ,
+                         sto:ISO_42010_Concern ;
+                dcterms:creator "sebastian"@en ;
+                rdfs:label "Scalability"@en .
 
 
 ###  https://w3id.org/i40/sto#SecureCommunication
 sto:SecureCommunication rdf:type owl:NamedIndividual ,
-                                 sto:ISO_42010_Concern .
+                                 sto:ISO_42010_Concern ;
+                        dcterms:creator "sebastian"@en ;
+                        rdfs:label "Secure Communication"@en .
+
+
+###  https://w3id.org/i40/sto#Security
+sto:Security rdf:type owl:NamedIndividual ,
+                      sto:ISO_42010_Concern ;
+             dul:isPartOf sto:Trustworthiness ;
+             dcterms:creator "sebastian"@en ;
+             rdfs:label "Security"@en .
+
+
+###  https://w3id.org/i40/sto#SemanticInteroperability
+sto:SemanticInteroperability rdf:type owl:NamedIndividual ,
+                                      sto:ISO_42010_Concern ;
+                             dul:isPartOf sto:Interoperability ;
+                             dcterms:creator "sebastian"@en ;
+                             rdfs:comment """Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. 
+source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
+                             rdfs:label "Semantic Interoperability"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceChoreography
+sto:ServiceChoreography rdf:type owl:NamedIndividual ,
+                                 sto:ISO_42010_Concern ;
+                        dcterms:creator "sebastian"@en ;
+                        rdfs:comment "2 to n Data Apps/Services/Data Provider are connected (without a central coordinator)"@en ;
+                        rdfs:label "Service Choreography"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceComposition
+sto:ServiceComposition rdf:type owl:NamedIndividual ,
+                                sto:ISO_42010_Concern ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment "2 to n Data Apps/Services are connected"@en ;
+                       rdfs:label "Service Composition"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceDiscovery
+sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
+                              sto:ISO_42010_Concern ;
+                     dcterms:creator "sebastian"@en ;
+                     rdfs:comment "How to find desired (Web) services, Data Apps, functionalities"@en ;
+                     rdfs:label "Service Discovery"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceIsolation
+sto:ServiceIsolation rdf:type owl:NamedIndividual ,
+                              sto:ISO_42010_Concern ;
+                     dcterms:creator "sebastian"@en ;
+                     rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
+                     rdfs:label "Service Isolation"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceOrchestration
+sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
+                                  sto:ISO_42010_Concern ;
+                         dcterms:creator "sebastian"@en ;
+                         rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrates by a central entity."@en ;
+                         rdfs:label "Service Orchestration"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceSelection
+sto:ServiceSelection rdf:type owl:NamedIndividual ,
+                              sto:ISO_42010_Concern ;
+                     dcterms:creator "sebastian"@en ;
+                     rdfs:comment "The ability of a system to invoke or deploy the desired service/Data App."@en ;
+                     rdfs:label "Service Selection"@en .
 
 
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:NamedIndividual ;
              sto:abbreviation "IS" .
+
+
+###  https://w3id.org/i40/sto#SyntacticInteroperability
+sto:SyntacticInteroperability rdf:type owl:NamedIndividual ,
+                                       sto:ISO_42010_Concern ;
+                              dul:isPartOf sto:Interoperability ;
+                              dcterms:creator "sebastian"@en ;
+                              rdfs:comment """If two or more systems are capable of communicating with each other, they exhibit syntactic interoperability when using specified data formats and communication protocols. XML or SQL standards are among the tools of syntactic interoperability. This is also true for lower-level data formats, such as ensuring alphabetical characters are stored in a same variation of ASCII or a Unicode format (for English or international text) in all the communicating systems. 
+source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
+                              rdfs:label "Syntactic Interoperability"@en .
 
 
 ###  https://w3id.org/i40/sto#SysML
@@ -7514,10 +7845,18 @@ sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#TrustedConnector
 sto:TrustedConnector rdf:type owl:NamedIndividual ,
                               sto:StandardizationFramework ;
+                     sto:hasOfficialResource "https://arxiv.org/abs/1804.09442" ;
                      dcterms:creator "sebastian" ;
                      rdfs:comment "The advent of the Industrial Internet of Things (IIoT) also raises challenges with respect to security and privacy of sensitive and personal data that is created by sensors and processed by services hosted in different administrative domains. The Industrial Data Space initiative addresses these challenges and proposes a secure edge gateway platform named \"Trusted Connector\". In this report, we introduce the main security building blocks of the Trusted Connector and point out how they help protecting business-critical data and preserving the user's privacy."@en ;
-                     rdfs:label "IDS Trusted Connector"@en ;
-                     sto:hasOfficialResource "https://arxiv.org/abs/1804.09442" .
+                     rdfs:label "IDS Trusted Connector"@en .
+
+
+###  https://w3id.org/i40/sto#Trustworthiness
+sto:Trustworthiness rdf:type owl:NamedIndividual ,
+                             sto:ISO_42010_Concern ;
+                    dcterms:creator "sebastian"@en ;
+                    rdfs:comment "Trustworthiness is the degree of confidence one has that the system performs as expected in respect to all the key system characteristics in the face of environmental disruptions, human errors, system faults and attacks. source: IISF"@en ;
+                    rdfs:label "Trustworthiness"@en .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
@@ -7659,11 +7998,11 @@ sto:Written rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ZVEI
 sto:ZVEI rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
+         sto:hasOfficialResource "https://www.zvei.org/" ;
          dcterms:title "German Electrical and Electronic Manufacturers' Association"@en ,
                        "Zentralverband Elektrotechnik- und Elektronikindustrie"@de ;
          rdfs:comment "The ZVEI is one of the most important manufacturers' associations in Germany. It represents the interests of a high-tech branch with a very widely varied and extremely dynamic product portfolio."@en ;
-         rdfs:label "ZVEI"@en ;
-         sto:hasOfficialResource "https://www.zvei.org/" .
+         rdfs:label "ZVEI"@en .
 
 
 ###  https://w3id.org/i40/sto#_020
@@ -7673,12 +8012,12 @@ sto:_020 rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#bitkom
 sto:bitkom rdf:type owl:NamedIndividual ,
                     sto:StandardOrganization ;
+           sto:hasOfficialResource "https://www.bitkom.org/" ;
+           sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Bundesverband_Informationswirtschaft,_Telekommunikation_und_neue_Medien" ;
            dcterms:creator "sebastian"@en ;
            dcterms:title "Bundesverband Informationswirtschaft, Telekommunikation und neue Medien"@de ,
                          "German Association for IT, Telecommunications and New Media"@en ;
-           rdfs:label "Bitkom"@en ;
-           sto:hasOfficialResource "https://www.bitkom.org/" ;
-           sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Bundesverband_Informationswirtschaft,_Telekommunikation_und_neue_Medien" .
+           rdfs:label "Bitkom"@en .
 
 
 ###  https://w3id.org/i40/sto#eClass
@@ -7756,6 +8095,7 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#openAAS
 sto:openAAS rdf:type owl:NamedIndividual ,
                      sto:Technology ;
+            dul:associatedWith sto:AdministrationShell ;
             dcterms:creator "sebastian" ;
             rdfs:comment """Im Open Source Projekt „openAAS“ – die Abkürzung „AAS“ steht für den englischen Begriff „Asset Administration Shell“, zu Deutsch „Verwaltungsschale“ – arbeitet der ZVEI gemeinsam mit der RWTH Aachen und Unternehmen aus Maschinenbau und Elektroindustrie daran, Industrie 4.0 in die Praxis
 umzusetzen. Die Veranschaulichung und Erprobung einer Industrie-4.0-konformen Verwaltungsschale stehen im Mittelpunkt. Dies ist Voraussetzung für eine international erfolgreiche Technologieverifikation
@@ -7793,6 +8133,7 @@ idsram:BusinessLayer rdf:type owl:NamedIndividual ,
                               idsram:Layer ;
                      sto:alignesWith iira:BusinessDomain ,
                                      rami:Business ;
+                     sto:frames sto:RoleCategorization ;
                      sto:isDescribedin idsram:ReferenceArchitectureModel ;
                      rdfs:label "IDS RAM Business Layer"@en .
 
@@ -7800,6 +8141,8 @@ idsram:BusinessLayer rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ids/ram/Certification
 idsram:Certification rdf:type owl:NamedIndividual ,
                               <http://w3id.org/ids/ram/Perspective> ;
+                     sto:frames sto:Certification ,
+                                sto:Safety ;
                      sto:isDescribedin idsram:ReferenceArchitectureModel ;
                      rdfs:label "IDS RAM Certification Perspective"@en .
 
@@ -7809,11 +8152,6 @@ idsram:DataMarket rdf:type owl:NamedIndividual ,
                            sto:StandardClassification ;
                   sto:isDescribedin idsram:ReferenceArchitectureModel ;
                   rdfs:label "IDS Data Market"@en .
-
-
-###  https://w3id.org/ids/ram/DataSovereignty
-idsram:DataSovereignty rdf:type owl:NamedIndividual ,
-                                sto:StandardClassification .
 
 
 ###  https://w3id.org/ids/ram/FunctionalLayer
@@ -7828,6 +8166,7 @@ idsram:FunctionalLayer rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ids/ram/Governance
 idsram:Governance rdf:type owl:NamedIndividual ,
                            <http://w3id.org/ids/ram/Perspective> ;
+                  sto:frames sto:Compliance ;
                   sto:isDescribedin idsram:ReferenceArchitectureModel ;
                   rdfs:label "IDS RAM Governance Perspective"@en .
 
@@ -7854,37 +8193,38 @@ idsram:ProcessLayer rdf:type owl:NamedIndividual ,
                              idsram:Layer ;
                     sto:alignesWith iira:ApplicationDomain ,
                                     iira:InformationDomain ,
-                                    iira:OperationDomain ;
+                                    iira:OperationDomain ,
+                                    rami:Functional ;
+                    sto:frames sto:ServiceChoreography ,
+                               sto:ServiceOrchestration ;
                     sto:isDescribedin idsram:ReferenceArchitectureModel ;
                     rdfs:label "IDS RAM Process Layer"@en .
 
 
 ###  https://w3id.org/ids/ram/ReferenceArchitectureModel
 idsram:ReferenceArchitectureModel rdf:type owl:NamedIndividual ,
-                                           sto:StandardizationFramework ;
+                                           sto:ArchitectureDescription ;
                                   rdfs:label "IDS RAM"@en ,
                                              "Industrial Data Space Reference Architecture Model"@en .
-
-
-###  https://w3id.org/ids/ram/Safety
-idsram:Safety rdf:type owl:NamedIndividual ,
-                       sto:ISO_42010_Concern ,
-                       sto:StandardClassification ;
-              dul:associatedWith idsram:Safety ;
-              sto:isDescribedin sto:IndustrialDataSpace ,
-                                idsram:ReferenceArchitectureModel ;
-              dcterms:creator "Functional safety (as defined by the IDS) is the ability of a system to prevent physical damage."@en ,
-                              "sebastian"@en ;
-              rdfs:label "IDS RAM Safety"@en ;
-              skos:note "Needs to be clarified whether seafety is a concern or a classification category."@en .
 
 
 ###  https://w3id.org/ids/ram/Security
 idsram:Security rdf:type owl:NamedIndividual ,
                          <http://w3id.org/ids/ram/Perspective> ;
-                dul:associatedWith iira:Security ;
-                sto:alignesWith iira:SecurityFramework ;
+                dul:associatedWith sto:RAMI ;
+                sto:alignesWith iira:Security ,
+                                iira:SecurityFramework ;
+                sto:frames sto:Authentication ,
+                           sto:DataAccessControl ,
+                           sto:DataSovereignty ,
+                           sto:DataUsageControl ,
+                           sto:Identification ,
+                           sto:Privacy ,
+                           sto:SecureCommunication ,
+                           sto:Security ,
+                           sto:ServiceIsolation ;
                 sto:isDescribedin idsram:ReferenceArchitectureModel ;
+                rdfs:comment "The IDS Security Architecture provides means to identify participants, protect communication and data exchange transactions between them, and control the use of data after it has been sent."@en ;
                 rdfs:label "IDS RAM Security Perspective"@en .
 
 
@@ -7892,7 +8232,9 @@ idsram:Security rdf:type owl:NamedIndividual ,
 idsram:SystemLayer rdf:type owl:NamedIndividual ,
                             idsram:Layer ;
                    dul:associatedWith iira:ImplementationViewpoint ;
-                   sto:alignesWith iira:ControlDomain ;
+                   sto:alignesWith iira:ControlDomain ,
+                                   rami:Communication ,
+                                   rami:Integration ;
                    sto:isDescribedin idsram:ReferenceArchitectureModel ;
                    dcterms:creator "sebastian" ;
                    rdfs:label "IDS RAM System Layer"@en .
