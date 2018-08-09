@@ -241,12 +241,13 @@ sto:frames rdf:type owl:ObjectProperty ;
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
                          rdfs:domain foaf:Document ;
+                         rdfs:range dcterms:LinguisticSystem;
                          dcterms:creator sto:irlan ;
                          rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ,
                                       "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ;
                          rdfs:label "has Available Language"@en ,
                                     "hasAvailableLanguage"@en ;
-                         rdfs:range dcterms:LinguisticSystem .
+                         .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
@@ -720,7 +721,7 @@ sto:ISA95Level rdf:type owl:Class ;
                rdfs:label "ISA 95 Level"@en .
 
 
-###  https://w3id.org/i40/sto#ISO_42010_Concern
+###  https://w3id.org/i40/sto#ISO42010Concern
 sto:ISO_42010_Concern rdf:type owl:Class .
 
 
@@ -6615,7 +6616,7 @@ The description of ISO/IEC/IEEE 42010 in this article is based upon the standard
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> .
 
 
-###  https://w3id.org/i40/sto#ISO_42010_Concern
+###  https://w3id.org/i40/sto#ISO42010Concern
 sto:ISO_42010_Concern rdf:type owl:NamedIndividual ;
                       sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
                       sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
@@ -6766,7 +6767,7 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Identification
 sto:Identification rdf:type owl:NamedIndividual ,
-                            sto:ISO_42010_Concern ;
+                            sto:ISO42010Concern ;
                    dc11:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    rdfs:label "Identification"@en .
 
@@ -8258,7 +8259,7 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
-sto:ISO_42010_Concern dcterms:creator "sebastian"@en ;
+sto:ISO42010Concern dcterms:creator "sebastian"@en ;
                       rdfs:label "Concern" ;
                       rdfs:comment "A concern regards a specific challenge or topic. Each concern should at least be regarded by one view of an architecture."@en .
 
