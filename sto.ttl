@@ -715,6 +715,14 @@ sto:Domain rdf:type owl:Class ;
            rdfs:label "Domain"@en .
 
 
+###  https://w3id.org/i40/sto#FiwareChapter
+sto:FiwareChapter rdf:type owl:Class ;
+                  rdfs:subClassOf sto:StandardClassification ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
+                  rdfs:label "Fiware Chapter"@en .
+
+
 ###  https://w3id.org/i40/sto#IIoTConsortium
 sto:IIoTConsortium rdf:type owl:Class ;
                    rdfs:subClassOf foaf:Organization ;
@@ -1856,6 +1864,13 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
                       rdfs:label "Data Access Control"@en .
 
 
+###  https://w3id.org/i40/sto#DataAnalytics
+sto:DataAnalytics rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:label "Data Analytics"@en .
+
+
 ###  https://w3id.org/i40/sto#DataDescription
 sto:DataDescription rdf:type owl:NamedIndividual ,
                              sto:Concern ;
@@ -1890,12 +1905,27 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
                 rdfs:label "Data Markets"@en .
 
 
+###  https://w3id.org/i40/sto#DataOwnership
+sto:DataOwnership rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:comment "Data Ownership declare the property on a information resource that is independent of its location, e.g. personal data belongs the the related person no matter where it is stored."@en ;
+                  rdfs:label "Data Ownership"@en .
+
+
 ###  https://w3id.org/i40/sto#DataProcessing
 sto:DataProcessing rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator "sebastian"@en ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en .
+
+
+###  https://w3id.org/i40/sto#DataQuality
+sto:DataQuality rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                dcterms:creator "sebastian"@en ;
+                rdfs:label "Data Quality"@en .
 
 
 ###  https://w3id.org/i40/sto#DataSelection
@@ -2806,6 +2836,90 @@ sto:FileSizeIEC_62832 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
                       om2:hasNumericalValue "2722.0"^^xsd:float ;
                       om2:hasUnit om2:kilobyte .
+
+
+###  https://w3id.org/i40/sto#FiwareAdvancedUi
+sto:FiwareAdvancedUi rdf:type owl:NamedIndividual ,
+                              sto:FiwareChapter ;
+                     sto:isDescribedin sto:FIWARE ;
+                     dcterms:creator "sebastian"@en ;
+                     rdfs:comment """The Generic Enablers (GEs) from the Advanced Web-based User Interface (WebUI) chapter cover a set of GEs that provide an advanced user experience using HTML-5 and a Web-based UI approach.
+
+The objective of the Advanced Web-based UI GE is to significantly improve the user experience for the Future Internet by adding new user input and interaction capabilities, such as interactive 3D graphics, immersive interaction with the real and virtual world via Augmented Reality, virtualizing the display and driving them over the network, and many more."""@en ;
+                     rdfs:label "FIWARE Advanced Web-based User Interface"@en .
+
+
+###  https://w3id.org/i40/sto#FiwareApplicationsServicesAndDataDelivery
+sto:FiwareApplicationsServicesAndDataDelivery rdf:type owl:NamedIndividual ,
+                                                       sto:FiwareChapter ;
+                                              <https://w3id.org/i40/hasTargetConcern> sto:DataAnalytics ,
+                                                                                      sto:DataSelection ,
+                                                                                      sto:ServiceComposition ,
+                                                                                      sto:ServiceSelection ;
+                                              sto:isDescribedin sto:FIWARE ;
+                                              dcterms:creator "sebastian"@en ;
+                                              rdfs:comment """The Generic Enablers (GE) for the Apps Chapter together build an ecosystem of applications, services and data that is sustainable and fosters innovation as well as cross-fertilization. In particular the Apps Generic Enablers supports managing applications, services and data in a business framework across the whole service life cycle from creation through composition of applications and data to monetization and revenue sharing.
+
+A couple of basic GEs are important to realize the vision of such an applications, services and data business framework, which enables new business models in an agile and flexible way. Among them: a store, a marketplace, a revenue sharing engine, an application composer through mashup and a data visualization and analysis component.
+
+The Business Framework is heavily relying on USDL as common uniform description format for services which does not only focus on technical aspects of service, but also on business aspects as well as functional and non-functional service attributes.
+
+The Application Mashup GE aims at allowing end users without programming skills to quickly compose beautiful web applications and dashboards/cockpits mashing up widgets, operators and data sources from a shared catalogue.
+
+The Data Visualisation GE aims at creating agile, beautiful visualizations and meaningful reports useful to present the large variety of datasets. Data stakeholders will bring in the play as well as providing customisable data analytics."""@en ;
+                                              rdfs:label "FIWARE Applications Services and Data Delivery"@en .
+
+
+###  https://w3id.org/i40/sto#FiwareCloudHosting
+sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
+                                sto:FiwareChapter ;
+                       sto:isDescribedin sto:FIWARE ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment """The Cloud Chapter offers Generic Enablers (GEs) that comprise the foundation for designing a modern cloud hosting infrastructure that can be used to develop, deploy and manage Future Internet applications and services. Provided hosting capabilities are of several kinds and at several levels of resource abstraction -- aiming at the needs of different applications hosted on the cloud.
+
+The IaaS Data Center Resource Management (DCRM) GE is offering provisioning and life cycle management of virtualized resources (compute, storage, network) associated with virtual machines. The Object Storage GE offers provisioning and life cycle management of object-based storage containers and elements. The Job Scheduler GE offers the application to submit and manage computational jobs in a unified and scalable manner. The Edgelet Management GE offers the capability to host lightweight application components, called edgelets. Moreover, the IaaS Service Management (SM) GE provides the means to host complex applications. Lastly, the PaaS Management GE uses the above capabilities to offer provisioning and management of complete PaaS environments, leveraging also the Software Deployment and Configuration (SDC) GE which offers a flexible framework for installation and customization of software products (via Chef recipes) within individual virtual machines."""@en ;
+                       rdfs:label "FIWARE Cloud Hosting"@en .
+
+
+###  https://w3id.org/i40/sto#FiwareDataContextManagement
+sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
+                                         sto:FiwareChapter ;
+                                sto:isDescribedin sto:FIWARE ;
+                                dcterms:creator "sebastian"@en ;
+                                rdfs:comment """The Data/Context Management FIWARE chapter aims at providing outperforming and platform-like GEs that will ease development and provision of innovative Applications that require gathering, publication, processing and exploitation of information and data streams in real-time and at massive scale. Combined with GEs coming from the Apps Chapters, Application Providers will be able to build innovative business models based on exploitation of massive data provided by end users.
+
+FIWARE Data/Context Management GEs allow to gather information from context and other sources (Context Broker), mediate metadata among GEs and applications (Metadata pre-processor) query stored information through an homogeneous layer (Query Broker), , annotate existing information (Semantic Annotation), store and manage semantic information (Semantic Application Support), generate new knowledge from big data stores using a Map & Reduce paradigm (Big Data analysis) and react to different types of scenarios (Complex Event Processing). It also provides GEs for media management, as easy creation of advanced video applications (Stream Oriented GE) and specifically, video analysis in the compressed domain (CDVA)."""@en ;
+                                rdfs:label "FIWARE Data/Context Management"@en .
+
+
+###  https://w3id.org/i40/sto#FiwareIotServicesEnablement
+sto:FiwareIotServicesEnablement rdf:type owl:NamedIndividual ,
+                                         sto:FiwareChapter ;
+                                sto:isDescribedin sto:FIWARE ;
+                                dcterms:creator "sebastian"@en ;
+                                rdfs:comment """The deployment of the architecture of the IoT Service Enablement chapter is typically distributed across a large number of Devices, several Gateways and the Backend.
+
+A device is a hardware entity, component or system that either measures properties of a thing/group of things or influences the properties of a thing/group of things or both measures/influences. Sensors and actuators are devices.
+
+IoT Resources are computational elements (software) that provide the technical means to perform sensing and/or actuation on the device. The resource is usually hosted on the device.
+
+IoT GEs have been spread in two different domains: Gateway and Backend. While IoT Gateway GEs provide inter-networking and protocol conversion functionalities between devices and the IoT Backend GEs, the IoT Backend GEs provide management functionalities for the devices and IoT domain-specific support for the applications."""@en ;
+                                rdfs:label "FIWARE IoT Services Enablement"@en .
+
+
+###  https://w3id.org/i40/sto#FiwareSecurity
+sto:FiwareSecurity rdf:type owl:NamedIndividual ,
+                            sto:FiwareChapter ;
+                   sto:isDescribedin sto:FIWARE ;
+                   dcterms:creator "sebastian"@en ;
+                   rdfs:comment """The Future Internet services will always be exposed to different types of threats that can lead to severe misuse and damage. Creating secured and trusted services without sacrificing much of the desired functionality, usability, performance and cost efficiency is a great challenge, especially in a dynamic environment where new threats and attack methods emerge on a daily basis.
+
+The overall ambition of the Security Architecture of FIWARE is to demonstrate that the Vision of an Internet that is \"secure by design\" is becoming reality. Based on achievements to date and/or to come in the short-term (both from a technological but also a standardization perspective) we will show that \"secure by design\" is possible.
+
+Security, Privacy and Trust in FIWARE is mainly focusing on delivering tools and techniques to have the above-mentioned security needs properly met. Furthermore a decision making support and the automation of countermeasures allow alleviating the workload of users and administrators while raising their security awareness.
+
+The high-level Reference Architecture is formed by four main blocks of GEs: Cybersecurity, Identity and Access Management (and Enforcement), Privacy, Trust and Trustworthiness."""@en ;
+                   rdfs:label "FIWARE Security"@en .
 
 
 ###  https://w3id.org/i40/sto#FrameworkLayer
@@ -6815,6 +6929,21 @@ sto:IntegrityProtection rdf:type owl:NamedIndividual ,
                         rdfs:label "Integrity Protection and Verification"@en .
 
 
+###  https://w3id.org/i40/sto#InterfaceNetworksDevices
+sto:InterfaceNetworksDevices rdf:type owl:NamedIndividual ,
+                                      sto:FiwareChapter ;
+                             sto:isDescribedin sto:FIWARE ;
+                             dcterms:creator "sebastian"@en ;
+                             rdfs:comment """The GEs in the I2ND chapter provide three sets of functionalities.
+
+The first is an advanced integration middleware to be used by all FIWARE GEs with high performance communication needs
+
+Open networking elements enable cloud network application developers to build value-added services in private, enterprise and public settings.
+
+The third set of functionalities enables the management of robots by means of platform components and interfaces towards other FIWARE GEs, allowing users to develop smarter and faster robotic applications."""@en ;
+                             rdfs:label "FIWARE Interface to Networks and Devices"@en .
+
+
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
 sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
                                             sto:abbreviation "ICS"@en .
@@ -7597,6 +7726,7 @@ sto:ServiceChoreography rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceComposition
 sto:ServiceComposition rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
+                       dul:isPartOf sto:DataAnalytics ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:comment "2 to n Data Apps/Services are connected"@en ;
                        rdfs:label "Service Composition"@en .
