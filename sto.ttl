@@ -206,7 +206,7 @@ foaf:maker rdf:type owl:ObjectProperty .
 <https://w3id.org/i40/hasTargetConcern> rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf dul:associatedWith ;
                                         rdfs:domain sto:Standard ;
-                                        rdfs:range sto:ISO_42010_Concern ;
+                                        rdfs:range sto:Concern ;
                                         rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
                                         rdfs:label "has Target Concern"@en .
 
@@ -234,20 +234,19 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 sto:frames rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf dul:associatedWith ;
            rdfs:domain sto:Viewpoint ;
-           rdfs:range sto:ISO_42010_Concern .
+           rdfs:range sto:Concern .
 
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
                          rdfs:domain foaf:Document ;
-                         rdfs:range dcterms:LinguisticSystem;
+                         rdfs:range dcterms:LinguisticSystem ;
                          dcterms:creator sto:irlan ;
                          rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ,
                                       "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ;
                          rdfs:label "has Available Language"@en ,
-                                    "hasAvailableLanguage"@en ;
-                         .
+                                    "hasAvailableLanguage"@en .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
@@ -575,6 +574,10 @@ dcterms:LicenseDocument rdf:type owl:Class ;
                         rdfs:label "License Document"@en .
 
 
+###  http://purl.org/dc/terms/LinguisticSystem
+dcterms:LinguisticSystem rdf:type owl:Class .
+
+
 ###  http://purl.org/dc/terms/linguisticSystem
 dcterms:linguisticSystem rdf:type owl:Class .
 
@@ -694,6 +697,10 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:seeAlso "https://en.wikipedia.org/wiki/Supply_chain_management" .
 
 
+###  https://w3id.org/i40/sto#Concern
+sto:Concern rdf:type owl:Class .
+
+
 ###  https://w3id.org/i40/sto#ConnectivityLayer
 sto:ConnectivityLayer rdf:type owl:Class ;
                       rdfs:subClassOf sto:StandardClassification ;
@@ -719,10 +726,6 @@ sto:ISA95Level rdf:type owl:Class ;
                rdfs:subClassOf sto:StandardClassification ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA 95 Level"@en .
-
-
-###  https://w3id.org/i40/sto#ISO42010Concern
-sto:ISO_42010_Concern rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
@@ -1519,7 +1522,7 @@ sto:AdministrationShell rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Authentication
 sto:Authentication rdf:type owl:NamedIndividual ,
-                            sto:ISO_42010_Concern ;
+                            sto:Concern ;
                    dcterms:creator "sebastian"@en ;
                    rdfs:comment "Authentication before opening a valid connection; this can be done by just verifying the server identity or doing mutual authentication."@en ;
                    rdfs:label "Authentication"@en .
@@ -1527,7 +1530,7 @@ sto:Authentication rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Availability
 sto:Availability rdf:type owl:NamedIndividual ,
-                          sto:ISO_42010_Concern ;
+                          sto:Concern ;
                  dul:isPartOf sto:Security ;
                  dcterms:creator "sebastian"@en ;
                  rdfs:label "Availability"@en .
@@ -1632,7 +1635,7 @@ sto:CAD rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#CardinalityOfDataSources
 sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
-                                      sto:ISO_42010_Concern ;
+                                      sto:Concern ;
                              dcterms:creator "sebastian"@en ;
                              rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
                              rdfs:label "Cardinality of Data Sources"@en .
@@ -1640,7 +1643,7 @@ sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Certification
 sto:Certification rdf:type owl:NamedIndividual ,
-                           sto:ISO_42010_Concern ;
+                           sto:Concern ;
                   dul:isPartOf sto:Security ;
                   dcterms:creator "sebastian"@en ;
                   rdfs:label "Certification"@en .
@@ -1654,9 +1657,16 @@ sto:Communication rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Compliance
 sto:Compliance rdf:type owl:NamedIndividual ,
-                        sto:ISO_42010_Concern ;
+                        sto:Concern ;
                dcterms:creator "sebastian"@en ;
                rdfs:label "Compliance"@en .
+
+
+###  https://w3id.org/i40/sto#Concern
+sto:Concern rdf:type owl:NamedIndividual ;
+            sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
+            sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
+            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
 
 
 ###  https://w3id.org/i40/sto#ConditionMonitoring
@@ -1840,7 +1850,7 @@ sto:DMSC rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataAccessControl
 sto:DataAccessControl rdf:type owl:NamedIndividual ,
-                               sto:ISO_42010_Concern ;
+                               sto:Concern ;
                       dcterms:creator "sebastian"@en ;
                       rdfs:comment "Automated access control based on formalized descriptions."@en ;
                       rdfs:label "Data Access Control"@en .
@@ -1848,7 +1858,7 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataDescription
 sto:DataDescription rdf:type owl:NamedIndividual ,
-                             sto:ISO_42010_Concern ;
+                             sto:Concern ;
                     dul:isPartOf sto:SemanticInteroperability ;
                     dcterms:creator "sebastian"@en ;
                     rdfs:comment "Methods to unambiguously describe data resources."@en ;
@@ -1857,7 +1867,7 @@ sto:DataDescription rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataDiscovery
 sto:DataDiscovery rdf:type owl:NamedIndividual ,
-                           sto:ISO_42010_Concern ;
+                           sto:Concern ;
                   dcterms:creator "How to find desired resources, Data Assets, Data Artefacts."@en ,
                                   "sebastian"@en ;
                   rdfs:label "Data Discovery"@en .
@@ -1865,7 +1875,7 @@ sto:DataDiscovery rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataEconomy
 sto:DataEconomy rdf:type owl:NamedIndividual ,
-                         sto:ISO_42010_Concern ;
+                         sto:Concern ;
                 dcterms:creator "sebastian"@en ;
                 rdfs:comment "Business aspects of data exchange"@en ;
                 rdfs:label "Data Economy"@en .
@@ -1873,7 +1883,7 @@ sto:DataEconomy rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataMarkets
 sto:DataMarkets rdf:type owl:NamedIndividual ,
-                         sto:ISO_42010_Concern ;
+                         sto:Concern ;
                 dul:isPartOf sto:DataEconomy ;
                 dcterms:creator "sebastian"@en ;
                 rdfs:comment "Data as an economic good; it's offered, demanded, and priced."@en ;
@@ -1882,7 +1892,7 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataProcessing
 sto:DataProcessing rdf:type owl:NamedIndividual ,
-                            sto:ISO_42010_Concern ;
+                            sto:Concern ;
                    dcterms:creator "sebastian"@en ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en .
@@ -1890,7 +1900,7 @@ sto:DataProcessing rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataSelection
 sto:DataSelection rdf:type owl:NamedIndividual ,
-                           sto:ISO_42010_Concern ;
+                           sto:Concern ;
                   dcterms:creator "sebastian"@en ;
                   rdfs:label "Data Selection"@en ,
                              "The ability of a system to query, filter, or request the desired data."@en .
@@ -1898,7 +1908,7 @@ sto:DataSelection rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataSovereignty
 sto:DataSovereignty rdf:type owl:NamedIndividual ,
-                             sto:ISO_42010_Concern ,
+                             sto:Concern ,
                              sto:StandardClassification ;
                     dcterms:creator "sebastian"@en ;
                     rdfs:label "Data Sovereignty"@en .
@@ -1906,7 +1916,7 @@ sto:DataSovereignty rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataUsageControl
 sto:DataUsageControl rdf:type owl:NamedIndividual ,
-                              sto:ISO_42010_Concern ;
+                              sto:Concern ;
                      dul:isPartOf sto:Privacy ;
                      dcterms:creator "sebastian"@en ;
                      rdfs:comment "Data usage control can be seen as an extension of data access control. It is about the specification and enforcement of restrictions regulating what is allowed to happen with data, and what is not. Data usage control thus is concerned with requirements that pertain to data processing (obligations) rather than data access (provisions). It is primarily relevant in the context of intellectual property protection, privacy protection, compliance with regulations, and digital rights management."@en ;
@@ -2002,7 +2012,7 @@ sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#EndpointDescription
 sto:EndpointDescription rdf:type owl:NamedIndividual ,
-                                 sto:ISO_42010_Concern ;
+                                 sto:Concern ;
                         dcterms:creator "sebastian"@en ;
                         rdfs:comment "Methods to unambiguously describe client and server endpoints."@en ;
                         rdfs:label "Endpoint Description"@en .
@@ -2010,7 +2020,7 @@ sto:EndpointDescription rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EndpointInvocation
 sto:EndpointInvocation rdf:type owl:NamedIndividual ,
-                                sto:ISO_42010_Concern ;
+                                sto:Concern ;
                        dul:isPartOf sto:Interoperability ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:comment "Mechanisms to interact with a service and to access it through the network."@en ;
@@ -2030,7 +2040,7 @@ sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ExecutionVariability
 sto:ExecutionVariability rdf:type owl:NamedIndividual ,
-                                  sto:ISO_42010_Concern ;
+                                  sto:Concern ;
                          dcterms:creator "sebastian"@en ;
                          rdfs:comment "The system's ability to flexibly connect/adjust data flows in order to reach a defined target."@en ;
                          rdfs:label "Execution Variability"@en .
@@ -5802,7 +5812,9 @@ sto:IETF rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IIC
 sto:IIC rdf:type owl:NamedIndividual ,
                  sto:IIoTConsortium ;
-        dul:associatedWith sto:IIRA .
+        dul:associatedWith sto:IIRA ;
+        dcterms:creator "sebastian"@en ;
+        rdfs:label "IIC"@en .
 
 
 ###  https://w3id.org/i40/sto#IIRA
@@ -6616,13 +6628,6 @@ The description of ISO/IEC/IEEE 42010 in this article is based upon the standard
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> .
 
 
-###  https://w3id.org/i40/sto#ISO42010Concern
-sto:ISO_42010_Concern rdf:type owl:NamedIndividual ;
-                      sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
-                      sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
-                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
-
-
 ###  https://w3id.org/i40/sto#ISO_50001
 sto:ISO_50001 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -6767,14 +6772,14 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Identification
 sto:Identification rdf:type owl:NamedIndividual ,
-                            sto:ISO42010Concern ;
+                            sto:Concern ;
                    dc11:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    rdfs:label "Identification"@en .
 
 
 ###  https://w3id.org/i40/sto#IdentityManagement
 sto:IdentityManagement rdf:type owl:NamedIndividual ,
-                                sto:ISO_42010_Concern ;
+                                sto:Concern ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:comment "Mechanisms to assure  identification."@en ;
                        rdfs:label "Identity Management"@en .
@@ -6804,7 +6809,7 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IntegrityProtection
 sto:IntegrityProtection rdf:type owl:NamedIndividual ,
-                                 sto:ISO_42010_Concern ;
+                                 sto:Concern ;
                         dcterms:creator "sebastian"@en ;
                         rdfs:comment "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
                         rdfs:label "Integrity Protection and Verification"@en .
@@ -6817,7 +6822,7 @@ sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/i40/sto#Interoperability
 sto:Interoperability rdf:type owl:NamedIndividual ,
-                              sto:ISO_42010_Concern ;
+                              sto:Concern ;
                      rdfs:comment "A systems ability to connect with other systems."@en ,
                                   "Interoperability refers to the ability of two or more devices from the same vendor, or different vendors, to exchange information and use that information for correct co-operation [IEC61850-2010]."@en ;
                      rdfs:label "Interoperability"@en .
@@ -6840,7 +6845,7 @@ sto:KATS rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LocalDataConfidentiality
 sto:LocalDataConfidentiality rdf:type owl:NamedIndividual ,
-                                      sto:ISO_42010_Concern ;
+                                      sto:Concern ;
                              dcterms:creator "sebastian"@en ;
                              rdfs:comment "Describes the means by which local data is protected."@en ;
                              rdfs:label "Local Data Confidentiality"@en .
@@ -6917,7 +6922,7 @@ sto:MTConnect_Institute rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#MachineLearning
 sto:MachineLearning rdf:type owl:NamedIndividual ,
-                             sto:ISO_42010_Concern ;
+                             sto:Concern ;
                     dcterms:creator "sebastian"@en ;
                     rdfs:label "Machine Learning"@en .
 
@@ -6968,7 +6973,7 @@ sto:ModelingPractice rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Multilaterism
 sto:Multilaterism rdf:type owl:NamedIndividual ,
-                           sto:ISO_42010_Concern ;
+                           sto:Concern ;
                   dcterms:creator "sebastian"@en ;
                   rdfs:comment "Data Artefacts are received by 1 to m Data Consumer."@en ;
                   rdfs:label "Multilateralism"@en ;
@@ -7224,12 +7229,15 @@ sto:OrionContextBroker rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#PlatformIndustry40
 sto:PlatformIndustry40 rdf:type owl:NamedIndividual ,
                                 sto:IIoTConsortium ;
-                       dul:associatedWith sto:RAMI .
+                       dul:associatedWith sto:RAMI ;
+                       dcterms:creator "sebastian" ;
+                       rdfs:label "Platform Industry 4.0"@en ,
+                                  "Plattform Industrie 4.0"@de .
 
 
 ###  https://w3id.org/i40/sto#Privacy
 sto:Privacy rdf:type owl:NamedIndividual ,
-                     sto:ISO_42010_Concern ;
+                     sto:Concern ;
             dul:isPartOf sto:Trustworthiness ;
             dcterms:creator "sebastian"@en ;
             rdfs:label "Privacy"@en .
@@ -7305,7 +7313,7 @@ sto:ProductionSystemModelData rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ProvenanceTracking
 sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
-                                sto:ISO_42010_Concern ;
+                                sto:Concern ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
                        rdfs:label "Provenance Tracking"@en .
@@ -7470,7 +7478,7 @@ and redescribes the letter mechanism as a push function."""@en ;
 
 ###  https://w3id.org/i40/sto#Reliability
 sto:Reliability rdf:type owl:NamedIndividual ,
-                         sto:ISO_42010_Concern ;
+                         sto:Concern ;
                 dul:isPartOf sto:Trustworthiness ;
                 dcterms:creator "sebastian"@en ;
                 rdfs:label "Reliability"@en .
@@ -7478,7 +7486,7 @@ sto:Reliability rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Resilience
 sto:Resilience rdf:type owl:NamedIndividual ,
-                        sto:ISO_42010_Concern ;
+                        sto:Concern ;
                dul:isPartOf sto:Trustworthiness ;
                dcterms:creator "sebastian"@en ;
                rdfs:label "Resilience"@en .
@@ -7486,7 +7494,7 @@ sto:Resilience rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#RoleCategorization
 sto:RoleCategorization rdf:type owl:NamedIndividual ,
-                                sto:ISO_42010_Concern ;
+                                sto:Concern ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:label "Role Categorization"@en .
 
@@ -7536,7 +7544,7 @@ sto:SE rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Safety
 sto:Safety rdf:type owl:NamedIndividual ,
-                    sto:ISO_42010_Concern ,
+                    sto:Concern ,
                     sto:StandardClassification ;
            dul:isPartOf sto:Trustworthiness ;
            sto:isDescribedin sto:IndustrialDataSpace ,
@@ -7548,21 +7556,21 @@ sto:Safety rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Scalability
 sto:Scalability rdf:type owl:NamedIndividual ,
-                         sto:ISO_42010_Concern ;
+                         sto:Concern ;
                 dcterms:creator "sebastian"@en ;
                 rdfs:label "Scalability"@en .
 
 
 ###  https://w3id.org/i40/sto#SecureCommunication
 sto:SecureCommunication rdf:type owl:NamedIndividual ,
-                                 sto:ISO_42010_Concern ;
+                                 sto:Concern ;
                         dcterms:creator "sebastian"@en ;
                         rdfs:label "Secure Communication"@en .
 
 
 ###  https://w3id.org/i40/sto#Security
 sto:Security rdf:type owl:NamedIndividual ,
-                      sto:ISO_42010_Concern ;
+                      sto:Concern ;
              dul:isPartOf sto:Trustworthiness ;
              dcterms:creator "sebastian"@en ;
              rdfs:label "Security"@en .
@@ -7570,7 +7578,7 @@ sto:Security rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SemanticInteroperability
 sto:SemanticInteroperability rdf:type owl:NamedIndividual ,
-                                      sto:ISO_42010_Concern ;
+                                      sto:Concern ;
                              dul:isPartOf sto:Interoperability ;
                              dcterms:creator "sebastian"@en ;
                              rdfs:comment """Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. 
@@ -7580,7 +7588,7 @@ source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
 
 ###  https://w3id.org/i40/sto#ServiceChoreography
 sto:ServiceChoreography rdf:type owl:NamedIndividual ,
-                                 sto:ISO_42010_Concern ;
+                                 sto:Concern ;
                         dcterms:creator "sebastian"@en ;
                         rdfs:comment "2 to n Data Apps/Services/Data Provider are connected (without a central coordinator)"@en ;
                         rdfs:label "Service Choreography"@en .
@@ -7588,7 +7596,7 @@ sto:ServiceChoreography rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ServiceComposition
 sto:ServiceComposition rdf:type owl:NamedIndividual ,
-                                sto:ISO_42010_Concern ;
+                                sto:Concern ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:comment "2 to n Data Apps/Services are connected"@en ;
                        rdfs:label "Service Composition"@en .
@@ -7596,7 +7604,7 @@ sto:ServiceComposition rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ServiceDiscovery
 sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
-                              sto:ISO_42010_Concern ;
+                              sto:Concern ;
                      dcterms:creator "sebastian"@en ;
                      rdfs:comment "How to find desired (Web) services, Data Apps, functionalities"@en ;
                      rdfs:label "Service Discovery"@en .
@@ -7604,7 +7612,7 @@ sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ServiceIsolation
 sto:ServiceIsolation rdf:type owl:NamedIndividual ,
-                              sto:ISO_42010_Concern ;
+                              sto:Concern ;
                      dcterms:creator "sebastian"@en ;
                      rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
                      rdfs:label "Service Isolation"@en .
@@ -7612,7 +7620,7 @@ sto:ServiceIsolation rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ServiceOrchestration
 sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
-                                  sto:ISO_42010_Concern ;
+                                  sto:Concern ;
                          dcterms:creator "sebastian"@en ;
                          rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrates by a central entity."@en ;
                          rdfs:label "Service Orchestration"@en .
@@ -7620,7 +7628,7 @@ sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ServiceSelection
 sto:ServiceSelection rdf:type owl:NamedIndividual ,
-                              sto:ISO_42010_Concern ;
+                              sto:Concern ;
                      dcterms:creator "sebastian"@en ;
                      rdfs:comment "The ability of a system to invoke or deploy the desired service/Data App."@en ;
                      rdfs:label "Service Selection"@en .
@@ -7633,7 +7641,7 @@ sto:Standard rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/i40/sto#SyntacticInteroperability
 sto:SyntacticInteroperability rdf:type owl:NamedIndividual ,
-                                       sto:ISO_42010_Concern ;
+                                       sto:Concern ;
                               dul:isPartOf sto:Interoperability ;
                               dcterms:creator "sebastian"@en ;
                               rdfs:comment """If two or more systems are capable of communicating with each other, they exhibit syntactic interoperability when using specified data formats and communication protocols. XML or SQL standards are among the tools of syntactic interoperability. This is also true for lower-level data formats, such as ensuring alphabetical characters are stored in a same variation of ASCII or a Unicode format (for English or international text) in all the communicating systems. 
@@ -7854,7 +7862,7 @@ sto:TrustedConnector rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Trustworthiness
 sto:Trustworthiness rdf:type owl:NamedIndividual ,
-                             sto:ISO_42010_Concern ;
+                             sto:Concern ;
                     dcterms:creator "sebastian"@en ;
                     rdfs:comment "Trustworthiness is the degree of confidence one has that the system performs as expected in respect to all the key system characteristics in the face of environmental disruptions, human errors, system faults and attacks. source: IISF"@en ;
                     rdfs:label "Trustworthiness"@en .
@@ -8259,9 +8267,9 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
-sto:ISO42010Concern dcterms:creator "sebastian"@en ;
-                      rdfs:label "Concern" ;
-                      rdfs:comment "A concern regards a specific challenge or topic. Each concern should at least be regarded by one view of an architecture."@en .
+sto:Concern rdfs:label "Concern" ;
+            rdfs:comment "A concern regards a specific challenge or topic as defined by ISO42010. Each concern should at least be regarded by one view of an architecture."@en ;
+            dcterms:creator "sebastian"@en .
 
 
 sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
