@@ -69,14 +69,6 @@ dcterms:hasLicense rdf:type owl:ObjectProperty ;
                    rdfs:range dcterms:LicenseDocument .
 
 
-###  http://purl.org/dc/terms/language
-dcterms:language rdf:type owl:ObjectProperty .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
-dul:associatedWith rdf:type owl:ObjectProperty .
-
-
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
 dul:isComponentOf rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf sto:relatedTo ;
@@ -89,10 +81,6 @@ dul:isComponentOf rdf:type owl:ObjectProperty ;
                   rdfs:comment "Represents Standards that are component of other Standards. This relation is not transitive"@en ;
                   rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
                   rdfs:label "is Component Of"@en .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
-dul:isPartOf rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
@@ -2121,7 +2109,12 @@ sto:FileSizeIEC_60870_1995_P2_S1 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1996_P2_S2
-sto:FileSizeIEC_60870_1996_P2_S2 rdf:type owl:NamedIndividual .
+sto:FileSizeIEC_60870_1996_P2_S2 rdf:type owl:NamedIndividual ,
+								   om2:Measure ;
+                                   om2:hasNumericalValue "1705.0"^^xsd:float ;
+                                   om2:hasUnit om2:kilobyte ;
+                                   rdfs:comment "Specifies the file size of the document for standard IEC 60870-2-2:1996"@en ;
+                                   rdfs:label "FileSize IEC 60870-2-2:1996"@en  .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S101_2003
@@ -2339,9 +2332,6 @@ sto:FileSizeIEC_61310_P3 rdf:type owl:NamedIndividual ,
                          rdfs:comment "Specifies the file size of the document for standard IEC 61310-3:2007."@en ;
                          rdfs:label "FileSize IEC 61310-3:2007"@en .
 
-
-###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P3_S1
-sto:FileSizeIEC_61334_1996_P3_S1 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P3_S21
@@ -2927,9 +2917,6 @@ sto:IEC rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://www.iec.ch/> ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> .
 
-
-###  https://w3id.org/i40/sto#IECICS_25_040_01
-sto:IECICS_25_040_01 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#IEC_11404
@@ -4542,7 +4529,7 @@ sto:IEC_61334_P3_S21_1996 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P3_S1 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P3_S21 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5165,7 +5152,7 @@ sto:IEC_61691_P6 rdf:type owl:NamedIndividual ,
                  sto:hasAvailableLanguage lang:eng ;
                  sto:hasFileSize sto:FileSizeIEC_61691_P6 ;
                  sto:hasICS sto:ICS_35_060 ,
-                            sto:IECICS_25_040_01 ;
+                            sto:ICS_25_040_01 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_91 ;
                  sto:hasEdition "1.0"^^xsd:float ;
