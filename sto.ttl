@@ -50,108 +50,13 @@
 #    Annotation properties
 #################################################################
 
-###  http://creativecommons.org/ns#attributionName
-cc:attributionName rdf:type owl:AnnotationProperty .
 
-
-###  http://creativecommons.org/ns#attributionURL
-cc:attributionURL rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/description
-dc11:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/title
-dc11:title rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/hasVersion
-dcterms:hasVersion rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
-om2:hasNumericalValue rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
-om2:hasUnit rdf:type owl:AnnotationProperty .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
-dul:isMemberOf rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#altLabel
-skos:altLabel rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#definition
-skos:definition rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#note
-skos:note rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/familyName
-foaf:familyName rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-foaf:mbox rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#edition
-sto:edition rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#norm
-sto:norm rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#publisher
-sto:publisher rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Datatypes
 #################################################################
 
-###  http://www.w3.org/2001/XMLSchema#date
-xsd:date rdf:type rdfs:Datatype .
-
-
-###  http://www.w3.org/2001/XMLSchema#gYear
-xsd:gYear rdf:type rdfs:Datatype .
 
 
 #################################################################
@@ -445,7 +350,11 @@ sto:hasObjective rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:DatatypeProperty .
+sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
+						rdfs:domain sto:Publication ;
+                		rdfs:range xsd:anyURI ;
+                		rdfs:comment "Points to the URL of the official websilte from which published the document"@en ;
+                		rdfs:label "has Official Resource"@en  .
 
 
 ###  https://w3id.org/i40/sto#hasOntology
@@ -574,8 +483,7 @@ dcterms:LicenseDocument rdf:type owl:Class ;
                         rdfs:label "License Document"@en .
 
 
-###  http://purl.org/dc/terms/LinguisticSystem
-dcterms:LinguisticSystem rdf:type owl:Class .
+
 
 
 ###  http://purl.org/dc/terms/linguisticSystem
@@ -840,117 +748,6 @@ idsram:Layer rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://dbpedia.org/resource#Beijing
-dbr:Beijing rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Berlin
-dbr:Berlin rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Boston
-dbr:Boston rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Chicago
-dbr:Chicago rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#China
-dbr:China rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Cologne
-dbr:Cologne rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Eumseong
-dbr:Eumseong rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Frankfurt
-dbr:Frankfurt rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Geneva
-dbr:Geneva rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Germany
-dbr:Germany rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#HoehenkirchenSiegertsbrunn
-dbr:HoehenkirchenSiegertsbrunn rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Höhenkirchen-Siegertsbrunn
-dbr:Höhenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#New_York_City
-dbr:New_York_City rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Paris
-dbr:Paris rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#South_Korea
-dbr:South_Korea rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Switzerland
-dbr:Switzerland rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#United_States
-dbr:United_States rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Valbonne
-dbr:Valbonne rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_Arizona
-dbr:_Arizona rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_California
-dbr:_California rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_Georgia
-dbr:_Georgia rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_Maryland
-dbr:_Maryland rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_Massachusetts
-dbr:_Massachusetts rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_Michigan
-dbr:_Michigan rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_New_York
-dbr:_New_York rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_North_Carolina
-dbr:_North_Carolina rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#_Texas
-dbr:_Texas rdf:type owl:NamedIndividual .
-
-
-###  http://dbpedia.org/resource#Washington,_D.C.
-<http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual .
-
 
 ###  http://example.org/iira#ApplicationDomain
 iira:ApplicationDomain rdf:type owl:NamedIndividual ,
@@ -1155,50 +952,6 @@ iira:Vocabulary rdf:type owl:NamedIndividual ,
                 rdfs:label "IIC Vocabulary"@en .
 
 
-###  http://lexvo.org/id/iso639-3/en
-lang:en rdf:type owl:NamedIndividual .
-
-
-###  http://lexvo.org/id/iso639-3/eng
-lang:eng rdf:type owl:NamedIndividual .
-
-
-###  http://lexvo.org/id/iso639-3/fra
-lang:fra rdf:type owl:NamedIndividual .
-
-
-###  http://lexvo.org/id/iso639-3/rus
-lang:rus rdf:type owl:NamedIndividual .
-
-
-###  http://lexvo.org/id/iso639-3/spa
-lang:spa rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation
-<http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation> rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/IEEE_Smart_Grid
-<http://wikipedia.org/wiki/IEEE_Smart_Grid> rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers
-<http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers> rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/Internet_Engineering_Task_Force
-<http://wikipedia.org/wiki/Internet_Engineering_Task_Force> rdf:type owl:NamedIndividual .
-
-
-###  http://www.ietf.org/
-<http://www.ietf.org/> rdf:type owl:NamedIndividual .
-
-
-###  http://www.w3.org/2001/XMLSchema#string
-xsd:string rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/rami#AdminShellGeneral
 rami:AdminShellGeneral rdf:type owl:NamedIndividual ,
                                 rami:AdminShellSubmodel ;
@@ -1244,21 +997,6 @@ rami:Communication rdf:type owl:NamedIndividual ,
                    sto:isDescribedin sto:RAMI ;
                    rdfs:label "RAMI Communication Layer"@en .
 
-
-###  https://w3id.org/i40/rami#CommunicationSubModel
-rami:CommunicationSubModel rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#ConditionMonitoring
-rami:ConditionMonitoring rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Conditional_Monitoring
-rami:Conditional_Monitoring rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Configuration
-rami:Configuration rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/rami#ConnectedWorld
@@ -1591,7 +1329,7 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BDI
 sto:BDI rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
-        sto:hasOfficialResource "https://english.bdi.eu/" ;
+        sto:hasOfficialResource <https://english.bdi.eu/> ;
         dcterms:creator "sebastian"@en ;
         dcterms:title "The Federation of German Industries"@en ;
         rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en .
@@ -1672,9 +1410,9 @@ sto:Compliance rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Concern
 sto:Concern rdf:type owl:NamedIndividual ;
-            sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
-            sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
-            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
+            sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
+            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
+            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> .
 
 
 ###  https://w3id.org/i40/sto#ConditionMonitoring
@@ -1840,7 +1578,7 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DMA
 sto:DMA rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
-        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_%26_Marketing_Association" ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_%26_Marketing_Association> ;
         dcterms:creator "sebastian" ;
         dcterms:title "Data & Marketing Association"@en ;
         rdfs:comment "The Data & Marketing Association (formerly, Direct Marketing Association), also known as the DMA, is a trade organization for marketers which seeks to advance and protect responsible data-driven marketing."@en ;
@@ -2079,7 +1817,7 @@ sto:ExecutionVariability rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FIWARE
 sto:FIWARE rdf:type owl:NamedIndividual ,
                     sto:ArchitectureDescription ;
-           sto:hasOfficialResource "https://www.fiware.org/" ;
+           sto:hasOfficialResource <https://www.fiware.org/> ;
            dcterms:creator "sebastian"@en ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
            rdfs:label "FIWARE"@en .
@@ -3168,8 +2906,8 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IDSA
 sto:IDSA rdf:type owl:NamedIndividual ,
                   sto:IIoTConsortium ;
-         sto:hasOfficialResource "https://www.internationaldataspaces.org/en/" ;
-         sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association" ;
+         sto:hasOfficialResource <https://www.internationaldataspaces.org/en/> ;
+         sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association> ;
          dcterms:creator "sebastian" ;
          dcterms:title "International Data Spaces Association"@en ;
          rdfs:comment "IDSA ensures that the special economic interests of business are specifically integrated into the research work of Industrial Date Space."@en ;
@@ -3397,8 +3135,8 @@ sto:IEC_60038_2009 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050
 sto:IEC_60050 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasDBpediaResource "http://dbpedia.org/page/International_Electrotechnical_Vocabulary" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary" ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> ;
               rdfs:comment "The International Electrotechnical Vocabulary (IEV) serves to promote the global unification of terminology in the field of electrotechnology, electronics and telecommunications."@en ;
               rdfs:label "IEC 60050"@en ;
               skos:altLabel "Electropedia"@en .
