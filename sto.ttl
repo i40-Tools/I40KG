@@ -1,5 +1,5 @@
-@prefix : <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
 @prefix deo: <http://purl.org/spar/deo/> .
@@ -25,10 +25,11 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix terms: <http://purl.org/dc/terms/> .
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto#> .
+@base <https://w3id.org/i40/sto> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
@@ -130,14 +131,6 @@ foaf:mbox rdf:type owl:AnnotationProperty .
 foaf:name rdf:type owl:AnnotationProperty .
 
 
-###  https://w3id.org/i40/sto#edition
-sto:edition rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#norm
-sto:norm rdf:type owl:AnnotationProperty .
-
-
 ###  https://w3id.org/i40/sto#publisher
 sto:publisher rdf:type owl:AnnotationProperty .
 
@@ -145,6 +138,10 @@ sto:publisher rdf:type owl:AnnotationProperty .
 #################################################################
 #    Datatypes
 #################################################################
+
+###  http://purl.org/muto/core#Tag
+muto:Tag rdf:type rdfs:Datatype .
+
 
 ###  http://www.w3.org/2001/XMLSchema#date
 xsd:date rdf:type rdfs:Datatype .
@@ -184,10 +181,6 @@ dul:isComponentOf rdf:type owl:ObjectProperty ;
                   rdfs:comment "Represents Standards that are component of other Standards. This relation is not transitive"@en ;
                   rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
                   rdfs:label "is Component Of"@en .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
-dul:isPartOf rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
@@ -232,9 +225,14 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#frames
 sto:frames rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf dul:associatedWith ;
+		   rdfs:subPropertyOf dul:associatedWith ;
            rdfs:domain sto:Viewpoint ;
-           rdfs:range sto:Concern .
+           rdfs:range sto:Concern ;
+           rdfs:label "frames"@en ;
+           sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
+           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en .
+
+
 
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
@@ -331,8 +329,7 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:ObjectProperty ;
-           rdfs:domain sto:Publication ;
-           rdfs:range muto:Tag .
+           rdfs:domain sto:Publication .
 
 
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
@@ -445,7 +442,9 @@ sto:hasObjective rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:DatatypeProperty .
+sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
+                        rdfs:domain sto:Publication ;
+                        rdfs:range xsd:anyURI .
 
 
 ###  https://w3id.org/i40/sto#hasOntology
@@ -492,7 +491,8 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
-           rdfs:range rdfs:Literal .
+           rdfs:range muto:Tag ,
+                      rdfs:Literal .
 
 
 ###  https://w3id.org/i40/sto#hasTask
@@ -578,14 +578,6 @@ dcterms:LicenseDocument rdf:type owl:Class ;
 dcterms:LinguisticSystem rdf:type owl:Class .
 
 
-###  http://purl.org/dc/terms/linguisticSystem
-dcterms:linguisticSystem rdf:type owl:Class .
-
-
-###  http://purl.org/muto/core#Tag
-muto:Tag rdf:type owl:Class .
-
-
 ###  http://purl.org/spar/deo/Motivation
 deo:Motivation rdf:type owl:Class .
 
@@ -604,10 +596,6 @@ deo:Motivation rdf:type owl:Class .
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
 om2:Measure rdf:type owl:Class .
-
-
-###  http://www.w3.org/2002/07/owl#Thing
-owl:Thing rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
@@ -683,7 +671,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
 
 ###  https://w3id.org/i40/sto#BdvaConcern
 sto:BdvaConcern rdf:type owl:Class ;
-                rdfs:subClassOf sto:StandardClassification .
+                rdfs:subClassOf sto:StandardClassification ;
+              dcterms:creator "sebastian"@en ;
+              rdfs:label "BDVA Concern"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -703,7 +693,7 @@ sto:Concern rdf:type owl:Class .
 sto:ConnectivityLayer rdf:type owl:Class ;
                       rdfs:subClassOf sto:StandardClassification ;
                       rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
-                      rdfs:isDefinedBy "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" ;
+                      rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
                       rdfs:label "Connectivity Layer"@en .
 
 
@@ -805,7 +795,13 @@ sto:TechnicalCommittee rdf:type owl:Class .
 
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
-                           rdfs:subClassOf sto:Publication .
+                           rdfs:subClassOf sto:Publication ;
+                           cc:attributionURL "http://www.iec.ch" ;
+                           rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ,
+                                        "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
+                           rdfs:isDefinedBy sto:IEC ;
+                           rdfs:label "Technical Specification"@en ;
+                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 
 ###  https://w3id.org/i40/sto#Technology
@@ -839,47 +835,80 @@ idsram:Layer rdf:type owl:Class ;
 #################################################################
 
 ###  http://dbpedia.org/resource#Beijing
-dbr:Beijing rdf:type owl:NamedIndividual .
+dbr:Beijing rdf:type owl:NamedIndividual ,
+                     dbo:Place ;
+            rdfs:comment "Refers to a place called Beijing."@en ;
+            rdfs:label "Beijing"@en .
 
 
 ###  http://dbpedia.org/resource#Berlin
-dbr:Berlin rdf:type owl:NamedIndividual .
+dbr:Berlin rdf:type owl:NamedIndividual ,
+                    dbo:Place ;
+           rdfs:comment "Refers to a place called Berlin."@en ;
+           rdfs:label "Berlin"@en .
 
 
 ###  http://dbpedia.org/resource#Boston
-dbr:Boston rdf:type owl:NamedIndividual .
+dbr:Boston rdf:type owl:NamedIndividual ,
+                    dbo:Place ;
+           rdfs:comment "Refers to a place called Boston."@en ;
+           rdfs:label "Boston"@en .
 
 
 ###  http://dbpedia.org/resource#Chicago
-dbr:Chicago rdf:type owl:NamedIndividual .
+dbr:Chicago rdf:type owl:NamedIndividual ,
+                     dbo:Place ;
+            rdfs:comment "Refers to a place called Chicago."@en ;
+            rdfs:label "Chicago"@en .
 
 
 ###  http://dbpedia.org/resource#China
-dbr:China rdf:type owl:NamedIndividual .
+dbr:China rdf:type owl:NamedIndividual ,
+                   dbo:Country ;
+          rdfs:comment "Refers to a Country called China."@en ;
+          rdfs:label "China"@en .
 
 
 ###  http://dbpedia.org/resource#Cologne
-dbr:Cologne rdf:type owl:NamedIndividual .
+dbr:Cologne rdf:type owl:NamedIndividual ,
+                     dbo:Place ;
+            rdfs:comment "Refers to a place called Cologne."@en ;
+            rdfs:label "Cologne"@en .
 
 
 ###  http://dbpedia.org/resource#Eumseong
-dbr:Eumseong rdf:type owl:NamedIndividual .
+dbr:Eumseong rdf:type owl:NamedIndividual ,
+                      dbo:Place ;
+             rdfs:comment "Refers to a place called Eumseong."@en ;
+             rdfs:label "Eumseong"@en .
 
 
 ###  http://dbpedia.org/resource#Frankfurt
-dbr:Frankfurt rdf:type owl:NamedIndividual .
+dbr:Frankfurt rdf:type owl:NamedIndividual ,
+                       dbo:Place ;
+              rdfs:comment "Refers to a place called Frankfurt."@en ;
+              rdfs:label "Frankfurt"@en .
 
 
 ###  http://dbpedia.org/resource#Geneva
-dbr:Geneva rdf:type owl:NamedIndividual .
+dbr:Geneva rdf:type owl:NamedIndividual ,
+                    dbo:Place ;
+           rdfs:comment "Refers to a place called Geneva."@en ;
+           rdfs:label "Geneva"@en .
 
 
 ###  http://dbpedia.org/resource#Germany
-dbr:Germany rdf:type owl:NamedIndividual .
+dbr:Germany rdf:type owl:NamedIndividual ,
+                     dbo:Country ;
+            rdfs:comment "Refers to a Country called Germany."@en ;
+            rdfs:label "Germany"@en .
 
 
-###  http://dbpedia.org/resource#HoehenkirchenSiegertsbrunn
-dbr:HoehenkirchenSiegertsbrunn rdf:type owl:NamedIndividual .
+###  http://dbpedia.org/resource#Hoehenkirchen-Siegertsbrunn
+dbr:Hoehenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual ,
+                                         dbo:Place ;
+                                rdfs:comment "Refers to a place called Hoehenkirchen-Siegertsbrunn."@en ;
+                                rdfs:label "Hoehenkirchen-Siegertsbrunn"@en .
 
 
 ###  http://dbpedia.org/resource#Höhenkirchen-Siegertsbrunn
@@ -887,63 +916,108 @@ dbr:Höhenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual .
 
 
 ###  http://dbpedia.org/resource#New_York_City
-dbr:New_York_City rdf:type owl:NamedIndividual .
+dbr:New_York_City rdf:type owl:NamedIndividual ,
+                           dbo:Place ;
+                  rdfs:comment "Refers to a place called New York City."@en ;
+                  rdfs:label "New_York_City"@en .
 
 
 ###  http://dbpedia.org/resource#Paris
-dbr:Paris rdf:type owl:NamedIndividual .
+dbr:Paris rdf:type owl:NamedIndividual ,
+                   dbo:Place ;
+          rdfs:comment "Refers to a place called Paris."@en ;
+          rdfs:label "Paris"@en .
 
 
 ###  http://dbpedia.org/resource#South_Korea
-dbr:South_Korea rdf:type owl:NamedIndividual .
+dbr:South_Korea rdf:type owl:NamedIndividual ,
+                         dbo:Country ;
+                rdfs:comment "Refers to a Country called South Korea."@en ;
+                rdfs:label "South Korea"@en .
 
 
 ###  http://dbpedia.org/resource#Switzerland
-dbr:Switzerland rdf:type owl:NamedIndividual .
+dbr:Switzerland rdf:type owl:NamedIndividual ,
+                         dbo:Country ;
+                rdfs:comment "Refers to a Country called Switzerland."@en ;
+                rdfs:label "Switzerland"@en .
 
 
 ###  http://dbpedia.org/resource#United_States
-dbr:United_States rdf:type owl:NamedIndividual .
+dbr:United_States rdf:type owl:NamedIndividual ,
+                           dbo:Country ;
+                  rdfs:comment "Refers to a Country called United_States."@en ;
+                  rdfs:label "United States"@en .
 
 
 ###  http://dbpedia.org/resource#Valbonne
-dbr:Valbonne rdf:type owl:NamedIndividual .
+dbr:Valbonne rdf:type owl:NamedIndividual ,
+                      dbo:Place ;
+             rdfs:comment "Refers to a place called Valbonne."@en ;
+             rdfs:label "Valbonne"@en .
 
 
 ###  http://dbpedia.org/resource#_Arizona
-dbr:_Arizona rdf:type owl:NamedIndividual .
+dbr:_Arizona rdf:type owl:NamedIndividual ,
+                      dbo:Place ;
+             rdfs:comment "Refers to a place called Arizona."@en ;
+             rdfs:label "Arizona"@en .
 
 
 ###  http://dbpedia.org/resource#_California
-dbr:_California rdf:type owl:NamedIndividual .
+dbr:_California rdf:type owl:NamedIndividual ,
+                         dbo:Place ;
+                rdfs:comment "Refers to a place called California."@en ;
+                rdfs:label "_California"@en .
 
 
 ###  http://dbpedia.org/resource#_Georgia
-dbr:_Georgia rdf:type owl:NamedIndividual .
+dbr:_Georgia rdf:type owl:NamedIndividual ,
+                      dbo:Place ;
+             rdfs:comment "Refers to a place called Georgia."@en ;
+             rdfs:label "Georgia"@en .
 
 
 ###  http://dbpedia.org/resource#_Maryland
-dbr:_Maryland rdf:type owl:NamedIndividual .
+dbr:_Maryland rdf:type owl:NamedIndividual ,
+                       dbo:Place ;
+              rdfs:comment "Refers to a place called Maryland."@en ;
+              rdfs:label "Maryland"@en .
 
 
 ###  http://dbpedia.org/resource#_Massachusetts
-dbr:_Massachusetts rdf:type owl:NamedIndividual .
+dbr:_Massachusetts rdf:type owl:NamedIndividual ,
+                            dbo:Place ;
+                   rdfs:comment "Refers to a place called Massachusetts."@en ;
+                   rdfs:label "Massachusetts"@en .
 
 
 ###  http://dbpedia.org/resource#_Michigan
-dbr:_Michigan rdf:type owl:NamedIndividual .
+dbr:_Michigan rdf:type owl:NamedIndividual ,
+                       dbo:Place ;
+              rdfs:comment "Refers to a place called Michigan."@en ;
+              rdfs:label "Michigan"@en .
 
 
 ###  http://dbpedia.org/resource#_New_York
-dbr:_New_York rdf:type owl:NamedIndividual .
+dbr:_New_York rdf:type owl:NamedIndividual ,
+                       dbo:Place ;
+              rdfs:comment "Refers to a place called New York."@en ;
+              rdfs:label "New York"@en .
 
 
 ###  http://dbpedia.org/resource#_North_Carolina
-dbr:_North_Carolina rdf:type owl:NamedIndividual .
+dbr:_North_Carolina rdf:type owl:NamedIndividual ,
+                             dbo:Place ;
+                    rdfs:comment "Refers to a place called North Carolina."@en ;
+                    rdfs:label "North Carolina"@en .
 
 
 ###  http://dbpedia.org/resource#_Texas
-dbr:_Texas rdf:type owl:NamedIndividual .
+dbr:_Texas rdf:type owl:NamedIndividual ,
+                    dbo:Place ;
+           rdfs:comment "Refers to a place called Texas."@en ;
+           rdfs:label "_Texas"@en .
 
 
 ###  http://dbpedia.org/resource#Washington,_D.C.
@@ -953,9 +1027,9 @@ dbr:_Texas rdf:type owl:NamedIndividual .
 ###  http://example.org/iira#ApplicationDomain
 iira:ApplicationDomain rdf:type owl:NamedIndividual ,
                                 iira:FunctionalDomain ;
-                       dul:isPartOf iira:FunctionalViewpoint ;
                        sto:alignesWith idsram:ProcessLayer ;
                        sto:isDescribedin sto:IIRA ;
+                       dul:isPartOf iira:FunctionalViewpoint ;
                        rdfs:label "IIRA Application Domain"@en .
 
 
@@ -1069,14 +1143,14 @@ iira:PhysicalLayer rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#PhysicalSystems
 iira:PhysicalSystems rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
-                     dul:isPartOf iira:FunctionalViewpoint ;
                      sto:alignesWith rami:Asset ,
                                      idsram:SystemLayer ;
                      sto:isDescribedin sto:IIRA ;
-                     sto:hasOfficialResource "https://www.iiconsortium.org/IIRA.htm" ;
                      dcterms:creator "sebastian" ;
+                     dul:isPartOf iira:FunctionalViewpoint ;
                      rdfs:comment "Computational capabilities ranging from very limited (e.g. in a smart sensor) to reasonably rich (e.g. a cluster of servers) are placed in, attached to or collocated with physical systems (e.g. in smart sensors, devices or machines). These capabilities are connected through a variety of connectivity technologies including wireless."@en ;
-                     rdfs:label "IIRA Physical Systems"@en .
+                     rdfs:label "IIRA Physical Systems"@en ;
+                     sto:hasOfficialResource <https://www.iiconsortium.org/IIRA.htm> .
 
 
 ###  http://example.org/iira#Privacy
@@ -1125,9 +1199,9 @@ iira:Security rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#SecurityFramework
 iira:SecurityFramework rdf:type owl:NamedIndividual ,
                                 sto:StandardClassification ;
-                       sto:hasOfficialResource "https://www.iiconsortium.org/IISF.htm" ;
                        dcterms:creator "sebastian"@en ;
-                       rdfs:label "IIC Security Framework"@en .
+                       rdfs:label "IIC Security Framework"@en ;
+                       sto:hasOfficialResource <https://www.iiconsortium.org/IISF.htm> .
 
 
 ###  http://example.org/iira#TansportLayer
@@ -1153,63 +1227,30 @@ iira:Vocabulary rdf:type owl:NamedIndividual ,
                 rdfs:label "IIC Vocabulary"@en .
 
 
-###  http://lexvo.org/id/iso639-3/en
-lang:en rdf:type owl:NamedIndividual .
-
-
 ###  http://lexvo.org/id/iso639-3/eng
-lang:eng rdf:type owl:NamedIndividual .
+lang:eng rdf:type owl:NamedIndividual ,
+                  dcterms:LinguisticSystem .
 
 
 ###  http://lexvo.org/id/iso639-3/fra
-lang:fra rdf:type owl:NamedIndividual .
+lang:fra rdf:type owl:NamedIndividual ,
+                  dcterms:LinguisticSystem .
 
 
 ###  http://lexvo.org/id/iso639-3/rus
-lang:rus rdf:type owl:NamedIndividual .
+lang:rus rdf:type owl:NamedIndividual ,
+                  dcterms:LinguisticSystem .
 
 
 ###  http://lexvo.org/id/iso639-3/spa
-lang:spa rdf:type owl:NamedIndividual .
-
-
-###  http://observedchange.com/moac/ns/#SecurityConcern
-<http://observedchange.com/moac/ns/#SecurityConcern> rdf:type owl:NamedIndividual ;
-                                                     owl:sameAs sto:Security .
-
-
-###  http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation
-<http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation> rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/IEEE_Smart_Grid
-<http://wikipedia.org/wiki/IEEE_Smart_Grid> rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers
-<http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers> rdf:type owl:NamedIndividual .
-
-
-###  http://wikipedia.org/wiki/Internet_Engineering_Task_Force
-<http://wikipedia.org/wiki/Internet_Engineering_Task_Force> rdf:type owl:NamedIndividual .
-
-
-###  http://www.ietf.org/
-<http://www.ietf.org/> rdf:type owl:NamedIndividual .
-
-
-###  http://www.w3.org/2001/XMLSchema#string
-xsd:string rdf:type owl:NamedIndividual .
+lang:spa rdf:type owl:NamedIndividual ,
+                  dcterms:LinguisticSystem .
 
 
 ###  https://w3id.org/i40/rami#AdminShellGeneral
 rami:AdminShellGeneral rdf:type owl:NamedIndividual ,
                                 rami:AdminShellSubmodel ;
                        sto:isDescribedin sto:AdministrationShell .
-
-
-###  https://w3id.org/i40/rami#Assest
-rami:Assest rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/rami#Asset
@@ -1248,20 +1289,17 @@ rami:Communication rdf:type owl:NamedIndividual ,
                    rdfs:label "RAMI Communication Layer"@en .
 
 
-###  https://w3id.org/i40/rami#CommunicationSubModel
-rami:CommunicationSubModel rdf:type owl:NamedIndividual .
-
 
 ###  https://w3id.org/i40/rami#ConditionMonitoring
-rami:ConditionMonitoring rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Conditional_Monitoring
-rami:Conditional_Monitoring rdf:type owl:NamedIndividual .
+rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
+                          rami:AdminShellSubmodel ;
+                 sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#Configuration
-rami:Configuration rdf:type owl:NamedIndividual .
+rami:Configuration rdf:type owl:NamedIndividual,
+						rami:AdminShellSubmodel ;
+                  sto:isDescribedin sto:AdministrationShell  .
 
 
 ###  https://w3id.org/i40/rami#ConnectedWorld
@@ -1554,8 +1592,8 @@ sto:Authorization rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Availability
 sto:Availability rdf:type owl:NamedIndividual ,
                           sto:Concern ;
-                 dul:isPartOf sto:Security ;
                  dcterms:creator "sebastian"@en ;
+                 dul:isPartOf sto:Security ;
                  rdfs:label "Availability"@en .
 
 
@@ -1606,10 +1644,10 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BDI
 sto:BDI rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
-        sto:hasOfficialResource "https://english.bdi.eu/" ;
         dcterms:creator "sebastian"@en ;
         dcterms:title "The Federation of German Industries"@en ;
-        rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en .
+        rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en ;
+        sto:hasOfficialResource <https://english.bdi.eu/> .
 
 
 ###  https://w3id.org/i40/sto#BPEL
@@ -1861,8 +1899,8 @@ sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Certification
 sto:Certification rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dul:isPartOf sto:Security ;
                   dcterms:creator "sebastian"@en ;
+                  dul:isPartOf sto:Security ;
                   rdfs:label "Certification"@en .
 
 
@@ -1885,10 +1923,7 @@ sto:Compliance rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:NamedIndividual ;
-            sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
-            sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
-            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern" .
+sto:Concern rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#ConditionMonitoring
@@ -2054,11 +2089,11 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DMA
 sto:DMA rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
-        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_%26_Marketing_Association" ;
         dcterms:creator "sebastian" ;
         dcterms:title "Data & Marketing Association"@en ;
         rdfs:comment "The Data & Marketing Association (formerly, Direct Marketing Association), also known as the DMA, is a trade organization for marketers which seeks to advance and protect responsible data-driven marketing."@en ;
-        rdfs:label "DMA"@en .
+        rdfs:label "DMA"@en ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_%26_Marketing_Association> .
 
 
 ###  https://w3id.org/i40/sto#DMSC
@@ -2101,8 +2136,8 @@ sto:DataAtRest rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataDescription
 sto:DataDescription rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    dul:isPartOf sto:SemanticInteroperability ;
                     dcterms:creator "sebastian"@en ;
+                    dul:isPartOf sto:SemanticInteroperability ;
                     rdfs:comment "Methods to unambiguously describe data resources."@en ;
                     rdfs:label "Data Description"@en .
 
@@ -2131,8 +2166,8 @@ sto:DataInMotion rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataMarkets
 sto:DataMarkets rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dul:isPartOf sto:DataEconomy ;
                 dcterms:creator "sebastian"@en ;
+                dul:isPartOf sto:DataEconomy ;
                 rdfs:comment "Data as an economic good; it's offered, demanded, and priced."@en ;
                 rdfs:label "Data Markets"@en .
 
@@ -2196,8 +2231,8 @@ sto:DataSovereignty rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataUsageControl
 sto:DataUsageControl rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dul:isPartOf sto:Privacy ;
                      dcterms:creator "sebastian"@en ;
+                     dul:isPartOf sto:Privacy ;
                      rdfs:comment "Data usage control can be seen as an extension of data access control. It is about the specification and enforcement of restrictions regulating what is allowed to happen with data, and what is not. Data usage control thus is concerned with requirements that pertain to data processing (obligations) rather than data access (provisions). It is primarily relevant in the context of intellectual property protection, privacy protection, compliance with regulations, and digital rights management."@en ;
                      rdfs:label "Data Usage Control"@en .
 
@@ -2289,11 +2324,6 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
 sto:EdgeComputing rdf:type owl:NamedIndividual ,
                            sto:Concern .
 
-
-###  https://w3id.org/i40/sto#EndOfLifeReclying
-sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/sto#EndpointDescription
 sto:EndpointDescription rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
@@ -2305,14 +2335,19 @@ sto:EndpointDescription rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#EndpointInvocation
 sto:EndpointInvocation rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dul:isPartOf sto:Interoperability ;
                        dcterms:creator "sebastian"@en ;
+                       dul:isPartOf sto:Interoperability ;
                        rdfs:comment "Mechanisms to interact with a service and to access it through the network."@en ;
                        rdfs:label "Endpoint Invocation"@en .
 
 
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
-sto:EnterpriseIntegration rdf:type owl:NamedIndividual .
+sto:EnterpriseIntegration rdf:type owl:NamedIndividual ,
+                                  sto:Domain ;
+                         sto:domainName "EnterpriseIntegration"@en ;
+                         rdfs:comment "Enterprise Integration deals primarily with system interconnection, electronic data interchange, product data exchange and distributed computing environments."@en ;
+                         rdfs:label "EnterpriseIntegration"@en ;
+                         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Enterprise_integration> .
 
 
 ###  https://w3id.org/i40/sto#EnterpriseLevel
@@ -2334,10 +2369,10 @@ sto:ExecutionVariability rdf:type owl:NamedIndividual ,
 sto:FIWARE rdf:type owl:NamedIndividual ,
                     sto:ArchitectureDescription ;
            sto:alignesWith iira:ImplementationViewpoint ;
-           sto:hasOfficialResource "https://www.fiware.org/" ;
            dcterms:creator "sebastian"@en ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
-           rdfs:label "FIWARE"@en .
+           rdfs:label "FIWARE"@en ;
+           sto:hasOfficialResource <https://www.fiware.org/> .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60027_2006
@@ -2638,7 +2673,12 @@ sto:FileSizeIEC_60870_1995_P2_S1 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1996_P2_S2
-sto:FileSizeIEC_60870_1996_P2_S2 rdf:type owl:NamedIndividual .
+sto:FileSizeIEC_60870_1996_P2_S2 rdf:type owl:NamedIndividual ,
+                                          om2:Measure ;
+                                 om2:hasNumericalValue "1705.0"^^xsd:float ;
+                                 om2:hasUnit om2:kilobyte ;
+                                 rdfs:comment "Specifies the file size of the document for standard IEC 60870-2-2:1996"@en ;
+                                 rdfs:label "FileSize IEC 60870-2-2:1996"@en .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S101_2003
@@ -2855,10 +2895,6 @@ sto:FileSizeIEC_61310_P3 rdf:type owl:NamedIndividual ,
                          om2:hasUnit om2:kilobyte ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61310-3:2007."@en ;
                          rdfs:label "FileSize IEC 61310-3:2007"@en .
-
-
-###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P3_S1
-sto:FileSizeIEC_61334_1996_P3_S1 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P3_S21
@@ -3220,7 +3256,7 @@ sto:FrameworkLayer rdf:type owl:NamedIndividual ,
                                    idsram:SystemLayer ;
                    rdfs:comment "Framework Layer"@en ,
                                 "Framework Layer an instance of the Connectivity Layer"@en ;
-                   rdfs:isDefinedBy "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" ;
+                   rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
                    rdfs:label "IICF Framework Layer"@en .
 
 
@@ -3351,6 +3387,10 @@ sto:ICS_19_08 rdf:type owl:NamedIndividual ,
               rdfs:label "ICS 19.08"@en .
 
 
+###  https://w3id.org/i40/sto#ICS_25_040_01
+sto:ICS_25_040_01 rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/i40/sto#ICS_25_040_40
 sto:ICS_25_040_40 rdf:type owl:NamedIndividual ,
                            sto:InternationalClassificationForStandards ;
@@ -3479,12 +3519,12 @@ sto:ID4me rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IDSA
 sto:IDSA rdf:type owl:NamedIndividual ,
                   sto:IIoTConsortium ;
-         sto:hasOfficialResource "https://www.internationaldataspaces.org/en/" ;
-         sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association" ;
          dcterms:creator "sebastian" ;
          dcterms:title "International Data Spaces Association"@en ;
          rdfs:comment "IDSA ensures that the special economic interests of business are specifically integrated into the research work of Industrial Date Space."@en ;
-         rdfs:label "IDSA"@en .
+         rdfs:label "IDSA"@en ;
+         sto:hasOfficialResource <https://www.internationaldataspaces.org/en/> ;
+         sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/Industrial_Data_Space#Industrial_Data_Space_Association> .
 
 
 ###  https://w3id.org/i40/sto#IEC
@@ -3499,10 +3539,6 @@ sto:IEC rdf:type owl:NamedIndividual ,
         sto:hasDBpediaResource <http://dbpedia.org/resource/International_Electrotechnical_Commission> ;
         sto:hasOfficialResource <http://www.iec.ch/> ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> .
-
-
-###  https://w3id.org/i40/sto#IECICS_25_040_01
-sto:IECICS_25_040_01 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#IEC_11404
@@ -3708,18 +3744,18 @@ sto:IEC_60038_2009 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050
 sto:IEC_60050 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasDBpediaResource "http://dbpedia.org/page/International_Electrotechnical_Vocabulary" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary" ;
               rdfs:comment "The International Electrotechnical Vocabulary (IEV) serves to promote the global unification of terminology in the field of electrotechnology, electronics and telecommunications."@en ;
               rdfs:label "IEC 60050"@en ;
-              skos:altLabel "Electropedia"@en .
+              skos:altLabel "Electropedia"@en ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_1984
 sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
                             sto:StandardPart ;
                    dul:isComponentOf sto:IEC_60050 ;
-                   sto:hasAvailableLanguage lang:en ,
+                   sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ,
                                             lang:rus ;
                    sto:hasFileSize sto:FileSizeIEC_60050_1984 ;
@@ -4032,7 +4068,7 @@ sto:IEC_60364 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60381_1978
 sto:IEC_60381_1978 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
-                   sto:hasAvailableLanguage lang:en ,
+                   sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ,
                                             lang:rus ;
                    sto:hasFileSize sto:FileSizeIEC_60381_1978 ;
@@ -5115,7 +5151,7 @@ sto:IEC_61334_P3_S21_1996 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P3_S1 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P3_S21 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5737,8 +5773,8 @@ sto:IEC_61691_P6 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasAvailableLanguage lang:eng ;
                  sto:hasFileSize sto:FileSizeIEC_61691_P6 ;
-                 sto:hasICS sto:ICS_35_060 ,
-                            sto:IECICS_25_040_01 ;
+                 sto:hasICS sto:ICS_25_040_01 ,
+                            sto:ICS_35_060 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_91 ;
                  sto:hasEdition "1.0"^^xsd:float ;
@@ -5755,7 +5791,6 @@ sto:IEC_61691_P6 rdf:type owl:NamedIndividual ,
 sto:IEC_61784 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Communication ,
-                                    rami:CommunicationSubModel ,
                                     rami:ControlDevice ,
                                     rami:FieldDevice ;
               sto:hasPublisher sto:IEC ;
@@ -5921,7 +5956,7 @@ sto:IEC_62279 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62337
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification rami:Conditional_Monitoring ,
+              sto:hasClassification rami:ConditionMonitoring ,
                                     rami:Enterprise ,
                                     rami:Functional ,
                                     rami:Lifecycle_Status ,
@@ -6205,7 +6240,7 @@ sto:IEEE rdf:type owl:NamedIndividual ,
          sto:abbreviation "IEEE"@en ;
          sto:orgName "Institute of Electrical and Electronics Engineers"@en ;
          dcterms:description "IEEE and its members inspire a global community to innovate for a better tomorrow through highly cited publications, conferences, technology standards, and professional and educational activities. IEEE is the trusted “voice” for engineering, computing, and technology information around the globe."@en ;
-         rdfs:seeAlso "https://www.ieee.org/"@en ;
+         rdfs:seeAlso <https://www.ieee.org/> ;
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers> .
 
 
@@ -6254,9 +6289,9 @@ sto:IIRA rdf:type owl:NamedIndividual ,
 sto:IIRC rdf:type owl:NamedIndividual ,
                   sto:StandardizationFramework ;
          rdfs:comment "Industrial Internet Connectivity Framework"@en ;
-         rdfs:isDefinedBy "https://www.iiconsortium.org/IICF.htm"@en ;
+         rdfs:isDefinedBy <https://www.iiconsortium.org/IICF.htm> ;
          rdfs:label "IICF"@en ;
-         rdfs:seeAlso "https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf" .
+         rdfs:seeAlso <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> .
 
 
 ###  https://w3id.org/i40/sto#ISA
@@ -6397,7 +6432,7 @@ sto:ISO_1302 rdf:type owl:NamedIndividual ,
 sto:ISO_13374 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Business ,
-                                    rami:Conditional_Monitoring ,
+                                    rami:ConditionMonitoring ,
                                     rami:Enterprise ,
                                     sto:ProductionSystemEngineering ;
               sto:hasDomain sto:IndustrialAutomation ;
@@ -6663,7 +6698,7 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                                       rami:FieldDevice ,
                                       rami:Station ,
                                       rami:WorkCenter ,
-                                      sto:Prodcut ;
+                                      sto:Product ;
                 sto:hasDomain sto:IndustrialAutomation ;
                 sto:hasPublisher sto:ISO ;
                 sto:relatedTo sto:IEC_61804 ;
@@ -6789,7 +6824,7 @@ sto:ISO_20922 rdf:type owl:NamedIndividual ,
 sto:ISO_22400 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Business ,
-                                    rami:Conditional_Monitoring ,
+                                    rami:ConditionMonitoring ,
                                     rami:ConnectedWorld ,
                                     rami:ControlDevice ,
                                     rami:Enterprise ,
@@ -6809,7 +6844,7 @@ sto:ISO_22400 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_22745-11
 sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto:hasClassification rami:Assest ,
+                 sto:hasClassification rami:Asset ,
                                        rami:Product ,
                                        sto:ProductCatalogData ;
                  sto:hasDomain sto:IndustrialAutomation ;
@@ -7132,7 +7167,7 @@ sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
 
 - attribute certificates."""@en ;
                rdfs:label "ISO/IEC 9594-8"@en ;
-               rdfs:seeAlso "https://tools.ietf.org/html/rfc5280" ;
+               rdfs:seeAlso <https://tools.ietf.org/html/rfc5280> ;
                sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> ,
                                        <https://www.iso.org/standard/72557.html> .
 
@@ -7173,7 +7208,7 @@ sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_TS_14649-201
 sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
-                     sto:hasClassification rami:Assest ,
+                     sto:hasClassification rami:Asset ,
                                            rami:Configuration ,
                                            rami:Engineering ,
                                            rami:Integration ,
@@ -7461,7 +7496,7 @@ sto:NERC rdf:type owl:NamedIndividual ,
          sto:abbreviation "NERC"@en ;
          sto:orgName "North American Electric Reliability Corporation"@en ;
          dcterms:description "The North American Electric Reliability Corporation (NERC) is a not-for-profit international regulatory authority whose mission is to assure the effective and efficient reduction of risks to the reliability and security of the grid. NERC develops and enforces Reliability Standards; annually assesses seasonal and long‐term reliability; monitors the bulk power system through system awareness; and educates, trains, and certifies industry personnel. NERC’s area of responsibility spans the continental United States, Canada, and the northern portion of Baja California, Mexico. NERC is the electric reliability organization (ERO) for North America, subject to oversight by the Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. NERC's jurisdiction includes users, owners, and operators of the bulk power system, which serves more than 334 million people."@en ;
-         rdfs:seeAlso "https://www.nerc.com/Pages/default.aspx"@en ;
+         rdfs:seeAlso <https://www.nerc.com/Pages/default.aspx> ;
          sto:hasWikipediaArticle <https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation> .
 
 
@@ -7469,14 +7504,14 @@ sto:NERC rdf:type owl:NamedIndividual ,
 sto:NGSI rdf:type owl:NamedIndividual ,
                   sto:Technology ;
          sto:hasPublisher sto:FIWARE ;
-         sto:hasOfficialResource "http://fiware.github.io/specifications/ngsiv2/stable/" ;
          dcterms:creator "sebastian"@en ;
          dcterms:title "Next Generation Service Interface"@en ;
          rdfs:comment """The FIWARE NGSI (Next Generation Service Interface) API defines
 -    a data model for context information, based on a simple information model using the notion of context entities
 -    a context data interface for exchanging information by means of query, subscription, and update operations
 -    a context availability interface for exchanging information on how to obtain context information (whether to separate the two interfaces is currently under discussion)."""@en ;
-         rdfs:label "NGSI"@en .
+         rdfs:label "NGSI"@en ;
+         sto:hasOfficialResource <http://fiware.github.io/specifications/ngsiv2/stable/> .
 
 
 ###  https://w3id.org/i40/sto#NIST
@@ -7727,10 +7762,6 @@ sto:Privacy rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ProcessPlanning
 sto:ProcessPlanning rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#Prodcut
-sto:Prodcut rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#Product
@@ -8018,16 +8049,16 @@ sto:RegulatoryContext rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Reliability
 sto:Reliability rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dul:isPartOf sto:Trustworthiness ;
                 dcterms:creator "sebastian"@en ;
+                dul:isPartOf sto:Trustworthiness ;
                 rdfs:label "Reliability"@en .
 
 
 ###  https://w3id.org/i40/sto#Resilience
 sto:Resilience rdf:type owl:NamedIndividual ,
                         sto:Concern ;
-               dul:isPartOf sto:Trustworthiness ;
                dcterms:creator "sebastian"@en ;
+               dul:isPartOf sto:Trustworthiness ;
                rdfs:label "Resilience"@en .
 
 
@@ -8099,10 +8130,10 @@ sto:SE rdf:type owl:NamedIndividual ,
 sto:Safety rdf:type owl:NamedIndividual ,
                     sto:Concern ,
                     sto:StandardClassification ;
-           dul:isPartOf sto:Trustworthiness ;
            sto:isDescribedin sto:IndustrialDataSpace ,
                              idsram:ReferenceArchitectureModel ;
            dcterms:creator "sebastian"@en ;
+           dul:isPartOf sto:Trustworthiness ;
            rdfs:comment "Functional safety (as defined by the IDS) is the ability of a system to prevent physical damage."@en ;
            rdfs:label "Safety"@en .
 
@@ -8124,16 +8155,16 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Security
 sto:Security rdf:type owl:NamedIndividual ,
                       sto:Concern ;
-             dul:isPartOf sto:Trustworthiness ;
              dcterms:creator "sebastian"@en ;
+             dul:isPartOf sto:Trustworthiness ;
              rdfs:label "Security"@en .
 
 
 ###  https://w3id.org/i40/sto#SemanticInteroperability
 sto:SemanticInteroperability rdf:type owl:NamedIndividual ,
                                       sto:Concern ;
-                             dul:isPartOf sto:Interoperability ;
                              dcterms:creator "sebastian"@en ;
+                             dul:isPartOf sto:Interoperability ;
                              rdfs:comment """Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. 
 source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
                              rdfs:label "Semantic Interoperability"@en .
@@ -8150,8 +8181,8 @@ sto:ServiceChoreography rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceComposition
 sto:ServiceComposition rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dul:isPartOf sto:DataAnalytics ;
                        dcterms:creator "sebastian"@en ;
+                       dul:isPartOf sto:DataAnalytics ;
                        rdfs:comment "2 to n Data Apps/Services are connected"@en ;
                        rdfs:label "Service Composition"@en .
 
@@ -8211,8 +8242,8 @@ sto:StreamProcessing rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#SyntacticInteroperability
 sto:SyntacticInteroperability rdf:type owl:NamedIndividual ,
                                        sto:Concern ;
-                              dul:isPartOf sto:Interoperability ;
                               dcterms:creator "sebastian"@en ;
+                              dul:isPartOf sto:Interoperability ;
                               rdfs:comment """If two or more systems are capable of communicating with each other, they exhibit syntactic interoperability when using specified data formats and communication protocols. XML or SQL standards are among the tools of syntactic interoperability. This is also true for lower-level data formats, such as ensuring alphabetical characters are stored in a same variation of ASCII or a Unicode format (for English or international text) in all the communicating systems. 
 source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
                               rdfs:label "Syntactic Interoperability"@en .
@@ -8399,7 +8430,6 @@ sto:TS-0009 rdf:type owl:NamedIndividual ,
                      sto:Standard ;
             sto:hasClassification sto:FrameworkLayer ;
             sto:hasPublisher sto:oneM2M ;
-            sto:hasOfficialResource "www.onem2m.org/images/files/deliverables/Release2A/TS-0009-HTTP_Protocol_Binding-v_2_13_1.pdf"^^xsd:anyURI ;
             dcterms:title "HTTP Protocol Binding"@en ;
             rdfs:comment """The present document will cover the protocol specific part of communication protocol used by oneM2M compliant systems as RESTful HTTP binding.
 The scope of the present document is (not limited to as shown below):
@@ -8407,7 +8437,8 @@ The scope of the present document is (not limited to as shown below):
 • Binding oneM2M response status codes (successful/unsuccessful) to HTTP response codes.
 • Binding oneM2M RESTful resources to HTTP resources.
 The present document is depending on Core Protocol specification (oneM2M TS-0004) for data types."""@en ;
-            rdfs:label "TS-0009"@en .
+            rdfs:label "TS-0009"@en ;
+            sto:hasOfficialResource <https://w3id.org/i40/www.onem2m.org/images/files/deliverables/Release2A/TS-0009-HTTP_Protocol_Binding-v_2_13_1.pdf> .
 
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
@@ -8415,18 +8446,13 @@ sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
                        sto:abbreviation "TC" .
 
 
-###  https://w3id.org/i40/sto#TechnicalSpecification
-sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
-                           sto:abbreviation "TS" .
-
-
 ###  https://w3id.org/i40/sto#TrustedConnector
 sto:TrustedConnector rdf:type owl:NamedIndividual ,
                               sto:StandardizationFramework ;
-                     sto:hasOfficialResource "https://arxiv.org/abs/1804.09442" ;
                      dcterms:creator "sebastian" ;
                      rdfs:comment "The advent of the Industrial Internet of Things (IIoT) also raises challenges with respect to security and privacy of sensitive and personal data that is created by sensors and processed by services hosted in different administrative domains. The Industrial Data Space initiative addresses these challenges and proposes a secure edge gateway platform named \"Trusted Connector\". In this report, we introduce the main security building blocks of the Trusted Connector and point out how they help protecting business-critical data and preserving the user's privacy."@en ;
-                     rdfs:label "IDS Trusted Connector"@en .
+                     rdfs:label "IDS Trusted Connector"@en ;
+                     sto:hasOfficialResource <https://arxiv.org/abs/1804.09442> .
 
 
 ###  https://w3id.org/i40/sto#Trustworthiness
@@ -8465,14 +8491,14 @@ sto:VDI rdf:type owl:NamedIndividual ,
         sto:hasHeadquaterIn dbr:Berlin ;
         sto:abbreviation "VDI"@en ;
         sto:formationDate "1856-05-12"^^xsd:date ;
-        sto:hasDBpediaResource "http://dbpedia.org/resource/VDI" ;
-        sto:hasOfficialResource "http://www.vdi.eu/" ;
-        sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/VDI" ;
         sto:orgName "Association of German Engineers"@en ,
                     "Verein Deutscher Ingenieure"@de ;
         dcterms:creator "sebastian" ;
         rdfs:comment "Verein Deutscher Ingenieure (VDI) (English: Association of German Engineers) is an organization with over 150,000 engineers and natural scientists. More than 12,000 honorary experts process the latest findings every year to promote the technology location. Established in 1856, the VDI is today the largest engineering association in Western Europe. The role of the VDI in Germany is comparable to that of the American Society of Civil Engineers (ASCE) in the United States or Engineers Australia (EA) in Australia barring the broader field of work of the VDI. The VDI is not a union. The association promotes the advancement of technology and represents the interests of engineers and of engineering businesses in Germany."@en ;
-        rdfs:label "VDI"@en .
+        rdfs:label "VDI"@en ;
+        sto:hasDBpediaResource <http://dbpedia.org/resource/VDI> ;
+        sto:hasOfficialResource <http://www.vdi.eu/> ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/VDI> .
 
 
 ###  https://w3id.org/i40/sto#VDMA
@@ -8501,10 +8527,7 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:NamedIndividual ;
-              sto:hasDBpediaResource "http://dbpedia.org/resource/ISO/IEC_42010" ;
-              sto:hasOfficialResource "http://www.iso-architecture.org/42010/" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint" .
+sto:Viewpoint rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#W3C
@@ -8593,7 +8616,7 @@ sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Written
 sto:Written rdf:type owl:NamedIndividual ,
-                     dcterms:linguisticSystem ;
+                     dcterms:LinguisticSystem ;
             rdfs:comment "Describes a Written Linguistic System"@en ;
             rdfs:label "Written"@en .
 
@@ -8609,11 +8632,11 @@ sto:XACML rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ZVEI
 sto:ZVEI rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
-         sto:hasOfficialResource "https://www.zvei.org/" ;
          dcterms:title "German Electrical and Electronic Manufacturers' Association"@en ,
                        "Zentralverband Elektrotechnik- und Elektronikindustrie"@de ;
          rdfs:comment "The ZVEI is one of the most important manufacturers' associations in Germany. It represents the interests of a high-tech branch with a very widely varied and extremely dynamic product portfolio."@en ;
-         rdfs:label "ZVEI"@en .
+         rdfs:label "ZVEI"@en ;
+         sto:hasOfficialResource <https://www.zvei.org/> .
 
 
 ###  https://w3id.org/i40/sto#_020
@@ -8623,12 +8646,12 @@ sto:_020 rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#bitkom
 sto:bitkom rdf:type owl:NamedIndividual ,
                     sto:StandardOrganization ;
-           sto:hasOfficialResource "https://www.bitkom.org/" ;
-           sto:hasWikipediaArticle "https://de.wikipedia.org/wiki/Bundesverband_Informationswirtschaft,_Telekommunikation_und_neue_Medien" ;
            dcterms:creator "sebastian"@en ;
            dcterms:title "Bundesverband Informationswirtschaft, Telekommunikation und neue Medien"@de ,
                          "German Association for IT, Telecommunications and New Media"@en ;
-           rdfs:label "Bitkom"@en .
+           rdfs:label "Bitkom"@en ;
+           sto:hasOfficialResource <https://www.bitkom.org/> ;
+           sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/Bundesverband_Informationswirtschaft,_Telekommunikation_und_neue_Medien'> .
 
 
 ###  https://w3id.org/i40/sto#eClass
@@ -8681,9 +8704,7 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> .
 
 
-###  https://w3id.org/i40/sto#frames
-sto:frames rdf:type owl:NamedIndividual ;
-           sto:hasOfficialResource "http://www.iso-architecture.org/42010/" .
+
 
 
 ###  https://w3id.org/i40/sto#irlan
@@ -8698,9 +8719,9 @@ sto:irlan rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#oneM2M
 sto:oneM2M rdf:type owl:NamedIndividual ,
                     sto:StandardOrganization ;
-           sto:hasOfficialResource "http://www.onem2m.org/about-onem2m/why-onem2m"^^xsd:anyURI ;
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
-           rdfs:label "oneM2M"@en .
+           rdfs:label "oneM2M"@en ;
+           sto:hasOfficialResource <http://www.onem2m.org/about-onem2m/why-onem2m> .
 
 
 ###  https://w3id.org/i40/sto#openAAS
@@ -8721,13 +8742,13 @@ und Standardisierung."""@de ,
                                         sto:hasClassification rami:Security ;
                                         sto:hasDeveloper sto:VDI ;
                                         sto:hasPublisher sto:VDI ;
-                                        sto:hasOfficialResource "http://www.vdi.eu/nc/guidelines/vdivde_2182_blatt_1-informationssicherheit_in_der_industriellen_automatisierung_allgemeines_vorgehensmode/" ;
                                         dcterms:creator "sebastian" ;
                                         dcterms:hasLicense "private"@en ;
                                         dcterms:title "IT-security for industrial automation"@en ,
                                                       "Informationssicherheit in der industriellen Automatisierung"@de ;
                                         rdfs:comment "This guideline describes how specific measures can be implemented in order to guarantee the IT security of automated machines and plant; aspects of the automation devices, automation systems, and automation applications used are considered. A uniform, feasible procedure for ensuring IT security throughout the entire life cycle of automation devices, systems, and applications is described, based on common terms and definitions agreed by the manufacturers of automation devices and systems and their users (e.g., machine manufacturers, integrators, operators). The life cycle covers the development, integration, operation, migration, and decommissioning phases.This guideline defines a simple procedure model for the development and description of IT Security. The model consists of eight steps."@en ;
-                                        rdfs:label "VDI/VDE 2182"@en .
+                                        rdfs:label "VDI/VDE 2182"@en ;
+                                        sto:hasOfficialResource <http://www.vdi.eu/nc/guidelines/vdivde_2182_blatt_1-informationssicherheit_in_der_industriellen_automatisierung_allgemeines_vorgehensmode/> .
 
 
 ###  https://w3id.org/ids/core/TrustedConnector
@@ -8851,10 +8872,6 @@ idsram:SystemLayer rdf:type owl:NamedIndividual ,
                    rdfs:label "IDS RAM System Layer"@en .
 
 
-###  https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation
-<https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation> rdf:type owl:NamedIndividual .
-
-
 #################################################################
 #    Annotations
 #################################################################
@@ -8878,6 +8895,9 @@ Vertical concerns address cross-cutting issues, which may affect all the horizon
 
 
 sto:Concern rdfs:label "Concern" ;
+            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
+            sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
+            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
             rdfs:comment "A concern regards a specific challenge or topic as defined by ISO42010. Each concern should at least be regarded by one view of an architecture."@en ;
             dcterms:creator "sebastian"@en .
 
@@ -8902,22 +8922,16 @@ sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
                        rdfs:isDefinedBy sto:IEC .
 
 
-sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ;
-                           rdfs:label "Technical Specification"@en ;
-                           rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
-                           cc:attributionURL "http://www.iec.ch" ;
-                           rdfs:isDefinedBy sto:IEC ;
-                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
-
-
-sto:Viewpoint rdfs:seeAlso "https://www.iso.org/standard/50508.html" ;
-              rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
+sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
+              rdfs:seeAlso <https://www.iso.org/standard/50508.html> ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint> ;
               dcterms:creator "sebastian" ;
+              sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
               rdfs:label "Viewpoint" .
 
 
-sto:frames rdfs:label "frames"@en ;
-           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en .
+
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
@@ -8930,7 +8944,8 @@ sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is us
               rdfs:comment "Points to the domain in which the standard is used"@en .
 
 
-sto:hasOfficialResource rdfs:comment "Standard Official Website"@en ;
+sto:hasOfficialResource rdfs:comment "Points to the URL of the official websilte from which published the document"@en ,
+                                     "Standard Official Website"@en ;
                         rdfs:label "has Official Resource"@en .
 
 
