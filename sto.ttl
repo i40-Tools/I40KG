@@ -225,9 +225,14 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#frames
 sto:frames rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf dul:associatedWith ;
+		   rdfs:subPropertyOf dul:associatedWith ;
            rdfs:domain sto:Viewpoint ;
-           rdfs:range sto:Concern .
+           rdfs:range sto:Concern ;
+           rdfs:label "frames"@en ;
+           sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
+           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en .
+
+
 
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
@@ -8231,8 +8236,7 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> .
 
 
-###  https://w3id.org/i40/sto#frames
-sto:frames rdf:type owl:NamedIndividual .
+
 
 
 ###  https://w3id.org/i40/sto#irlan
@@ -8451,9 +8455,7 @@ sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
               rdfs:label "Viewpoint" .
 
 
-sto:frames rdfs:label "frames"@en ;
-           sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
-           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en .
+
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
