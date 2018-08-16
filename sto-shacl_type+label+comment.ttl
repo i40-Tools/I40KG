@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sto: <https://w3id.org/i40/sto#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lingg: <http://purl.org/linguistics/gold/> .
+
+sto:Level1Shape
+    a sh:NodeShape ; 
+    rdfs:comment "This shape checks that all standards have at least a label (@en or xsd:string) and a comment in english"@en ;
+    sh:targetClass sto:Standard ;
+
+    sh:property [
+      rdfs:comment "This is an unnecessary repitition of the shape's target clause and will always be true."@en ;
+      sh:path rdf:type ;
+      sh:minCount 1 ;
+    ] ;
+    
+    sh:or 
+    (
+      [ sh:path rdfs:label ;
+        sh:datatype rdf:langString ;]
+      [ sh:path rdfs:label ;
+        sh:datatype xsd:string ;]
+    ) ;
+
+    sh:property [
+      sh:path rdfs:comment ;
+      sh:datatype rdf:langString ;
+      sh:minCount 1 ;
+    ] .
