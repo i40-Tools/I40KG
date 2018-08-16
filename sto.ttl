@@ -681,11 +681,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
                             rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
 
 
-###  https://w3id.org/i40/sto#BdvaLayer
-sto:BdvaLayer rdf:type owl:Class ;
-              rdfs:subClassOf sto:StandardClassification ;
-              dcterms:creator "sebastian"@en ;
-              rdfs:label "BDVA Layer"@en .
+###  https://w3id.org/i40/sto#BdvaConcern
+sto:BdvaConcern rdf:type owl:Class ;
+                rdfs:subClassOf sto:StandardClassification .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -1175,6 +1173,11 @@ lang:rus rdf:type owl:NamedIndividual .
 lang:spa rdf:type owl:NamedIndividual .
 
 
+###  http://observedchange.com/moac/ns/#SecurityConcern
+<http://observedchange.com/moac/ns/#SecurityConcern> rdf:type owl:NamedIndividual ;
+                                                     owl:sameAs sto:Security .
+
+
 ###  http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation
 <http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation> rdf:type owl:NamedIndividual .
 
@@ -1445,6 +1448,13 @@ rami:Work_Centers rdf:type owl:NamedIndividual .
                                        "IEC 60050-101:1998"@en .
 
 
+###  https://w3id.org/i40/sto#AI
+sto:AI rdf:type owl:NamedIndividual ,
+                sto:Concern ;
+       dcterms:creator "sebastian"@en ;
+       rdfs:label "Artificial Intelligence"@en .
+
+
 ###  https://w3id.org/i40/sto#ANSI
 sto:ANSI rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -1536,6 +1546,11 @@ sto:Authentication rdf:type owl:NamedIndividual ,
                    rdfs:label "Authentication"@en .
 
 
+###  https://w3id.org/i40/sto#Authorization
+sto:Authorization rdf:type owl:NamedIndividual ,
+                           sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#Availability
 sto:Availability rdf:type owl:NamedIndividual ,
                           sto:Concern ;
@@ -1623,6 +1638,200 @@ sto:BPMN rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation> .
 
 
+###  https://w3id.org/i40/sto#BdvaCloudAndHighPerformanceComputing
+sto:BdvaCloudAndHighPerformanceComputing rdf:type owl:NamedIndividual ,
+                                                  sto:BdvaConcern ;
+                                         sto:alignesWith iira:ApplicationDomain ;
+                                         sto:frames sto:BigDataApplications ,
+                                                    sto:CloudComputing ,
+                                                    sto:DataPublishing ,
+                                                    sto:MachineLearning ;
+                                         sto:isDescribedin sto:BdvaSira ;
+                                         dcterms:creator "sebastian"@en ;
+                                         rdfs:comment "The Cloud and High Performance Computing (HPC): Effective Big Data processing and data management might imply the effective usage of Cloud and High Performance Computing infrastructures. This area is separately elaborated further in collaboration with the Cloud and High Performance Computing (ETP4HPC) communities."@en ;
+                                         rdfs:label "BDVA Cloud and High Performance Computing"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaCommunicationConnectivity
+sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
+                                           sto:BdvaConcern ;
+                                  sto:frames sto:Communication ,
+                                             sto:DataAccess ,
+                                             sto:DataAnalytics ,
+                                             sto:Interoperability ,
+                                             sto:QualityOfService ;
+                                  sto:isDescribedin sto:BdvaSira ;
+                                  dcterms:creator "sebastian"@en ;
+                                  rdfs:comment "Effective communication and connectivity mechanisms are necessary in providing support for Big Data. This area is separately further elaborated, along with various communication communities, such as the 5G community."@en ;
+                                  rdfs:label "BDVA Communication and Connectivity"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaConcern
+sto:BdvaConcern rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#BdvaCyberSecurityTrust
+sto:BdvaCyberSecurityTrust rdf:type owl:NamedIndividual ,
+                                    sto:BdvaConcern ;
+                           sto:alignesWith iira:SecurityFramework ,
+                                           rami:Security ,
+                                           idsram:Security ;
+                           sto:frames sto:DataSovereignty ,
+                                      sto:IntegrityProtection ,
+                                      sto:Privacy ,
+                                      sto:SecureCommunication ,
+                                      sto:Security ,
+                                      sto:Trustworthiness ;
+                           sto:isDescribedin sto:BdvaSira ;
+                           dcterms:creator "sebastian"@en ;
+                           rdfs:comment """Big Data often need support to maintain security and trust beyond privacy and anonymisation. The aspect of trust frequently has links to trust 
+mechanisms such as blockchain technologies, smart contracts and various forms of encryption."""@en ;
+                           rdfs:label "BDVA Cybersecurity and Trust"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDataAnalytics
+sto:BdvaDataAnalytics rdf:type owl:NamedIndividual ,
+                               sto:BdvaConcern ;
+                      sto:alignesWith iira:InformationDomain ,
+                                      rami:Functional ,
+                                      rami:Information ,
+                                      idsram:ProcessLayer ;
+                      sto:frames sto:AI ,
+                                 sto:DataAnalytics ,
+                                 sto:MachineLearning ,
+                                 sto:StreamProcessing ,
+                                 sto:Trustworthiness ;
+                      sto:isDescribedin sto:BdvaSira ;
+                      dcterms:creator "sebastian"@en ;
+                      rdfs:comment "Data analytics to improve data understanding, deep learning and the meaningfulness of data."@en ;
+                      rdfs:label "BDVA Data Analytics"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDataManagement
+sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
+                                sto:BdvaConcern ;
+                       sto:alignesWith rami:Information ,
+                                       idsram:InformationLayer ,
+                                       idsram:ProcessLayer ;
+                       sto:frames sto:BigDataApplications ,
+                                  sto:DataQuality ,
+                                  sto:Interoperability ,
+                                  sto:ProvenanceTracking ,
+                                  sto:SemanticInteroperability ,
+                                  sto:SyntacticInteroperability ,
+                                  sto:Trustworthiness ;
+                       sto:isDescribedin sto:BdvaSira ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment "Principles and techniques for data management"@en ;
+                       rdfs:label "BDVA Data Management"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDataProcessingArchitectures
+sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
+                                             sto:BdvaConcern ;
+                                    sto:alignesWith iira:InformationDomain ,
+                                                    sto:IIRC ,
+                                                    idsram:ProcessLayer ;
+                                    sto:frames sto:BigDataApplications ,
+                                               sto:DataAtRest ,
+                                               sto:DataInMotion ,
+                                               sto:DataProcessing ,
+                                               sto:Scalability ,
+                                               sto:StreamProcessing ;
+                                    sto:isDescribedin sto:BdvaSira ;
+                                    dcterms:creator "sebastian"@en ;
+                                    rdfs:comment "Optimised and scalable architectures for analytics of both data-at-rest and data-in-motion, with low latency delivering real-time analytics."@en ;
+                                    rdfs:label "BDVA Data Processing Architectures"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDataProtection
+sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
+                                sto:BdvaConcern ;
+                       sto:alignesWith iira:SecurityFramework ,
+                                       idsram:Security ;
+                       sto:frames sto:DataProtection ,
+                                  sto:Privacy ;
+                       sto:isDescribedin sto:BdvaSira ;
+                       dcterms:creator "sebastian"@en ;
+                       rdfs:comment "Privacy and anonymisation mechanisms to facilitate data protection. This is shown related to data management and processing as there is a strong link here, but it can also be associated with the area of cybersecurity."@en ;
+                       rdfs:label "BDVA Data Protection"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDataSharingPlatforms
+sto:BdvaDataSharingPlatforms rdf:type owl:NamedIndividual ,
+                                      sto:BdvaConcern ;
+                             dul:associatedWith sto:IIRA ,
+                                                idsram:ReferenceArchitectureModel ;
+                             sto:frames sto:DataEconomy ,
+                                        sto:DataPublishing ;
+                             sto:isDescribedin sto:BdvaSira ;
+                             dcterms:creator "sebastian"@en ;
+                             rdfs:comment "Data sharing and trading are seen as important ecosystem enablers in the data economy, although closed and personal data present particular challenges for the free flow of data. The following two conceptual solutions – Industrial Data Platforms (IDPs) and Personal Data Platforms (PDPs) – introduce new approaches to addressing this particular need to regulate closed proprietary and personal data."@en ;
+                             rdfs:label "BDVA Data Sharing Platforms"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDataViualisationAndUserInteraction
+sto:BdvaDataViualisationAndUserInteraction rdf:type owl:NamedIndividual ,
+                                                    sto:BdvaConcern ;
+                                           sto:alignesWith iira:UsageViewpoint ,
+                                                           rami:Functional ;
+                                           sto:frames sto:BigDataApplications ;
+                                           sto:isDescribedin sto:BdvaSira ;
+                                           dcterms:creator "sebastian"@en ;
+                                           rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
+                                           rdfs:label "Data Visualisation and User Interaction"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaDevelopmentEngineering
+sto:BdvaDevelopmentEngineering rdf:type owl:NamedIndividual ,
+                                        sto:BdvaConcern ;
+                               sto:isDescribedin sto:BdvaSira ;
+                               dcterms:creator "sebastian"@en ;
+                               rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
+                               rdfs:label "BDVA Engineering and DevOps"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaSira
+sto:BdvaSira rdf:type owl:NamedIndividual ,
+                      sto:StandardizationFramework ;
+             dcterms:creator "sebastian"@en ;
+             dcterms:title "BDVA Strategic Research and Innovation Agenda"@en ;
+             rdfs:comment "This Strategic Research and Innovation Agenda (SRIA) defines the overall goals, main technical and non-technical priorities, and a research and innovation roadmap for the European Public Private Partnership (PPP) on Big Data Value. The SRIA has been developed by the Big Data Value Association (BDVA), an industry-led organisation representing large businesses, small and medium-sized enterprises (SMEs), and research organisations in Europe."@en ;
+             rdfs:label "BDVA SIRA"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaStandards
+sto:BdvaStandards rdf:type owl:NamedIndividual ,
+                           sto:BdvaConcern ;
+                  sto:frames sto:Communication ,
+                             sto:DataEconomy ,
+                             sto:Interoperability ;
+                  sto:isDescribedin sto:BdvaSira ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:comment "Standardisation of Big Data technology areas to facilitate data integration, sharing and interoperability"@en ;
+                  rdfs:label "BDVA Standards"@en .
+
+
+###  https://w3id.org/i40/sto#BdvaThingsAssetsSensorsActuators
+sto:BdvaThingsAssetsSensorsActuators rdf:type owl:NamedIndividual ,
+                                              sto:BdvaConcern ;
+                                     sto:frames sto:IoT ;
+                                     sto:isDescribedin sto:BdvaSira ;
+                                     dcterms:creator "sebastian"@en ;
+                                     rdfs:comment "IoT, CPS, Edge and Fog Computing: A main source of Big Data is sensor data from an IoT context and actuator interaction in Cyber Physical Systems. In order to meet real-time needs it will often be necessary to handle Big Data aspects at the edge of the system. This area is separately elaborated further in collaboration with the IoT (Alliance for Internet of Things Innovation (AIOTI)) and CPS communities"@en ;
+                                     rdfs:label "BDVA IoT CPS and Edge Computing"@en .
+
+
+###  https://w3id.org/i40/sto#BigDataApplications
+sto:BigDataApplications rdf:type owl:NamedIndividual ,
+                                 sto:Concern .
+
+
+###  https://w3id.org/i40/sto#BusinessContext
+sto:BusinessContext rdf:type owl:NamedIndividual ,
+                             sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#BusinessProcessExecution
 sto:BusinessProcessExecution rdf:type owl:NamedIndividual ,
                                       sto:BusinessCycleSCM ;
@@ -1655,6 +1864,11 @@ sto:Certification rdf:type owl:NamedIndividual ,
                   dul:isPartOf sto:Security ;
                   dcterms:creator "sebastian"@en ;
                   rdfs:label "Certification"@en .
+
+
+###  https://w3id.org/i40/sto#CloudComputing
+sto:CloudComputing rdf:type owl:NamedIndividual ,
+                            sto:Concern .
 
 
 ###  https://w3id.org/i40/sto#Communication
@@ -1856,9 +2070,17 @@ sto:DMSC rdf:type owl:NamedIndividual ,
          sto:hasOfficialResource <http://www.dmis.org/> .
 
 
+###  https://w3id.org/i40/sto#DataAccess
+sto:DataAccess rdf:type owl:NamedIndividual ,
+                        sto:Concern ;
+               dcterms:creator "sebastian"@en ;
+               rdfs:label "Data Access"@en .
+
+
 ###  https://w3id.org/i40/sto#DataAccessControl
 sto:DataAccessControl rdf:type owl:NamedIndividual ,
                                sto:Concern ;
+                      dul:isPartOf sto:Authorization ;
                       dcterms:creator "sebastian"@en ;
                       rdfs:comment "Automated access control based on formalized descriptions."@en ;
                       rdfs:label "Data Access Control"@en .
@@ -1869,6 +2091,11 @@ sto:DataAnalytics rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator "sebastian"@en ;
                   rdfs:label "Data Analytics"@en .
+
+
+###  https://w3id.org/i40/sto#DataAtRest
+sto:DataAtRest rdf:type owl:NamedIndividual ,
+                        sto:Concern .
 
 
 ###  https://w3id.org/i40/sto#DataDescription
@@ -1896,6 +2123,11 @@ sto:DataEconomy rdf:type owl:NamedIndividual ,
                 rdfs:label "Data Economy"@en .
 
 
+###  https://w3id.org/i40/sto#DataInMotion
+sto:DataInMotion rdf:type owl:NamedIndividual ,
+                          sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#DataMarkets
 sto:DataMarkets rdf:type owl:NamedIndividual ,
                          sto:Concern ;
@@ -1919,6 +2151,23 @@ sto:DataProcessing rdf:type owl:NamedIndividual ,
                    dcterms:creator "sebastian"@en ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en .
+
+
+###  https://w3id.org/i40/sto#DataProtection
+sto:DataProtection rdf:type owl:NamedIndividual ,
+                            sto:Concern ;
+                   dcterms:creator "sebastian"@en ;
+                   rdfs:label "Data Protection"@en ,
+                              "Datenschutz"@de ;
+                   skos:note "sames as Privacy?"@de .
+
+
+###  https://w3id.org/i40/sto#DataPublishing
+sto:DataPublishing rdf:type owl:NamedIndividual ,
+                            sto:Concern ;
+                   dcterms:creator "sebastian"@en ;
+                   rdfs:comment "Data Publishing is the concern regarding all aspects of getting data (publicly) available."@en ;
+                   rdfs:label "Data Publishing"@en .
 
 
 ###  https://w3id.org/i40/sto#DataQuality
@@ -2036,6 +2285,11 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/DECT_Ultra_Low_Energy> .
 
 
+###  https://w3id.org/i40/sto#EdgeComputing
+sto:EdgeComputing rdf:type owl:NamedIndividual ,
+                           sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#EndOfLifeReclying
 sto:EndOfLifeReclying rdf:type owl:NamedIndividual .
 
@@ -2079,6 +2333,7 @@ sto:ExecutionVariability rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FIWARE
 sto:FIWARE rdf:type owl:NamedIndividual ,
                     sto:ArchitectureDescription ;
+           sto:alignesWith iira:ImplementationViewpoint ;
            sto:hasOfficialResource "https://www.fiware.org/" ;
            dcterms:creator "sebastian"@en ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
@@ -2841,6 +3096,9 @@ sto:FileSizeIEC_62832 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FiwareAdvancedUi
 sto:FiwareAdvancedUi rdf:type owl:NamedIndividual ,
                               sto:FiwareChapter ;
+                     sto:alignesWith iira:ApplicationDomain ,
+                                     iira:UsageViewpoint ;
+                     sto:frames sto:UserInteraction ;
                      sto:isDescribedin sto:FIWARE ;
                      dcterms:creator "sebastian"@en ;
                      rdfs:comment """The Generic Enablers (GEs) from the Advanced Web-based User Interface (WebUI) chapter cover a set of GEs that provide an advanced user experience using HTML-5 and a Web-based UI approach.
@@ -2852,10 +3110,10 @@ The objective of the Advanced Web-based UI GE is to significantly improve the us
 ###  https://w3id.org/i40/sto#FiwareApplicationsServicesAndDataDelivery
 sto:FiwareApplicationsServicesAndDataDelivery rdf:type owl:NamedIndividual ,
                                                        sto:FiwareChapter ;
-                                              <https://w3id.org/i40/hasTargetConcern> sto:DataAnalytics ,
-                                                                                      sto:DataSelection ,
-                                                                                      sto:ServiceComposition ,
-                                                                                      sto:ServiceSelection ;
+                                              sto:frames sto:DataAnalytics ,
+                                                         sto:DataSelection ,
+                                                         sto:ServiceComposition ,
+                                                         sto:ServiceSelection ;
                                               sto:isDescribedin sto:FIWARE ;
                                               dcterms:creator "sebastian"@en ;
                                               rdfs:comment """The Generic Enablers (GE) for the Apps Chapter together build an ecosystem of applications, services and data that is sustainable and fosters innovation as well as cross-fertilization. In particular the Apps Generic Enablers supports managing applications, services and data in a business framework across the whole service life cycle from creation through composition of applications and data to monetization and revenue sharing.
@@ -2873,6 +3131,17 @@ The Data Visualisation GE aims at creating agile, beautiful visualizations and m
 ###  https://w3id.org/i40/sto#FiwareCloudHosting
 sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
                                 sto:FiwareChapter ;
+                       sto:alignesWith iira:ApplicationDomain ,
+                                       iira:DistributedDataManagement ,
+                                       iira:Scalability ;
+                       sto:frames sto:Availability ,
+                                  sto:CloudComputing ,
+                                  sto:IntegrityProtection ,
+                                  sto:Privacy ,
+                                  sto:Reliability ,
+                                  sto:Safety ,
+                                  sto:ServiceDeployment ,
+                                  sto:ServiceOrchestration ;
                        sto:isDescribedin sto:FIWARE ;
                        dcterms:creator "sebastian"@en ;
                        rdfs:comment """The Cloud Chapter offers Generic Enablers (GEs) that comprise the foundation for designing a modern cloud hosting infrastructure that can be used to develop, deploy and manage Future Internet applications and services. Provided hosting capabilities are of several kinds and at several levels of resource abstraction -- aiming at the needs of different applications hosted on the cloud.
@@ -2884,6 +3153,9 @@ The IaaS Data Center Resource Management (DCRM) GE is offering provisioning and 
 ###  https://w3id.org/i40/sto#FiwareDataContextManagement
 sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
                                          sto:FiwareChapter ;
+                                sto:frames sto:BigDataApplications ,
+                                           sto:DataDiscovery ,
+                                           sto:StreamProcessing ;
                                 sto:isDescribedin sto:FIWARE ;
                                 dcterms:creator "sebastian"@en ;
                                 rdfs:comment """The Data/Context Management FIWARE chapter aims at providing outperforming and platform-like GEs that will ease development and provision of innovative Applications that require gathering, publication, processing and exploitation of information and data streams in real-time and at massive scale. Combined with GEs coming from the Apps Chapters, Application Providers will be able to build innovative business models based on exploitation of massive data provided by end users.
@@ -2895,6 +3167,15 @@ FIWARE Data/Context Management GEs allow to gather information from context and 
 ###  https://w3id.org/i40/sto#FiwareIotServicesEnablement
 sto:FiwareIotServicesEnablement rdf:type owl:NamedIndividual ,
                                          sto:FiwareChapter ;
+                                sto:alignesWith iira:ControlDomain ,
+                                                rami:Communication ,
+                                                rami:Integration ,
+                                                idsram:SystemLayer ;
+                                sto:frames sto:DataDiscovery ,
+                                           sto:EdgeComputing ,
+                                           sto:EndpointInvocation ,
+                                           sto:Interoperability ,
+                                           sto:IoT ;
                                 sto:isDescribedin sto:FIWARE ;
                                 dcterms:creator "sebastian"@en ;
                                 rdfs:comment """The deployment of the architecture of the IoT Service Enablement chapter is typically distributed across a large number of Devices, several Gateways and the Backend.
@@ -2910,6 +3191,15 @@ IoT GEs have been spread in two different domains: Gateway and Backend. While Io
 ###  https://w3id.org/i40/sto#FiwareSecurity
 sto:FiwareSecurity rdf:type owl:NamedIndividual ,
                             sto:FiwareChapter ;
+                   dul:associatedWith sto:XACML ;
+                   sto:alignesWith iira:Security ,
+                                   rami:Security ,
+                                   idsram:Security ;
+                   sto:frames sto:Authentication ,
+                              sto:Authorization ,
+                              sto:DataAccessControl ,
+                              sto:IdentityManagement ,
+                              sto:Security ;
                    sto:isDescribedin sto:FIWARE ;
                    dcterms:creator "sebastian"@en ;
                    rdfs:comment """The Future Internet services will always be exposed to different types of threats that can lead to severe misuse and damage. Creating secured and trusted services without sacrificing much of the desired functionality, usability, performance and cost efficiency is a great challenge, especially in a dynamic environment where new threats and attack methods emerge on a daily basis.
@@ -2948,6 +3238,16 @@ sto:GPLv2 rdf:type owl:NamedIndividual ,
           rdfs:label "GNU General Public License"@en ;
           rdfs:seeAlso <https://opcfoundation.org/license/gpl.htm> ;
           skos:prefLabel "OCL 1.0" .
+
+
+###  https://w3id.org/i40/sto#HTML
+sto:HTML rdf:type owl:NamedIndividual ,
+                  sto:Technology .
+
+
+###  https://w3id.org/i40/sto#HTTP
+sto:HTTP rdf:type owl:NamedIndividual ,
+                  sto:Technology .
 
 
 ###  https://w3id.org/i40/sto#IBM
@@ -3163,6 +3463,17 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
                   rdfs:comment "This is ICS for IT applications in industry"@en ,
                                "This is ICS for “IT applications in industry)”"@en ;
                   rdfs:label "ICS 35.240.50"@en .
+
+
+###  https://w3id.org/i40/sto#ID4me
+sto:ID4me rdf:type owl:NamedIndividual ,
+                   sto:Technology ;
+          <https://w3id.org/i40/hasTargetConcern> sto:Identification ,
+                                                  sto:IdentityManagement ;
+          dcterms:creator "sebastian" ;
+          rdfs:comment "ID4me is a federated digital identity service that aims to provide two main functions: (1) Authorization of a user for access to any third party accepting ID4me identifiers (“single sign-on” on an Internet scale); (2) Controlled communication of the user’s personal information to the third parties accessed by the user."@en ;
+          rdfs:label "ID4me"@en ;
+          sto:hasOfficialResource "https://id4me.org/files/ID4me_Technical_Overview_v1.3.pdf" .
 
 
 ###  https://w3id.org/i40/sto#IDSA
@@ -6887,6 +7198,7 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Identification
 sto:Identification rdf:type owl:NamedIndividual ,
                             sto:Concern ;
+                   dul:isPartOf sto:IdentityManagement ;
                    dc11:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    rdfs:label "Identification"@en .
 
@@ -6932,6 +7244,21 @@ sto:IntegrityProtection rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#InterfaceNetworksDevices
 sto:InterfaceNetworksDevices rdf:type owl:NamedIndividual ,
                                       sto:FiwareChapter ;
+                             dul:associatedWith sto:OpenDaylight ;
+                             sto:alignesWith idsram:ProcessLayer ,
+                                             idsram:SystemLayer ;
+                             sto:frames sto:CloudComputing ,
+                                        sto:DataDescription ,
+                                        sto:EndpointDescription ,
+                                        sto:EndpointInvocation ,
+                                        sto:Interoperability ,
+                                        sto:IoT ,
+                                        sto:Privacy ,
+                                        sto:QualityOfService ,
+                                        sto:Scalability ,
+                                        sto:Security ,
+                                        sto:ServiceOrchestration ,
+                                        sto:SyntacticInteroperability ;
                              sto:isDescribedin sto:FIWARE ;
                              dcterms:creator "sebastian"@en ;
                              rdfs:comment """The GEs in the I2ND chapter provide three sets of functionalities.
@@ -6957,6 +7284,11 @@ sto:Interoperability rdf:type owl:NamedIndividual ,
                      rdfs:label "Interoperability"@en .
 
 
+###  https://w3id.org/i40/sto#IoT
+sto:IoT rdf:type owl:NamedIndividual ,
+                 sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#KATS
 sto:KATS rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
@@ -6970,6 +7302,19 @@ sto:KATS rdf:type owl:NamedIndividual ,
          rdfs:label "Korean Agency for Technology and Standards"@en ;
          sto:hasDBpediaResource <http://dbpedia.org/page/Korean_Agency_for_Technology_and_Standards> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Korean_Agency_for_Technology_and_Standards> .
+
+
+###  https://w3id.org/i40/sto#KeyRock
+sto:KeyRock rdf:type owl:NamedIndividual ,
+                     sto:Technology ;
+            dul:associatedWith sto:FiwareDataContextManagement ,
+                               sto:FiwareSecurity ;
+            <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement .
+
+
+###  https://w3id.org/i40/sto#LinkedData
+sto:LinkedData rdf:type owl:NamedIndividual ,
+                        sto:Technology .
 
 
 ###  https://w3id.org/i40/sto#LocalDataConfidentiality
@@ -7052,6 +7397,7 @@ sto:MTConnect_Institute rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#MachineLearning
 sto:MachineLearning rdf:type owl:NamedIndividual ,
                              sto:Concern ;
+                    dul:isPartOf sto:AI ;
                     dcterms:creator "sebastian"@en ;
                     rdfs:label "Machine Learning"@en .
 
@@ -7347,6 +7693,12 @@ sto:OPC_Foundation rdf:type owl:NamedIndividual ,
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Foundation> .
 
 
+###  https://w3id.org/i40/sto#OpenDaylight
+sto:OpenDaylight rdf:type owl:NamedIndividual ,
+                          sto:Technology ;
+                 dcterms:creator "sebastian" .
+
+
 ###  https://w3id.org/i40/sto#OrionContextBroker
 sto:OrionContextBroker rdf:type owl:NamedIndividual ,
                                 sto:Technology ;
@@ -7367,7 +7719,8 @@ sto:PlatformIndustry40 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Privacy
 sto:Privacy rdf:type owl:NamedIndividual ,
                      sto:Concern ;
-            dul:isPartOf sto:Trustworthiness ;
+            dul:isPartOf sto:DataSovereignty ,
+                         sto:Trustworthiness ;
             dcterms:creator "sebastian"@en ;
             rdfs:label "Privacy"@en .
 
@@ -7459,6 +7812,11 @@ sto:QIF rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://qifstandards.org/> .
 
 
+###  https://w3id.org/i40/sto#QualityOfService
+sto:QualityOfService rdf:type owl:NamedIndividual ,
+                              sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#RAMI
 sto:RAMI rdf:type owl:NamedIndividual ,
                   sto:StandardizationFramework ;
@@ -7467,6 +7825,11 @@ sto:RAMI rdf:type owl:NamedIndividual ,
                       "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
          rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html" ;
          rdfs:label "RAMI 4.0"@en .
+
+
+###  https://w3id.org/i40/sto#RDF
+sto:RDF rdf:type owl:NamedIndividual ,
+                 sto:Technology .
 
 
 ###  https://w3id.org/i40/sto#RFC_1122
@@ -7574,6 +7937,48 @@ This specification is an alternative to, but does not obsolete, the HTTP/1.1 mes
                         "RFC 7540"@en .
 
 
+###  https://w3id.org/i40/sto#RFC_7642
+sto:RFC_7642 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement ;
+             sto:hasClassification sto:FiwareSecurity ;
+             sto:hasDeveloper sto:IETF ;
+             sto:hasPublisher sto:IETF ;
+             dcterms:creator "sebastian" ;
+             dcterms:title "SCIM Use Cases"@en ;
+             rdfs:comment "This document provides definitions and an overview of the System for Cross-domain Identity Management (SCIM).  It lays out the system's concepts, models and flows, and includes user scenarios, use cases, and requirements."@en ;
+             rdfs:label "RFC 7642"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/draft-ietf-scim-use-cases-08> .
+
+
+###  https://w3id.org/i40/sto#RFC_7643
+sto:RFC_7643 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement ;
+             sto:hasClassification sto:FiwareSecurity ;
+             sto:hasDeveloper sto:IETF ;
+             sto:hasPublisher sto:IETF ;
+             dcterms:creator "sebastian" ;
+             dcterms:title "SCIM Core Schema"@en ;
+             rdfs:comment "This document provides a platform neutral schema and extension model for representing users and groups and other resource types in JSON format.  This schema is intended for exchange and use with cloud service providers."@en ;
+             rdfs:label "RFC 7643"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/draft-ietf-scim-core-schema-22> .
+
+
+###  https://w3id.org/i40/sto#RFC_7644
+sto:RFC_7644 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement ;
+             sto:hasClassification sto:FiwareSecurity ;
+             sto:hasDeveloper sto:IETF ;
+             sto:hasPublisher sto:IETF ;
+             dcterms:creator "sebastian" ;
+             dcterms:title "SCIM API"@en ;
+             rdfs:comment "The System for Cross-Domain Identity Management (SCIM) specification is an HTTP based protocol that makes managing identities in multi domain scenarios easier to support through a standardized service. Examples include but are not limited to enterprise to cloud service providers, and inter-cloud based scenarios.  The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models.  SCIM's intent is to reduce the cost and complexity of user management operations by providing a common user schema, an extension model, and a service protocol defined by this document."@en ;
+             rdfs:label "RFC 7644"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/draft-ietf-scim-api-19> .
+
+
 ###  https://w3id.org/i40/sto#RFC_768
 sto:RFC_768 rdf:type owl:NamedIndividual ,
                      sto:Standard ;
@@ -7603,6 +8008,11 @@ several details and removes the end-of-letter buffer-size adjustments,
 and redescribes the letter mechanism as a push function."""@en ;
             rdfs:label "RFC 793"@en ;
             sto:hasOfficialResource <https://tools.ietf.org/html/rfc793> .
+
+
+###  https://w3id.org/i40/sto#RegulatoryContext
+sto:RegulatoryContext rdf:type owl:NamedIndividual ,
+                               sto:Concern .
 
 
 ###  https://w3id.org/i40/sto#Reliability
@@ -7635,6 +8045,20 @@ sto:SCADALevel rdf:type owl:NamedIndividual ,
                rdfs:comment "Describes the SCADA level according to the ISA95 level classification."@en ;
                rdfs:label "SCADA Level"@en ;
                skos:definition "Supervisory control and data acquisition according to ISA 95"@en .
+
+
+###  https://w3id.org/i40/sto#SCIM
+sto:SCIM rdf:type owl:NamedIndividual ,
+                  sto:Technology ;
+         dul:associatedWith sto:FiwareSecurity ,
+                            sto:RFC_7642 ,
+                            sto:RFC_7643 ,
+                            sto:RFC_7644 ;
+         sto:hasPublisher sto:IETF ;
+         dcterms:creator "sebastian" ;
+         dcterms:title "IETF System for Cross-domain Identity Management (SCIM) 2.0"@en ;
+         rdfs:comment "The System for Cross-domain Identity Management (SCIM) specification is designed to make managing user identities in cloud-based applications and services easier. The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models. Its intent is to reduce the cost and complexity of user management operations by providing a common user schema and extension model, as well as binding documents to provide patterns for exchanging this schema using standard protocols. In essence: make it fast, cheap, and easy to move users in to, out of, and around the cloud."@en ;
+         rdfs:label "SCIM2"@en .
 
 
 ###  https://w3id.org/i40/sto#SCM
@@ -7732,6 +8156,11 @@ sto:ServiceComposition rdf:type owl:NamedIndividual ,
                        rdfs:label "Service Composition"@en .
 
 
+###  https://w3id.org/i40/sto#ServiceDeployment
+sto:ServiceDeployment rdf:type owl:NamedIndividual ,
+                               sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#ServiceDiscovery
 sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                               sto:Concern ;
@@ -7764,9 +8193,19 @@ sto:ServiceSelection rdf:type owl:NamedIndividual ,
                      rdfs:label "Service Selection"@en .
 
 
+###  https://w3id.org/i40/sto#Stakeholder
+sto:Stakeholder rdf:type owl:NamedIndividual ,
+                         sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:NamedIndividual ;
              sto:abbreviation "IS" .
+
+
+###  https://w3id.org/i40/sto#StreamProcessing
+sto:StreamProcessing rdf:type owl:NamedIndividual ,
+                              sto:Concern .
 
 
 ###  https://w3id.org/i40/sto#SyntacticInteroperability
@@ -8010,6 +8449,16 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> .
 
 
+###  https://w3id.org/i40/sto#URI
+sto:URI rdf:type owl:NamedIndividual ,
+                 sto:Technology .
+
+
+###  https://w3id.org/i40/sto#UserInteraction
+sto:UserInteraction rdf:type owl:NamedIndividual ,
+                             sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#VDI
 sto:VDI rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
@@ -8072,6 +8521,21 @@ sto:W3C rdf:type owl:NamedIndividual ,
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/World_Wide_Web_Consortium> .
 
 
+###  https://w3id.org/i40/sto#W3C_DCAT
+sto:W3C_DCAT rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasDeveloper sto:W3C ;
+             sto:hasPublisher sto:W3C ;
+             sto:hasDBpediaResource "http://dbpedia.org/resource/Data_Catalog_Vocabulary" ;
+             sto:hasOfficialResource "https://www.w3.org/TR/vocab-dcat/" ;
+             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_Catalog_Vocabulary" ;
+             dcterms:creator "sebastian"@en ;
+             rdfs:comment """DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. This document defines the schema and provides examples for its use.
+
+By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation."""@en ;
+             rdfs:label "DCAT"@en .
+
+
 ###  https://w3id.org/i40/sto#W3C_OWL
 sto:W3C_OWL rdf:type owl:NamedIndividual ,
                      sto:Standard ;
@@ -8132,6 +8596,14 @@ sto:Written rdf:type owl:NamedIndividual ,
                      dcterms:linguisticSystem ;
             rdfs:comment "Describes a Written Linguistic System"@en ;
             rdfs:label "Written"@en .
+
+
+###  https://w3id.org/i40/sto#XACML
+sto:XACML rdf:type owl:NamedIndividual ,
+                   sto:Technology ;
+          dul:associatedWith sto:FiwareSecurity ;
+          <https://w3id.org/i40/hasTargetConcern> sto:Authorization ,
+                                                  sto:DataAccessControl .
 
 
 ###  https://w3id.org/i40/sto#ZVEI
@@ -8395,6 +8867,14 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:comment "Represent the license document for a given Standard"@en ;
                    dcterms:issued "2004-06-14"^^xsd:date ;
                    rdfs:isDefinedBy dcterms: .
+
+
+sto:BdvaConcern rdfs:label "BDVA Concern"@en ;
+                dcterms:creator "sebastian" ;
+                sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> ;
+                rdfs:comment """The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns.
+Horizontal concerns cover specific aspects along the data processing
+Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."""@en .
 
 
 sto:Concern rdfs:label "Concern" ;
