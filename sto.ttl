@@ -1289,11 +1289,9 @@ rami:CommunicationSubModel rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/rami#ConditionMonitoring
-rami:ConditionMonitoring rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Conditional_Monitoring
-rami:Conditional_Monitoring rdf:type owl:NamedIndividual .
+rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
+                          rami:AdminShellSubmodel ;
+                 sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#Configuration
@@ -5642,7 +5640,7 @@ sto:IEC_62279 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62337
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification rami:Conditional_Monitoring ,
+              sto:hasClassification rami:ConditionMonitoring ,
                                     rami:Enterprise ,
                                     rami:Functional ,
                                     rami:Lifecycle_Status ,
@@ -6118,7 +6116,7 @@ sto:ISO_1302 rdf:type owl:NamedIndividual ,
 sto:ISO_13374 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Business ,
-                                    rami:Conditional_Monitoring ,
+                                    rami:ConditionMonitoring ,
                                     rami:Enterprise ,
                                     sto:ProductionSystemEngineering ;
               sto:hasDomain sto:IndustrialAutomation ;
@@ -6510,7 +6508,7 @@ sto:ISO_20922 rdf:type owl:NamedIndividual ,
 sto:ISO_22400 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasClassification rami:Business ,
-                                    rami:Conditional_Monitoring ,
+                                    rami:ConditionMonitoring ,
                                     rami:ConnectedWorld ,
                                     rami:ControlDevice ,
                                     rami:Enterprise ,
