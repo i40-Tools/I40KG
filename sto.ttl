@@ -336,7 +336,7 @@ sto:hasTag rdf:type owl:ObjectProperty ;
 sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
                           rdfs:domain sto:Publication ;
                           rdfs:range sto:TechnicalCommittee ;
-                          rdfs:comment "Specifies the Technical Committe or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
+                          rdfs:comment "Specifies the Technical Committee or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
                           rdfs:label "has Technical Committee"@en .
 
 
@@ -789,10 +789,6 @@ sto:StandardizationFramework rdf:type owl:Class ;
                              skos:altLabel "Reference Architecture"@en .
 
 
-###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:Class .
-
-
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
                            rdfs:subClassOf sto:Publication ;
@@ -1021,7 +1017,10 @@ dbr:_Texas rdf:type owl:NamedIndividual ,
 
 
 ###  http://dbpedia.org/resource#Washington,_D.C.
-<http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual .
+<http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual,
+                                              dbo:Place ;
+              rdfs:comment "Refers to a place called Washington D.C."@en ;
+              rdfs:label "Washington D.C"@en .
 
 
 ###  http://example.org/iira#ApplicationDomain
@@ -3534,7 +3533,8 @@ sto:IEC rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_11404
-sto:IEC_11404 rdf:type owl:NamedIndividual ;
+sto:IEC_11404 rdf:type owl:NamedIndividual,
+                     sto:Standard ;
               owl:sameAs sto:ISO_11404 .
 
 
@@ -3553,7 +3553,8 @@ sto:IEC_14443 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_15408
-sto:IEC_15408 rdf:type owl:NamedIndividual ;
+sto:IEC_15408 rdf:type owl:NamedIndividual,
+              sto:Standard;
               owl:sameAs sto:ISO_15408 .
 
 
@@ -3593,22 +3594,26 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_27018
-sto:IEC_27018 rdf:type owl:NamedIndividual ;
+sto:IEC_27018 rdf:type owl:NamedIndividual ,
+					sto:Standard;
               owl:sameAs sto:ISO_27018 .
 
 
 ###  https://w3id.org/i40/sto#IEC_27031
-sto:IEC_27031 rdf:type owl:NamedIndividual ;
+sto:IEC_27031 rdf:type owl:NamedIndividual ,
+					sto:Standard ;
               owl:sameAs sto:ISO_27031 .
 
 
 ###  https://w3id.org/i40/sto#IEC_27036
-sto:IEC_27036 rdf:type owl:NamedIndividual ;
+sto:IEC_27036 rdf:type owl:NamedIndividual,
+					sto:Standard ;
               owl:sameAs sto:ISO_27036 .
 
 
 ###  https://w3id.org/i40/sto#IEC_29100
-sto:IEC_29100 rdf:type owl:NamedIndividual ;
+sto:IEC_29100 rdf:type owl:NamedIndividual,
+					sto:Standard ;
               owl:sameAs sto:ISO_29100 .
 
 
@@ -3667,7 +3672,8 @@ sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_29190
-sto:IEC_29190 rdf:type owl:NamedIndividual ;
+sto:IEC_29190 rdf:type owl:NamedIndividual,
+					sto:Standard ;
               owl:sameAs sto:ISO_29190 .
 
 
@@ -6322,7 +6328,8 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISA_62443
-sto:ISA_62443 rdf:type owl:NamedIndividual ;
+sto:ISA_62443 rdf:type owl:NamedIndividual ,
+					sto:Standard;
               sto:publisher sto:ISA .
 
 
@@ -6374,8 +6381,12 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_11404
-sto:ISO_11404 rdf:type owl:NamedIndividual ;
-              sto:hasClassification idsram:InformationLayer ;
+sto:ISO_11404 rdf:type owl:NamedIndividual ,
+					   sto:Standard ;
+                       sto:hasPublisher sto:ISO ;
+             sto:hasPublicationDate "2007-12-01"^^xsd:date ;
+             rdfs:comment "Information technology -- General-Purpose Datatypes (GPD)"@en ;
+             sto:hasOfficialResource <https://www.iso.org/standard/39479.html>;
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
               rdfs:label "ISO/IEC 11404"@en .
@@ -6530,7 +6541,8 @@ sto:ISO_15408 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_15459
-sto:ISO_15459 rdf:type owl:NamedIndividual .
+sto:ISO_15459 rdf:type owl:NamedIndividual,
+					sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#ISO_15531
@@ -6848,7 +6860,8 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_24760
-sto:ISO_24760 rdf:type owl:NamedIndividual .
+sto:ISO_24760 rdf:type owl:NamedIndividual,
+					sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#ISO_26262
@@ -7018,7 +7031,8 @@ sto:ISO_29101 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_29115
-sto:ISO_29115 rdf:type owl:NamedIndividual ;
+sto:ISO_29115 rdf:type owl:NamedIndividual ,
+					sto:Standard;
               <https://w3id.org/i40/hasTargetConcern> sto:Authentication ,
                                                       sto:Identification ;
               sto:hasClassification iira:Security ;
@@ -8422,10 +8436,6 @@ The present document is depending on Core Protocol specification (oneM2M TS-0004
             sto:hasOfficialResource <https://w3id.org/i40/www.onem2m.org/images/files/deliverables/Release2A/TS-0009-HTTP_Protocol_Binding-v_2_13_1.pdf> .
 
 
-###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
-                       sto:abbreviation "TC" .
-
 
 ###  https://w3id.org/i40/sto#TrustedConnector
 sto:TrustedConnector rdf:type owl:NamedIndividual ,
@@ -8898,7 +8908,10 @@ sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
-sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
+
+sto:TechnicalCommittee rdf:type owl:Class ;
+                       sto:abbreviation "TC" ;
+					   rdfs:label "Technical Committee"@en ;
                        skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
                        rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
                        rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
