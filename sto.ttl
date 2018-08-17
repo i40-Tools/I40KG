@@ -1398,22 +1398,19 @@ rami:Integration rdf:type owl:NamedIndividual ,
                  rdfs:label "RAMI Integration Layer"@en .
 
 
-###  https://w3id.org/i40/rami#LifeCycle_Status
-rami:LifeCycle_Status rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#LifecycleStatus
-rami:LifecycleStatus rdf:type owl:NamedIndividual ,
-                              rami:AdminShellSubmodel ;
-                     sto:isDescribedin sto:AdministrationShell .
-
-
 ###  https://w3id.org/i40/rami#Lifecycle_Status
-rami:Lifecycle_Status rdf:type owl:NamedIndividual .
+rami:Lifecycle_Status rdf:type owl:NamedIndividual ,
+                              rami:AdminShellSubmodel ;
+                     sto:isDescribedin sto:AdministrationShell;
+                     rdfs:label "Lifecycle Status".
 
 
 ###  https://w3id.org/i40/rami#Other
 rami:Other rdf:type owl:NamedIndividual .
+
+rami:ProcessPlanning rdf:type owl:NamedIndividual ,
+                          rami:AdminShellSubmodel ;
+                 sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#Product
@@ -3379,7 +3376,11 @@ sto:ICS_19_08 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ICS_25_040_01
-sto:ICS_25_040_01 rdf:type owl:NamedIndividual .
+sto:ICS_25_040_01 rdf:type owl:NamedIndividual,
+				  sto:InternationalClassificationForStandards ;
+                  dcterms:title "Industrial automation systems in general"@en ;
+                  rdfs:comment "This is ICS for Industrial automation systems in general"@en ;
+                  rdfs:label "ICS 25.040.01"@en .
 
 
 ###  https://w3id.org/i40/sto#ICS_25_040_40
@@ -6127,7 +6128,7 @@ sto:IEC_62837 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62890
 sto:IEC_62890 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification rami:LifecycleStatus ,
+              sto:hasClassification rami:Lifecycle_Status ,
                                     rami:Station ,
                                     rami:WorkCenter ,
                                     sto:ProductionLifeCycleDataManagement ;
@@ -6485,7 +6486,7 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
                                     rami:Engineering ,
                                     rami:Identification ,
                                     rami:Product ,
-                                    sto:ProcessPlanning ,
+                                    rami:ProcessPlanning,
                                     sto:ProductionSystemModelData ;
               sto:hasDomain sto:CAD ;
               sto:hasPublisher sto:ISO ;
@@ -6628,7 +6629,7 @@ sto:ISO_15926 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_16739
 sto:ISO_16739 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification rami:LifecycleStatus ,
+              sto:hasClassification rami:Lifecycle_Status ,
                                     rami:Station ,
                                     rami:WorkCenter ,
                                     sto:ProductLifeCycleManagement ;
@@ -6689,7 +6690,7 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                                       rami:FieldDevice ,
                                       rami:Station ,
                                       rami:WorkCenter ,
-                                      sto:Product ;
+                                      rami:Product ;
                 sto:hasDomain sto:IndustrialAutomation ;
                 sto:hasPublisher sto:ISO ;
                 sto:relatedTo sto:IEC_61804 ;
@@ -6720,7 +6721,7 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
                                     rami:Enterprise ,
                                     rami:Integration ,
                                     sto:EnterpriseLevel ,
-                                    sto:Product ;
+                                    rami:Product ;
               sto:hasDomain sto:EnterpriseIntegration ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:BPMN ;
@@ -6820,7 +6821,7 @@ sto:ISO_22400 rdf:type owl:NamedIndividual ,
                                     rami:ControlDevice ,
                                     rami:Enterprise ,
                                     rami:FieldDevice ,
-                                    rami:LifeCycle_Status ,
+                                    rami:Lifecycle_Status ,
                                     rami:Station ,
                                     rami:WorkCenter ;
               sto:hasDomain sto:IndustrialAutomation ;
@@ -7428,10 +7429,6 @@ sto:MachineLearning rdf:type owl:NamedIndividual ,
                     rdfs:label "Machine Learning"@en .
 
 
-###  https://w3id.org/i40/sto#Manufacturing
-sto:Manufacturing rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/sto#ManufacturingModelData
 sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
                                     sto:ProductDevelopmentLifeCycle ;
@@ -7750,13 +7747,6 @@ sto:Privacy rdf:type owl:NamedIndividual ,
             dcterms:creator "sebastian"@en ;
             rdfs:label "Privacy"@en .
 
-
-###  https://w3id.org/i40/sto#ProcessPlanning
-sto:ProcessPlanning rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#Product
-sto:Product rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#ProductCatalogData
@@ -8893,7 +8883,9 @@ sto:Concern rdfs:label "Concern" ;
             dcterms:creator "sebastian"@en .
 
 
-sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
+sto:InternationalClassificationForStandards rdf:type owl:class;
+                                 sto:hasOfficialResource <https://www.iso.org/publication/PUB100033.html> ;
+										 rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
                                             rdfs:label "International Classification For Standards"@en ;
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
