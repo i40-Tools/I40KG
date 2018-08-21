@@ -670,9 +670,12 @@ Note: It is important to distinguish the Reference Architecture from a Reference
 
 
 ###  https://w3id.org/i40/sto#BdvaConcern
-sto:BdvaConcern rdf:type owl:Class ;
+sto:BdvaConcern rdf:type owl:class;
                 rdfs:subClassOf sto:StandardClassification ;
               dcterms:creator "sebastian"@en ;
+              sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> ;
+               rdfs:comment """The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns.
+Horizontal concerns cover specific aspects along the data processing Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."""@en ;
               rdfs:label "BDVA Concern"@en .
 
 
@@ -683,11 +686,6 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                      rdfs:label "Business Cycle SCM"@en ;
                      rdfs:seeAlso "https://en.wikipedia.org/wiki/Supply_chain_management" .
-
-
-###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:Class .
-
 
 ###  https://w3id.org/i40/sto#ConnectivityLayer
 sto:ConnectivityLayer rdf:type owl:Class ;
@@ -746,8 +744,7 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Publication
-sto:Publication rdf:type owl:Class ;
-                rdfs:subClassOf foaf:Document ;
+sto:Publication rdfs:subClassOf foaf:Document ;
                 rdfs:comment """Specifies a Publication. E.g., International Standards,Technical Specifications,Publicly Available Specifications,Amendments
                 Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
                 rdfs:isDefinedBy sto:IEC ;
@@ -756,8 +753,16 @@ sto:Publication rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication .
+sto:Standard rdf:type owl:namedIndividial;
+             rdfs:subClassOf sto:Publication ;
+             sto:abbreviation "IS" ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             rdfs:label "Standard"@en ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             cc:attributionURL <http://www.iec.ch> ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm>  .
+           
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -807,9 +812,7 @@ sto:Technology rdf:type owl:Class ;
                rdfs:label "Technology"@en .
 
 
-###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:Class ;
-              rdfs:subClassOf sto:StandardClassification .
+
 
 
 ###  https://w3id.org/ids/ram/Layer
@@ -835,6 +838,11 @@ dbr:Beijing rdf:type owl:NamedIndividual ,
                      dbo:Place ;
             rdfs:comment "Refers to a place called Beijing."@en ;
             rdfs:label "Beijing"@en .
+
+dbr:Hoehenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual ,
+                    dbo:Place ;
+           rdfs:comment "Refers to a place called Berlin."@en ;
+           rdfs:label "Berlin"@en .
 
 
 ###  http://dbpedia.org/resource#Berlin
@@ -901,14 +909,13 @@ dbr:Germany rdf:type owl:NamedIndividual ,
 
 
 ###  http://dbpedia.org/resource#Hoehenkirchen-Siegertsbrunn
-dbr:Hoehenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual ,
+dbr:Hoehenkirchen_Siegertsbrunn rdf:type owl:NamedIndividual ,
                                          dbo:Place ;
                                 rdfs:comment "Refers to a place called Hoehenkirchen-Siegertsbrunn."@en ;
                                 rdfs:label "Hoehenkirchen-Siegertsbrunn"@en .
 
 
-###  http://dbpedia.org/resource#Höhenkirchen-Siegertsbrunn
-dbr:Höhenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual .
+
 
 
 ###  http://dbpedia.org/resource#New_York_City
@@ -1346,11 +1353,6 @@ rami:Functional rdf:type owl:NamedIndividual ,
                 sto:isDescribedin sto:RAMI ;
                 rdfs:label "RAMI Functional Layer"@en .
 
-
-###  https://w3id.org/i40/rami#GeneralAdminShell
-rami:GeneralAdminShell rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/rami#Header
 rami:Header rdf:type owl:NamedIndividual ,
                      sto:StandardizationFramework ;
@@ -1405,7 +1407,8 @@ rami:Lifecycle_Status rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/rami#Other
-rami:Other rdf:type owl:NamedIndividual .
+rami:Other rdf:type owl:NamedIndividual,
+               sto:StandardClassification.
 
 rami:ProcessPlanning rdf:type owl:NamedIndividual ,
                           rami:AdminShellSubmodel ;
@@ -1456,10 +1459,6 @@ rami:WorkCenter rdf:type owl:NamedIndividual ,
                 sto:isDescribedin sto:RAMI .
 
 
-###  https://w3id.org/i40/rami#Work_Centers
-rami:Work_Centers rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/sto#AI
 sto:AI rdf:type owl:NamedIndividual ,
                 sto:Concern ;
@@ -1498,7 +1497,7 @@ sto:APICS rdf:type owl:NamedIndividual ,
 sto:ASAM rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:Germany ;
-         sto:hasHeadquaterIn dbr:Höhenkirchen-Siegertsbrunn ;
+         sto:hasHeadquaterIn dbr:Hoehenkirchen_Siegertsbrunn ;
          sto:abbreviation "ASAM" ;
          sto:formationDate "1998-12-01"^^xsd:date ;
          sto:orgName "Association for Standardization of Automation and Measuring Systems"@en ;
@@ -1676,10 +1675,6 @@ sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
                                   dcterms:creator "sebastian"@en ;
                                   rdfs:comment "Effective communication and connectivity mechanisms are necessary in providing support for Big Data. This area is separately further elaborated, along with various communication communities, such as the 5G community."@en ;
                                   rdfs:label "BDVA Communication and Connectivity"@en .
-
-
-###  https://w3id.org/i40/sto#BdvaConcern
-sto:BdvaConcern rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#BdvaCyberSecurityTrust
@@ -1897,7 +1892,7 @@ sto:Compliance rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:NamedIndividual .
+sto:Concern rdf:type owl:NamedIndividual, owl:class .
 
 
 
@@ -4930,8 +4925,7 @@ sto:IEC_61010_P2_S201_2017 rdf:type owl:NamedIndividual ,
                            sto:hasFileSize sto:FileSizeIEC_61010_P2_S201_2017 ;
                            sto:hasICS sto:ICS_17_020 ,
                                       sto:ICS_19_020 ,
-                                      sto:ICS_25_040_40 ,
-                                      sto:_020 ;
+                                      sto:ICS_25_040_40 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_65 ;
                            sto:hasEdition "2.0"^^xsd:float ;
@@ -4954,8 +4948,7 @@ sto:IEC_61010_P2_S202_2016 rdf:type owl:NamedIndividual ,
                            sto:hasFileSize sto:FileSizeIEC_61010_P2_S202_2016 ;
                            sto:hasICS sto:ICS_13_110 ,
                                       sto:ICS_17_020 ,
-                                      sto:ICS_19_020 ,
-                                      sto:_020 ;
+                                      sto:ICS_19_020 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_65 ;
                            sto:hasEdition "1.0"^^xsd:float ;
@@ -5936,7 +5929,7 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
                                     rami:Enterprise ,
                                     rami:Functional ,
                                     rami:Lifecycle_Status ,
-                                    rami:Work_Centers ,
+                                    rami:WorkCenter ,
                                     sto:ProductionSystemModelData ;
               sto:hasDomain sto:IndustrialAutomation ;
               sto:hasPublisher sto:IEC ;
@@ -6161,7 +6154,7 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
                  sto:hasClassification rami:AdminShellGeneral ,
                                        rami:ControlDevice ,
                                        rami:FieldDevice ,
-                                       rami:GeneralAdminShell ,
+                                       rami:AdminShellGeneral ,
                                        rami:Station ,
                                        rami:WorkCenter ;
                  sto:hasPublisher sto:IEC ;
@@ -6179,7 +6172,7 @@ sto:IEC_TS_62237 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  sto:hasClassification rami:ControlDevice ,
                                        rami:FieldDevice ,
-                                       rami:GeneralAdminShell ,
+                                       rami:AdminShellGeneral ,
                                        rami:Station ,
                                        rami:WorkCenter ,
                                        sto:ProductionSystemModelData ;
@@ -6198,7 +6191,7 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                  sto:hasClassification rami:AdminShellGeneral ,
                                        rami:ControlDevice ,
                                        rami:FieldDevice ,
-                                       rami:GeneralAdminShell ,
+                                       rami:AdminShellGeneral ,
                                        rami:Station ,
                                        rami:WorkCenter ;
                  sto:hasPublisher sto:IEC ;
@@ -7522,7 +7515,8 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
-sto:NISTIR_8107 rdf:type owl:NamedIndividual ;
+sto:NISTIR_8107 rdf:type owl:NamedIndividual,
+                         sto:Standard ;
                 sto:isDescribedin sto:BusinessProcessExecution ,
                                   sto:SCM ;
                 rdfs:comment "Describes the NIST Initiative"@en ;
@@ -8202,9 +8196,7 @@ sto:Stakeholder rdf:type owl:NamedIndividual ,
                          sto:Concern .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:NamedIndividual ;
-             sto:abbreviation "IS" .
+
 
 
 ###  https://w3id.org/i40/sto#StreamProcessing
@@ -8496,7 +8488,16 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:NamedIndividual .
+sto:Viewpoint rdf:type owl:class;
+              rdf:type owl:namedIndividial;  
+              rdfs:subClassOf sto:StandardClassification ;
+              rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
+              rdfs:seeAlso <https://www.iso.org/standard/50508.html> ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint> ;
+              dcterms:creator "sebastian" ;
+              sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
+              rdfs:label "Viewpoint" .
 
 
 ###  https://w3id.org/i40/sto#W3C
@@ -8607,9 +8608,6 @@ sto:ZVEI rdf:type owl:NamedIndividual ,
          rdfs:label "ZVEI"@en ;
          sto:hasOfficialResource <https://www.zvei.org/> .
 
-
-###  https://w3id.org/i40/sto#_020
-sto:_020 rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#bitkom
@@ -8855,13 +8853,6 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
-sto:BdvaConcern rdfs:label "BDVA Concern"@en ;
-                dcterms:creator "sebastian" ;
-                sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> ;
-                rdfs:comment """The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns.
-Horizontal concerns cover specific aspects along the data processing
-Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."""@en .
-
 
 sto:Concern rdfs:label "Concern" ;
             sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
@@ -8878,16 +8869,8 @@ sto:InternationalClassificationForStandards rdf:type owl:class;
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:label "Standard"@en ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             cc:attributionURL <http://www.iec.ch> ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
-
-
-sto:TechnicalCommittee rdf:type owl:Class ;
+sto:TechnicalCommittee rdf:type owl:class ;
                        sto:abbreviation "TC" ;
 					   rdfs:label "Technical Committee"@en ;
                        skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
@@ -8896,13 +8879,7 @@ sto:TechnicalCommittee rdf:type owl:Class ;
                        rdfs:isDefinedBy sto:IEC .
 
 
-sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
-              rdfs:seeAlso <https://www.iso.org/standard/50508.html> ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint> ;
-              dcterms:creator "sebastian" ;
-              sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
-              rdfs:label "Viewpoint" .
+
 
 
 
