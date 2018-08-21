@@ -722,10 +722,6 @@ sto:ISA95Level rdf:type owl:Class ;
                rdfs:label "ISA 95 Level"@en .
 
 
-###  https://w3id.org/i40/sto#InternationalClassificationForStandards
-sto:InternationalClassificationForStandards rdf:type owl:Class .
-
-
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
 sto:ProductDevelopmentLifeCycle rdf:type owl:Class ;
                                 rdfs:subClassOf sto:StandardClassification ;
@@ -7283,9 +7279,6 @@ The third set of functionalities enables the management of robots by means of pl
                              rdfs:label "FIWARE Interface to Networks and Devices"@en .
 
 
-###  https://w3id.org/i40/sto#InternationalClassificationForStandards
-sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
-                                            sto:abbreviation "ICS"@en .
 
 
 ###  https://w3id.org/i40/sto#Interoperability
@@ -8862,7 +8855,9 @@ sto:Concern rdfs:label "Concern" ;
             dcterms:creator "sebastian"@en .
 
 
-sto:InternationalClassificationForStandards rdf:type owl:class;
+sto:InternationalClassificationForStandards rdf:type owl:class,
+                                            owl:NamedIndividual ;
+                                            sto:abbreviation "ICS"@en ;
                                  sto:hasOfficialResource <https://www.iso.org/publication/PUB100033.html> ;
 										 rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
                                             rdfs:label "International Classification For Standards"@en ;
