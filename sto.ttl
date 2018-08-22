@@ -791,14 +791,26 @@ sto:StandardizationFramework rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#TechnicalSpecification
-sto:TechnicalSpecification rdf:type owl:Class ;
+sto:TechnicalSpecification rdf:type owl:Class , owl:namedIndividial;
                            rdfs:subClassOf sto:Publication ;
                            cc:attributionURL "http://www.iec.ch" ;
                            rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ,
                                         "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
                            rdfs:isDefinedBy sto:IEC ;
+                           sto:abbreviation "TS" ;
                            rdfs:label "Technical Specification"@en ;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
+
+sto:TechnicalReport rdf:type owl:Class , owl:namedIndividial;
+
+                           rdfs:subClassOf sto:Publication ;
+                           cc:attributionURL "http://www.iec.ch" ;
+                           rdfs:comment "Specifies that a given Publication is a Technical Report"@en ,
+                                        """Technical Reports contain collected data of a kind different from that normally published as an International Standard, for example data obtained from a survey carried out among national committees, data of work in other international organizations or data on "the state of the art" in relation to standards of national committees on a particular subject.Technical Reports are entirely informative in nature and shall not contain matter implying that they are normative"""@en ;
+                           rdfs:isDefinedBy sto:IEC ;
+                           sto:abbreviation "TR" ;
+                           rdfs:label "Technical Report"@en ;
+                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/tr.htm> .
 
 
 ###  https://w3id.org/i40/sto#Technology
@@ -6145,8 +6157,8 @@ sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_TR_62794
-sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
-                          sto:Standard ;
+sto:IEC_62794 rdf:type owl:NamedIndividual ,
+                          sto:TechnicalReport ;
                  sto:hasClassification rami:AdminShellGeneral ,
                                        rami:ControlDevice ,
                                        rami:FieldDevice ,
@@ -6154,7 +6166,7 @@ sto:IEC_TR_62794 rdf:type owl:NamedIndividual ,
                                        rami:Station ,
                                        rami:WorkCenter ;
                  sto:hasPublisher sto:IEC ;
-                 sto:relatedTo sto:IEC_TS_62832 ;
+                 sto:relatedTo sto:IEC_62832 ;
                  sto:hasTag "DF/TR"@en ;
                  dcterms:hasLicense "Private"@en ;
                  rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
