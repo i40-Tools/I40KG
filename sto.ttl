@@ -83,12 +83,19 @@ cc:attributionURL rdf:type owl:DatatypeProperty;
     rdfs:label "Title"@en ;
     skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
 
-###  http://purl.org/dc/elements/1.1/title
-dc11:title rdf:type owl:AnnotationProperty .
+dcterms:creator
+    dcterms:description "Examples of a Creator include a person, an organization, or a service."@en ;
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2010-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "An entity primarily responsible for making the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Creator"@en ;
+    rdfs:range dcterms:Agent ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/creator>, dcterms:contributor ;
+    owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> .
 
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
