@@ -96,70 +96,124 @@ dcterms:creator
     rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/creator>, dcterms:contributor ;
     owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> .
 
+dcterms:description
+    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "An account of the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Description"@en ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/description> .
 
 
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:AnnotationProperty .
+dcterms:hasVersion
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
+    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Has Version"@en ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>, dcterms:relation ;
+    skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en .
 
 
-###  http://purl.org/dc/terms/hasVersion
-dcterms:hasVersion rdf:type owl:AnnotationProperty .
+dcterms:issued
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
+    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Date Issued"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>, dcterms:date .
+
+dcterms:modified
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
+    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "Date on which the resource was changed."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Date Modified"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>, dcterms:date .
+
+dcterms:title
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2010-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "A name given to the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Title"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/title> .
 
 
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
+
+<http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+	<http://www.w3.org/2000/01/rdf-schema#label> "has numerical value"@en ;
+	<http://www.w3.org/2000/01/rdf-schema#domain> _:genid-9705366b18194de9a2dcb5bbab39c385-node1c3sfjt7fx47 .
 
 
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
+
+<http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+	<http://www.w3.org/2000/01/rdf-schema#label> "has unit"@en ;
+	<http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> ;
+	<http://www.w3.org/2000/01/rdf-schema#domain> _:genid-9705366b18194de9a2dcb5bbab39c385-node1c3sfjt7fx13 .
 
 
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty .
+
+dul:isMemberOf rdf:type owl:ObjectProperty;
+ rdfs:comment "A relation between collections and entities, e.g. 'the Night Watch by Rembrandt is in the Rijksmuseum collection'; 'Davide is member of the Pen Club', 'Igor is one the subjects chosen for the experiment'."@en ; 
+ rdfs:label "is member of"@en,
+             "è membro di"@it ;
+  rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;  
+  rdfs:domain <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity>;
+  rdfs:range <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> ;
+  rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith> .
 
 
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
-om2:hasNumericalValue rdf:type owl:AnnotationProperty .
+
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty;
+rdfs:label "alternative label"@en;
+rdfs:Super-properties <http://www.w3.org/2000/01/rdf-schema#label>.
 
 
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
-om2:hasUnit rdf:type owl:AnnotationProperty .
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty;
+rdfs:label "definition"@en;
+rdfs:Super-properties skos:note.
 
 
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
-dul:isMemberOf rdf:type owl:AnnotationProperty .
+
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty;
+rdfs:label "note"@en.
 
 
-###  http://www.w3.org/2004/02/skos/core#altLabel
-skos:altLabel rdf:type owl:AnnotationProperty .
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty;
+rdfs:label "preferred label"@en;
+rdfs:Super-properties <http://www.w3.org/2000/01/rdf-schema#label>.
 
 
-###  http://www.w3.org/2004/02/skos/core#definition
-skos:definition rdf:type owl:AnnotationProperty .
+foaf:familyName rdf:type owl:property;
+ rdfs:label "Family Name"@en;
+  rdfs:domain foaf:person .
 
 
-###  http://www.w3.org/2004/02/skos/core#note
-skos:note rdf:type owl:AnnotationProperty .
+foaf:mbox rdf:type owl:property;
+ rdfs:label "mbox"@en; 
+  rdfs:domain foaf:Agent;
+  rdfs:range foaf:thing .
 
 
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty .
+foaf:name rdf:type owl:property;
+ rdfs:label "name"@en; 
+  rdfs:domain foaf:thing .
 
-
-###  http://xmlns.com/foaf/0.1/familyName
-foaf:familyName rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-foaf:mbox rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#publisher
-sto:publisher rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -7245,7 +7299,7 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
 sto:Identification rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dul:isPartOf sto:IdentityManagement ;
-                   dc11:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
+                   dcterms:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    rdfs:label "Identification"@en .
 
 
