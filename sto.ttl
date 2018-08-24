@@ -52,11 +52,15 @@
 #################################################################
 
 ###  http://creativecommons.org/ns#attributionName
-cc:attributionName rdf:type owl:AnnotationProperty .
+cc:attributionName rdf:type owl:DatatypeProperty;
+                   rdf:domain cc:work;
+                   rdf:range rdf:Literal .
 
 
-###  http://creativecommons.org/ns#attributionURL
-cc:attributionURL rdf:type owl:AnnotationProperty .
+cc:attributionURL rdf:type owl:DatatypeProperty;
+                   rdf:domain cc:work;
+                   rdf:range rdf:resource .
+
 
 
 ###  http://purl.org/dc/elements/1.1/description
@@ -802,7 +806,6 @@ sto:TechnicalSpecification rdf:type owl:Class , owl:namedIndividial;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 sto:TechnicalReport rdf:type owl:Class , owl:namedIndividial;
-
                            rdfs:subClassOf sto:Publication ;
                            cc:attributionURL "http://www.iec.ch" ;
                            rdfs:comment "Specifies that a given Publication is a Technical Report"@en ,
