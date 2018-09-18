@@ -1,5 +1,5 @@
+@prefix : <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/terms/> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
 @prefix deo: <http://purl.org/spar/deo/> .
@@ -25,14 +25,16 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix terms: <http://purl.org/dc/terms/> .
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto> .
+@base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
+                             rdfs:comment "MQTT-SN (MQTT For Sensor Networks) - An open and lightweight publish/subscribe protocol designed specifically for machine-to-machine and mobile applications (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                             sto:hasOfficialResource <http://mqtt.org/2013/12/mqtt-for-sensor-networks-mqtt-sn> ;
+                             rdfs:label "MQTT-SN"@en ;
                              sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
                              owl:versionInfo "0.3" ;
                              dcterms:title "Standards Ontology"@en ;
@@ -89,6 +91,15 @@ dcterms:modified rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://voag.linkedmodel.org/voag#hasStakeholder
+<http://voag.linkedmodel.org/voag#hasStakeholder> rdf:type owl:AnnotationProperty ;
+                                                  dcterms:creator sto:sebastian ;
+                                                  rdfs:comment "A Stakeholder Group is a party of people who have common interests and concerns."@en ;
+                                                  rdfs:label "has stakeholder"@en ;
+                                                  rdfs:range <http://voag.linkedmodel.org/voag#StakeholderGroup> ;
+                                                  rdfs:domain sto:Concern .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
@@ -198,7 +209,7 @@ foaf:maker rdf:type owl:ObjectProperty .
 ###  https://w3id.org/i40/hasTargetConcern
 <https://w3id.org/i40/hasTargetConcern> rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf dul:associatedWith ;
-                                        rdfs:domain sto:Standard ;
+                                        rdfs:domain sto:Publication ;
                                         rdfs:range sto:Concern ;
                                         rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
                                         rdfs:label "has Target Concern"@en .
@@ -225,14 +236,12 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#frames
 sto:frames rdf:type owl:ObjectProperty ;
-		   rdfs:subPropertyOf dul:associatedWith ;
-           rdfs:domain sto:Viewpoint ;
+           rdfs:subPropertyOf dul:associatedWith ;
+           rdfs:domain sto:StandardClassification ;
            rdfs:range sto:Concern ;
+           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en ;
            rdfs:label "frames"@en ;
-           sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
-           rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en .
-
-
+           sto:hasOfficialResource <http://www.iso-architecture.org/42010/> .
 
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
@@ -249,7 +258,7 @@ sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
-                      rdfs:domain sto:Standard ;
+                      rdfs:domain sto:Publication ;
                       rdfs:range sto:StandardClassification ;
                       dcterms:creator sto:irlan ;
                       rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
@@ -542,7 +551,7 @@ iira:CrosscuttingFunction rdf:type owl:Class ;
                                             owl:onProperty dul:isPartOf ;
                                             owl:hasValue iira:FunctionalViewpoint
                                           ] ;
-                          dcterms:creator "sebastian"@en ;
+                          dcterms:creator sto:sebastian ;
                           rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en ;
                           rdfs:label "IIRA Crosscutting Function"@en .
 
@@ -580,6 +589,10 @@ dcterms:LinguisticSystem rdf:type owl:Class .
 
 ###  http://purl.org/spar/deo/Motivation
 deo:Motivation rdf:type owl:Class .
+
+
+###  http://voag.linkedmodel.org/voag#StakeholderGroup
+<http://voag.linkedmodel.org/voag#StakeholderGroup> rdf:type owl:Class .
 
 
 ###  http://w3id.org/ids/ram/Perspective
@@ -671,9 +684,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
 
 ###  https://w3id.org/i40/sto#BdvaConcern
 sto:BdvaConcern rdf:type owl:Class ;
-                rdfs:subClassOf sto:StandardClassification ;
-              dcterms:creator "sebastian"@en ;
-              rdfs:label "BDVA Concern"@en .
+                rdfs:subClassOf sto:StandardClassification .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -697,6 +708,14 @@ sto:ConnectivityLayer rdf:type owl:Class ;
                       rdfs:label "Connectivity Layer"@en .
 
 
+###  https://w3id.org/i40/sto#DataSharingInitiative
+sto:DataSharingInitiative rdf:type owl:Class ;
+                          rdfs:subClassOf foaf:Organization ;
+                          dcterms:creator sto:sebastian ;
+                          rdfs:comment "This class frames all organizations with the main intend to create, specify and implement a data sharing concept with according interfaces, components, data descriptions, and retrieval algorithms."@en ;
+                          rdfs:label "Data Sharing Initiative"@en .
+
+
 ###  https://w3id.org/i40/sto#Domain
 sto:Domain rdf:type owl:Class ;
            rdfs:comment "Represents the Domains in which the Standards can be used"@en ;
@@ -706,7 +725,7 @@ sto:Domain rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#FiwareChapter
 sto:FiwareChapter rdf:type owl:Class ;
                   rdfs:subClassOf sto:StandardClassification ;
-                  dcterms:creator "sebastian"@en ;
+                  dcterms:creator sto:sebastian ;
                   rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
                   rdfs:label "Fiware Chapter"@en .
 
@@ -726,6 +745,21 @@ sto:ISA95Level rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
 sto:InternationalClassificationForStandards rdf:type owl:Class .
+
+
+###  https://w3id.org/i40/sto#IotaPerspective
+sto:IotaPerspective rdf:type owl:Class ;
+                    rdfs:subClassOf sto:StandardClassification ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:label "IoT-A Perspective"@en .
+
+
+###  https://w3id.org/i40/sto#IviLayer
+sto:IviLayer rdf:type owl:Class ;
+             rdfs:subClassOf sto:StandardClassification ;
+             rdfs:comment "A IVI Layer describes one of three layers of smart manufactoring as proposed by the Industrial Value Chain Initiative (IVI)."@en ;
+             rdfs:isDefinedBy <https://iv-i.org/wp/wp-content/uploads/2018/04/IVRA-Next_en.pdf> ;
+             rdfs:label "IVI Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -757,7 +791,13 @@ sto:Publication rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication .
+             rdfs:subClassOf sto:Publication ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             cc:attributionURL <http://www.iec.ch> ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:label "Standard"@en ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -796,19 +836,13 @@ sto:TechnicalCommittee rdf:type owl:Class .
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
                            rdfs:subClassOf sto:Publication ;
-                           cc:attributionURL "http://www.iec.ch" ;
-                           rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ,
+                           cc:attributionURL <http://www.iec.ch> ;
+                           rdfs:comment "A Technology is an implementation of one or many standards in order to achieve a goal."@en ,
+                                        "Specifies that a given Publication is a Technical Specification"@en ,
                                         "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
                            rdfs:isDefinedBy sto:IEC ;
                            rdfs:label "Technical Specification"@en ;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
-
-
-###  https://w3id.org/i40/sto#Technology
-sto:Technology rdf:type owl:Class ;
-               dcterms:creator "sebastian"@en ;
-               rdfs:comment "A Technology is an implementation of one or many standards in order to achieve a goal."@en ;
-               rdfs:label "Technology"@en .
 
 
 ###  https://w3id.org/i40/sto#Viewpoint
@@ -1045,6 +1079,8 @@ iira:BusinessDomain rdf:type owl:NamedIndividual ,
 iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
                                 sto:Viewpoint ;
                        sto:isDescribedin sto:IIRA ;
+                       dcterms:creator sto:sebastian ;
+                       rdfs:comment "The business viewpoint frames economic aspects and business relations regarded by the IIC Reference Architecture."@en ;
                        rdfs:label "IIRA Business Viewpoint"@en .
 
 
@@ -1075,7 +1111,7 @@ iira:DistributedDataManagement rdf:type owl:NamedIndividual ,
                                         iira:CrosscuttingFunction ;
                                sto:alignesWith rami:Communication ;
                                sto:isDescribedin sto:IIRA ;
-                               dcterms:creator "sebastian"@en ;
+                               dcterms:creator sto:sebastian ;
                                rdfs:label "IIRA Distributed Data Management"@en .
 
 
@@ -1084,6 +1120,8 @@ iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
                                   sto:Viewpoint ;
                          sto:alignesWith idsram:ReferenceArchitectureModel ;
                          sto:isDescribedin sto:IIRA ;
+                         dcterms:creator "The IIRA Functional Viewpoint contains the IIRA Domains in order to describe technical relations and communications between the several dimensions of IoT devices."@en ,
+                                         "sebastian"@en ;
                          rdfs:label "IIRA Functional Viewpoint"@en .
 
 
@@ -1192,14 +1230,14 @@ iira:Security rdf:type owl:NamedIndividual ,
               sto:frames sto:Identification ,
                          sto:Security ;
               sto:hasPublisher sto:IIC ;
-              dcterms:creator "sebastian"@en ;
+              dcterms:creator sto:sebastian ;
               rdfs:label "IIRA Security"@en .
 
 
 ###  http://example.org/iira#SecurityFramework
 iira:SecurityFramework rdf:type owl:NamedIndividual ,
                                 sto:StandardClassification ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:label "IIC Security Framework"@en ;
                        sto:hasOfficialResource <https://www.iiconsortium.org/IISF.htm> .
 
@@ -1223,7 +1261,7 @@ iira:Vocabulary rdf:type owl:NamedIndividual ,
                          sto:StandardClassification ;
                 sto:alignesWith idsram:InformationLayer ;
                 sto:hasPublisher sto:IIC ;
-                dcterms:creator "sebastian"@en ;
+                dcterms:creator sto:sebastian ;
                 rdfs:label "IIC Vocabulary"@en .
 
 
@@ -1245,6 +1283,16 @@ lang:rus rdf:type owl:NamedIndividual ,
 ###  http://lexvo.org/id/iso639-3/spa
 lang:spa rdf:type owl:NamedIndividual ,
                   dcterms:LinguisticSystem .
+
+
+###  http://purl.oclc.org/NET/mvco.owl#EndUser
+<http://purl.oclc.org/NET/mvco.owl#EndUser> rdf:type owl:NamedIndividual ,
+                                                     <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+
+
+###  http://voag.linkedmodel.org/voag#StakeholderGroup
+<http://voag.linkedmodel.org/voag#StakeholderGroup> rdf:type owl:NamedIndividual ,
+                                                             sto:Concern .
 
 
 ###  https://w3id.org/i40/rami#AdminShellGeneral
@@ -1289,17 +1337,16 @@ rami:Communication rdf:type owl:NamedIndividual ,
                    rdfs:label "RAMI Communication Layer"@en .
 
 
-
 ###  https://w3id.org/i40/rami#ConditionMonitoring
 rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
-                          rami:AdminShellSubmodel ;
-                 sto:isDescribedin sto:AdministrationShell .
+                                  rami:AdminShellSubmodel ;
+                         sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#Configuration
-rami:Configuration rdf:type owl:NamedIndividual,
-						rami:AdminShellSubmodel ;
-                  sto:isDescribedin sto:AdministrationShell  .
+rami:Configuration rdf:type owl:NamedIndividual ,
+                            rami:AdminShellSubmodel ;
+                   sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#ConnectedWorld
@@ -1467,7 +1514,8 @@ rami:Work_Centers rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#
 <https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual ,
                                      om2:Measure ,
-                                     sto:Standard ;
+                                     sto:Standard ,
+                                     sto:TechnicalSpecification ;
                             sto:hasFileSize <https://w3id.org/i40/sto#> ;
                             sto:hasICS sto:ICS_01_040_07 ;
                             sto:hasPublisher sto:IEC ;
@@ -1489,8 +1537,17 @@ rami:Work_Centers rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#AI
 sto:AI rdf:type owl:NamedIndividual ,
                 sto:Concern ;
-       dcterms:creator "sebastian"@en ;
+       dcterms:creator sto:sebastian ;
        rdfs:label "Artificial Intelligence"@en .
+
+
+###  https://w3id.org/i40/sto#AMQP
+sto:AMQP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "AMQP (Advanced Message Queuing Protocol): An open standard application layer protocol for message-oriented middleware. The defining features of AMQP are message orientation, queuing, routing (including point-to-point and publish-and-subscribe), reliability and security. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "AMQP"@en ;
+         sto:hasOfficialResource <http://www.amqp.org/> .
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -1505,6 +1562,15 @@ sto:ANSI rdf:type owl:NamedIndividual ,
          sto:hasDBpediaResource <http://dbpedia.org/resource/American_National_Standards_Institute> ;
          sto:hasOfficialResource <https://www.ansi.org/> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true> .
+
+
+###  https://w3id.org/i40/sto#ANT
+sto:ANT rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "ANT is a proprietary wireless sensor network technology featuring a wireless communications protocol stack that enables semiconductor radios operating in the 2.4 GHz Industrial, Scientific and Medical allocation of the RF spectrum (ISM band) to communicate by establishing standard rules for co-existence, data representation, signalling, authentication and error detection.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "ANT"@en ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ANT_(network)> .
 
 
 ###  https://w3id.org/i40/sto#APICS
@@ -1569,6 +1635,24 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME_Y14.41> .
 
 
+###  https://w3id.org/i40/sto#AccessPolicy
+sto:AccessPolicy rdf:type owl:NamedIndividual ,
+                          sto:Concern ;
+                 dcterms:creator sto:sebastian ;
+                 dul:isPartOf sto:DataAccessControl ;
+                 rdfs:comment "Access to the service shall be regulated by access policies. Users entitled in access policies to envoke a given service must be able to actually envoke it."@en ;
+                 rdfs:label "Access Policy"@en ;
+                 rdfs:seeAlso "IoT-A Requirement UNI.604" .
+
+
+###  https://w3id.org/i40/sto#Accountability
+sto:Accountability rdf:type owl:NamedIndividual ,
+                            sto:Concern ;
+                   rdfs:comment "A system built using the ARM shall support the reversing of the pseudonymization processes in order to guarantee mutual accountability"@en ;
+                   rdfs:label "Accountability"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.605" .
+
+
 ###  https://w3id.org/i40/sto#AdministrationShell
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
                                  sto:StandardizationFramework ;
@@ -1576,25 +1660,104 @@ sto:AdministrationShell rdf:type owl:NamedIndividual ,
                         rdfs:label "Administration Shell"@en .
 
 
+###  https://w3id.org/i40/sto#Aeron
+sto:Aeron rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "Aeron - Efficient reliable UDP unicast, UDP multicast, and IPC message transport. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "Aeron"@en ;
+          sto:hasOfficialResource <https://github.com/real-logic/Aeron> .
+
+
+###  https://w3id.org/i40/sto#AllSeenAlliance
+sto:AllSeenAlliance rdf:type owl:NamedIndividual ,
+                             sto:IIoTConsortium ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:comment "The AllSeen Alliance is a nonprofit consortium dedicated to enabling and driving the widespread adoption of products, systems and services that support the Internet of Everything with an open, universal development framework supported by a vibrant ecosystem and thriving technical community' (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                    rdfs:label "AllSeen Alliance"@en ;
+                    sto:hasOfficialResource <https://allseenalliance.org/> .
+
+
+###  https://w3id.org/i40/sto#Alljoyn
+sto:Alljoyn rdf:type owl:NamedIndividual ,
+                     sto:TechnicalSpecification ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "Alljoyn - An open source software framework that makes it easy for devices and apps to discover and communicate with each other. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+            rdfs:label "Alljoyn"@en ;
+            sto:hasOfficialResource <https://allseenalliance.org/framework> .
+
+
+###  https://w3id.org/i40/sto#Anonymity
+sto:Anonymity rdf:type owl:NamedIndividual ,
+                       sto:Concern ;
+              <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+              dul:isPartOf sto:Privacy ;
+              rdfs:seeAlso "IoT-A Requirement UNI.001" ,
+                           "IoT-A Requirement UNI.322" ,
+                           "UNI.322"@en .
+
+
 ###  https://w3id.org/i40/sto#Authentication
 sto:Authentication rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator "sebastian"@en ;
+                   dcterms:creator sto:sebastian ;
                    rdfs:comment "Authentication before opening a valid connection; this can be done by just verifying the server identity or doing mutual authentication."@en ;
-                   rdfs:label "Authentication"@en .
+                   rdfs:label "Authentication"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.612" ,
+                                "IoT-A Requirement UNI.618" .
 
 
 ###  https://w3id.org/i40/sto#Authorization
 sto:Authorization rdf:type owl:NamedIndividual ,
-                           sto:Concern .
+                           sto:Concern ;
+                  dul:isPartOf sto:Privacy ,
+                               sto:Security ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.319" ,
+                               "IoT-A Requirement UNI.502" ,
+                               "IoT-A Requirement UNI.503" .
+
+
+###  https://w3id.org/i40/sto#AutonomousCommunication
+sto:AutonomousCommunication rdf:type owl:NamedIndividual ,
+                                     sto:Concern ;
+                            <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                            dul:isPartOf sto:Communication ,
+                                         sto:ServiceChoreography ;
+                            rdfs:seeAlso "IoT-A Requirement UNI.005" ,
+                                         "IoT-A Requirement UNI.012" ,
+                                         "IoT-A Requirement UNI.708" .
+
+
+###  https://w3id.org/i40/sto#AutonomousConfiguration
+sto:AutonomousConfiguration rdf:type owl:NamedIndividual ,
+                                     sto:Concern ;
+                            <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                            dul:isPartOf sto:ServiceChoreography ;
+                            rdfs:comment "A system built using the Reference Architecture shall be able to remotely control and configure devices."@en ;
+                            rdfs:seeAlso "IoT-A Requirement UNI.015" ,
+                                         "IoT-A Requirement UNI.031" ,
+                                         "IoT-A Requirement UNI.032" ,
+                                         "IoT-A Requirement UNI.060" ,
+                                         "IoT-A Requirement UNI.247" ,
+                                         "IoT-A Requirement UNI.509" ,
+                                         "IoT-A Requirement UNI.704" ,
+                                         "IoT-A Requirement UNI.706" ,
+                                         "IoT-A Requirement UNI.717" .
 
 
 ###  https://w3id.org/i40/sto#Availability
 sto:Availability rdf:type owl:NamedIndividual ,
                           sto:Concern ;
-                 dcterms:creator "sebastian"@en ;
+                 dcterms:creator sto:sebastian ;
                  dul:isPartOf sto:Security ;
-                 rdfs:label "Availability"@en .
+                 rdfs:label "Availability"@en ;
+                 rdfs:seeAlso "IoT-A Requirement UNI.058" ,
+                              "IoT-A Requirement UNI.064" ,
+                              "IoT-A Requirement UNI.239" ,
+                              "IoT-A Requirement UNI.321" ,
+                              "IoT-A Requirement UNI.601" ,
+                              "IoT-A Requirement UNI.610" ,
+                              "IoT-A Requirement UNI.616" .
 
 
 ###  https://w3id.org/i40/sto#B2MML
@@ -1644,7 +1807,7 @@ sto:BBF_TR-069 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BDI
 sto:BDI rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
-        dcterms:creator "sebastian"@en ;
+        dcterms:creator sto:sebastian ;
         dcterms:title "The Federation of German Industries"@en ;
         rdfs:comment "The Federation of German Industries represents a large proportion of the German manufacturing industry."@en ;
         sto:hasOfficialResource <https://english.bdi.eu/> .
@@ -1685,7 +1848,7 @@ sto:BdvaCloudAndHighPerformanceComputing rdf:type owl:NamedIndividual ,
                                                     sto:DataPublishing ,
                                                     sto:MachineLearning ;
                                          sto:isDescribedin sto:BdvaSira ;
-                                         dcterms:creator "sebastian"@en ;
+                                         dcterms:creator sto:sebastian ;
                                          rdfs:comment "The Cloud and High Performance Computing (HPC): Effective Big Data processing and data management might imply the effective usage of Cloud and High Performance Computing infrastructures. This area is separately elaborated further in collaboration with the Cloud and High Performance Computing (ETP4HPC) communities."@en ;
                                          rdfs:label "BDVA Cloud and High Performance Computing"@en .
 
@@ -1699,7 +1862,7 @@ sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
                                              sto:Interoperability ,
                                              sto:QualityOfService ;
                                   sto:isDescribedin sto:BdvaSira ;
-                                  dcterms:creator "sebastian"@en ;
+                                  dcterms:creator sto:sebastian ;
                                   rdfs:comment "Effective communication and connectivity mechanisms are necessary in providing support for Big Data. This area is separately further elaborated, along with various communication communities, such as the 5G community."@en ;
                                   rdfs:label "BDVA Communication and Connectivity"@en .
 
@@ -1721,7 +1884,7 @@ sto:BdvaCyberSecurityTrust rdf:type owl:NamedIndividual ,
                                       sto:Security ,
                                       sto:Trustworthiness ;
                            sto:isDescribedin sto:BdvaSira ;
-                           dcterms:creator "sebastian"@en ;
+                           dcterms:creator sto:sebastian ;
                            rdfs:comment """Big Data often need support to maintain security and trust beyond privacy and anonymisation. The aspect of trust frequently has links to trust 
 mechanisms such as blockchain technologies, smart contracts and various forms of encryption."""@en ;
                            rdfs:label "BDVA Cybersecurity and Trust"@en .
@@ -1740,7 +1903,7 @@ sto:BdvaDataAnalytics rdf:type owl:NamedIndividual ,
                                  sto:StreamProcessing ,
                                  sto:Trustworthiness ;
                       sto:isDescribedin sto:BdvaSira ;
-                      dcterms:creator "sebastian"@en ;
+                      dcterms:creator sto:sebastian ;
                       rdfs:comment "Data analytics to improve data understanding, deep learning and the meaningfulness of data."@en ;
                       rdfs:label "BDVA Data Analytics"@en .
 
@@ -1759,7 +1922,7 @@ sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
                                   sto:SyntacticInteroperability ,
                                   sto:Trustworthiness ;
                        sto:isDescribedin sto:BdvaSira ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:comment "Principles and techniques for data management"@en ;
                        rdfs:label "BDVA Data Management"@en .
 
@@ -1777,7 +1940,7 @@ sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
                                                sto:Scalability ,
                                                sto:StreamProcessing ;
                                     sto:isDescribedin sto:BdvaSira ;
-                                    dcterms:creator "sebastian"@en ;
+                                    dcterms:creator sto:sebastian ;
                                     rdfs:comment "Optimised and scalable architectures for analytics of both data-at-rest and data-in-motion, with low latency delivering real-time analytics."@en ;
                                     rdfs:label "BDVA Data Processing Architectures"@en .
 
@@ -1790,7 +1953,7 @@ sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
                        sto:frames sto:DataProtection ,
                                   sto:Privacy ;
                        sto:isDescribedin sto:BdvaSira ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:comment "Privacy and anonymisation mechanisms to facilitate data protection. This is shown related to data management and processing as there is a strong link here, but it can also be associated with the area of cybersecurity."@en ;
                        rdfs:label "BDVA Data Protection"@en .
 
@@ -1803,7 +1966,7 @@ sto:BdvaDataSharingPlatforms rdf:type owl:NamedIndividual ,
                              sto:frames sto:DataEconomy ,
                                         sto:DataPublishing ;
                              sto:isDescribedin sto:BdvaSira ;
-                             dcterms:creator "sebastian"@en ;
+                             dcterms:creator sto:sebastian ;
                              rdfs:comment "Data sharing and trading are seen as important ecosystem enablers in the data economy, although closed and personal data present particular challenges for the free flow of data. The following two conceptual solutions – Industrial Data Platforms (IDPs) and Personal Data Platforms (PDPs) – introduce new approaches to addressing this particular need to regulate closed proprietary and personal data."@en ;
                              rdfs:label "BDVA Data Sharing Platforms"@en .
 
@@ -1815,7 +1978,7 @@ sto:BdvaDataViualisationAndUserInteraction rdf:type owl:NamedIndividual ,
                                                            rami:Functional ;
                                            sto:frames sto:BigDataApplications ;
                                            sto:isDescribedin sto:BdvaSira ;
-                                           dcterms:creator "sebastian"@en ;
+                                           dcterms:creator sto:sebastian ;
                                            rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
                                            rdfs:label "Data Visualisation and User Interaction"@en .
 
@@ -1824,7 +1987,7 @@ sto:BdvaDataViualisationAndUserInteraction rdf:type owl:NamedIndividual ,
 sto:BdvaDevelopmentEngineering rdf:type owl:NamedIndividual ,
                                         sto:BdvaConcern ;
                                sto:isDescribedin sto:BdvaSira ;
-                               dcterms:creator "sebastian"@en ;
+                               dcterms:creator sto:sebastian ;
                                rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
                                rdfs:label "BDVA Engineering and DevOps"@en .
 
@@ -1832,7 +1995,7 @@ sto:BdvaDevelopmentEngineering rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BdvaSira
 sto:BdvaSira rdf:type owl:NamedIndividual ,
                       sto:StandardizationFramework ;
-             dcterms:creator "sebastian"@en ;
+             dcterms:creator sto:sebastian ;
              dcterms:title "BDVA Strategic Research and Innovation Agenda"@en ;
              rdfs:comment "This Strategic Research and Innovation Agenda (SRIA) defines the overall goals, main technical and non-technical priorities, and a research and innovation roadmap for the European Public Private Partnership (PPP) on Big Data Value. The SRIA has been developed by the Big Data Value Association (BDVA), an industry-led organisation representing large businesses, small and medium-sized enterprises (SMEs), and research organisations in Europe."@en ;
              rdfs:label "BDVA SIRA"@en .
@@ -1845,7 +2008,7 @@ sto:BdvaStandards rdf:type owl:NamedIndividual ,
                              sto:DataEconomy ,
                              sto:Interoperability ;
                   sto:isDescribedin sto:BdvaSira ;
-                  dcterms:creator "sebastian"@en ;
+                  dcterms:creator sto:sebastian ;
                   rdfs:comment "Standardisation of Big Data technology areas to facilitate data integration, sharing and interoperability"@en ;
                   rdfs:label "BDVA Standards"@en .
 
@@ -1855,7 +2018,7 @@ sto:BdvaThingsAssetsSensorsActuators rdf:type owl:NamedIndividual ,
                                               sto:BdvaConcern ;
                                      sto:frames sto:IoT ;
                                      sto:isDescribedin sto:BdvaSira ;
-                                     dcterms:creator "sebastian"@en ;
+                                     dcterms:creator sto:sebastian ;
                                      rdfs:comment "IoT, CPS, Edge and Fog Computing: A main source of Big Data is sensor data from an IoT context and actuator interaction in Cyber Physical Systems. In order to meet real-time needs it will often be necessary to handle Big Data aspects at the edge of the system. This area is separately elaborated further in collaboration with the IoT (Alliance for Internet of Things Innovation (AIOTI)) and CPS communities"@en ;
                                      rdfs:label "BDVA IoT CPS and Edge Computing"@en .
 
@@ -1865,9 +2028,21 @@ sto:BigDataApplications rdf:type owl:NamedIndividual ,
                                  sto:Concern .
 
 
+###  https://w3id.org/i40/sto#Bluetooth
+sto:Bluetooth rdf:type owl:NamedIndividual ,
+                       sto:TechnicalSpecification ;
+              sto:hasClassification rami:Communication ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "Bluetooth works in the 2.4 GHz ISM band and uses frequency hopping. With a data rate up to 3 Mbps and maximum range of 100m. Each application type which can use Bluetooth has its own profile.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "Bluetooth"@en ;
+              sto:hasOfficialResource <http://www.bluetooth.com/Pages/Bluetooth-Home.aspx> .
+
+
 ###  https://w3id.org/i40/sto#BusinessContext
 sto:BusinessContext rdf:type owl:NamedIndividual ,
-                             sto:Concern .
+                             sto:Concern ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:label "Business Context"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessProcessExecution
@@ -1876,6 +2051,23 @@ sto:BusinessProcessExecution rdf:type owl:NamedIndividual ,
                              sto:isDescribedin sto:NISTInitiative ;
                              rdfs:comment "Describes Business Process Execution concept."@en ;
                              rdfs:label "Business Process Execution"@en .
+
+
+###  https://w3id.org/i40/sto#BusinessProcessModeling
+sto:BusinessProcessModeling rdf:type owl:NamedIndividual ,
+                                     sto:Concern ;
+                            rdfs:seeAlso "IoT-A Requirement UNI.211" ,
+                                         "IoT-A Requirement UNI.212" ,
+                                         "IoT-A Requirement UNI.214" ,
+                                         "IoT-A Requirement UNI.215" ,
+                                         "IoT-A Requirement UNI.229" .
+
+
+###  https://w3id.org/i40/sto#BusinessTransactions
+sto:BusinessTransactions rdf:type owl:NamedIndividual ,
+                                  sto:Concern ;
+                         dcterms:creator sto:sebastian ;
+                         rdfs:label "Business Transactions"@en .
 
 
 ###  https://w3id.org/i40/sto#CAD
@@ -1888,37 +2080,83 @@ sto:CAD rdf:type owl:NamedIndividual ,
         sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design> .
 
 
-###  https://w3id.org/i40/sto#CardinalityOfDataSources
-sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
-                                      sto:Concern ;
-                             dcterms:creator "sebastian"@en ;
-                             rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
-                             rdfs:label "Cardinality of Data Sources"@en .
+###  https://w3id.org/i40/sto#CASAGRAS
+sto:CASAGRAS rdf:type owl:NamedIndividual ,
+                      sto:IIoTConsortium ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "We are a key group of international partners representing Europe, the USA, China, Japan and Korea who has joined a strategic EU funded 7th Framework initiative that will look at global standards, regulatory and other issues concerning RFID and its role in realising an Internet of Things.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "CASAGRAS"@en ;
+             sto:hasOfficialResource <http://www.iot-casagras.org/page/standards-and-regulations> .
+
+
+###  https://w3id.org/i40/sto#CCN
+sto:CCN rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "Content-Centric Networking (CCN). Next-gen network architecture to solve challenges in content distribution scalability, mobility, and security. CCN directly routes and delivers named pieces of content at the packet level of the network, enabling automatic and application-neutral caching in memory wherever it’s located in the network. The result? Efficient and effective delivery of content wherever and whenever it is needed. Since the architecture enables these caching effects as an automatic side effect of packet delivery, memory can be used without building expensive application-level caching services. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "CCN"@en ;
+        sto:hasOfficialResource <http://www.ccnx.org/> .
+
+
+###  https://w3id.org/i40/sto#Cardinality
+sto:Cardinality rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                dcterms:creator sto:sebastian ;
+                rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
+                rdfs:label "Cardinality of Participants"@en .
 
 
 ###  https://w3id.org/i40/sto#Certification
 sto:Certification rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dcterms:creator "sebastian"@en ;
+                  dcterms:creator sto:sebastian ;
                   dul:isPartOf sto:Security ;
                   rdfs:label "Certification"@en .
 
 
 ###  https://w3id.org/i40/sto#CloudComputing
 sto:CloudComputing rdf:type owl:NamedIndividual ,
-                            sto:Concern .
+                            sto:Concern ;
+                   dcterms:creator sto:sebastian ;
+                   rdfs:comment ""@en ;
+                   rdfs:label "Cloud Computing"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.102" ,
+                                "IoT-A Requirement UNI.234" .
 
 
 ###  https://w3id.org/i40/sto#Communication
 sto:Communication rdf:type owl:NamedIndividual ,
                            rami:AdminShellSubmodel ;
-                  sto:isDescribedin sto:AdministrationShell .
+                  sto:isDescribedin sto:AdministrationShell ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.021" ,
+                               "IoT-A Requirement UNI.095" ,
+                               "IoT-A Requirement UNI.303" ,
+                               "IoT-A Requirement UNI.306" ,
+                               "IoT-A Requirement UNI.307" ,
+                               "IoT-A Requirement UNI.308" ,
+                               "IoT-A Requirement UNI.309" ,
+                               "IoT-A Requirement UNI.310" ,
+                               "IoT-A Requirement UNI.311" ,
+                               "IoT-A Requirement UNI.312" ,
+                               "IoT-A Requirement UNI.313" ,
+                               "IoT-A Requirement UNI.315" ,
+                               "IoT-A Requirement UNI.318" ,
+                               "IoT-A Requirement UNI.321" ,
+                               "IoT-A Requirement UNI.324" ,
+                               "IoT-A Requirement UNI.716" .
+
+
+###  https://w3id.org/i40/sto#ComplexEventProcessing
+sto:ComplexEventProcessing rdf:type owl:NamedIndividual ,
+                                    sto:Concern ;
+                           dul:isPartOf sto:DataAnalytics ;
+                           rdfs:seeAlso "IoT-A Requirement UNI.232" .
 
 
 ###  https://w3id.org/i40/sto#Compliance
 sto:Compliance rdf:type owl:NamedIndividual ,
                         sto:Concern ;
-               dcterms:creator "sebastian"@en ;
+               dcterms:creator sto:sebastian ;
                rdfs:label "Compliance"@en .
 
 
@@ -1926,7 +2164,37 @@ sto:Compliance rdf:type owl:NamedIndividual ,
 sto:Concern rdf:type owl:NamedIndividual .
 
 
+###  https://w3id.org/i40/sto#ConstraintDevices
+sto:ConstraintDevices rdf:type owl:NamedIndividual ,
+                               sto:Concern ;
+                      dcterms:creator sto:sebastian ;
+                      <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect TODO"@en ;
+                      rdfs:comment "Data-memory-constrained devices must be able to participate in communication. This means that a system built using the ARM shall support communication stacks with small data footprint."@en ;
+                      rdfs:label "Constraint Devices"@en ;
+                      rdfs:seeAlso "UNI.306"@en .
 
+
+###  https://w3id.org/i40/sto#ContextAwareness
+sto:ContextAwareness rdf:type owl:NamedIndividual ,
+                              sto:Concern ;
+                     <http://voag.linkedmodel.org/voag#hasStakeholder> "Developer"@en ;
+                     rdfs:comment "The look-up service of the system shall withold or grant information depending on context. Context includes application involved, requesting entity, and security permissions."@en ;
+                     rdfs:label "Context Awareness"@en ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.407" ,
+                                  "IoT-A Requirement UNI.420" ,
+                                  "IoT-A Requirement UNI.421" ,
+                                  "UNI.407"@en .
+
+
+###  https://w3id.org/i40/sto#CrossDomainIdentityManagement
+sto:CrossDomainIdentityManagement rdf:type owl:NamedIndividual ,
+                                           sto:Concern ;
+                                  dcterms:creator sto:sebastian ;
+                                  <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect"@en ;
+                                  dul:isPartOf sto:IdentityManagement ;
+                                  rdfs:comment "A system built using the ARM shall support identity-locator split, i.e. making the device's identity independent from its locator."@en ;
+                                  rdfs:label "Cross-domain Identity Management"@en ;
+                                  rdfs:seeAlso "IoT-A Requirement UNI.314" .
 
 
 ###  https://w3id.org/i40/sto#CrossLevel
@@ -1935,6 +2203,20 @@ sto:CrossLevel rdf:type owl:NamedIndividual ,
                sto:isDescribedin sto:ISA95 ;
                rdfs:comment "Describes the cross-level according to the ISA95 level classification. It means standards that are used at more than one level, e.g., manufacturing system security, etc"@en ;
                rdfs:label "Cross Level"@en .
+
+
+###  https://w3id.org/i40/sto#Customer
+sto:Customer rdf:type owl:NamedIndividual ,
+                      <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+
+
+###  https://w3id.org/i40/sto#DDS
+sto:DDS rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "DDS (Data-Distribution Service for Real-Time Systems): The first open international middleware standard directly addressing publish-subscribe communications for real-time and embedded systems. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "DDS"@en ;
+        sto:hasOfficialResource <http://portals.omg.org/dds/> .
 
 
 ###  https://w3id.org/i40/sto#DIN
@@ -2096,41 +2378,70 @@ sto:DMSC rdf:type owl:NamedIndividual ,
          sto:hasOfficialResource <http://www.dmis.org/> .
 
 
+###  https://w3id.org/i40/sto#DTLS
+sto:DTLS rdf:type owl:NamedIndividual ,
+                  sto:Standard ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "Datagram Transport Layer - The DTLS protocol provides communications privacy for datagram protocols. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. The DTLS protocol is based on the Transport Layer Security (TLS) protocol and provides equivalent security guarantees. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "DTLS"@en ;
+         sto:hasOfficialResource <https://tools.ietf.org/html/rfc4347> .
+
+
 ###  https://w3id.org/i40/sto#DataAccess
 sto:DataAccess rdf:type owl:NamedIndividual ,
                         sto:Concern ;
-               dcterms:creator "sebastian"@en ;
-               rdfs:label "Data Access"@en .
+               dcterms:creator sto:sebastian ;
+               rdfs:label "Data Access"@en ;
+               rdfs:seeAlso "IoT-A Requirement UNI.022" .
 
 
 ###  https://w3id.org/i40/sto#DataAccessControl
 sto:DataAccessControl rdf:type owl:NamedIndividual ,
                                sto:Concern ;
+                      dcterms:creator sto:sebastian ;
+                      <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+                                                                        <https://w3id.org/i40/DataOwner> ;
                       dul:isPartOf sto:Authorization ;
-                      dcterms:creator "sebastian"@en ;
                       rdfs:comment "Automated access control based on formalized descriptions."@en ;
-                      rdfs:label "Data Access Control"@en .
+                      rdfs:label "Data Access Control"@en ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.002" ,
+                                   "IoT-A Requirement UNI.067" ,
+                                   "IoT-A Requirement UNI.410" ,
+                                   "IoT-A Requirement UNI.411" ,
+                                   "IoT-A Requirement UNI.412" ,
+                                   "IoT-A Requirement UNI.413" ,
+                                   "IoT-A Requirement UNI.504" .
 
 
 ###  https://w3id.org/i40/sto#DataAnalytics
 sto:DataAnalytics rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dcterms:creator "sebastian"@en ;
-                  rdfs:label "Data Analytics"@en .
+                  dcterms:creator sto:sebastian ;
+                  rdfs:label "Data Analytics"@en ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.232" .
 
 
 ###  https://w3id.org/i40/sto#DataAtRest
 sto:DataAtRest rdf:type owl:NamedIndividual ,
-                        sto:Concern .
+                        sto:Concern ;
+               dul:isPartOf sto:Communication .
+
+
+###  https://w3id.org/i40/sto#DataConsumer
+sto:DataConsumer rdf:type owl:NamedIndividual ,
+                          <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
 ###  https://w3id.org/i40/sto#DataDescription
 sto:DataDescription rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    dcterms:creator "sebastian"@en ;
+                    dcterms:creator sto:sebastian ;
+                    <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ;
                     dul:isPartOf sto:SemanticInteroperability ;
                     rdfs:comment "Methods to unambiguously describe data resources."@en ;
-                    rdfs:label "Data Description"@en .
+                    rdfs:label "Data Description"@en ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.004" ,
+                                 "IoT-A Requirement UNI.240" .
 
 
 ###  https://w3id.org/i40/sto#DataDiscovery
@@ -2138,26 +2449,45 @@ sto:DataDiscovery rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator "How to find desired resources, Data Assets, Data Artefacts."@en ,
                                   "sebastian"@en ;
-                  rdfs:label "Data Discovery"@en .
+                  rdfs:label "Data Discovery"@en ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.236" ,
+                               "IoT-A Requirement UNI.408" ,
+                               "IoT-A Requirement UNI.422" .
 
 
 ###  https://w3id.org/i40/sto#DataEconomy
 sto:DataEconomy rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator "sebastian"@en ;
+                dcterms:creator sto:sebastian ;
                 rdfs:comment "Business aspects of data exchange"@en ;
                 rdfs:label "Data Economy"@en .
 
 
 ###  https://w3id.org/i40/sto#DataInMotion
 sto:DataInMotion rdf:type owl:NamedIndividual ,
-                          sto:Concern .
+                          sto:Concern ;
+                 dul:isPartOf sto:Communication .
+
+
+###  https://w3id.org/i40/sto#DataLifecycleManagment
+sto:DataLifecycleManagment rdf:type owl:NamedIndividual ,
+                                    sto:Concern ;
+                           dul:isPartOf sto:DataAnalytics .
+
+
+###  https://w3id.org/i40/sto#DataMarketAustria
+sto:DataMarketAustria rdf:type owl:NamedIndividual ,
+                               sto:DataSharingInitiative ;
+                      dcterms:creator sto:sebastian ;
+                      dcterms:title "Data Market Austria"@en ;
+                      rdfs:label "DMA"@en ;
+                      sto:hasOfficialResource <http://www.datamarket.at/> .
 
 
 ###  https://w3id.org/i40/sto#DataMarkets
 sto:DataMarkets rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator "sebastian"@en ;
+                dcterms:creator sto:sebastian ;
                 dul:isPartOf sto:DataEconomy ;
                 rdfs:comment "Data as an economic good; it's offered, demanded, and priced."@en ;
                 rdfs:label "Data Markets"@en .
@@ -2166,7 +2496,7 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataOwnership
 sto:DataOwnership rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dcterms:creator "sebastian"@en ;
+                  dcterms:creator sto:sebastian ;
                   rdfs:comment "Data Ownership declare the property on a information resource that is independent of its location, e.g. personal data belongs the the related person no matter where it is stored."@en ;
                   rdfs:label "Data Ownership"@en .
 
@@ -2174,24 +2504,31 @@ sto:DataOwnership rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataProcessing
 sto:DataProcessing rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator "sebastian"@en ;
+                   dcterms:creator sto:sebastian ;
+                   <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
-                   rdfs:label "Data Processing"@en .
+                   rdfs:label "Data Processing"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.018" .
 
 
 ###  https://w3id.org/i40/sto#DataProtection
 sto:DataProtection rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator "sebastian"@en ;
+                   dcterms:creator sto:sebastian ;
                    rdfs:label "Data Protection"@en ,
                               "Datenschutz"@de ;
                    skos:note "sames as Privacy?"@de .
 
 
+###  https://w3id.org/i40/sto#DataProvider
+sto:DataProvider rdf:type owl:NamedIndividual ,
+                          <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+
+
 ###  https://w3id.org/i40/sto#DataPublishing
 sto:DataPublishing rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator "sebastian"@en ;
+                   dcterms:creator sto:sebastian ;
                    rdfs:comment "Data Publishing is the concern regarding all aspects of getting data (publicly) available."@en ;
                    rdfs:label "Data Publishing"@en .
 
@@ -2199,14 +2536,17 @@ sto:DataPublishing rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataQuality
 sto:DataQuality rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator "sebastian"@en ;
-                rdfs:label "Data Quality"@en .
+                dcterms:creator sto:sebastian ;
+                rdfs:label "Data Quality"@en ;
+                rdfs:seeAlso "IoT-A Requirement UNI.235" ,
+                             "IoT-A Requirement UNI.236" ,
+                             "IoT-A Requirement UNI.237" .
 
 
 ###  https://w3id.org/i40/sto#DataSelection
 sto:DataSelection rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dcterms:creator "sebastian"@en ;
+                  dcterms:creator sto:sebastian ;
                   rdfs:label "Data Selection"@en ,
                              "The ability of a system to query, filter, or request the desired data."@en .
 
@@ -2215,17 +2555,47 @@ sto:DataSelection rdf:type owl:NamedIndividual ,
 sto:DataSovereignty rdf:type owl:NamedIndividual ,
                              sto:Concern ,
                              sto:StandardClassification ;
-                    dcterms:creator "sebastian"@en ;
+                    dcterms:creator sto:sebastian ;
                     rdfs:label "Data Sovereignty"@en .
+
+
+###  https://w3id.org/i40/sto#DataTransferProject
+sto:DataTransferProject rdf:type owl:NamedIndividual ,
+                                 sto:DataSharingInitiative ;
+                        dul:associatedWith sto:DtpArchitecture ;
+                        <https://w3id.org/i40/hasTargetConcern> sto:DataSovereignty ,
+                                                                sto:IdentityManagement ,
+                                                                sto:Privacy ,
+                                                                sto:SecureCommunication ,
+                                                                sto:UserPreferences ;
+                        dcterms:creator sto:sebastian ;
+                        rdfs:comment "The Data Transfer Project (DTP) extends data portability beyond a user’s ability to download a copy of their data from their service provider (“provider”), to providing the user the ability 1 to initiate a direct transfer of their data into and out of any participating provider. The Data Transfer Project is an open source initiative to encourage participation of as many providers as possible. The DTP will enhance the data portability ecosystem by reducing the infrastructure burden on both providers and users, which should in turn increase the number of services offering portability. The protocols and methodology of the DTP enable direct, service-to-service data transfer with streamlined engineering work."@en ;
+                        rdfs:label "Data Transfer Project"@en ;
+                        sto:hasOfficialResource <https://github.com/google/data-transfer-project> .
+
+
+###  https://w3id.org/i40/sto#DataTransferProjectWhitepaper
+sto:DataTransferProjectWhitepaper rdf:type owl:NamedIndividual ,
+                                           sto:Publication ;
+                                  sto:hasDeveloper sto:DataTransferProject ;
+                                  sto:hasPublisher sto:DataTransferProject ;
+                                  dcterms:creator sto:sebastian ;
+                                  rdfs:comment "The Data Transfer Project Whitepaper provides a brief overview on the intends of the Data Transfer Project and the targeted approach."@en ;
+                                  rdfs:label "Data Transfer Project Whitepaper"@en .
 
 
 ###  https://w3id.org/i40/sto#DataUsageControl
 sto:DataUsageControl rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dcterms:creator "sebastian"@en ;
+                     dcterms:creator sto:sebastian ;
                      dul:isPartOf sto:Privacy ;
                      rdfs:comment "Data usage control can be seen as an extension of data access control. It is about the specification and enforcement of restrictions regulating what is allowed to happen with data, and what is not. Data usage control thus is concerned with requirements that pertain to data processing (obligations) rather than data access (provisions). It is primarily relevant in the context of intellectual property protection, privacy protection, compliance with regulations, and digital rights management."@en ;
                      rdfs:label "Data Usage Control"@en .
+
+
+###  https://w3id.org/i40/sto#Developer
+sto:Developer rdf:type owl:NamedIndividual ,
+                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
 ###  https://w3id.org/i40/sto#DeviceLevel
@@ -2233,6 +2603,43 @@ sto:DeviceLevel rdf:type owl:NamedIndividual ,
                          sto:ISA95Level ;
                 rdfs:comment "Describes the device level according to the ISA95 level classification."@en ;
                 rdfs:label "Device Level"@en .
+
+
+###  https://w3id.org/i40/sto#DigiMesh
+sto:DigiMesh rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "DigiMesh is a proprietary peer-to-peer networking topology for use in wireless end-point connectivity solutions. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "DigiMesh"@en ;
+             sto:hasOfficialResource <http://www.digi.com/technology/digimesh/> .
+
+
+###  https://w3id.org/i40/sto#DtpArchitecture
+sto:DtpArchitecture rdf:type owl:NamedIndividual ,
+                             sto:ArchitectureDescription ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:comment "The architecture description of the Data Transfer Project has not yet been published in a sufficient manner."@en ;
+                    rdfs:label "Data Transfer Project Architecture"@en .
+
+
+###  https://w3id.org/i40/sto#DynamicAdjustability
+sto:DynamicAdjustability rdf:type owl:NamedIndividual ,
+                                  sto:Concern ;
+                         dul:isPartOf sto:ServiceChoreography ,
+                                      sto:ServiceComposition ,
+                                      sto:ServiceOrchestration ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.713" .
+
+
+###  https://w3id.org/i40/sto#DynamicDiscovery
+sto:DynamicDiscovery rdf:type owl:NamedIndividual ,
+                              sto:Concern ;
+                     dul:isPartOf sto:DataDiscovery ,
+                                  sto:ServiceDiscovery ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.418" ,
+                                  "IoT-A Requirement UNI.419" ,
+                                  "IoT-A Requirement UNI.420" ,
+                                  "IoT-A Requirement UNI.421" .
 
 
 ###  https://w3id.org/i40/sto#ENISA
@@ -2311,14 +2718,51 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/DECT_Ultra_Low_Energy> .
 
 
+###  https://w3id.org/i40/sto#EcGsmIoT
+sto:EcGsmIoT rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "EC-GSM-IoT (Extended Coverage-GSM-IoT): Enables new capabilities of existing cellular networks for LPWA (Low Power Wide Area) IoT applications. EC-GSM-IoT can be activated through new software deployed over a very large GSM footprint, adding even more coverage to serve IoT devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "EC-GSM-IoT"@en ;
+             sto:hasOfficialResource <https://www.ericsson.com/news/1987789> .
+
+
+###  https://w3id.org/i40/sto#EclipsePaho
+sto:EclipsePaho rdf:type owl:NamedIndividual ,
+                         sto:TechnicalSpecification ;
+                dcterms:creator sto:sebastian ;
+                rdfs:comment "The scope of the Paho project is to provide open source implementations of open and standard messaging protocols that support current and emerging requirements of M2M integration with Web and Enterprise middleware and applications. It will include client implementations for use on embedded platforms along with corresponding server support as determined by the community. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                rdfs:label "Eclipse Paho Project"@en ;
+                sto:hasOfficialResource <https://www.eclipse.org/proposals/technology.paho/> .
+
+
+###  https://w3id.org/i40/sto#Eddystone
+sto:Eddystone rdf:type owl:NamedIndividual ,
+                       sto:TechnicalSpecification ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "Eddystone - A protocol specification that defines a Bluetooth low energy (BLE) message format for proximity beacon messages. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "Eddystone"@en ;
+              sto:hasOfficialResource <https://github.com/google/eddystone> .
+
+
 ###  https://w3id.org/i40/sto#EdgeComputing
 sto:EdgeComputing rdf:type owl:NamedIndividual ,
                            sto:Concern .
 
+
+###  https://w3id.org/i40/sto#EnOcean
+sto:EnOcean rdf:type owl:NamedIndividual ,
+                     sto:TechnicalSpecification ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "EnOcean is a an energy harvesting wireless technology which works in the frequencies of 868 MHz for europe and 315 MHz for North America. The transmit range goes up to 30 meter in buildings and up to 300 meter outdoor. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+            rdfs:label "EnOcean"@en ;
+            sto:hasOfficialResource <http://www.enocean.com/en/home/> .
+
+
 ###  https://w3id.org/i40/sto#EndpointDescription
 sto:EndpointDescription rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
-                        dcterms:creator "sebastian"@en ;
+                        dcterms:creator sto:sebastian ;
                         rdfs:comment "Methods to unambiguously describe client and server endpoints."@en ;
                         rdfs:label "Endpoint Description"@en .
 
@@ -2326,19 +2770,34 @@ sto:EndpointDescription rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#EndpointInvocation
 sto:EndpointInvocation rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        dul:isPartOf sto:Interoperability ;
                        rdfs:comment "Mechanisms to interact with a service and to access it through the network."@en ;
-                       rdfs:label "Endpoint Invocation"@en .
+                       rdfs:label "Endpoint Invocation"@en ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.100" ,
+                                    "IoT-A Requirement UNI.417" .
+
+
+###  https://w3id.org/i40/sto#EnergyControl
+sto:EnergyControl rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dul:associatedWith rami:EnergyEfficiency ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.100" ,
+                               "IoT-A Requirement UNI.101" ,
+                               "IoT-A Requirement UNI.309" ,
+                               "IoT-A Requirement UNI.310" ,
+                               "IoT-A Requirement UNI.505" ,
+                               "IoT-A Requirement UNI.512" ,
+                               "IoT-A Requirement UNI.714" .
 
 
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
 sto:EnterpriseIntegration rdf:type owl:NamedIndividual ,
-                                  sto:Domain ;
-                         sto:domainName "EnterpriseIntegration"@en ;
-                         rdfs:comment "Enterprise Integration deals primarily with system interconnection, electronic data interchange, product data exchange and distributed computing environments."@en ;
-                         rdfs:label "EnterpriseIntegration"@en ;
-                         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Enterprise_integration> .
+                                   sto:Domain ;
+                          sto:domainName "EnterpriseIntegration"@en ;
+                          rdfs:comment "Enterprise Integration deals primarily with system interconnection, electronic data interchange, product data exchange and distributed computing environments."@en ;
+                          rdfs:label "EnterpriseIntegration"@en ;
+                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Enterprise_integration> .
 
 
 ###  https://w3id.org/i40/sto#EnterpriseLevel
@@ -2348,10 +2807,29 @@ sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
                     rdfs:label "Enterprise Level"@en .
 
 
+###  https://w3id.org/i40/sto#EventBasedCommunication
+sto:EventBasedCommunication rdf:type owl:NamedIndividual ,
+                                     sto:Concern ;
+                            <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                            dul:isPartOf sto:DataInMotion ;
+                            rdfs:seeAlso "IoT-A Requirement UNI.005" ,
+                                         "IoT-A Requirement UNI.233" .
+
+
+###  https://w3id.org/i40/sto#Evolvability
+sto:Evolvability rdf:type owl:NamedIndividual ,
+                          sto:Concern ;
+                 dcterms:creator sto:sebastian ;
+                 rdfs:comment "A system shall accomodate fast developmental changes in applications and network."@en ;
+                 rdfs:label "Evolvability"@en ;
+                 rdfs:seeAlso "IoT-A Requirement UNI.701" ,
+                              "IoT-A Requirement UNI.702" .
+
+
 ###  https://w3id.org/i40/sto#ExecutionVariability
 sto:ExecutionVariability rdf:type owl:NamedIndividual ,
                                   sto:Concern ;
-                         dcterms:creator "sebastian"@en ;
+                         dcterms:creator sto:sebastian ;
                          rdfs:comment "The system's ability to flexibly connect/adjust data flows in order to reach a defined target."@en ;
                          rdfs:label "Execution Variability"@en .
 
@@ -2360,7 +2838,7 @@ sto:ExecutionVariability rdf:type owl:NamedIndividual ,
 sto:FIWARE rdf:type owl:NamedIndividual ,
                     sto:ArchitectureDescription ;
            sto:alignesWith iira:ImplementationViewpoint ;
-           dcterms:creator "sebastian"@en ;
+           dcterms:creator sto:sebastian ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
            rdfs:label "FIWARE"@en ;
            sto:hasOfficialResource <https://www.fiware.org/> .
@@ -3127,7 +3605,7 @@ sto:FiwareAdvancedUi rdf:type owl:NamedIndividual ,
                                      iira:UsageViewpoint ;
                      sto:frames sto:UserInteraction ;
                      sto:isDescribedin sto:FIWARE ;
-                     dcterms:creator "sebastian"@en ;
+                     dcterms:creator sto:sebastian ;
                      rdfs:comment """The Generic Enablers (GEs) from the Advanced Web-based User Interface (WebUI) chapter cover a set of GEs that provide an advanced user experience using HTML-5 and a Web-based UI approach.
 
 The objective of the Advanced Web-based UI GE is to significantly improve the user experience for the Future Internet by adding new user input and interaction capabilities, such as interactive 3D graphics, immersive interaction with the real and virtual world via Augmented Reality, virtualizing the display and driving them over the network, and many more."""@en ;
@@ -3142,7 +3620,7 @@ sto:FiwareApplicationsServicesAndDataDelivery rdf:type owl:NamedIndividual ,
                                                          sto:ServiceComposition ,
                                                          sto:ServiceSelection ;
                                               sto:isDescribedin sto:FIWARE ;
-                                              dcterms:creator "sebastian"@en ;
+                                              dcterms:creator sto:sebastian ;
                                               rdfs:comment """The Generic Enablers (GE) for the Apps Chapter together build an ecosystem of applications, services and data that is sustainable and fosters innovation as well as cross-fertilization. In particular the Apps Generic Enablers supports managing applications, services and data in a business framework across the whole service life cycle from creation through composition of applications and data to monetization and revenue sharing.
 
 A couple of basic GEs are important to realize the vision of such an applications, services and data business framework, which enables new business models in an agile and flexible way. Among them: a store, a marketplace, a revenue sharing engine, an application composer through mashup and a data visualization and analysis component.
@@ -3170,7 +3648,7 @@ sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
                                   sto:ServiceDeployment ,
                                   sto:ServiceOrchestration ;
                        sto:isDescribedin sto:FIWARE ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:comment """The Cloud Chapter offers Generic Enablers (GEs) that comprise the foundation for designing a modern cloud hosting infrastructure that can be used to develop, deploy and manage Future Internet applications and services. Provided hosting capabilities are of several kinds and at several levels of resource abstraction -- aiming at the needs of different applications hosted on the cloud.
 
 The IaaS Data Center Resource Management (DCRM) GE is offering provisioning and life cycle management of virtualized resources (compute, storage, network) associated with virtual machines. The Object Storage GE offers provisioning and life cycle management of object-based storage containers and elements. The Job Scheduler GE offers the application to submit and manage computational jobs in a unified and scalable manner. The Edgelet Management GE offers the capability to host lightweight application components, called edgelets. Moreover, the IaaS Service Management (SM) GE provides the means to host complex applications. Lastly, the PaaS Management GE uses the above capabilities to offer provisioning and management of complete PaaS environments, leveraging also the Software Deployment and Configuration (SDC) GE which offers a flexible framework for installation and customization of software products (via Chef recipes) within individual virtual machines."""@en ;
@@ -3184,7 +3662,7 @@ sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
                                            sto:DataDiscovery ,
                                            sto:StreamProcessing ;
                                 sto:isDescribedin sto:FIWARE ;
-                                dcterms:creator "sebastian"@en ;
+                                dcterms:creator sto:sebastian ;
                                 rdfs:comment """The Data/Context Management FIWARE chapter aims at providing outperforming and platform-like GEs that will ease development and provision of innovative Applications that require gathering, publication, processing and exploitation of information and data streams in real-time and at massive scale. Combined with GEs coming from the Apps Chapters, Application Providers will be able to build innovative business models based on exploitation of massive data provided by end users.
 
 FIWARE Data/Context Management GEs allow to gather information from context and other sources (Context Broker), mediate metadata among GEs and applications (Metadata pre-processor) query stored information through an homogeneous layer (Query Broker), , annotate existing information (Semantic Annotation), store and manage semantic information (Semantic Application Support), generate new knowledge from big data stores using a Map & Reduce paradigm (Big Data analysis) and react to different types of scenarios (Complex Event Processing). It also provides GEs for media management, as easy creation of advanced video applications (Stream Oriented GE) and specifically, video analysis in the compressed domain (CDVA)."""@en ;
@@ -3204,7 +3682,7 @@ sto:FiwareIotServicesEnablement rdf:type owl:NamedIndividual ,
                                            sto:Interoperability ,
                                            sto:IoT ;
                                 sto:isDescribedin sto:FIWARE ;
-                                dcterms:creator "sebastian"@en ;
+                                dcterms:creator sto:sebastian ;
                                 rdfs:comment """The deployment of the architecture of the IoT Service Enablement chapter is typically distributed across a large number of Devices, several Gateways and the Backend.
 
 A device is a hardware entity, component or system that either measures properties of a thing/group of things or influences the properties of a thing/group of things or both measures/influences. Sensors and actuators are devices.
@@ -3228,7 +3706,7 @@ sto:FiwareSecurity rdf:type owl:NamedIndividual ,
                               sto:IdentityManagement ,
                               sto:Security ;
                    sto:isDescribedin sto:FIWARE ;
-                   dcterms:creator "sebastian"@en ;
+                   dcterms:creator sto:sebastian ;
                    rdfs:comment """The Future Internet services will always be exposed to different types of threats that can lead to severe misuse and damage. Creating secured and trusted services without sacrificing much of the desired functionality, usability, performance and cost efficiency is a great challenge, especially in a dynamic environment where new threats and attack methods emerge on a daily basis.
 
 The overall ambition of the Security Architecture of FIWARE is to demonstrate that the Vision of an Internet that is \"secure by design\" is becoming reality. Based on achievements to date and/or to come in the short-term (both from a technological but also a standardization perspective) we will show that \"secure by design\" is possible.
@@ -3267,14 +3745,77 @@ sto:GPLv2 rdf:type owl:NamedIndividual ,
           skos:prefLabel "OCL 1.0" .
 
 
+###  https://w3id.org/i40/sto#GeoTracking
+sto:GeoTracking rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                rdfs:comment "A system built using the ARM shall support physical entity location tracking (geo spatial and/or logical location)"@en ;
+                rdfs:seeAlso "IoT-A Requirement UNI.016" .
+
+
+###  https://w3id.org/i40/sto#GeospatialData
+sto:GeospatialData rdf:type owl:NamedIndividual ,
+                            sto:Concern ;
+                   rdfs:comment "Discovery and lookup services of the system shall allow locating physical entities based on geographical parameters"@en ;
+                   rdfs:label "Geospatial data and information"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.402" ,
+                                "IoT-A Requirement UNI.403" ,
+                                "IoT-A Requirement UNI.404" ,
+                                "IoT-A Requirement UNI.405" ,
+                                "IoT-A Requirement UNI.406" ,
+                                "IoT-A Requirement UNI.415" ,
+                                "IoT-A Requirement UNI.420" ,
+                                "IoT-A Requirement UNI.421" ,
+                                "UNI.401"@en ,
+                                "UNI.402"@en ,
+                                "UNI.403"@en ,
+                                "UNI.404"@en .
+
+
 ###  https://w3id.org/i40/sto#HTML
 sto:HTML rdf:type owl:NamedIndividual ,
-                  sto:Technology .
+                  sto:TechnicalSpecification ;
+         sto:hasDeveloper sto:IETF ;
+         sto:hasPublisher sto:IETF ;
+         rdfs:label "HTML"@en .
 
 
 ###  https://w3id.org/i40/sto#HTTP
 sto:HTTP rdf:type owl:NamedIndividual ,
-                  sto:Technology .
+                  sto:TechnicalSpecification ;
+         sto:hasDeveloper sto:IETF ;
+         sto:hasPublisher sto:IETF ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "HTTP is the most widely used protocol for internet communication."@en ;
+         rdfs:label "HTTP"@en ;
+         sto:hasDBpediaResource <http://dbpedia.org/resource/Hypertext_Transfer_Protocol> ;
+         sto:hasOfficialResource <https://tools.ietf.org/html/rfc7230> ,
+                                 <https://tools.ietf.org/html/rfc7231> ,
+                                 <https://tools.ietf.org/html/rfc7232> ,
+                                 <https://tools.ietf.org/html/rfc7233> ,
+                                 <https://tools.ietf.org/html/rfc7234> ,
+                                 <https://tools.ietf.org/html/rfc7235> ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol> .
+
+
+###  https://w3id.org/i40/sto#HTTP2
+sto:HTTP2 rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          sto:hasDeveloper sto:IETF ;
+          sto:hasPublisher sto:IETF ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "HTTP/2 - Enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "HTTP/2"@en ;
+          sto:hasOfficialResource <http://httpwg.org/specs/rfc7540.html> .
+
+
+###  https://w3id.org/i40/sto#HyperCat
+sto:HyperCat rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "HyperCat - An open, lightweight JSON-based hypermedia catalogue format for exposing collections of URIs. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "HyperCat"@en ;
+             sto:hasOfficialResource <http://www.hypercat.io/standard.html> .
 
 
 ###  https://w3id.org/i40/sto#IBM
@@ -3498,7 +4039,7 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ID4me
 sto:ID4me rdf:type owl:NamedIndividual ,
-                   sto:Technology ;
+                   sto:TechnicalSpecification ;
           <https://w3id.org/i40/hasTargetConcern> sto:Identification ,
                                                   sto:IdentityManagement ;
           dcterms:creator "sebastian" ;
@@ -6235,6 +6776,24 @@ sto:IEEE rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <http://wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers> .
 
 
+###  https://w3id.org/i40/sto#IEEE_1377-2012
+sto:IEEE_1377-2012 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   dcterms:creator sto:sebastian ;
+                   rdfs:comment "IEEE Standard for Utility Industry Metering Communication Protocol Application Layer (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                   rdfs:label "IEEE 1377-2012"@en ;
+                   sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1377-2012.html> .
+
+
+###  https://w3id.org/i40/sto#IEEE_1451
+sto:IEEE_1451 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "The IEEE 1451, a family of Smart Transducer Interface Standards, describes a set of open, common, network-independent communication interfaces for connecting transducers (sensors or actuators) to microprocessors, instrumentation systems, and control/field networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "IEEE 1451"@en ;
+              sto:hasOfficialResource <http://grouper.ieee.org/groups/1451/0/body%20frame_files/Family-of-1451_handout.htm> .
+
+
 ###  https://w3id.org/i40/sto#IEEE_1686
 sto:IEEE_1686 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -6246,6 +6805,69 @@ sto:IEEE_1686 rdf:type owl:NamedIndividual ,
               rdfs:label "IEEE 1686"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEEE_Smart_Grid> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEEE_Smart_Grid> .
+
+
+###  https://w3id.org/i40/sto#IEEE_1856
+sto:IEEE_1856 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "Standard Framework for Prognostics and Health Management of Electronic Systems (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "IEEE 1856"@en ;
+              sto:hasOfficialResource <http://standards.ieee.org/develop/project/1856.html> .
+
+
+###  https://w3id.org/i40/sto#IEEE_1888-3-2013
+sto:IEEE_1888-3-2013 rdf:type owl:NamedIndividual ,
+                              sto:Standard ;
+                     dcterms:creator sto:sebastian ;
+                     rdfs:comment " - IEEE Standard for Ubiquitous Green Community Control Network: Security (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                     rdfs:label "IEEE 1888.3-2013"@en ;
+                     sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1888.3-2013.html> .
+
+
+###  https://w3id.org/i40/sto#IEEE_1905_1-2013
+sto:IEEE_1905_1-2013 rdf:type owl:NamedIndividual ,
+                              sto:Standard ;
+                     dcterms:creator sto:sebastian ;
+                     rdfs:comment "IEEE Standard for a Convergent Digital Home Network for Heterogeneous Technologies (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                     rdfs:label "IEEE 1905.1-2013"@en ;
+                     sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1905.1-2013.html> .
+
+
+###  https://w3id.org/i40/sto#IEEE_2413
+sto:IEEE_2413 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "IEEE P2413 - Standard for an Architectural Framework for the Internet of Things (IoT) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "IEEE 2413"@en ;
+              sto:hasOfficialResource <https://standards.ieee.org/develop/project/2413.html> .
+
+
+###  https://w3id.org/i40/sto#IEEE_802
+sto:IEEE_802 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "IEEE 802.15.4 is a standard which specifies the physical layer and media access control for low-rate wireless personal area networks (LR-WPANs). It is maintained by the IEEE 802.15 working group. It is the basis for the ZigBee,ISA100.11a, WirelessHART, and MiWi specifications, each of which further extends the standard by developing the upper layers which are not defined in IEEE 802.15.4. Alternatively, it can be used with 6LoWPAN and standard Internet protocols to build a wireless embedded Internet. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "IEEE 802.15.4"@en ;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEEE_802.15.4> .
+
+
+###  https://w3id.org/i40/sto#IEEE_802_16-2012
+sto:IEEE_802_16-2012 rdf:type owl:NamedIndividual ,
+                              sto:Standard ;
+                     dcterms:creator sto:sebastian ;
+                     rdfs:comment "IEEE Standard for Air Interface for Broadband Wireless Access Systems (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                     rdfs:label "IEEE 802.16p-2012"@en ;
+                     sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/802.16p-2012.html> .
+
+
+###  https://w3id.org/i40/sto#IEEE_P1828
+sto:IEEE_P1828 rdf:type owl:NamedIndividual ,
+                        sto:Standard ;
+               dcterms:creator sto:sebastian ;
+               rdfs:comment "Standard for Systems With Virtual Components (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+               rdfs:label "IEEE P1828"@en ;
+               sto:hasOfficialResource <http://standards.ieee.org/develop/project/1828.html> .
 
 
 ###  https://w3id.org/i40/sto#IETF
@@ -6264,8 +6886,11 @@ sto:IETF rdf:type owl:NamedIndividual ,
 sto:IIC rdf:type owl:NamedIndividual ,
                  sto:IIoTConsortium ;
         dul:associatedWith sto:IIRA ;
-        dcterms:creator "sebastian"@en ;
-        rdfs:label "IIC"@en .
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "Founded in 2014 to further development, adoption and wide-spread use of interconnected machines, intelligent analytics and people at work. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "IIC"@en ,
+                   "Industrial Internet Consortium"@en ;
+        sto:hasOfficialResource <http://www.iiconsortium.org/> .
 
 
 ###  https://w3id.org/i40/sto#IIRA
@@ -6283,6 +6908,45 @@ sto:IIRC rdf:type owl:NamedIndividual ,
          rdfs:isDefinedBy <https://www.iiconsortium.org/IICF.htm> ;
          rdfs:label "IICF"@en ;
          rdfs:seeAlso <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> .
+
+
+###  https://w3id.org/i40/sto#IPSO
+sto:IPSO rdf:type owl:NamedIndividual ,
+                  sto:IIoTConsortium ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "The Alliance is a global non-profit organization serving the various communities seeking to establish the Internet Protocol as the network for the connection of Smart Objects by providing coordinated marketing efforts available to the general public. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "IPSO"@en ;
+         sto:hasOfficialResource <http://www.ipso-alliance.org/> .
+
+
+###  https://w3id.org/i40/sto#IPv4Support
+sto:IPv4Support rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                dcterms:creator sto:sebastian ;
+                <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect"@en ;
+                rdfs:comment "Communication with non-IPv6 networks must be possible (IPv4, others)."@en ;
+                rdfs:label "IPv4 Support"@en ;
+                rdfs:seeAlso "IoT-A Requirement UNI.313" .
+
+
+###  https://w3id.org/i40/sto#IPv6
+sto:IPv6 rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         <https://w3id.org/i40/hasTargetConcern> sto:SyntacticInteroperability ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "IPv6, is an Internet Layer protocol for packet-switched internetworking and provides end-to-end datagram transmission across multiple IP networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "IPv6"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IPv6> .
+
+
+###  https://w3id.org/i40/sto#IPv6Support
+sto:IPv6Support rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                dcterms:creator sto:sebastian ;
+                <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect"@en ;
+                rdfs:comment "A system built using the ARM shall use/support common-addressing-schemes such as IPv6."@en ;
+                rdfs:label "IPv6 Support"@en ;
+                rdfs:seeAlso "IoT-A Requirement UNI.312" .
 
 
 ###  https://w3id.org/i40/sto#ISA
@@ -6313,6 +6977,15 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ANSI/ISA-95> .
 
 
+###  https://w3id.org/i40/sto#ISA10011a
+sto:ISA10011a rdf:type owl:NamedIndividual ,
+                       sto:TechnicalSpecification ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "ISA100.11a is a wireless networking technology standard developed by the International Society of Automation (ISA). The official description is Wireless Systems for Industrial Automation: Process Control and Related Application. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "ISA100.11a"@en ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISA100.11a> .
+
+
 ###  https://w3id.org/i40/sto#ISA95
 sto:ISA95 rdf:type owl:NamedIndividual ,
                    sto:StandardizationFramework ;
@@ -6321,7 +6994,9 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISA_62443
-sto:ISA_62443 rdf:type owl:NamedIndividual ;
+sto:ISA_62443 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              rdfs:label "ISA_62443"@en ;
               sto:publisher sto:ISA .
 
 
@@ -6743,6 +7418,17 @@ sto:ISO_19770 rdf:type owl:NamedIndividual ,
               rdfs:label "ISO/IEC 19770"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_19770> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_19770> .
+
+
+###  https://w3id.org/i40/sto#ISO_19941
+sto:ISO_19941 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              <https://w3id.org/i40/hasTargetConcern> sto:CloudComputing ;
+              dcterms:creator sto:sebastian ;
+              dcterms:title "Cloud Computing - Interoperability and Portability"@en ;
+              rdfs:comment ""@en ;
+              rdfs:label "ISO/IEC 19941:2017"@en ;
+              sto:hasOfficialResource <http://standards.iso.org/ittf/PubliclyAvailableStandards/c066639_ISO_IEC_19941_2017.zip> .
 
 
 ###  https://w3id.org/i40/sto#ISO_20140_5
@@ -7221,20 +7907,35 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
                skos:altLabel "Information Security Management"@en .
 
 
+###  https://w3id.org/i40/sto#IVRA
+sto:IVRA rdf:type owl:NamedIndividual ,
+                  sto:ArchitectureDescription ;
+         dcterms:title "Industrial Value Chain Reference Architecture"@en ;
+         rdfs:comment "The Reference Architecture (IVRA) of the Industrial Value Chain Initive (IVI) proposes a system architecture for the manufactoring domain targeting interoperability and communicational aspects."@en ;
+         rdfs:label "IVRA"@en ;
+         sto:hasOfficialResource <https://iv-i.org/wp-test/wp-content/uploads/2017/09/doc_161208_Industrial_Value_Chain_Reference_Architecture.pdf> .
+
+
 ###  https://w3id.org/i40/sto#Identification
 sto:Identification rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dul:isPartOf sto:IdentityManagement ;
                    dc11:description "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
-                   rdfs:label "Identification"@en .
+                   dul:isPartOf sto:IdentityManagement ;
+                   rdfs:label "Identification"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.030" ,
+                                "IoT-A Requirement UNI.425" ,
+                                "IoT-A Requirement UNI.428" ,
+                                "IoT-A Requirement UNI.622" .
 
 
 ###  https://w3id.org/i40/sto#IdentityManagement
 sto:IdentityManagement rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:comment "Mechanisms to assure  identification."@en ;
-                       rdfs:label "Identity Management"@en .
+                       rdfs:label "Identity Management"@en ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.048" ,
+                                    "IoT-A Requirement UNI.432" .
 
 
 ###  https://w3id.org/i40/sto#IndustrialAutomation
@@ -7262,9 +7963,13 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IntegrityProtection
 sto:IntegrityProtection rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
-                        dcterms:creator "sebastian"@en ;
+                        dcterms:creator sto:sebastian ;
+                        <http://voag.linkedmodel.org/voag#hasStakeholder> "Device/Service Owner" ;
                         rdfs:comment "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
-                        rdfs:label "Integrity Protection and Verification"@en .
+                        rdfs:label "Integrity Protection and Verification"@en ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.066" ,
+                                     "IoT-A Requirement UNI.603" ,
+                                     "IoT-A Requirement UNI.620" .
 
 
 ###  https://w3id.org/i40/sto#InterfaceNetworksDevices
@@ -7286,7 +7991,7 @@ sto:InterfaceNetworksDevices rdf:type owl:NamedIndividual ,
                                         sto:ServiceOrchestration ,
                                         sto:SyntacticInteroperability ;
                              sto:isDescribedin sto:FIWARE ;
-                             dcterms:creator "sebastian"@en ;
+                             dcterms:creator sto:sebastian ;
                              rdfs:comment """The GEs in the I2ND chapter provide three sets of functionalities.
 
 The first is an advanced integration middleware to be used by all FIWARE GEs with high performance communication needs
@@ -7305,14 +8010,188 @@ sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#Interoperability
 sto:Interoperability rdf:type owl:NamedIndividual ,
                               sto:Concern ;
+                     <http://voag.linkedmodel.org/voag#hasStakeholder> <https://w3id.org/i40/GeneralMAnager> ,
+                                                                       <https://www.wikidata.org/wiki/Q1548249> ;
                      rdfs:comment "A systems ability to connect with other systems."@en ,
                                   "Interoperability refers to the ability of two or more devices from the same vendor, or different vendors, to exchange information and use that information for correct co-operation [IEC61850-2010]."@en ;
-                     rdfs:label "Interoperability"@en .
+                     rdfs:label "Interoperability"@en ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.008" ,
+                                  "IoT-A Requirement UNI.010" ,
+                                  "IoT-A Requirement UNI.023" ,
+                                  "IoT-A Requirement UNI.042" ,
+                                  "IoT-A Requirement UNI.047" ,
+                                  "IoT-A Requirement UNI.093" ,
+                                  "IoT-A Requirement UNI.094" ,
+                                  "IoT-A Requirement UNI.232" ,
+                                  "IoT-A Requirement UNI.712" .
 
 
 ###  https://w3id.org/i40/sto#IoT
 sto:IoT rdf:type owl:NamedIndividual ,
-                 sto:Concern .
+                 sto:Concern ;
+        rdfs:seeAlso "IoT-A Requirement UNI.213" .
+
+
+###  https://w3id.org/i40/sto#IoTA
+sto:IoTA rdf:type owl:NamedIndividual ,
+                  sto:IIoTConsortium ;
+         dul:associatedWith sto:IotaReferenceArchitecture ;
+         dcterms:title "IoT Architecture"@en ;
+         rdfs:comment "After much discussion about the core concepts of the IoT for several years, in 2009 a group of researchers from more than 20 large industrial companies and research institutions joined forces to lay the foundation for the much needed common ground or a common “architecture” for the Internet of Things: the IoTArchitecture project (IoT-A) was born. IoT-A has become the European Commission’s flagship project in the European Union’s Seventh Framework Program for Research and Development with respect to establishing an architecture for the Internet of Things."@en ;
+         rdfs:label "IoT-A"@en ;
+         rdfs:seeAlso <http://open-platforms.eu/standard_protocol/iot-a-architectural-reference-model/> .
+
+
+###  https://w3id.org/i40/sto#IoTivity
+sto:IoTivity rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "IoTivity is an open source project hosted by the Linux Foundation, and sponsored by the OIC. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "IoTivity"@en ;
+             sto:hasOfficialResource <https://www.iotivity.org/> .
+
+
+###  https://w3id.org/i40/sto#IotaAvailabilityResilience
+sto:IotaAvailabilityResilience rdf:type owl:NamedIndividual ,
+                                        sto:IotaPerspective .
+
+
+###  https://w3id.org/i40/sto#IotaDeploymentOperationViewpoint
+sto:IotaDeploymentOperationViewpoint rdf:type owl:NamedIndividual ,
+                                              sto:Viewpoint ;
+                                     dcterms:creator sto:sebastian ;
+                                     rdfs:label "IoT-A Deployment and Operation"@en .
+
+
+###  https://w3id.org/i40/sto#IotaEvolutionInteroperability
+sto:IotaEvolutionInteroperability rdf:type owl:NamedIndividual ,
+                                           sto:IotaPerspective .
+
+
+###  https://w3id.org/i40/sto#IotaFunctionalViewpoint
+sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
+                                     sto:Viewpoint ;
+                            sto:isDescribedin sto:IotaReferenceArchitecture ;
+                            dcterms:creator sto:sebastian ;
+                            rdfs:label "IoT-A Functional Viewpoint"@en .
+
+
+###  https://w3id.org/i40/sto#IotaInformationViewpoint
+sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
+                                      sto:Viewpoint ;
+                             <https://w3id.org/i40/hasTargetConcern> sto:ServiceDescription ,
+                                                                     sto:VirtualEntity ;
+                             sto:alignesWith iira:InformationDomain ,
+                                             idsram:InformationLayer ;
+                             sto:isDescribedin sto:IotaReferenceArchitecture ;
+                             dcterms:creator sto:sebastian ;
+                             rdfs:comment "One of the main purposes of connected and smart objects in the IoT is the exchange of information between each other and also with external systems. Therefore the way how to define, structure, store, process, manage and exchange information is very important. The information view helps to generate an overview about static information structure and dynamic information flow. (source: Bassi et al.: Enabling Things to Talk)"@en ;
+                             rdfs:label "IoT-A Information Viewpoint"@en ;
+                             sto:hasOfficialResource <http://doi.org/10.1007/978-3-642-40403-0> .
+
+
+###  https://w3id.org/i40/sto#IotaPerformanceScalability
+sto:IotaPerformanceScalability rdf:type owl:NamedIndividual ,
+                                        sto:IotaPerspective .
+
+
+###  https://w3id.org/i40/sto#IotaReferenceArchitecture
+sto:IotaReferenceArchitecture rdf:type owl:NamedIndividual ,
+                                       sto:ArchitectureDescription ;
+                              dcterms:creator sto:sebastian ;
+                              rdfs:label "IoT-A Reference Architecture"@en .
+
+
+###  https://w3id.org/i40/sto#IotaTrustSecurityPrivacy
+sto:IotaTrustSecurityPrivacy rdf:type owl:NamedIndividual ,
+                                      sto:IotaPerspective .
+
+
+###  https://w3id.org/i40/sto#IpsoAppFramework
+sto:IpsoAppFramework rdf:type owl:NamedIndividual ,
+                              sto:TechnicalSpecification ;
+                     dcterms:creator sto:sebastian ;
+                     rdfs:comment "IPSO Application Framework (PDF): This design defines sets of REST interfaces that may be used by a smart object to represent its available resources, interact with other smart objects and backend services. This framework is designed to be complementary to existing Web profiles including SEP2 and oBIX. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                     rdfs:label "IPSO App Framework"@en ;
+                     sto:hasOfficialResource <http://www.ipso-alliance.org/wp-content/media/draft-ipso-app-framework-04.pdf> .
+
+
+###  https://w3id.org/i40/sto#Ivi
+sto:Ivi rdf:type owl:NamedIndividual ,
+                 sto:IIoTConsortium ;
+        dcterms:creator sto:sebastian ;
+        dcterms:title "Industrial Value Chain Initiative"@en ;
+        rdfs:comment "The Industrial Value Chain Initiative (IVI) is a forum to design a new society by combining manufacturing and information technologies, and for all enterprises to take an initiative collaboratively."@en ;
+        rdfs:label "IVI"@en ;
+        sto:hasOfficialResource <https://iv-i.org/> .
+
+
+###  https://w3id.org/i40/sto#IviActivityLayer
+sto:IviActivityLayer rdf:type owl:NamedIndividual ,
+                              sto:IviLayer ;
+                     owl:sameAs sto:IviActivityView ;
+                     sto:alignesWith rami:Engineering ,
+                                     sto:Manufacturing ;
+                     sto:isDescribedin sto:IVRA ;
+                     dcterms:creator sto:sebastian ;
+                     rdfs:comment "The activity layer has a view point of activities actually conducted at various places in manufacturers. People and machines acting voluntarily, human activity, machine processes, and information as an object og such activities and processes are brought up for discussion. In every production site of every manufacturer, concrete manufacturing activities are conducted in a different way. (source: IVRA-Next)"@en ;
+                     rdfs:label "IVI Activity Layer"@en .
+
+
+###  https://w3id.org/i40/sto#IviActivityView
+sto:IviActivityView rdf:type owl:NamedIndividual ,
+                             sto:Viewpoint ;
+                    sto:alignesWith rami:Engineering ;
+                    sto:frames sto:Manufacturing ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:label "IVI Activity View"@en .
+
+
+###  https://w3id.org/i40/sto#IviAssetView
+sto:IviAssetView rdf:type owl:NamedIndividual ,
+                          sto:Viewpoint ;
+                 owl:sameAs sto:IviBusinessLayer ;
+                 sto:frames sto:ThingRepresentation ;
+                 dcterms:creator sto:sebastian ;
+                 rdfs:label "IVI Asset View"@en .
+
+
+###  https://w3id.org/i40/sto#IviBusinessLayer
+sto:IviBusinessLayer rdf:type owl:NamedIndividual ,
+                              sto:IviLayer ;
+                     owl:sameAs sto:IviManagementView ;
+                     sto:frames sto:BusinessTransactions ;
+                     sto:isDescribedin sto:IVRA ;
+                     dcterms:creator sto:sebastian ;
+                     rdfs:comment "In the business layer, from a perspective of enterprise management, the focus of discussions is placed on the fundamentel structure of manufacturing, organization forms for manufacturing, presence of essential perspectives and axes as well as a philosophy and concept of values underpinning the big picture. (source: IVRA-Next)"@en ;
+                     rdfs:label "IVI Business Layer"@en .
+
+
+###  https://w3id.org/i40/sto#IviManagementView
+sto:IviManagementView rdf:type owl:NamedIndividual ,
+                               sto:Viewpoint ;
+                      sto:frames sto:BusinessContext ,
+                                 sto:BusinessTransactions ;
+                      dcterms:creator sto:sebastian ;
+                      rdfs:label "IVI Management View"@en .
+
+
+###  https://w3id.org/i40/sto#IviSpecificationLayer
+sto:IviSpecificationLayer rdf:type owl:NamedIndividual ,
+                                   sto:IviLayer ;
+                          sto:alignesWith rami:Engineering ;
+                          sto:isDescribedin sto:IVRA ;
+                          dcterms:creator sto:sebastian ;
+                          rdfs:comment "In the specification layer, the following will be considered: Specific operations based on human activities and machine processes and the things and information items that are their subjects, as well as the data and their attributes that are the subject of the processes executed by logic in software. (source: IVRA-Next)"@en ;
+                          rdfs:label "IVI Specification Layer"@en .
+
+
+###  https://w3id.org/i40/sto#JMS
+sto:JMS rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "JMS (Java Message Service) - A Java Message Oriented Middleware (MOM) API for sending messages between two or more clients. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "JMS"@en .
 
 
 ###  https://w3id.org/i40/sto#KATS
@@ -7332,23 +8211,95 @@ sto:KATS rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#KeyRock
 sto:KeyRock rdf:type owl:NamedIndividual ,
-                     sto:Technology ;
+                     sto:TechnicalSpecification ;
             dul:associatedWith sto:FiwareDataContextManagement ,
                                sto:FiwareSecurity ;
             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement .
 
 
+###  https://w3id.org/i40/sto#LLAP
+sto:LLAP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "LLAP (lightweight local automation protocol): is a simple short message that is sent between inteligent objects using normal text, it's not like TCP/IP, bluetooth, zigbee, 6lowpan, WiFi etc which achieve at a low level 'how' to move data around. This means LLAP can run over any communication medium. The three strengths of LLAP are, it'll run on anything now, anything in the future and it's easily understandable by humans. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "LLAP"@en ;
+         sto:hasOfficialResource <http://openkontrol.org/llap/index.php/openkontrol/69-LLAP%20-%20Lightweight%20Local%20Automation%20Protocol> .
+
+
+###  https://w3id.org/i40/sto#LWM2M
+sto:LWM2M rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "LWM2M (Lightweight M2M) is a system standard in the Open Mobile Alliance. It includes DTLS, CoAP, Block, Observe, SenML and Resource Directory and weaves them into a device-server interface along with an Object structure. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "LWM2M"@en ;
+          sto:hasOfficialResource <http://yucianga.info/?p=786> .
+
+
 ###  https://w3id.org/i40/sto#LinkedData
 sto:LinkedData rdf:type owl:NamedIndividual ,
-                        sto:Technology .
+                        sto:TechnicalSpecification .
+
+
+###  https://w3id.org/i40/sto#LoRaWAN
+sto:LoRaWAN rdf:type owl:NamedIndividual ,
+                     sto:TechnicalSpecification ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "LoRaWAN - Network protocol intended for wireless battery operated Things in regional, national or global network. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+            rdfs:label "LoRaWAN"@en ;
+            sto:hasOfficialResource <https://www.lora-alliance.org/What-Is-LoRa/Technology> .
+
+
+###  https://w3id.org/i40/sto#LoWPAN
+sto:LoWPAN rdf:type owl:NamedIndividual ,
+                    sto:TechnicalSpecification ;
+           <https://w3id.org/i40/hasTargetConcern> sto:Communication ;
+           sto:hasClassification iira:Connectivity ,
+                                 rami:Communication ;
+           sto:hasDeveloper sto:IETF ;
+           sto:hasPublisher sto:IETF ;
+           dcterms:creator sto:sebastian ;
+           rdfs:comment "6LoWPAN is an acronym of IPv6 over Low power Wireless Personal Area Networks. It is an adaption layer for IPv6 over IEEE802.15.4 links. This protocol operates only in the 2.4 GHz frequency range with 250 kbps transfer rate. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+           rdfs:label "6LoWPAN"@en ;
+           sto:hasDBpediaResource <http://dbpedia.org/resource/6LoWPAN> ;
+           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/6LoWPAN> .
 
 
 ###  https://w3id.org/i40/sto#LocalDataConfidentiality
 sto:LocalDataConfidentiality rdf:type owl:NamedIndividual ,
                                       sto:Concern ;
-                             dcterms:creator "sebastian"@en ;
+                             dcterms:creator sto:sebastian ;
                              rdfs:comment "Describes the means by which local data is protected."@en ;
                              rdfs:label "Local Data Confidentiality"@en .
+
+
+###  https://w3id.org/i40/sto#Logging
+sto:Logging rdf:type owl:NamedIndividual ,
+                     sto:Concern ;
+            rdfs:seeAlso "IoT-A Requirement UNI.409" ,
+                         "IoT-A Requirement UNI.710" .
+
+
+###  https://w3id.org/i40/sto#LowPowerWiFi
+sto:LowPowerWiFi rdf:type owl:NamedIndividual ,
+                          sto:TechnicalSpecification .
+
+
+###  https://w3id.org/i40/sto#LsDL
+sto:LsDL rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "LsDL (Lemonbeat smart Device Language) - XML-based device language for service oriented devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "LsDL"@en ;
+         sto:hasOfficialResource <http://www.lemonbeat.com/lsdl/> .
+
+
+###  https://w3id.org/i40/sto#LteMtc
+sto:LteMtc rdf:type owl:NamedIndividual ,
+                    sto:TechnicalSpecification ;
+           dcterms:creator sto:sebastian ;
+           rdfs:comment "LTE-MTC (LTE-Machine Type Communication) - Standards-based family of technologies supports several technology categories, such as Cat-1 and CatM1, suitable for the IoT. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+           rdfs:label "LTE-MTC"@en ;
+           sto:hasOfficialResource <http://www.gsma.com/connectedliving/long-term-evolution-machine-type-communication-lte-mtc-cat-m1/> .
 
 
 ###  https://w3id.org/i40/sto#M2M
@@ -7423,8 +8374,8 @@ sto:MTConnect_Institute rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#MachineLearning
 sto:MachineLearning rdf:type owl:NamedIndividual ,
                              sto:Concern ;
+                    dcterms:creator sto:sebastian ;
                     dul:isPartOf sto:AI ;
-                    dcterms:creator "sebastian"@en ;
                     rdfs:label "Machine Learning"@en .
 
 
@@ -7451,6 +8402,24 @@ sto:MathML rdf:type owl:NamedIndividual ,
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/MathML> .
 
 
+###  https://w3id.org/i40/sto#MessagePriority
+sto:MessagePriority rdf:type owl:NamedIndividual ,
+                             sto:Concern ;
+                    <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ,
+                                                                      <owl:Developer> ;
+                    dul:isPartOf sto:Communication ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.028" .
+
+
+###  https://w3id.org/i40/sto#Mihini
+sto:Mihini rdf:type owl:NamedIndividual ,
+                    sto:TechnicalSpecification ;
+           dcterms:creator sto:sebastian ;
+           rdfs:comment "Mihini/M3DA: The Mihini agent is a software component that acts as a mediator between an M2M server and the applications running on an embedded gateway. M3DA is a protocol optimized for the transport of binary M2M data. It is made available in the Mihini project both for means of Device Management, by easing the manipulation and synchronization of a device's data model, and for means of Asset Management, by allowing user applications to exchange typed data/commands back and forth with an M2M server, in a way that optimizes the use of bandwidth (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+           rdfs:label "Mihini"@en ;
+           sto:hasOfficialResource <https://wiki.eclipse.org/Mihini/M3DA_Specification> .
+
+
 ###  https://w3id.org/i40/sto#ModBus
 sto:ModBus rdf:type owl:NamedIndividual ,
                     sto:Standard ;
@@ -7475,10 +8444,22 @@ sto:ModelingPractice rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Multilaterism
 sto:Multilaterism rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dcterms:creator "sebastian"@en ;
+                  dcterms:creator sto:sebastian ;
+                  dul:isPartOf sto:CardinalityOfDataSources ;
                   rdfs:comment "Data Artefacts are received by 1 to m Data Consumer."@en ;
                   rdfs:label "Multilateralism"@en ;
-                  skos:altLabel "Cardinality of Participants"@en .
+                  skos:altLabel "Cardinality of Participants"@en ,
+                                "Multicast"@en .
+
+
+###  https://w3id.org/i40/sto#MultipleIdentities
+sto:MultipleIdentities rdf:type owl:NamedIndividual ,
+                                sto:Concern ;
+                       dcterms:creator sto:sebastian ;
+                       dul:isPartOf sto:IdentityManagement ;
+                       rdfs:comment "Devices must be able to switch between different networks without losing connections (Network handover/handoff support)."@en ;
+                       rdfs:label "Multiple Identities"@en ;
+                       rdfs:seeAlso "UNI.320"@en .
 
 
 ###  https://w3id.org/i40/sto#NERC
@@ -7491,11 +8472,20 @@ sto:NERC rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation> .
 
 
+###  https://w3id.org/i40/sto#NFC
+sto:NFC rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "Based on the standard ISO/IEC 18092:2004, using inductive coupled devices at a center frequency of13.56 MHz. The data rate is up to 424 kbps and the rangeis with a few meters short compared to the wireless sensornetworks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "NFC"@en ;
+        sto:hasOfficialResource <http://www.nfc-forum.org/home/> .
+
+
 ###  https://w3id.org/i40/sto#NGSI
 sto:NGSI rdf:type owl:NamedIndividual ,
-                  sto:Technology ;
+                  sto:TechnicalSpecification ;
          sto:hasPublisher sto:FIWARE ;
-         dcterms:creator "sebastian"@en ;
+         dcterms:creator sto:sebastian ;
          dcterms:title "Next Generation Service Interface"@en ;
          rdfs:comment """The FIWARE NGSI (Next Generation Service Interface) API defines
 -    a data model for context information, based on a simple information model using the notion of context entities
@@ -7615,6 +8605,59 @@ sto:NIST_800-146 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource <https://csrc.nist.gov/publications/detail/sp/800-146/final> .
 
 
+###  https://w3id.org/i40/sto#NanoIP
+sto:NanoIP rdf:type owl:NamedIndividual ,
+                    sto:TechnicalSpecification ;
+           dcterms:creator sto:sebastian ;
+           rdfs:comment "NanoIP, which stands for the nano Internet Protocol, is a concept that was created to bring Internet-like networking services to embedded and sensor devices, without the overhead of TCP/IP. NanoIP was designed with minimal overheads, wireless networking, and local addressing in mind. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+           rdfs:label "NanoIP"@en ;
+           sto:hasOfficialResource <http://www.cwc.oulu.fi/nanoip/> .
+
+
+###  https://w3id.org/i40/sto#NbIoT
+sto:NbIoT rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "NB-IoT (Narrow-Band IoT) A technology being standardized by the 3GPP standards body. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "NB-IoT"@en ;
+          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/NarrowBand_IOT> .
+
+
+###  https://w3id.org/i40/sto#NetworkCongestion
+sto:NetworkCongestion rdf:type owl:NamedIndividual ,
+                               sto:Concern ;
+                      dcterms:creator sto:sebastian ;
+                      rdfs:comment "While congestion avoidance is important in any large network, in low bandwidth mesh networks this is essential."@en ;
+                      rdfs:label "Network Congestion"@en ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.615" ;
+                      sto:hasDBpediaResource <https://dbpedia.org/resource/Network_congestion> ;
+                      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Network_congestion> .
+
+
+###  https://w3id.org/i40/sto#NetworkVirtualization
+sto:NetworkVirtualization rdf:type owl:NamedIndividual ,
+                                   sto:Concern ;
+                          dcterms:creator sto:sebastian ;
+                          dul:isPartOf sto:Communication ;
+                          rdfs:comment "The system shall support network virtualisation, i.e. the usage of virtual overlay networks."@en ;
+                          rdfs:label "Network Virtualization"@en ;
+                          rdfs:seeAlso "IoT-A Requirement UNI.328" ,
+                                       "UNI.328"@en ;
+                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Network_virtualization> .
+
+
+###  https://w3id.org/i40/sto#NonRepudiation
+sto:NonRepudiation rdf:type owl:NamedIndividual ,
+                            sto:Concern ;
+                   dcterms:creator sto:sebastian ;
+                   dul:isPartOf sto:IntegrityProtection ;
+                   rdfs:comment "In digital security, non-repudiation means:  (a)  A service that provides proof of the integrity and origin of data. (b) An authentication that can be said to be genuine with high confidence. The most common method of verifying the digital origin of data is through digital certificates, a form of public key infrastructure that includes digital signatures."@en ;
+                   rdfs:label "Non-repudiation"@en ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.619" ;
+                   sto:hasDBpediaResource <https://dbpedia.org/resource/Non-repudiation> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Non-repudiation> .
+
+
 ###  https://w3id.org/i40/sto#OAGIS
 sto:OAGIS rdf:type owl:NamedIndividual ,
                    sto:Standard ;
@@ -7677,6 +8720,24 @@ sto:ODVA rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ODVA_(company)> .
 
 
+###  https://w3id.org/i40/sto#OMA
+sto:OMA rdf:type owl:NamedIndividual ,
+                 sto:IIoTConsortium ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "OMA (Open Mobile Alliance) is the Leading Industry Forum for Developing Market Driven, Interoperable Mobile Service Enablers (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "Open Mobile Alliance"@en ;
+        sto:hasOfficialResource <http://openmobilealliance.org/about-oma/work-program/m2m-enablers/> .
+
+
+###  https://w3id.org/i40/sto#OMALightweightM2M
+sto:OMALightweightM2M rdf:type owl:NamedIndividual ,
+                               sto:TechnicalSpecification ;
+                      dcterms:creator sto:sebastian ;
+                      rdfs:comment "The motivation of LightweightM2M is to develop a fast deployable client-server specification to provide machine to machine service.<br> LightweightM2M is principly a device management protocol, but it should be designed to be able to extend to meet the requirements of applications. LightweightM2M is not restricted to device management, it should be able transfer service / application data. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                      rdfs:label "Lightweight M2M v1.0"@en ;
+                      sto:hasOfficialResource <http://technical.openmobilealliance.org/Technical/release_program/lightweightM2M_v1_0.aspx> .
+
+
 ###  https://w3id.org/i40/sto#OMG
 sto:OMG rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
@@ -7719,18 +8780,79 @@ sto:OPC_Foundation rdf:type owl:NamedIndividual ,
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Foundation> .
 
 
+###  https://w3id.org/i40/sto#OTrP
+sto:OTrP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "Open Trust Protocol (OTrP) - A protocol to install, update, and delete applications and to manage security configuration in a Trusted Execution Environment (TEE). (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "Open Trust Protocol"@en ;
+         sto:hasOfficialResource <https://www.ietf.org/id/draft-pei-opentrustprotocol-01.txt> .
+
+
+###  https://w3id.org/i40/sto#OceanProtocol
+sto:OceanProtocol rdf:type owl:NamedIndividual ,
+                           sto:TechnicalSpecification ;
+                  sto:hasDeveloper sto:OceanProtocolFoundation ;
+                  sto:hasPublisher sto:OceanProtocolFoundation ;
+                  rdfs:comment "Ocean is a decentralized protocol and network of artificial intelligence (AI) data/services. It incentivizes for a vast supply of relevant AI data/services. This network helps to power AI data/service marketplaces, as well as public commons data. The heart of Ocean’s network is a new construction: a Curated Proofs Market. CPMs bridge predicted relevance with actual relevance of each AI service, by having curation markets for cryptographic proofs (e.g. proof of data availability). (source: https://oceanprotocol.com/tech-whitepaper.pdf)"@en ;
+                  rdfs:label "Ocean Protocol"@en ;
+                  rdfs:seeAlso <https://oceanprotocol.com/tech-whitepaper.pdf> ;
+                  sto:hasOfficialResource <https://oceanprotocol.com/> .
+
+
+###  https://w3id.org/i40/sto#OceanProtocolFoundation
+sto:OceanProtocolFoundation rdf:type owl:NamedIndividual ,
+                                     foaf:Organization ;
+                            dcterms:creator sto:sebastian ;
+                            rdfs:comment "Ocean Protocol is supported by a Singapore based non-profit foundation, whose mandate is to ensure open access to the protocol and platform, provide data governance, encourage the network ecosystem growth and take measures to ensure that the platform becomes ever more decentralized with time."@en ;
+                            rdfs:label "Ocean Protocol Foundation"@en ;
+                            sto:hasOfficialResource <https://oceanprotocol.com/> .
+
+
 ###  https://w3id.org/i40/sto#OpenDaylight
 sto:OpenDaylight rdf:type owl:NamedIndividual ,
-                          sto:Technology ;
+                          sto:TechnicalSpecification ;
                  dcterms:creator "sebastian" .
+
+
+###  https://w3id.org/i40/sto#OpenWSN
+sto:OpenWSN rdf:type owl:NamedIndividual ,
+                     sto:TechnicalSpecification ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "OpenWSN Serves as a repository for open-source implementations of protocol stacks based on Internet of Things standards, using a variety of hardware and software platforms. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+            rdfs:label "OpenWSN"@en ;
+            sto:hasOfficialResource <https://openwsn.atlassian.net/wiki/pages/viewpage.action?pageId=688187> .
 
 
 ###  https://w3id.org/i40/sto#OrionContextBroker
 sto:OrionContextBroker rdf:type owl:NamedIndividual ,
-                                sto:Technology ;
+                                sto:TechnicalSpecification ;
                        dul:associatedWith sto:FIWARE ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:label "ORION Context Broker"@en .
+
+
+###  https://w3id.org/i40/sto#Performance
+sto:Performance rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                rdfs:seeAlso "IoT-A Requirement UNI.252" .
+
+
+###  https://w3id.org/i40/sto#PeriodicCommunication
+sto:PeriodicCommunication rdf:type owl:NamedIndividual ,
+                                   sto:Concern ;
+                          <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                          dul:isPartOf sto:DataInMotion ;
+                          rdfs:seeAlso "IoT-A Requirement UNI.005" .
+
+
+###  https://w3id.org/i40/sto#PhysicalWeb
+sto:PhysicalWeb rdf:type owl:NamedIndividual ,
+                         sto:TechnicalSpecification ;
+                dcterms:creator sto:sebastian ;
+                rdfs:comment "Physical Web - The Physical Web enables you to see a list of URLs being broadcast by objects in the environment around you with a Bluetooth Low Energy (BLE) beacon. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                rdfs:label "Physical Web"@en ;
+                sto:hasOfficialResource <https://google.github.io/physical-web/faq> .
 
 
 ###  https://w3id.org/i40/sto#PlatformIndustry40
@@ -7745,10 +8867,14 @@ sto:PlatformIndustry40 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Privacy
 sto:Privacy rdf:type owl:NamedIndividual ,
                      sto:Concern ;
+            dcterms:creator sto:sebastian ;
             dul:isPartOf sto:DataSovereignty ,
                          sto:Trustworthiness ;
-            dcterms:creator "sebastian"@en ;
-            rdfs:label "Privacy"@en .
+            rdfs:label "Privacy"@en ;
+            rdfs:seeAlso "IoT-A Requirement UNI.423" ,
+                         "IoT-A Requirement UNI.424" ,
+                         "IoT-A Requirement UNI.606" ,
+                         "IoT-A Requirement UNI.623" .
 
 
 ###  https://w3id.org/i40/sto#ProcessPlanning
@@ -7773,6 +8899,11 @@ sto:ProductLifeCycleManagement rdf:type owl:NamedIndividual ,
                                sto:isDescribedin sto:NISTInitiative ;
                                rdfs:comment "Product lifecycle data management focuses on the needs of long-term retention and access to data consistently throughout the product lifecycle."@en ;
                                rdfs:label "Production Life Cycle Management"@en .
+
+
+###  https://w3id.org/i40/sto#ProductManager
+sto:ProductManager rdf:type owl:NamedIndividual ,
+                            <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
 ###  https://w3id.org/i40/sto#ProductModelDataExchange
@@ -7815,12 +8946,30 @@ sto:ProductionSystemModelData rdf:type owl:NamedIndividual ,
                               rdfs:label "Production System Model Data"@en .
 
 
+###  https://w3id.org/i40/sto#ProjectManager
+sto:ProjectManager rdf:type owl:NamedIndividual ,
+                            <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+
+
 ###  https://w3id.org/i40/sto#ProvenanceTracking
 sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
+                       <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
                        rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
-                       rdfs:label "Provenance Tracking"@en .
+                       rdfs:label "Provenance Tracking"@en ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.041" ,
+                                    "IoT-A Requirement UNI.606" .
+
+
+###  https://w3id.org/i40/sto#Pseudonimity
+sto:Pseudonimity rdf:type owl:NamedIndividual ,
+                          sto:Concern ;
+                 dcterms:creator sto:sebastian ;
+                 dul:isPartOf sto:Anonymity ;
+                 rdfs:comment "While complete anonymity is not feasibe in an IoT scenario, pseudonimity should be supported."@en ;
+                 rdfs:label "Pseudonimity"@en ;
+                 rdfs:seeAlso "IoT-A Requirement UNI.624" .
 
 
 ###  https://w3id.org/i40/sto#QIF
@@ -7834,24 +8983,53 @@ sto:QIF rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://qifstandards.org/> .
 
 
+###  https://w3id.org/i40/sto#QUIC
+sto:QUIC rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "QUIC (Quick UDP Internet Connections, pronounced quick) supports a set of multiplexed connections between two endpoints over User Datagram Protocol (UDP), and was designed to provide security protection equivalent to TLS/SSL, along with reduced connection and transport latency, and bandwidth estimation in each direction to avoid congestion. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "QUIC"@en ;
+         sto:hasOfficialResource <https://en.wikipedia.org/wiki/QUIC> .
+
+
 ###  https://w3id.org/i40/sto#QualityOfService
 sto:QualityOfService rdf:type owl:NamedIndividual ,
-                              sto:Concern .
+                              sto:Concern ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.613" ,
+                                  "IoT-A Requirement UNI.614" ,
+                                  "IoT-A Requirement UNI.717" .
 
 
 ###  https://w3id.org/i40/sto#RAMI
 sto:RAMI rdf:type owl:NamedIndividual ,
                   sto:StandardizationFramework ;
-         sto:isDescribedin rami:Information ;
          rdfs:comment "Describes the RAMI model"@en ,
                       "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
          rdfs:isDefinedBy "https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html" ;
          rdfs:label "RAMI 4.0"@en .
 
 
+###  https://w3id.org/i40/sto#RAML
+sto:RAML rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "RAML (RESTful API Modeling Language) - Makes it easy to manage the whole API lifecycle from design to sharing. It's concise - you only write what you need to define - and reusable.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "RAML"@en ;
+         sto:hasOfficialResource <http://raml.org/> .
+
+
 ###  https://w3id.org/i40/sto#RDF
 sto:RDF rdf:type owl:NamedIndividual ,
-                 sto:Technology .
+                 sto:TechnicalSpecification .
+
+
+###  https://w3id.org/i40/sto#REST
+sto:REST rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "REST (Representational state transfer) - RESTful HTTP (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "REST"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Representational_state_transfer> .
 
 
 ###  https://w3id.org/i40/sto#RFC_1122
@@ -7890,6 +9068,19 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
              rdfs:comment "This memo describes how to use TLS to secure HTTP connections over  the Internet. Current practice is to layer HTTP over SSL (the predecessor to TLS), distinguishing secured traffic from insecure traffic by the use of a different server port. This document documents that practice using TLS. A companion document describes a method for using HTTP/TLS over the same port as normal HTTP [RFC2817]."@en ;
              rdfs:label "HTTPS"@en ,
                         "RFC 2818"@en .
+
+
+###  https://w3id.org/i40/sto#RFC_4511
+sto:RFC_4511 rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             <https://w3id.org/i40/hasTargetConcern> sto:CrossDomainIdentityManagement ;
+             sto:hasDeveloper sto:IETF ;
+             sto:hasPublisher sto:IETF ;
+             dcterms:creator sto:sebastian ;
+             dcterms:title "Lightweight Directory Access Protocol"@en ;
+             rdfs:label "LDAP"@en ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc4511> ;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol> .
 
 
 ###  https://w3id.org/i40/sto#RFC_5246
@@ -8032,6 +9223,63 @@ and redescribes the letter mechanism as a push function."""@en ;
             sto:hasOfficialResource <https://tools.ietf.org/html/rfc793> .
 
 
+###  https://w3id.org/i40/sto#RFC_8323
+sto:RFC_8323 rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             sto:hasClassification iira:Connectivity ,
+                                   rami:Communication ;
+             sto:hasDeveloper sto:IETF ;
+             sto:hasPublisher sto:IETF ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "CoAP (Constrained Application Protocol) is an application layer protocol that is intended for use in resource-constrained internet devices, such as WSN nodes. CoAP is designed to easily translate to HTTP for simplified integration with the web, while also meeting specialized requirements such as multicast support, very low overhead, and simplicity. The CoRE group has proposed the following features for CoAP: RESTful protocol design minimizing the complexity of mapping with HTTP, Low header overhead and parsing complexity, URI and content-type support, Support for the discovery of resources provided by known CoAP services. Simple subscription for a resource, and resulting push notifications, Simple caching based on max-age. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "CoAP"@en ;
+             sto:hasDBpediaResource <http://dbpedia.org/resource/Constrained_Application_Protocol> ;
+             sto:hasOfficialResource <https://tools.ietf.org/html/rfc8323> ;
+             sto:hasWikipediaArticle <http://en.wikipedia.org/wiki/Constrained_Application_Protocol> .
+
+
+###  https://w3id.org/i40/sto#ROLL
+sto:ROLL rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "ROLL / RPL (IPv6 routing for low power/lossy networks) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "ROLL"@en ;
+         sto:hasOfficialResource <https://datatracker.ietf.org/wg/roll/> .
+
+
+###  https://w3id.org/i40/sto#RPMA
+sto:RPMA rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "RPMA (Random phase multiple access) A technology communication system employing direct-sequence spread spectrum (DSSS) with multiple access. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "RPMA"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Random_phase_multiple_access> .
+
+
+###  https://w3id.org/i40/sto#RadioActivityControl
+sto:RadioActivityControl rdf:type owl:NamedIndividual ,
+                                  sto:Concern ;
+                         <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.021" .
+
+
+###  https://w3id.org/i40/sto#ReactiveStreams
+sto:ReactiveStreams rdf:type owl:NamedIndividual ,
+                             sto:TechnicalSpecification ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:comment "A standard for asynchronous stream processing with non-blocking back pressure on the JVM. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                    rdfs:label "Reactive Streams"@en ;
+                    sto:hasOfficialResource <http://www.reactive-streams.org/> .
+
+
+###  https://w3id.org/i40/sto#RealTimeAnalytics
+sto:RealTimeAnalytics rdf:type owl:NamedIndividual ,
+                               sto:Concern ;
+                      <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                      dul:isPartOf sto:DataAnalytics ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.020" .
+
+
 ###  https://w3id.org/i40/sto#RegulatoryContext
 sto:RegulatoryContext rdf:type owl:NamedIndividual ,
                                sto:Concern .
@@ -8040,23 +9288,31 @@ sto:RegulatoryContext rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Reliability
 sto:Reliability rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator "sebastian"@en ;
+                dcterms:creator sto:sebastian ;
                 dul:isPartOf sto:Trustworthiness ;
-                rdfs:label "Reliability"@en .
+                rdfs:label "Reliability"@en ;
+                rdfs:seeAlso "IoT-A Requirement UNI.065" .
 
 
 ###  https://w3id.org/i40/sto#Resilience
 sto:Resilience rdf:type owl:NamedIndividual ,
                         sto:Concern ;
-               dcterms:creator "sebastian"@en ;
+               dcterms:creator sto:sebastian ;
+               <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/generalManager> ,
+                                                                 <https://www.wikidata.org/wiki/Q1548249> ;
                dul:isPartOf sto:Trustworthiness ;
-               rdfs:label "Resilience"@en .
+               rdfs:label "Resilience"@en ;
+               rdfs:seeAlso "IoT-A Requirement UNI.012" ,
+                            "IoT-A Requirement UNI.040" ,
+                            "IoT-A Requirement UNI.058" ,
+                            "IoT-A Requirement UNI.064" ,
+                            "IoT-A Requirement UNI.718" .
 
 
 ###  https://w3id.org/i40/sto#RoleCategorization
 sto:RoleCategorization rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dcterms:creator "sebastian"@en ;
+                       dcterms:creator sto:sebastian ;
                        rdfs:label "Role Categorization"@en .
 
 
@@ -8071,16 +9327,19 @@ sto:SCADALevel rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SCIM
 sto:SCIM rdf:type owl:NamedIndividual ,
-                  sto:Technology ;
+                  sto:TechnicalSpecification ;
          dul:associatedWith sto:FiwareSecurity ,
                             sto:RFC_7642 ,
                             sto:RFC_7643 ,
                             sto:RFC_7644 ;
+         <https://w3id.org/i40/hasTargetConcern> sto:CrossDomainIdentityManagement ;
          sto:hasPublisher sto:IETF ;
          dcterms:creator "sebastian" ;
          dcterms:title "IETF System for Cross-domain Identity Management (SCIM) 2.0"@en ;
          rdfs:comment "The System for Cross-domain Identity Management (SCIM) specification is designed to make managing user identities in cloud-based applications and services easier. The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models. Its intent is to reduce the cost and complexity of user management operations by providing a common user schema and extension model, as well as binding documents to provide patterns for exchanging this schema using standard protocols. In essence: make it fast, cheap, and easy to move users in to, out of, and around the cloud."@en ;
-         rdfs:label "SCIM2"@en .
+         rdfs:label "SCIM"@en ;
+         sto:hasDBpediaResource <http://dbpedia.org/resource/System_for_Cross-domain_Identity_Management> ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management> .
 
 
 ###  https://w3id.org/i40/sto#SCM
@@ -8117,13 +9376,67 @@ sto:SE rdf:type owl:NamedIndividual ,
        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Schneider_Electric> .
 
 
+###  https://w3id.org/i40/sto#SENML
+sto:SENML rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "SENML (Media Types for Sensor Markup Language) - A simple sensor, such as a temperature sensor, could use this media type in protocols such as HTTP or CoAP to transport the measurements of the sensor or to be configured.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "SENML"@en ;
+          sto:hasOfficialResource <https://tools.ietf.org/html/draft-jennings-senml-08> .
+
+
+###  https://w3id.org/i40/sto#SMCP
+sto:SMCP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "SMCP — A C-based CoAP stack which is suitable for embedded environments. Features include: Support draft-ietf-core-coap-13, Fully asynchronous I/O, Supports both BSD sockets and UIP. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "SMCP"@en ;
+         sto:hasOfficialResource <https://github.com/darconeous/smcp/tree/smcp-0.6> .
+
+
+###  https://w3id.org/i40/sto#SOAP
+sto:SOAP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "SOAP (Simple Object Access Protocol) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "SOAP"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SOAP> .
+
+
+###  https://w3id.org/i40/sto#SSI
+sto:SSI rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "SSI (Simple Sensor Interface) is a simple communications protocol designed for data transfer between computers or user terminals and smart sensors. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "SSI"@en ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Simple_Sensor_Interface_protocol> .
+
+
+###  https://w3id.org/i40/sto#SSN
+sto:SSN rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "Semantic Sensor Net Ontology - W3C This ontology describes sensors and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "SSN"@en ;
+        sto:hasOfficialResource <https://www.w3.org/2005/Incubator/ssn/wiki/Semantic_Sensor_Net_Ontology> .
+
+
+###  https://w3id.org/i40/sto#STOMP
+sto:STOMP rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "STOMP - The Simple Text Oriented Messaging Protocol (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "STOMP"@en ;
+          sto:hasOfficialResource <https://stomp.github.io/implementations.html> .
+
+
 ###  https://w3id.org/i40/sto#Safety
 sto:Safety rdf:type owl:NamedIndividual ,
                     sto:Concern ,
                     sto:StandardClassification ;
            sto:isDescribedin sto:IndustrialDataSpace ,
                              idsram:ReferenceArchitectureModel ;
-           dcterms:creator "sebastian"@en ;
+           dcterms:creator sto:sebastian ;
            dul:isPartOf sto:Trustworthiness ;
            rdfs:comment "Functional safety (as defined by the IDS) is the ability of a system to prevent physical damage."@en ;
            rdfs:label "Safety"@en .
@@ -8132,97 +9445,200 @@ sto:Safety rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Scalability
 sto:Scalability rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator "sebastian"@en ;
-                rdfs:label "Scalability"@en .
+                dcterms:creator sto:sebastian ;
+                rdfs:label "Scalability"@en ;
+                rdfs:seeAlso "IoT-A Requirement UNI.026" ,
+                             "IoT-A Requirement UNI.234" ,
+                             "IoT-A Requirement UNI.511" ,
+                             "IoT-A Requirement UNI.711" .
 
 
 ###  https://w3id.org/i40/sto#SecureCommunication
 sto:SecureCommunication rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
-                        dcterms:creator "sebastian"@en ;
-                        rdfs:label "Secure Communication"@en .
+                        dcterms:creator sto:sebastian ;
+                        <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ,
+                                                                          <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+                                                                          <https://w3id.org/i40/SystemArchitect> ;
+                        dul:isPartOf sto:Security ;
+                        rdfs:label "Secure Communication"@en ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.022" ,
+                                     "IoT-A Requirement UNI.062" ,
+                                     "IoT-A Requirement UNI.501" ,
+                                     "IoT-A Requirement UNI.607" ,
+                                     "IoT-A Requirement UNI.608" ,
+                                     "IoT-A Requirement UNI.609" .
 
 
 ###  https://w3id.org/i40/sto#Security
 sto:Security rdf:type owl:NamedIndividual ,
                       sto:Concern ;
-             dcterms:creator "sebastian"@en ;
+             dcterms:creator sto:sebastian ;
+             <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/generalManager> ,
+                                                               <https://www.wikidata.org/wiki/Q1548249> ;
              dul:isPartOf sto:Trustworthiness ;
-             rdfs:label "Security"@en .
+             rdfs:label "Security"@en ;
+             rdfs:seeAlso "IoT-A Requirement UNI.040" ,
+                          "IoT-A Requirement UNI.507" ,
+                          "IoT-A Requirement UNI.626" ,
+                          "IoT-A Requirement UNI.719" .
+
+
+###  https://w3id.org/i40/sto#SecurityConfiguration
+sto:SecurityConfiguration rdf:type owl:NamedIndividual ,
+                                   sto:Concern ;
+                          rdfs:comment "Users should be able to monitor and control the security and privacy settings of all the devices that they own."@en ;
+                          rdfs:label "Security Configuration"@en ;
+                          rdfs:seeAlso "IoT-A Requirement UNI.625" .
 
 
 ###  https://w3id.org/i40/sto#SemanticInteroperability
 sto:SemanticInteroperability rdf:type owl:NamedIndividual ,
                                       sto:Concern ;
-                             dcterms:creator "sebastian"@en ;
+                             dcterms:creator sto:sebastian ;
+                             <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ;
                              dul:isPartOf sto:Interoperability ;
                              rdfs:comment """Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. 
 source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
-                             rdfs:label "Semantic Interoperability"@en .
+                             rdfs:label "Semantic Interoperability"@en ;
+                             rdfs:seeAlso "IoT-A Requirement UNI.003" ,
+                                          "IoT-A Requirement UNI.070" ,
+                                          "IoT-A Requirement UNI.073" ,
+                                          "IoT-A Requirement UNI.213" ,
+                                          "IoT-A Requirement UNI.426" ,
+                                          "IoT-A Requirement UNI.427" .
+
+
+###  https://w3id.org/i40/sto#SensorML
+sto:SensorML rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "SensorML provides standard models and an XML encoding for describing sensors and measurement processes. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "SensorML"@en ;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SensorML> .
+
+
+###  https://w3id.org/i40/sto#ServiceAccessControl
+sto:ServiceAccessControl rdf:type owl:NamedIndividual ,
+                                  sto:Concern ;
+                         dul:associatedWith sto:DataAccessControl ;
+                         dcterms:creator sto:sebastian ;
+                         dul:isPartOf sto:Authorization ;
+                         rdfs:label "Service Access Control"@en ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.611" .
 
 
 ###  https://w3id.org/i40/sto#ServiceChoreography
 sto:ServiceChoreography rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
-                        dcterms:creator "sebastian"@en ;
+                        dcterms:creator sto:sebastian ;
                         rdfs:comment "2 to n Data Apps/Services/Data Provider are connected (without a central coordinator)"@en ;
-                        rdfs:label "Service Choreography"@en .
+                        rdfs:label "Service Choreography"@en ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.096" ,
+                                     "IoT-A Requirement UNI.704" .
 
 
 ###  https://w3id.org/i40/sto#ServiceComposition
 sto:ServiceComposition rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
-                       dcterms:creator "sebastian"@en ;
-                       dul:isPartOf sto:DataAnalytics ;
-                       rdfs:comment "2 to n Data Apps/Services are connected"@en ;
-                       rdfs:label "Service Composition"@en .
+                       dcterms:creator sto:sebastian ;
+                       <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                       rdfs:comment "2 to n Data Apps/Devices/Services are connected"@en ;
+                       rdfs:label "Service Composition"@en ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.014" ,
+                                    "IoT-A Requirement UNI.031" ,
+                                    "IoT-A Requirement UNI.043" ,
+                                    "IoT-A Requirement UNI.089" ,
+                                    "IoT-A Requirement UNI.094" ,
+                                    "IoT-A Requirement UNI.234" ,
+                                    "IoT-A Requirement UNI.244" ,
+                                    "IoT-A Requirement UNI.245" ,
+                                    "IoT-A Requirement UNI.247" ,
+                                    "IoT-A Requirement UNI.251" ,
+                                    "IoT-A Requirement UNI.253" .
 
 
 ###  https://w3id.org/i40/sto#ServiceDeployment
 sto:ServiceDeployment rdf:type owl:NamedIndividual ,
-                               sto:Concern .
+                               sto:Concern ;
+                      dul:isPartOf sto:ServiceLifecycleManagement ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.429" .
+
+
+###  https://w3id.org/i40/sto#ServiceDescription
+sto:ServiceDescription rdf:type owl:NamedIndividual ,
+                                sto:Concern ;
+                       dcterms:creator sto:sebastian ;
+                       <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ;
+                       dul:isPartOf sto:SemanticInteroperability ;
+                       rdfs:comment "A Service Description plays an important role in enabling access to a service. Most service description languages are designed for machine consumption, allowing for the automatic creation of code skeletons, easier search, and classification of services. However, people may also find descriptions useful to learn about the use of parameters or the precise semantics of some operation.  (https://www.w3.org/standards/webofservices/description)"@en ;
+                       rdfs:label "Service Description"@en ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.004" ,
+                                    "IoT-A Requirement UNI.036" ,
+                                    "IoT-A Requirement UNI.042" ,
+                                    "IoT-A Requirement UNI.240" ,
+                                    "IoT-A Requirement UNI.715" .
 
 
 ###  https://w3id.org/i40/sto#ServiceDiscovery
 sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dcterms:creator "sebastian"@en ;
+                     dcterms:creator sto:sebastian ;
                      rdfs:comment "How to find desired (Web) services, Data Apps, functionalities"@en ;
-                     rdfs:label "Service Discovery"@en .
+                     rdfs:label "Service Discovery"@en ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.406" ,
+                                  "IoT-A Requirement UNI.408" ,
+                                  "IoT-A Requirement UNI.414" ,
+                                  "IoT-A Requirement UNI.415" ,
+                                  "IoT-A Requirement UNI.416" ,
+                                  "IoT-A Requirement UNI.422" ,
+                                  "IoT-A Requirement UNI.427" .
 
 
 ###  https://w3id.org/i40/sto#ServiceIsolation
 sto:ServiceIsolation rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dcterms:creator "sebastian"@en ;
+                     dcterms:creator sto:sebastian ;
                      rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
                      rdfs:label "Service Isolation"@en .
+
+
+###  https://w3id.org/i40/sto#ServiceLifecycleManagement
+sto:ServiceLifecycleManagement rdf:type owl:NamedIndividual ,
+                                        sto:Concern ;
+                               <http://voag.linkedmodel.org/voag#hasStakeholder> <https://w3id.org/i40/SystemArchitect> ;
+                               rdfs:seeAlso "IoT-A Requirement UNI.087" .
 
 
 ###  https://w3id.org/i40/sto#ServiceOrchestration
 sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
                                   sto:Concern ;
-                         dcterms:creator "sebastian"@en ;
+                         dcterms:creator sto:sebastian ;
+                         <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                          rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrates by a central entity."@en ;
-                         rdfs:label "Service Orchestration"@en .
+                         rdfs:label "Service Orchestration"@en ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.010" .
 
 
 ###  https://w3id.org/i40/sto#ServiceSelection
 sto:ServiceSelection rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dcterms:creator "sebastian"@en ;
+                     dcterms:creator sto:sebastian ;
                      rdfs:comment "The ability of a system to invoke or deploy the desired service/Data App."@en ;
                      rdfs:label "Service Selection"@en .
 
 
-###  https://w3id.org/i40/sto#Stakeholder
-sto:Stakeholder rdf:type owl:NamedIndividual ,
-                         sto:Concern .
+###  https://w3id.org/i40/sto#ServicelLevelAgreements
+sto:ServicelLevelAgreements rdf:type owl:NamedIndividual ,
+                                     sto:Concern .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:NamedIndividual ;
-             sto:abbreviation "IS" .
+###  https://w3id.org/i40/sto#SpatialModeling
+sto:SpatialModeling rdf:type owl:NamedIndividual ,
+                             sto:Concern ;
+                    dul:isPartOf sto:DataDescription ,
+                                 sto:SemanticInteroperability ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.098" .
 
 
 ###  https://w3id.org/i40/sto#StreamProcessing
@@ -8233,11 +9649,20 @@ sto:StreamProcessing rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#SyntacticInteroperability
 sto:SyntacticInteroperability rdf:type owl:NamedIndividual ,
                                        sto:Concern ;
-                              dcterms:creator "sebastian"@en ;
+                              dcterms:creator sto:sebastian ;
                               dul:isPartOf sto:Interoperability ;
                               rdfs:comment """If two or more systems are capable of communicating with each other, they exhibit syntactic interoperability when using specified data formats and communication protocols. XML or SQL standards are among the tools of syntactic interoperability. This is also true for lower-level data formats, such as ensuring alphabetical characters are stored in a same variation of ASCII or a Unicode format (for English or international text) in all the communicating systems. 
 source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
-                              rdfs:label "Syntactic Interoperability"@en .
+                              rdfs:label "Syntactic Interoperability"@en ;
+                              rdfs:seeAlso "IoT-A Requirement UNI.071" ,
+                                           "IoT-A Requirement UNI.096" ,
+                                           "IoT-A Requirement UNI.241" ,
+                                           "IoT-A Requirement UNI.318" ,
+                                           "IoT-A Requirement UNI.326" ,
+                                           "IoT-A Requirement UNI.327" ,
+                                           "IoT-A Requirement UNI.506" ,
+                                           "IoT-A Requirement UNI.709" ,
+                                           "UNI.327"@en .
 
 
 ###  https://w3id.org/i40/sto#SysML
@@ -8253,6 +9678,13 @@ sto:SysML rdf:type owl:NamedIndividual ,
           sto:hasOfficialResource <http://sysml.org/> ,
                                   <http://www.omgsysml.org/what-is-sysml.htm> ;
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Systems_Modeling_Language> .
+
+
+###  https://w3id.org/i40/sto#SystemEvolution
+sto:SystemEvolution rdf:type owl:NamedIndividual ,
+                             sto:Concern ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.211" ,
+                                 "IoT-A Requirement UNI.229" .
 
 
 ###  https://w3id.org/i40/sto#TC_1
@@ -8432,9 +9864,75 @@ The present document is depending on Core Protocol specification (oneM2M TS-0004
             sto:hasOfficialResource <https://w3id.org/i40/www.onem2m.org/images/files/deliverables/Release2A/TS-0009-HTTP_Protocol_Binding-v_2_13_1.pdf> .
 
 
+###  https://w3id.org/i40/sto#TSMP
+sto:TSMP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "Time Synchronized Mesh Protocol (TSMP): A communications protocol for self-organizing networks of wireless devices called motes. TSMP devices stay synchronized to each other and communicate in timeslots, similar to other TDM (time-division multiplexing) systems. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "TSMP"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/TSMP> .
+
+
 ###  https://w3id.org/i40/sto#TechnicalCommittee
 sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
                        sto:abbreviation "TC" .
+
+
+###  https://w3id.org/i40/sto#Telehash
+sto:Telehash rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "Telehash - JSON+UDP+DHT=Freedom: A secure wire protocol powering a decentralized overlay network for apps and devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "Telehash"@en ;
+             sto:hasOfficialResource <http://telehash.org/> .
+
+
+###  https://w3id.org/i40/sto#ThingDescription
+sto:ThingDescription rdf:type owl:NamedIndividual ,
+                              sto:Concern ;
+                     <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ,
+                                                                       <owl:Developer> ;
+                     dul:isPartOf sto:SemanticInteroperability ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.036" ,
+                                  "IoT-A Requirement UNI.042" ,
+                                  "IoT-A Requirement UNI.213" ,
+                                  "IoT-A Requirement UNI.237" ,
+                                  "IoT-A Requirement UNI.240" ,
+                                  "IoT-A Requirement UNI.404" ,
+                                  "IoT-A Requirement UNI.509" ,
+                                  "IoT-A Requirement UNI.512" .
+
+
+###  https://w3id.org/i40/sto#ThingMobility
+sto:ThingMobility rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dul:isPartOf sto:DataAccess ,
+                               sto:ServiceDeployment ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.050" ,
+                               "IoT-A Requirement UNI.233" .
+
+
+###  https://w3id.org/i40/sto#ThingRepresentation
+sto:ThingRepresentation rdf:type owl:NamedIndividual ,
+                                 sto:Concern ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.239" .
+
+
+###  https://w3id.org/i40/sto#Thread
+sto:Thread rdf:type owl:NamedIndividual ,
+                    sto:Standard ;
+           dcterms:creator sto:sebastian ;
+           rdfs:comment "Thread - Built on open standards and IPv6 technology with 6LoWPAN as its foundation. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+           rdfs:label "Thread"@en ;
+           sto:hasOfficialResource <http://www.threadgroup.org/About.aspx> .
+
+
+###  https://w3id.org/i40/sto#TimeSynchronization
+sto:TimeSynchronization rdf:type owl:NamedIndividual ,
+                                 sto:Concern ;
+                        <http://voag.linkedmodel.org/voag#hasStakeholder> <https://w3id.org/i40/Developer> ;
+                        dul:isPartOf sto:ServiceComposition ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.089" .
 
 
 ###  https://w3id.org/i40/sto#TrustedConnector
@@ -8449,9 +9947,21 @@ sto:TrustedConnector rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Trustworthiness
 sto:Trustworthiness rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    dcterms:creator "sebastian"@en ;
+                    dcterms:creator sto:sebastian ;
                     rdfs:comment "Trustworthiness is the degree of confidence one has that the system performs as expected in respect to all the key system characteristics in the face of environmental disruptions, human errors, system faults and attacks. source: IISF"@en ;
-                    rdfs:label "Trustworthiness"@en .
+                    rdfs:label "Trustworthiness"@en ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.062" ,
+                                 "IoT-A Requirement UNI.602" ,
+                                 "IoT-A Requirement UNI.613" .
+
+
+###  https://w3id.org/i40/sto#UDP
+sto:UDP rdf:type owl:NamedIndividual ,
+                 sto:Standard ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "UDP (User Datagram Protocol) - A simple OSI transport layer protocol for client/server network applications based on Internet Protocol (IP). UDP is the main alternative to TCP and one of the oldest network protocols in existence, introduced in 1980. UDP is often used in applications specially tuned for real-time performance."@en ;
+        rdfs:label "UDP"@en ;
+        sto:hasOfficialResource <https://tools.ietf.org/html/rfc768> .
 
 
 ###  https://w3id.org/i40/sto#UN-CEFACT
@@ -8466,14 +9976,56 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> .
 
 
+###  https://w3id.org/i40/sto#UPnP
+sto:UPnP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "UPnP (Universal Plug and Play) - Now managed by the Open Connectivity Foundation is a set of networking protocols that permits networked devices to seamlessly discover each other's presence on the network and establish functional network services for data sharing, communications, and entertainment.(source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "UPnP"@en ;
+         sto:hasOfficialResource <https://openconnectivity.org/upnp> .
+
+
 ###  https://w3id.org/i40/sto#URI
 sto:URI rdf:type owl:NamedIndividual ,
-                 sto:Technology .
+                 sto:TechnicalSpecification .
+
+
+###  https://w3id.org/i40/sto#Unicast
+sto:Unicast rdf:type owl:NamedIndividual ,
+                     sto:Concern ;
+            dcterms:creator sto:sebastian ;
+            dul:isPartOf sto:CardinalityOfDataSources ;
+            rdfs:comment "one-to-one connectivity"@en ;
+            rdfs:seeAlso "IoT-A Requirement UNI.301" ,
+                         "IoT-A Requirement UNI.304" .
+
+
+###  https://w3id.org/i40/sto#UnreliableNetwork
+sto:UnreliableNetwork rdf:type owl:NamedIndividual ,
+                               sto:Concern ;
+                      <http://voag.linkedmodel.org/voag#hasStakeholder> "Developer"@en ,
+                                                                        "System Architect"@en ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.308" ,
+                                   "IoT-A Requirement UNI.318" .
 
 
 ###  https://w3id.org/i40/sto#UserInteraction
 sto:UserInteraction rdf:type owl:NamedIndividual ,
-                             sto:Concern .
+                             sto:Concern ;
+                    <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.019" ,
+                                 "IoT-A Requirement UNI.092" ,
+                                 "IoT-A Requirement UNI.214" ,
+                                 "IoT-A Requirement UNI.252" .
+
+
+###  https://w3id.org/i40/sto#UserPreferences
+sto:UserPreferences rdf:type owl:NamedIndividual ,
+                             sto:Concern ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:comment "Users can have the possibility to prefer one service over another for any reason."@en ;
+                    rdfs:label "User Preferences"@en ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.253" .
 
 
 ###  https://w3id.org/i40/sto#VDI
@@ -8521,6 +10073,14 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
 sto:Viewpoint rdf:type owl:NamedIndividual .
 
 
+###  https://w3id.org/i40/sto#VirtualEntity
+sto:VirtualEntity rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  rdfs:seeAlso "UNI.030"@en ,
+                               "UNI.066"@en ,
+                               "UNI.402"@en .
+
+
 ###  https://w3id.org/i40/sto#W3C
 sto:W3C rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
@@ -8540,14 +10100,14 @@ sto:W3C_DCAT rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              sto:hasDeveloper sto:W3C ;
              sto:hasPublisher sto:W3C ;
-             sto:hasDBpediaResource "http://dbpedia.org/resource/Data_Catalog_Vocabulary" ;
-             sto:hasOfficialResource <https://www.w3.org/TR/vocab-dcat/> ;
-             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_Catalog_Vocabulary" ;
-             dcterms:creator "sebastian"@en ;
+             dcterms:creator sto:sebastian ;
              rdfs:comment """DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. This document defines the schema and provides examples for its use.
 
 By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation."""@en ;
-             rdfs:label "DCAT"@en .
+             rdfs:label "DCAT"@en ;
+             sto:hasDBpediaResource <http://dbpedia.org/resource/Data_Catalog_Vocabulary> ;
+             sto:hasOfficialResource <https://www.w3.org/TR/vocab-dcat/> ;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_Catalog_Vocabulary> .
 
 
 ###  https://w3id.org/i40/sto#W3C_OWL
@@ -8605,6 +10165,77 @@ sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SPARQL> .
 
 
+###  https://w3id.org/i40/sto#Weave
+sto:Weave rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "A communications platform for IoT devices that enables device setup, phone-to-device-to-cloud communication, and user interaction from mobile devices and the web. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "Weave"@en ;
+          sto:hasOfficialResource <https://developers.google.com/weave/> .
+
+
+###  https://w3id.org/i40/sto#WebSocket
+sto:WebSocket rdf:type owl:NamedIndividual ,
+                       sto:TechnicalSpecification ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "The WebSocket specification — developed as part of the HTML5 initiative — introduced the WebSocket JavaScript interface, which defines a full-duplex single socket connection over which messages can be sent between client and server. The WebSocket standard simplifies much of the complexity around bi-directional web communication and connection management. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+              rdfs:label "WebSocket"@en ;
+              sto:hasOfficialResource <https://websocket.org/> .
+
+
+###  https://w3id.org/i40/sto#Weightless
+sto:Weightless rdf:type owl:NamedIndividual ,
+                        sto:TechnicalSpecification ;
+               dcterms:creator sto:sebastian ;
+               rdfs:comment "Weightless is a proposed proprietary open wireless technology standard for exchanging data between a base station and thousands of machines around it (using wavelength radio transmissions in unoccupied TV transmission channels) with high levels of security.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+               rdfs:label "Weightless"@en ;
+               sto:hasOfficialResource <http://www.weightless.org/> .
+
+
+###  https://w3id.org/i40/sto#WiFi
+sto:WiFi rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:label "WiFi"@en ;
+         sto:hasOfficialResource <https://www.wi-fi.org/> .
+
+
+###  https://w3id.org/i40/sto#WiMax
+sto:WiMax rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          dcterms:creator sto:sebastian ;
+          rdfs:comment "WiMax is based on the standard IEEE 802.16 and is intended for wireless metropolitan area networks. The range is different for fixed stations, where it can go up to 50 km and mobile devices with 5 to 15 km. WiMAx operates at frequencies between 2.5 GHz to 5.8 GHz with a transferrate of 40 Mbps.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+          rdfs:label "WiMax"@en ;
+          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/WiMAX> .
+
+
+###  https://w3id.org/i40/sto#WiSunAlliance
+sto:WiSunAlliance rdf:type owl:NamedIndividual ,
+                           sto:IIoTConsortium ;
+                  dcterms:creator sto:sebastian ;
+                  rdfs:comment "The Wi-SUN Alliance seeks to advance seamless connectivity by promoting IEEE 802.15.4g standard based interoperability for global regional markets. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                  rdfs:label "Wi-SUN Alliance"@en ;
+                  sto:hasOfficialResource <http://www.wi-sun.org/> .
+
+
+###  https://w3id.org/i40/sto#WirelessHart
+sto:WirelessHart rdf:type owl:NamedIndividual ,
+                          sto:TechnicalSpecification ;
+                 dcterms:creator sto:sebastian ;
+                 rdfs:comment "WirelessHART technology provides a robust wireless protocol for the full range of process measurement, control, and asset management applications. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                 rdfs:label "WirelessHart"@en ;
+                 sto:hasOfficialResource <http://www.hartcomm.org/protocol/wihart/wireless_technology.html> .
+
+
+###  https://w3id.org/i40/sto#WolframLanguage
+sto:WolframLanguage rdf:type owl:NamedIndividual ,
+                             sto:TechnicalSpecification ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:comment "A symbolic representation of each device. Then there are a standard set of Wolfram Language functions like DeviceRead, DeviceExecute, DeviceReadBuffer and DeviceReadTimeSeries that perform operations related to the device. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+                    rdfs:label "Wolfram Language"@en ;
+                    sto:hasOfficialResource <https://reference.wolfram.com/language/guide/ConnectingToDevices.html> .
+
+
 ###  https://w3id.org/i40/sto#Written
 sto:Written rdf:type owl:NamedIndividual ,
                      dcterms:LinguisticSystem ;
@@ -8612,12 +10243,39 @@ sto:Written rdf:type owl:NamedIndividual ,
             rdfs:label "Written"@en .
 
 
+###  https://w3id.org/i40/sto#X509
+sto:X509 rdf:type owl:NamedIndividual ,
+                  sto:Standard ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "Standard for public key infrastructure (PKI) to manage digital certificates and public-key encryption. A key part of the Transport Layer Security protocol used to secure web and email communication.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "X.509"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/X.509> .
+
+
 ###  https://w3id.org/i40/sto#XACML
 sto:XACML rdf:type owl:NamedIndividual ,
-                   sto:Technology ;
+                   sto:TechnicalSpecification ;
           dul:associatedWith sto:FiwareSecurity ;
           <https://w3id.org/i40/hasTargetConcern> sto:Authorization ,
                                                   sto:DataAccessControl .
+
+
+###  https://w3id.org/i40/sto#XMPP
+sto:XMPP rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "XMPP (Extensible Messaging and Presence Protocol): An open technology for real-time communication, which powers a wide range of applications including instant messaging, presence, multi-party chat, voice and video calls, collaboration, lightweight middleware, content syndication, and generalized routing of XML data. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "XMPP"@en ;
+         sto:hasOfficialResource <https://xmpp.org/> .
+
+
+###  https://w3id.org/i40/sto#XMPP-IoT
+sto:XMPP-IoT rdf:type owl:NamedIndividual ,
+                      sto:TechnicalSpecification ;
+             dcterms:creator sto:sebastian ;
+             rdfs:comment "XMPP-IoT: In the same manor as XMPP silently has created people to people communication interoperable. We are aiming to make communication machine to people and machine to machine interoperable. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+             rdfs:label "XMPP-IoT"@en ;
+             sto:hasOfficialResource <https://github.com/joachimlindborg/XMPP-IoT> .
 
 
 ###  https://w3id.org/i40/sto#ZVEI
@@ -8630,6 +10288,15 @@ sto:ZVEI rdf:type owl:NamedIndividual ,
          sto:hasOfficialResource <https://www.zvei.org/> .
 
 
+###  https://w3id.org/i40/sto#ZigBee
+sto:ZigBee rdf:type owl:NamedIndividual ,
+                    sto:TechnicalSpecification ;
+           dcterms:creator sto:sebastian ;
+           rdfs:comment "The ZigBee protocol uses the 802.15.4 standard and operates in the 2.4 GHz frequency range with 250 kbps. The maximum number of nodes in the network is 1024 with a range up to 200 meter. ZigBee can use 128 bit AES encryption. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+           rdfs:label "ZigBee"@en ;
+           sto:hasOfficialResource <http://www.zigbee.org/> .
+
+
 ###  https://w3id.org/i40/sto#_020
 sto:_020 rdf:type owl:NamedIndividual .
 
@@ -8637,7 +10304,7 @@ sto:_020 rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#bitkom
 sto:bitkom rdf:type owl:NamedIndividual ,
                     sto:StandardOrganization ;
-           dcterms:creator "sebastian"@en ;
+           dcterms:creator sto:sebastian ;
            dcterms:title "Bundesverband Informationswirtschaft, Telekommunikation und neue Medien"@de ,
                          "German Association for IT, Telecommunications and New Media"@en ;
            rdfs:label "Bitkom"@en ;
@@ -8695,9 +10362,6 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> .
 
 
-
-
-
 ###  https://w3id.org/i40/sto#irlan
 sto:irlan rdf:type owl:NamedIndividual ,
                    foaf:Person ;
@@ -8705,6 +10369,15 @@ sto:irlan rdf:type owl:NamedIndividual ,
           foaf:familyName "Grangel" ;
           foaf:mbox "irlangrangel2003@gmail.com" ;
           foaf:name "Irlan" .
+
+
+###  https://w3id.org/i40/sto#mDNS
+sto:mDNS rdf:type owl:NamedIndividual ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         rdfs:comment "mDNS (multicast Domain Name System) - Resolves host names to IP addresses within small networks that do not include a local name server. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "mDNS"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Multicast_DNS> .
 
 
 ###  https://w3id.org/i40/sto#oneM2M
@@ -8717,7 +10390,7 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#openAAS
 sto:openAAS rdf:type owl:NamedIndividual ,
-                     sto:Technology ;
+                     sto:TechnicalSpecification ;
             dul:associatedWith sto:AdministrationShell ;
             dcterms:creator "sebastian" ;
             rdfs:comment """Im Open Source Projekt „openAAS“ – die Abkürzung „AAS“ steht für den englischen Begriff „Asset Administration Shell“, zu Deutsch „Verwaltungsschale“ – arbeitet der ZVEI gemeinsam mit der RWTH Aachen und Unternehmen aus Maschinenbau und Elektroindustrie daran, Industrie 4.0 in die Praxis
@@ -8725,6 +10398,24 @@ umzusetzen. Die Veranschaulichung und Erprobung einer Industrie-4.0-konformen Ve
 und Standardisierung."""@de ,
                          "openAAS is an open source project to establish a Platform Industry 4.0 conform Administration Shell with open software."@en ;
             rdfs:label "openAAS"@en .
+
+
+###  https://w3id.org/i40/sto#sebastian
+sto:sebastian rdf:type owl:NamedIndividual ,
+                       foaf:Person ;
+              rdfs:label "Sebastian Bader"@en ;
+              foaf:familyName "Bader"^^xsd:string ;
+              foaf:name "Sebastian"^^xsd:string ;
+              sto:hasOfficialResource <https://sebastianrbader.de> .
+
+
+###  https://w3id.org/i40/sto#uIP
+sto:uIP rdf:type owl:NamedIndividual ,
+                 sto:TechnicalSpecification ;
+        dcterms:creator sto:sebastian ;
+        rdfs:comment "The uIP is an open source TCP/IP stack capable of being used with tiny 8- and 16-bit microcontrollers. It was initially developed by Adam Dunkels of the 'Networked Embedded Systems' group at the Swedish Institute of Computer Science, licensed under a BSD style license, and further developed by a wide group of developers. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+        rdfs:label "uIP"@en ;
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UIP_%28micro_IP%29> .
 
 
 ###  https://w3id.org/i40/sto#VDI/VDE_2182
@@ -8863,6 +10554,12 @@ idsram:SystemLayer rdf:type owl:NamedIndividual ,
                    rdfs:label "IDS RAM System Layer"@en .
 
 
+###  https://www.wikidata.org/wiki/Q1548249
+<https://www.wikidata.org/wiki/Q1548249> rdf:type owl:NamedIndividual ,
+                                                  <http://voag.linkedmodel.org/voag#StakeholderGroup> ;
+                                         rdfs:label "System Architect"@en .
+
+
 #################################################################
 #    Annotations
 #################################################################
@@ -8877,12 +10574,23 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
-sto:BdvaConcern rdfs:label "BDVA Concern"@en ;
+<http://voag.linkedmodel.org/voag#StakeholderGroup> skos:note "Stakeholders are interpreted in the same manner as outlined by ISO 42010: '<system> individual, team, organization, or classes thereof, having an interest in a system'"@en ;
+                                                    rdfs:comment "A Stakeholder Group is a party of people who have common interests and concerns."@en ;
+                                                    rdfs:label "Stakeholder Group"@en ;
+                                                    rdfs:comment "A stakeholder is everyone with an interest in a system."@en ;
+                                                    dcterms:creator sto:sebastian .
+
+
+sto:AoutonomousCommunication rdfs:seeAlso "IoT-A Requirement UNI.247" .
+
+
+sto:BdvaConcern dcterms:creator sto:sebastian ;
+                rdfs:label "BDVA Concern"@en ;
                 dcterms:creator "sebastian" ;
-                sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> ;
                 rdfs:comment """The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns.
 Horizontal concerns cover specific aspects along the data processing
-Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."""@en .
+Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."""@en ;
+                sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> .
 
 
 sto:Concern rdfs:label "Concern" ;
@@ -8890,7 +10598,17 @@ sto:Concern rdfs:label "Concern" ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
             rdfs:comment "A concern regards a specific challenge or topic as defined by ISO42010. Each concern should at least be regarded by one view of an architecture."@en ;
-            dcterms:creator "sebastian"@en .
+            dcterms:creator sto:sebastian .
+
+
+sto:ConstrainedDevices rdfs:seeAlso "IoT-A Requirement UNI.307" ,
+                                    "IoT-A Requirement UNI.306" .
+
+
+sto:DataLifecycleManagement rdfs:seeAlso "IoT-A Requirement UNI.097" .
+
+
+sto:GeospatialQuery rdfs:seeAlso "IoT-A Requirement UNI.401" .
 
 
 sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
@@ -8898,12 +10616,25 @@ sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/pu
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:label "Standard"@en ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             cc:attributionURL <http://www.iec.ch> ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
+sto:Multicast rdfs:seeAlso "IoT-A Requirement UNI.302" ,
+                           "IoT-A Requirement UNI.305" ,
+                           "IoT-A Requirement UNI.303" ,
+                           "IoT-A Requirement UNI.304" .
+
+
+sto:MultipleIdenities rdfs:seeAlso "IoT-A Requirement UNI.320" .
+
+
+sto:ServiceDescriptions rdfs:seeAlso "IoT-A Requirement UNI.244" .
+
+
+sto:ServiceLevelAgreements rdfs:seeAlso "IoT-A Requirement UNI.060" .
+
+
+sto:SyntacticInteroperablity rdfs:seeAlso "IoT-A Requirement UNI.315" ,
+                                          "IoT-A Requirement UNI.313" ,
+                                          "IoT-A Requirement UNI.312" ,
+                                          "IoT-A Requirement UNI.311" .
 
 
 sto:TechnicalCommittee rdfs:label "Technical Committe"@en ;
@@ -8922,7 +10653,7 @@ sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
               rdfs:label "Viewpoint" .
 
 
-
+sto:VirtualEntities rdfs:seeAlso "IoT-A Requirement UNI.409" .
 
 
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
