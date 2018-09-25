@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/i40/sto##> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
@@ -29,7 +30,7 @@
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto> .
+@base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                              dcterms:modified "2017-09-08"^^xsd:date ;
@@ -41,7 +42,7 @@
                              dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                              dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
                              dcterms:creator <https://www.linkedin.com/in/paul-baptista-601177b2> ,
-                                             <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
+                                             <http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ;
                              doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                              vann:preferredNamespacePrefix "sto" ;
                              vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
@@ -51,169 +52,112 @@
 #    Annotation properties
 #################################################################
 
-###  http://creativecommons.org/ns#attributionName
-cc:attributionName rdf:type owl:DatatypeProperty;
-                   rdf:domain cc:work;
-                   rdf:range rdf:Literal .
+###  http://purl.org/dc/elements/1.1/creator
+dc11:creator rdf:type owl:AnnotationProperty .
 
 
-cc:attributionURL rdf:type owl:DatatypeProperty;
-                   rdf:domain cc:work;
-                   rdf:range rdf:resource .
+###  http://purl.org/dc/elements/1.1/date
+dc11:date rdf:type owl:AnnotationProperty .
 
 
-<http://purl.org/dc/elements/1.1/description>
-    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#description-006> ;
-    dcterms:issued "1999-07-02"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "An account of the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
-    rdfs:label "Description"@en ;
-    skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
-
-<http://purl.org/dc/elements/1.1/title>
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#title-006> ;
-    dcterms:issued "1999-07-02"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "A name given to the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
-    rdfs:label "Title"@en ;
-    skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
-
-dcterms:creator
-    dcterms:description "Examples of a Creator include a person, an organization, or a service."@en ;
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2010-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "An entity primarily responsible for making the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Creator"@en ;
-    rdfs:range dcterms:Agent ;
-    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/creator>, dcterms:contributor ;
-    owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> .
-
-dcterms:description
-    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "An account of the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Description"@en ;
-    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/description> .
+###  http://purl.org/dc/elements/1.1/description
+dc11:description rdf:type owl:AnnotationProperty .
 
 
-dcterms:hasVersion
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
-    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Has Version"@en ;
-    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>, dcterms:relation ;
-    skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en .
+###  http://purl.org/dc/elements/1.1/relation
+dc11:relation rdf:type owl:AnnotationProperty .
 
 
-dcterms:issued
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
-    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Date Issued"@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>, dcterms:date .
-
-dcterms:modified
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
-    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "Date on which the resource was changed."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Date Modified"@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>, dcterms:date .
-
-dcterms:title
-    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    dcterms:modified "2010-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    a rdf:Property ;
-    rdfs:comment "A name given to the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Title"@en ;
-    rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/title> .
+###  http://purl.org/dc/elements/1.1/title
+dc11:title rdf:type owl:AnnotationProperty .
 
 
-
-<http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
-	<http://www.w3.org/2000/01/rdf-schema#label> "has numerical value"@en ;
-	<http://www.w3.org/2000/01/rdf-schema#domain> _:genid-9705366b18194de9a2dcb5bbab39c385-node1c3sfjt7fx47 .
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty .
 
 
-
-<http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
-	<http://www.w3.org/2000/01/rdf-schema#label> "has unit"@en ;
-	<http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> ;
-	<http://www.w3.org/2000/01/rdf-schema#domain> _:genid-9705366b18194de9a2dcb5bbab39c385-node1c3sfjt7fx13 .
-
-
-
-dul:isMemberOf rdf:type owl:ObjectProperty;
- rdfs:comment "A relation between collections and entities, e.g. 'the Night Watch by Rembrandt is in the Rijksmuseum collection'; 'Davide is member of the Pen Club', 'Igor is one the subjects chosen for the experiment'."@en ; 
- rdfs:label "is member of"@en,
-             "è membro di"@it ;
-  rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;  
-  rdfs:domain <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity>;
-  rdfs:range <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection> ;
-  rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith> .
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty ;
+                rdfs:subPropertyOf dc11:creator ,
+                                   dcterms:contributor ;
+                rdfs:range dcterms:Agent .
 
 
-
-<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty;
-rdfs:label "alternative label"@en;
-rdfs:Super-properties <http://www.w3.org/2000/01/rdf-schema#label>.
+###  http://purl.org/dc/terms/date
+dcterms:date rdf:type owl:AnnotationProperty .
 
 
-<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty;
-rdfs:label "definition"@en;
-rdfs:Super-properties skos:note.
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty ;
+                    rdfs:subPropertyOf dc11:description .
 
 
-
-<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty;
-rdfs:label "note"@en.
-
-
-<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty;
-rdfs:label "preferred label"@en;
-rdfs:Super-properties <http://www.w3.org/2000/01/rdf-schema#label>.
+###  http://purl.org/dc/terms/hasVersion
+dcterms:hasVersion rdf:type owl:AnnotationProperty ;
+                   rdfs:subPropertyOf dc11:relation ,
+                                      dcterms:relation .
 
 
-foaf:familyName rdf:type owl:property;
- rdfs:label "Family Name"@en;
-  rdfs:domain foaf:person .
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:AnnotationProperty ;
+               rdfs:subPropertyOf dc11:date ,
+                                  dcterms:date ;
+               rdfs:range rdfs:Literal .
 
 
-foaf:mbox rdf:type owl:property;
- rdfs:label "mbox"@en; 
-  rdfs:domain foaf:Agent;
-  rdfs:range foaf:thing .
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:AnnotationProperty ;
+                 rdfs:subPropertyOf dc11:date ,
+                                    dcterms:date ;
+                 rdfs:range rdfs:Literal .
 
 
-foaf:name rdf:type owl:property;
- rdfs:label "name"@en; 
-  rdfs:domain foaf:thing .
+###  http://purl.org/dc/terms/relation
+dcterms:relation rdf:type owl:AnnotationProperty .
 
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf dc11:title ;
+              rdfs:range rdfs:Literal .
+
+
+###  http://voag.linkedmodel.org/voag#hasStakeholder
+<http://voag.linkedmodel.org/voag#hasStakeholder> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty ;
+              rdfs:label "alternative label"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty ;
+          rdfs:label "note"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty ;
+               rdfs:label "preferred label"@en .
+
+
+###  http://xmlns.com/foaf/0.1/familyName
+foaf:familyName rdf:type owl:AnnotationProperty ;
+                rdfs:domain foaf:person .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty ;
+          rdfs:domain foaf:thing .
+
+
+###  https://w3id.org/i40/sto#publisher
+sto:publisher rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -236,6 +180,11 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:ObjectProperty ;
+                owl:equivalentProperty foaf:maker .
+
+
 ###  http://purl.org/dc/terms/hasLicense
 dcterms:hasLicense rdf:type owl:ObjectProperty ;
                    rdfs:domain sto:Standard ;
@@ -244,6 +193,12 @@ dcterms:hasLicense rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/dc/terms/language
 dcterms:language rdf:type owl:ObjectProperty .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+om2:hasUnit rdf:type owl:ObjectProperty ;
+            rdfs:range om2:Unit ;
+            rdfs:label "has unit"@en .
 
 
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
@@ -264,6 +219,17 @@ dul:isComponentOf rdf:type owl:ObjectProperty ;
                   rdfs:label "is Component Of"@en .
 
 
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
+dul:isMemberOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf dul:associatedWith ;
+               rdfs:domain dul:Entity ;
+               rdfs:range dul:Collection ;
+               rdfs:comment "A relation between collections and entities, e.g. 'the Night Watch by Rembrandt is in the Rijksmuseum collection'; 'Davide is member of the Pen Club', 'Igor is one the subjects chosen for the experiment'."@en ;
+               rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
+               rdfs:label "is member of"@en ,
+                          "è membro di"@it .
+
+
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
 prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf sto:relatedTo ;
@@ -276,13 +242,10 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
 foaf:maker rdf:type owl:ObjectProperty .
 
 
-###  https://w3id.org/i40/hasTargetConcern
-<https://w3id.org/i40/hasTargetConcern> rdf:type owl:ObjectProperty ;
-                                        rdfs:subPropertyOf dul:associatedWith ;
-                                        rdfs:domain sto:Publication ;
-                                        rdfs:range sto:Concern ;
-                                        rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
-                                        rdfs:label "has Target Concern"@en .
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:ObjectProperty ;
+          rdfs:domain foaf:Agent ;
+          rdfs:range foaf:thing .
 
 
 ###  https://w3id.org/i40/sto#alignesWith
@@ -298,10 +261,7 @@ sto:alignesWith rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#belongsTo
 sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:domain sto:StandardOrganization ;
-              rdfs:range dbo:Country ;
-              dcterms:creator sto:irlan ;
-              rdfs:comment "A Standard Organization that belongs to the country"@en ;
-              rdfs:label "belongs To"@en .
+              rdfs:range dbo:Country .
 
 
 ###  https://w3id.org/i40/sto#frames
@@ -318,31 +278,20 @@ sto:frames rdf:type owl:ObjectProperty ;
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
                          rdfs:domain foaf:Document ;
-                         rdfs:range dcterms:LinguisticSystem ;
-                         dcterms:creator sto:irlan ;
-                         rdfs:comment "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ,
-                                      "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ;
-                         rdfs:label "has Available Language"@en ,
-                                    "hasAvailableLanguage"@en .
+                         rdfs:range dcterms:LinguisticSystem .
 
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
                       rdfs:domain sto:Publication ;
-                      rdfs:range sto:StandardClassification ;
-                      dcterms:creator sto:irlan ;
-                      rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                      rdfs:label "has Classification"@en .
+                      rdfs:range sto:StandardClassification .
 
 
 ###  https://w3id.org/i40/sto#hasDeveloper
 sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
                  rdfs:domain sto:Publication ;
-                 rdfs:range sto:StandardOrganization ;
-                 dcterms:creator sto:irlan ;
-                 rdfs:comment "The organization that developed this Standard"@en ;
-                 rdfs:label "has Developer"@en .
+                 rdfs:range sto:StandardOrganization .
 
 
 ###  https://w3id.org/i40/sto#hasDomain
@@ -369,10 +318,7 @@ sto:hasFileSize rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
 sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
                     rdfs:domain sto:StandardOrganization ;
-                    rdfs:range dbo:Place ;
-                    dcterms:creator sto:irlan ;
-                    rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en ;
-                    rdfs:label "has Headquater In"@en .
+                    rdfs:range dbo:Place .
 
 
 ###  https://w3id.org/i40/sto#hasICS
@@ -400,15 +346,21 @@ sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
 sto:hasPublisher rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
                  rdfs:domain sto:Publication ;
-                 rdfs:range sto:StandardOrganization ;
-                 dcterms:creator sto:irlan ;
-                 rdfs:comment "The organization that published this Standard"@en ;
-                 rdfs:label "has Publisher"@en .
+                 rdfs:range sto:StandardOrganization .
 
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:ObjectProperty ;
            rdfs:domain sto:Publication .
+
+
+###  https://w3id.org/i40/sto#hasTargetConcern
+sto:hasTargetConcern rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf dul:associatedWith ;
+                     rdfs:domain sto:Publication ;
+                     rdfs:range sto:Concern ;
+                     rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
+                     rdfs:label "has Target Concern"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
@@ -429,10 +381,7 @@ sto:isDescribedin rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#isImplementationOf
 sto:isImplementationOf rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf sto:relatedTo ;
-                       dcterms:creator sto:irlan ;
-                       rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en ;
-                       rdfs:label "is Implementation Of"@en .
+                       rdfs:subPropertyOf sto:relatedTo .
 
 
 ###  https://w3id.org/i40/sto#relatedTo
@@ -440,32 +389,47 @@ sto:relatedTo rdf:type owl:ObjectProperty ,
                        owl:SymmetricProperty ,
                        owl:TransitiveProperty ;
               rdfs:domain sto:Standard ;
-              rdfs:range sto:Standard ;
-              dcterms:creator sto:irlan ;
-              rdfs:comment "Represent any type of relation that connects two standards."@en ;
-              rdfs:label "related To"@en ;
-              skos:altLabel "has Associated Standard"@en .
+              rdfs:range sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#useStructureOf
 sto:useStructureOf rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf sto:relatedTo ;
-                   dcterms:creator sto:irlan ;
-                   rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
-                   rdfs:label "use Structure Of"@en .
+                   rdfs:subPropertyOf sto:relatedTo .
 
 
 ###  https://w3id.org/i40/sto#uses
 sto:uses rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf sto:relatedTo ;
-         dcterms:creator sto:irlan ;
-         rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
-         rdfs:label "uses"@en .
+         rdfs:subPropertyOf sto:relatedTo .
 
 
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://creativecommons.org/ns#attributionName
+cc:attributionName rdf:type owl:DatatypeProperty .
+
+
+###  http://creativecommons.org/ns#attributionURL
+cc:attributionURL rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:DatatypeProperty .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
+om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
+                      rdfs:label "has numerical value"@en .
+
 
 ###  https://w3id.org/i40/sto#abbreviation
 sto:abbreviation rdf:type owl:DatatypeProperty ;
@@ -620,10 +584,7 @@ iira:CrosscuttingFunction rdf:type owl:Class ;
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty dul:isPartOf ;
                                             owl:hasValue iira:FunctionalViewpoint
-                                          ] ;
-                          dcterms:creator sto:sebastian ;
-                          rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en ;
-                          rdfs:label "IIRA Crosscutting Function"@en .
+                                          ] .
 
 
 ###  http://example.org/iira#FunctionalDomain
@@ -644,6 +605,10 @@ iira:SystemCharacteristics rdf:type owl:Class ;
                                              owl:hasValue iira:FunctionalViewpoint
                                            ] ;
                            rdfs:label "IIRA System Characteristic"@en .
+
+
+###  http://purl.org/dc/terms/Agent
+dcterms:Agent rdf:type owl:Class .
 
 
 ###  http://purl.org/dc/terms/LicenseDocument
@@ -681,6 +646,34 @@ deo:Motivation rdf:type owl:Class .
 om2:Measure rdf:type owl:Class .
 
 
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
+om2:Unit rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection
+dul:Collection rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity
+dul:Entity rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#class
+owl:class rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#namedIndividial
+owl:namedIndividial rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#property
+owl:property rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class .
+
+
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class .
 
@@ -691,6 +684,10 @@ foaf:Organization rdf:type owl:Class .
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/thing
+foaf:thing rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/rami#AdminShellSubmodel
@@ -753,12 +750,8 @@ Note: It is important to distinguish the Reference Architecture from a Reference
 
 
 ###  https://w3id.org/i40/sto#BdvaConcern
-sto:BdvaConcern rdf:type owl:class;
-                rdfs:subClassOf sto:StandardClassification ;
-              dcterms:creator "sebastian"@en ;
-              sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> ;
-               rdfs:comment "The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns. Horizontal concerns cover specific aspects along the data processing Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."@en ;
-              rdfs:label "BDVA Concern"@en .
+sto:BdvaConcern rdf:type owl:Class ;
+                rdfs:subClassOf sto:StandardClassification .
 
 
 ###  https://w3id.org/i40/sto#BusinessCycleSCM
@@ -768,6 +761,11 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                      rdfs:label "Business Cycle SCM"@en ;
                      rdfs:seeAlso "https://en.wikipedia.org/wiki/Supply_chain_management" .
+
+
+###  https://w3id.org/i40/sto#Concern
+sto:Concern rdf:type owl:Class .
+
 
 ###  https://w3id.org/i40/sto#ConnectivityLayer
 sto:ConnectivityLayer rdf:type owl:Class ;
@@ -779,10 +777,7 @@ sto:ConnectivityLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#DataSharingInitiative
 sto:DataSharingInitiative rdf:type owl:Class ;
-                          rdfs:subClassOf foaf:Organization ;
-                          dcterms:creator sto:sebastian ;
-                          rdfs:comment "This class frames all organizations with the main intend to create, specify and implement a data sharing concept with according interfaces, components, data descriptions, and retrieval algorithms."@en ;
-                          rdfs:label "Data Sharing Initiative"@en .
+                          rdfs:subClassOf foaf:Organization .
 
 
 ###  https://w3id.org/i40/sto#Domain
@@ -793,10 +788,15 @@ sto:Domain rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#FiwareChapter
 sto:FiwareChapter rdf:type owl:Class ;
-                  rdfs:subClassOf sto:StandardClassification ;
-                  dcterms:creator sto:sebastian ;
-                  rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
-                  rdfs:label "Fiware Chapter"@en .
+                  rdfs:subClassOf sto:StandardClassification .
+
+
+###  https://w3id.org/i40/sto#FiwareSpecification
+sto:FiwareSpecification rdf:type owl:Class ;
+                        rdfs:subClassOf sto:StandardClassification ;
+                        dcterms:creator sto:sebastian ;
+                        rdfs:comment "The FIWARE data models have been harmonized to enable data portability for different applications including, but not limited, to Smart Cities. They are intended to be used together with FIWARE NGSI version 2. If you want to contribute and create additional data models, please have a look at our repository of data models and the data model development guidelines. (source: https://www.fiware.org/developers/data-models/)"@en ;
+                        rdfs:label "FIWARE Data Models"@en .
 
 
 ###  https://w3id.org/i40/sto#IIoTConsortium
@@ -812,11 +812,13 @@ sto:ISA95Level rdf:type owl:Class ;
                rdfs:label "ISA 95 Level"@en .
 
 
+###  https://w3id.org/i40/sto#InternationalClassificationForStandards
+sto:InternationalClassificationForStandards rdf:type owl:Class .
+
+
 ###  https://w3id.org/i40/sto#IotaPerspective
 sto:IotaPerspective rdf:type owl:Class ;
-                    rdfs:subClassOf sto:StandardClassification ;
-                    dcterms:creator sto:sebastian ;
-                    rdfs:label "IoT-A Perspective"@en .
+                    rdfs:subClassOf sto:StandardClassification .
 
 
 ###  https://w3id.org/i40/sto#IviLayer
@@ -845,7 +847,8 @@ sto:ProductionSystemLifeCycle rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Publication
-sto:Publication rdfs:subClassOf foaf:Document ;
+sto:Publication rdf:type owl:Class ;
+                rdfs:subClassOf foaf:Document ;
                 rdfs:comment """Specifies a Publication. E.g., International Standards,Technical Specifications,Publicly Available Specifications,Amendments
                 Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
                 rdfs:isDefinedBy sto:IEC ;
@@ -855,14 +858,7 @@ sto:Publication rdfs:subClassOf foaf:Document ;
 
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication ;
-             sto:abbreviation "IS" ;
-             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:label "Standard"@en ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             cc:attributionURL <http://www.iec.ch> ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
+             rdfs:subClassOf sto:Publication .
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -873,10 +869,7 @@ sto:StandardClassification rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#StandardOrganization
 sto:StandardOrganization rdf:type owl:Class ;
-                         rdfs:subClassOf foaf:Organization ;
-                         dcterms:creator sto:irlan ;
-                         rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
-                         rdfs:label "StandardOrganization"@en .
+                         rdfs:subClassOf foaf:Organization .
 
 
 ###  https://w3id.org/i40/sto#StandardPart
@@ -887,39 +880,22 @@ sto:StandardPart rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#StandardizationFramework
-sto:StandardizationFramework rdf:type owl:Class ;
-                             dcterms:creator sto:irlan ;
-                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-                             rdfs:label "Standarization Framework"@en ;
-                             skos:altLabel "Reference Architecture"@en .
+sto:StandardizationFramework rdf:type owl:Class .
+
+
+###  https://w3id.org/i40/sto#TechnicalCommittee
+sto:TechnicalCommittee rdf:type owl:Class .
+
+
+###  https://w3id.org/i40/sto#TechnicalReport
+sto:TechnicalReport rdf:type owl:Class ;
+                    rdfs:subClassOf sto:Publication .
 
 
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
-                           rdfs:subClassOf sto:Publication ;
-                           cc:attributionURL <http://www.iec.ch> ;
-                           rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ,
-                                        "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
-                           rdfs:isDefinedBy sto:IEC ;
-                           sto:abbreviation "TS" ;
-                           rdfs:label "Technical Specification"@en ;
-                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
+                           rdfs:subClassOf sto:Publication .
 
-sto:TechnicalReport rdf:type owl:Class ;
-                           rdfs:subClassOf sto:Publication ;
-                           cc:attributionURL "http://www.iec.ch" ;
-                           rdfs:comment "Specifies that a given Publication is a Technical Report"@en ,
-                                        """Technical Reports contain collected data of a kind different from that normally published as an International Standard, for example data obtained from a survey carried out among national committees, data of work in other international organizations or data on "the state of the art" in relation to standards of national committees on a particular subject.Technical Reports are entirely informative in nature and shall not contain matter implying that they are normative"""@en ;
-                           rdfs:isDefinedBy sto:IEC ;
-                           sto:abbreviation "TR" ;
-                           rdfs:label "Technical Report"@en ;
-                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/tr.htm> .
-
-
-
-###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:Class ;
-              rdfs:subClassOf sto:StandardClassification .
 
 ###  https://w3id.org/i40/sto#Technology
 sto:Technology rdf:type owl:Class ;
@@ -928,7 +904,9 @@ sto:Technology rdf:type owl:Class ;
                rdfs:label "Technology"@en .
 
 
-
+###  https://w3id.org/i40/sto#Viewpoint
+sto:Viewpoint rdf:type owl:Class ;
+              rdfs:subClassOf sto:StandardClassification .
 
 
 ###  https://w3id.org/ids/ram/Layer
@@ -949,16 +927,15 @@ idsram:Layer rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://data.semanticweb.org/person/steffen-lohmann
+<http://data.semanticweb.org/person/steffen-lohmann> rdf:type owl:NamedIndividual .
+
+
 ###  http://dbpedia.org/resource#Beijing
 dbr:Beijing rdf:type owl:NamedIndividual ,
                      dbo:Place ;
             rdfs:comment "Refers to a place called Beijing."@en ;
             rdfs:label "Beijing"@en .
-
-dbr:Hoehenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual ,
-                    dbo:Place ;
-           rdfs:comment "Refers to a place called Berlin."@en ;
-           rdfs:label "Berlin"@en .
 
 
 ###  http://dbpedia.org/resource#Berlin
@@ -1025,13 +1002,17 @@ dbr:Germany rdf:type owl:NamedIndividual ,
 
 
 ###  http://dbpedia.org/resource#Hoehenkirchen-Siegertsbrunn
+dbr:Hoehenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual ,
+                                         dbo:Place ;
+                                rdfs:comment "Refers to a place called Berlin."@en ;
+                                rdfs:label "Berlin"@en .
+
+
+###  http://dbpedia.org/resource#Hoehenkirchen_Siegertsbrunn
 dbr:Hoehenkirchen_Siegertsbrunn rdf:type owl:NamedIndividual ,
                                          dbo:Place ;
                                 rdfs:comment "Refers to a place called Hoehenkirchen-Siegertsbrunn."@en ;
                                 rdfs:label "Hoehenkirchen-Siegertsbrunn"@en .
-
-
-
 
 
 ###  http://dbpedia.org/resource#New_York_City
@@ -1140,10 +1121,10 @@ dbr:_Texas rdf:type owl:NamedIndividual ,
 
 
 ###  http://dbpedia.org/resource#Washington,_D.C.
-<http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual,
-                                              dbo:Place ;
-              rdfs:comment "Refers to a place called Washington D.C."@en ;
-              rdfs:label "Washington D.C"@en .
+<http://dbpedia.org/resource#Washington,_D.C.> rdf:type owl:NamedIndividual ,
+                                                        dbo:Place ;
+                                               rdfs:comment "Refers to a place called Washington D.C."@en ;
+                                               rdfs:label "Washington D.C"@en .
 
 
 ###  http://example.org/iira#ApplicationDomain
@@ -1192,6 +1173,10 @@ iira:ControlDomain rdf:type owl:NamedIndividual ,
                                    idsram:SystemLayer ;
                    sto:isDescribedin sto:IIRA ;
                    rdfs:label "IIRA Control Domain"@en .
+
+
+###  http://example.org/iira#CrosscuttingFunction
+iira:CrosscuttingFunction rdf:type owl:NamedIndividual .
 
 
 ###  http://example.org/iira#DistributedDataManagement
@@ -1378,9 +1363,68 @@ lang:spa rdf:type owl:NamedIndividual ,
                                                      <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
+###  http://purl.org/dc/elements/1.1/description
+dc11:description rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc11:title rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/hasLicense
+dcterms:hasLicense rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/hasVersion
+dcterms:hasVersion rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/issued
+dcterms:issued rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/modified
+dcterms:modified rdf:type owl:NamedIndividual .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:NamedIndividual .
+
+
+###  http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/
+<http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> rdf:type owl:NamedIndividual .
+
+
 ###  http://voag.linkedmodel.org/voag#StakeholderGroup
 <http://voag.linkedmodel.org/voag#StakeholderGroup> rdf:type owl:NamedIndividual ,
                                                              sto:Concern .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/kilobyte
+om2:kilobyte rdf:type owl:NamedIndividual .
+
+
+###  http://xmlns.com/foaf/0.1/familyName
+foaf:familyName rdf:type owl:NamedIndividual ,
+                         owl:property .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:NamedIndividual ,
+                   owl:property .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:NamedIndividual ,
+                   owl:property .
 
 
 ###  https://w3id.org/i40/rami#AdminShellGeneral
@@ -1482,6 +1526,7 @@ rami:Functional rdf:type owl:NamedIndividual ,
                 sto:isDescribedin sto:RAMI ;
                 rdfs:label "RAMI Functional Layer"@en .
 
+
 ###  https://w3id.org/i40/rami#Header
 rami:Header rdf:type owl:NamedIndividual ,
                      sto:StandardizationFramework ;
@@ -1530,18 +1575,20 @@ rami:Integration rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/rami#Lifecycle_Status
 rami:Lifecycle_Status rdf:type owl:NamedIndividual ,
-                              rami:AdminShellSubmodel ;
-                     sto:isDescribedin sto:AdministrationShell;
-                     rdfs:label "Lifecycle Status".
+                               rami:AdminShellSubmodel ;
+                      sto:isDescribedin sto:AdministrationShell ;
+                      rdfs:label "Lifecycle Status" .
 
 
 ###  https://w3id.org/i40/rami#Other
-rami:Other rdf:type owl:NamedIndividual,
-               sto:StandardClassification.
+rami:Other rdf:type owl:NamedIndividual ,
+                    sto:StandardClassification .
 
+
+###  https://w3id.org/i40/rami#ProcessPlanning
 rami:ProcessPlanning rdf:type owl:NamedIndividual ,
-                          rami:AdminShellSubmodel ;
-                 sto:isDescribedin sto:AdministrationShell .
+                              rami:AdminShellSubmodel ;
+                     sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#Product
@@ -1586,6 +1633,10 @@ rami:TypeMaintenance rdf:type owl:NamedIndividual ,
 rami:WorkCenter rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel ;
                 sto:isDescribedin sto:RAMI .
+
+
+###  https://w3id.org/i40/sto#
+<https://w3id.org/i40/sto#> rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#AI
@@ -1921,6 +1972,11 @@ sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
                                   rdfs:label "BDVA Communication and Connectivity"@en .
 
 
+###  https://w3id.org/i40/sto#BdvaConcern
+sto:BdvaConcern rdf:type owl:NamedIndividual ,
+                         owl:class .
+
+
 ###  https://w3id.org/i40/sto#BdvaCyberSecurityTrust
 sto:BdvaCyberSecurityTrust rdf:type owl:NamedIndividual ,
                                     sto:BdvaConcern ;
@@ -2078,6 +2134,23 @@ sto:BigDataApplications rdf:type owl:NamedIndividual ,
                                  sto:Concern .
 
 
+###  https://w3id.org/i40/sto#Billing
+sto:Billing rdf:type owl:NamedIndividual ,
+                     sto:Concern ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "Billing frames the process of paying for any type of (digital) resource, whether software, apps, data or anything else."@en ;
+            rdfs:label "Billing"@en .
+
+
+###  https://w3id.org/i40/sto#Blockchain
+sto:Blockchain rdf:type owl:NamedIndividual ,
+                        sto:TechnicalSpecification ;
+               rdfs:comment "The term Blockchain refers to a set of technologies for distributed databases."@en ;
+               rdfs:label "Blockchain"@en ;
+               rdfs:seeAlso <https://web.archive.org/web/20140320135003/https://bitcoin.org/bitcoin.pdf> ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/Blockchain.info> .
+
+
 ###  https://w3id.org/i40/sto#Bluetooth
 sto:Bluetooth rdf:type owl:NamedIndividual ,
                        sto:TechnicalSpecification ;
@@ -2211,7 +2284,8 @@ sto:Compliance rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:NamedIndividual, owl:class .
+sto:Concern rdf:type owl:NamedIndividual ,
+                     owl:class .
 
 
 ###  https://w3id.org/i40/sto#ConstraintDevices
@@ -2601,6 +2675,10 @@ sto:DataSelection rdf:type owl:NamedIndividual ,
                              "The ability of a system to query, filter, or request the desired data."@en .
 
 
+###  https://w3id.org/i40/sto#DataSharingInitiative
+sto:DataSharingInitiative rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/i40/sto#DataSovereignty
 sto:DataSovereignty rdf:type owl:NamedIndividual ,
                              sto:Concern ,
@@ -2613,11 +2691,6 @@ sto:DataSovereignty rdf:type owl:NamedIndividual ,
 sto:DataTransferProject rdf:type owl:NamedIndividual ,
                                  sto:DataSharingInitiative ;
                         dul:associatedWith sto:DtpArchitecture ;
-                        <https://w3id.org/i40/hasTargetConcern> sto:DataSovereignty ,
-                                                                sto:IdentityManagement ,
-                                                                sto:Privacy ,
-                                                                sto:SecureCommunication ,
-                                                                sto:UserPreferences ;
                         dcterms:creator sto:sebastian ;
                         rdfs:comment "The Data Transfer Project (DTP) extends data portability beyond a user’s ability to download a copy of their data from their service provider (“provider”), to providing the user the ability 1 to initiate a direct transfer of their data into and out of any participating provider. The Data Transfer Project is an open source initiative to encourage participation of as many providers as possible. The DTP will enhance the data portability ecosystem by reducing the infrastructure burden on both providers and users, which should in turn increase the number of services offering portability. The protocols and methodology of the DTP enable direct, service-to-service data transfer with streamlined engineering work."@en ;
                         rdfs:label "Data Transfer Project"@en ;
@@ -2629,9 +2702,16 @@ sto:DataTransferProjectWhitepaper rdf:type owl:NamedIndividual ,
                                            sto:Publication ;
                                   sto:hasDeveloper sto:DataTransferProject ;
                                   sto:hasPublisher sto:DataTransferProject ;
+                                  sto:hasTargetConcern sto:DataSovereignty ,
+                                                       sto:IdentityManagement ,
+                                                       sto:Privacy ,
+                                                       sto:SecureCommunication ,
+                                                       sto:UserPreferences ;
                                   dcterms:creator sto:sebastian ;
                                   rdfs:comment "The Data Transfer Project Whitepaper provides a brief overview on the intends of the Data Transfer Project and the targeted approach."@en ;
-                                  rdfs:label "Data Transfer Project Whitepaper"@en .
+                                  rdfs:label "Data Transfer Project Whitepaper"@en ;
+                                  sto:hasDBpediaResource <http://dbpedia.org/page/Data_Transfer_Project> ;
+                                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_Transfer_Project> .
 
 
 ###  https://w3id.org/i40/sto#DataUsageControl
@@ -2662,6 +2742,41 @@ sto:DigiMesh rdf:type owl:NamedIndividual ,
              rdfs:comment "DigiMesh is a proprietary peer-to-peer networking topology for use in wireless end-point connectivity solutions. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
              rdfs:label "DigiMesh"@en ;
              sto:hasOfficialResource <http://www.digi.com/technology/digimesh/> .
+
+
+###  https://w3id.org/i40/sto#DmaArchitecture
+sto:DmaArchitecture rdf:type owl:NamedIndividual ,
+                             sto:ArchitectureDescription ;
+                    dul:associatedWith sto:DataMarketAustria ;
+                    dcterms:creator sto:sebastian ;
+                    rdfs:label "DMA Architecture"@en .
+
+
+###  https://w3id.org/i40/sto#DmaServiceTechnologySpecificationAndDevelopmentRoadmap
+sto:DmaServiceTechnologySpecificationAndDevelopmentRoadmap rdf:type owl:NamedIndividual ,
+                                                                    sto:StandardizationFramework ;
+                                                           dul:associatedWith sto:Blockchain ,
+                                                                              sto:REST ,
+                                                                              sto:RFC_6750 ;
+                                                           sto:hasPublisher sto:DataMarketAustria ;
+                                                           sto:hasTargetConcern sto:Authentication ,
+                                                                                sto:Authorization ,
+                                                                                sto:BigDataApplications ,
+                                                                                sto:Billing ,
+                                                                                sto:CloudComputing ,
+                                                                                sto:DataAccess ,
+                                                                                sto:DataQuality ,
+                                                                                sto:Privacy ,
+                                                                                sto:SecureCommunication ,
+                                                                                sto:Security ,
+                                                                                sto:SemanticInteroperability ,
+                                                                                sto:StreamProcessing ,
+                                                                                sto:SyntacticInteroperability ,
+                                                                                sto:Trustworthiness ;
+                                                           rdfs:comment """This document presents the DMA Data Technology Specification and Development Roadmap regarding the ongoing work in WP6 of the DMA project. The document relates to deliverable D2.2 “D2.2 Community-driven Data-Services Ecosystem Requirements (1st version)” which formulates
+the requirements of the DMA community. It will be explained in what way the requirements formulated in D2.2 are going to be addressed. The document gives an overview about the components which are going to be developed in WP6 and how these components are planned to be employed to provide DMA core services. The expected outputs of these services are described and a procedure of describing a 3rd party service for DMA platform is addressed."""@en ;
+                                                           rdfs:label "DMA Service Technology Specification and Development Roadmap"@en ;
+                                                           sto:hasOfficialResource <https://datamarket.at/wp-content/uploads/2017/10/DMA_Deliverable_D6.1_FINAL_v01.pdf> .
 
 
 ###  https://w3id.org/i40/sto#DtpArchitecture
@@ -2887,7 +3002,8 @@ sto:ExecutionVariability rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FIWARE
 sto:FIWARE rdf:type owl:NamedIndividual ,
                     sto:ArchitectureDescription ;
-           sto:alignesWith iira:ImplementationViewpoint ;
+           sto:alignesWith iira:ImplementationViewpoint ,
+                           idsram:SystemLayer ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
            rdfs:label "FIWARE"@en ;
@@ -2897,8 +3013,8 @@ sto:FIWARE rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60027_2006
 sto:FileSizeIEC_60027_2006 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "661.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "661.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60027:2006"@en ;
                            rdfs:label "FileSize IEC 60027:2006"@en .
 
@@ -2906,8 +3022,8 @@ sto:FileSizeIEC_60027_2006 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60038_2009
 sto:FileSizeIEC_60038_2009 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "946.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "946.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60038:2009"@en ;
                            rdfs:label "FileSize IEC 60038:2009"@en .
 
@@ -2915,8 +3031,8 @@ sto:FileSizeIEC_60038_2009 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60050_1984
 sto:FileSizeIEC_60050_1984 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "2485.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "2485.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60050-101:1998 "@en ;
                            rdfs:label "FileSize IEC 60050-371:1984"@en .
 
@@ -2924,8 +3040,8 @@ sto:FileSizeIEC_60050_1984 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60050_1998
 sto:FileSizeIEC_60050_1998 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "1712.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "1712.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60050-101:1998 "@en ;
                            rdfs:label "FileSize IEC 60050-101:1998"@en .
 
@@ -2933,8 +3049,8 @@ sto:FileSizeIEC_60050_1998 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60050_2013
 sto:FileSizeIEC_60050_2013 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "3999.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "3999.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60050-351:2013 "@en ;
                            rdfs:label "FileSize IEC 60050-351:2013"@en .
 
@@ -2942,8 +3058,8 @@ sto:FileSizeIEC_60050_2013 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60073_2002
 sto:FileSizeIEC_60073_2002 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "525.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "525.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60073:2002"@en ;
                            rdfs:label "FileSize IEC 60073:2002"@en .
 
@@ -2951,8 +3067,8 @@ sto:FileSizeIEC_60073_2002 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60204_2000
 sto:FileSizeIEC_60204_2000 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "494.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "494.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60204:2000"@en ;
                            rdfs:label "FileSize IEC 60204:2000"@en .
 
@@ -2960,8 +3076,8 @@ sto:FileSizeIEC_60204_2000 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60255_149_2013
 sto:FileSizeIEC_60255_149_2013 rdf:type owl:NamedIndividual ,
                                         om2:Measure ;
-                               om2:hasNumericalValue "1722.0"^^xsd:float ;
                                om2:hasUnit om2:kilobyte ;
+                               om2:hasNumericalValue "1722.0"^^xsd:float ;
                                rdfs:comment "Specifies the file size of the document for standard IEC 60255-149:2013 "@en ;
                                rdfs:label "FileSize 60255-149:2013"@en .
 
@@ -2969,8 +3085,8 @@ sto:FileSizeIEC_60255_149_2013 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60255_151_2009
 sto:FileSizeIEC_60255_151_2009 rdf:type owl:NamedIndividual ,
                                         om2:Measure ;
-                               om2:hasNumericalValue "1341.0"^^xsd:float ;
                                om2:hasUnit om2:kilobyte ;
+                               om2:hasNumericalValue "1341.0"^^xsd:float ;
                                rdfs:comment "Specifies the file size of the document for standard IEC IEC 60255-151:2009"@en ;
                                rdfs:label "FileSize IEC 60255-151:2009 "@en .
 
@@ -2978,8 +3094,8 @@ sto:FileSizeIEC_60255_151_2009 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60255_2009
 sto:FileSizeIEC_60255_2009 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "1411.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "1411.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard 60255-1:2009"@en ;
                            rdfs:label "FileSize IEC 60255-1:2009"@en .
 
@@ -2987,8 +3103,8 @@ sto:FileSizeIEC_60255_2009 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60255_2010
 sto:FileSizeIEC_60255_2010 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "1215.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "1215.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60255-127:2010 "@en ;
                            rdfs:label "FileSize 60255-127:2010"@en .
 
@@ -2996,8 +3112,8 @@ sto:FileSizeIEC_60255_2010 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60255_2013
 sto:FileSizeIEC_60255_2013 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "2520.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "2520.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60255-27:2013"@en ;
                            rdfs:label "FileSize IEC 60255-27:2013"@en .
 
@@ -3005,8 +3121,8 @@ sto:FileSizeIEC_60255_2013 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60286_3_2013
 sto:FileSizeIEC_60286_3_2013 rdf:type owl:NamedIndividual ,
                                       om2:Measure ;
-                             om2:hasNumericalValue "1764.0"^^xsd:float ;
                              om2:hasUnit om2:kilobyte ;
+                             om2:hasNumericalValue "1764.0"^^xsd:float ;
                              rdfs:comment "Specifies the file size of the document for standard IEC IEC 60286-3:2013 "@en ;
                              rdfs:label "FileSize IEC 60286-3:2013  "@en .
 
@@ -3014,8 +3130,8 @@ sto:FileSizeIEC_60286_3_2013 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60286_4_2013
 sto:FileSizeIEC_60286_4_2013 rdf:type owl:NamedIndividual ,
                                       om2:Measure ;
-                             om2:hasNumericalValue "1129.0"^^xsd:float ;
                              om2:hasUnit om2:kilobyte ;
+                             om2:hasNumericalValue "1129.0"^^xsd:float ;
                              rdfs:comment "Specifies the file size of the document for standard IEC IEC 60286-4:2013 "@en ;
                              rdfs:label "FileSize IEC 60286-4:2013  "@en .
 
@@ -3023,8 +3139,8 @@ sto:FileSizeIEC_60286_4_2013 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60286_5_2018
 sto:FileSizeIEC_60286_5_2018 rdf:type owl:NamedIndividual ,
                                       om2:Measure ;
-                             om2:hasNumericalValue "3481.0"^^xsd:float ;
                              om2:hasUnit om2:kilobyte ;
+                             om2:hasNumericalValue "3481.0"^^xsd:float ;
                              rdfs:comment "Specifies the file size of the document for standard IEC IEC 60286-5:2018 "@en ;
                              rdfs:label "FileSize IEC 60286-5:2018  "@en .
 
@@ -3032,8 +3148,8 @@ sto:FileSizeIEC_60286_5_2018 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60381_1978
 sto:FileSizeIEC_60381_1978 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "483.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "483.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60381-2:1978"@en ;
                            rdfs:label "FileSize IEC 60381-2:1978"@en .
 
@@ -3041,8 +3157,8 @@ sto:FileSizeIEC_60381_1978 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60381_1982
 sto:FileSizeIEC_60381_1982 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "507.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "507.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60381-1:1982 "@en ;
                            rdfs:label "FileSize IEC 60381-1:1982"@en .
 
@@ -3050,8 +3166,8 @@ sto:FileSizeIEC_60381_1982 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60382
 sto:FileSizeIEC_60382 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
-                      om2:hasNumericalValue "557.0"^^xsd:float ;
                       om2:hasUnit om2:kilobyte ;
+                      om2:hasNumericalValue "557.0"^^xsd:float ;
                       rdfs:comment "Specifies the file size of the document for standard  IEC 60382:1991."@en ;
                       rdfs:label "FileSize IEC 60382:1991"@en .
 
@@ -3059,8 +3175,8 @@ sto:FileSizeIEC_60382 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60382_1991
 sto:FileSizeIEC_60382_1991 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "557.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "557.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60382:1991"@en ;
                            rdfs:label "FileSize IEC 60382:1991"@en .
 
@@ -3068,8 +3184,8 @@ sto:FileSizeIEC_60382_1991 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_1
 sto:FileSizeIEC_60839_P7_1 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "1137.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "1137.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-1:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-1:2001"@en .
 
@@ -3077,8 +3193,8 @@ sto:FileSizeIEC_60839_P7_1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_2
 sto:FileSizeIEC_60839_P7_2 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "1047.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "1047.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-2:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-2:2001"@en .
 
@@ -3086,8 +3202,8 @@ sto:FileSizeIEC_60839_P7_2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_3
 sto:FileSizeIEC_60839_P7_3 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "975.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "975.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-3:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-3:2001"@en .
 
@@ -3095,8 +3211,8 @@ sto:FileSizeIEC_60839_P7_3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_4
 sto:FileSizeIEC_60839_P7_4 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "967.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "967.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-4:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-4:2001"@en .
 
@@ -3104,8 +3220,8 @@ sto:FileSizeIEC_60839_P7_4 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_5
 sto:FileSizeIEC_60839_P7_5 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "939.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "939.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-5:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-5:2001"@en .
 
@@ -3113,8 +3229,8 @@ sto:FileSizeIEC_60839_P7_5 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_6
 sto:FileSizeIEC_60839_P7_6 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "926.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "926.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-6:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-6:2001"@en .
 
@@ -3122,8 +3238,8 @@ sto:FileSizeIEC_60839_P7_6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_7
 sto:FileSizeIEC_60839_P7_7 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "964.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
+                           om2:hasNumericalValue "964.0"^^xsd:float ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60839-7-7:2001"@en ;
                            rdfs:label "FileSize IEC 60839-7-7:2001"@en .
 
@@ -3131,8 +3247,8 @@ sto:FileSizeIEC_60839_P7_7 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60848
 sto:FileSizeIEC_60848 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
-                      om2:hasNumericalValue "1784.0"^^xsd:float ;
                       om2:hasUnit om2:kilobyte ;
+                      om2:hasNumericalValue "1784.0"^^xsd:float ;
                       rdfs:comment "Specifies the file size of the document for standard IEC 60848:2013"@en ;
                       rdfs:label "FileSize IEC 60848:2013"@en .
 
@@ -3140,8 +3256,8 @@ sto:FileSizeIEC_60848 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60864_P1
 sto:FileSizeIEC_60864_P1 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "1540.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "1540.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 60864-1:1986 "@en ;
                          rdfs:label "FileSizeIEC 60864-1:1986"@en .
 
@@ -3149,8 +3265,8 @@ sto:FileSizeIEC_60864_P1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60864_P2
 sto:FileSizeIEC_60864_P2 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "283.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "283.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 60864-2:1997"@en ;
                          rdfs:label "FileSize IEC 60864-2:1997"@en .
 
@@ -3158,8 +3274,8 @@ sto:FileSizeIEC_60864_P2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1990_P5_S1
 sto:FileSizeIEC_60870_1990_P5_S1 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "2954.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "2954.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-1:1990"@en ;
                                  rdfs:label "FileSize IEC 60870-5-1:1990"@en .
 
@@ -3167,8 +3283,8 @@ sto:FileSizeIEC_60870_1990_P5_S1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1992_P5_S2
 sto:FileSizeIEC_60870_1992_P5_S2 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "3658.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "3658.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-2:1992"@en ;
                                  rdfs:label "FileSize IEC 60870-5-2:1992"@en .
 
@@ -3176,8 +3292,8 @@ sto:FileSizeIEC_60870_1992_P5_S2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1992_P5_S3
 sto:FileSizeIEC_60870_1992_P5_S3 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "1629.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "1629.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-3:1992"@en ;
                                  rdfs:label "FileSize IEC 60870-5-3:1992"@en .
 
@@ -3185,8 +3301,8 @@ sto:FileSizeIEC_60870_1992_P5_S3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1995_P2_S1
 sto:FileSizeIEC_60870_1995_P2_S1 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "1674.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "1674.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-2-1:1995"@en ;
                                  rdfs:label "FileSize IEC 60870-2-1:1995"@en .
 
@@ -3194,8 +3310,8 @@ sto:FileSizeIEC_60870_1995_P2_S1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_1996_P2_S2
 sto:FileSizeIEC_60870_1996_P2_S2 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "1705.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "1705.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-2-2:1996"@en ;
                                  rdfs:label "FileSize IEC 60870-2-2:1996"@en .
 
@@ -3203,8 +3319,8 @@ sto:FileSizeIEC_60870_1996_P2_S2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S101_2003
 sto:FileSizeIEC_60870_P5_S101_2003 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "2651.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "2651.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-101:2003"@en ;
                                    rdfs:label "FileSize IEC 60870-5-101:2003"@en .
 
@@ -3212,8 +3328,8 @@ sto:FileSizeIEC_60870_P5_S101_2003 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S102_1996
 sto:FileSizeIEC_60870_P5_S102_1996 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "505.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "505.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-102:1996"@en ;
                                    rdfs:label "FileSize IEC 60870-5-102:1996"@en .
 
@@ -3221,8 +3337,8 @@ sto:FileSizeIEC_60870_P5_S102_1996 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S103_1997
 sto:FileSizeIEC_60870_P5_S103_1997 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "964.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "964.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-103:1997"@en ;
                                    rdfs:label "FileSize IEC 60870-5-103:1997"@en .
 
@@ -3230,8 +3346,8 @@ sto:FileSizeIEC_60870_P5_S103_1997 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S104_2016
 sto:FileSizeIEC_60870_P5_S104_2016 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "2994.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "2994.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-104:2006"@en ;
                                    rdfs:label "FileSize IEC 60870-5-104:2006"@en .
 
@@ -3239,8 +3355,8 @@ sto:FileSizeIEC_60870_P5_S104_2016 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S4_1993
 sto:FileSizeIEC_60870_P5_S4_1993 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "1776.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "1776.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-4:1993"@en ;
                                  rdfs:label "FileSize IEC 60870-5-4:1993"@en .
 
@@ -3248,8 +3364,8 @@ sto:FileSizeIEC_60870_P5_S4_1993 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S5_1995
 sto:FileSizeIEC_60870_P5_S5_1995 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "3347.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "3347.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-5:1995"@en ;
                                  rdfs:label "FileSize IEC 60870-5-5:1995"@en .
 
@@ -3257,8 +3373,8 @@ sto:FileSizeIEC_60870_P5_S5_1995 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P5_S6_2006
 sto:FileSizeIEC_60870_P5_S6_2006 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "1342.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "1342.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-5-6::2006."@en ;
                                  rdfs:label "FileSize IEC 60870-5-6:2006"@en .
 
@@ -3266,8 +3382,8 @@ sto:FileSizeIEC_60870_P5_S6_2006 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S2_1995
 sto:FileSizeIEC_60870_P6_S2_1995 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "3524.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "3524.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-2:1995"@en ;
                                  rdfs:label "FileSize IEC 60870-6-2:1995"@en .
 
@@ -3275,8 +3391,8 @@ sto:FileSizeIEC_60870_P6_S2_1995 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S501_1995
 sto:FileSizeIEC_60870_P6_S501_1995 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "578.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "578.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-501:1995"@en ;
                                    rdfs:label "FileSize IEC 60870-6-501:1995"@en .
 
@@ -3284,8 +3400,8 @@ sto:FileSizeIEC_60870_P6_S501_1995 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S502_1995
 sto:FileSizeIEC_60870_P6_S502_1995 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "1963.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "1963.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-502:1995"@en ;
                                    rdfs:label "FileSize IEC 60870-6-502:1995"@en .
 
@@ -3293,8 +3409,8 @@ sto:FileSizeIEC_60870_P6_S502_1995 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S503_2014
 sto:FileSizeIEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "2630.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "2630.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-503:2014"@en ;
                                    rdfs:label "FileSize IEC 60870-6-503:2014"@en .
 
@@ -3302,8 +3418,8 @@ sto:FileSizeIEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S601_1994
 sto:FileSizeIEC_60870_P6_S601_1994 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "1112.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "1112.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-601:1994"@en ;
                                    rdfs:label "FileSize IEC 60870-6-601:1994"@en .
 
@@ -3311,8 +3427,8 @@ sto:FileSizeIEC_60870_P6_S601_1994 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S701_1998
 sto:FileSizeIEC_60870_P6_S701_1998 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "130.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "130.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-701:1998"@en ;
                                    rdfs:label "FileSize IEC 60870-6-701:1998"@en .
 
@@ -3320,8 +3436,8 @@ sto:FileSizeIEC_60870_P6_S701_1998 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S702_2014
 sto:FileSizeIEC_60870_P6_S702_2014 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "1374.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "1374.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-702:2014"@en ;
                                    rdfs:label "FileSize IEC 60870-6-702:2014"@en .
 
@@ -3329,8 +3445,8 @@ sto:FileSizeIEC_60870_P6_S702_2014 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60870_P6_S802_2014
 sto:FileSizeIEC_60870_P6_S802_2014 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "1678.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "1678.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 60870-6-802:2014"@en ;
                                    rdfs:label "FileSize IEC 60870-6-802:2014"@en .
 
@@ -3338,8 +3454,8 @@ sto:FileSizeIEC_60870_P6_S802_2014 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60946
 sto:FileSizeIEC_60946 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
-                      om2:hasNumericalValue "546.0"^^xsd:float ;
                       om2:hasUnit om2:kilobyte ;
+                      om2:hasNumericalValue "546.0"^^xsd:float ;
                       rdfs:comment "Specifies the file size of the document for standard IEC 60946"@en ;
                       rdfs:label "FileSize IEC 60946"@en .
 
@@ -3347,8 +3463,8 @@ sto:FileSizeIEC_60946 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61000_P6_S2_2016
 sto:FileSizeIEC_61000_P6_S2_2016 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "2028.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "2028.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 61000-6-2:2016."@en ;
                                  rdfs:label "FileSize IEC 61000-6-2:2016"@en .
 
@@ -3356,8 +3472,8 @@ sto:FileSizeIEC_61000_P6_S2_2016 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61010_P2_S012_2016
 sto:FileSizeIEC_61010_P2_S012_2016 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "2717.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "2717.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 61010-2-012:2016."@en ;
                                    rdfs:label "FileSize IEC 61010-2-012:2016"@en .
 
@@ -3365,8 +3481,8 @@ sto:FileSizeIEC_61010_P2_S012_2016 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61010_P2_S201_2017
 sto:FileSizeIEC_61010_P2_S201_2017 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "5743.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "5743.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 61010-2-201:2017."@en ;
                                    rdfs:label "FileSize IEC 61010-2-201:2017"@en .
 
@@ -3374,8 +3490,8 @@ sto:FileSizeIEC_61010_P2_S201_2017 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61010_P2_S202_2016
 sto:FileSizeIEC_61010_P2_S202_2016 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "1027.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "1027.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 61010-2-202:2016."@en ;
                                    rdfs:label "FileSize IEC 61010-2-202:2016"@en .
 
@@ -3383,8 +3499,8 @@ sto:FileSizeIEC_61010_P2_S202_2016 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61160
 sto:FileSizeIEC_61160 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
-                      om2:hasNumericalValue "69.0"^^xsd:float ;
                       om2:hasUnit om2:kilobyte ;
+                      om2:hasNumericalValue "69.0"^^xsd:float ;
                       rdfs:comment "Specifies the file size of the document for standard  IEC 61160:2005."@en ;
                       rdfs:label "FileSize IEC 61160:2005"@en .
 
@@ -3392,8 +3508,8 @@ sto:FileSizeIEC_61160 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61310_P1
 sto:FileSizeIEC_61310_P1 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "763.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "763.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61310-1:2007."@en ;
                          rdfs:label "FileSize IEC 61310-1:2007"@en .
 
@@ -3401,8 +3517,8 @@ sto:FileSizeIEC_61310_P1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61310_P2
 sto:FileSizeIEC_61310_P2 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "724.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "724.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61310-2:2007."@en ;
                          rdfs:label "FileSize IEC 61310-2:2007"@en .
 
@@ -3410,8 +3526,8 @@ sto:FileSizeIEC_61310_P2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61310_P3
 sto:FileSizeIEC_61310_P3 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "716.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "716.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61310-3:2007."@en ;
                          rdfs:label "FileSize IEC 61310-3:2007"@en .
 
@@ -3419,8 +3535,8 @@ sto:FileSizeIEC_61310_P3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P3_S21
 sto:FileSizeIEC_61334_1996_P3_S21 rdf:type owl:NamedIndividual ,
                                            om2:Measure ;
-                                  om2:hasNumericalValue "1112.0"^^xsd:float ;
                                   om2:hasUnit om2:kilobyte ;
+                                  om2:hasNumericalValue "1112.0"^^xsd:float ;
                                   rdfs:comment "Specifies the file size of the document for standard IEC 61334-3-21:1996 "@en ;
                                   rdfs:label "FileSize IEC 61334-3-21:1996 "@en .
 
@@ -3428,8 +3544,8 @@ sto:FileSizeIEC_61334_1996_P3_S21 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P3_S22
 sto:FileSizeIEC_61334_1996_P3_S22 rdf:type owl:NamedIndividual ,
                                            om2:Measure ;
-                                  om2:hasNumericalValue "165.0"^^xsd:float ;
                                   om2:hasUnit om2:kilobyte ;
+                                  om2:hasNumericalValue "165.0"^^xsd:float ;
                                   rdfs:comment "Specifies the file size of the document for standard IEC 61334-3-22:2001"@en ;
                                   rdfs:label "FileSize IEC 61334-4-1:1996"@en .
 
@@ -3437,8 +3553,8 @@ sto:FileSizeIEC_61334_1996_P3_S22 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P4_S1
 sto:FileSizeIEC_61334_1996_P4_S1 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "1707.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "1707.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-1:1996"@en ;
                                  rdfs:label "FileSize IEC 61334-3-22:2000"@en .
 
@@ -3446,8 +3562,8 @@ sto:FileSizeIEC_61334_1996_P4_S1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P4_S32
 sto:FileSizeIEC_61334_1996_P4_S32 rdf:type owl:NamedIndividual ,
                                            om2:Measure ;
-                                  om2:hasNumericalValue "869.0"^^xsd:float ;
                                   om2:hasUnit om2:kilobyte ;
+                                  om2:hasNumericalValue "869.0"^^xsd:float ;
                                   rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-32:1996 "@en ;
                                   rdfs:label "FileSize IEC 61334-4-32:1996 "@en .
 
@@ -3455,8 +3571,8 @@ sto:FileSizeIEC_61334_1996_P4_S32 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P4_S41
 sto:FileSizeIEC_61334_1996_P4_S41 rdf:type owl:NamedIndividual ,
                                            om2:Measure ;
-                                  om2:hasNumericalValue "834.0"^^xsd:float ;
                                   om2:hasUnit om2:kilobyte ;
+                                  om2:hasNumericalValue "834.0"^^xsd:float ;
                                   rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-41:1996"@en ;
                                   rdfs:label "FileSize IEC 61334-4-41:1996"@en .
 
@@ -3464,8 +3580,8 @@ sto:FileSizeIEC_61334_1996_P4_S41 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1996_P4_S42
 sto:FileSizeIEC_61334_1996_P4_S42 rdf:type owl:NamedIndividual ,
                                            om2:Measure ;
-                                  om2:hasNumericalValue "305.0"^^xsd:float ;
                                   om2:hasUnit om2:kilobyte ;
+                                  om2:hasNumericalValue "305.0"^^xsd:float ;
                                   rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-42:1996"@en ;
                                   rdfs:label "FileSize IEC 61334-4-42:1996"@en .
 
@@ -3473,8 +3589,8 @@ sto:FileSizeIEC_61334_1996_P4_S42 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1998_P3_S1
 sto:FileSizeIEC_61334_1998_P3_S1 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "147.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "147.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 61334-3-1:1998 "@en ;
                                  rdfs:label "FileSize IEC 61334-3-1:1998 "@en .
 
@@ -3482,8 +3598,8 @@ sto:FileSizeIEC_61334_1998_P3_S1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1998_P4_S3
 sto:FileSizeIEC_61334_1998_P4_S3 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "135.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "135.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-33:1998 "@en ;
                                  rdfs:label "FileSize IEC 61334-4-33:1998"@en .
 
@@ -3491,8 +3607,8 @@ sto:FileSizeIEC_61334_1998_P4_S3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_1998_P4_S61
 sto:FileSizeIEC_61334_1998_P4_S61 rdf:type owl:NamedIndividual ,
                                            om2:Measure ;
-                                  om2:hasNumericalValue "753.0"^^xsd:float ;
                                   om2:hasUnit om2:kilobyte ;
+                                  om2:hasNumericalValue "753.0"^^xsd:float ;
                                   rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-61:1998"@en ;
                                   rdfs:label "FileSize IEC 61334-4-61:1998"@en .
 
@@ -3500,8 +3616,8 @@ sto:FileSizeIEC_61334_1998_P4_S61 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_2000_P4_S511
 sto:FileSizeIEC_61334_2000_P4_S511 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "203.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "203.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-511:2000"@en ;
                                    rdfs:label "FileSize IEC 61334-4-511:2000"@en .
 
@@ -3509,8 +3625,8 @@ sto:FileSizeIEC_61334_2000_P4_S511 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_2000_P6
 sto:FileSizeIEC_61334_2000_P6 rdf:type owl:NamedIndividual ,
                                        om2:Measure ;
-                              om2:hasNumericalValue "294.0"^^xsd:float ;
                               om2:hasUnit om2:kilobyte ;
+                              om2:hasNumericalValue "294.0"^^xsd:float ;
                               rdfs:comment "Specifies the file size of the document for standard IEC 61334-6:2000"@en ;
                               rdfs:label "FileSize IEC 61334-6:2000"@en .
 
@@ -3518,8 +3634,8 @@ sto:FileSizeIEC_61334_2000_P6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_2001_P4_S512
 sto:FileSizeIEC_61334_2001_P4_S512 rdf:type owl:NamedIndividual ,
                                             om2:Measure ;
-                                   om2:hasNumericalValue "459.0"^^xsd:float ;
                                    om2:hasUnit om2:kilobyte ;
+                                   om2:hasNumericalValue "459.0"^^xsd:float ;
                                    rdfs:comment "Specifies the file size of the document for standard IEC 61334-4-512:2001"@en ;
                                    rdfs:label "FileSize IEC 61334-4-512:2001"@en .
 
@@ -3527,8 +3643,8 @@ sto:FileSizeIEC_61334_2001_P4_S512 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61334_2001_P5_S1
 sto:FileSizeIEC_61334_2001_P5_S1 rdf:type owl:NamedIndividual ,
                                           om2:Measure ;
-                                 om2:hasNumericalValue "723.0"^^xsd:float ;
                                  om2:hasUnit om2:kilobyte ;
+                                 om2:hasNumericalValue "723.0"^^xsd:float ;
                                  rdfs:comment "Specifies the file size of the document for standard IEC 61334-5-1:2001"@en ;
                                  rdfs:label "FileSize IEC 61334-5-1:2001"@en .
 
@@ -3536,8 +3652,8 @@ sto:FileSizeIEC_61334_2001_P5_S1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61400_P25_1
 sto:FileSizeIEC_61400_P25_1 rdf:type owl:NamedIndividual ,
                                      om2:Measure ;
-                            om2:hasNumericalValue "3644.0"^^xsd:float ;
                             om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "3644.0"^^xsd:float ;
                             rdfs:comment "Specifies the file size of the document for standard  IEC 61400-25-1:2017."@en ;
                             rdfs:label "FileSize IEC 61400-25-1:2017"@en .
 
@@ -3545,8 +3661,8 @@ sto:FileSizeIEC_61400_P25_1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61400_P25_2
 sto:FileSizeIEC_61400_P25_2 rdf:type owl:NamedIndividual ,
                                      om2:Measure ;
-                            om2:hasNumericalValue "3707.0"^^xsd:float ;
                             om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "3707.0"^^xsd:float ;
                             rdfs:comment "Specifies the file size of the document for standard IEC 61400-25-2:2015."@en ;
                             rdfs:label "FileSize IEC 61400-25-2:2015"@en .
 
@@ -3554,8 +3670,8 @@ sto:FileSizeIEC_61400_P25_2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61400_P25_3
 sto:FileSizeIEC_61400_P25_3 rdf:type owl:NamedIndividual ,
                                      om2:Measure ;
-                            om2:hasNumericalValue "2027.0"^^xsd:float ;
                             om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "2027.0"^^xsd:float ;
                             rdfs:comment "Specifies the file size of the document for standard IEC 61400-25-3:2015."@en ;
                             rdfs:label "FileSize IEC 61400-25-3:2015"@en .
 
@@ -3563,8 +3679,8 @@ sto:FileSizeIEC_61400_P25_3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61400_P25_4
 sto:FileSizeIEC_61400_P25_4 rdf:type owl:NamedIndividual ,
                                      om2:Measure ;
-                            om2:hasNumericalValue "7800.0"^^xsd:float ;
                             om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "7800.0"^^xsd:float ;
                             rdfs:comment "Specifies the file size of the document for standard IEC 61400-25-4:2016."@en ;
                             rdfs:label "FileSize IEC 61400-25-4:2016"@en .
 
@@ -3572,8 +3688,8 @@ sto:FileSizeIEC_61400_P25_4 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61400_P25_5
 sto:FileSizeIEC_61400_P25_5 rdf:type owl:NamedIndividual ,
                                      om2:Measure ;
-                            om2:hasNumericalValue "1567.0"^^xsd:float ;
                             om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "1567.0"^^xsd:float ;
                             rdfs:comment "Specifies the file size of the document for standard IEC 61400-25-5:2017."@en ;
                             rdfs:label "FileSize IEC 61400-25-5:2017"@en .
 
@@ -3581,8 +3697,8 @@ sto:FileSizeIEC_61400_P25_5 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61400_P25_6
 sto:FileSizeIEC_61400_P25_6 rdf:type owl:NamedIndividual ,
                                      om2:Measure ;
-                            om2:hasNumericalValue "1673.0"^^xsd:float ;
                             om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "1673.0"^^xsd:float ;
                             rdfs:comment "Specifies the file size of the document for standard IEC 61400-25-5:2017."@en ;
                             rdfs:label "FileSize IEC 61400-25-5:2017"@en .
 
@@ -3590,8 +3706,8 @@ sto:FileSizeIEC_61400_P25_6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61506
 sto:FileSizeIEC_61506 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
-                      om2:hasNumericalValue "294.0"^^xsd:float ;
                       om2:hasUnit om2:kilobyte ;
+                      om2:hasNumericalValue "294.0"^^xsd:float ;
                       rdfs:comment "Specifies the file size of the document for standard  IEC 61506:1997."@en ;
                       rdfs:label "FileSize IEC 61506:1997"@en .
 
@@ -3599,8 +3715,8 @@ sto:FileSizeIEC_61506 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61690_P1_2000
 sto:FileSizeIEC_61690_P1_2000 rdf:type owl:NamedIndividual ,
                                        om2:Measure ;
-                              om2:hasNumericalValue "1676.0"^^xsd:float ;
                               om2:hasUnit om2:kilobyte ;
+                              om2:hasNumericalValue "1676.0"^^xsd:float ;
                               rdfs:comment "Specifies the file size of the document for standard IEC 61690-1:2000 ."@en ;
                               rdfs:label "FileSize IEC 61690-1:2000 "@en .
 
@@ -3608,8 +3724,8 @@ sto:FileSizeIEC_61690_P1_2000 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61690_P2_2000
 sto:FileSizeIEC_61690_P2_2000 rdf:type owl:NamedIndividual ,
                                        om2:Measure ;
-                              om2:hasNumericalValue "6700.0"^^xsd:float ;
                               om2:hasUnit om2:kilobyte ;
+                              om2:hasNumericalValue "6700.0"^^xsd:float ;
                               rdfs:comment "Specifies the file size of the document for standard IEC 61690-2:2000 ."@en ;
                               rdfs:label "FileSize IEC 61690-2:2000 "@en .
 
@@ -3617,8 +3733,8 @@ sto:FileSizeIEC_61690_P2_2000 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61691_P6
 sto:FileSizeIEC_61691_P6 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "5004.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "5004.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61691-6:2009."@en ;
                          rdfs:label "FileSize IEC 61691-6:2009"@en .
 
@@ -3626,8 +3742,8 @@ sto:FileSizeIEC_61691_P6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61810_P2
 sto:FileSizeIEC_61810_P2 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "4364.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "4364.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61810-2:2017."@en ;
                          rdfs:label "FileSize IEC 61810-2:2017"@en .
 
@@ -3635,8 +3751,8 @@ sto:FileSizeIEC_61810_P2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_61810_P7
 sto:FileSizeIEC_61810_P7 rdf:type owl:NamedIndividual ,
                                   om2:Measure ;
-                         om2:hasNumericalValue "2204.0"^^xsd:float ;
                          om2:hasUnit om2:kilobyte ;
+                         om2:hasNumericalValue "2204.0"^^xsd:float ;
                          rdfs:comment "Specifies the file size of the document for standard IEC 61810-7:2006."@en ;
                          rdfs:label "FileSize IEC 61810-7:2006"@en .
 
@@ -3644,8 +3760,8 @@ sto:FileSizeIEC_61810_P7 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_62832
 sto:FileSizeIEC_62832 rdf:type owl:NamedIndividual ,
                                om2:Measure ;
-                      om2:hasNumericalValue "2722.0"^^xsd:float ;
-                      om2:hasUnit om2:kilobyte .
+                      om2:hasUnit om2:kilobyte ;
+                      om2:hasNumericalValue "2722.0"^^xsd:float .
 
 
 ###  https://w3id.org/i40/sto#FiwareAdvancedUi
@@ -3683,6 +3799,10 @@ The Data Visualisation GE aims at creating agile, beautiful visualizations and m
                                               rdfs:label "FIWARE Applications Services and Data Delivery"@en .
 
 
+###  https://w3id.org/i40/sto#FiwareChapter
+sto:FiwareChapter rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/i40/sto#FiwareCloudHosting
 sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
                                 sto:FiwareChapter ;
@@ -3717,6 +3837,11 @@ sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
 
 FIWARE Data/Context Management GEs allow to gather information from context and other sources (Context Broker), mediate metadata among GEs and applications (Metadata pre-processor) query stored information through an homogeneous layer (Query Broker), , annotate existing information (Semantic Annotation), store and manage semantic information (Semantic Application Support), generate new knowledge from big data stores using a Map & Reduce paradigm (Big Data analysis) and react to different types of scenarios (Complex Event Processing). It also provides GEs for media management, as easy creation of advanced video applications (Stream Oriented GE) and specifically, video analysis in the compressed domain (CDVA)."""@en ;
                                 rdfs:label "FIWARE Data/Context Management"@en .
+
+
+###  https://w3id.org/i40/sto#FiwareInformationModel
+sto:FiwareInformationModel rdf:type owl:NamedIndividual ,
+                                    sto:FiwareSpecification .
 
 
 ###  https://w3id.org/i40/sto#FiwareIotServicesEnablement
@@ -3970,8 +4095,8 @@ sto:ICS_19_08 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ICS_25_040_01
-sto:ICS_25_040_01 rdf:type owl:NamedIndividual,
-				  sto:InternationalClassificationForStandards ;
+sto:ICS_25_040_01 rdf:type owl:NamedIndividual ,
+                           sto:InternationalClassificationForStandards ;
                   dcterms:title "Industrial automation systems in general"@en ;
                   rdfs:comment "This is ICS for Industrial automation systems in general"@en ;
                   rdfs:label "ICS 25.040.01"@en .
@@ -4094,8 +4219,8 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ID4me
 sto:ID4me rdf:type owl:NamedIndividual ,
                    sto:TechnicalSpecification ;
-          <https://w3id.org/i40/hasTargetConcern> sto:Identification ,
-                                                  sto:IdentityManagement ;
+          sto:hasTargetConcern sto:Identification ,
+                               sto:IdentityManagement ;
           dcterms:creator "sebastian" ;
           rdfs:comment "ID4me is a federated digital identity service that aims to provide two main functions: (1) Authorization of a user for access to any third party accepting ID4me identifiers (“single sign-on” on an Internet scale); (2) Controlled communication of the user’s personal information to the third parties accessed by the user."@en ;
           rdfs:label "ID4me"@en ;
@@ -4128,8 +4253,8 @@ sto:IEC rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_11404
-sto:IEC_11404 rdf:type owl:NamedIndividual,
-                     sto:Standard ;
+sto:IEC_11404 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
               owl:sameAs sto:ISO_11404 .
 
 
@@ -4148,8 +4273,8 @@ sto:IEC_14443 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_15408
-sto:IEC_15408 rdf:type owl:NamedIndividual,
-              sto:Standard;
+sto:IEC_15408 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
               owl:sameAs sto:ISO_15408 .
 
 
@@ -4190,25 +4315,25 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_27018
 sto:IEC_27018 rdf:type owl:NamedIndividual ,
-					sto:Standard;
+                       sto:Standard ;
               owl:sameAs sto:ISO_27018 .
 
 
 ###  https://w3id.org/i40/sto#IEC_27031
 sto:IEC_27031 rdf:type owl:NamedIndividual ,
-					sto:Standard ;
+                       sto:Standard ;
               owl:sameAs sto:ISO_27031 .
 
 
 ###  https://w3id.org/i40/sto#IEC_27036
-sto:IEC_27036 rdf:type owl:NamedIndividual,
-					sto:Standard ;
+sto:IEC_27036 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
               owl:sameAs sto:ISO_27036 .
 
 
 ###  https://w3id.org/i40/sto#IEC_29100
-sto:IEC_29100 rdf:type owl:NamedIndividual,
-					sto:Standard ;
+sto:IEC_29100 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
               owl:sameAs sto:ISO_29100 .
 
 
@@ -4267,8 +4392,8 @@ sto:IEC_29182-1 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_29190
-sto:IEC_29190 rdf:type owl:NamedIndividual,
-					sto:Standard ;
+sto:IEC_29190 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
               owl:sameAs sto:ISO_29190 .
 
 
@@ -6258,11 +6383,11 @@ sto:IEC_61506 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61508
 sto:IEC_61508 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
               sto:hasClassification iira:Safety ,
                                     rami:Safety ,
                                     idsram:Certification ;
               sto:hasPublisher sto:IEC ;
+              sto:hasTargetConcern sto:Safety ;
               sto:relatedTo sto:IEC_61511 ;
               sto:hasPublicationDate "1997-02-28"^^xsd:date ;
               sto:hasTag "Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems"@en ;
@@ -6507,6 +6632,24 @@ sto:IEC_62061 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_62061> .
 
 
+###  https://w3id.org/i40/sto#IEC_62237
+sto:IEC_62237 rdf:type owl:NamedIndividual ,
+                       sto:TechnicalSpecification ;
+              sto:hasClassification rami:AdminShellGeneral ,
+                                    rami:ControlDevice ,
+                                    rami:FieldDevice ,
+                                    rami:Station ,
+                                    rami:WorkCenter ,
+                                    sto:ProductionSystemModelData ;
+              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasPublisher sto:IEC ;
+              sto:relatedTo sto:IEC_62337 ;
+              sto:hasPublicationDate "2003-10-26"^^xsd:date ;
+              rdfs:comment "Live working - Insulating hoses with fittings for use with hydraulic tools and equipment."@en ;
+              rdfs:label "IEC 62237"@en ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/6626> .
+
+
 ###  https://w3id.org/i40/sto#IEC_62264
 sto:IEC_62264 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
@@ -6699,19 +6842,49 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/AutomationML> .
 
 
+###  https://w3id.org/i40/sto#IEC_62794
+sto:IEC_62794 rdf:type owl:NamedIndividual ,
+                       sto:TechnicalReport ;
+              sto:hasClassification rami:AdminShellGeneral ,
+                                    rami:ControlDevice ,
+                                    rami:FieldDevice ,
+                                    rami:Station ,
+                                    rami:WorkCenter ;
+              sto:hasPublisher sto:IEC ;
+              sto:relatedTo sto:IEC_62832 ;
+              sto:hasTag "DF/TR"@en ;
+              dcterms:hasLicense "Private"@en ;
+              rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
+              rdfs:label "IEC TR 62794"@en ;
+              sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. "@en ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/7433> .
+
+
 ###  https://w3id.org/i40/sto#IEC_62832
 sto:IEC_62832 rdf:type owl:NamedIndividual ,
                        sto:TechnicalSpecification ;
               sto:hasAvailableLanguage lang:eng ;
+              sto:hasClassification rami:AdminShellGeneral ,
+                                    rami:ControlDevice ,
+                                    rami:FieldDevice ,
+                                    rami:Station ,
+                                    rami:WorkCenter ;
               sto:hasFileSize sto:FileSizeIEC_62832 ;
               sto:hasICS sto:ICS_25_040_40 ;
+              sto:hasPublisher sto:IEC ;
               sto:hasTechnicalCommittee sto:TC_65 ;
               sto:hasEdition "1.0"^^xsd:float ;
               sto:hasPages "47"^^xsd:int ;
               sto:hasPublicationDate "2016-12-16"^^xsd:date ;
               sto:hasStabilityDate "2020"^^xsd:gYear ;
-              rdfs:comment "Industrial-process measurement, control and automation - Digital factory framework - Part 1: General principles"@en ;
-              rdfs:label "IEC TS 62832-1:2016 "@en .
+              sto:hasTag "DF/TS"@en ;
+              dcterms:hasLicense "Private"@en ;
+              rdfs:comment "Digital Factory Reference model TS"@en ,
+                           "Industrial-process measurement, control and automation - Digital factory framework - Part 1: General principles"@en ;
+              rdfs:label "IEC TS 62832"@en ,
+                         "IEC TS 62832-1:2016 "@en ;
+              sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. IEC TS 62832 defines methods, which allow to validate or plan connections between assets."@en ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/33023> .
 
 
 ###  https://w3id.org/i40/sto#IEC_62837
@@ -6768,61 +6941,6 @@ sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
                   rdfs:comment "IEC PAS 63088:2017(E) describes a reference architecture model in the form of a cubic layer model, RAMI model"@en ;
                   rdfs:label "IEC PAS 63088"@en ;
                   sto:hasOfficialResource <https://webstore.iec.ch/publication/30082?lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3B2vZf0%2FOGS2CeRjny8ARziQ%3D%3D> .
-
-
-###  https://w3id.org/i40/sto#IEC_TR_62794
-sto:IEC_62794 rdf:type owl:NamedIndividual ,
-                          sto:TechnicalReport ;
-                 sto:hasClassification rami:AdminShellGeneral ,
-                                       rami:ControlDevice ,
-                                       rami:FieldDevice ,
-                                       rami:AdminShellGeneral ,
-                                       rami:Station ,
-                                       rami:WorkCenter ;
-                 sto:hasPublisher sto:IEC ;
-                 sto:relatedTo sto:IEC_62832 ;
-                 sto:hasTag "DF/TR"@en ;
-                 dcterms:hasLicense "Private"@en ;
-                 rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
-                 rdfs:label "IEC TR 62794"@en ;
-                 sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. "@en ;
-                 sto:hasOfficialResource <https://webstore.iec.ch/publication/7433> .
-
-
-###  https://w3id.org/i40/sto#IEC_TS_62237
-sto:IEC_62237 rdf:type owl:NamedIndividual ,
-                          sto:TechnicalSpecification ;
-                 sto:hasClassification rami:ControlDevice ,
-                                       rami:FieldDevice ,
-                                       rami:AdminShellGeneral ,
-                                       rami:Station ,
-                                       rami:WorkCenter ,
-                                       sto:ProductionSystemModelData ;
-                 sto:hasDomain sto:IndustrialAutomation ;
-                 sto:hasPublisher sto:IEC ;
-                 sto:relatedTo sto:IEC_62337 ;
-                 sto:hasPublicationDate "2003-10-26"^^xsd:date ;
-                 rdfs:comment "Live working - Insulating hoses with fittings for use with hydraulic tools and equipment."@en ;
-                 rdfs:label "IEC 62237"@en ;
-                 sto:hasOfficialResource <https://webstore.iec.ch/publication/6626> .
-
-
-###  https://w3id.org/i40/sto#IEC_TS_62832
-sto:IEC_62832 rdf:type owl:NamedIndividual ,
-                          sto:TechnicalSpecification ;
-                 sto:hasClassification rami:AdminShellGeneral ,
-                                       rami:ControlDevice ,
-                                       rami:FieldDevice ,
-                                       rami:AdminShellGeneral ,
-                                       rami:Station ,
-                                       rami:WorkCenter ;
-                 sto:hasPublisher sto:IEC ;
-                 sto:hasTag "DF/TS"@en ;
-                 dcterms:hasLicense "Private"@en ;
-                 rdfs:comment "Digital Factory Reference model TS"@en ;
-                 rdfs:label "IEC TS 62832"@en ;
-                 sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. IEC TS 62832 defines methods, which allow to validate or plan connections between assets."@en ;
-                 sto:hasOfficialResource <https://webstore.iec.ch/publication/33023> .
 
 
 ###  https://w3id.org/i40/sto#IEEE
@@ -6991,7 +7109,7 @@ sto:IPv4Support rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IPv6
 sto:IPv6 rdf:type owl:NamedIndividual ,
                   sto:TechnicalSpecification ;
-         <https://w3id.org/i40/hasTargetConcern> sto:SyntacticInteroperability ;
+         sto:hasTargetConcern sto:SyntacticInteroperability ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "IPv6, is an Internet Layer protocol for packet-switched internetworking and provides end-to-end datagram transmission across multiple IP networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "IPv6"@en ;
@@ -7108,14 +7226,14 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_11404
 sto:ISO_11404 rdf:type owl:NamedIndividual ,
-					   sto:Standard ;
-                       sto:hasPublisher sto:ISO ;
-             sto:hasPublicationDate "2007-12-01"^^xsd:date ;
-             rdfs:comment "Information technology -- General-Purpose Datatypes (GPD)"@en ;
-             sto:hasOfficialResource <https://www.iso.org/standard/39479.html>;
+                       sto:Standard ;
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
-              rdfs:label "ISO/IEC 11404"@en .
+              sto:hasPublisher sto:ISO ;
+              sto:hasPublicationDate "2007-12-01"^^xsd:date ;
+              rdfs:comment "Information technology -- General-Purpose Datatypes (GPD)"@en ;
+              rdfs:label "ISO/IEC 11404"@en ;
+              sto:hasOfficialResource <https://www.iso.org/standard/39479.html> .
 
 
 ###  https://w3id.org/i40/sto#ISO_11783
@@ -7222,8 +7340,8 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
               sto:hasClassification rami:Asset ,
                                     rami:Engineering ,
                                     rami:Identification ,
+                                    rami:ProcessPlanning ,
                                     rami:Product ,
-                                    rami:ProcessPlanning,
                                     sto:ProductionSystemModelData ;
               sto:hasDomain sto:CAD ;
               sto:hasPublisher sto:ISO ;
@@ -7267,8 +7385,8 @@ sto:ISO_15408 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_15459
-sto:ISO_15459 rdf:type owl:NamedIndividual,
-					sto:Standard .
+sto:ISO_15459 rdf:type owl:NamedIndividual ,
+                       sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#ISO_15531
@@ -7426,9 +7544,9 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                                       rami:Engineering ,
                                       rami:Enterprise ,
                                       rami:FieldDevice ,
+                                      rami:Product ,
                                       rami:Station ,
-                                      rami:WorkCenter ,
-                                      rami:Product ;
+                                      rami:WorkCenter ;
                 sto:hasDomain sto:IndustrialAutomation ;
                 sto:hasPublisher sto:ISO ;
                 sto:relatedTo sto:IEC_61804 ;
@@ -7458,8 +7576,8 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
               sto:hasClassification rami:Engineering ,
                                     rami:Enterprise ,
                                     rami:Integration ,
-                                    sto:EnterpriseLevel ,
-                                    rami:Product ;
+                                    rami:Product ,
+                                    sto:EnterpriseLevel ;
               sto:hasDomain sto:EnterpriseIntegration ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:BPMN ;
@@ -7487,7 +7605,7 @@ sto:ISO_19770 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_19941
 sto:ISO_19941 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              <https://w3id.org/i40/hasTargetConcern> sto:CloudComputing ;
+              sto:hasTargetConcern sto:CloudComputing ;
               dcterms:creator sto:sebastian ;
               dcterms:title "Cloud Computing - Interoperability and Portability"@en ;
               rdfs:comment ""@en ;
@@ -7597,8 +7715,8 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_24760
-sto:ISO_24760 rdf:type owl:NamedIndividual,
-					sto:Standard .
+sto:ISO_24760 rdf:type owl:NamedIndividual ,
+                       sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#ISO_26262
@@ -7769,11 +7887,11 @@ sto:ISO_29101 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_29115
 sto:ISO_29115 rdf:type owl:NamedIndividual ,
-					sto:Standard;
-              <https://w3id.org/i40/hasTargetConcern> sto:Authentication ,
-                                                      sto:Identification ;
+                       sto:Standard ;
               sto:hasClassification iira:Security ;
               sto:hasPublisher sto:ISO ;
+              sto:hasTargetConcern sto:Authentication ,
+                                   sto:Identification ;
               rdfs:label "ISO/IEC 29115"@en .
 
 
@@ -7985,8 +8103,8 @@ sto:IVRA rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Identification
 sto:Identification rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   rdfs:comment "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    dul:isPartOf sto:IdentityManagement ;
+                   rdfs:comment "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    rdfs:label "Identification"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.030" ,
                                 "IoT-A Requirement UNI.425" ,
@@ -8068,6 +8186,10 @@ The third set of functionalities enables the management of robots by means of pl
                              rdfs:label "FIWARE Interface to Networks and Devices"@en .
 
 
+###  https://w3id.org/i40/sto#InternationalClassificationForStandards
+sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ,
+                                                     owl:class ;
+                                            sto:abbreviation "ICS"@en .
 
 
 ###  https://w3id.org/i40/sto#Interoperability
@@ -8142,10 +8264,10 @@ sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IotaInformationViewpoint
 sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
                                       sto:Viewpoint ;
-                             <https://w3id.org/i40/hasTargetConcern> sto:ServiceDescription ,
-                                                                     sto:VirtualEntity ;
                              sto:alignesWith iira:InformationDomain ,
                                              idsram:InformationLayer ;
+                             sto:hasTargetConcern sto:ServiceDescription ,
+                                                  sto:VirtualEntity ;
                              sto:isDescribedin sto:IotaReferenceArchitecture ;
                              dcterms:creator sto:sebastian ;
                              rdfs:comment "One of the main purposes of connected and smart objects in the IoT is the exchange of information between each other and also with external systems. Therefore the way how to define, structure, store, process, manage and exchange information is very important. The information view helps to generate an overview about static information structure and dynamic information flow. (source: Bassi et al.: Enabling Things to Talk)"@en ;
@@ -8156,6 +8278,10 @@ sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IotaPerformanceScalability
 sto:IotaPerformanceScalability rdf:type owl:NamedIndividual ,
                                         sto:IotaPerspective .
+
+
+###  https://w3id.org/i40/sto#IotaPerspective
+sto:IotaPerspective rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#IotaReferenceArchitecture
@@ -8260,12 +8386,12 @@ sto:JMS rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#KATS
 sto:KATS rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
+         dul:isMemberOf sto:IEC ,
+                        sto:ISO ;
          sto:belongsTo dbr:South_Korea ;
          sto:hasHeadquaterIn dbr:Eumseong ;
          sto:abbreviation "KATS"@de ;
          sto:orgName "Korean Agency for Technology and Standards"@en ;
-         dul:isMemberOf sto:IEC ,
-                        sto:ISO ;
          rdfs:comment "Korean Agency for Technology and Standards is the government standards organization for South Korea. It is part of the Ministry of Knowledge Economy. It is authorized to regulate and manage the legal measures of South Korea by the current Measures Act."@en ;
          rdfs:label "Korean Agency for Technology and Standards"@en ;
          sto:hasDBpediaResource <http://dbpedia.org/page/Korean_Agency_for_Technology_and_Standards> ;
@@ -8277,7 +8403,7 @@ sto:KeyRock rdf:type owl:NamedIndividual ,
                      sto:TechnicalSpecification ;
             dul:associatedWith sto:FiwareDataContextManagement ,
                                sto:FiwareSecurity ;
-            <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement .
+            sto:hasTargetConcern sto:IdentityManagement .
 
 
 ###  https://w3id.org/i40/sto#LLAP
@@ -8315,11 +8441,11 @@ sto:LoRaWAN rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#LoWPAN
 sto:LoWPAN rdf:type owl:NamedIndividual ,
                     sto:TechnicalSpecification ;
-           <https://w3id.org/i40/hasTargetConcern> sto:Communication ;
            sto:hasClassification iira:Connectivity ,
                                  rami:Communication ;
            sto:hasDeveloper sto:IETF ;
            sto:hasPublisher sto:IETF ;
+           sto:hasTargetConcern sto:Communication ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "6LoWPAN is an acronym of IPv6 over Low power Wireless Personal Area Networks. It is an adaption layer for IPv6 over IEEE802.15.4 links. This protocol operates only in the 2.4 GHz frequency range with 250 kbps transfer rate. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
            rdfs:label "6LoWPAN"@en ;
@@ -8440,6 +8566,10 @@ sto:MachineLearning rdf:type owl:NamedIndividual ,
                     dcterms:creator sto:sebastian ;
                     dul:isPartOf sto:AI ;
                     rdfs:label "Machine Learning"@en .
+
+
+###  https://w3id.org/i40/sto#Manufacturing
+sto:Manufacturing rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#ManufacturingModelData
@@ -8582,7 +8712,7 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
-sto:NISTIR_8107 rdf:type owl:NamedIndividual,
+sto:NISTIR_8107 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 sto:isDescribedin sto:BusinessProcessExecution ,
                                   sto:SCM ;
@@ -8869,6 +8999,15 @@ sto:OceanProtocolFoundation rdf:type owl:NamedIndividual ,
                             sto:hasOfficialResource <https://oceanprotocol.com/> .
 
 
+###  https://w3id.org/i40/sto#OpenApi
+sto:OpenApi rdf:type owl:NamedIndividual ,
+                     sto:TechnicalSpecification ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "The OpenAPI Specification (originally known as the Swagger Specification) is a specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services. A variety of tools can generate code, documentation and test cases given an interface file. Development of the OpenAPI Specification (OAS) is overseen by the Open API Initiative, an open source collaborative project of the Linux Foundation. (source: wikipedia)"@en ;
+            rdfs:label "OpenAPI"@en ;
+            sto:hasDBpediaResource <http://dbpedia.org/resource/OpenAPI_Specification> .
+
+
 ###  https://w3id.org/i40/sto#OpenDaylight
 sto:OpenDaylight rdf:type owl:NamedIndividual ,
                           sto:TechnicalSpecification ;
@@ -8935,7 +9074,6 @@ sto:Privacy rdf:type owl:NamedIndividual ,
                          "IoT-A Requirement UNI.424" ,
                          "IoT-A Requirement UNI.606" ,
                          "IoT-A Requirement UNI.623" .
-
 
 
 ###  https://w3id.org/i40/sto#ProductCatalogData
@@ -9079,6 +9217,7 @@ sto:RDF rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#REST
 sto:REST rdf:type owl:NamedIndividual ,
                   sto:TechnicalSpecification ;
+         sto:hasClassification sto:DataTransferProjectWhitepaper ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "REST (Representational state transfer) - RESTful HTTP (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "REST"@en ;
@@ -9126,9 +9265,9 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#RFC_4511
 sto:RFC_4511 rdf:type owl:NamedIndividual ,
                       sto:TechnicalSpecification ;
-             <https://w3id.org/i40/hasTargetConcern> sto:CrossDomainIdentityManagement ;
              sto:hasDeveloper sto:IETF ;
              sto:hasPublisher sto:IETF ;
+             sto:hasTargetConcern sto:CrossDomainIdentityManagement ;
              dcterms:creator sto:sebastian ;
              dcterms:title "Lightweight Directory Access Protocol"@en ;
              rdfs:label "LDAP"@en ;
@@ -9151,12 +9290,14 @@ sto:RFC_5246 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#RFC_6750
 sto:RFC_6750 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:hasClassification idsram:Security ;
+             sto:hasClassification sto:DataTransferProjectWhitepaper ,
+                                   idsram:Security ;
              sto:hasPublisher sto:IETF ;
              dcterms:description "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
              rdfs:comment "This specification describes how to use bearer tokens in HTTP requests to access OAuth 2.0 protected resources.  Any party in possession of a bearer token (a \"bearer\") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key).  To prevent misuse, bearer tokens need to be protected from disclosure in storage and in transport."@en ;
              rdfs:label "RFC 6750"@en ;
              skos:altLabel "OAuth2.0"@en ;
+             sto:hasDBpediaResource <http://dbpedia.org/resource/OAuth> ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc6750> .
 
 
@@ -9206,10 +9347,10 @@ This specification is an alternative to, but does not obsolete, the HTTP/1.1 mes
 ###  https://w3id.org/i40/sto#RFC_7642
 sto:RFC_7642 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement ;
              sto:hasClassification sto:FiwareSecurity ;
              sto:hasDeveloper sto:IETF ;
              sto:hasPublisher sto:IETF ;
+             sto:hasTargetConcern sto:IdentityManagement ;
              dcterms:creator "sebastian" ;
              dcterms:title "SCIM Use Cases"@en ;
              rdfs:comment "This document provides definitions and an overview of the System for Cross-domain Identity Management (SCIM).  It lays out the system's concepts, models and flows, and includes user scenarios, use cases, and requirements."@en ;
@@ -9220,10 +9361,10 @@ sto:RFC_7642 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#RFC_7643
 sto:RFC_7643 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement ;
              sto:hasClassification sto:FiwareSecurity ;
              sto:hasDeveloper sto:IETF ;
              sto:hasPublisher sto:IETF ;
+             sto:hasTargetConcern sto:IdentityManagement ;
              dcterms:creator "sebastian" ;
              dcterms:title "SCIM Core Schema"@en ;
              rdfs:comment "This document provides a platform neutral schema and extension model for representing users and groups and other resource types in JSON format.  This schema is intended for exchange and use with cloud service providers."@en ;
@@ -9234,10 +9375,10 @@ sto:RFC_7643 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#RFC_7644
 sto:RFC_7644 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             <https://w3id.org/i40/hasTargetConcern> sto:IdentityManagement ;
              sto:hasClassification sto:FiwareSecurity ;
              sto:hasDeveloper sto:IETF ;
              sto:hasPublisher sto:IETF ;
+             sto:hasTargetConcern sto:IdentityManagement ;
              dcterms:creator "sebastian" ;
              dcterms:title "SCIM API"@en ;
              rdfs:comment "The System for Cross-Domain Identity Management (SCIM) specification is an HTTP based protocol that makes managing identities in multi domain scenarios easier to support through a standardized service. Examples include but are not limited to enterprise to cloud service providers, and inter-cloud based scenarios.  The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models.  SCIM's intent is to reduce the cost and complexity of user management operations by providing a common user schema, an extension model, and a service protocol defined by this document."@en ;
@@ -9385,8 +9526,8 @@ sto:SCIM rdf:type owl:NamedIndividual ,
                             sto:RFC_7642 ,
                             sto:RFC_7643 ,
                             sto:RFC_7644 ;
-         <https://w3id.org/i40/hasTargetConcern> sto:CrossDomainIdentityManagement ;
          sto:hasPublisher sto:IETF ;
+         sto:hasTargetConcern sto:CrossDomainIdentityManagement ;
          dcterms:creator "sebastian" ;
          dcterms:title "IETF System for Cross-domain Identity Management (SCIM) 2.0"@en ;
          rdfs:comment "The System for Cross-domain Identity Management (SCIM) specification is designed to make managing user identities in cloud-based applications and services easier. The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models. Its intent is to reduce the cost and complexity of user management operations by providing a common user schema and extension model, as well as binding documents to provide patterns for exchanging this schema using standard protocols. In essence: make it fast, cheap, and easy to move users in to, out of, and around the cloud."@en ;
@@ -9514,6 +9655,7 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
                                                                           <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
                                                                           <https://w3id.org/i40/SystemArchitect> ;
                         dul:isPartOf sto:Security ;
+                        rdfs:comment "This concern frames everything necessary to establish and conduct a secure communication channel, which cannot be read, intercepted or altered by a third party. Especially relevant are encrypting techniques."@en ;
                         rdfs:label "Secure Communication"@en ;
                         rdfs:seeAlso "IoT-A Requirement UNI.022" ,
                                      "IoT-A Requirement UNI.062" ,
@@ -9686,17 +9828,31 @@ sto:ServicelLevelAgreements rdf:type owl:NamedIndividual ,
                                      sto:Concern .
 
 
-###  https://w3id.org/i40/sto#Stakeholder
-sto:Stakeholder rdf:type owl:NamedIndividual ,
-                         sto:Concern .
-
-
 ###  https://w3id.org/i40/sto#SpatialModeling
 sto:SpatialModeling rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dul:isPartOf sto:DataDescription ,
                                  sto:SemanticInteroperability ;
                     rdfs:seeAlso "IoT-A Requirement UNI.098" .
+
+
+###  https://w3id.org/i40/sto#Stakeholder
+sto:Stakeholder rdf:type owl:NamedIndividual ,
+                         sto:Concern .
+
+
+###  https://w3id.org/i40/sto#Standard
+sto:Standard rdf:type owl:NamedIndividual ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             sto:abbreviation "IS" .
+
+
+###  https://w3id.org/i40/sto#StandardOrganization
+sto:StandardOrganization rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#StandardizationFramework
+sto:StandardizationFramework rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#StreamProcessing
@@ -9931,8 +10087,20 @@ sto:TSMP rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
+sto:TechnicalCommittee rdf:type owl:NamedIndividual ,
+                                owl:class ;
                        sto:abbreviation "TC" .
+
+
+###  https://w3id.org/i40/sto#TechnicalReport
+sto:TechnicalReport rdf:type owl:NamedIndividual ;
+                    cc:attributionURL "http://www.iec.ch" ;
+                    sto:abbreviation "TR" .
+
+
+###  https://w3id.org/i40/sto#TechnicalSpecification
+sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
+                           sto:abbreviation "TS" .
 
 
 ###  https://w3id.org/i40/sto#Telehash
@@ -10127,16 +10295,9 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:class;
-              rdf:type owl:namedIndividial;  
-              rdfs:subClassOf sto:StandardClassification ;
-              rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
-              rdfs:seeAlso <https://www.iso.org/standard/50508.html> ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint> ;
-              dcterms:creator "sebastian" ;
-              sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
-              rdfs:label "Viewpoint" .
+sto:Viewpoint rdf:type owl:NamedIndividual ,
+                       owl:class ,
+                       owl:namedIndividial .
 
 
 ###  https://w3id.org/i40/sto#VirtualEntity
@@ -10322,8 +10483,8 @@ sto:X509 rdf:type owl:NamedIndividual ,
 sto:XACML rdf:type owl:NamedIndividual ,
                    sto:TechnicalSpecification ;
           dul:associatedWith sto:FiwareSecurity ;
-          <https://w3id.org/i40/hasTargetConcern> sto:Authorization ,
-                                                  sto:DataAccessControl .
+          sto:hasTargetConcern sto:Authorization ,
+                               sto:DataAccessControl .
 
 
 ###  https://w3id.org/i40/sto#XMPP
@@ -10365,6 +10526,10 @@ sto:ZigBee rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#_020
 sto:_020 rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#belongsTo
+sto:belongsTo rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#bitkom
@@ -10428,6 +10593,45 @@ sto:ebXML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EbXML> .
 
 
+###  https://w3id.org/i40/sto#hasAvailableLanguage
+sto:hasAvailableLanguage rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#hasClassification
+sto:hasClassification rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#hasDeveloper
+sto:hasDeveloper rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#hasDomain
+sto:hasDomain rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#hasHeadquaterIn
+sto:hasHeadquaterIn rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#hasPublisher
+sto:hasPublisher rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#iShare
+sto:iShare rdf:type owl:NamedIndividual ,
+                    sto:StandardizationFramework ;
+           dul:associatedWith sto:HTTP ,
+                              sto:REST ,
+                              sto:RFC_5246 ,
+                              sto:RFC_7519 ,
+                              sto:XACML ;
+           sto:hasTargetConcern sto:Identification ,
+                                sto:Interoperability ;
+           rdfs:comment "iSHARE is a uniform set of agreements or a scheme for identification, authentication and authorization. All companies that join the iSHARE Scheme comply with the set of agreements. They all use the same methods to both provide and gain access to data. (source: iShare: 'It is not a platform…')"@en ;
+           rdfs:label "iShare"@en ;
+           sto:hasOfficialResource <https://www.ishareworks.org/> .
+
+
 ###  https://w3id.org/i40/sto#irlan
 sto:irlan rdf:type owl:NamedIndividual ,
                    foaf:Person ;
@@ -10435,6 +10639,10 @@ sto:irlan rdf:type owl:NamedIndividual ,
           foaf:familyName "Grangel" ;
           foaf:mbox "irlangrangel2003@gmail.com" ;
           foaf:name "Irlan" .
+
+
+###  https://w3id.org/i40/sto#isImplementationOf
+sto:isImplementationOf rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#mDNS
@@ -10466,6 +10674,10 @@ und Standardisierung."""@de ,
             rdfs:label "openAAS"@en .
 
 
+###  https://w3id.org/i40/sto#relatedTo
+sto:relatedTo rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/i40/sto#sebastian
 sto:sebastian rdf:type owl:NamedIndividual ,
                        foaf:Person ;
@@ -10482,6 +10694,14 @@ sto:uIP rdf:type owl:NamedIndividual ,
         rdfs:comment "The uIP is an open source TCP/IP stack capable of being used with tiny 8- and 16-bit microcontrollers. It was initially developed by Adam Dunkels of the 'Networked Embedded Systems' group at the Swedish Institute of Computer Science, licensed under a BSD style license, and further developed by a wide group of developers. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
         rdfs:label "uIP"@en ;
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UIP_%28micro_IP%29> .
+
+
+###  https://w3id.org/i40/sto#useStructureOf
+sto:useStructureOf rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/sto#uses
+sto:uses rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#VDI/VDE_2182
@@ -10584,8 +10804,8 @@ idsram:ProcessLayer rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/ids/ram/ReferenceArchitectureModel
 idsram:ReferenceArchitectureModel rdf:type owl:NamedIndividual ,
                                            sto:ArchitectureDescription ;
-                                  rdfs:label "IDS RAM"@en ,
-                                             "Industrial Data Space Reference Architecture Model"@en .
+                                  dcterms:title "Industrial Data Space Reference Architecture Model"@en ;
+                                  rdfs:label "IDS RAM"@en .
 
 
 ###  https://w3id.org/ids/ram/Security
@@ -10620,6 +10840,10 @@ idsram:SystemLayer rdf:type owl:NamedIndividual ,
                    rdfs:label "IDS RAM System Layer"@en .
 
 
+###  https://www.linkedin.com/in/paul-baptista-601177b2
+<https://www.linkedin.com/in/paul-baptista-601177b2> rdf:type owl:NamedIndividual .
+
+
 ###  https://www.wikidata.org/wiki/Q1548249
 <https://www.wikidata.org/wiki/Q1548249> rdf:type owl:NamedIndividual ,
                                                   <http://voag.linkedmodel.org/voag#StakeholderGroup> ;
@@ -10629,6 +10853,48 @@ idsram:SystemLayer rdf:type owl:NamedIndividual ,
 #################################################################
 #    Annotations
 #################################################################
+
+iira:CrosscuttingFunction rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en ;
+                          rdfs:label "IIRA Crosscutting Function"@en ;
+                          dcterms:creator sto:sebastian .
+
+
+dc11:description dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+                 rdfs:isDefinedBy dc11: ;
+                 dcterms:issued "1999-07-02"^^xsd:date ;
+                 skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+                 rdfs:comment "An account of the resource."@en ;
+                 dcterms:modified "2008-01-14"^^xsd:date ;
+                 rdfs:label "Description"@en ;
+                 dcterms:hasVersion <http://dublincore.org/usage/terms/history/#description-006> .
+
+
+dc11:title dcterms:modified "2008-01-14"^^xsd:date ;
+           rdfs:comment "A name given to the resource."@en ;
+           skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+           rdfs:label "Title"@en ;
+           dcterms:issued "1999-07-02"^^xsd:date ;
+           dcterms:hasVersion <http://dublincore.org/usage/terms/history/#title-006> ;
+           rdfs:isDefinedBy dc11: .
+
+
+dcterms:creator rdfs:comment "An entity primarily responsible for making the resource."@en ;
+                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
+                rdfs:isDefinedBy dcterms: ;
+                dcterms:modified "2010-10-11"^^xsd:date ;
+                dcterms:issued "2008-01-14"^^xsd:date ;
+                rdfs:label "Creator"@en ;
+                dcterms:description "Examples of a Creator include a person, an organization, or a service."@en .
+
+
+dcterms:description dcterms:modified "2008-01-14"^^xsd:date ;
+                    rdfs:label "Description"@en ;
+                    rdfs:isDefinedBy dcterms: ;
+                    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
+                    dcterms:issued "2008-01-14"^^xsd:date ;
+                    rdfs:comment "An account of the resource."@en ;
+                    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en .
+
 
 dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:comment "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ;
@@ -10640,11 +10906,53 @@ dcterms:hasLicense rdfs:label "has License"@en ;
                    rdfs:isDefinedBy dcterms: .
 
 
+dcterms:hasVersion dcterms:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
+                   rdfs:isDefinedBy dcterms: ;
+                   rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
+                   skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+                   rdfs:label "Has Version"@en ;
+                   dcterms:issued "2000-07-11"^^xsd:date ;
+                   dcterms:modified "2008-01-14"^^xsd:date .
+
+
+dcterms:issued dcterms:modified "2008-01-14"^^xsd:date ;
+               rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
+               rdfs:isDefinedBy dcterms: ;
+               dcterms:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
+               dcterms:issued "2000-07-11"^^xsd:date ;
+               rdfs:label "Date Issued"@en .
+
+
+dcterms:modified rdfs:isDefinedBy dcterms: ;
+                 rdfs:label "Date Modified"@en ;
+                 dcterms:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
+                 dcterms:modified "2008-01-14"^^xsd:date ;
+                 rdfs:comment "Date on which the resource was changed."@en ;
+                 dcterms:issued "2000-07-11"^^xsd:date .
+
+
+dcterms:title rdfs:label "Title"@en ;
+              rdfs:comment "A name given to the resource."@en ;
+              dcterms:issued "2008-01-14"^^xsd:date ;
+              dcterms:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
+              rdfs:isDefinedBy dcterms: ;
+              dcterms:modified "2010-10-11"^^xsd:date .
+
+
 <http://voag.linkedmodel.org/voag#StakeholderGroup> skos:note "Stakeholders are interpreted in the same manner as outlined by ISO 42010: '<system> individual, team, organization, or classes thereof, having an interest in a system'"@en ;
                                                     rdfs:comment "A Stakeholder Group is a party of people who have common interests and concerns."@en ;
                                                     rdfs:label "Stakeholder Group"@en ;
                                                     rdfs:comment "A stakeholder is everyone with an interest in a system."@en ;
                                                     dcterms:creator sto:sebastian .
+
+
+foaf:familyName rdfs:label "Family Name"@en .
+
+
+foaf:mbox rdfs:label "mbox"@en .
+
+
+foaf:name rdfs:label "name"@en .
 
 
 sto:AoutonomousCommunication rdfs:seeAlso "IoT-A Requirement UNI.247" .
@@ -10656,12 +10964,14 @@ sto:BdvaConcern dcterms:creator sto:sebastian ;
                 rdfs:comment """The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns.
 Horizontal concerns cover specific aspects along the data processing
 Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."""@en ;
-                sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> .
+                sto:hasOfficialResource <http://www.bdva.eu/sites/default/files/BDVA_SRIA_v4_Ed1.1.pdf> ;
+                rdfs:comment "The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns. Horizontal concerns cover specific aspects along the data processing Vertical concerns address cross-cutting issues, which may affect all the horizontal concerns. In addition, vertical concerns may also involve non-technical aspects."@en ;
+                dcterms:creator "sebastian"@en .
 
 
 sto:Concern rdfs:label "Concern" ;
-            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
+            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
             rdfs:comment "A concern regards a specific challenge or topic as defined by ISO42010. Each concern should at least be regarded by one view of an architecture."@en ;
             dcterms:creator sto:sebastian .
@@ -10674,16 +10984,27 @@ sto:ConstrainedDevices rdfs:seeAlso "IoT-A Requirement UNI.307" ,
 sto:DataLifecycleManagement rdfs:seeAlso "IoT-A Requirement UNI.097" .
 
 
+sto:DataSharingInitiative rdfs:comment "This class frames all organizations with the main intend to create, specify and implement a data sharing concept with according interfaces, components, data descriptions, and retrieval algorithms."@en ;
+                          dcterms:creator sto:sebastian ;
+                          rdfs:label "Data Sharing Initiative"@en .
+
+
+sto:FiwareChapter rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
+                  rdfs:label "Fiware Chapter"@en ;
+                  dcterms:creator sto:sebastian .
+
+
 sto:GeospatialQuery rdfs:seeAlso "IoT-A Requirement UNI.401" .
 
 
-sto:InternationalClassificationForStandards rdf:type owl:class,
-                                            owl:NamedIndividual ;
-                                            sto:abbreviation "ICS"@en ;
-                                 sto:hasOfficialResource <https://www.iso.org/publication/PUB100033.html> ;
-										 rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
+sto:InternationalClassificationForStandards rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
                                             rdfs:label "International Classification For Standards"@en ;
+                                            sto:hasOfficialResource <https://www.iso.org/publication/PUB100033.html> ;
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
+
+
+sto:IotaPerspective rdfs:label "IoT-A Perspective"@en ;
+                    dcterms:creator sto:sebastian .
 
 
 sto:Multicast rdfs:seeAlso "IoT-A Requirement UNI.302" ,
@@ -10701,22 +11022,53 @@ sto:ServiceDescriptions rdfs:seeAlso "IoT-A Requirement UNI.244" .
 sto:ServiceLevelAgreements rdfs:seeAlso "IoT-A Requirement UNI.060" .
 
 
+sto:Standard rdfs:label "Standard"@en ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             cc:attributionURL <http://www.iec.ch> ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
+
+
+sto:StandardOrganization dcterms:creator sto:irlan ;
+                         rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
+                         rdfs:label "StandardOrganization"@en .
+
+
+sto:StandardizationFramework dcterms:creator sto:irlan ;
+                             skos:altLabel "Reference Architecture"@en ;
+                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
+                             rdfs:label "Standarization Framework"@en .
+
+
 sto:SyntacticInteroperablity rdfs:seeAlso "IoT-A Requirement UNI.315" ,
                                           "IoT-A Requirement UNI.313" ,
                                           "IoT-A Requirement UNI.312" ,
                                           "IoT-A Requirement UNI.311" .
 
-sto:TechnicalCommittee rdf:type owl:class ;
-                       sto:abbreviation "TC" ;
-					   rdfs:label "Technical Committee"@en ;
-                       skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
+
+sto:TechnicalCommittee skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
+                       rdfs:label "Technical Committee"@en ;
                        rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
                        rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
                        rdfs:isDefinedBy sto:IEC .
 
 
-sto:Viewpoint rdf:type owl:class ;
-              rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
+sto:TechnicalReport rdfs:isDefinedBy sto:IEC ;
+                    rdfs:comment "Technical Reports contain collected data of a kind different from that normally published as an International Standard, for example data obtained from a survey carried out among national committees, data of work in other international organizations or data on \"the state of the art\" in relation to standards of national committees on a particular subject.Technical Reports are entirely informative in nature and shall not contain matter implying that they are normative"@en ;
+                    rdfs:label "Technical Report"@en ;
+                    rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/tr.htm> ;
+                    rdfs:comment "Specifies that a given Publication is a Technical Report"@en .
+
+
+sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ,
+                                        "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
+                           rdfs:label "Technical Specification"@en ;
+                           cc:attributionURL <http://www.iec.ch> ;
+                           rdfs:isDefinedBy sto:IEC ;
+                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
+
+
+sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
               rdfs:seeAlso <https://www.iso.org/standard/50508.html> ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint> ;
@@ -10728,8 +11080,30 @@ sto:Viewpoint rdf:type owl:class ;
 sto:VirtualEntities rdfs:seeAlso "IoT-A Requirement UNI.409" .
 
 
+sto:belongsTo rdfs:label "belongs To"@en ;
+              dcterms:creator sto:irlan ;
+              rdfs:comment "A Standard Organization that belongs to the country"@en .
+
+
+sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ;
+                         dcterms:creator sto:irlan ;
+                         rdfs:label "has Available Language"@en ;
+                         rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
+                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
+
+
+sto:hasClassification dcterms:creator sto:irlan ;
+                      rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
+                      rdfs:label "has Classification"@en .
+
+
 sto:hasDBpediaResource rdfs:label "has DBpedia Resource"@en ;
                        rdfs:comment "Instance's DBpedia Resource"@en .
+
+
+sto:hasDeveloper rdfs:label "has Developer"@en ;
+                 rdfs:comment "The organization that developed this Standard"@en ;
+                 dcterms:creator sto:irlan .
 
 
 sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
@@ -10738,9 +11112,19 @@ sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is us
               rdfs:comment "Points to the domain in which the standard is used"@en .
 
 
+sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
+                    dcterms:creator sto:irlan ;
+                    rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en .
+
+
 sto:hasOfficialResource rdfs:comment "Points to the URL of the official websilte from which published the document"@en ,
                                      "Standard Official Website"@en ;
                         rdfs:label "has Official Resource"@en .
+
+
+sto:hasPublisher rdfs:label "has Publisher"@en ;
+                 dcterms:creator sto:irlan ;
+                 rdfs:comment "The organization that published this Standard"@en .
 
 
 sto:hasTag rdfs:label "has Tag"@en ;
@@ -10749,6 +11133,27 @@ sto:hasTag rdfs:label "has Tag"@en ;
 
 sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
                         rdfs:comment "Wikipedia Article about the Standard"@en .
+
+
+sto:isImplementationOf rdfs:label "is Implementation Of"@en ;
+                       dcterms:creator sto:irlan ;
+                       rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en .
+
+
+sto:relatedTo skos:altLabel "has Associated Standard"@en ;
+              dcterms:creator sto:irlan ;
+              rdfs:comment "Represent any type of relation that connects two standards."@en ;
+              rdfs:label "related To"@en .
+
+
+sto:useStructureOf rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
+                   rdfs:label "use Structure Of"@en ;
+                   dcterms:creator sto:irlan .
+
+
+sto:uses dcterms:creator sto:irlan ;
+         rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
+         rdfs:label "uses"@en .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
