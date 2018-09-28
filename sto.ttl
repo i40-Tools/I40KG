@@ -1643,7 +1643,10 @@ rami:WorkCenter rdf:type owl:NamedIndividual ,
 sto:AI rdf:type owl:NamedIndividual ,
                 sto:Concern ;
        dcterms:creator sto:sebastian ;
-       rdfs:label "Artificial Intelligence"@en .
+       rdfs:comment "Artificial intelligence (AI) is intelligence exhibited by machines. In computer science, an ideal \"intelligent\" machine is a flexible rational agent that perceives its environment and takes actions that maximize its chance of success at some goal. Colloquially, the term \"artificial intelligence\" is applied when a machine mimics \"cognitive\" functions that humans associate with other human minds, such as \"learning\" and \"problem solving\". (source: wikipedia)"@en ;
+       rdfs:label "Artificial Intelligence"@en ;
+       sto:hasDBpediaResource <http://dbpedia.org/resource/Artificial_intelligence> ,
+                              ""@en .
 
 
 ###  https://w3id.org/i40/sto#AMQP
@@ -1797,9 +1800,13 @@ sto:Anonymity rdf:type owl:NamedIndividual ,
                        sto:Concern ;
               <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
               dul:isPartOf sto:Privacy ;
+              rdfs:comment "Anonymity is the guarantee for a user to interact with a system without being tracked or connected to its real-world identity."@en ;
+              rdfs:label "Anonymity"@en ;
               rdfs:seeAlso "IoT-A Requirement UNI.001" ,
                            "IoT-A Requirement UNI.322" ,
-                           "UNI.322"@en .
+                           "UNI.322"@en ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/Anonymity> ,
+                                     <http://dbpedia.org/resource/Anonymous_web_browsing> .
 
 
 ###  https://w3id.org/i40/sto#Authentication
@@ -1828,6 +1835,8 @@ sto:AutonomousCommunication rdf:type owl:NamedIndividual ,
                             <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                             dul:isPartOf sto:Communication ,
                                          sto:ServiceChoreography ;
+                            rdfs:comment "Authonomous Communication frames all requirements in order to autonomously establish communication channels between participants of a network. In most cases, this will be a machine-to-machine communication channel. Main challenges are related to interoperability."@en ;
+                            rdfs:label "Autonomous Communication"@en ;
                             rdfs:seeAlso "IoT-A Requirement UNI.005" ,
                                          "IoT-A Requirement UNI.012" ,
                                          "IoT-A Requirement UNI.708" .
@@ -1839,6 +1848,7 @@ sto:AutonomousConfiguration rdf:type owl:NamedIndividual ,
                             <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                             dul:isPartOf sto:ServiceChoreography ;
                             rdfs:comment "A system built using the Reference Architecture shall be able to remotely control and configure devices."@en ;
+                            rdfs:label "Autonomous Configuration"@en ;
                             rdfs:seeAlso "IoT-A Requirement UNI.015" ,
                                          "IoT-A Requirement UNI.031" ,
                                          "IoT-A Requirement UNI.032" ,
@@ -1855,6 +1865,7 @@ sto:Availability rdf:type owl:NamedIndividual ,
                           sto:Concern ;
                  dcterms:creator sto:sebastian ;
                  dul:isPartOf sto:Security ;
+                 rdfs:comment "In reliability theory and reliability engineering, the term availability has the following meanings: * The degree to which a system, subsystem or equipment is in a specified operable and committable state at the start of a mission, when the mission is called for at an unknown, i.e. a random, time. Simply put, availability is the proportion of time a system is in a functioning condition. This is often described as a mission capable rate. Mathematically, this is expressed as 100% minus unavailability. * The ratio of (a) the total time a functional unit is capable of being used during a given interval to (b) the length of the interval. For example, a unit that is capable of being used 100 hours per week (168 hours) would have an availability of 100/168. However, typical availability values are specified in decimal (such as 0.9998). In high availability applications, a metric known as nines, corresponding to the number of nines following the decimal point, is used. With this convention, \"five nines\" equals 0.99999 (or 99.999%) availability. (source: wikipedia)"@en ;
                  rdfs:label "Availability"@en ;
                  rdfs:seeAlso "IoT-A Requirement UNI.058" ,
                               "IoT-A Requirement UNI.064" ,
@@ -1862,7 +1873,8 @@ sto:Availability rdf:type owl:NamedIndividual ,
                               "IoT-A Requirement UNI.321" ,
                               "IoT-A Requirement UNI.601" ,
                               "IoT-A Requirement UNI.610" ,
-                              "IoT-A Requirement UNI.616" .
+                              "IoT-A Requirement UNI.616" ;
+                 sto:hasDBpediaResource <http://dbpedia.org/resource/Availability> .
 
 
 ###  https://w3id.org/i40/sto#B2MML
@@ -2131,15 +2143,20 @@ sto:BdvaThingsAssetsSensorsActuators rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#BigDataApplications
 sto:BigDataApplications rdf:type owl:NamedIndividual ,
-                                 sto:Concern .
+                                 sto:Concern ;
+                        rdfs:comment "Big data is a term for data sets that are so large or complex that traditional data processing applications are inadequate to deal with them. Challenges include analysis, capture, data curation, search, sharing, storage, transfer, visualization, querying, updating and information privacy. The term \"big data\" often refers simply to the use of predictive analytics, user behavior analytics, or certain other advanced data analytics methods that extract value from data, and seldom to a particular size of data set. (source: wikipedia)"@en ;
+                        rdfs:label "Big Data Applications"@en ;
+                        sto:hasDBpediaResource <http://dbpedia.org/resource/Big_data> .
 
 
 ###  https://w3id.org/i40/sto#Billing
 sto:Billing rdf:type owl:NamedIndividual ,
                      sto:Concern ;
+            dul:isPartOf sto:BusinessContext ;
             dcterms:creator sto:sebastian ;
             rdfs:comment "Billing frames the process of paying for any type of (digital) resource, whether software, apps, data or anything else."@en ;
-            rdfs:label "Billing"@en .
+            rdfs:label "Billing"@en ;
+            sto:hasDBpediaResource <http://dbpedia.org/resource/Telecommunications_billing> .
 
 
 ###  https://w3id.org/i40/sto#Blockchain
@@ -2165,7 +2182,9 @@ sto:Bluetooth rdf:type owl:NamedIndividual ,
 sto:BusinessContext rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dcterms:creator sto:sebastian ;
-                    rdfs:label "Business Context"@en .
+                    rdfs:comment "Electronic business, or e-business, is the application of information and communication technologies in support of all the activities of business. Commerce constitutes the exchange of products and services between businesses, groups and individuals and can be seen as one of the essential activities of any business. (source: wikipedia)"@en ;
+                    rdfs:label "Business Context"@en ;
+                    sto:hasDBpediaResource <http://dbpedia.org/resource/Electronic_business> .
 
 
 ###  https://w3id.org/i40/sto#BusinessProcessExecution
@@ -2176,21 +2195,28 @@ sto:BusinessProcessExecution rdf:type owl:NamedIndividual ,
                              rdfs:label "Business Process Execution"@en .
 
 
-###  https://w3id.org/i40/sto#BusinessProcessModeling
-sto:BusinessProcessModeling rdf:type owl:NamedIndividual ,
-                                     sto:Concern ;
-                            rdfs:seeAlso "IoT-A Requirement UNI.211" ,
-                                         "IoT-A Requirement UNI.212" ,
-                                         "IoT-A Requirement UNI.214" ,
-                                         "IoT-A Requirement UNI.215" ,
-                                         "IoT-A Requirement UNI.229" .
+###  https://w3id.org/i40/sto#BusinessProcessManagement
+sto:BusinessProcessManagement rdf:type owl:NamedIndividual ,
+                                       sto:Concern ;
+                              dcterms:title "Business process management"@en ;
+                              rdfs:comment "Business process management (BPM) is a field in operations management that focuses on improving corporate performance by managing and optimizing a company's business processes. It can therefore be described as a \"process optimization process.\" It is argued that BPM enables organizations to be more efficient, more effective and more capable of change than a functionally focused, traditional hierarchical management approach. These processes can impact the cost and revenue generation of an organization. As a policy-making approach, BPM sees processes as important assets of an organization that must be understood, managed, and developed to announce value-added products and services to clients or customers. This approach closely resembles other total quality management or continual improvement process methodologies and BPM proponents also claim that this approach can be supported, or enabled, through technology. As such, many BPM articles and scholars frequently discuss BPM from one of two viewpoints: people and/or technology. (source: wikipedia)"@en ;
+                              rdfs:label "BPM"@en ;
+                              rdfs:seeAlso "IoT-A Requirement UNI.211" ,
+                                           "IoT-A Requirement UNI.212" ,
+                                           "IoT-A Requirement UNI.214" ,
+                                           "IoT-A Requirement UNI.215" ,
+                                           "IoT-A Requirement UNI.229" ;
+                              sto:hasDBpediaResource <http://dbpedia.org/resource/Business_process_management> .
 
 
 ###  https://w3id.org/i40/sto#BusinessTransactions
 sto:BusinessTransactions rdf:type owl:NamedIndividual ,
                                   sto:Concern ;
+                         dul:isPartOf sto:BusinessContext ;
                          dcterms:creator sto:sebastian ;
-                         rdfs:label "Business Transactions"@en .
+                         rdfs:comment "A financial transaction is an agreement, communication, or movement carried out between a buyer and a seller to exchange an asset for payment. It involves a change in the status of the finances of two or more businesses or individuals. The buyer and seller are separate entities or objects, often involving the exchange of items of value, such as information, goods, services, and money. It is still a transaction if the goods are exchanged at one time, and the money at another. This is known as a two-part transaction: part one is giving the money, part two is receiving the goods. (source: wikipedia)"@en ;
+                         rdfs:label "Business Transactions"@en ;
+                         sto:hasDBpediaResource <http://dbpedia.org/resource/Financial_transaction> .
 
 
 ###  https://w3id.org/i40/sto#CAD
@@ -2226,25 +2252,31 @@ sto:Cardinality rdf:type owl:NamedIndividual ,
                          sto:Concern ;
                 dcterms:creator sto:sebastian ;
                 rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
-                rdfs:label "Cardinality of Participants"@en .
+                rdfs:label "Cardinality of Participants"@en ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Cardinality_(computer_engineering)> .
 
 
 ###  https://w3id.org/i40/sto#Certification
 sto:Certification rdf:type owl:NamedIndividual ,
                            sto:Concern ;
+                  dul:isPartOf sto:Trustworthiness ;
                   dcterms:creator sto:sebastian ;
                   dul:isPartOf sto:Security ;
-                  rdfs:label "Certification"@en .
+                  rdfs:comment "Certification refers to the confirmation of certain characteristics of an object, person, or organization. This confirmation is often, but not always, provided by some form of external review, education, assessment, or audit. Accreditation is a specific organization's process of certification. (source: wikipedia)"@en ;
+                  rdfs:label "Certification"@en ;
+                  sto:hasDBpediaResource <http://dbpedia.org/resource/Certification> .
 
 
 ###  https://w3id.org/i40/sto#CloudComputing
 sto:CloudComputing rdf:type owl:NamedIndividual ,
                             sto:Concern ;
+                   dul:isPartOf sto:DataProcessing ;
                    dcterms:creator sto:sebastian ;
-                   rdfs:comment ""@en ;
-                   rdfs:label "Cloud Computing"@en ;
+                   rdfs:comment "Cloud computing is a type of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous, on-demand access to a shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services), which can be rapidly provisioned and released with minimal management effort. Cloud computing and storage solutions provide users and enterprises with various capabilities to store and process their data in third-party data centers that may be located far from the user–ranging in distance from across a city to across the world. Cloud computing relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid) over an electricity network. (source: wikipedia)"@en ;
+                   rdfs:label "Cloud Computing Capability"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.102" ,
-                                "IoT-A Requirement UNI.234" .
+                                "IoT-A Requirement UNI.234" ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Cloud_computing> .
 
 
 ###  https://w3id.org/i40/sto#Communication
@@ -2272,15 +2304,22 @@ sto:Communication rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ComplexEventProcessing
 sto:ComplexEventProcessing rdf:type owl:NamedIndividual ,
                                     sto:Concern ;
+                           dcterms:title "Complex Event Processing"@en ;
                            dul:isPartOf sto:DataAnalytics ;
-                           rdfs:seeAlso "IoT-A Requirement UNI.232" .
+                           rdfs:comment "Event processing is a method of tracking and analyzing (processing) streams of information (data) about things that happen (events), and deriving a conclusion from them. Complex event processing, or CEP, is event processing that combines data from multiple sources to infer events or patterns that suggest more complicated circumstances. The goal of complex event processing is to identify meaningful events (such as opportunities or threats) and respond to them as quickly as possible. (source: wikipedia)"@en ;
+                           rdfs:label "CEP"@en ;
+                           rdfs:seeAlso "IoT-A Requirement UNI.232" ;
+                           sto:hasDBpediaResource <http://dbpedia.org/page/Complex_event_processing> .
 
 
 ###  https://w3id.org/i40/sto#Compliance
 sto:Compliance rdf:type owl:NamedIndividual ,
                         sto:Concern ;
+               dul:isPartOf sto:Trustworthiness ;
                dcterms:creator sto:sebastian ;
-               rdfs:label "Compliance"@en .
+               rdfs:comment "In general, compliance means conforming to a rule, such as a specification, policy, standard or law. Regulatory compliance describes the goal that organisations aspire to achieve in their efforts to ensure that they are aware of and take steps to comply with relevant laws and regulations. Due to the increasing number of regulations and need for operational transparency, organizations are increasingly adopting the use of consolidated and harmonized sets of compliance controls. This approach is used to ensure that all necessary governance requirements can be met without the unnecessary duplication of effort and activity from resources. (source: wikipedia)"@en ;
+               rdfs:label "Compliance"@en ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/Regulatory_compliance> .
 
 
 ###  https://w3id.org/i40/sto#Concern
@@ -2291,9 +2330,11 @@ sto:Concern rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ConstraintDevices
 sto:ConstraintDevices rdf:type owl:NamedIndividual ,
                                sto:Concern ;
+                      dul:isPartOf sto:IoT ;
                       dcterms:creator sto:sebastian ;
                       <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect TODO"@en ;
-                      rdfs:comment "Data-memory-constrained devices must be able to participate in communication. This means that a system built using the ARM shall support communication stacks with small data footprint."@en ;
+                      rdfs:comment "Data-memory-constrained devices must be able to participate in communication. This means that a system built using the ARM shall support communication stacks with small data footprint."@en ,
+                                   "Small devices with limited CPU, memory, and power resources, so-called \"constrained devices\" (often used as sensors/actuators, smart objects, or smart devices) can form a network, becoming \"constrained nodes\" in that network.  Such a network may itself exhibit constraints, e.g., with unreliable or lossy channels, limited and unpredictable bandwidth, and a highly dynamic topology. (source: https://tools.ietf.org/html/rfc7228)"@en ;
                       rdfs:label "Constraint Devices"@en ;
                       rdfs:seeAlso "UNI.306"@en .
 
@@ -2307,7 +2348,8 @@ sto:ContextAwareness rdf:type owl:NamedIndividual ,
                      rdfs:seeAlso "IoT-A Requirement UNI.407" ,
                                   "IoT-A Requirement UNI.420" ,
                                   "IoT-A Requirement UNI.421" ,
-                                  "UNI.407"@en .
+                                  "UNI.407"@en ;
+                     sto:hasDBpediaResource <http://dbpedia.org/resource/Context_awareness> .
 
 
 ###  https://w3id.org/i40/sto#CrossDomainIdentityManagement
@@ -2318,7 +2360,8 @@ sto:CrossDomainIdentityManagement rdf:type owl:NamedIndividual ,
                                   dul:isPartOf sto:IdentityManagement ;
                                   rdfs:comment "A system built using the ARM shall support identity-locator split, i.e. making the device's identity independent from its locator."@en ;
                                   rdfs:label "Cross-domain Identity Management"@en ;
-                                  rdfs:seeAlso "IoT-A Requirement UNI.314" .
+                                  rdfs:seeAlso "IoT-A Requirement UNI.314" ;
+                                  sto:hasDBpediaResource <http://dbpedia.org/resource/System_for_Cross-domain_Identity_Management> .
 
 
 ###  https://w3id.org/i40/sto#CrossLevel
@@ -2515,8 +2558,10 @@ sto:DTLS rdf:type owl:NamedIndividual ,
 sto:DataAccess rdf:type owl:NamedIndividual ,
                         sto:Concern ;
                dcterms:creator sto:sebastian ;
+               rdfs:comment "Data access typically refers to software and activities related to storing, retrieving, or acting on data housed in a database or other repository. [...] Data access crucially involves authorization to access different data repositories. (source: wikipedia)"@en ;
                rdfs:label "Data Access"@en ;
-               rdfs:seeAlso "IoT-A Requirement UNI.022" .
+               rdfs:seeAlso "IoT-A Requirement UNI.022" ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/Data_access> .
 
 
 ###  https://w3id.org/i40/sto#DataAccessControl
@@ -2526,7 +2571,8 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
                       <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
                                                                         <https://w3id.org/i40/DataOwner> ;
                       dul:isPartOf sto:Authorization ;
-                      rdfs:comment "Automated access control based on formalized descriptions."@en ;
+                      rdfs:comment "Automated access control based on formalized descriptions."@en ,
+                                   "In the fields of physical security and information security, access control (AC) is the selective restriction of access to a place or other resource. The act of accessing may mean consuming, entering, or using. Permission to access a resource is called authorization. Locks and login credentials are two analogous mechanisms of access control. (source: wikipedia)"@en ;
                       rdfs:label "Data Access Control"@en ;
                       rdfs:seeAlso "IoT-A Requirement UNI.002" ,
                                    "IoT-A Requirement UNI.067" ,
@@ -2534,7 +2580,8 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
                                    "IoT-A Requirement UNI.411" ,
                                    "IoT-A Requirement UNI.412" ,
                                    "IoT-A Requirement UNI.413" ,
-                                   "IoT-A Requirement UNI.504" .
+                                   "IoT-A Requirement UNI.504" ;
+                      sto:hasDBpediaResource <http://dbpedia.org/resource/Access_control> .
 
 
 ###  https://w3id.org/i40/sto#DataAnalytics
@@ -10621,6 +10668,7 @@ sto:hasPublisher rdf:type owl:NamedIndividual .
 sto:iShare rdf:type owl:NamedIndividual ,
                     sto:StandardizationFramework ;
            dul:associatedWith sto:HTTP ,
+                              sto:ISO_9594 ,
                               sto:REST ,
                               sto:RFC_5246 ,
                               sto:RFC_7519 ,
