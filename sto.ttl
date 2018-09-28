@@ -1642,6 +1642,7 @@ rami:WorkCenter rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#AI
 sto:AI rdf:type owl:NamedIndividual ,
                 sto:Concern ;
+       dul:isPartOf sto:DataAnalytics ;
        dcterms:creator sto:sebastian ;
        rdfs:comment "Artificial intelligence (AI) is intelligence exhibited by machines. In computer science, an ideal \"intelligent\" machine is a flexible rational agent that perceives its environment and takes actions that maximize its chance of success at some goal. Colloquially, the term \"artificial intelligence\" is applied when a machine mimics \"cognitive\" functions that humans associate with other human minds, such as \"learning\" and \"problem solving\". (source: wikipedia)"@en ;
        rdfs:label "Artificial Intelligence"@en ;
@@ -2588,14 +2589,20 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
 sto:DataAnalytics rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:sebastian ;
+                  rdfs:comment "Analysis of data is a process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, suggesting conclusions, and supporting decision-making. Data analysis has multiple facets and approaches, encompassing diverse techniques under a variety of names, in different business, science, and social science domains. Data mining is a particular data analysis technique that focuses on modeling and knowledge discovery for predictive rather than purely descriptive purposes. Business intelligence covers data analysis that relies heavily on aggregation, focusing on business information. (source: wikipedia)"@en ;
                   rdfs:label "Data Analytics"@en ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.232" .
+                  rdfs:seeAlso "IoT-A Requirement UNI.232" ;
+                  sto:hasDBpediaResource <http://dbpedia.org/resource/Data_analysis> .
 
 
 ###  https://w3id.org/i40/sto#DataAtRest
 sto:DataAtRest rdf:type owl:NamedIndividual ,
                         sto:Concern ;
-               dul:isPartOf sto:Communication .
+               dcterms:creator sto:sebastian ;
+               dul:isPartOf sto:Communication ;
+               rdfs:comment "Data at rest in information technology means inactive data that is stored physically in any digital form (e.g. databases, data warehouses, spreadsheets, archives, tapes, off-site backups, mobile devices etc.). Data at rest is used as a complement to the terms data in use and data in transit which together define the three states of digital Data. (source: wikipedia)"@en ;
+               rdfs:label "Data at rest"@en ;
+               sto:hasDBpediaResource <http://dbpedia.org/resource/Data_at_rest> .
 
 
 ###  https://w3id.org/i40/sto#DataConsumer
@@ -2609,7 +2616,8 @@ sto:DataDescription rdf:type owl:NamedIndividual ,
                     dcterms:creator sto:sebastian ;
                     <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ;
                     dul:isPartOf sto:SemanticInteroperability ;
-                    rdfs:comment "Methods to unambiguously describe data resources."@en ;
+                    rdfs:comment <http://dbpedia.org/resource/Data_model> ,
+                                 "Methods to unambiguously describe data resources."@en ;
                     rdfs:label "Data Description"@en ;
                     rdfs:seeAlso "IoT-A Requirement UNI.004" ,
                                  "IoT-A Requirement UNI.240" .
@@ -2618,8 +2626,9 @@ sto:DataDescription rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataDiscovery
 sto:DataDiscovery rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dcterms:creator "How to find desired resources, Data Assets, Data Artefacts."@en ,
-                                  "sebastian"@en ;
+                  dul:isPartOf sto:Interoperability ;
+                  dcterms:creator "sebastian"@en ;
+                  rdfs:comment "How to find desired resources, Data Assets, Data Artifacts in a defined environment."@en ;
                   rdfs:label "Data Discovery"@en ;
                   rdfs:seeAlso "IoT-A Requirement UNI.236" ,
                                "IoT-A Requirement UNI.408" ,
@@ -2629,21 +2638,30 @@ sto:DataDiscovery rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DataEconomy
 sto:DataEconomy rdf:type owl:NamedIndividual ,
                          sto:Concern ;
+                dul:isPartOf sto:BusinessContext ;
                 dcterms:creator sto:sebastian ;
-                rdfs:comment "Business aspects of data exchange"@en ;
-                rdfs:label "Data Economy"@en .
+                rdfs:comment "Business aspects of data exchange"@en ,
+                             "Digital economy refers to an economy that is based on digital computing technologies. The digital economy is also sometimes called the Internet Economy, the New Economy, or Web Economy. Increasingly, the \"digital economy\" is intertwined with the traditional economy making a clear delineation harder. (source: wikipedia)"@en ;
+                rdfs:label "Data Economy"@en ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Digital_economy> .
 
 
 ###  https://w3id.org/i40/sto#DataInMotion
 sto:DataInMotion rdf:type owl:NamedIndividual ,
                           sto:Concern ;
-                 dul:isPartOf sto:Communication .
+                 dul:isPartOf sto:Communication ;
+                 rdfs:comment "Data in transit is defined into two categories, information that flows over the public or untrusted network such as the internet and data which flows in the confines of a private network such as a corporate or enterprise Local Area Network (LAN). Data in transit is also referred to as data in motion. Data in transit is used as a complement to the terms data in use and data at rest which together define the three states of digital data. (source: wikipedia)"@en ;
+                 rdfs:label "Data in motion"@en ;
+                 sto:hasDBpediaResource <http://dbpedia.org/resource/Data_in_transit> .
 
 
 ###  https://w3id.org/i40/sto#DataLifecycleManagment
 sto:DataLifecycleManagment rdf:type owl:NamedIndividual ,
                                     sto:Concern ;
-                           dul:isPartOf sto:DataAnalytics .
+                           dul:isPartOf sto:DataAnalytics ;
+                           rdfs:comment "Data lifecycle management includes every phase of a \"record\" from its beginning to its end. And while it is generally applied to information that rises to the classic definition of a record (and thus related to records management), it applies to all informational assets. During its existence, information can become a record by being identified as documenting a business transaction or as satisfying a business need. (source: wikipedia)"@en ;
+                           rdfs:label "Data lifecycle management"@en ;
+                           sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management> .
 
 
 ###  https://w3id.org/i40/sto#DataMarketAustria
@@ -2668,8 +2686,9 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
 sto:DataOwnership rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:sebastian ;
-                  rdfs:comment "Data Ownership declare the property on a information resource that is independent of its location, e.g. personal data belongs the the related person no matter where it is stored."@en ;
-                  rdfs:label "Data Ownership"@en .
+                  rdfs:comment "Data Ownership declare the possesion on an information resource that is independent of its location, e.g. personal data belongs the the related person no matter where it is stored."@en ;
+                  rdfs:label "Data Ownership"@en ;
+                  sto:hasDBpediaResource <http://dbpedia.org/resource/Data_ownership> .
 
 
 ###  https://w3id.org/i40/sto#DataProcessing
@@ -2679,16 +2698,20 @@ sto:DataProcessing rdf:type owl:NamedIndividual ,
                    <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.018" .
+                   rdfs:seeAlso "IoT-A Requirement UNI.018" ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Data_processing> .
 
 
 ###  https://w3id.org/i40/sto#DataProtection
 sto:DataProtection rdf:type owl:NamedIndividual ,
                             sto:Concern ;
+                   dul:isPartOf sto:Privacy ;
                    dcterms:creator sto:sebastian ;
-                   rdfs:label "Data Protection"@en ,
-                              "Datenschutz"@de ;
-                   skos:note "sames as Privacy?"@de .
+                   rdfs:comment "Data protection is the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. Privacy concerns exist wherever personally identifiable information or other sensitive information is collected, stored, used, and finally destroyed or deleted – in digital form or otherwise. Improper or non-existent disclosure control can be the root cause for privacy issues. (source: wikipedia)"@en ;
+                   rdfs:label "Data Protection"@en ;
+                   skos:altLabel "Datenschutz"@de ,
+                                 "Information privacy"@en ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Information_privacy> .
 
 
 ###  https://w3id.org/i40/sto#DataProvider
@@ -2708,10 +2731,12 @@ sto:DataPublishing rdf:type owl:NamedIndividual ,
 sto:DataQuality rdf:type owl:NamedIndividual ,
                          sto:Concern ;
                 dcterms:creator sto:sebastian ;
+                rdfs:comment "Data quality refers to the level of quality of data. There are many definitions of data quality but data are generally considered high quality if \"they are fit for their intended uses in operations, decision making and planning.\" (Tom Redman<Redman, T.C. (2008). Data driven: Profiting from your most important business asset (p. 56). Boston, Mass.: Harvard Business Press.>). Alternatively, data is deemed of high quality if it correctly represents the real-world construct to which it refers. Furthermore, apart from these definitions, as data volume increases, the question of internal consistency within data becomes significant, regardless of fitness for use for any particular external purpose. People's views on data quality can often be in disagreement, even when discussing the same set of data used for the same purpose. (source: wikipedia)"@en ;
                 rdfs:label "Data Quality"@en ;
                 rdfs:seeAlso "IoT-A Requirement UNI.235" ,
                              "IoT-A Requirement UNI.236" ,
-                             "IoT-A Requirement UNI.237" .
+                             "IoT-A Requirement UNI.237" ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Data_quality> .
 
 
 ###  https://w3id.org/i40/sto#DataSelection
@@ -2731,7 +2756,9 @@ sto:DataSovereignty rdf:type owl:NamedIndividual ,
                              sto:Concern ,
                              sto:StandardClassification ;
                     dcterms:creator sto:sebastian ;
-                    rdfs:label "Data Sovereignty"@en .
+                    rdfs:label "Data Sovereignty"@en ;
+                    sto:hasDBpediaResource <http://dbpedia.org/resource/Cyber_sovereignty> ;
+                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_sovereignty> .
 
 
 ###  https://w3id.org/i40/sto#DataTransferProject
@@ -2840,6 +2867,8 @@ sto:DynamicAdjustability rdf:type owl:NamedIndividual ,
                          dul:isPartOf sto:ServiceChoreography ,
                                       sto:ServiceComposition ,
                                       sto:ServiceOrchestration ;
+                         rdfs:comment "A systems ability to adjust its behaviour on dynamic changes in its environment."@en ;
+                         rdfs:label "Dynamic Adjustability"@en ;
                          rdfs:seeAlso "IoT-A Requirement UNI.713" .
 
 
@@ -2848,6 +2877,8 @@ sto:DynamicDiscovery rdf:type owl:NamedIndividual ,
                               sto:Concern ;
                      dul:isPartOf sto:DataDiscovery ,
                                   sto:ServiceDiscovery ;
+                     rdfs:comment "A systems ability to retrive according information on required assets and components on-the-fly."@en ;
+                     rdfs:label "Dynamic Discovery"@en ;
                      rdfs:seeAlso "IoT-A Requirement UNI.418" ,
                                   "IoT-A Requirement UNI.419" ,
                                   "IoT-A Requirement UNI.420" ,
@@ -2959,7 +2990,12 @@ sto:Eddystone rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EdgeComputing
 sto:EdgeComputing rdf:type owl:NamedIndividual ,
-                           sto:Concern .
+                           sto:Concern ;
+                  dul:isPartOf sto:CloudComputing ,
+                               sto:DataProcessing ;
+                  rdfs:comment "Edge Computing is pushing the frontier of computing applications, data, and services away from centralized nodes to the logical extremes of a network. It enables analytics and knowledge generation to occur at the source of the data. This approach requires leveraging resources that may not be continuously connected to a network such as laptops, smartphones, tablets and sensors. Edge Computing covers a wide range of technologies including wireless sensor networks, mobile data acquisition, mobile signature analysis, cooperative distributed peer-to-peer ad hoc networking and processing also classifiable as Local Cloud/Fog computing and Grid/Mesh Computing, dew computing, mobile edge computing, cloudlet, distributed data storage and retrieval, autonomic self-healing networks, remote cloud services, augmented reality, and more. (source: wikipedia)"@en ;
+                  rdfs:label "Edge computing"@en ;
+                  sto:hasDBpediaResource <http://dbpedia.org/resource/Edge_computing> .
 
 
 ###  https://w3id.org/i40/sto#EnOcean
@@ -2974,6 +3010,7 @@ sto:EnOcean rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#EndpointDescription
 sto:EndpointDescription rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
+                        dul:isPartOf sto:SemanticInteroperability ;
                         dcterms:creator sto:sebastian ;
                         rdfs:comment "Methods to unambiguously describe client and server endpoints."@en ;
                         rdfs:label "Endpoint Description"@en .
@@ -2983,7 +3020,7 @@ sto:EndpointDescription rdf:type owl:NamedIndividual ,
 sto:EndpointInvocation rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
                        dcterms:creator sto:sebastian ;
-                       dul:isPartOf sto:Interoperability ;
+                       dul:isPartOf sto:SyntacticInteroperability ;
                        rdfs:comment "Mechanisms to interact with a service and to access it through the network."@en ;
                        rdfs:label "Endpoint Invocation"@en ;
                        rdfs:seeAlso "IoT-A Requirement UNI.100" ,
@@ -2993,14 +3030,17 @@ sto:EndpointInvocation rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#EnergyControl
 sto:EnergyControl rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dul:associatedWith rami:EnergyEfficiency ;
+                  dul:isPartOf rami:EnergyEfficiency ,
+                               sto:IoT ;
+                  rdfs:label "Energy Control"@en ;
                   rdfs:seeAlso "IoT-A Requirement UNI.100" ,
                                "IoT-A Requirement UNI.101" ,
                                "IoT-A Requirement UNI.309" ,
                                "IoT-A Requirement UNI.310" ,
                                "IoT-A Requirement UNI.505" ,
                                "IoT-A Requirement UNI.512" ,
-                               "IoT-A Requirement UNI.714" .
+                               "IoT-A Requirement UNI.714" ;
+                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Internet_of_things#Energy_management> .
 
 
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
@@ -3019,28 +3059,35 @@ sto:EnterpriseLevel rdf:type owl:NamedIndividual ,
                     rdfs:label "Enterprise Level"@en .
 
 
-###  https://w3id.org/i40/sto#EventBasedCommunication
-sto:EventBasedCommunication rdf:type owl:NamedIndividual ,
-                                     sto:Concern ;
-                            <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
-                            dul:isPartOf sto:DataInMotion ;
-                            rdfs:seeAlso "IoT-A Requirement UNI.005" ,
-                                         "IoT-A Requirement UNI.233" .
+###  https://w3id.org/i40/sto#EventDrivenMessaging
+sto:EventDrivenMessaging rdf:type owl:NamedIndividual ,
+                                  sto:Concern ;
+                         <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                         dul:isPartOf sto:DataInMotion ;
+                         rdfs:label "Event-Driven Messaging"@en ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.005" ,
+                                      "IoT-A Requirement UNI.233" ;
+                         sto:hasDBpediaResource <http://dbpedia.org/page/Event-Driven_Messaging> .
 
 
 ###  https://w3id.org/i40/sto#Evolvability
 sto:Evolvability rdf:type owl:NamedIndividual ,
                           sto:Concern ;
+                 dul:isPartOf sto:DynamicAdjustability ;
                  dcterms:creator sto:sebastian ;
                  rdfs:comment "A system shall accomodate fast developmental changes in applications and network."@en ;
                  rdfs:label "Evolvability"@en ;
                  rdfs:seeAlso "IoT-A Requirement UNI.701" ,
-                              "IoT-A Requirement UNI.702" .
+                              "IoT-A Requirement UNI.702" ;
+                 sto:hasDBpediaResource <http://dbpedia.org/resource/Evolving_intelligent_system> ,
+                                        <http://dbpedia.org/resource/Software_evolution> .
 
 
 ###  https://w3id.org/i40/sto#ExecutionVariability
 sto:ExecutionVariability rdf:type owl:NamedIndividual ,
                                   sto:Concern ;
+                         dul:isPartOf sto:DynamicAdjustability ,
+                                      sto:ServiceOrchestration ;
                          dcterms:creator sto:sebastian ;
                          rdfs:comment "The system's ability to flexibly connect/adjust data flows in order to reach a defined target."@en ;
                          rdfs:label "Execution Variability"@en .
@@ -3972,13 +4019,15 @@ sto:GeoTracking rdf:type owl:NamedIndividual ,
                          sto:Concern ;
                 <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
                 rdfs:comment "A system built using the ARM shall support physical entity location tracking (geo spatial and/or logical location)"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.016" .
+                rdfs:seeAlso "IoT-A Requirement UNI.016" ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Track_and_trace> .
 
 
 ###  https://w3id.org/i40/sto#GeospatialData
 sto:GeospatialData rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   rdfs:comment "Discovery and lookup services of the system shall allow locating physical entities based on geographical parameters"@en ;
+                   dul:isPartOf sto:DataAnalytics ;
+                   rdfs:comment "Discovery and lookup services of the system shall allow locating physical entities based on geographical parameters."@en ;
                    rdfs:label "Geospatial data and information"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.402" ,
                                 "IoT-A Requirement UNI.403" ,
@@ -3991,7 +4040,8 @@ sto:GeospatialData rdf:type owl:NamedIndividual ,
                                 "UNI.401"@en ,
                                 "UNI.402"@en ,
                                 "UNI.403"@en ,
-                                "UNI.404"@en .
+                                "UNI.404"@en ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Geographic_data_and_information> .
 
 
 ###  https://w3id.org/i40/sto#HTML
@@ -7146,11 +7196,13 @@ sto:IPSO rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IPv4Support
 sto:IPv4Support rdf:type owl:NamedIndividual ,
                          sto:Concern ;
+                dul:isPartOf sto:SyntacticInteroperability ;
                 dcterms:creator sto:sebastian ;
                 <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect"@en ;
                 rdfs:comment "Communication with non-IPv6 networks must be possible (IPv4, others)."@en ;
                 rdfs:label "IPv4 Support"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.313" .
+                rdfs:seeAlso "IoT-A Requirement UNI.313" ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_Protocol> .
 
 
 ###  https://w3id.org/i40/sto#IPv6
@@ -7166,11 +7218,13 @@ sto:IPv6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IPv6Support
 sto:IPv6Support rdf:type owl:NamedIndividual ,
                          sto:Concern ;
+                dul:isPartOf sto:SyntacticInteroperability ;
                 dcterms:creator sto:sebastian ;
                 <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect"@en ;
                 rdfs:comment "A system built using the ARM shall use/support common-addressing-schemes such as IPv6."@en ;
                 rdfs:label "IPv6 Support"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.312" .
+                rdfs:seeAlso "IoT-A Requirement UNI.312" ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_Protocol> .
 
 
 ###  https://w3id.org/i40/sto#ISA
@@ -8156,17 +8210,20 @@ sto:Identification rdf:type owl:NamedIndividual ,
                    rdfs:seeAlso "IoT-A Requirement UNI.030" ,
                                 "IoT-A Requirement UNI.425" ,
                                 "IoT-A Requirement UNI.428" ,
-                                "IoT-A Requirement UNI.622" .
+                                "IoT-A Requirement UNI.622" ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Identification_(information)> .
 
 
 ###  https://w3id.org/i40/sto#IdentityManagement
 sto:IdentityManagement rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
+                       dul:isPartOf sto:Security ;
                        dcterms:creator sto:sebastian ;
-                       rdfs:comment "Mechanisms to assure  identification."@en ;
+                       rdfs:comment "In computer security, identity and access management (IAM) is the security and business discipline that \"enables the right individuals to access the right resources at the right times and for the right reasons\".It addresses the need to ensure appropriate access to resources across increasingly heterogeneous technology environments and to meet increasingly rigorous compliance requirements. (source: wikipedia)"@en ;
                        rdfs:label "Identity Management"@en ;
                        rdfs:seeAlso "IoT-A Requirement UNI.048" ,
-                                    "IoT-A Requirement UNI.432" .
+                                    "IoT-A Requirement UNI.432" ;
+                       sto:hasDBpediaResource <http://dbpedia.org/resource/Identity_management> .
 
 
 ###  https://w3id.org/i40/sto#IndustrialAutomation
@@ -8194,13 +8251,16 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IntegrityProtection
 sto:IntegrityProtection rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
+                        dul:isPartOf sto:Security ;
                         dcterms:creator sto:sebastian ;
                         <http://voag.linkedmodel.org/voag#hasStakeholder> "Device/Service Owner" ;
-                        rdfs:comment "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
+                        rdfs:comment "In telecommunications, the term system integrity has the following meanings: 1. * That condition of a system wherein its mandated operational and technical parameters are within the prescribed limits. 2. * The quality of an AIS when it performs its intended function in an unimpaired manner, free from deliberate or inadvertent unauthorized manipulation of the system. 3. * The state that exists when there is complete assurance that under all conditions an IT system is based on the logical correctness and reliability of the operating system, the logical completeness of the hardware and software that implement the protection mechanisms, and data integrity. (source: wikipedia)"@en ,
+                                     "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
                         rdfs:label "Integrity Protection and Verification"@en ;
                         rdfs:seeAlso "IoT-A Requirement UNI.066" ,
                                      "IoT-A Requirement UNI.603" ,
-                                     "IoT-A Requirement UNI.620" .
+                                     "IoT-A Requirement UNI.620" ;
+                        sto:hasDBpediaResource <http://dbpedia.org/resource/System_integrity> .
 
 
 ###  https://w3id.org/i40/sto#InterfaceNetworksDevices
@@ -8255,13 +8315,18 @@ sto:Interoperability rdf:type owl:NamedIndividual ,
                                   "IoT-A Requirement UNI.093" ,
                                   "IoT-A Requirement UNI.094" ,
                                   "IoT-A Requirement UNI.232" ,
-                                  "IoT-A Requirement UNI.712" .
+                                  "IoT-A Requirement UNI.712" ;
+                     sto:hasDBpediaResource <http://dbpedia.org/resource/Interoperability> .
 
 
 ###  https://w3id.org/i40/sto#IoT
 sto:IoT rdf:type owl:NamedIndividual ,
                  sto:Concern ;
-        rdfs:seeAlso "IoT-A Requirement UNI.213" .
+        dcterms:title "Internet of Things"@en ;
+        rdfs:comment "The internet of things (IoT) is the internetworking of physical devices, vehicles (also referred to as \"connected devices\" and \"smart devices\"), buildings and other items—embedded with electronics, software, sensors, actuators, and network connectivity that enable these objects to collect and exchange data. (source: wikipedia)"@en ;
+        rdfs:label "IoT"@en ;
+        rdfs:seeAlso "IoT-A Requirement UNI.213" ;
+        sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_of_things> .
 
 
 ###  https://w3id.org/i40/sto#IoTA
@@ -8503,6 +8568,7 @@ sto:LoWPAN rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#LocalDataConfidentiality
 sto:LocalDataConfidentiality rdf:type owl:NamedIndividual ,
                                       sto:Concern ;
+                             dul:isPartOf sto:DataProtection ;
                              dcterms:creator sto:sebastian ;
                              rdfs:comment "Describes the means by which local data is protected."@en ;
                              rdfs:label "Local Data Confidentiality"@en .
@@ -8511,8 +8577,13 @@ sto:LocalDataConfidentiality rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Logging
 sto:Logging rdf:type owl:NamedIndividual ,
                      sto:Concern ;
+            dul:isPartOf sto:DataUsageControl ,
+                         sto:ServiceAccessControl ;
+            rdfs:comment "The process of recording incidents and events regarding a specific service, data resource or device in order to make status changes transparent."@en ;
+            rdfs:label "Logging"@en ;
             rdfs:seeAlso "IoT-A Requirement UNI.409" ,
-                         "IoT-A Requirement UNI.710" .
+                         "IoT-A Requirement UNI.710" ;
+            sto:hasDBpediaResource <http://dbpedia.org/resource/Data_logger> .
 
 
 ###  https://w3id.org/i40/sto#LowPowerWiFi
@@ -8610,9 +8681,11 @@ sto:MTConnect_Institute rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#MachineLearning
 sto:MachineLearning rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    dcterms:creator sto:sebastian ;
                     dul:isPartOf sto:AI ;
-                    rdfs:label "Machine Learning"@en .
+                    dcterms:creator sto:sebastian ;
+                    rdfs:comment "Machine learning is the subfield of computer science that \"gives computers the ability to learn without being explicitly programmed\" (Arthur Samuel, 1959). Evolved from the study of pattern recognition and computational learning theory in artificial intelligence, machine learning explores the study and construction of algorithms that can learn from and make predictions on data – such algorithms overcome following strictly static program instructions by making data-driven predictions or decisions, through building a model from sample inputs. (source: wikipedia)"@en ;
+                    rdfs:label "Machine Learning"@en ;
+                    sto:hasDBpediaResource <http://dbpedia.org/resource/Machine_learning> .
 
 
 ###  https://w3id.org/i40/sto#Manufacturing
@@ -8644,7 +8717,10 @@ sto:MessagePriority rdf:type owl:NamedIndividual ,
                     <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ,
                                                                       <owl:Developer> ;
                     dul:isPartOf sto:Communication ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.028" .
+                    rdfs:comment "Message precedence is an indicator attached to a message indicating its level of urgency. (source: wikipedia)"@en ;
+                    rdfs:label "Message precedence"@en ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.028" ;
+                    sto:hasDBpediaResource <http://dbpedia.org/resource/Message_precedence> .
 
 
 ###  https://w3id.org/i40/sto#Mihini
@@ -8863,12 +8939,24 @@ sto:NbIoT rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#NetworkCongestion
 sto:NetworkCongestion rdf:type owl:NamedIndividual ,
                                sto:Concern ;
+                      dul:isPartOf sto:DataQuality ;
                       dcterms:creator sto:sebastian ;
                       rdfs:comment "While congestion avoidance is important in any large network, in low bandwidth mesh networks this is essential."@en ;
                       rdfs:label "Network Congestion"@en ;
                       rdfs:seeAlso "IoT-A Requirement UNI.615" ;
                       sto:hasDBpediaResource <https://dbpedia.org/resource/Network_congestion> ;
                       sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Network_congestion> .
+
+
+###  https://w3id.org/i40/sto#NetworkPerformance
+sto:NetworkPerformance rdf:type owl:NamedIndividual ,
+                                sto:Concern ;
+                       dul:isPartOf sto:Communication ,
+                                    sto:QualityOfService ;
+                       rdfs:comment "Network performance refers to measures of service quality of a network as seen by the customer. There are many different ways to measure the performance of a network, as each network is different in nature and design. (source: wikidata)"@en ;
+                       rdfs:label "Network performance"@en ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.252" ;
+                       sto:hasDBpediaResource <http://dbpedia.org/resource/Network_performance> .
 
 
 ###  https://w3id.org/i40/sto#NetworkVirtualization
@@ -9078,17 +9166,12 @@ sto:OrionContextBroker rdf:type owl:NamedIndividual ,
                        rdfs:label "ORION Context Broker"@en .
 
 
-###  https://w3id.org/i40/sto#Performance
-sto:Performance rdf:type owl:NamedIndividual ,
-                         sto:Concern ;
-                rdfs:seeAlso "IoT-A Requirement UNI.252" .
-
-
 ###  https://w3id.org/i40/sto#PeriodicCommunication
 sto:PeriodicCommunication rdf:type owl:NamedIndividual ,
                                    sto:Concern ;
                           <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
-                          dul:isPartOf sto:DataInMotion ;
+                          dul:isPartOf sto:EventDrivenMessaging ;
+                          rdfs:label "Periodic Communication"@en ;
                           rdfs:seeAlso "IoT-A Requirement UNI.005" .
 
 
@@ -9116,11 +9199,13 @@ sto:Privacy rdf:type owl:NamedIndividual ,
             dcterms:creator sto:sebastian ;
             dul:isPartOf sto:DataSovereignty ,
                          sto:Trustworthiness ;
+            rdfs:comment "Information privacy, or data privacy (or data protection), is the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. Privacy concerns exist wherever personally identifiable information or other sensitive information is collected, stored, used, and finally destroyed or deleted – in digital form or otherwise. Improper or non-existent disclosure control can be the root cause for privacy issues. Data privacy issues can arise in response to information from a wide range of sources, such as: * Healthcare records * Criminal justice investigations and proceedings * Financial institutions and transactions * Biological traits, such as genetic material * Residence and geographic records * Ethnicity * Privacy breach * Location-based service and geolocation * Web surfing behavior or user preferences using persistent cookies. (source: wikipedia)"@en ;
             rdfs:label "Privacy"@en ;
             rdfs:seeAlso "IoT-A Requirement UNI.423" ,
                          "IoT-A Requirement UNI.424" ,
                          "IoT-A Requirement UNI.606" ,
-                         "IoT-A Requirement UNI.623" .
+                         "IoT-A Requirement UNI.623" ;
+            sto:hasDBpediaResource <http://dbpedia.org/resource/Information_privacy> .
 
 
 ###  https://w3id.org/i40/sto#ProductCatalogData
