@@ -119,6 +119,10 @@ dcterms:title rdf:type owl:AnnotationProperty ;
               rdfs:range rdfs:Literal .
 
 
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
 ###  http://voag.linkedmodel.org/voag#hasStakeholder
 <http://voag.linkedmodel.org/voag#hasStakeholder> rdf:type owl:AnnotationProperty .
 
@@ -368,6 +372,13 @@ sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
                           rdfs:label "has Technical Committee"@en .
 
 
+###  https://w3id.org/i40/sto#identifies
+sto:identifies rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf dul:associatedWith ;
+               rdfs:comment "ISO 42010 relation between an architecture description on the on hand and stakeholders and concerns on the other." ;
+               rdfs:label "identifies" .
+
+
 ###  https://w3id.org/i40/sto#isDescribedin
 sto:isDescribedin rdf:type owl:ObjectProperty ;
                   rdfs:domain sto:StandardClassification ;
@@ -581,12 +592,20 @@ iira:CrosscuttingFunction rdf:type owl:Class ;
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty dul:isPartOf ;
                                             owl:hasValue iira:FunctionalViewpoint
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty sto:isDescribedin ;
+                                            owl:hasValue sto:IIRA
                                           ] .
 
 
 ###  http://example.org/iira#FunctionalDomain
 iira:FunctionalDomain rdf:type owl:Class ;
                       rdfs:subClassOf sto:StandardClassification ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty dul:isPartOf ;
+                                        owl:hasValue iira:FunctionalViewpoint
+                                      ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty sto:isDescribedin ;
                                         owl:hasValue sto:IIRA
@@ -600,6 +619,10 @@ iira:SystemCharacteristics rdf:type owl:Class ;
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty dul:isPartOf ;
                                              owl:hasValue iira:FunctionalViewpoint
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty sto:isDescribedin ;
+                                             owl:hasValue sto:IIRA
                                            ] ;
                            rdfs:label "IIRA System Characteristic"@en .
 
@@ -764,14 +787,6 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
 sto:Concern rdf:type owl:Class .
 
 
-###  https://w3id.org/i40/sto#ConnectivityLayer
-sto:ConnectivityLayer rdf:type owl:Class ;
-                      rdfs:subClassOf sto:StandardClassification ;
-                      rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
-                      rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
-                      rdfs:label "Connectivity Layer"@en .
-
-
 ###  https://w3id.org/i40/sto#DataSharingInitiative
 sto:DataSharingInitiative rdf:type owl:Class ;
                           rdfs:subClassOf foaf:Organization .
@@ -807,6 +822,18 @@ sto:ISA95Level rdf:type owl:Class ;
                rdfs:subClassOf sto:StandardClassification ;
                rdfs:comment "Describes the ISA95 levels to classify the industry Standards according to those levels. Eg., Device, SCADA, etc. It has strong relation to the RAMI Hierarchy levels"@en ;
                rdfs:label "ISA 95 Level"@en .
+
+
+###  https://w3id.org/i40/sto#IicfConnectivityLayer
+sto:IicfConnectivityLayer rdf:type owl:Class ;
+                          rdfs:subClassOf sto:StandardClassification ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty dul:isPartOf ;
+                                            owl:hasValue iira:Connectivity
+                                          ] ;
+                          rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
+                          rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
+                          rdfs:label "IICF Connectivity Layer"@en .
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
@@ -1128,6 +1155,9 @@ dbr:_Texas rdf:type owl:NamedIndividual ,
 iira:ApplicationDomain rdf:type owl:NamedIndividual ,
                                 iira:FunctionalDomain ;
                        sto:alignesWith idsram:ProcessLayer ;
+                       sto:frames sto:BdvaDataViualisationAndUserInteraction ,
+                                  sto:DataProcessing ,
+                                  sto:EndpointInvocation ;
                        sto:isDescribedin sto:IIRA ;
                        dul:isPartOf iira:FunctionalViewpoint ;
                        rdfs:label "IIRA Application Domain"@en .
@@ -1138,12 +1168,20 @@ iira:BusinessDomain rdf:type owl:NamedIndividual ,
                              iira:FunctionalDomain ;
                     sto:alignesWith rami:Business ,
                                     idsram:BusinessLayer ;
+                    sto:frames rami:ProcessPlanning ;
                     rdfs:label "IIRA Business Domain"@en .
 
 
 ###  http://example.org/iira#BusinessViewpoint
 iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
                                 sto:Viewpoint ;
+                       sto:frames sto:BusinessValue ,
+                                  sto:MaintenanceCost ,
+                                  sto:ProductLiability ,
+                                  sto:Resilience ,
+                                  sto:ReturnOnInvestment ,
+                                  sto:Safety ,
+                                  sto:Security ;
                        sto:isDescribedin sto:IIRA ;
                        dcterms:creator sto:sebastian ;
                        rdfs:comment "The business viewpoint frames economic aspects and business relations regarded by the IIC Reference Architecture."@en ;
@@ -1154,12 +1192,22 @@ iira:BusinessViewpoint rdf:type owl:NamedIndividual ,
 iira:Connectivity rdf:type owl:NamedIndividual ,
                            iira:CrosscuttingFunction ;
                   dul:associatedWith iira:LinkLayer ,
-                                     iira:NetworkLayer ,
-                                     iira:PhysicalLayer ,
-                                     iira:TansportLayer ,
-                                     sto:FrameworkLayer ,
-                                     sto:IIRC ;
-                  sto:alignesWith rami:Communication ;
+                                     sto:DecisionMaker ,
+                                     sto:IEC_62541 ,
+                                     sto:IICF ,
+                                     sto:REST ,
+                                     sto:oneM2M ,
+                                     <https://www.wikidata.org/wiki/Q1548249> ;
+                  sto:frames sto:Communication ,
+                             sto:Evolvability ,
+                             sto:Interoperability ,
+                             sto:NetworkPerformance ,
+                             sto:Reliability ,
+                             sto:Resilience ,
+                             sto:Safety ,
+                             sto:Scalability ,
+                             sto:Security ,
+                             sto:ServiceDeployment ;
                   rdfs:label "IIRA Connectivity"@en .
 
 
@@ -1168,6 +1216,9 @@ iira:ControlDomain rdf:type owl:NamedIndividual ,
                             iira:FunctionalDomain ;
                    sto:alignesWith rami:Integration ,
                                    idsram:SystemLayer ;
+                   sto:frames sto:Actuation ,
+                              sto:Communication ,
+                              sto:Sensing ;
                    sto:isDescribedin sto:IIRA ;
                    rdfs:label "IIRA Control Domain"@en .
 
@@ -1180,6 +1231,7 @@ iira:CrosscuttingFunction rdf:type owl:NamedIndividual .
 iira:DistributedDataManagement rdf:type owl:NamedIndividual ,
                                         iira:CrosscuttingFunction ;
                                sto:alignesWith rami:Communication ;
+                               sto:frames sto:SemanticInteroperability ;
                                sto:isDescribedin sto:IIRA ;
                                dcterms:creator sto:sebastian ;
                                rdfs:label "IIRA Distributed Data Management"@en .
@@ -1198,7 +1250,16 @@ iira:FunctionalViewpoint rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#ImplementationViewpoint
 iira:ImplementationViewpoint rdf:type owl:NamedIndividual ,
                                       sto:Viewpoint ;
-                             dul:associatedWith idsram:SystemLayer ;
+                             dul:associatedWith iira:ApplicationDomain ,
+                                                iira:BusinessDomain ,
+                                                iira:ControlDomain ,
+                                                iira:InformationDomain ,
+                                                iira:OperationDomain ,
+                                                idsram:SystemLayer ;
+                             sto:frames sto:CloudComputing ,
+                                        sto:Communication ,
+                                        sto:EdgeComputing ,
+                                        sto:EndpointDescription ;
                              sto:isDescribedin sto:IIRA ;
                              rdfs:label "IIRA Implementation Viewpoint"@en .
 
@@ -1212,6 +1273,11 @@ iira:IndustrialAnalytics rdf:type owl:NamedIndividual ,
 iira:InformationDomain rdf:type owl:NamedIndividual ,
                                 iira:FunctionalDomain ;
                        sto:alignesWith rami:Information ;
+                       sto:frames sto:DataAnalytics ,
+                                  sto:DataProcessing ,
+                                  sto:SemanticInteroperability ,
+                                  sto:StreamProcessing ,
+                                  sto:SyntacticInteroperability ;
                        sto:isDescribedin sto:IIRA ;
                        rdfs:label "IIRA Information Domain"@en .
 
@@ -1223,13 +1289,21 @@ iira:IntelligentAndResilientControl rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#LinkLayer
 iira:LinkLayer rdf:type owl:NamedIndividual ,
-                        sto:ConnectivityLayer ;
+                        sto:IicfConnectivityLayer ;
+               dul:associatedWith sto:IEEE_802 ,
+                                  sto:IEEE_802_16-2012 ,
+                                  sto:WiFi ;
+               sto:frames sto:Communication ;
                rdfs:label "IICF Link Layer"@en .
 
 
 ###  http://example.org/iira#NetworkLayer
 iira:NetworkLayer rdf:type owl:NamedIndividual ,
-                           sto:ConnectivityLayer ;
+                           sto:IicfConnectivityLayer ;
+                  dul:associatedWith sto:IPv6 ;
+                  sto:frames sto:Communication ,
+                             sto:IPv4Support ,
+                             sto:IPv6Support ;
                   rdfs:label "IICF Network Layer"@en .
 
 
@@ -1237,14 +1311,19 @@ iira:NetworkLayer rdf:type owl:NamedIndividual ,
 iira:OperationDomain rdf:type owl:NamedIndividual ,
                               iira:FunctionalDomain ;
                      sto:alignesWith rami:Functional ;
+                     sto:frames sto:DataAnalytics ,
+                                sto:RealTimeAnalytics ,
+                                sto:ServiceDeployment ;
                      sto:isDescribedin sto:IIRA ;
                      rdfs:label "IIRA Operation Domain"@en .
 
 
 ###  http://example.org/iira#PhysicalLayer
 iira:PhysicalLayer rdf:type owl:NamedIndividual ,
-                            sto:ConnectivityLayer ;
-                   sto:hasClassification iira:Connectivity ;
+                            sto:IicfConnectivityLayer ;
+                   dul:associatedWith sto:IEEE_802 ,
+                                      sto:IEEE_802_16-2012 ;
+                   sto:frames sto:Communication ;
                    rdfs:label "IICF Physical Layer" .
 
 
@@ -1297,9 +1376,31 @@ iira:Scalability rdf:type owl:NamedIndividual ,
 ###  http://example.org/iira#Security
 iira:Security rdf:type owl:NamedIndividual ,
                        iira:SystemCharacteristics ;
-              sto:frames sto:Identification ,
-                         sto:Security ;
-              sto:hasPublisher sto:IIC ;
+              dul:associatedWith sto:DataOwner ,
+                                 sto:DecisionMaker ,
+                                 <https://www.wikidata.org/wiki/Q1548249> ;
+              sto:frames sto:AccessPolicy ,
+                         sto:Authorization ,
+                         sto:Availability ,
+                         sto:CloudComputing ,
+                         sto:DataAccessControl ,
+                         sto:DataAtRest ,
+                         sto:DataInMotion ,
+                         sto:DataProtection ,
+                         sto:Identification ,
+                         sto:IdentityManagement ,
+                         sto:IntegrityProtection ,
+                         sto:Privacy ,
+                         sto:Reliability ,
+                         sto:Resilience ,
+                         sto:Safety ,
+                         sto:SecureCommunication ,
+                         sto:Security ,
+                         sto:SecurityConfiguration ,
+                         sto:ServiceAccessControl ,
+                         sto:ServiceIsolation ,
+                         sto:ServicelLevelAgreements ,
+                         sto:Trustworthiness ;
               dcterms:creator sto:sebastian ;
               rdfs:label "IIRA Security"@en .
 
@@ -1314,14 +1415,33 @@ iira:SecurityFramework rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#TansportLayer
 iira:TansportLayer rdf:type owl:NamedIndividual ,
-                            sto:ConnectivityLayer ;
+                            sto:IicfConnectivityLayer ;
+                   dul:associatedWith sto:HTTP ,
+                                      sto:HTTP2 ,
+                                      sto:IEC_61158 ,
+                                      sto:ISO_20922 ,
+                                      sto:RFC_2616 ,
+                                      sto:RFC_793 ,
+                                      sto:RFC_8323 ,
+                                      sto:UDP ;
+                   sto:frames sto:Cardinality ,
+                              sto:Communication ,
+                              sto:EndpointInvocation ,
+                              sto:Multilaterism ,
+                              sto:SecureCommunication ,
+                              sto:TimeSynchronization ,
+                              sto:Unicast ;
                    rdfs:label "IICF Transport Layer"@en .
 
 
 ###  http://example.org/iira#UsageViewpoint
 iira:UsageViewpoint rdf:type owl:NamedIndividual ,
                              sto:Viewpoint ;
-                    sto:frames sto:ServiceOrchestration ;
+                    sto:frames rami:ProcessPlanning ,
+                               sto:Evolvability ,
+                               sto:RoleCategorization ,
+                               sto:ServiceDeployment ,
+                               sto:ServiceOrchestration ;
                     sto:isDescribedin sto:IIRA ;
                     rdfs:label "IIRA Usage Viewpoint"@en .
 
@@ -1585,7 +1705,9 @@ rami:Other rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#ProcessPlanning
 rami:ProcessPlanning rdf:type owl:NamedIndividual ,
                               rami:AdminShellSubmodel ;
-                     sto:isDescribedin sto:AdministrationShell .
+                     sto:isDescribedin sto:AdministrationShell ;
+                     rdfs:comment "Process planning frames everything related to model, plan and manage business workflows and processes."@en ;
+                     rdfs:label "Process planning"@en .
 
 
 ###  https://w3id.org/i40/rami#Product
@@ -1760,6 +1882,16 @@ sto:Accountability rdf:type owl:NamedIndividual ,
                    rdfs:comment "A system built using the ARM shall support the reversing of the pseudonymization processes in order to guarantee mutual accountability"@en ;
                    rdfs:label "Accountability"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.605" .
+
+
+###  https://w3id.org/i40/sto#Actuation
+sto:Actuation rdf:type owl:NamedIndividual ,
+                       sto:Concern ;
+              dul:isPartOf sto:IoT ;
+              dcterms:creator sto:sebastian ;
+              rdfs:comment "Sending data or a signal to a kind of actuating device, which leads to a change in a defined environment."@en ;
+              rdfs:label "Actuation"@en ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/Actuator> .
 
 
 ###  https://w3id.org/i40/sto#AdministrationShell
@@ -2049,8 +2181,8 @@ sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#BdvaDataProcessingArchitectures
 sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
                                              sto:BdvaConcern ;
-                                    sto:alignesWith iira:InformationDomain ,
-                                                    sto:IIRC ,
+                                    sto:alignesWith iira:Connectivity ,
+                                                    iira:InformationDomain ,
                                                     idsram:ProcessLayer ;
                                     sto:frames sto:BigDataApplications ,
                                                sto:DataAtRest ,
@@ -2218,6 +2350,12 @@ sto:BusinessTransactions rdf:type owl:NamedIndividual ,
                          rdfs:comment "A financial transaction is an agreement, communication, or movement carried out between a buyer and a seller to exchange an asset for payment. It involves a change in the status of the finances of two or more businesses or individuals. The buyer and seller are separate entities or objects, often involving the exchange of items of value, such as information, goods, services, and money. It is still a transaction if the goods are exchanged at one time, and the money at another. This is known as a two-part transaction: part one is giving the money, part two is receiving the goods. (source: wikipedia)"@en ;
                          rdfs:label "Business Transactions"@en ;
                          sto:hasDBpediaResource <http://dbpedia.org/resource/Financial_transaction> .
+
+
+###  https://w3id.org/i40/sto#BusinessValue
+sto:BusinessValue rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dul:isPartOf sto:BusinessContext .
 
 
 ###  https://w3id.org/i40/sto#CAD
@@ -2682,6 +2820,11 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
                 rdfs:label "Data Markets"@en .
 
 
+###  https://w3id.org/i40/sto#DataOwner
+sto:DataOwner rdf:type owl:NamedIndividual ,
+                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+
+
 ###  https://w3id.org/i40/sto#DataOwnership
 sto:DataOwnership rdf:type owl:NamedIndividual ,
                            sto:Concern ;
@@ -2795,6 +2938,11 @@ sto:DataUsageControl rdf:type owl:NamedIndividual ,
                      dul:isPartOf sto:Privacy ;
                      rdfs:comment "Data usage control can be seen as an extension of data access control. It is about the specification and enforcement of restrictions regulating what is allowed to happen with data, and what is not. Data usage control thus is concerned with requirements that pertain to data processing (obligations) rather than data access (provisions). It is primarily relevant in the context of intellectual property protection, privacy protection, compliance with regulations, and digital rights management."@en ;
                      rdfs:label "Data Usage Control"@en .
+
+
+###  https://w3id.org/i40/sto#DecisionMaker
+sto:DecisionMaker rdf:type owl:NamedIndividual ,
+                           <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
 ###  https://w3id.org/i40/sto#Developer
@@ -3988,10 +4136,24 @@ The high-level Reference Architecture is formed by four main blocks of GEs: Cybe
 
 ###  https://w3id.org/i40/sto#FrameworkLayer
 sto:FrameworkLayer rdf:type owl:NamedIndividual ,
-                            sto:ConnectivityLayer ;
-                   dul:associatedWith sto:Interoperability ;
+                            sto:IicfConnectivityLayer ;
+                   dul:associatedWith sto:DDS ,
+                                      sto:IEC_62541 ,
+                                      sto:oneM2M ,
+                                      <https://www.wikidata.org/wiki/Q1548249> ;
                    sto:alignesWith idsram:Governance ,
                                    idsram:SystemLayer ;
+                   sto:frames sto:Authentication ,
+                              sto:Communication ,
+                              sto:DataAccess ,
+                              sto:DataDiscovery ,
+                              sto:Governance ,
+                              sto:Identification ,
+                              sto:IntegrityProtection ,
+                              sto:QualityOfService ,
+                              sto:SecureCommunication ,
+                              sto:ServiceDiscovery ,
+                              sto:SyntacticInteroperability ;
                    rdfs:comment "Framework Layer"@en ,
                                 "Framework Layer an instance of the Connectivity Layer"@en ;
                    rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
@@ -4043,6 +4205,11 @@ sto:GeospatialData rdf:type owl:NamedIndividual ,
                                 "UNI.403"@en ,
                                 "UNI.404"@en ;
                    sto:hasDBpediaResource <http://dbpedia.org/resource/Geographic_data_and_information> .
+
+
+###  https://w3id.org/i40/sto#Governance
+sto:Governance rdf:type owl:NamedIndividual ,
+                        sto:Concern .
 
 
 ###  https://w3id.org/i40/sto#HTML
@@ -7168,21 +7335,33 @@ sto:IIC rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://www.iiconsortium.org/> .
 
 
-###  https://w3id.org/i40/sto#IIRA
-sto:IIRA rdf:type owl:NamedIndividual ,
-                  sto:ArchitectureDescription ;
-         rdfs:comment "Industrial Internet Reference Architecture"@en ;
-         rdfs:label "IIRA"@en ;
-         sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> .
-
-
-###  https://w3id.org/i40/sto#IIRC
-sto:IIRC rdf:type owl:NamedIndividual ,
-                  sto:StandardizationFramework ;
-         rdfs:comment "Industrial Internet Connectivity Framework"@en ;
+###  https://w3id.org/i40/sto#IICF
+sto:IICF rdf:type owl:NamedIndividual ,
+                  sto:Publication ;
+         sto:hasClassification iira:Connectivity ;
+         dcterms:title "Industrial Internet Connectivity Framework"@en ;
          rdfs:isDefinedBy <https://www.iiconsortium.org/IICF.htm> ;
          rdfs:label "IICF"@en ;
          rdfs:seeAlso <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> .
+
+
+###  https://w3id.org/i40/sto#IIRA
+sto:IIRA rdf:type owl:NamedIndividual ,
+                  sto:ArchitectureDescription ;
+         sto:identifies <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+                        sto:BusinessValue ,
+                        sto:DecisionMaker ,
+                        sto:Developer ,
+                        sto:MaintenanceCost ,
+                        sto:ProductLiability ,
+                        sto:ProductManager ,
+                        sto:ReturnOnInvestment ,
+                        sto:SystemEngineer ,
+                        sto:SystemOperator ,
+                        <https://www.wikidata.org/wiki/Q1548249> ;
+         rdfs:comment "Industrial Internet Reference Architecture"@en ;
+         rdfs:label "IIRA"@en ;
+         sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> .
 
 
 ###  https://w3id.org/i40/sto#IPSO
@@ -8689,6 +8868,11 @@ sto:MachineLearning rdf:type owl:NamedIndividual ,
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Machine_learning> .
 
 
+###  https://w3id.org/i40/sto#MaintenanceCost
+sto:MaintenanceCost rdf:type owl:NamedIndividual ,
+                             sto:Concern .
+
+
 ###  https://w3id.org/i40/sto#Manufacturing
 sto:Manufacturing rdf:type owl:NamedIndividual .
 
@@ -9080,8 +9264,8 @@ sto:OMG rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#OMG_DDS
 sto:OMG_DDS rdf:type owl:NamedIndividual ,
                      sto:Standard ;
-            sto:hasClassification sto:FrameworkLayer ,
-                                  sto:IIRC ;
+            sto:hasClassification iira:Connectivity ,
+                                  sto:FrameworkLayer ;
             sto:hasPublisher sto:OMG ;
             sto:relatedTo sto:IEC_61158 ;
             sto:hasTag "Data Distribution Service for real-time systems"@en ;
@@ -9215,6 +9399,12 @@ sto:ProductCatalogData rdf:type owl:NamedIndividual ,
                        sto:isDescribedin sto:NISTInitiative ;
                        rdfs:comment "Product catalog data standards support the description of particular instances of products or parts in a uniform, vendor-neutral way."@en ;
                        rdfs:label "Product Catalog Data"@en .
+
+
+###  https://w3id.org/i40/sto#ProductLiability
+sto:ProductLiability rdf:type owl:NamedIndividual ,
+                              sto:Concern ;
+                     dul:isPartOf sto:BusinessContext .
 
 
 ###  https://w3id.org/i40/sto#ProductLifeCycleManagement
@@ -9547,12 +9737,7 @@ sto:RFC_793 rdf:type owl:NamedIndividual ,
             sto:hasPublisher sto:IETF ;
             dcterms:title "TRANSMISSION CONTROL PROTOCOL"@en ;
             rdfs:comment """This document describes the DoD Standard Transmission Control Protocol
-(TCP).  There have been nine earlier editions of the ARPA TCP
-specification on which this standard is based, and the present text
-draws heavily from them.  There have been many contributors to this work
-both in terms of concepts and in terms of text.  This edition clarifies
-several details and removes the end-of-letter buffer-size adjustments,
-and redescribes the letter mechanism as a push function."""@en ;
+(TCP).  There have been nine earlier editions of the ARPA TCP specification on which this standard is based, and the present text draws heavily from them.  There have been many contributors to this work both in terms of concepts and in terms of text.  This edition clarifies several details and removes the end-of-letter buffer-size adjustments, and redescribes the letter mechanism as a push function."""@en ;
             rdfs:label "RFC 793"@en ;
             sto:hasOfficialResource <https://tools.ietf.org/html/rfc793> .
 
@@ -9648,10 +9833,17 @@ sto:Resilience rdf:type owl:NamedIndividual ,
                sto:hasDBpediaResource <http://dbpedia.org/resource/Resilience_(network)> .
 
 
+###  https://w3id.org/i40/sto#ReturnOnInvestment
+sto:ReturnOnInvestment rdf:type owl:NamedIndividual ,
+                                sto:Concern ;
+                       dul:isPartOf sto:BusinessContext .
+
+
 ###  https://w3id.org/i40/sto#RoleCategorization
 sto:RoleCategorization rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
                        dcterms:creator sto:sebastian ;
+                       rdfs:comment "The necessity to categorize participants of a network (users or components) by roles according to the contributions they provide and the demands they have. Examples are identity provider, analytics service, data provider etc. Not to be confused with 'role-based access control', which distinguishes users according to their organizational group, e.g. adimistrators, managers, data analysts etc."@en ;
                        rdfs:label "Role Categorization"@en .
 
 
@@ -9859,6 +10051,16 @@ source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
                              sto:hasDBpediaResource <http://dbpedia.org/resource/Semantic_interoperability> .
 
 
+###  https://w3id.org/i40/sto#Sensing
+sto:Sensing rdf:type owl:NamedIndividual ,
+                     sto:Concern ;
+            dul:isPartOf sto:IoT ;
+            dcterms:creator sto:sebastian ;
+            rdfs:comment "The concern of being able to measure values from a defined environment."@en ;
+            rdfs:label "Sensing"@en ;
+            sto:hasDBpediaResource <http://dbpedia.org/resource/Sensor> .
+
+
 ###  https://w3id.org/i40/sto#SensorML
 sto:SensorML rdf:type owl:NamedIndividual ,
                       sto:TechnicalSpecification ;
@@ -9959,8 +10161,8 @@ sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceIsolation
 sto:ServiceIsolation rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dul:isPartOf sto:Security ;
                      dcterms:creator sto:sebastian ;
+                     dul:isPartOf sto:Security ;
                      rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
                      rdfs:label "Service Isolation"@en ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Process_isolation> .
@@ -9979,9 +10181,9 @@ sto:ServiceLifecycleManagement rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceOrchestration
 sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
                                   sto:Concern ;
-                         dul:isPartOf sto:ServiceComposition ;
                          dcterms:creator sto:sebastian ;
                          <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
+                         dul:isPartOf sto:ServiceComposition ;
                          rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrates by a central entity."@en ;
                          rdfs:label "Service Orchestration"@en ;
                          rdfs:seeAlso "IoT-A Requirement UNI.010" ;
@@ -9991,8 +10193,8 @@ sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceSelection
 sto:ServiceSelection rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dul:isPartOf sto:ServiceComposition ;
                      dcterms:creator sto:sebastian ;
+                     dul:isPartOf sto:ServiceComposition ;
                      rdfs:comment "The ability of a system to invoke or deploy the desired service/Data App."@en ;
                      rdfs:label "Service Selection"@en .
 
@@ -10000,11 +10202,11 @@ sto:ServiceSelection rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServicelLevelAgreements
 sto:ServicelLevelAgreements rdf:type owl:NamedIndividual ,
                                      sto:Concern ;
-                            dul:isPartOf sto:ServiceLifecycleManagement ;
+                            sto:hasDBpediaResource "http://dbpedia.org/resource/Service-level_agreement"^^xsd:anyURI ;
                             dcterms:creator sto:sebastian ;
-                            rdfs:comment "Contract Lifecycle Management (CLM) is the proactive, methodical management of a contract from initiation through award, compliance and renewal. Implementing CLM can lead to significant improvements in cost savings and efficiency. Understanding and automating CLM can also limit organizational liability and increase compliance with legal requirements. (source: wikipedia)"@en ;
-                            rdfs:label "Service life-cycle agreement"@en ;
-                            sto:hasDBpediaResource <http://dbpedia.org/resource/Contract_lifecycle_management> .
+                            dul:isPartOf sto:ServiceLifecycleManagement ;
+                            rdfs:comment "A service-level agreement (SLA) is defined as an official commitment that prevails between a service provider and the customer. Particular aspects of the service – quality, availability, responsibilities – are agreed between the service provider and the service user. The most common component of SLA is that the services should be provided to the customer as agreed upon in the contract. As an example, Internet service providers and telcos will commonly include service level agreements within the terms of their contracts with customers to define the level(s) of service being sold in plain language terms. In this case the SLA will typically have a technical definition in terms of mean time between failures (MTBF), mean time to repair or mean time to recovery (MTTR); identifying which party is responsible for reporting faults or paying fees; responsibility for various data rates; throughput; jitter; or similar measurable details. (source: wikipedia)"@en ;
+                            rdfs:label "Service level agreement"@en .
 
 
 ###  https://w3id.org/i40/sto#SpatialModeling
@@ -10040,8 +10242,8 @@ sto:StandardizationFramework rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#StreamProcessing
 sto:StreamProcessing rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     dul:isPartOf sto:DataProcessing ;
                      dcterms:creator sto:sebastian ;
+                     dul:isPartOf sto:DataProcessing ;
                      rdfs:comment "Stream processing is a computer programming paradigm, equivalent to dataflow programming, event stream processing, and reactive programming, that allows some applications to more easily exploit a limited form of parallel processing. (source: wikipedia)"@en ;
                      rdfs:label "Stream processing"@en ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Stream_processing> .
@@ -10081,16 +10283,26 @@ sto:SysML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Systems_Modeling_Language> .
 
 
+###  https://w3id.org/i40/sto#SystemEngineer
+sto:SystemEngineer rdf:type owl:NamedIndividual ,
+                            <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+
+
 ###  https://w3id.org/i40/sto#SystemEvolution
 sto:SystemEvolution rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    dul:isPartOf sto:Evolvability ;
                     dcterms:creator sto:sebastian ;
+                    dul:isPartOf sto:Evolvability ;
                     rdfs:comment "Software evolution is the term used in software engineering (specifically software maintenance) to refer to the process of developing software initially, then repeatedly updating it for various reasons. (source: wikipedia)"@en ;
                     rdfs:label "System evolution"@en ;
                     rdfs:seeAlso "IoT-A Requirement UNI.211" ,
                                  "IoT-A Requirement UNI.229" ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Software_evolution> .
+
+
+###  https://w3id.org/i40/sto#SystemOperator
+sto:SystemOperator rdf:type owl:NamedIndividual ,
+                            <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
 ###  https://w3id.org/i40/sto#TC_1
@@ -10327,9 +10539,9 @@ sto:ThingDescription rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ThingMobility
 sto:ThingMobility rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dul:isPartOf sto:IoT ;
                   dcterms:creator sto:sebastian ;
                   dul:isPartOf sto:DataAccess ,
+                               sto:IoT ,
                                sto:ServiceDeployment ;
                   rdfs:comment "A Thing in terms of Internet of Things (IoT) needs to be moveable."@en ;
                   rdfs:label "Thing mobility"@en ;
@@ -10358,13 +10570,13 @@ sto:Thread rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#TimeSynchronization
 sto:TimeSynchronization rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
+                        sto:hasDBpediaResource "Synchronization refers to one of two distinct but related concepts: synchronization of processes, and synchronization of data. Process synchronization refers to the idea that multiple processes are to join up or handshake at a certain point, in order to reach an agreement or commit to a certain sequence of action. Data synchronization refers to the idea of keeping multiple copies of a dataset in coherence with one another, or to maintain data integrity. Process synchronization primitives are commonly used to implement data synchronization. (sourc: wikipedia)"@en ;
                         dcterms:creator sto:sebastian ;
                         <http://voag.linkedmodel.org/voag#hasStakeholder> <https://w3id.org/i40/Developer> ;
                         dul:isPartOf sto:ServiceComposition ;
                         rdfs:label "Time Synchronization"@en ;
                         rdfs:seeAlso "IoT-A Requirement UNI.089" ;
-                        sto:hasDBpediaResource <http://dbpedia.org/resource/Synchronization_(computer_science)> ,
-                                               "Synchronization refers to one of two distinct but related concepts: synchronization of processes, and synchronization of data. Process synchronization refers to the idea that multiple processes are to join up or handshake at a certain point, in order to reach an agreement or commit to a certain sequence of action. Data synchronization refers to the idea of keeping multiple copies of a dataset in coherence with one another, or to maintain data integrity. Process synchronization primitives are commonly used to implement data synchronization. (sourc: wikipedia)"@en .
+                        sto:hasDBpediaResource <http://dbpedia.org/resource/Synchronization_(computer_science)> .
 
 
 ###  https://w3id.org/i40/sto#TrustedConnector
@@ -10437,10 +10649,10 @@ sto:Unicast rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#UnreliableNetwork
 sto:UnreliableNetwork rdf:type owl:NamedIndividual ,
                                sto:Concern ;
-                      dul:isPartOf sto:Reliability ;
                       dcterms:creator sto:sebastian ;
                       <http://voag.linkedmodel.org/voag#hasStakeholder> "Developer"@en ,
                                                                         "System Architect"@en ;
+                      dul:isPartOf sto:Reliability ;
                       rdfs:comment "Productive systems must inherently cover issues caused by unreliable networks."@en ;
                       rdfs:label "Unreliable Network"@en ;
                       rdfs:seeAlso "IoT-A Requirement UNI.308" ,
@@ -10520,8 +10732,8 @@ sto:Viewpoint rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#VirtualEntity
 sto:VirtualEntity rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dul:isPartOf sto:ThingRepresentation ;
                   dcterms:creator sto:sebastian ;
+                  dul:isPartOf sto:ThingRepresentation ;
                   rdfs:comment "Entities are provided through a virtual form."@en ;
                   rdfs:label "Virtual Entity"@en ;
                   rdfs:seeAlso "UNI.030"@en ,
@@ -11092,8 +11304,8 @@ dc11:description dcterms:description "Description may include but is not limited
                  dcterms:hasVersion <http://dublincore.org/usage/terms/history/#description-006> .
 
 
-dc11:title dcterms:modified "2008-01-14"^^xsd:date ;
-           rdfs:comment "A name given to the resource."@en ;
+dc11:title rdfs:comment "A name given to the resource."@en ;
+           dcterms:modified "2008-01-14"^^xsd:date ;
            skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
            rdfs:label "Title"@en ;
            dcterms:issued "1999-07-02"^^xsd:date ;
@@ -11378,5 +11590,44 @@ sto:uses dcterms:creator sto:irlan ;
          rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
          rdfs:label "uses"@en .
 
+
+#################################################################
+#    Rules
+#################################################################
+
+:sc1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:sc2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:concern rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Instances of StandardClassification inherit all frames relations of their parts."^^xsd:string ;
+   rdfs:label "StandardClassificationIheritFrames"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> dul:isPartOf ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :sc1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :sc2
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :sc1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :concern
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :sc2 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
