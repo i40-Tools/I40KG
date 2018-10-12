@@ -2578,10 +2578,18 @@ sto:FileSizeIEC_60382 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#FileSizeIEC_60382_1991
 sto:FileSizeIEC_60382 rdf:type owl:NamedIndividual ,
                                     om2:Measure ;
-                           om2:hasNumericalValue "557.0"^^xsd:float ;
+                           om2:hasNumericalValue "1460.0"^^xsd:float ;
                            om2:hasUnit om2:kilobyte ;
                            rdfs:comment "Specifies the file size of the document for standard IEC 60382:1991"@en ;
                            rdfs:label "FileSize IEC 60382:1991"@en .
+
+###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_1
+sto:FileSizeIEC_60839_P5_S2 rdf:type owl:NamedIndividual ,
+                                    om2:Measure ;
+                           om2:hasNumericalValue "1137.0"^^xsd:float ;
+                           om2:hasUnit om2:kilobyte ;
+                           rdfs:comment "Specifies the file size of the document for standard IEC 60839-5-2:2016"@en ;
+                           rdfs:label "FileSize IEC 60839-5-2:2016"@en .
 
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P7_1
@@ -3929,12 +3937,12 @@ sto:IEC_60086 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60204_2000
-sto:IEC_60204 rdf:type owl:NamedIndividual ,
+sto:IEC_60204_P11 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ,
                                             lang:spa ;
-                   sto:hasFileSize sto:FileSizeIEC_60204 ;
+                   sto:hasFileSize sto:FileSizeIEC_60204_P11 ;
                    sto:hasICS sto:ICS_13_110 ,
                               sto:ICS_29_020 ;
                    sto:hasPublisher sto:IEC ;
@@ -3952,11 +3960,11 @@ sto:IEC_60204 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60255_149_2013
-sto:IEC_60255_149_2013 rdf:type owl:NamedIndividual ,
+sto:IEC_60255_P149 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
-                       sto:hasFileSize sto:FileSizeIEC_60255_149_2013 ;
+                       sto:hasFileSize sto:FileSizeIEC_60255_P149 ;
                        sto:hasICS sto:ICS_29_120_70 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_95 ;
@@ -3973,11 +3981,11 @@ sto:IEC_60255_149_2013 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60255_151_2009
-sto:IEC_60255_151_2009 rdf:type owl:NamedIndividual ,
+sto:IEC_60255_P151 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
-                       sto:hasFileSize sto:FileSizeIEC_60255_151_2009 ;
+                       sto:hasFileSize sto:FileSizeIEC_60255_P151 ;
                        sto:hasICS sto:ICS_29_120_70 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_95 ;
@@ -3994,12 +4002,12 @@ sto:IEC_60255_151_2009 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60255_2009
-sto:IEC_60255_2009 rdf:type owl:NamedIndividual ,
+sto:IEC_60255_P1 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ,
                                             lang:spa ;
-                   sto:hasFileSize sto:FileSizeIEC_60255_2009 ;
+                   sto:hasFileSize sto:FileSizeIEC_60255_P1 ;
                    sto:hasICS sto:ICS_29_120_70 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_95 ;
@@ -4017,34 +4025,32 @@ sto:IEC_60255_2009 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60255_2010
-sto:IEC_60255_2010 rdf:type owl:NamedIndividual ,
+sto:IEC_60255_P149 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60255_2010 ;
+                   sto:hasFileSize sto:FileSizeIEC_60255_P149 ;
                    sto:hasICS sto:ICS_29_120_70 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_95 ;
                    sto:hasEdition "1.0"^^xsd:float ;
                    sto:hasImplementationFormat "Document"@en ;
                    sto:hasPages "93"^^xsd:int ;
-                   sto:hasPublicationDate "2010-04-27"^^xsd:date ;
+                   sto:hasPublicationDate "2013-07-30"^^xsd:date ;
                    sto:hasStatus "Valid"@en ;
-                   sto:hasTag "IEC 60255-127:2010"@en ,
-                              "IEC 60255-149:2013 "@en ;
-                   dcterms:title "Measuring relays and protection equipment - Part 127: Functional requirements for over/under voltage protection"@en ;
-                   rdfs:comment "IEC 60255-127:2010 specifies minimum requirements for over/under voltage relays. The standard includes specification of the protection function, measurement characteristics and time delay characteristics."@en ;
-                   rdfs:label "IEC 60255-127:2010"@en ,
-                              "IEC 60255-149:2013 "@en ;
+                   sto:hasTag "IEC 60255-149:2013 "@en ;
+                   dcterms:title "Measuring relays and protection equipment - Part 149: Functional requirements for thermal electrical relays"@en ;
+                   rdfs:comment "IEC 60255-149:2013 specifies minimum requirements for thermal protection relays. This standard includes specification of the protection function, measurement characteristics and test methodologies. The object is to establish a common and reproducible reference for evaluating dependent time relays which protect equipment from thermal damage by measuring a.c. current flowing through the equipment. Complementary input energizing quantities such as ambient, coolant, top oil and winding temperature may be applicable for the thermal protection specification set forth in this standard. This standard covers protection relays based on a thermal model with memory function."@en ;
+                   rdfs:label  "IEC 60255-149:2013 "@en ;
                    sto:hasOfficialResource <https://webstore.iec.ch/publication/1165> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60255_2013
-sto:IEC_60255_2013 rdf:type owl:NamedIndividual ,
+sto:IEC_60255_P27 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60255_2013 ;
+                   sto:hasFileSize sto:FileSizeIEC_60255_P27 ;
                    sto:hasICS sto:ICS_29_120_70 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_95 ;
@@ -4062,11 +4068,11 @@ sto:IEC_60255_2013 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60286_3_2013
-sto:IEC_60286_3_2013 rdf:type owl:NamedIndividual ,
+sto:IEC_60286_P3 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      sto:hasAvailableLanguage lang:eng ,
                                               lang:fra ;
-                     sto:hasFileSize sto:FileSizeIEC_60286_3_2013 ;
+                     sto:hasFileSize sto:FileSizeIEC_60286_P3 ;
                      sto:hasICS sto:ICS_31_020 ,
                                 sto:ICS_31_240 ;
                      sto:hasPublisher sto:IEC ;
@@ -4085,11 +4091,11 @@ sto:IEC_60286_3_2013 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60286_4_2013
-sto:IEC_60286_4_2013 rdf:type owl:NamedIndividual ,
+sto:IEC_60286_P4 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      sto:hasAvailableLanguage lang:eng ,
                                               lang:fra ;
-                     sto:hasFileSize sto:FileSizeIEC_60286_4_2013 ;
+                     sto:hasFileSize sto:FileSizeIEC_60286_P4 ;
                      sto:hasICS sto:ICS_31_020 ,
                                 sto:ICS_31_240 ;
                      sto:hasPublisher sto:IEC ;
@@ -4103,15 +4109,15 @@ sto:IEC_60286_4_2013 rdf:type owl:NamedIndividual ,
                      sto:hasTag "IEC 60286-3:2013"@en ;
                      dcterms:title "Packaging of components for automatic handling - Part 4: Stick magazines for electronic components encapsulated in packages of different forms"@en ;
                      rdfs:comment "IEC 60286-4:2013 is applicable to stick magazines (including end stoppers) intended to be used for storage of electronic components, for transport from the manufacturer to the customer and for in-house use in the manufacturing plant. They are also used to feed automatic placement machines for surface mounting as well as for through-hole mounting of electronic components. This edition includes the following significant technical changes with respect to the previous edition: Clause 4 describes the guidelines for customer specific stick magazine design. It replaces the magazine design rules for IEC outlined components and rules for orientation of components in stick magazines which have been moved to Annexes A to D."@en ;
-                     rdfs:label "IEC 60286-3:2013"@en ;
+                     rdfs:label "IEC 60286-4:2013"@en ;
                      sto:hasOfficialResource <https://webstore.iec.ch/publication/1259> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60286_5_2018
-sto:IEC_60286_5_2018 rdf:type owl:NamedIndividual ,
+sto:IEC_60286_P5 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      sto:hasAvailableLanguage lang:eng ;
-                     sto:hasFileSize sto:FileSizeIEC_60286_5_2018 ;
+                     sto:hasFileSize sto:FileSizeIEC_60286_P5 ;
                      sto:hasICS sto:ICS_31_020 ;
                      sto:hasPublisher sto:IEC ;
                      sto:hasTechnicalCommittee sto:TC_40 ;
@@ -4139,12 +4145,12 @@ sto:IEC_60364 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60381_1978
-sto:IEC_60381_1978 rdf:type owl:NamedIndividual ,
+sto:IEC_60381_P2 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ,
                                             lang:rus ;
-                   sto:hasFileSize sto:FileSizeIEC_60381_1978 ;
+                   sto:hasFileSize sto:FileSizeIEC_60381_P2 ;
                    sto:hasICS sto:ICS_33_200 ,
                               sto:ICS_35_240_50 ;
                    sto:hasPublisher sto:IEC ;
@@ -4163,11 +4169,11 @@ sto:IEC_60381_1978 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60381_1982
-sto:IEC_60381_1982 rdf:type owl:NamedIndividual ,
+sto:IEC_60381_P1 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60381_1982 ;
+                   sto:hasFileSize sto:FileSizeIEC_60381_P1 ;
                    sto:hasICS sto:ICS_33_200 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_40 ;
@@ -4205,11 +4211,11 @@ sto:IEC_60382 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60382_1991
-sto:IEC_60382_1991 rdf:type owl:NamedIndividual ,
+sto:IEC_60382 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60382_1991 ;
+                   sto:hasFileSize sto:FileSizeIEC_60382 ;
                    sto:hasICS sto:ICS_25_040_40 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_65 ;
@@ -4227,25 +4233,37 @@ sto:IEC_60382_1991 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839-5-2
-sto:IEC_60839-5-2 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P5_S2 rdf:type owl:NamedIndividual ,
                            sto:Standard ;
                   sto:hasClassification rami:Communication ,
                                         rami:ControlDevice ,
                                         rami:FieldDevice ,
                                         rami:Security ;
-                  sto:hasPublisher sto:IEC ;
-                  sto:hasPublicationDate "2016-02-03"^^xsd:date ;
-                  rdfs:comment "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition: reflects the current technological state of art (IP networks) ,harmonizes with the ATS categories introduced in IEC 60839-5-1:2014; introduces test requirements."@en ;
-                  rdfs:label "IEC 60839-5-2"@en ;
+                  sto:hasAvailableLanguage lang:eng ,
+                                            lang:fra ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P5_S2 ;
+                   sto:hasICS sto:ICS_13_320 ;
+                   sto:hasPublisher sto:IEC ;
+                   sto:hasTechnicalCommittee sto:TC_79 ;
+                   sto:hasEdition "2.0"^^xsd:float ;
+                   sto:hasImplementationFormat "Document"@en ;
+                   sto:hasPages "63"^^xsd:int ;
+                   sto:hasPublicationDate "2016-02-03"^^xsd:date ;
+                   sto:hasStabilityDate "2019"^^xsd:gYear ;
+                   sto:hasStatus "Valid"@en ;
+                   sto:hasTag "IEC 60839-5-2:2016"@en ;
+                   dcterms:title "Alarm and electronic security systems - Part 5-2: Alarm transmission systems - Requirements for supervised premises transceiver (SPT)"@en 
+                   rdfs:comment "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition: reflects the current technological state of art (IP networks) ,harmonizes with the ATS categories introduced in IEC 60839-5-1:2014; introduces test requirements."@en ;
+                   rdfs:label "IEC 60839-5-2:2016"@en ;
                   sto:hasOfficialResource <https://webstore.iec.ch/publication/24120> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_1
-sto:IEC_60839_P7_1 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S1 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_1 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S1 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4262,11 +4280,11 @@ sto:IEC_60839_P7_1 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_2
-sto:IEC_60839_P7_2 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S2 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_2 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S2 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4283,11 +4301,11 @@ sto:IEC_60839_P7_2 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_3
-sto:IEC_60839_P7_3 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S3 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_3 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S3 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4304,11 +4322,11 @@ sto:IEC_60839_P7_3 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_4
-sto:IEC_60839_P7_4 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S4 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_4 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S4 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4325,11 +4343,11 @@ sto:IEC_60839_P7_4 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_5
-sto:IEC_60839_P7_5 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S5 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_5 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S5 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4346,11 +4364,11 @@ sto:IEC_60839_P7_5 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_6
-sto:IEC_60839_P7_6 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S6 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_6 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S6 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4367,11 +4385,11 @@ sto:IEC_60839_P7_6 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_7
-sto:IEC_60839_P7_7 rdf:type owl:NamedIndividual ,
+sto:IEC_60839_P7_S7 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
-                   sto:hasFileSize sto:FileSizeIEC_60839_P7_7 ;
+                   sto:hasFileSize sto:FileSizeIEC_60839_P7_S7 ;
                    sto:hasICS sto:ICS_13_320 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_79 ;
@@ -4462,12 +4480,12 @@ sto:IEC_60870 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P2_S1_1995
-sto:IEC_60870_P2_S1_1995 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P2_S1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ,
                                                   lang:spa ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_1995_P2_S1 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P2_S1 ;
                          sto:hasICS sto:ICS_29_020 ,
                                     sto:ICS_33_100_10 ,
                                     sto:ICS_33_200 ;
@@ -4487,12 +4505,12 @@ sto:IEC_60870_P2_S1_1995 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P2_S2_1996
-sto:IEC_60870_P2_S2_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P2_S2 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ,
                                                   lang:spa ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_1996_P2_S2 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P2_S2 ;
                          sto:hasICS sto:ICS_29_020 ,
                                     sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
@@ -4511,10 +4529,10 @@ sto:IEC_60870_P2_S2_1996 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S101_2003
-sto:IEC_60870_P5_S101_2003 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S101 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S101_2003 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S101 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4536,11 +4554,11 @@ This publication is of high relevance for Smart Grid. This consolidated version 
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S102_1996
-sto:IEC_60870_P5_S102_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S102 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S102_1996 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S102 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4560,11 +4578,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S103_1997
-sto:IEC_60870_P5_S103_1997 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S103 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S103_1997 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S103 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4584,11 +4602,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S104_2016
-sto:IEC_60870_P5_S104_2016 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S104 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S104_2016 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P5_S104 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4608,11 +4626,11 @@ This publication is of high relevance for Smart Grid. This consolidated version 
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S1_1990
-sto:IEC_60870_P5_S1_1990 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_1990_P5_S1 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S1 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4630,11 +4648,11 @@ sto:IEC_60870_P5_S1_1990 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S2_1992
-sto:IEC_60870_P5_S2_1992 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S2 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_1992_P5_S2 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S2 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4654,11 +4672,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S3_1992
-sto:IEC_60870_P5_S3_1992 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S3 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_1992_P5_S3 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S3 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4678,11 +4696,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S4_1993
-sto:IEC_60870_P5_S4_1993 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S4 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S4_1993 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S4 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4702,11 +4720,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S5_1995
-sto:IEC_60870_P5_S5_1995 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S5 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S5_1995 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S5 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4726,11 +4744,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S6_2006
-sto:IEC_60870_P5_S6_2006 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P5_S6 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S6_2006 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P5_S6 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4748,11 +4766,11 @@ sto:IEC_60870_P5_S6_2006 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S2_1995
-sto:IEC_60870_P6_S2_1995 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S2 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_60870_P6_S2_1995 ;
+                         sto:hasFileSize sto:FileSizeIEC_60870_P6_S2 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4772,11 +4790,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S501_1995
-sto:IEC_60870_P6_S501_1995 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S501 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S501_1995 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S501 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4796,11 +4814,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S502_1995
-sto:IEC_60870_P6_S502_1995 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S502 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S502_1995 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S502 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4820,11 +4838,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S503_2014
-sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S503 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S503_2014 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S503 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4843,11 +4861,11 @@ sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S601_1994
-sto:IEC_60870_P6_S601_1994 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S601 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S601_1994 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S601 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4867,11 +4885,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S701_1998
-sto:IEC_60870_P6_S701_1998 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S701 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S701_1998 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S701 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4891,11 +4909,11 @@ This publication is of high relevance for Smart Grid"""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S702_2014
-sto:IEC_60870_P6_S702_2014 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S702 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S702_2014 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S702 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4916,11 +4934,11 @@ sto:IEC_60870_P6_S702_2014 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S802_2014
-sto:IEC_60870_P6_S802_2014 rdf:type owl:NamedIndividual ,
+sto:IEC_60870_P6_S802 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S802_2014 ;
+                           sto:hasFileSize sto:FileSizeIEC_60870_P6_S802 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4969,10 +4987,10 @@ sto:IEC_60946 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61000_P6_S2_2016
-sto:IEC_61000_P6_S2_2016 rdf:type owl:NamedIndividual ,
+sto:IEC_61000_P6_S2 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ;
-                         sto:hasFileSize sto:FileSizeIEC_61000_P6_S2_2016 ;
+                         sto:hasFileSize sto:FileSizeIEC_61000_P6_S2 ;
                          sto:hasICS sto:ICS_33_100_20 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_77 ;
@@ -4991,11 +5009,11 @@ IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and elect
 
 
 ###  https://w3id.org/i40/sto#IEC_61010_P2_S012_2016
-sto:IEC_61010_P2_S012_2016 rdf:type owl:NamedIndividual ,
+sto:IEC_61010_P2_S012 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_61010_P2_S012_2016 ;
+                           sto:hasFileSize sto:FileSizeIEC_61010_P2_S012 ;
                            sto:hasICS sto:ICS_19_08 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_66 ;
@@ -5021,10 +5039,10 @@ This publication is to be read in conjunction with IEC 61010-1:2010."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61010_P2_S201_2017
-sto:IEC_61010_P2_S201_2017 rdf:type owl:NamedIndividual ,
+sto:IEC_61010_P2_S201 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ;
-                           sto:hasFileSize sto:FileSizeIEC_61010_P2_S201_2017 ;
+                           sto:hasFileSize sto:FileSizeIEC_61010_P2_S201 ;
                            sto:hasICS sto:ICS_17_020 ,
                                       sto:ICS_19_020 ,
                                       sto:ICS_25_040_40 ;
@@ -5043,11 +5061,11 @@ sto:IEC_61010_P2_S201_2017 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61010_P2_S202_2016
-sto:IEC_61010_P2_S202_2016 rdf:type owl:NamedIndividual ,
+sto:IEC_61010_P2_S202 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_61010_P2_S202_2016 ;
+                           sto:hasFileSize sto:FileSizeIEC_61010_P2_S202 ;
                            sto:hasICS sto:ICS_13_110 ,
                                       sto:ICS_17_020 ,
                                       sto:ICS_19_020 ;
@@ -5193,11 +5211,11 @@ sto:IEC_61334 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P3_S1_1998
-sto:IEC_61334_P3_S1_1998 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P3_S1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_61334_1998_P3_S1 ;
+                         sto:hasFileSize sto:FileSizeIEC_61334_P3_S1 ;
                          sto:hasICS sto:ICS_29_240_20 ,
                                     sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
@@ -5218,11 +5236,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P3_S21_1996
-sto:IEC_61334_P3_S21_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P3_S21 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P3_S21 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P3_S21 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5243,11 +5261,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P3_S22_2001
-sto:IEC_61334_P3_S22_2001 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P3_S22 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P3_S22 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P3_S22 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5268,11 +5286,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S1_1996
-sto:IEC_61334_P4_S1_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_61334_1996_P4_S1 ;
+                         sto:hasFileSize sto:FileSizeIEC_61334_P4_S1 ;
                          sto:hasICS sto:ICS_29_240_20 ,
                                     sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
@@ -5293,11 +5311,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S32_1996
-sto:IEC_61334_P4_S32_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S32 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P4_S32 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S32 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5318,11 +5336,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S33_1998
-sto:IEC_61334_P4_S33_1998 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S33 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1998_P4_S3 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S3 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5341,11 +5359,11 @@ sto:IEC_61334_P4_S33_1998 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S41_1996
-sto:IEC_61334_P4_S41_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S41 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P4_S41 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S41 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5366,11 +5384,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S42_1996
-sto:IEC_61334_P4_S42_1996 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S42 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1996_P4_S42 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S42 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5391,11 +5409,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S511_2000
-sto:IEC_61334_P4_S511_2000 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S511 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_61334_2000_P4_S511 ;
+                           sto:hasFileSize sto:FileSizeIEC_61334_P4_S511 ;
                            sto:hasICS sto:ICS_33_040_40 ,
                                       sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
@@ -5416,11 +5434,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S512_2001
-sto:IEC_61334_P4_S512_2001 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S512 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
-                           sto:hasFileSize sto:FileSizeIEC_61334_2001_P4_S512 ;
+                           sto:hasFileSize sto:FileSizeIEC_61334_P4_S512 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -5440,11 +5458,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S61_1998
-sto:IEC_61334_P4_S61_1998 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P4_S61 rdf:type owl:NamedIndividual ,
                                    sto:Standard ;
                           sto:hasAvailableLanguage lang:eng ,
                                                    lang:fra ;
-                          sto:hasFileSize sto:FileSizeIEC_61334_1998_P4_S61 ;
+                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S61 ;
                           sto:hasICS sto:ICS_29_240_20 ,
                                      sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
@@ -5465,11 +5483,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P5_S1_2001
-sto:IEC_61334_P5_S1_2001 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P5_S1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
-                         sto:hasFileSize sto:FileSizeIEC_61334_2001_P5_S1 ;
+                         sto:hasFileSize sto:FileSizeIEC_61334_P5_S1 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -5489,11 +5507,11 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61334_P6_2000
-sto:IEC_61334_P6_2000 rdf:type owl:NamedIndividual ,
+sto:IEC_61334_P6 rdf:type owl:NamedIndividual ,
                                sto:Standard ;
                       sto:hasAvailableLanguage lang:eng ,
                                                lang:fra ;
-                      sto:hasFileSize sto:FileSizeIEC_61334_2000_P6 ;
+                      sto:hasFileSize sto:FileSizeIEC_61334_P6 ;
                       sto:hasICS sto:ICS_29_240_20 ,
                                  sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
@@ -5544,10 +5562,10 @@ sto:IEC_61400 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_1
-sto:IEC_61400_P25_1 rdf:type owl:NamedIndividual ,
+sto:IEC_61400_P25_S1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     sto:hasAvailableLanguage lang:eng ;
-                    sto:hasFileSize sto:FileSizeIEC_61400_P25_1 ;
+                    sto:hasFileSize sto:FileSizeIEC_61400_P25_S1 ;
                     sto:hasICS sto:ICS_27_180 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_88 ;
@@ -5567,11 +5585,11 @@ IEC 61400-25-1:2017 gives an overall description of the principles and models us
 
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_2
-sto:IEC_61400_P25_2 rdf:type owl:NamedIndividual ,
+sto:IEC_61400_P25_S2 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ;
-                    sto:hasFileSize sto:FileSizeIEC_61400_P25_2 ;
+                    sto:hasFileSize sto:FileSizeIEC_61400_P25_S2 ;
                     sto:hasICS sto:ICS_27_180 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_88 ;
@@ -5593,10 +5611,10 @@ sto:IEC_61400_P25_2 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_3
-sto:IEC_61400_P25_3 rdf:type owl:NamedIndividual ,
+sto:IEC_61400_P25_S3 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     sto:hasAvailableLanguage lang:eng ;
-                    sto:hasFileSize sto:FileSizeIEC_61400_P25_3 ;
+                    sto:hasFileSize sto:FileSizeIEC_61400_P25_S3 ;
                     sto:hasICS sto:ICS_27_180 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_88 ;
@@ -5623,10 +5641,10 @@ Main changes with respect to the previous edition consist of:
 
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_4
-sto:IEC_61400_P25_4 rdf:type owl:NamedIndividual ,
+sto:IEC_61400_P25_S4 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     sto:hasAvailableLanguage lang:eng ;
-                    sto:hasFileSize sto:FileSizeIEC_61400_P25_4 ;
+                    sto:hasFileSize sto:FileSizeIEC_61400_P25_S4 ;
                     sto:hasICS sto:ICS_27_180 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_88 ;
@@ -5653,10 +5671,10 @@ The main technical changes with regard to the previous edition are as follows:
 
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_5
-sto:IEC_61400_P25_5 rdf:type owl:NamedIndividual ,
+sto:IEC_61400_P25_S5 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     sto:hasAvailableLanguage lang:eng ;
-                    sto:hasFileSize sto:FileSizeIEC_61400_P25_5 ;
+                    sto:hasFileSize sto:FileSizeIEC_61400_P25_S5 ;
                     sto:hasICS sto:ICS_27_180 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_88 ;
@@ -5675,10 +5693,10 @@ sto:IEC_61400_P25_5 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_6
-sto:IEC_61400_P25_6 rdf:type owl:NamedIndividual ,
+sto:IEC_61400_P25_S6 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     sto:hasAvailableLanguage lang:eng ;
-                    sto:hasFileSize sto:FileSizeIEC_61400_P25_6 ;
+                    sto:hasFileSize sto:FileSizeIEC_61400_P25_S6 ;
                     sto:hasICS sto:ICS_27_180 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_88 ;
@@ -5804,11 +5822,11 @@ sto:IEC_61513 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61690_P1_2000
-sto:IEC_61690_P1_2000 rdf:type owl:NamedIndividual ,
+sto:IEC_61690_P1 rdf:type owl:NamedIndividual ,
                                sto:Standard ;
                       sto:hasAvailableLanguage lang:eng ,
                                                lang:fra ;
-                      sto:hasFileSize sto:FileSizeIEC_61690_P1_2000 ;
+                      sto:hasFileSize sto:FileSizeIEC_61690_P1 ;
                       sto:hasICS sto:ICS_35_240_50 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_91 ;
@@ -5822,11 +5840,11 @@ sto:IEC_61690_P1_2000 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61690_P2_2000
-sto:IEC_61690_P2_2000 rdf:type owl:NamedIndividual ,
+sto:IEC_61690_P2 rdf:type owl:NamedIndividual ,
                                sto:Standard ;
                       sto:hasAvailableLanguage lang:eng ,
                                                lang:fra ;
-                      sto:hasFileSize sto:FileSizeIEC_61690_P2_2000 ;
+                      sto:hasFileSize sto:FileSizeIEC_61690_P2 ;
                       sto:hasICS sto:ICS_35_240_50 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_91 ;
