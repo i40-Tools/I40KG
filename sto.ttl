@@ -515,7 +515,17 @@ sto:hasObjective rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/i40/sto#hasOfficialResource
 sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
                         rdfs:domain sto:Publication ;
-                        rdfs:range xsd:anyURI .
+                        rdfs:range xsd:anyURI ;
+                        rdfs:comment "Points to the URL of the official websilte from which published the document"@en ,
+                                     "Standard Official Website"@en ;
+                        rdfs:label "has Official Resource"@en .
+
+sto:hasOpenResource rdf:type owl:DatatypeProperty ;
+                        rdfs:domain sto:Publication ;
+                        rdfs:range xsd:anyURI ;
+                        rdfs:comment "points to the URLs of the resources(documents) openly available for the standard" ;
+                        rdfs:label "has Open Resource"@en .
+
 
 
 ###  https://w3id.org/i40/sto#hasOntology
@@ -3734,7 +3744,8 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
               rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures. This International Standard specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities. The unique identification is a universal construct for any physical object, virtual object, or person. It is used in IoT information systems that need to track or otherwise refer to entities. It is intended for use with any IoT media."@en ;
               rdfs:label "IEC 29161"@en ;
               sto:hasDomain "Automatic identification and data capture techniques"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/45240.html> .
+              sto:hasOfficialResource <https://www.iso.org/standard/45240.html>,
+             <https://webstore.iec.ch/publication/60834>.
 
 
 ###  https://w3id.org/i40/sto#IEC_29182-1
@@ -4252,7 +4263,7 @@ sto:IEC_60839_P5_S2 rdf:type owl:NamedIndividual ,
                    sto:hasStabilityDate "2019"^^xsd:gYear ;
                    sto:hasStatus "Valid"@en ;
                    sto:hasTag "IEC 60839-5-2:2016"@en ;
-                   dcterms:title "Alarm and electronic security systems - Part 5-2: Alarm transmission systems - Requirements for supervised premises transceiver (SPT)"@en 
+                   dcterms:title "Alarm and electronic security systems - Part 5-2: Alarm transmission systems - Requirements for supervised premises transceiver (SPT)"@en; 
                    rdfs:comment "IEC 60839-5-2:2016 specifies the general equipment requirements for the performance, reliability, resilience, security and safety characteristics of supervised premises transceiver (SPT) installed in supervised premises and used in alarm transmission systems (ATS). A supervised premises transceiver can be a stand-alone device or an integrated part of an alarm system. These requirements also apply to the SPT sharing means of interconnection, control, communication and power supplies with other applications. The alarm transmission system requirements and classifications are defined within IEC 60839-5-1. This new edition includes the following significant technical changes with respect to the previous edition: reflects the current technological state of art (IP networks) ,harmonizes with the ATS categories introduced in IEC 60839-5-1:2014; introduces test requirements."@en ;
                    rdfs:label "IEC 60839-5-2:2016"@en ;
                   sto:hasOfficialResource <https://webstore.iec.ch/publication/24120> .
@@ -6477,7 +6488,9 @@ sto:ISO_11404 rdf:type owl:NamedIndividual ,
                        sto:hasPublisher sto:ISO ;
              sto:hasPublicationDate "2007-12-01"^^xsd:date ;
              rdfs:comment "Information technology -- General-Purpose Datatypes (GPD)"@en ;
-             sto:hasOfficialResource <https://www.iso.org/standard/39479.html>;
+             sto:hasOfficialResource <https://www.iso.org/standard/39479.html>,
+             <https://webstore.iec.ch/publication/9602>;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_11404>;
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
               rdfs:label "ISO/IEC 11404"@en .
@@ -9014,7 +9027,7 @@ sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is us
               rdfs:comment "Points to the domain in which the standard is used"@en .
 
 
-sto:hasOfficialResource rdfs:comment "Points to the URL of the official websilte from which published the document"@en ,
+sto:hasOfficialResource rdfs:comment "Points to the URL of the official website from which published the document"@en ,
                                      "Standard Official Website"@en ;
                         rdfs:label "has Official Resource"@en .
 
