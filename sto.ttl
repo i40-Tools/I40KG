@@ -3641,8 +3641,12 @@ sto:IEC_14443 rdf:type owl:NamedIndividual ,
               rdfs:comment "The ISO/IEC 14443 standard is a four-part international standard for contact-less smart cards operating at 13.56 MHz in close proximity (~10cm) with a reader antenna. This ISO standard describes the modulation and transmission protocols between card and reader to create interoperability for contact-less smart card products. There are two main communication protocols supported by the ISO/IEC 14443 standard, they are addressed as Type A and Type B. Most High Frequency (13.56 MHz) proximity tags are using these guidelines for their communication."@en ;
               rdfs:label "ISO/IEC 14443"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_14443> ;
-              sto:hasOfficialResource <https://www.iso.org/standard/70170.html> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_14443> .
+              sto:hasOfficialResource <https://www.iso.org/standard/73596.html>, 
+              <https://webstore.iec.ch/publication/62997> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_14443>;
+              sto:hasOpenResource <https://webstore.iec.ch/preview/info_isoiec14443-2%7Bed3.0%7Den.pdf>,
+              <https://www.sis.se/api/document/preview/912600/>,
+              <http://www.icedev.se/proxmark3/docs/ISO-14443-3.pdf>.
 
 
 ###  https://w3id.org/i40/sto#IEC_15408
@@ -3660,7 +3664,8 @@ sto:IEC_15459 rdf:type owl:NamedIndividual ,
               sto:hasTag "Information technology -- Automatic identification and data capture techniques -- Unique identification"@en ;
               rdfs:comment "ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type. The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."@en ;
               rdfs:label "IEC 15459"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/54779.html> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/10334>,
+              <https://www.iso.org/standard/54779.html> .
 
 
 ###  https://w3id.org/i40/sto#IEC_24760
@@ -3683,7 +3688,8 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2011-01-12"^^xsd:date ;
               rdfs:comment "ISO/IEC 24760: it defines terms for identity management, and also specifies core concepts of identity and identity management and their relationships. It is applicable to any information system that processes identity information. A bibliography of documents describing various aspects of identity information management is provided."@en ;
               rdfs:label "IEC 24760"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/57914.html> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/11190>,
+              <https://www.iso.org/standard/57914.html> .
 
 
 ###  https://w3id.org/i40/sto#IEC_27018
@@ -3730,7 +3736,8 @@ sto:IEC_29115 rdf:type owl:NamedIndividual ,
 
 - provides guidance concerning controls that should be used to mitigate authentication threats."""@en ;
               rdfs:label "IEC 29115"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/45138.html> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/11351>,
+              <https://www.iso.org/standard/45138.html> .
 
 
 ###  https://w3id.org/i40/sto#IEC_29161
@@ -3762,7 +3769,8 @@ sto:IEC_29182_P1 rdf:type owl:NamedIndividual ,
                 sto:hasPublicationDate "2013-06-01"^^xsd:date ;
                 rdfs:comment "ISO/IEC 29182-1: provides a general overview of the characteristics of a sensor network and the organization of the entities that comprise such a network. It also describes the general requirements that are identified for sensor networks."@en ;
                 rdfs:label "IEC 29182-1"@en ;
-                sto:hasOfficialResource <https://www.iso.org/standard/45261.html> .
+                sto:hasOfficialResource <https://webstore.iec.ch/publication/11411>,
+                <https://www.iso.org/standard/45261.html> .
 
 
 ###  https://w3id.org/i40/sto#IEC_29190
@@ -3770,19 +3778,30 @@ sto:IEC_29190 rdf:type owl:NamedIndividual,
 					sto:Standard ;
               owl:sameAs sto:ISO_29190 .
 
+sto:IEC_42010 rdf:type owl:NamedIndividual,
+					sto:Standard ;
+              owl:sameAs sto:ISO_42010 .
 
+sto:ISO_42010 rdf:type owl:NamedIndividual,
+					sto:Standard ;
+              owl:sameAs sto:IEEE_42010 .
 ###  https://w3id.org/i40/sto#IEC_42010
 sto:IEC_42010 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasPublisher sto:IEC ,
-                               sto:ISO ;
+                               sto:ISO,
+                               sto:IEEE ;
               sto:hasTag "ISO/IEC/IEEE 42010"@en ;
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
               rdfs:label "IEC 42010"@en ;
               skos:note "The IIRA is based on this standards" ;
               sto:hasDBpediaResource <http://dbpedia.org/page/ISO/IEC_42010> ;
-              sto:hasOfficialResource <http://www.iso-architecture.org/ieee-1471/> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> .
+              sto:hasOfficialResource <https://standards.ieee.org/standard/42010-2011.html>,
+              <https://webstore.iec.ch/publication/11978>,
+              <https://www.iso.org/standard/50508.html>,
+              <http://www.iso-architecture.org/ieee-1471/> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010>;
+              sto:hasOpenResource <http://cabibbo.dia.uniroma3.it/asw/altrui/iso-iec-ieee-42010-2011.pdf> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60027_2006
@@ -4151,6 +4170,7 @@ sto:IEC_60364 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ;
               rdfs:comment "Electrical Installations for Buildings is the International Electrotechnical Commission's international standard on electrical installations of buildings"@en ;
               rdfs:label "IEC 60364"@en ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/1865>;
               sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60364> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60364> .
 
@@ -4201,24 +4221,6 @@ sto:IEC_60381_P1 rdf:type owl:NamedIndividual ,
                    sto:hasOfficialResource <https://webstore.iec.ch/publication/1948> .
 
 
-###  https://w3id.org/i40/sto#IEC_60382
-sto:IEC_60382 rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              sto:hasAvailableLanguage lang:eng ,
-                                       lang:fra ;
-              sto:hasFileSize sto:FileSizeIEC_60382 ;
-              sto:hasICS sto:ICS_25_040_40 ;
-              sto:hasPublisher sto:IEC ;
-              sto:hasTechnicalCommittee sto:TC_65 ;
-              sto:hasEdition "2.0"^^xsd:float ;
-              sto:hasPages "9"^^xsd:int ;
-              sto:hasPublicationDate "1991-11-01"^^xsd:date ;
-              sto:hasStabilityDate "2018"^^xsd:gYear ;
-              sto:hasTag "IEC 60382:1991"@en ;
-              dcterms:title "Analogue pneumatic signal for process control systems"@en ;
-              rdfs:comment "Applies to analogue pneumatic signals used in process control systems to transmit information between the elements of systems and gives definitions, units and the recommended value of the range of the analogue pneumatic signal."@en ;
-              rdfs:label "IEC 60382:1991"@en ;
-              sto:hasOfficialResource <https://webstore.iec.ch/publication/1950> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60382_1991
@@ -6491,6 +6493,7 @@ sto:ISO_11404 rdf:type owl:NamedIndividual ,
              sto:hasOfficialResource <https://www.iso.org/standard/39479.html>,
              <https://webstore.iec.ch/publication/9602>;
              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_11404>;
+             sto:hasOpenResource <http://www.open-std.org/jtc1/sc22/open/n3620.pdf>;
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
               rdfs:label "ISO/IEC 11404"@en .
@@ -6640,7 +6643,11 @@ sto:ISO_15408 rdf:type owl:NamedIndividual ,
               dc11:title "Common Criteria for Information Technology Security Evaluation"@en ;
               rdfs:comment "The Common Criteria for Information Technology Security Evaluation (abbreviated as Common Criteria or CC) is an international standard (ISO/IEC 15408) for computer security certification"@en ;
               rdfs:label "ISO/IEC 15408"@en ;
-              sto:hasOfficialResource <https://www.niap-ccevs.org/Documents_and_Guidance/cc_docs.cfm> ;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/10255>,
+              <https://www.iso.org/standard/50341.html>,
+               <https://www.niap-ccevs.org/Documents_and_Guidance/cc_docs.cfm> ;
+               sto:hasOpenResource <http://comsec.spb.ru/matherials/is/iso15408-1.pdf>,
+               <http://www.comsec.spb.ru/matherials/is/iso15408-3.pdf>;
               sto:hasWikipediaArticle <http://wikipedia.org/wiki/Common_Criteria_for_Information_Technology_Security_Evaluation> .
 
 
@@ -7045,8 +7052,10 @@ sto:ISO_27018 rdf:type owl:NamedIndividual ,
               rdfs:comment "ISO/IEC 27018:2014 establishes commonly accepted control objectives, controls and guidelines for implementing measures to protect Personally Identifiable Information (PII) in accordance with the privacy principles in ISO/IEC 29100 for the public cloud computing environment."@en ;
               rdfs:label "ISO/IEC 27018"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
-              sto:hasOfficialResource <https://www.iso.org/standard/61498.html> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27000-series> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/11302>,
+              <https://www.iso.org/standard/61498.html> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27000-series>;
+              sto:hasOpenResource <https://ciostrategycouncil.com/wp-content/uploads/2018/04/W_ISO-IEC-27018-2014.pdf> .
 
 
 ###  https://w3id.org/i40/sto#ISO_27019
@@ -7071,7 +7080,8 @@ sto:ISO_27031 rdf:type owl:NamedIndividual ,
               dc11:title "Guidelines for information and communication technology readiness for business continuity"@en ;
               rdfs:comment "ISO/IEC 27031:2011 describes the concepts and principles of information and comunication technology (ICT) readiness for business continuity, and provides a framework of methods and processes to identify and specify all aspects (such as performance criteria, design, and implementation) for improving an organization's ICT readiness to ensure business continuity."@en ;
               rdfs:label "ISO/IEC 27031"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/44374.html> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/11304>,
+              <https://www.iso.org/standard/44374.html> .
 
 
 ###  https://w3id.org/i40/sto#ISO_27036
@@ -7089,8 +7099,10 @@ a) gaining visibility into the information security risks associated with the us
 b) responding to risks specific to the acquisition or provision of cloud services that can have an information security impact on organizations using these services."""@en ;
               rdfs:label "ISO/IEC 27036"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
-              sto:hasOfficialResource <https://www.iso.org/standard/59689.html> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27000-series> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/11314>,
+              <https://www.iso.org/standard/59689.html> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27000-series>;
+              sto:hasOpenResource <https://wodzinski.waw.pl/data/_uploaded/file/c059648_ISO_IEC_27036-1_2014.pdf> .
 
 
 ###  https://w3id.org/i40/sto#ISO_29002
@@ -7117,7 +7129,9 @@ sto:ISO_29100 rdf:type owl:NamedIndividual ,
               rdfs:comment """‘Privacy framework’1 provides a guideline that specifies a common privacy terminology, defines actors and roles in processing PII, describes privacy safeguarding considerations, and includes references to known privacy principles for Information technology.
 source: IIC SF"""@en ;
               rdfs:label "ISO/IEC 29100"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/45123.html> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/11322>,
+              <https://www.iso.org/standard/45123.html>;
+              sto:hasOpenResource <https://pecb.com/pdf/whitepapers/30-Whitepapers-iso-29100-how-can-organizations-secure-its-privacy-network.pdf> .
 
 
 ###  https://w3id.org/i40/sto#ISO_29101
@@ -7177,7 +7191,9 @@ sto:ISO_29190 rdf:type owl:NamedIndividual ,
               dcterms:title "Privacy capability assessment model"@en ;
               rdfs:comment "‘Privacy capability assessment model’ provides high-level guidance to organizations about assessing their capability to manage privacy-related processes."@en ;
               rdfs:label "ISO/IEC 29190"@en ;
-              sto:hasOfficialResource <https://www.iso.org/standard/45269.html> .
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/23118>,
+              <https://www.iso.org/standard/45269.html>;
+              sto:hasOpenResource <https://www.sis.se/api/document/preview/919384/> .
 
 
 ###  https://w3id.org/i40/sto#ISO_42010
