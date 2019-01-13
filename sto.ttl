@@ -572,8 +572,8 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
-           rdfs:range muto:Tag ,
-                      rdfs:Literal .
+      ###     rdfs:range muto:Tag ,
+                rdfs:range   rdfs:Literal .
 
 
 ###  https://w3id.org/i40/sto#hasTask
@@ -3637,7 +3637,7 @@ sto:IEC_14443 rdf:type owl:NamedIndividual ,
               owl:sameAs sto:ISO_14443 ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              sto:hasTag "IEC 14443"@en ;
+ ###             sto:hasTag "IEC 14443"@en ;
               rdfs:comment "The ISO/IEC 14443 standard is a four-part international standard for contact-less smart cards operating at 13.56 MHz in close proximity (~10cm) with a reader antenna. This ISO standard describes the modulation and transmission protocols between card and reader to create interoperability for contact-less smart card products. There are two main communication protocols supported by the ISO/IEC 14443 standard, they are addressed as Type A and Type B. Most High Frequency (13.56 MHz) proximity tags are using these guidelines for their communication."@en ;
               rdfs:label "ISO/IEC 14443"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_14443> ;
@@ -3661,7 +3661,7 @@ sto:IEC_15459 rdf:type owl:NamedIndividual ,
               owl:sameAs sto:ISO_15459 ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              sto:hasTag "Information technology -- Automatic identification and data capture techniques -- Unique identification"@en ;
+  ###            sto:hasTag "Information technology -- Automatic identification and data capture techniques -- Unique identification"@en ;
               rdfs:comment "ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type. The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."@en ;
               rdfs:label "IEC 15459"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/10334>,
@@ -3747,7 +3747,7 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2016-08-01"^^xsd:date ;
-              sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en ;
+###              sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en ;
               rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures. This International Standard specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities. The unique identification is a universal construct for any physical object, virtual object, or person. It is used in IoT information systems that need to track or otherwise refer to entities. It is intended for use with any IoT media."@en ;
               rdfs:label "IEC 29161"@en ;
               sto:hasDomain "Automatic identification and data capture techniques"@en ;
@@ -3791,7 +3791,7 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO,
                                sto:IEEE ;
-              sto:hasTag "ISO/IEC/IEEE 42010"@en ;
+###            sto:hasTag "ISO/IEC/IEEE 42010"@en ;
               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
               rdfs:label "IEC 42010"@en ;
               skos:note "The IIRA is based on this standards" ;
@@ -5011,7 +5011,7 @@ sto:IEC_61000_P6_S2 rdf:type owl:NamedIndividual ,
                          sto:hasPages "57"^^xsd:int ;
                          sto:hasPublicationDate "2016-08-10"^^xsd:date ;
                          sto:hasStabilityDate "2020"^^xsd:gYear ;
-                         sto:hasTag "IEC 61000-6-2:2016"@en ;
+                         sto:hasTag " IEC 61000-6-2:2016 "@en ;
                          dcterms:title "Electromagnetic compatibility (EMC) - Part 6-2: Generic standards - Immunity standard for industrial environments"@en ;
                          rdfs:comment """IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
 IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."""@en ,
@@ -5976,9 +5976,41 @@ sto:IEC_61810_P7 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_61850
+sto:IEC_61850_P4_E2 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+                 sto:hasAvailableLanguage lang:eng ,
+                                          lang:fra ;
+                 sto:hasFileSize sto:FileSizeIEC_61850_P4 ;
+                 sto:hasICS sto:ICS_33_200 ;
+                 sto:hasPublisher sto:IEC ;
+                 sto:hasTechnicalCommittee sto:TC_57 ;
+                 sto:hasStatus "Valid"@en ;
+                 sto:hasEdition "2.0"^^xsd:float ;
+                 sto:hasPages "74"^^xsd:int ;
+                 sto:hasPublicationDate "2011-04-11"^^xsd:date ;
+                 prov:wasRevisionOf sto:IEC_61850_P4_E1;
+                 sto:hasStabilityDate "2020"^^xsd:gYear ;
+                 sto:hasTag "IEC 61850-4:2011"@en ;
+                 dcterms:title "Communication networks and systems for power utility automation - Part 4: System and project management"@en ;
+                 rdfs:comment "IEC 61850-4:2011 applies to projects associated with process near automation systems of power utilities (UAS, utility automation system), like e.g. substation automation systems (SAS). It defines the system and project management for UAS systems with communication between intelligent electronic devices (IEDs) in the substation respective plant and the related system requirements. This second edition constitutes a technical revision to align the document more closely with the other parts of the IEC 61850 series, in addition to enlarging the scope from substation automation systems to all utility automation systems.This publication is of core relevance for Smart Grid."@en ;
+                 rdfs:label "IEC 61850-4:20116"@en ;
+                  sto:hasDBpediaResource <http://dbpedia.org/page/IEC_61850> ;
+                 sto:hasOfficialResource <https://webstore.iec.ch/publication/6011> ;
+                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
+
+
+sto:FileSizeIEC_61850_P4_E2 rdf:type owl:NamedIndividual ,
+                                            om2:Measure ;
+                                   om2:hasNumericalValue "1250.0"^^xsd:float ;
+                                   om2:hasUnit om2:kilobyte ;
+                                   rdfs:comment "Specifies the file size of the document for standard IEC 61850-4:2011 ."@en ;
+                                   rdfs:label "FileSize IEC 61850-4:2011 "@en .
+
+
+
 sto:IEC_61850 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasPublisher sto:IEC ;
+                       sto:hasPublisher sto:IEC ;
               rdfs:comment "IEC 61850 is a standard for vendor-agnostic engineering of the configuration of Intelligent Electronic Devices for electrical substation automation systems to be able to communicate with each other.."@en ;
               rdfs:label "IEC 61850"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/page/IEC_61850> ;
@@ -6222,7 +6254,8 @@ sto:IEC_62832 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2016-12-16"^^xsd:date ;
               sto:hasStabilityDate "2020"^^xsd:gYear ;
               rdfs:comment "Industrial-process measurement, control and automation - Digital factory framework - Part 1: General principles"@en ;
-              rdfs:label "IEC TS 62832-1:2016 "@en .
+              rdfs:label "IEC TS 62832-1:2016 "@en;
+              sto:hasOfficialResource <https://webstore.iec.ch/publication/33023> .
 
 
 ###  https://w3id.org/i40/sto#IEC_62837
@@ -6319,7 +6352,7 @@ sto:IEC_62237 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_TS_62832
-sto:IEC_62832 rdf:type owl:NamedIndividual ,
+sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                           sto:TechnicalSpecification ;
                  sto:hasClassification rami:AdminShellGeneral ,
                                        rami:ControlDevice ,
@@ -6355,6 +6388,7 @@ sto:IEEE_1686 rdf:type owl:NamedIndividual ,
               dcterms:title "Standard for Intelligent Electronic Devices Cyber Security Capabilities"@en ;
               rdfs:comment "The functions and features to be provided in intelligent electronic devices (IEDs) to accommodate critical infrastructure protection programs are defined in this standard. Security regarding the access, operation, configuration, firmware revision and data retrieval from an IED are addressed. Communications for the purpose of power system protection (teleprotection) are not addressed in this standard."@en ;
               rdfs:label "IEEE 1686"@en ;
+              sto:hasOfficialResource <https://standards.ieee.org/standard/1686-2007.html>;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEEE_Smart_Grid> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEEE_Smart_Grid> .
 
