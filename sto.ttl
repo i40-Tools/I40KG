@@ -345,7 +345,8 @@ sto:hasDeveloper rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasDomain
 sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Publication ;
-              rdfs:range sto:Domain .
+              rdfs:range sto:Domain ;
+			  dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasFileSize
@@ -360,7 +361,8 @@ sto:hasFileSize rdf:type owl:ObjectProperty ;
                          3. om2:Measure om2:hasUnit om2:Unit;
                          4. om2:hasUnit om2:InformationCapacityUnit; is another possibility for range that could not be verified.
                          5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
-                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""" .
+                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""" ;
+				dcterms:creator sto:irlan ;
 
 
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
