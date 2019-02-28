@@ -1,10 +1,19 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sto: <https://w3id.org/i40/sto#>
-SELECT ?firstStandardLabelString ?secondStandardLabelString 
+SELECT ?fStdLabel ?p ?sStdLabel 
 WHERE {
+
+{
   ?firstStandard sto:relatedTo+|^sto:relatedTo ?secondStandard .
-  ?firstStandard  rdfs:label ?firstStandardLabel . 
-  ?secondStandard rdfs:label  ?secondStandardLabel .
-  BIND (STR(?firstStandardLabel)  AS ?firstStandardLabelString) .
-  BIND (STR(?secondStandardLabel)  AS ?secondStandardLabelString) .
-} 
+  BIND (STR(sto:relatedTo) as ?p) .
+}
+
+UNION {
+   ?firstStandard ?p ?secondStandard .
+   ?p rdfs:subPropertyOf  sto:relatedTo .
+}
+    ?firstStandard  rdfs:label ?firstStandardLabel . 
+    ?secondStandard rdfs:label ?secondStandardLabel .
+    BIND (STR(?firstStandardLabel)  AS ?fStdLabel) .
+    BIND (STR(?secondStandardLabel)  AS ?sStdLabel) .
+}
