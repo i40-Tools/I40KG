@@ -703,7 +703,7 @@ iira:SystemCharacteristics rdf:type owl:Class ;
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty dul:isPartOf ;
                                              owl:hasValue iira:FunctionalViewpoint
-                            ] ;
+                           
  
                                            ] ,
                                            [ rdf:type owl:Restriction ;
@@ -3526,6 +3526,17 @@ sto:Customization rdf:type owl:NamedIndividual ,
                   sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Customization"@en .
 
 
+sto:DataEncryption rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dcterms:creator sto:MuhammadUsman ;
+                  dul:isPartOf sto:Business ,
+                               sto:Scalability ;
+                  rdfs:comment "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers"@en ;
+                  rdfs:label "Customization"@en ;
+                  rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3108421.3108426"@en ;
+                  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Customization"@en .
+
+
 ###  https://w3id.org/i40/sto#DDS
 sto:DDS rdf:type owl:NamedIndividual ,
                  foaf:Document ,
@@ -4087,7 +4098,7 @@ sto:Data_Integrity rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Data_Location
-sto:Data_Location rdf:type owl:NamedIndividual ,
+sto:DataLocation rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:MuhammadUsman ;
                   dul:isPartOf sto:UsageControl ;
@@ -4099,7 +4110,7 @@ sto:Data_Location rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Data_Security
-sto:Data_Security rdf:type owl:NamedIndividual ,
+sto:DataSecurity rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   rdfs:seeAlso "https://ieeexplore.ieee.org/document/6188257"@en ,
                                "https://ieeexplore.ieee.org/document/8249113"@en ;
@@ -4107,7 +4118,7 @@ sto:Data_Security rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Data_Storage
-sto:Data_Storage rdf:type owl:NamedIndividual ,
+sto:DataStorage rdf:type owl:NamedIndividual ,
                           sto:Concern ;
                  dcterms:creator sto:MuhammadUsman ;
                  dul:isPartOf sto:DataProcessing ;
@@ -4118,7 +4129,7 @@ sto:Data_Storage rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Data_secrecy_and_encryption
-sto:Data_secrecy_and_encryption rdf:type owl:NamedIndividual ,
+sto:DataEncryption rdf:type owl:NamedIndividual ,
                                          sto:Concern ;
                                 dcterms:creator sto:MuhammadUsman ;
                                 dul:isPartOf sto:SecureCommunication ;
@@ -13788,10 +13799,16 @@ sto:NetworkSecurity rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dcterms:creator sto:SebastianBader ;
                     dul:isPartOf sto:Security ;
-                    rdfs:comment ""@en ;
+                    rdfs:comment """Data flow is an integral part of any cloud service over the network of computers or
+clusters of systems using internet. Any intruder can analyze the data packet to detect any weakness in the system and can gain access to applications and data
+using some kind of remote access mechanism and injection like SQL and some bad command, Denial of Service (DoS), Distributed DoS (DDoS), man in the
+middle attacks, social networking attacks and some unauthorized attacks are the major entrance level attacks in cloud computing environment."""@en ;
                     rdfs:label "network security"@en ;
-                    rdfs:seeAlso "https://ieeexplore.ieee.org/document/8552311"@en ;
-                    sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Audit"@en .
+                    rdfs:seeAlso "https://ieeexplore.ieee.org/document/8552311"@en,
+                    "https://ieeexplore.ieee.org/document/6188257"@en ,
+                                  "https://ieeexplore.ieee.org/document/8249113"@en  ;
+                    sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Audit"@en ,
+                    "https://en.wikipedia.org/wiki/Network_security"@en.
 
 
 ###  https://w3id.org/i40/sto#NetworkVirtualization
@@ -13805,20 +13822,6 @@ sto:NetworkVirtualization rdf:type owl:NamedIndividual ,
                                        "UNI.328"@en ;
                           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Network_virtualization> .
 
-
-###  https://w3id.org/i40/sto#Network_Security
-sto:Network_Security rdf:type owl:NamedIndividual ,
-                              sto:Concern ;
-                     dcterms:creator sto:MuhammadUsman ;
-                     dul:isPartOf sto:Security ;
-                     rdfs:comment """Data flow is an integral part of any cloud service over the network of computers or
-clusters of systems using internet. Any intruder can analyze the data packet to detect any weakness in the system and can gain access to applications and data
-using some kind of remote access mechanism and injection like SQL and some bad command, Denial of Service (DoS), Distributed DoS (DDoS), man in the
-middle attacks, social networking attacks and some unauthorized attacks are the major entrance level attacks in cloud computing environment."""@en ;
-                     rdfs:label "Network Security"@en ;
-                     rdfs:seeAlso "https://ieeexplore.ieee.org/document/6188257"@en ,
-                                  "https://ieeexplore.ieee.org/document/8249113"@en ;
-                     sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Network_security"@en .
 
 
 ###  https://w3id.org/i40/sto#NgsiLdApiOperation
@@ -16177,12 +16180,12 @@ sto:UsageControl rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#UserExperiene
-sto:UserExperiene rdf:type owl:NamedIndividual ,
+sto:UserExperience rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:SebastianBader ;
                   dul:isPartOf sto:Reliability ;
                   rdfs:comment ""@en ;
-                  rdfs:label "User Experiene"@en ;
+                  rdfs:label "User Experience"@en ;
                   rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3266237.3266263"@en .
 
 
