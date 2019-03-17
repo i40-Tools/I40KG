@@ -2718,7 +2718,7 @@ sto:Anonymity rdf:type owl:NamedIndividual ,
 sto:Authentication rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:sebastian ;
-                   dul:isPartOf sto:Security ;
+                   dul:isPartOf sto:IdentityManagement ;
                    rdfs:comment "Authentication before opening a valid connection; this can be done by just verifying the server identity or doing mutual authentication."@en ;
                    rdfs:label "Authentication"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.612" ,
@@ -2732,8 +2732,7 @@ sto:Authentication rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Authorization
 sto:Authorization rdf:type owl:NamedIndividual ,
                            sto:Concern ;
-                  dul:isPartOf sto:Privacy ,
-                               sto:Security ;
+                  dul:isPartOf sto:Privacy;
                   rdfs:seeAlso "IoT-A Requirement UNI.319" ,
                                "IoT-A Requirement UNI.502" ,
                                "IoT-A Requirement UNI.503" ,
@@ -2798,7 +2797,7 @@ sto:AutonomyPillar rdf:type owl:NamedIndividual ,
 sto:Availability rdf:type owl:NamedIndividual ,
                           sto:Concern ;
                  dcterms:creator sto:sebastian ;
-                 dul:isPartOf sto:Security ;
+                 dul:isPartOf sto:Reliability ;
                  rdfs:comment "In reliability theory and reliability engineering, the term availability has the following meanings: * The degree to which a system, subsystem or equipment is in a specified operable and committable state at the start of a mission, when the mission is called for at an unknown, i.e. a random, time. Simply put, availability is the proportion of time a system is in a functioning condition. This is often described as a mission capable rate. Mathematically, this is expressed as 100% minus unavailability. * The ratio of (a) the total time a functional unit is capable of being used during a given interval to (b) the length of the interval. For example, a unit that is capable of being used 100 hours per week (168 hours) would have an availability of 100/168. However, typical availability values are specified in decimal (such as 0.9998). In high availability applications, a metric known as nines, corresponding to the number of nines following the decimal point, is used. With this convention, \"five nines\" equals 0.99999 (or 99.999%) availability. (source: wikipedia)"@en ;
                  rdfs:label "Availability"@en ;
                  rdfs:seeAlso sto:OpenFogArchitecture ,
@@ -3226,10 +3225,6 @@ models and stores and recover a huge amount of information and data to cloud dat
                                       "https://en.wikipedia.org/wiki/Data"@en .
 
 
-###  https://w3id.org/i40/sto#Business
-sto:Business rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/sto#BusinessContext
 sto:BusinessContext rdf:type owl:NamedIndividual ,
                              sto:Concern ;
@@ -3370,6 +3365,7 @@ sto:Communication rdf:type owl:NamedIndividual ,
                            rami:AdminShellSubmodel ,
                            sto:Concern ,
                            sto:StandardClassification ;
+                           sto:isPartOf sto:Interoperability;
                   sto:isDescribedin sto:AdministrationShell ;
                   rdfs:seeAlso "IoT-A Requirement UNI.021" ,
                                "IoT-A Requirement UNI.095" ,
@@ -3404,19 +3400,19 @@ sto:ComplexEventProcessing rdf:type owl:NamedIndividual ,
 sto:Compliance rdf:type owl:NamedIndividual ,
                         sto:Concern ;
                dcterms:creator sto:sebastian ;
-               dul:isPartOf sto:Trustworthiness ;
+               dul:isPartOf sto:Reliability ;
                rdfs:comment "In general, compliance means conforming to a rule, such as a specification, policy, standard or law. Regulatory compliance describes the goal that organisations aspire to achieve in their efforts to ensure that they are aware of and take steps to comply with relevant laws and regulations. Due to the increasing number of regulations and need for operational transparency, organizations are increasingly adopting the use of consolidated and harmonized sets of compliance controls. This approach is used to ensure that all necessary governance requirements can be met without the unnecessary duplication of effort and activity from resources. (source: wikipedia)"@en ;
                rdfs:label "Compliance"@en ;
                sto:hasDBpediaResource <http://dbpedia.org/resource/Regulatory_compliance> .
 
 
 ###  https://w3id.org/i40/sto#ComputerSecurity
-sto:ComputerSecurity rdf:type owl:NamedIndividual ,
+sto:DeviceSecurity rdf:type owl:NamedIndividual ,
                               sto:Concern ;
                      dcterms:creator sto:SebastianBader ;
-                     dul:isPartOf sto:Security ;
+                     skos:narrower sto:Security ;
                      rdfs:comment ""@en ;
-                     rdfs:label "Computer Security"@en ;
+                     rdfs:label "Device Security"@en ;
                      rdfs:seeAlso "https://ieeexplore.ieee.org/document/8552311"@en .
 
 
@@ -3480,8 +3476,7 @@ sto:ContextAwareness rdf:type owl:NamedIndividual ,
 sto:CostEfficiency rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:SebastianBader ;
-                   dul:isPartOf sto:Business ,
-                                sto:Recovery ;
+                   dul:isPartOf sto:BusinessContext ;
                    rdfs:comment ""@en ;
                    rdfs:label "Cost Efficiency"@en ,
                               "DataRecovery"@en ;
@@ -3518,7 +3513,7 @@ sto:Customer rdf:type owl:NamedIndividual ,
 sto:Customization rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:MuhammadUsman ;
-                  dul:isPartOf sto:Business ,
+                  dul:isPartOf sto:BusinessContext ,
                                sto:Scalability ;
                   rdfs:comment "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers"@en ;
                   rdfs:label "Customization"@en ;
@@ -3529,7 +3524,7 @@ sto:Customization rdf:type owl:NamedIndividual ,
 sto:DataEncryption rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:MuhammadUsman ;
-                  dul:isPartOf sto:Business ,
+                  dul:isPartOf sto:BusinessContext ,
                                sto:Scalability ;
                   rdfs:comment "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers"@en ;
                   rdfs:label "Customization"@en ;
@@ -4056,7 +4051,7 @@ sto:DataTransferProjectWhitepaper rdf:type owl:NamedIndividual ,
 sto:DataUsageControl rdf:type owl:NamedIndividual ,
                               sto:Concern ;
                      dcterms:creator sto:sebastian ;
-                     dul:isPartOf sto:Privacy ;
+                     dul:isPartOf sto:Authorization ;
                      rdfs:comment "Data usage control can be seen as an extension of data access control. It is about the specification and enforcement of restrictions regulating what is allowed to happen with data, and what is not. Data usage control thus is concerned with requirements that pertain to data processing (obligations) rather than data access (provisions). It is primarily relevant in the context of intellectual property protection, privacy protection, compliance with regulations, and digital rights management."@en ;
                      rdfs:label "Data Usage Control"@en .
 
@@ -4085,10 +4080,10 @@ sto:Data_Confidentiality rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Data_Integrity
-sto:Data_Integrity rdf:type owl:NamedIndividual ,
+sto:DataIntegrity rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:MuhammadUsman ;
-                   dul:isPartOf sto:IntegrityProtection ;
+                   dul:isPartOf sto:Privacy ;
                    rdfs:comment "Data integrity is the maintenance of, and the assurance of the accuracy and consistency of, data over its entire life-cycle, and is a critical aspect to the design, implementation and usage of any system which stores, processes, or retrieves data."@en ;
                    rdfs:label "Data Integrity"@en ;
                    rdfs:seeAlso "https://ieeexplore.ieee.org/document/6188257"@en ,
@@ -4126,6 +4121,17 @@ sto:DataStorage rdf:type owl:NamedIndividual ,
                  rdfs:label "Data Storage"@en ;
                  rdfs:seeAlso "https://ieeexplore.ieee.org/document/8102372"@en ;
                  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_storage"@en .
+
+
+                 ###  https://w3id.org/i40/sto#Data_Storage
+sto:DataAggregation rdf:type owl:NamedIndividual ,
+                          sto:Concern ;
+                 skos:narrower sto:DataProcessing ;
+                 rdfs:comment "Data Aggregation is the compiling the data before Data Processing"@en ;
+                 rdfs:label "Data Aggregation"@en ;
+                 rdfs:seeAlso "https://www.researchgate.net/publication/319283535_Data_aggregation_mechanisms_in_the_Internet_of_things_A_systematic_review_of_the_literature_and_recommendations_for_future_research"@en,
+                 "https://ieeexplore.ieee.org/document/7566346"@en ;
+                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_aggregation"@en .
 
 
 ###  https://w3id.org/i40/sto#Data_secrecy_and_encryption
@@ -4698,7 +4704,7 @@ sto:FIWARE rdf:type owl:NamedIndividual ,
 sto:Fairness rdf:type owl:NamedIndividual ,
                       sto:Concern ;
              dcterms:creator sto:MuhammadUsman ;
-             dul:isPartOf sto:Business ;
+             dul:isPartOf sto:BusinessContext ;
              rdfs:comment "How can a fair and non-discriminating access to (compute and storage) resources be established?"@en ;
              rdfs:label "Fairness"@en ;
              rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3098208.3098210" ;
@@ -4706,10 +4712,10 @@ sto:Fairness rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Fault_Tolerance
-sto:Fault_Tolerance rdf:type owl:NamedIndividual ,
+sto:FaultTolerance rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dcterms:creator sto:MuhammadUsman ;
-                    dul:isPartOf sto:Reliability ;
+                    dul:isPartOf sto:Availability ;
                     rdfs:comment "Fault tolerance is the property that enables a system to continue operating properly in the event of the failure of some (one or more faults within) of its components. If its operating quality decreases at all, the decrease is proportional to the severity of the failure, as compared to a naively designed system in which even a small failure can cause total breakdown."@en ;
                     rdfs:label "Fault Tolerance"@en ;
                     rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=2508075.2508082"@en ,
@@ -6496,7 +6502,7 @@ sto:IEC_60038_E7 rdf:type owl:NamedIndividual ,
                    sto:hasStabilityDate "2020"^^xsd:gYear ;
                    sto:hasStatus "Valid"@en ;
                    sto:isRelevantFor sto:RuralElectrification;
-                   dcterms:title "IEC standard voltages"@en ;
+                   dcterms:title " IEC standard voltages "@en ;
                    rdfs:comment "IEC 60038:2009 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. This seventh edition supersedes the sixth edition (1993), its Amendment 1 (1994) and its Amendment 2 (1997). It constitutes a technical revision. The significant technical changes are: -the addition of the values of 230 V (50 Hz) and 230/400 V (60 Hz) to Table 1;-the replacement of the utilization voltage range at LV by a reference to the relevant standard and an informative annex;- the addition of the value of 30 kV to Table 3;- the replacement of the value of 1 050 kV by 1 100 kV in Table 5. It has the status of a horizontal standard in accordance with IEC Guide 108."@en ;
                    rdfs:label "IEC 60038:2009"@en ;
                    sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
@@ -12651,7 +12657,7 @@ sto:Identification rdf:type owl:NamedIndividual ,
 sto:IdentityManagement rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
                        dcterms:creator sto:sebastian ;
-                       dul:isPartOf sto:Security ;
+                       dul:isPartOf sto:NonRepudiation ;
                        rdfs:comment "In computer security, identity and access management (IAM) is the security and business discipline that \"enables the right individuals to access the right resources at the right times and for the right reasons\".It addresses the need to ensure appropriate access to resources across increasingly heterogeneous technology environments and to meet increasingly rigorous compliance requirements. (source: wikipedia)"@en ;
                        rdfs:label "Identity Management"@en ;
                        rdfs:seeAlso "IoT-A Requirement UNI.048" ,
@@ -12710,7 +12716,7 @@ will convey these recognizable proof labels and insert the particular object dat
 sto:IntegrityProtection rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
                         dcterms:creator sto:sebastian ;
-                        dul:isPartOf sto:Security ;
+                        dul:isPartOf sto:DeviceSecurity ;
                         <http://voag.linkedmodel.org/voag#hasStakeholder> "Device/Service Owner" ;
                         rdfs:comment "In telecommunications, the term system integrity has the following meanings: 1. * That condition of a system wherein its mandated operational and technical parameters are within the prescribed limits. 2. * The quality of an AIS when it performs its intended function in an unimpaired manner, free from deliberate or inadvertent unauthorized manipulation of the system. 3. * The state that exists when there is complete assurance that under all conditions an IT system is based on the logical correctness and reliability of the operating system, the logical completeness of the hardware and software that implement the protection mechanisms, and data integrity. (source: wikipedia)"@en ,
                                      "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
@@ -13027,8 +13033,14 @@ sto:Isolation rdf:type owl:NamedIndividual ,
               rdfs:comment "\"Isolation would be another issue at the edge of the network. In mobile OS, if an application fails or crashes, the whole system will usually crash and reboot. Or in a distributed system the shared resource could be managed with different synchronization mechanisms such as a lock or token ring. \""@en ;
               rdfs:label "Isolation"@en ;
               rdfs:seeAlso "https://ieeexplore.ieee.org/document/7488250" ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Isolation"@en .
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Process_isolation"@en .
 
+sto:DataIsolation rdf:type owl:NamedIndividual ,
+                       sto:Concern ;
+                     skos:narrower sto:Isolation ;
+              rdfs:comment "Isolation is one of the ACID (Atomicity, Consistency, Isolation, Durability) properties adopted by the database systems"@en ;
+              rdfs:label "Data Isolation"@en ;
+              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Isolation_(database_systems)"@en .
 
 ###  https://w3id.org/i40/sto#Ivi
 sto:Ivi rdf:type owl:NamedIndividual ,
@@ -13279,7 +13291,7 @@ sto:Logging rdf:type owl:NamedIndividual ,
 sto:Long_Term_Business_Sustainability rdf:type owl:NamedIndividual ,
                                                sto:Concern ;
                                       dcterms:creator sto:MuhammadUsman ;
-                                      dul:isPartOf sto:Business ;
+                                      dul:isPartOf sto:BusinessContext ;
                                       rdfs:comment "The provider should not go broke, be financially in a close-fitting corner or close down the business. Organizations should be sure and know how to move your data to another cloud provider. And should know how to have a backup at another public cloud of data for redundancy"@en ;
                                       rdfs:label "Long Term Business Sustainability"@en ;
                                       rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3286606.3286865"@en ;
@@ -14388,7 +14400,7 @@ sto:OrionContextBroker rdf:type owl:NamedIndividual ,
 sto:Performance rdf:type owl:NamedIndividual ,
                          sto:Concern ;
                 dcterms:creator sto:MuhammadUsman ;
-                dul:isPartOf sto:Business ;
+                dul:isPartOf sto:BusinessContext ;
                 rdfs:comment "Performance is completion of a task with application of knowledge, skills and abilities"@en ;
                 rdfs:label "Performance"@en ;
                 rdfs:seeAlso "https://ieeexplore.ieee.org/document/8249113"@en ,
@@ -15004,20 +15016,14 @@ sto:RealTimeAnalytics rdf:type owl:NamedIndividual ,
                       sto:hasDBpediaResource <http://dbpedia.org/resource/Real-time_computing> .
 
 
-###  https://w3id.org/i40/sto#Recovery
-sto:Recovery rdf:type owl:NamedIndividual ,
-                      sto:Concern ;
-             dcterms:creator sto:SebastianBader ;
-             dul:isPartOf sto:Reliability ;
-             rdfs:comment ""@en ;
-             rdfs:label "Recovery"@en .
+
 
 
 ###  https://w3id.org/i40/sto#Regulatory_Compliance
 sto:Regulatory_Compliance rdf:type owl:NamedIndividual ,
                                    sto:Concern ;
                           dcterms:creator sto:MuhammadUsman ;
-                          dul:isPartOf sto:CloudComputing ;
+                         skos:narrower sto:Compliance ;
                           rdfs:comment "Organizations are ultimately legally responsible for their process compliance and data security, Even though the data is in a public cloud."@en ;
                           rdfs:label "Regulatory Compliance"@en ;
                           rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3286606.3286865"@en ;
@@ -15080,7 +15086,7 @@ sto:ReturnOnInvestment rdf:type owl:NamedIndividual ,
 sto:Risk_Management rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dcterms:creator sto:MuhammadUsman ;
-                    dul:isPartOf sto:Business ;
+                    dul:isPartOf sto:BusinessContext ;
                     rdfs:comment """To end with, organizations will be generally exposed to a broad range of different risks, by adopting the cloud computing. Managing these risks is very important concern, as the successful implementation of cloud computing relies upon the appropriate managing, reducing, as well as mitigating these risks linked to
 cloud computing"""@en ;
                     rdfs:label "Risk Management"@en ;
@@ -15287,7 +15293,7 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
                         dcterms:creator sto:sebastian ;
                         dul:isPartOf sto:Communication ,
-                                     sto:Security ;
+                                     sto:IntegrityProtection ;
                         <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ,
                                                                           <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
                                                                           <https://w3id.org/i40/SystemArchitect> ;
@@ -15330,7 +15336,7 @@ sto:Secure_network_access rdf:type owl:NamedIndividual ,
 sto:Security rdf:type owl:NamedIndividual ,
                       sto:Concern ;
              dcterms:creator sto:sebastian ;
-             dul:isPartOf sto:Trustworthiness ;
+             dul:isPartOf sto:Privacy ;
              <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/generalManager> ,
                                                                <https://www.wikidata.org/wiki/Q1548249> ;
              rdfs:comment "Information security, sometimes shortened to InfoSec, is the practice of defending information from unauthorized access, use, disclosure, disruption, modification, inspection, recording or destruction. It is a general term that can be used regardless of the form the data may take (e.g. electronic, physical). (source: wikipedia)"@en ;
@@ -15366,10 +15372,11 @@ source: OpenFog Reference Architecture"""@en ;
 
 
 ###  https://w3id.org/i40/sto#Selection_of_Service_Provider
-sto:Selection_of_Service_Provider rdf:type owl:NamedIndividual ,
+sto:SelectionOfServiceProvider rdf:type owl:NamedIndividual ,
                                            sto:Concern ;
                                   dcterms:creator sto:MuhammadUsman ;
-                                  dul:isPartOf sto:CloudComputing ;
+                                  dul:isPartOf sto:CloudComputing,
+                                   sto:BusinessContextn ;
                                   rdfs:comment """Due to the diversity of cloud computing service suppliers, it is a challenge for organizations to pick am appropriate service supplier. In selection of a cloud provider, organizations ought to look at different elements, like the reputation and size of the company of service supplier, in terms of number of employees,
 share of the market, as well as their other resources"""@en ;
                                   rdfs:label "Selection of Service Provider"@en ;
@@ -15510,7 +15517,7 @@ sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
 sto:ServiceIsolation rdf:type owl:NamedIndividual ,
                               sto:Concern ;
                      dcterms:creator sto:sebastian ;
-                     dul:isPartOf sto:Security ;
+                     skos:narrower sto:Isolation ;
                      rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
                      rdfs:label "Service Isolation"@en ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Process_isolation> .
@@ -15726,7 +15733,7 @@ sto:SystemOperator rdf:type owl:NamedIndividual ,
 sto:SystemRecovery rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:SebastianBader ;
-                   dul:isPartOf sto:Recovery ;
+             dul:isPartOf sto:Reliability ;
                    rdfs:comment ""@en ;
                    rdfs:label "System Recovery"@en .
 
@@ -16261,7 +16268,7 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Vendor_Lockin
-sto:Vendor_Lockin rdf:type owl:NamedIndividual ,
+sto:VendorLockin rdf:type owl:NamedIndividual ,
                            sto:Concern ;
                   dcterms:creator sto:MuhammadUsman ;
                   dul:isPartOf sto:BusinessContext ,
@@ -17003,8 +17010,7 @@ idsram:Certification rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
                      sto:frames sto:Certification ,
                                 sto:Safety ,
-                                sto:Security ,
-                                sto:Trustworthiness ;
+                                sto:Security  ;
                      sto:isDescribedin idsram:ReferenceArchitectureModel ;
                      rdfs:label "IDS RAM Certification Perspective"@en .
 
