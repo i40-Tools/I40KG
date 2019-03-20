@@ -1,15 +1,8 @@
 PREFIX sto: <https://w3id.org/i40/sto#> 
 
+
 construct {
-
-	# concerns not yet part of the hierarchy (no partOf relation incoming or outgoing) are ignored
-	?s <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> ?o .
-
-} where {
-
-	?s <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> ?o .
-	
 	?s a sto:Concern .
-	#FILTER(not exists { ?s a sto:Concern } ) .
-	
+} where {
+	?s a sto:Concern .
 } 
