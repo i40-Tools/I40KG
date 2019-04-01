@@ -1,0 +1,88 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dbo: <http://dbpedia.org/ontology#> .
+@prefix dbr: <http://dbpedia.org/resource#> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix geo: <http://www.geonames.org/ontology#> .
+@prefix ids: <https://w3id.org/ids/core/> .
+@prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sto: <https://w3id.org/i40/sto#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iira: <http://example.org/iira#> .
+@prefix lang: <http://lexvo.org/id/iso639-3/> .
+@prefix muto: <http://purl.org/muto/core#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rami: <https://w3id.org/i40/rami#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix idsram: <https://w3id.org/ids/ram/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# if lower-level concerns are framed, higher level concerns are framed as well
+#sto:supports(?concern1, ?concern2) ^ sto:frames(?classification, ?concern1) -> sto:frames(?classification, ?concern2)
+{
+	?concern1 sto:supports ?concern2 .
+	?classification sto:frames ?concern1 .
+} => {
+	?classification sto:frames ?concern2 .
+} .
+
+# sto:frames of classifications gives information on targeted concerns by frameworks
+#sto:frames(?classification, ?concern) ^ sto:isDescribedin(?classification, ?framework) -> sto:hasTargetConcern(?framework, ?concern)
+{
+	?classification sto:frames ?concern .
+	?classification sto:isDescribedin ?framework .
+} => {
+	?framework sto:hasTargetConcern ?concern .
+} .
+
+# sto:supports is transitive 
+#sto:supports(?concern1, ?concern2) ^ sto:supports(?concern1, ?concern3) -> sto:supports(?concern1, ?concern3)
+{
+	?concern1 sto:supports ?concern2 .
+	?concern2 sto:supports ?concern3 .
+} => {
+	?concern1 sto:supports ?concern3 .
+} .
+
+# sto:alignsWith is transitive (with respect to the applied class)
+#sto:alignsWith(?x, ?y) ^ sto:alignsWith(?y, ?z) ^ sto:StandardizationFramework(?x) ^ sto:StandardizationFramework(?y) -> sto:alignsWith(?x, ?z)
+{
+  ?x sto:alignsWith ?y .
+  ?y sto:alignsWith ?z .
+  ?x a sto:StandardizationFramework .
+  ?y a sto:StandardizationFramework .
+} => {
+  ?x sto:alignsWith ?z .
+} .
+
+# sto:alignsWith is transitive (with respect to the applied class)
+#sto:alignsWith(?x, ?y) ^ sto:alignsWith(?y, ?z) ^ sto:StandardClassification(?x) ^ sto:StandardClassification(?y) -> sto:alignsWith(?x, ?z)
+{
+  ?x sto:alignsWith ?y .
+  ?y sto:alignsWith ?z .
+  ?x a sto:StandardClassification .
+  ?y a sto:StandardClassification .
+} => {
+  ?x sto:alignsWith ?z .
+} .
+
+# sto:alignsWith is symmetric
+#sto:alignsWith(?x, ?y) -> sto:alignsWith(?y, ?x)
+{
+  ?x sto:alignsWith ?y .
+} => {
+  ?y sto:alignsWith ?x .
+} .
