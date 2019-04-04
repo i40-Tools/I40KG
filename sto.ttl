@@ -847,7 +847,7 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:Class .
+
 
 
 ###  https://w3id.org/i40/sto#ConnectivityLayer
@@ -970,13 +970,10 @@ sto:RelevantSubject rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Stakeholder
-sto:Stakeholder rdf:type owl:Class ;
-                rdfs:subClassOf foaf:Person .
+ 
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication .
+
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -3363,9 +3360,7 @@ sto:Compliance rdf:type owl:NamedIndividual ,
                sto:hasDBpediaResource <http://dbpedia.org/resource/Regulatory_compliance> .
 
 
-###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:NamedIndividual ;
-            dcterms:creator sto:sebastian .
+
 
 
 ###  https://w3id.org/i40/sto#Confidentiality
@@ -15511,14 +15506,10 @@ sto:SpatialModeling rdf:type owl:NamedIndividual ,
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Spatial_analysis> .
 
 
-###  https://w3id.org/i40/sto#Stakeholder
-sto:Stakeholder rdf:type owl:NamedIndividual .
 
 
-###  https://w3id.org/i40/sto#Standard
-sto:Standard rdf:type owl:NamedIndividual ;
-             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             sto:abbreviation "IS" .
+
+
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -17321,7 +17312,9 @@ Horizontal concerns cover specific aspects along the data processing Vertical co
                 dcterms:creator "sebastian"@en .
 
 
-sto:Concern rdfs:label "Concern" ;
+sto:Concern rdf:type owl:Class ;
+            dcterms:creator sto:sebastian ;
+             rdfs:label "Concern" ;
             sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
@@ -17374,14 +17367,43 @@ sto:ServiceDescriptions rdfs:seeAlso "IoT-A Requirement UNI.244" .
 sto:ServiceLevelAgreements rdfs:seeAlso "IoT-A Requirement UNI.060" .
 
 
-sto:Stakeholder skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4.1 STAKEHOLDERS' 'Page 20' " ;
+sto:Stakeholder rdfs:type owl:class ;
+                rdfs:subClassOf foaf:Person;
+                skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4.1 STAKEHOLDERS' 'Page 20' " ;
                 rdfs:comment " A stakeholder is an individual, team, organization or classes thereof,having an interest in a concern and by extension an interest in the viewpoint and system." ;
                 rdfs:label "Stakeholder"@en ;
                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Stakeholder" ;
                 rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" .
 
 
-sto:Standard rdfs:label "Standard"@en ;
+
+sto:PlantManager rdfs:type sto:Stakeholder ;
+                skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '1.5 AUDIENCE' 'Page 7' " ;
+                rdfs:comment " A plant manager is responsible for the functioning of a plant/facility." ;
+                rdfs:label "Plant Manager"@en ;
+                skos:altLabel "Facility Manager"@en ;
+                sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Facility_management#Role_of_the_facilities_manager" ;
+                rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" .
+
+sto:ITManager rdfs:type sto:Stakeholder ;
+                skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '1.5 AUDIENCE' 'Page 7' " ;
+                rdfs:comment " An IT manager is responsible for the functioning of the IT services of an organisation." ;
+                rdfs:label "IT Manager"@en ;
+                sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Information_technology_management#IT_managers" ;
+                rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" .
+
+sto:BusinessManager rdfs:type sto:Stakeholder ;
+                skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '1.5 AUDIENCE' 'Page 7' " ;
+                rdfs:comment " A business manager is responsible for the running of the business and to make large profits." ;
+                rdfs:label "Business Manager"@en ;
+                sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_manager" ;
+                rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" .
+
+sto:Standard rdf:type owl:Class ;
+             rdfs:subClassOf sto:Publication ;
+             rdfs:label "Standard"@en ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             sto:abbreviation "IS" ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
              cc:attributionURL <http://www.iec.ch> ;
              rdfs:isDefinedBy sto:IEC ;
