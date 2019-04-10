@@ -500,12 +500,6 @@ sto:relatedTo rdf:type owl:ObjectProperty ;
                        owl:TransitiveProperty .
 
 
-###  https://w3id.org/i40/sto#supportedBy
-sto:supportedBy rdf:type owl:ObjectProperty ;
-                rdfs:domain sto:Concern ;
-                rdfs:range sto:Publication .
-
-
 ###  https://w3id.org/i40/sto#supports
 sto:supports rdf:type owl:ObjectProperty ;
              rdfs:domain sto:Concern ;
@@ -1713,10 +1707,11 @@ sto:Privacy rdf:type owl:NamedIndividual ,
 
 
 ###  http://example.org/iira#Reliability
-sto:Reliability rdf:type owl:NamedIndividual ,
+sto:IIRAReliability rdf:type owl:NamedIndividual ,
                           sto:SystemCharacteristics ,
                           sto:StandardClassification ;
                  dul:isPartOf sto:FunctionalViewpoint ;
+                 skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>' '3.4 RELIABILITY' 'Page 18'";
                  sto:frames sto:Reliability ,
                             sto:Trustworthiness ;
                  sto:isDescribedin sto:IIRA ;
@@ -1816,6 +1811,7 @@ sto:SecurityFramework rdf:type owl:NamedIndividual ,
                                       sto:xRoadSystemComponents ,
                                       idsram:Security ;
                        rdfs:label "IIC Security Framework"@en ;
+                       skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'";
                        sto:hasOfficialResource <https://www.iiconsortium.org/IISF.htm> .
 
 
@@ -2038,7 +2034,7 @@ rami:Configuration rdf:type owl:NamedIndividual ,
                             sto:Concern ,
                             sto:StandardClassification ;
                    sto:isDescribedin sto:AdministrationShell ;
-                   sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> .
+                   skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'".
 
 
 ###  https://w3id.org/i40/rami#ConnectedWorld
@@ -2715,7 +2711,7 @@ sto:AutonomousCommunication rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#AutonomousConfiguration
 sto:AutonomousConfiguration rdf:type owl:NamedIndividual ,
                                      sto:Concern ;
-                            sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> ;
+                            skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '1.2. Utilities of IoT' 'Page 295'" ;
                             sto:supports sto:ServiceChoreography ;
                             <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                             rdfs:comment "A system built using the Reference Architecture shall be able to remotely control and configure devices."@en ;
@@ -3407,7 +3403,7 @@ sto:ConstraintDevices rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ContextAwareness
 sto:ContextAwareness rdf:type owl:NamedIndividual ,
                               sto:Concern ;
-                     sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> ;
+                     skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '1.2. Utilities of IoT' 'Page 296'";
                      <http://voag.linkedmodel.org/voag#hasStakeholder> "Developer"@en ;
                      rdfs:comment "The look-up service of the system shall withold or grant information depending on context. Context includes application involved, requesting entity, and security permissions."@en ;
                      rdfs:label "Context Awareness"@en ;
@@ -12517,7 +12513,7 @@ sto:Identification rdf:type owl:NamedIndividual ,
                                   sto:IEC_24760 ,
                                   sto:IEC_62443 ,
                                   sto:ISO_24760 ;
-                   sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> ;
+                   skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' 'Survey on domain specific IoT architectures' 'Page 299'";
                    sto:supports sto:IdentityManagement ;
                    rdfs:comment "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
                    rdfs:label "Identification"@en ;
@@ -13273,12 +13269,11 @@ sto:MachineLearning rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#MaintenanceCost
 sto:MaintenanceCost rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    sto:supportedBy sto:OpenFogArchitecture ;
                     sto:supports sto:BusinessContext ;
                     rdfs:comment "The ability of a system to be maintained."@en ;
                     rdfs:label "Maintenance Cost"@en ;
-                    skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' " .
-
+                    skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' ";
+                    skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '3 Use Cases for Fog' 'Page 13' ".
 
 ###  https://w3id.org/i40/sto#Manufacturing
 sto:Manufacturing rdf:type owl:NamedIndividual ,
@@ -14923,8 +14918,8 @@ sto:Regulatory_Compliance rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Reliability
 sto:Reliability rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator sto:sebastian ;
-                sto:supportedBy sto:SecurityFramework  ;
+                dcterms:creator sto:sebastian ;                
+                skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'";
                 skos:note "Publications referred: 'OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
                 sto:supports sto:Trustworthiness ;
                 rdfs:comment "In computer networking, a reliable protocol provides reliability properties with respect to the delivery of data to the intended recipient(s), as opposed to an unreliable protocol, which does not provide notifications to the sender as to the delivery of transmitted data. (source: wikipedia)"@en ;
@@ -15286,7 +15281,7 @@ share of the market, as well as their other resources"""@en ;
 sto:SemanticInteroperability rdf:type owl:NamedIndividual ,
                                       sto:Concern ;
                              dcterms:creator sto:sebastian ;
-                             sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> ;
+                             skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '3.2. Direction toward Io<*>' 'Page 315'";
                              sto:supports sto:Interoperability ;
                              <http://voag.linkedmodel.org/voag#hasStakeholder> <http://dbpedia.org/ontology/developer> ;
                              rdfs:comment """Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. 
@@ -15352,6 +15347,8 @@ sto:ServiceChoreography rdf:type owl:NamedIndividual ,
 sto:ServiceComposition rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
                        dcterms:creator sto:sebastian ;
+                       
+                       
                        <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                        rdfs:comment "2 to n Data Apps/Devices/Services are connected"@en ,
                                     "In computing, service composability is a design principle, applied within the service-orientation design paradigm, that encourages the design of services that can be reused in multiple solutions that are themselves made up of composed services. The ability to recompose the service is ideally independent of the size and complexity of the service composition. This principle is directly responsible for the agility promised by SOA as it promotes composing new solutions by reusing existing services. (source: wikipedia)"@en ;
@@ -15399,6 +15396,7 @@ sto:ServiceDescription rdf:type owl:NamedIndividual ,
 sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                               sto:Concern ;
                      dcterms:creator sto:sebastian ;
+                     skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.8.2. Societal data service' 'Page 309'";
                      rdfs:comment "How to find desired (Web) services, Data Apps, functionalities."@en ;
                      rdfs:label "Service Discovery"@en ;
                      rdfs:seeAlso "IoT-A Requirement UNI.406" ,
@@ -15446,7 +15444,7 @@ sto:ServiceManagementAtEdge rdf:type owl:NamedIndividual ,
 sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
                                   sto:Concern ;
                          dcterms:creator sto:sebastian ;
-                         sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> ;
+                         skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'";
                          sto:supports sto:ServiceComposition ;
                          <http://voag.linkedmodel.org/voag#hasStakeholder> <https://www.wikidata.org/wiki/Q1548249> ;
                          rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrates by a central entity."@en ;
@@ -15559,7 +15557,7 @@ sto:StreamProcessing rdf:type owl:NamedIndividual ,
 sto:SyntacticInteroperability rdf:type owl:NamedIndividual ,
                                        sto:Concern ;
                               dcterms:creator sto:sebastian ;
-                              sto:supportedBy <https://doi.org/10.1016/j.jksuci.2016.10.003> ;
+                              skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.8.2. Societal data service' 'Page 308'";
                               sto:supports sto:Interoperability ;
                               rdfs:comment "If two or more systems are capable of communicating with each other, they exhibit syntactic interoperability when using specified data formats and communication protocols. XML or SQL standards are among the tools of syntactic interoperability. This is also true for lower-level data formats, such as ensuring alphabetical characters are stored in a same variation of ASCII or a Unicode format (for English or international text) in all the communicating systems. source: <https://en.wikipedia.org/wiki/Interoperability>"@en ;
                               rdfs:label "Syntactic Interoperability"@en ;
@@ -16710,10 +16708,6 @@ sto:sebastian rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://sebastianrbader.de> .
 
 
-###  https://w3id.org/i40/sto#supportedBy
-sto:supportedBy rdf:type owl:NamedIndividual ;
-                dcterms:creator sto:sebastian .
-
 
 ###  https://w3id.org/i40/sto#uIP
 sto:uIP rdf:type owl:NamedIndividual ,
@@ -17540,10 +17534,6 @@ sto:isImplementationOf rdfs:label "is Implementation Of"@en ;
 sto:relatedTo skos:altLabel "has Associated Standard"@en ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en .
-
-
-sto:supportedBy rdfs:label "supported By"^^xsd:string ;
-                rdfs:comment "A Concern is supported by a publication if the publication describes the necessity of such a concern and optionally supplies a proper definition. This property gives a qualitytive impression how well founded a specific Concern is."@en .
 
 
 sto:useStructureOf rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
