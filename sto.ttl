@@ -3686,9 +3686,12 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
                    dcterms:creator sto:DIN ;
                    foaf:maker sto:DIN ;
                    sto:hasClassification idsram:Security ;
+                   sto:frames sto:interoperability,
+                   sto:communication;
                    sto:hasDeveloper sto:DIN ;
                    dcterms:title "Reference Model for Industrial Cloud Federation"@en ;
                    rdfs:comment "ensuring interoperability and communication of IT systems in cloud scenarios"@en ;
+                   sto:hasOfficialResource <https://www.beuth.de/de/publikation/referenzmodell-industrielle-cloud-federation/296675641>;                  
                    rdfs:label "DIN SPEC 92222"@en .
 
 
@@ -9335,6 +9338,169 @@ sto:IEC_61804 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Device_Description_Language> .
 
 
+
+
+###  https://w3id.org/i40/sto#IEC_61810_P2_E3
+sto:IEC_61804_P3 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    dcterms:creator sto:IEC ;                    
+                    foaf:maker sto:IEC ;
+                    sto:hasAvailableLanguage lang:eng ,
+                                             lang:fra ;
+                    sto:hasFileSize sto:FileSizeIEC_61804_P3 ;
+                    sto:hasICS sto:ICS_25_040_40,
+                    sto:ICS_35_240_50 ;
+                    sto:hasPublisher sto:IEC ;
+                    sto:hasTechnicalCommittee sto:TC_65 ;
+                    #Add Sub Committee 65 E
+                    sto:hasEdition "3.0"^^xsd:float ;
+                    sto:hasPages "694"^^xsd:int ;
+                    sto:hasPublicationDate "2015-06-09"^^xsd:date ;
+                    sto:hasStabilityDate "2019"^^xsd:gYear ;
+                    sto:frames sto:ThingDescription;
+                    sto:hasTag "IEC 61804-3:2015"@en ;
+                    dcterms:title "Function Blocks (FB) for process control and Electronic Device Description Language (EDDL) - Part 3: EDDL syntax and semantics"@en ;
+                    rdfs:comment "IEC 61804-3:2015 specifies the Electronic Device Description Language (EDDL) technology, which enables the integration of real product details using the tools of the engineering life cycle. It specifies EDDL as a generic language for describing the properties of automation system components. This third edition cancels and replaces the second edition published in 2010. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: Builtins and their profiles removed and relocated into IEC 61804-5. The following extensions are integrated in the EDDL specification to meet FDI requirements: - new contructs BLOB, PLUGIN; - component construct for communication server requirements (additional attributes); - extension of the class attribute; - new attributes PRIVATE, VISIBILITY, WRITE_MODE"@en ;
+                    rdfs:label "IEC 61804-3:2015"@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/22636> .
+
+                    ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P5_S2
+sto:FileSizeIEC_61804_P3 rdf:type owl:NamedIndividual ,
+                                     om2:Measure ;
+                            om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "9306.0"^^xsd:float ;
+                            rdfs:comment "Specifies the file size of the document for standard IEC 61804-3:2015"@en ;
+                            rdfs:label "FileSize IEC 61804-3:2015"@en .
+
+
+sto:IEC_61804_P4 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    dcterms:creator sto:IEC ;
+                    foaf:maker sto:IEC ;
+                    sto:hasAvailableLanguage lang:eng ,
+                                             lang:fra ;
+                    sto:hasFileSize sto:FileSizeIEC_61804_P4 ;
+                    sto:hasICS sto:ICS_25_040_40,
+                    sto:ICS_35_240_50 ;
+                    sto:hasPublisher sto:IEC ;
+                    sto:hasTechnicalCommittee sto:TC_65 ;
+                    #Add Sub Committee 65 E
+                    sto:hasEdition "1.0"^^xsd:float ;
+                    sto:hasPages "253"^^xsd:int ;
+                    sto:hasPublicationDate "2015-10-07"^^xsd:date ;
+                    sto:hasStabilityDate "2019"^^xsd:gYear ;
+                    sto:frames sto:ThingDescription;
+                    sto:hasTag "IEC 61804-4:2015"@en ;
+                    dcterms:title "Function blocks (FB) for process control and electronic device description language (EDDL) - Part 4: EDD interpretation"@en ;
+                    rdfs:comment "IEC 61804-4:2015 specifies EDD interpretation for EDD applications and EDDs to support EDD interoperability. This document is intended to ensure that field device developers use the EDDL constructs consistently and that the EDD applications have the same interpretations of the EDD. It supplements the EDDL specification to promote EDDL application interoperability and improve EDD portability between EDDL applications. This first edition cancels and replaces IEC TR 61804-4 published in 2006. This edition constitutes a technical revision. This edition includes the following significant technical changes with respect to the previous edition: - New paragraph: EDDL data description; - EDDL METHOD programming and usage of builtins; - Edit session; - Offline and online configuration; - EDDL communication description and Enhancements in paragraph EDDL user interface descriptions."@en ;
+                   rdfs:label "IEC 61804-4:2015"@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/23481> .
+
+                    ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P5_S2
+sto:FileSizeIEC_61804_P4 rdf:type owl:NamedIndividual ,
+                                     om2:Measure ;
+                            om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "3514.0"^^xsd:float ;
+                            rdfs:comment "Specifies the file size of the document for standard IEC 61804-4:2015"@en ;
+                            rdfs:label "FileSize IEC 61804-4:2015"@en .
+
+sto:IEC_61804_P5 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    dcterms:creator sto:IEC ;
+                    foaf:maker sto:IEC ;
+                    sto:hasAvailableLanguage lang:eng ,
+                                             lang:fra ;
+                    sto:hasFileSize sto:FileSizeIEC_61804_P5 ;
+                    sto:hasICS sto:ICS_25_040_40,
+                    sto:ICS_35_240_50 ;
+                    sto:hasPublisher sto:IEC ;
+                    sto:hasTechnicalCommittee sto:TC_65 ;
+                    #Add Sub Committee 65 E
+                    sto:hasEdition "1.0"^^xsd:float ;
+                    sto:hasPages "472"^^xsd:int ;
+                    sto:hasPublicationDate "2015-06-09"^^xsd:date ;
+                    sto:hasStabilityDate "2019"^^xsd:gYear ;
+                    sto:frames sto:ThingDescription;
+                    sto:hasTag "IEC 61804-5:2015 "@en ;
+                    dcterms:title "Function blocks (FB) for process control and electronic device description language (EDDL) - Part 5: EDDL Builtin library"@en ;
+                    rdfs:comment "IEC 61804-5:2015 specifies the EDDL Builtin library and provides the profiles of the various fieldbuses."@en ;
+                   rdfs:label "IEC 61804-5:2015 "@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/22637> .
+
+                    ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P5_S2
+sto:FileSizeIEC_61804_P5 rdf:type owl:NamedIndividual ,
+                                     om2:Measure ;
+                            om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "7931.0"^^xsd:float ;
+                            rdfs:comment "Specifies the file size of the document for standard IEC 61804-5:2015 "@en ;
+                            rdfs:label "FileSize IEC 61804-5:2015 "@en .
+
+
+sto:IEC_61804_P6 rdf:type owl:NamedIndividual ,
+                             sto:TechnicalReport ;
+                    dcterms:creator sto:IEC ;
+                    foaf:maker sto:IEC ;
+                    sto:hasAvailableLanguage lang:eng ,
+                                             lang:fra ;
+                    sto:hasFileSize sto:FileSizeIEC_61804_P6 ;
+                    sto:hasICS sto:ICS_25_040_40,
+                    sto:ICS_35_240_50 ;
+                    sto:hasPublisher sto:IEC ;
+                    sto:hasTechnicalCommittee sto:TC_65 ;
+                    #Add Sub Committee 65 E
+                    sto:hasEdition "1.0"^^xsd:float ;
+                    sto:hasPages "15"^^xsd:int ;
+                    sto:hasPublicationDate "2012-04-04"^^xsd:date ;
+                    sto:hasStabilityDate "2022"^^xsd:gYear ;
+                    sto:frames sto:ThingDescription;
+                    sto:hasTag "IEC 61804-6:2012  "@en ;
+                    dcterms:title "Function blocks (FB) for process control - Electronic device description language (EDDL) - Part 6: Meeting the requirements for integrating fieldbus devices in engineering tools for field devices"@en ;
+                    rdfs:comment "IEC/TR 61804-6:2012(E) provides an evaluation and assessment of electronic device description language (EDDL) technology. It provides guidance to device and system manufacturers for how EDDL technology can help them meet user requirements. It provides guidance to system integrators, as well as instrumentation and maintenance practitioners at end-user companies, on how EDDL technology can help them integrate systems and incorporate device management in their work processes. It gives examples of requirements from the NAMUR NE 105 recommendation. It's intent is to illustrate how EDDL technology and products based on EDDL technology meet these requirements."@en ;
+                    rdfs:label "IEC 61804-6:2012 "@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/59577> .
+
+                    ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P5_S2
+sto:FileSizeIEC_61804_P1 rdf:type owl:NamedIndividual ,
+                                     om2:Measure ;
+                            om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "977.0"^^xsd:float ;
+                            rdfs:comment "Specifies the file size of the document for standard IEC 61804-6:2012 "@en ;
+                            rdfs:label "FileSize IEC 61804-6:2012  "@en .
+
+
+sto:IEC_62769_P1 rdf:type owl:NamedIndividual ,
+                             sto:standard ;
+                    dcterms:creator sto:IEC ;
+                    foaf:maker sto:IEC ;
+                    sto:hasAvailableLanguage lang:eng ,
+                                             lang:fra ;
+                    sto:hasFileSize sto:FileSizeIEC_62769_P1 ;
+                    sto:hasICS sto:ICS_25_040_40,
+                    sto:ICS_35_100_05 ;
+                    sto:hasPublisher sto:IEC ;
+                    sto:hasTechnicalCommittee sto:TC_65 ;
+                    #Add Sub Committee 65 E
+                    sto:hasEdition "1.0"^^xsd:float ;
+                    sto:hasPages "64"^^xsd:int ;
+                    sto:hasPublicationDate "2015-05-12"^^xsd:date ;
+                    sto:hasStabilityDate "2019"^^xsd:gYear ;
+                    sto:hasTag "IEC 62769-1:2015   "@en ;
+                    dcterms:title "Field device integration (FDI) - Part 1: Overview"@en ;
+                    rdfs:comment "IEC 62769-1:2015 describes the concepts and overview of the Field Device Integration (FDI) specifications. The detailed motivation for the creation of this technology is also described. It helps to understand the other parts of this multi-part standard."@en ;
+                    rdfs:label "IEC 62769-1:2015  "@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/22453> .
+
+                    ###  https://w3id.org/i40/sto#FileSizeIEC_60839_P5_S2
+sto:FileSizeIEC_62769_P1 rdf:type owl:NamedIndividual ,
+                                     om2:Measure ;
+                            om2:hasUnit om2:kilobyte ;
+                            om2:hasNumericalValue "1259.0"^^xsd:float ;
+                            rdfs:comment "Specifies the file size of the document for standard IECIEC 62769-1:2015 "@en ;
+                            rdfs:label "FileSize IEC 62769-1:2015   "@en .
+
+
+
+
 ###  https://w3id.org/i40/sto#IEC_61810_P2_E3
 sto:IEC_61810_P2_E3 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
@@ -10219,6 +10385,31 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
                                       <https://www.iso.org/standard/57308.html> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_62264> .
 
+sto:IEC_62264_P6 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasAvailableLanguage lang:eng ;
+                    sto:hasFileSize sto:FileSizeIEC_62264_P6 ;
+                    sto:hasICS sto:ICS_25_040_99,
+                     sto:ICS_35_100,
+                      sto:ICS_35_100_50 ;
+                    sto:hasPublisher sto:IEC ;
+                    sto:hasTechnicalCommittee sto:TC_65 ;
+                    sto:frames sto:communication;
+                    sto:hasEdition "1.0"^^xsd:float ;
+                    sto:hasPages "50"^^xsd:int ;
+                    sto:hasPublicationDate "2016-07-05"^^xsd:date ;
+                    sto:hasTag "IEC PAS 62264-6:2016"@en ;
+                    dcterms:title "Enterprise-control system integration - Part 6: Messaging Service Model"@en ;
+                    rdfs:comment "IEC PAS 62264-6:2016(E) defines a model of a set of messaging services for information exchanges across Levels 3 and 4, and within Level 3, between applications performing business and manufacturing activities. It defines a standard interface for information exchange between systems."@en ;
+                    rdfs:label " IEC PAS 62264-6:2016"@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/25315> .
+
+sto:FileSizeIEC_61970_P452_E3 rdf:type owl:NamedIndividual ,
+                                       om2:Measure ;
+                              om2:hasUnit om2:kilobyte ;
+                              om2:hasNumericalValue "1533.0"^^xsd:float ;
+                              rdfs:comment "Specifies the file size of the document for standard IEC IEC PAS 62264-6:2016."@en ;
+                              rdfs:label "FileSize IEC PAS 62264-6:2016 "@en .
 
 ###  https://w3id.org/i40/sto#IEC_62279
 sto:IEC_62279 rdf:type owl:NamedIndividual ,
@@ -10407,6 +10598,7 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
                             sto:MathML ,
                             sto:SysML ,
                             sto:eClass ;
+              sto:hasTargetConcern sto:AutonomousCommunication;
               sto:useStructureOf sto:IEC_61804 ;
               sto:hasTag "OPC UA"@en ;
               dcterms:license sto:GPLv2 ,
@@ -10614,18 +10806,59 @@ sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
                            foaf:Document ,
                            sto:Publication ,
                            sto:Standard ;
-                  dcterms:creator sto:IEC ,
-                                  sto:ISO ;
-                  foaf:maker sto:IEC ,
-                             sto:ISO ;
-                  sto:hasPublisher sto:IEC ,
-                                   sto:ISO ;
+                  dcterms:creator sto:IEC ;
+                  foaf:maker sto:IEC;
+                  sto:hasPublisher sto:IEC  ;
                   sto:hasPublicationDate "2017-03-07"^^xsd:date ;
                   sto:hasTag "RAMI 4.0" ;
                   rdfs:comment "IEC PAS 63088:2017(E) describes a reference architecture model in the form of a cubic layer model, RAMI model"@en ;
                   rdfs:label "IEC PAS 63088"@en ;
                   sto:hasOfficialResource <https://webstore.iec.ch/publication/30082?lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3B2vZf0%2FOGS2CeRjny8ARziQ%3D%3D> .
 
+sto:DIN_SPEC_16593_P1 rdf:type owl:NamedIndividual ,
+                           foaf:Document ,
+                           sto:Publication ,
+                           sto:Standard ;
+                  dcterms:creator sto:DIN  ;
+                  foaf:maker sto:DIN;
+                  sto:frames sto:ServiceDescription;
+                  sto:hasPublisher sto:DIN ;
+                  sto:hasPublicationDate "2018-04-01"^^xsd:date ;
+                  sto:hasTag "DIN SPEC 16593-1:2018-04" ;
+                  rdfs:comment "RM-SA - Reference Model for Industrie 4.0 Service Architectures - Part 1: Basic Concepts of an Interaction-based Architecture; Text in English"@en ;
+                  rdfs:label "DIN SPEC 16593-1:2018-04"@en ;
+                  sto:hasOfficialResource <https://www.beuth.de/en/technical-rule/din-spec-16593-1/287632675> .
+
+sto:DIN_ISO_14638 rdf:type owl:NamedIndividual ,
+                           foaf:Document ,
+                           sto:Publication ,
+                           sto:Standard ;
+                  dcterms:creator sto:DIN ,
+                  sto:ISO;
+                  foaf:maker sto:DIN;
+                  sto:frames sto:ThingDescription;
+                  sto:hasPublisher sto:DIN ;
+                  sto:hasPublicationDate "2015-12-01"^^xsd:date ;
+                  sto:hasTag "ISO GPS" ;
+                  rdfs:comment "Geometrical product specifications (GPS) - Matrix model (ISO 14638:2015); German version EN ISO 14638:2015"@en ;
+                  rdfs:label "DIN EN ISO 14638:2015-12"@en ;
+                  sto:hasOfficialResource <https://www.beuth.de/en/standard/din-en-iso-14638/208096393> .
+
+sto:DIN_77005_P1 rdf:type owl:NamedIndividual ,
+                           foaf:Document ,
+                           sto:Publication ,
+                           sto:Standard ;
+                  dcterms:creator sto:DIN  ;
+                  foaf:maker sto:DIN;
+                  sto:frames sto:DataLifecycleManagment;
+                  sto:hasPublisher sto:DIN ;
+                  sto:hasPublicationDate "2018-09-01"^^xsd:date ;
+                  sto:hasTag "DIN 77005-1:2018-09" ;
+                  rdfs:comment "Lifecycle record of technical objects - Part 1: Structural and content-related specifications"@en ;
+                  rdfs:label "DIN 77005-1:2018-09"@en ;
+                  sto:hasOfficialResource <https://www.beuth.de/en/standard/din-77005-1/290281150> .
+
+                  
 
 ###  https://w3id.org/i40/sto#IEC_TS_62832
 sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
@@ -11691,6 +11924,23 @@ sto:ISO_19941 rdf:type owl:NamedIndividual ,
               rdfs:comment ""@en ;
               rdfs:label "ISO/IEC 19941:2017"@en ;
               sto:hasOfficialResource <http://standards.iso.org/ittf/PubliclyAvailableStandards/c066639_ISO_IEC_19941_2017.zip> .
+
+
+sto:ISO_20140_P1 rdf:type owl:NamedIndividual ,
+                       foaf:Document ,
+                       sto:Publication ,
+                       sto:Standard ;
+              dcterms:creator sto:ISO ;
+              foaf:maker sto:ISO ;
+              sto:hasClassification sto:Security ;
+              sto:hasDeveloper sto:ISO ;
+              sto:hasPublisher sto:ISO ;
+              sto:frames sto:EnergyEfficiency;
+              sto:hasPublicationDate "2013-05-01"^^xsd:date ;
+              dcterms:title "Automation systems and integration -- Evaluating energy efficiency and other factors of manufacturing systems that influence the environment -- Part 1: Overview and general principles"@en ;
+              rdfs:comment ""@en ;
+              rdfs:label "ISO 20140-1:2013"@en ;
+              sto:hasOfficialResource <https://www.iso.org/standard/54809.html> .
 
 
 ###  https://w3id.org/i40/sto#ISO_20140_5
