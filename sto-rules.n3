@@ -30,14 +30,39 @@
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
+
+# sto:relatedTo is a symmetric property
+{ 
+	?standard1 sto:relatedTo ?standard2 . 
+	?standard1 rdf:type sto:Standard . 
+	?standard2 rdf:type sto:Standard . 
+} => {
+	?standard2 sto:relatedTo ?standard1 . 
+} .
+
+# sto:relatedTo is transitive
+{ 
+	?standard1 sto:relatedTo ?standard2 . 
+	?standard2 sto:relatedTo ?standard3 . 
+	?standard1 rdf:type sto:Standard . 
+	?standard2 rdf:type sto:Standard . 
+	?standard3 rdf:type sto:Standard . 
+} => {
+	?standard1 sto:relatedTo ?standard3 . 
+} .
+
+
+
 # if lower-level concerns are framed, higher level concerns are framed as well
-#sto:supports(?concern1, ?concern2) ^ sto:frames(?classification, ?concern1) -> sto:frames(?classification, ?concern2)
+#sto:supportsTransitive(?concern1, ?concern2) ^ sto:frames(?classification, ?concern1) -> sto:frames(?classification, ?concern2)
 {
 	?concern1 sto:supports ?concern2 .
+	#?concern1 sto:supportsTransitive ?concern2 .
 	?classification sto:frames ?concern1 .
 } => {
 	?classification sto:frames ?concern2 .
 } .
+
 
 # sto:frames of classifications gives information on targeted concerns by frameworks
 #sto:frames(?classification, ?concern) ^ sto:isDescribedin(?classification, ?framework) -> sto:hasTargetConcern(?framework, ?concern)
@@ -48,12 +73,16 @@
 	?framework sto:hasTargetConcern ?concern .
 } .
 
-# sto:supports is transitive 
-#sto:supports(?concern1, ?concern2) ^ sto:supports(?concern1, ?concern3) -> sto:supports(?concern1, ?concern3)
+
+# sto:supportsTransitive is transitive 
+#sto:supportsTransitive(?concern1, ?concern2) ^ sto:supportsTransitive(?concern1, ?concern3) -> sto:supportsTransitive(?concern1, ?concern3)
 {
 	?concern1 sto:supports ?concern2 .
 	?concern2 sto:supports ?concern3 .
+	#?concern1 sto:supportsTransitive ?concern2 .
+	#?concern2 sto:supportsTransitive ?concern3 .
 } => {
+	#?concern1 sto:supportsTransitive ?concern3 .
 	?concern1 sto:supports ?concern3 .
 } .
 
@@ -86,3 +115,40 @@
 } => {
   ?y sto:alignsWith ?x .
 } .
+
+
+
+# General rules by http://harth.org/andreas/foaf#ah
+
+# The RDFS profile in N3 (draft)
+# http://www.w3.org/TR/rdf11-mt/
+
+# rdfs2
+{ ?aaa rdfs:domain ?xxx . ?yyy ?aaa ?zzz . } => { ?yyy rdf:type ?xxx . } .
+
+# rdfs3
+{ ?aaa rdfs:range ?xxx . ?yyy ?aaa ?zzz . } => { ?zzz rdf:type ?xxx . } .
+
+# rdfs5
+{ ?xxx rdfs:subPropertyOf ?yyy . ?yyy rdfs:subPropertyOf ?zzz . } => { ?xxx rdfs:subPropertyOf ?zzz . } .
+
+# rdfs9
+{ ?xxx rdfs:subClassOf ?yyy . ?zzz rdf:type ?xxx . } => { ?zzz rdf:type ?yyy . } .
+
+# rdfs11
+{ ?xxx rdfs:subClassOf ?yyy . ?yyy rdfs:subClassOf ?zzz . } => { ?xxx rdfs:subClassOf ?zzz . } .
+
+#  eq-ref
+#{ ?s ?p ?o . } => { ?s owl:sameAs ?s . ?p owl:sameAs ?p . ?o owl:sameAs ?o .} .
+#  eq-sym
+#{ ?x owl:sameAs ?y . } => { ?y owl:sameAs ?x . } .
+#  eq-trans
+{ ?x owl:sameAs ?y . ?y owl:sameAs ?z . } => { ?x owl:sameAs ?z . } .
+#  eq-rep-s
+{ ?s owl:sameAs ?s0 . ?s ?p ?o . } => { ?s0 ?p ?o . } .
+#  eq-rep-p
+{ ?p owl:sameAs ?p0 . ?s ?p ?o . } => { ?s ?p0 ?o . } .
+#  eq-rep-o
+{ ?o owl:sameAs ?o0 . ?s ?p ?o . } => { ?s ?p ?o0 . } .
+#  eq-diff1
+{ ?x owl:sameAs ?y ; owl:differentFrom ?y . } => { ?x a owl:Nothing . ?y a owl:Nothing . }  .
