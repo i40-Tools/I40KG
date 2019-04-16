@@ -340,19 +340,6 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
 foaf:maker rdf:type owl:ObjectProperty .
 
 
-###  https://w3id.org/i40/hasTargetConcern
-<https://w3id.org/i40/hasTargetConcern> rdf:type owl:ObjectProperty ;
-                                        rdfs:subPropertyOf dul:associatedWith ;
-                                        rdfs:domain [ rdf:type owl:Class ;
-                                                      owl:unionOf ( sto:Standard
-                                                                    sto:StandardizationFramework
-                                                                  )
-                                                    ] ;
-                                        rdfs:range sto:Concern ;
-                                        rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
-                                        rdfs:label "has Target Concern"@en .
-
-
 ###  https://w3id.org/i40/sto#alignsWith
 sto:alignsWith rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf dul:associatedWith ;
@@ -454,7 +441,16 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasTargetConcern
-sto:hasTargetConcern rdf:type owl:ObjectProperty .
+sto:hasTargetConcern rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf dul:associatedWith ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( sto:Standard
+                                                 sto:StandardizationFramework
+                                               )
+                                 ] ;
+                     rdfs:range sto:Concern ;
+                     rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
+                     rdfs:label "has Target Concern"@en .
 
 
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
@@ -508,9 +504,10 @@ sto:supportedBy rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#supports
 sto:supports rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :supportsTransitive ;
              rdfs:domain sto:Concern ;
              rdfs:range sto:Concern ;
-             rdfs:comment "A relation between two different concerns where dealing with the subject Concern supports in achieving the object concern"@en ;
+             rdfs:comment "A relation between two different concerns where dealing with the subject Concern supports in achieving the object concern. By convention, only used to assert a direct (i.e., immediate) hierarchical link between two concerns (see similarity to skos:broaderTransitive)."@en ;
              rdfs:label "supports" .
 
 
@@ -522,6 +519,11 @@ sto:useStructureOf rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#uses
 sto:uses rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf sto:relatedTo .
+
+
+###  https://w3id.org/i40/sto/supportsTransitive
+:supportsTransitive rdf:type owl:ObjectProperty ,
+                             owl:TransitiveProperty .
 
 
 #################################################################
@@ -990,7 +992,7 @@ sto:StandardOrganization rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#StandardPart
 sto:StandardPart rdf:type owl:Class ;
-                 rdfs:subClassOf sto:Publication ;
+                 rdfs:subClassOf sto:Standard ;
                  rdfs:comment "Typically Standards are divided into parts. E.g., ISA 95 has part Part 1: Models and Terminology, Part 2: Object Model Attributes, etc."@en ;
                  rdfs:label "StandardPart" .
 
@@ -3512,9 +3514,9 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:DIN ;
                  foaf:maker sto:DIN ;
-                 <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
                  sto:hasClassification idsram:Certification ;
                  sto:hasPublisher sto:DIN ;
+                 sto:hasTargetConcern sto:Safety ;
                  sto:hasPublicationDate "2012-03-01"^^xsd:date ;
                  rdfs:comment "Die EN 50128 ist eine Europäische Norm für sicherheitsrelevante Software der Eisenbahn, sowohl strecken- als auch zugseitig. Zusammen mit der EN 50129 für die Hardware und den Zulassungsprozessen ist die EN 50128 eine Spezialisierung der EN 61508. Die EN 50128 ist eine Prozessnorm. Sie stellt dar, welche Verfahren, Prinzipien und Maßnahmen anzuwenden sind, damit die Software als sicher gilt."@de ;
                  rdfs:label "DIN EN 50128"@en ;
@@ -3528,9 +3530,9 @@ sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:DIN ;
                  foaf:maker sto:DIN ;
-                 <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
                  sto:hasClassification idsram:Certification ;
                  sto:hasPublisher sto:DIN ;
+                 sto:hasTargetConcern sto:Safety ;
                  dcterms:title "Railway applications - Communications, signalling and processing systems - Safety related electronic systems for signalling"@en ;
                  rdfs:comment "Für alle Eisenbahnsignalsysteme, -Teilsysteme und -Einrichtungen sind jedoch Gefährdungsanalyse und Risikobewertungsprozesse, wie in DIN EN 50126 und in dieser Norm definiert, notwendig, um die Sicherheitsanforderungen zu identifizieren."@de ,
                               "Specifies risk analysis for railway systems"@en ;
@@ -3543,8 +3545,8 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                           foaf:Document ,
                           sto:Publication ,
                           sto:Standard ;
-                 <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
                  sto:hasClassification idsram:Certification ;
+                 sto:hasTargetConcern sto:Safety ;
                  dcterms:title "Railway applications - Rolling stock - Electronic equipment"@en ;
                  rdfs:comment "Diese Norm wird bei der Konstruktion, Fertigung und Prüfung von auf Schienenfahrzeugen eingebauten elektronischen Betriebsmitteln verwendet. Sie beschreibt außerdem die elektrischen sowie die Umweltbedingungen für den Betrieb. Die Norm gilt für alle elektronischen Betriebsmittel für die Steuerung, die Regelung, den Schutz, die Diagnose, die Versorgung und so weiter, die auf Schienenfahrzeugen installiert sind. Als ein elektronisches Betriebsmittel gilt dabei ein Betriebsmittel, das hauptsächlich aus Halbleiterbauelementen und üblicherweise zugehörigen Bauelementen aufgebaut ist. Auch Sensoren (Strom, Spannung, Geschwindigkeit und so weiter) und bestückte Leiterplatten von Zündeinheiten für leistungselektronische Geräte sind von dieser Norm umfasst. Vollständige Zündeinheiten und leistungselektronische Schaltkreise sind in EN 61287-1 enthalten. Die Norm umfasst die Betriebsbedingungen, die Konstruktionsanforderungen, die Dokumentation und die Prüfung der elektronischen Betriebsmittel sowie die grundlegenden Hardware- und Softwareanforderungen, die für ein leistungsfähiges, zuverlässiges Betriebsmittel als erforderlich erachtet werden. Zuständig ist das DKE/UK 351.1 \"Fahrzeuge\" der DKE Deutsche Kommission Elektrotechnik Elektronik Informationstechnik in DIN und VDE."@de ,
                               "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
@@ -3559,8 +3561,8 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                           foaf:Document ,
                           sto:Publication ,
                           sto:Standard ;
-                 <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
                  sto:hasClassification idsram:Certification ;
+                 sto:hasTargetConcern sto:Safety ;
                  dcterms:title "Railway applications - Communication, signalling and processing systems - Safety-related communication in transmission systems"@en ;
                  rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
                  rdfs:label "DIN EN 50159"@en ;
@@ -3574,9 +3576,9 @@ sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:DIN ;
                  foaf:maker sto:DIN ;
-                 <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
                  sto:hasClassification idsram:Certification ;
                  sto:hasPublisher sto:DIN ;
+                 sto:hasTargetConcern sto:Safety ;
                  dcterms:title "Functional safety - Safety instrumented systems for the process industry sector - Part 1: Framework, definitions, system, hardware and software requirements"@en ;
                  rdfs:comment "This standard gives requirements for the specification, design, installation, operation and maintenance of a safety instrumented system (SIS), so that it can be confidently entrusted to achieve or maintain a safe state of the process. This standard has been developed as a process sector implementation of IEC 61508."@en ;
                  rdfs:label "DIN EN 61511"@en .
@@ -3591,10 +3593,10 @@ sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
                                      sto:ISO ;
                      foaf:maker sto:DIN ,
                                 sto:ISO ;
-                     <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
                      sto:hasClassification idsram:Certification ;
                      sto:hasPublisher sto:DIN ,
                                       sto:ISO ;
+                     sto:hasTargetConcern sto:Safety ;
                      rdfs:comment """ISO 13849 is a safety standard which deals with safety-related design principles of employed control systems to establish different safety Performance Levels (PL). It replaced EN 954-1 in December 2011.
     Part 1 defines the general principles for design.
     Part 2 describes the validation."""@en ;
@@ -9121,7 +9123,6 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
               sto:hasClassification iira:Safety ,
                                     rami:Safety ,
                                     idsram:Certification ;
@@ -9149,9 +9150,9 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
               sto:hasClassification idsram:Certification ;
               sto:hasPublisher sto:IEC ;
+              sto:hasTargetConcern sto:Safety ;
               sto:relatedTo sto:IEC_61508 ,
                             sto:IEC_61511 ,
                             sto:IEC_62061 ,
@@ -11171,11 +11172,11 @@ sto:ISO_13849 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
               sto:hasClassification iira:Security ,
                                     rami:Safety ,
                                     idsram:Certification ;
               sto:hasPublisher sto:ISO ;
+              sto:hasTargetConcern sto:Safety ;
               sto:relatedTo sto:IEC_61508 ,
                             sto:IEC_61511 ,
                             sto:IEC_62061 ,
@@ -16532,7 +16533,7 @@ sto:eClass rdf:type owl:NamedIndividual ,
                          sto:eClass ;
            rdfs:comment "eCl@ss is the cross-industry product data standard for classification and clear description of products and services."@en ;
            rdfs:label "eClass"@en ;
-           sto:hasDBpediaResource <http://de.dbpedia.org/page/ECl@ss> ;
+           sto:hasDBpediaResource <http://de.dbpedia.org/resource/ECl@ss> ;
            sto:hasMotivation "Global identification, semantic description and automatic product classification"@en ;
            sto:hasOfficialResource <https://www.eclass.eu/eclasscontent/standard/overview.html.en> ;
            sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/ECl@ss> .
