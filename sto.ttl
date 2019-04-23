@@ -16,7 +16,6 @@
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix sto: <http://example.org/iira#> .
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
@@ -389,7 +388,7 @@ sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
-                      rdfs:domain sto:Standard ;
+                      rdfs:domain sto:Publication ;
                       rdfs:range sto:StandardClassification .
 
 
@@ -2033,7 +2032,6 @@ rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/rami#Configuration
 rami:Configuration rdf:type owl:NamedIndividual ,
                             rami:AdminShellSubmodel ,
-                            sto:Concern ,
                             sto:StandardClassification ;
                    sto:isDescribedin sto:AdministrationShell ;
                    skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'".
@@ -3307,7 +3305,7 @@ sto:Change_Management rdf:type owl:NamedIndividual ,
 sto:CloudComputing rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:sebastian ;
-                   sto:supports sto:DataProcessing ;
+                   dul:isPartOf sto:DataProcessing ;
                    rdfs:comment "Cloud computing is a type of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous, on-demand access to a shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services), which can be rapidly provisioned and released with minimal management effort. Cloud computing and storage solutions provide users and enterprises with various capabilities to store and process their data in third-party data centers that may be located far from the user–ranging in distance from across a city to across the world. Cloud computing relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid) over an electricity network. (source: wikipedia)"@en ;
                    rdfs:label "Cloud Computing Capability"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.102" ,
