@@ -1028,9 +1028,17 @@ sto:xRoadSection rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto/AiiClassification
-:AiiClassification rdf:type owl:Class ;
+sto:AiiClassification rdf:type owl:Class ;
                    rdfs:subClassOf sto:StandardClassification ;
                    rdfs:label "Alliance of Industrial Internet Architecture Classification"@en .
+
+ sto:AnnoAiiClassification a oa:Annotation ;
+    oa:hasBody sto:AiiClassification ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+         ] .
 
 
 ###  https://w3id.org/i40/sto/OcfBlock
@@ -3333,7 +3341,8 @@ sto:CloudComputing rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Cloud_Connectivity
-sto:Cloud_Connectivity rdf:type owl:NamedIndividual .
+sto:Cloud_Connectivity rdf:type owl:NamedIndividual;
+sto:supports sto:CloudComputing .
 
 
 ###  https://w3id.org/i40/sto#Communication
@@ -4066,6 +4075,18 @@ sto:DataTransferProject rdf:type owl:NamedIndividual ,
                         rdfs:comment "The Data Transfer Project (DTP) extends data portability beyond a user’s ability to download a copy of their data from their service provider (“provider”), to providing the user the ability 1 to initiate a direct transfer of their data into and out of any participating provider. The Data Transfer Project is an open source initiative to encourage participation of as many providers as possible. The DTP will enhance the data portability ecosystem by reducing the infrastructure burden on both providers and users, which should in turn increase the number of services offering portability. The protocols and methodology of the DTP enable direct, service-to-service data transfer with streamlined engineering work."@en ;
                         rdfs:label "Data Transfer Project"@en ;
                         sto:hasOfficialResource <https://github.com/google/data-transfer-project> .
+
+
+sto:DataTransferProjectAnno a oa:Annotation ;
+    oa:hasBody sto:DataTransferProject ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf"] .
+
+sto:Data_Transfer_Project_Overview_and_Fundamentals a oa:SpecificResource;
+rdfs:label "Data Transfer Project Overview and Fundamentals"@en ;
+sto:hasOpenResource <https://datatransferproject.dev/dtp-overview.pdf>.
 
 
 ###  https://w3id.org/i40/sto#DataTransferProjectWhitepaper
@@ -17108,7 +17129,7 @@ sto:xTee rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto/AiiData
-:AiiData rdf:type owl:NamedIndividual ,
+sto:AiiData rdf:type owl:NamedIndividual ,
                   :AiiClassification ;
          sto:alignsWith sto:InformationDomain ,
                         idsram:InformationLayer ;
@@ -17121,8 +17142,28 @@ sto:xTee rdf:type owl:NamedIndividual ,
          rdfs:label "AII Data Classification"@en .
 
 
+ sto:AnnoAiiData a oa:Annotation ;
+    oa:hasBody sto:AiiData ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 25" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ] ] .
+
+sto:Industrial_Internet_Architecture_Version_1 a oa:SpecificResource;
+rdfs:label "Industrial Internet Architecture Version 1"@en ;
+sto:hasOpenResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf>.
+
+
 ###  https://w3id.org/i40/sto/AiiNetwork
-:AiiNetwork rdf:type owl:NamedIndividual ,
+sto:AiiNetwork rdf:type owl:NamedIndividual ,
                      :AiiClassification ;
             sto:alignsWith sto:Connectivity ,
                            rami:Communication ,
@@ -17136,8 +17177,26 @@ sto:xTee rdf:type owl:NamedIndividual ,
             rdfs:label "AII Network Classification"@en .
 
 
+sto:AnnoAiiNetwork a oa:Annotation ;
+    oa:hasBody sto:AiiNetwork;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 10" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 25" ] ] ] .
+
+
+
+
 ###  https://w3id.org/i40/sto/AiiSecurity
-:AiiSecurity rdf:type owl:NamedIndividual ,
+sto:AiiSecurity rdf:type owl:NamedIndividual ,
                       :AiiClassification ;
              sto:alignsWith sto:Security ,
                             idsram:Security ;
@@ -17145,6 +17204,23 @@ sto:xTee rdf:type owl:NamedIndividual ,
                         sto:Security ;
              sto:isDescribedin :IndustrialInternetArchitecture ;
              rdfs:label "AII Security Classification"@en .
+
+
+
+sto:AnnoAiiSecurity a oa:Annotation ;
+    oa:hasBody sto:AiiSecurity;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 37" ] ] ] .
 
 
 ###  https://w3id.org/i40/sto/AllianceIndustrieDuFutur
