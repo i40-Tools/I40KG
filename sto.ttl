@@ -29,6 +29,7 @@
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oa: <https://www.w3.org/ns/oa> .
 @base <https://w3id.org/i40/sto/> .
 
 <https://w3id.org/i40/sto/> rdf:type owl:Ontology ;
@@ -388,7 +389,7 @@ sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
-                      rdfs:domain sto:Standard ;
+                      rdfs:domain sto:Publication ;
                       rdfs:range sto:StandardClassification .
 
 
@@ -449,6 +450,8 @@ sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
 sto:hasPublisher rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
                  rdfs:domain sto:Publication ;
+                 rdfs:label "has Publisher"@en ;
+                 rdfs:comment "The organization that published this Standard"@en;
                  rdfs:range sto:StandardOrganization .
 
 
@@ -814,8 +817,8 @@ sto:ConnectivityLayer rdf:type owl:Class ;
                       rdfs:label "Connectivity Layer"@en .
 
 
-###  https://w3id.org/i40/sto#CrosscuttingFunction
-sto:CrosscuttingFunction rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#IiraCrosscuttingFunction
+sto:IiraCrosscuttingFunction rdf:type owl:Class ;
                          rdfs:subClassOf sto:StandardClassification ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty dul:isPartOf ;
@@ -849,8 +852,8 @@ sto:FiwareChapter rdf:type owl:Class ;
                   rdfs:subClassOf sto:StandardClassification .
 
 
-###  https://w3id.org/i40/sto#FunctionalDomain
-sto:FunctionalDomain rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#IiraFunctionalDomain
+sto:IiraFunctionalDomain rdf:type owl:Class ;
                      rdfs:subClassOf sto:StandardClassification ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty dul:isPartOf ;
@@ -983,8 +986,8 @@ sto:StandardPart rdf:type owl:Class ;
 sto:StandardizationFramework rdf:type owl:Class .
 
 
-###  https://w3id.org/i40/sto#SystemCharacteristics
-sto:SystemCharacteristics rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#IiraSystemCharacteristics
+sto:IiraSystemCharacteristics rdf:type owl:Class ;
                           rdfs:subClassOf sto:StandardClassification ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty dul:isPartOf ;
@@ -1022,10 +1025,6 @@ sto:Viewpoint rdf:type owl:Class ;
               rdfs:subClassOf sto:StandardClassification .
 
 
-###  https://w3id.org/i40/sto#standard
-sto:standard rdf:type owl:Class .
-
-
 ###  https://w3id.org/i40/sto#xRoadSection
 sto:xRoadSection rdf:type owl:Class ;
                  rdfs:subClassOf sto:StandardClassification ,
@@ -1037,9 +1036,17 @@ sto:xRoadSection rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto/AiiClassification
-:AiiClassification rdf:type owl:Class ;
+sto:AiiClassification rdf:type owl:Class ;
                    rdfs:subClassOf sto:StandardClassification ;
                    rdfs:label "Alliance of Industrial Internet Architecture Classification"@en .
+
+ sto:AnnoAiiClassification a oa:Annotation ;
+    oa:hasBody sto:AiiClassification ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+         ] .
 
 
 ###  https://w3id.org/i40/sto/OcfBlock
@@ -1267,6 +1274,635 @@ dbr:_Texas rdf:type owl:NamedIndividual ,
                                                rdfs:label "Washington D.C"@en .
 
 
+###  https://w3id.org/i40/sto#ApplicationDomain
+sto:ApplicationDomain rdf:type owl:NamedIndividual ,
+                                sto:FunctionalDomain ,
+                                sto:StandardClassification ;
+                       dul:associatedWith rami:Functional ,
+                                          rami:Information ,
+                                          sto:BdvaCloudAndHighPerformanceComputing ,
+                                          sto:EdgecrossItSystemsLayer ,
+                                          sto:FiwareAdvancedUi ,
+                                          sto:FiwareCloudHosting ,
+                                          idsram:ProcessLayer ;
+                       dul:isPartOf sto:FunctionalViewpoint ;
+                       sto:alignsWith rami:Functional ,
+                                      rami:Information ,
+                                      sto:BdvaCloudAndHighPerformanceComputing ,
+                                      sto:EdgecrossItSystemsLayer ,
+                                      sto:FiwareAdvancedUi ,
+                                      sto:FiwareCloudHosting ,
+                                      idsram:ProcessLayer ;
+                       sto:frames sto:BdvaDataViualisationAndUserInteraction ,
+                                  sto:DataProcessing ,
+                                  sto:EndpointInvocation ,
+                                  sto:Interoperability ,
+                                  sto:SyntacticInteroperability ;
+                       sto:isDescribedin sto:IIRA ;
+                       rdfs:label "IIRA Application Domain"@en ;
+                       skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.4 THE APPLICATION DOMAIN' 'Page 34' " .
+
+
+###  https://w3id.org/i40/sto#BusinessDomain
+sto:BusinessDomain rdf:type owl:NamedIndividual ,
+                             sto:FunctionalDomain ,
+                             sto:StandardClassification ;
+                    dul:associatedWith rami:Business ,
+                                       sto:OceanSystemViewpoint ,
+                                       idsram:BusinessLayer ;
+                    dul:isPartOf sto:FunctionalViewpoint ;
+                    sto:alignsWith rami:Business ,
+                                   sto:OceanSystemViewpoint ,
+                                   idsram:BusinessLayer ;
+                    sto:frames rami:ProcessPlanning ;
+                    sto:isDescribedin sto:IIRA ;
+                    rdfs:label "IIRA Business Domain"@en ;
+                    skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.5 THE BUSINESS DOMAIN' 'Page 34' " .
+
+
+###  https://w3id.org/i40/sto#BusinessViewpoint
+sto:BusinessViewpoint rdf:type owl:NamedIndividual ,
+                                sto:StandardClassification ,
+                                sto:Viewpoint ;
+                       dcterms:creator sto:sebastian ;
+                       dul:associatedWith sto:IviBusinessLayer ,
+                                          sto:OceanBusinessViewpoint ,
+                                          sto:OceanMarketplaceViewpoint ;
+                       sto:alignsWith sto:IviBusinessLayer ,
+                                      sto:OceanBusinessViewpoint ,
+                                      sto:OceanMarketplaceViewpoint ;
+                       sto:frames sto:BusinessContext ,
+                                  sto:BusinessValue ,
+                                  sto:MaintenanceCost ,
+                                  sto:ProductLiability ,
+                                  sto:Resilience ,
+                                  sto:ReturnOnInvestment ,
+                                  sto:Safety ,
+                                  sto:Security ,
+                                  sto:Trustworthiness ;
+                       sto:isDescribedin sto:IIRA ;
+                       rdfs:comment "The business viewpoint frames economic aspects and business relations regarded by the IIC Reference Architecture."@en ;
+                       rdfs:label "IIRA Business Viewpoint"@en ;
+                       skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.1 BUSINESS VIEWPOINT' 'Page 15' " .
+
+
+###  https://w3id.org/i40/sto#Connectivity
+sto:Connectivity rdf:type owl:NamedIndividual ,
+                           sto:CrosscuttingFunction ,
+                           sto:StandardClassification ;
+                  dul:associatedWith sto:LinkLayer ,
+                                     rami:Communication ,
+                                     sto:BdvaDataProcessingArchitectures ,
+                                     sto:DecisionMaker ,
+                                     sto:DtpSystemView ,
+                                     sto:FiwareApplicationsServicesAndDataDelivery ,
+                                     sto:IEC_62541 ,
+                                     sto:IICF ,
+                                     sto:IotaEvolutionInteroperability ,
+                                     sto:NgsiLdApiOperation ,
+                                     sto:REST ,
+                                     sto:oneM2M ,
+                                     <https://www.wikidata.org/wiki/Q1548249> ;
+                  dul:isPartOf sto:FunctionalViewpoint ;
+                  sto:alignsWith rami:Communication ,
+                                 sto:BdvaDataProcessingArchitectures ,
+                                 sto:DtpSystemView ,
+                                 sto:FiwareApplicationsServicesAndDataDelivery ,
+                                 sto:IotaEvolutionInteroperability ,
+                                 sto:NgsiLdApiOperation ;
+                  sto:frames sto:Authentication ,
+                             sto:Cardinality ,
+                             sto:CardinalityOfDataSources ,
+                             sto:Communication ,
+                             sto:DataAccess ,
+                             sto:DataDiscovery ,
+                             sto:DynamicAdjustability ,
+                             sto:EndpointInvocation ,
+                             sto:Evolvability ,
+                             sto:Governance ,
+                             sto:IPv4Support ,
+                             sto:IPv6Support ,
+                             sto:Identification ,
+                             sto:IdentityManagement ,
+                             sto:IntegrityProtection ,
+                             sto:Interoperability ,
+                             sto:Multilaterism ,
+                             sto:NetworkPerformance ,
+                             sto:QualityOfService ,
+                             sto:Reliability ,
+                             sto:Resilience ,
+                             sto:Safety ,
+                             sto:Scalability ,
+                             sto:SecureCommunication ,
+                             sto:Security ,
+                             sto:SemanticInteroperability ,
+                             sto:ServiceChoreography ,
+                             sto:ServiceComposition ,
+                             sto:ServiceDeployment ,
+                             sto:ServiceDescription ,
+                             sto:ServiceDiscovery ,
+                             sto:ServiceLifecycleManagement ,
+                             sto:ServiceOrchestration ,
+                             sto:SyntacticInteroperability ,
+                             sto:TimeSynchronization ,
+                             sto:Trustworthiness ,
+                             sto:Unicast ;
+                  sto:isDescribedin sto:IIRA ;
+                  rdfs:label "IIRA Connectivity"@en .
+
+
+###  https://w3id.org/i40/sto#ControlDomain
+sto:ControlDomain rdf:type owl:NamedIndividual ,
+                            sto:FunctionalDomain ,
+                            sto:StandardClassification ;
+                   dul:associatedWith rami:Integration ,
+                                      sto:EdgecrossEdgeComputingLayer ,
+                                      sto:FiwareIotServicesEnablement ,
+                                      sto:IotaInformationViewpoint ,
+                                      sto:NgsiLdApiOperation ,
+                                      sto:xRoadProtocolsInterfaces ,
+                                      idsram:SystemLayer ;
+                   dul:isPartOf sto:FunctionalViewpoint ;
+                   sto:alignsWith rami:Integration ,
+                                  sto:EdgecrossEdgeComputingLayer ,
+                                  sto:FiwareIotServicesEnablement ,
+                                  sto:IotaInformationViewpoint ,
+                                  sto:NgsiLdApiOperation ,
+                                  sto:xRoadProtocolsInterfaces ,
+                                  idsram:SystemLayer ;
+                   sto:frames sto:Actuation ,
+                              sto:AssetManagement ,
+                              sto:Communication ,
+                              sto:EdgeAnalytics ,
+                              sto:IoT ,
+                              sto:Sensing ,
+                              sto:VirtualEntity ;
+                   sto:isDescribedin sto:IIRA ;
+                   rdfs:label "IIRA Control Domain"@en ;
+                   skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 27' " .
+
+
+###  https://w3id.org/i40/sto#CrosscuttingFunction
+sto:CrosscuttingFunction rdf:type owl:NamedIndividual ;
+                          dcterms:creator sto:sebastian .
+
+
+###  https://w3id.org/i40/sto#DistributedDataManagement
+sto:DistributedDataManagement rdf:type owl:NamedIndividual ,
+                                        sto:CrosscuttingFunction ,
+                                        sto:StandardClassification ;
+                               dcterms:creator sto:sebastian ;
+                               dul:associatedWith rami:Communication ,
+                                                  sto:FiwareCloudHosting ;
+                               dul:isPartOf sto:FunctionalViewpoint ;
+                               sto:alignsWith rami:Communication ,
+                                              sto:FiwareCloudHosting ;
+                               sto:frames sto:Interoperability ,
+                                          sto:SemanticInteroperability ;
+                               sto:isDescribedin sto:IIRA ;
+                               rdfs:label "IIRA Distributed Data Management"@en .
+
+
+###  https://w3id.org/i40/sto#FunctionalViewpoint
+sto:FunctionalViewpoint rdf:type owl:NamedIndividual ,
+                                  sto:StandardClassification ,
+                                  sto:Viewpoint ;
+                         dcterms:creator sto:sebastian ;
+                         dul:associatedWith sto:IotaFunctionalViewpoint ,
+                                            sto:OceanSystemViewpoint ,
+                                            idsram:ReferenceArchitectureModel ;
+                         sto:alignsWith sto:IotaFunctionalViewpoint ,
+                                        sto:OceanSystemViewpoint ,
+                                        idsram:ReferenceArchitectureModel ;
+                         sto:frames rami:ProcessPlanning ,
+                                    sto:AccessPolicy ,
+                                    sto:Actuation ,
+                                    sto:Authentication ,
+                                    sto:Authorization ,
+                                    sto:Availability ,
+                                    sto:BdvaDataViualisationAndUserInteraction ,
+                                    sto:Cardinality ,
+                                    sto:CardinalityOfDataSources ,
+                                    sto:CloudComputing ,
+                                    sto:Communication ,
+                                    sto:DataAccess ,
+                                    sto:DataAccessControl ,
+                                    sto:DataAnalytics ,
+                                    sto:DataAtRest ,
+                                    sto:DataDiscovery ,
+                                    sto:DataInMotion ,
+                                    sto:DataProcessing ,
+                                    sto:DataProtection ,
+                                    sto:DataSovereignty ,
+                                    sto:DynamicAdjustability ,
+                                    sto:EndpointInvocation ,
+                                    sto:Evolvability ,
+                                    sto:Governance ,
+                                    sto:IPv4Support ,
+                                    sto:IPv6Support ,
+                                    sto:Identification ,
+                                    sto:IdentityManagement ,
+                                    sto:IntegrityProtection ,
+                                    sto:Interoperability ,
+                                    sto:IoT ,
+                                    sto:Multilaterism ,
+                                    sto:NetworkPerformance ,
+                                    sto:Privacy ,
+                                    sto:QualityOfService ,
+                                    sto:RealTimeAnalytics ,
+                                    sto:Reliability ,
+                                    sto:Resilience ,
+                                    sto:Safety ,
+                                    sto:Scalability ,
+                                    sto:SecureCommunication ,
+                                    sto:Security ,
+                                    sto:SecurityConfiguration ,
+                                    sto:SemanticInteroperability ,
+                                    sto:Sensing ,
+                                    sto:ServiceAccessControl ,
+                                    sto:ServiceChoreography ,
+                                    sto:ServiceComposition ,
+                                    sto:ServiceDeployment ,
+                                    sto:ServiceDescription ,
+                                    sto:ServiceDiscovery ,
+                                    sto:ServiceIsolation ,
+                                    sto:ServiceLifecycleManagement ,
+                                    sto:ServiceOrchestration ,
+                                    sto:ServiceLevelAgreements ,
+                                    sto:StreamProcessing ,
+                                    sto:SyntacticInteroperability ,
+                                    sto:TimeSynchronization ,
+                                    sto:Trustworthiness ,
+                                    sto:Unicast ;
+                         sto:isDescribedin sto:IIRA ;
+                         dcterms:creator "The IIRA Functional Viewpoint contains the IIRA Domains in order to describe technical relations and communications between the several dimensions of IoT devices."@en ,
+                                         "sebastian"@en ;
+                         rdfs:comment "The IIRA Functional Viewpoint contains the IIRA Domains in order to describe technical relations and communications between the several dimensions of IoT devices."@en ;
+                         rdfs:label "IIRA Functional Viewpoint"@en ;
+                         skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.3 FUNCTIONAL VIEWPOINT' 'Page 16' " .
+
+
+###  https://w3id.org/i40/sto#ImplementationViewpoint
+sto:ImplementationViewpoint rdf:type owl:NamedIndividual ,
+                                      sto:StandardClassification ,
+                                      sto:Viewpoint ;
+                             dul:associatedWith sto:ApplicationDomain ,
+                                                sto:BusinessDomain ,
+                                                sto:ControlDomain ,
+                                                sto:InformationDomain ,
+                                                sto:OperationDomain ,
+                                                sto:DtpDeploymentView ,
+                                                sto:FIWARE ,
+                                                sto:IotaDeploymentOperationViewpoint ,
+                                                sto:NgsiLdArchitecture ,
+                                                sto:xRoadDeploymentView ,
+                                                idsram:SystemLayer ;
+                             sto:alignsWith sto:DtpDeploymentView ,
+                                            sto:FIWARE ,
+                                            sto:IotaDeploymentOperationViewpoint ,
+                                            sto:NgsiLdArchitecture ,
+                                            sto:xRoadDeploymentView ;
+                             sto:frames sto:CloudComputing ,
+                                        sto:Communication ,
+                                        sto:DataProcessing ,
+                                        sto:EdgeComputing ,
+                                        sto:EndpointDescription ,
+                                        sto:Interoperability ,
+                                        sto:SemanticInteroperability ;
+                             sto:isDescribedin sto:IIRA ;
+                             rdfs:label "IIRA Implementation Viewpoint"@en ;
+                             skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.4 IMPLEMENTATION VIEWPOINT' 'Page 16' " .
+
+
+###  https://w3id.org/i40/sto#IndustrialAnalytics
+sto:IndustrialAnalytics rdf:type owl:NamedIndividual ,
+                                  sto:CrosscuttingFunction ,
+                                  sto:StandardClassification ;
+                         dul:isPartOf sto:FunctionalViewpoint ;
+                         sto:isDescribedin sto:IIRA .
+
+
+###  https://w3id.org/i40/sto#InformationDomain
+sto:InformationDomain rdf:type owl:NamedIndividual ,
+                                sto:FunctionalDomain ,
+                                sto:StandardClassification ;
+                       dul:associatedWith rami:Information ,
+                                          sto:BdvaDataAnalytics ,
+                                          sto:BdvaDataProcessingArchitectures ,
+                                          sto:DtpSystemView ,
+                                          sto:EdgecrossEdgeComputingLayer ,
+                                          sto:IotaInformationViewpoint ,
+                                          sto:NgsiLdInformationModel ,
+                                          idsram:InformationLayer ,
+                                          idsram:ProcessLayer ;
+                       dul:isPartOf sto:FunctionalViewpoint ;
+                       sto:alignsWith rami:Information ,
+                                      sto:BdvaDataAnalytics ,
+                                      sto:BdvaDataProcessingArchitectures ,
+                                      sto:DtpSystemView ,
+                                      sto:EdgecrossEdgeComputingLayer ,
+                                      sto:IotaInformationViewpoint ,
+                                      sto:NgsiLdInformationModel ,
+                                      idsram:InformationLayer ,
+                                      idsram:ProcessLayer ;
+                       sto:frames sto:DataAnalytics ,
+                                  sto:DataProcessing ,
+                                  sto:Interoperability ,
+                                  sto:SemanticInteroperability ,
+                                  sto:StreamProcessing ,
+                                  sto:SyntacticInteroperability ;
+                       sto:isDescribedin sto:IIRA ;
+                       rdfs:label "IIRA Information Domain"@en ;
+                       skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.3 THE INFORMATION DOMAIN' 'Page 32' " .
+
+
+###  https://w3id.org/i40/sto#IntelligentAndResilientControl
+sto:IntelligentAndResilientControl rdf:type owl:NamedIndividual ,
+                                             sto:CrosscuttingFunction ,
+                                             sto:StandardClassification ;
+                                    dul:isPartOf sto:FunctionalViewpoint ;
+                                    sto:isDescribedin sto:IIRA ;
+                                    rdfs:comment """There is a renewed movement to distribute computational capability toward the network peripheries, away from concentrated computation centers, to benefit from a reduction in movement of data and communication latency, and enhancement in local intelligent control and, more importantly, resilience.
+source: Industrial Internet Reference Archietcture"""@en ;
+                                    rdfs:label "IIRA Intelligent and Resilient Control"@en .
+
+
+###  https://w3id.org/i40/sto#LinkLayer
+sto:LinkLayer rdf:type owl:NamedIndividual ,
+                        sto:IicfConnectivityLayer ,
+                        sto:StandardClassification ;
+               dul:associatedWith sto:IEEE_802 ,
+                                  sto:IEEE_802_16-2012 ,
+                                  sto:WiFi ;
+               dul:isPartOf sto:Connectivity ;
+               sto:frames sto:Communication ;
+               rdfs:label "IICF Link Layer"@en .
+
+
+###  https://w3id.org/i40/sto#NetworkLayer
+sto:NetworkLayer rdf:type owl:NamedIndividual ,
+                           sto:IicfConnectivityLayer ,
+                           sto:StandardClassification ;
+                  dul:associatedWith sto:IPv6 ;
+                  dul:isPartOf sto:Connectivity ;
+                  sto:frames sto:Communication ,
+                             sto:IPv4Support ,
+                             sto:IPv6Support ,
+                             sto:Interoperability ,
+                             sto:SyntacticInteroperability ;
+                  rdfs:label "IICF Network Layer"@en .
+
+
+###  https://w3id.org/i40/sto#OperationDomain
+sto:OperationDomain rdf:type owl:NamedIndividual ,
+                              sto:FunctionalDomain ,
+                              sto:StandardClassification ;
+                     dul:associatedWith rami:Functional ,
+                                        sto:DtpSystemView ,
+                                        sto:EdgecrossEdgeComputingLayer ,
+                                        sto:IotaInformationViewpoint ,
+                                        sto:IviActivityView ,
+                                        idsram:ProcessLayer ;
+                     dul:isPartOf sto:FunctionalViewpoint ;
+                     sto:alignsWith rami:Functional ,
+                                    sto:DtpSystemView ,
+                                    sto:EdgecrossEdgeComputingLayer ,
+                                    sto:IotaInformationViewpoint ,
+                                    sto:IviActivityView ,
+                                    idsram:ProcessLayer ;
+                     sto:frames sto:DataAnalytics ,
+                                sto:RealTimeAnalytics ,
+                                sto:ServiceDeployment ,
+                                sto:ServiceLifecycleManagement ;
+                     sto:isDescribedin sto:IIRA ;
+                     rdfs:label "IIRA Operation Domain"@en ;
+                     skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.2 THE OPERATIONS DOMAIN' 'Page 30' " .
+
+
+###  https://w3id.org/i40/sto#PhysicalLayer
+sto:PhysicalLayer rdf:type owl:NamedIndividual ,
+                            sto:IicfConnectivityLayer ,
+                            sto:StandardClassification ;
+                   dul:associatedWith sto:IEEE_802 ,
+                                      sto:IEEE_802_16-2012 ;
+                   dul:isPartOf sto:Connectivity ;
+                   sto:frames sto:Communication ;
+                   rdfs:label "IICF Physical Layer" .
+
+
+###  https://w3id.org/i40/sto#PhysicalSystems
+sto:PhysicalSystems rdf:type owl:NamedIndividual ,
+                              sto:StandardClassification ;
+                     dcterms:creator sto:sebastian ;
+                     dul:associatedWith rami:Asset ,
+                                        sto:EdgecrossFacilityLayer ,
+                                        sto:IviAssetView ,
+                                        idsram:SystemLayer ;
+                     dul:isPartOf sto:FunctionalViewpoint ;
+                     sto:alignsWith rami:Asset ,
+                                    sto:EdgecrossFacilityLayer ,
+                                    sto:IviAssetView ,
+                                    idsram:SystemLayer ;
+                     sto:isDescribedin sto:IIRA ;
+                     dcterms:creator "sebastian" ;
+                     rdfs:comment "Computational capabilities ranging from very limited (e.g. in a smart sensor) to reasonably rich (e.g. a cluster of servers) are placed in, attached to or collocated with physical systems (e.g. in smart sensors, devices or machines). These capabilities are connected through a variety of connectivity technologies including wireless."@en ;
+                     rdfs:label "IIRA Physical Systems"@en ;
+                     sto:hasOfficialResource <https://www.iiconsortium.org/IIRA.htm> .
+
+
+###  https://w3id.org/i40/sto#Privacy
+sto:IIRAPrivacy rdf:type owl:NamedIndividual ,
+                      sto:SystemCharacteristics ,
+                      sto:StandardClassification ;
+             dul:associatedWith sto:DtpSecurityPrivacy ;
+             dul:isPartOf sto:FunctionalViewpoint ;
+             sto:alignsWith sto:DtpSecurityPrivacy ;
+             sto:frames sto:DataSovereignty ,
+                        sto:Privacy ,
+                        sto:Trustworthiness ;
+             sto:isDescribedin sto:IIRA ;
+             rdfs:label "IIRA Privacy"@en .
+
+
+###  https://w3id.org/i40/sto#Reliability
+sto:IIRAReliability rdf:type owl:NamedIndividual ,
+                          sto:SystemCharacteristics ,
+                          sto:StandardClassification ;
+                 dul:isPartOf sto:FunctionalViewpoint ;
+                 skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>' '3.4 RELIABILITY' 'Page 18'";
+                 sto:frames sto:Reliability ,
+                            sto:Trustworthiness ;
+                 sto:isDescribedin sto:IIRA ;
+                 rdfs:label "IIRA Reliability"@en .
+
+
+###  https://w3id.org/i40/sto#Resilience
+sto:IIRAResilience rdf:type owl:NamedIndividual ,
+                         sto:SystemCharacteristics ,
+                         sto:StandardClassification ;
+                dul:isPartOf sto:FunctionalViewpoint ;
+                sto:isDescribedin sto:IIRA ;
+                rdfs:label "IIRA Resilience"@en .
+
+
+###  https://w3id.org/i40/sto#Safety
+sto:IIRASafety rdf:type owl:NamedIndividual ,
+                     sto:SystemCharacteristics ,
+                     sto:StandardClassification ;
+            dul:isPartOf sto:FunctionalViewpoint ;
+            sto:isDescribedin sto:IIRA ;
+            rdfs:label "IIRA Safety"@en .
+
+
+###  https://w3id.org/i40/sto#Scalability
+sto:IIRAScalability rdf:type owl:NamedIndividual ,
+                          sto:SystemCharacteristics ,
+                          sto:StandardClassification ;
+                 dul:associatedWith sto:FiwareCloudHosting ;
+                 dul:isPartOf sto:FunctionalViewpoint ;
+                 sto:alignsWith sto:FiwareCloudHosting ;
+                 sto:frames sto:Scalability ;
+                 sto:isDescribedin sto:IIRA ;
+                  skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.2 Scalability Pillar' 'Page 24' " ;
+                 rdfs:label "IIRA Scalability"@en .
+
+
+###  https://w3id.org/i40/sto#Security
+sto:IIRASecurity rdf:type owl:NamedIndividual ,
+                       sto:SystemCharacteristics ,
+                       sto:StandardClassification ;
+              dcterms:creator sto:sebastian ;
+              dul:associatedWith sto:DataOwner ,
+                                 sto:DecisionMaker ,
+                                 sto:DtpSecurityPrivacy ,
+                                 sto:FiwareSecurity ,
+                                 sto:IotaAvailabilityResilience ,
+                                 sto:IotaTrustSecurityPrivacy ,
+                                 idsram:Security ,
+                                 <https://www.wikidata.org/wiki/Q1548249> ;
+              dul:isPartOf sto:FunctionalViewpoint ;
+              sto:alignsWith sto:DtpSecurityPrivacy ,
+                             sto:FiwareSecurity ,
+                             sto:IotaAvailabilityResilience ,
+                             sto:IotaTrustSecurityPrivacy ,
+                             idsram:Security ;
+              sto:frames sto:AccessPolicy ,
+                         sto:Authorization ,
+                         sto:Availability ,
+                         sto:CloudComputing ,
+                         sto:Communication ,
+                         sto:DataAccessControl ,
+                         sto:DataAtRest ,
+                         sto:DataInMotion ,
+                         sto:DataProcessing ,
+                         sto:DataProtection ,
+                         sto:DataSovereignty ,
+                         sto:Identification ,
+                         sto:IdentityManagement ,
+                         sto:IntegrityProtection ,
+                         sto:Privacy ,
+                         sto:Reliability ,
+                         sto:Resilience ,
+                         sto:Safety ,
+                         sto:SecureCommunication ,
+                         sto:Security ,
+                         sto:SecurityConfiguration ,
+                         sto:ServiceAccessControl ,
+                         sto:ServiceIsolation ,
+                         sto:ServiceLifecycleManagement ,
+                         sto:ServiceLevelAgreements ,
+                         sto:Trustworthiness ;
+              sto:isDescribedin sto:IIRA ;
+              rdfs:label "IIRA Security"@en .
+
+
+###  https://w3id.org/i40/sto#SecurityFramework
+sto:SecurityFramework rdf:type owl:NamedIndividual ,
+                                sto:StandardClassification ;
+                       dcterms:creator sto:sebastian ;
+                       dul:associatedWith sto:BdvaCyberSecurityTrust ,
+                                          sto:BdvaDataProtection ,
+                                          sto:xRoadSystemComponents ,
+                                          idsram:Security ;
+                       sto:alignsWith sto:BdvaCyberSecurityTrust ,
+                                      sto:BdvaDataProtection ,
+                                      sto:xRoadSystemComponents ,
+                                      idsram:Security ;
+                       rdfs:label "IIC Security Framework"@en ;
+                       skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'";
+                       sto:hasOfficialResource <https://www.iiconsortium.org/IISF.htm> .
+
+
+###  https://w3id.org/i40/sto#TansportLayer
+sto:TansportLayer rdf:type owl:NamedIndividual ,
+                            sto:IicfConnectivityLayer ,
+                            sto:StandardClassification ;
+                   dul:associatedWith sto:HTTP ,
+                                      sto:HTTP2 ,
+                                      sto:IEC_61158 ,
+                                      sto:ISO_20922 ,
+                                      sto:RFC_2616 ,
+                                      sto:RFC_793 ,
+                                      sto:RFC_8323 ,
+                                      sto:UDP ;
+                   dul:isPartOf sto:Connectivity ;
+                   sto:frames sto:Cardinality ,
+                              sto:CardinalityOfDataSources ,
+                              sto:Communication ,
+                              sto:EndpointInvocation ,
+                              sto:Interoperability ,
+                              sto:Multilaterism ,
+                              sto:SecureCommunication ,
+                              sto:Security ,
+                              sto:ServiceComposition ,
+                              sto:SyntacticInteroperability ,
+                              sto:TimeSynchronization ,
+                              sto:Trustworthiness ,
+                              sto:Unicast ;
+                   rdfs:label "IICF Transport Layer"@en .
+
+
+###  https://w3id.org/i40/sto#UsageViewpoint
+sto:UsageViewpoint rdf:type owl:NamedIndividual ,
+                             sto:StandardClassification ,
+                             sto:Viewpoint ;
+                    dul:associatedWith sto:BdvaDataViualisationAndUserInteraction ,
+                                       sto:DtpEcosystemView ,
+                                       sto:FiwareAdvancedUi ,
+                                       sto:IviManagementView ;
+                    sto:alignsWith sto:BdvaDataViualisationAndUserInteraction ,
+                                   sto:DtpEcosystemView ,
+                                   sto:FiwareAdvancedUi ,
+                                   sto:IviManagementView ;
+                    sto:frames rami:ProcessPlanning ,
+                               sto:DynamicAdjustability ,
+                               sto:Evolvability ,
+                               sto:RoleCategorization ,
+                               sto:ServiceChoreography ,
+                               sto:ServiceComposition ,
+                               sto:ServiceDeployment ,
+                               sto:ServiceLifecycleManagement ,
+                               sto:ServiceOrchestration ;
+                    sto:isDescribedin sto:IIRA ;
+                    rdfs:label "IIRA Usage Viewpoint"@en ;
+                    skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.2 USAGE VIEWPOINT' 'Page 16' " .
+
+
+###  https://w3id.org/i40/sto#Vocabulary
+sto:Vocabulary rdf:type owl:NamedIndividual ,
+                         foaf:Document ,
+                         sto:Publication ,
+                         sto:StandardClassification ;
+                dcterms:creator sto:IIC ,
+                                sto:sebastian ;
+                dul:associatedWith idsram:InformationLayer ;
+                foaf:maker sto:IIC ;
+                sto:alignsWith idsram:InformationLayer ;
+                sto:hasPublisher sto:IIC ;
+                sto:isDescribedin sto:IIRA ;
+                rdfs:label "IIC Vocabulary"@en .
+
+
 ###  http://lexvo.org/id/iso639-3/eng
 lang:eng rdf:type owl:NamedIndividual ,
                   dcterms:LinguisticSystem .
@@ -1441,7 +2077,21 @@ rami:ControlDevice rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/rami#EnergyEfficiency
-rami:EnergyEfficiency rdf:type owl:NamedIndividual .
+rami:EnergyEfficiency rdf:type owl:NamedIndividual ;
+                      sto:supports  sto:IoT ;
+                      sto:isDescribedin sto:AdministrationShell ;
+                      rdfs:comment "Efficient energy use, sometimes simply called energy efficiency, is the goal to reduce the amount of energy required to provide products and services."@en ;
+                      rdfs:label "RAMI Energy Efficiency"@en .
+
+sto:EnergyEfficiency rdf:type owl:NamedIndividual ,
+                               rami:AdminShellSubmodel ,
+                               sto:Concern ,
+                               sto:StandardClassification ;
+                      rdfs:comment "Efficient energy use, sometimes simply called energy efficiency, is the goal to reduce the amount of energy required to provide products and services."@en ;
+                      rdfs:label "Energy Efficiency"@en ;
+                      rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=2508075.2508082"@en ,
+                                   "https://dl.acm.org/citation.cfm?doid=3266237.3266263"@en ;
+                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Efficient_energy_use"@en .
 
 
 ###  https://w3id.org/i40/rami#Engineering
@@ -1495,7 +2145,6 @@ rami:Functional rdf:type owl:NamedIndividual ,
                                sto:IviManagementView ,
                                sto:NgsiLdDataRepresentation ,
                                sto:OceanSystemViewpoint ,
-                               sto:OperationDomain ,
                                sto:xRoadSystemComponents ,
                                idsram:ProcessLayer ;
                 sto:frames sto:EndpointDescription ,
@@ -1891,6 +2540,24 @@ sto:Actuation rdf:type owl:NamedIndividual ,
               skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28'" ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/Actuator> .
 
+sto:AnnoActuation a oa:Annotation ;
+    oa:hasBody sto:Actuation ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:IIC_PUB_G1_V1_80_20170131 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 28" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 29" ] ] ] .
+
+sto:IIC_PUB_G1_V1_80_20170131 a oa:SpecificResource;
+rdfs:label "The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en ;
+sto:hasOpenResource <https://www.iiconsortium.org/IIC_PUB_G1_V1.80_2017-01-31.pdf>.
 
 ###  https://w3id.org/i40/sto#Adaptability
 sto:Adaptability rdf:type owl:NamedIndividual ,
@@ -1951,9 +2618,10 @@ sto:Aeron rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Agility
 sto:Agility rdf:type owl:NamedIndividual ,
                      sto:Concern ;
-            sto:supports sto:BusinessContext ;
+                     sto:supports sto:BusinessContext;
+             skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.7 Agility Pillar' 'Page 31' " ;
             rdfs:comment """Agility as a key pillar that enables quick and astute business operational decisions for an OpenFog System. The predicted scale of the data generated by IoT means that it is highly unlikely that humans alone will be able to comprehend the data, derive knowledge and make wise decisions about how to best leverage their IoT assets for the benefit of their businesses. In the OpenFog architecture the agility pillar is about making sure that the valuable data generated in the IoT can be rapidly transformed into actionable insights that drive rapid decisions and further levels of automation to support business interest.
-Spurce: OpenFog Consortum Architecture Whitepaper"""@en ;
+Source: OpenFog Consortum Architecture Whitepaper"""@en ;
             skos:note "Publications referred: 'OPFRA001.020817' '4.7 Agility Pillar' 'Page 31' " .
 
 
@@ -1963,10 +2631,10 @@ sto:AgilityPillar rdf:type owl:NamedIndividual ,
                   dcterms:creator sto:sebastian ;
                   sto:frames sto:Agility ;
                   sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+                  skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.7 Agility Pillar' 'Page 31' " ;
                   rdfs:comment """The agility pillar addresses business operational decisions for an OpenFog RA deployment. It is not possible for humans alone to analyze the data generated at the scale predicted by IoT as the basis for rapid, sound business and operational decisions. The agility pillar focuses on transforming this volume of data into actionable insights. Agility also deals with the highly dynamic nature of fog deployments and the need to respond quickly to change.
 source: OpenFog Reference Architecture"""@en ;
-                  rdfs:label "OpenFog Agility Pillar"@en ;
-                  skos:note "Publications referred: 'OPFRA001.020817' '4.7 Agility Pillar' 'Page 31' " .
+                  rdfs:label "OpenFog Agility Pillar"@en .
 
 
 ###  https://w3id.org/i40/sto#AllSeenAlliance
@@ -2006,7 +2674,7 @@ sto:Anonymity rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ApplicationDomain
 sto:ApplicationDomain rdf:type owl:NamedIndividual ,
-                               sto:FunctionalDomain ,
+                               sto:IiraFunctionalDomain ,
                                sto:StandardClassification ;
                       sto:alignsWith rami:Functional ,
                                          rami:Information ,
@@ -2137,6 +2805,7 @@ sto:AutonomyPillar rdf:type owl:NamedIndividual ,
                    sto:frames sto:AutonomousCommunication ,
                               sto:AutonomousConfiguration ;
                    sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+                   skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.4 Autonomy Pillar' 'Page 27' " ;
                    rdfs:comment "The autonomy pillar enables fog nodes to continue to deliver the designed functionality in the face of the external service failures. In this architecture, autonomy is supported throughout the hierarchy. Decision making will be made at all levels of a deployment’s hierarchy including near the device or higher order layers. Centralized decision-making in the cloud is no longer the only option. Autonomy at the network edge means intelligence from local devices and peer data can be used to fulfill the business’ mission at the point where it makes the most business sense."@en ;
                    rdfs:label "OpenFog AutonomyPillar"@en ;
                    skos:note "Publications referred: 'OPFRA001.020817' '4.4 Autonomy Pillar' 'Page 27' " .
@@ -2163,7 +2832,7 @@ sto:Availability rdf:type owl:NamedIndividual ,
                               "https://ieeexplore.ieee.org/document/8327600" ,
                               "https://ieeexplore.ieee.org/document/8463303"@en ,
                               "https://ieeexplore.ieee.org/document/8474855"@en ;
-                 skos:note "Publications referred: 'OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
+                 skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/Availability> .
 
 
@@ -2589,7 +3258,7 @@ sto:BusinessContext rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#BusinessDomain
 sto:BusinessDomain rdf:type owl:NamedIndividual ,
-                            sto:FunctionalDomain ,
+                            sto:IiraFunctionalDomain ,
                             sto:StandardClassification ;
                    sto:alignsWith rami:Business ,
                                       sto:OceanSystemViewpoint ,
@@ -2714,7 +3383,13 @@ sto:CGMES rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Cardinality
-sto:Cardinality rdf:type owl:NamedIndividual .
+sto:CardinalityOfParticipants rdf:type owl:NamedIndividual ,
+                         sto:Concern ;
+                         sto:supports sto:interoperability;
+                dcterms:creator sto:sebastian ;
+                rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
+                rdfs:label "Cardinality of Participants"@en ;
+                sto:hasDBpediaResource <http://dbpedia.org/resource/Cardinality_(computer_engineering)> .
 
 
 ###  https://w3id.org/i40/sto#CardinalityOfDataSources
@@ -2760,7 +3435,7 @@ sto:Change_Management rdf:type owl:NamedIndividual ,
 sto:CloudComputing rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:sebastian ;
-                   sto:supports sto:DataProcessing ;
+                   dul:isPartOf sto:DataProcessing ;
                    rdfs:comment "Cloud computing is a type of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous, on-demand access to a shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services), which can be rapidly provisioned and released with minimal management effort. Cloud computing and storage solutions provide users and enterprises with various capabilities to store and process their data in third-party data centers that may be located far from the user–ranging in distance from across a city to across the world. Cloud computing relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid) over an electricity network. (source: wikipedia)"@en ;
                    rdfs:label "Cloud Computing Capability"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.102" ,
@@ -2769,7 +3444,8 @@ sto:CloudComputing rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Cloud_Connectivity
-sto:Cloud_Connectivity rdf:type owl:NamedIndividual .
+sto:Cloud_Connectivity rdf:type owl:NamedIndividual;
+sto:supports sto:CloudComputing .
 
 
 ###  https://w3id.org/i40/sto#Communication
@@ -2794,7 +3470,10 @@ sto:Communication rdf:type owl:NamedIndividual ,
                                "IoT-A Requirement UNI.318" ,
                                "IoT-A Requirement UNI.321" ,
                                "IoT-A Requirement UNI.324" ,
-                               "IoT-A Requirement UNI.716" .
+                               "IoT-A Requirement UNI.716" ;
+                                #  skos:note "Not sure about supports property"@en.
+                  sto:supports sto:Interoperability.
+               
 
 
 ###  https://w3id.org/i40/sto#ComplexEventProcessing
@@ -2827,7 +3506,7 @@ sto:Concern rdf:type owl:NamedIndividual ;
 sto:Confidentiality rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dcterms:creator sto:MuhammadUsman ;
-                    sto:supports sto:Security ;
+                    sto:supports sto:Privacy ;
                     rdfs:comment "Confidentiality involves a set of rules or a promise usually executed through confidentiality agreements that limits access or places restrictions on certain types of information."@en ;
                     rdfs:label "Confidentiality"@en ;
                     rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3108421.3108426"@en ,
@@ -2838,7 +3517,7 @@ sto:Confidentiality rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Connectivity
 sto:Connectivity rdf:type owl:NamedIndividual ,
                           sto:Concern ,
-                          sto:CrosscuttingFunction ,
+                          sto:IiraCrosscuttingFunction ,
                           sto:StandardClassification ;
                  dcterms:creator sto:MuhammadUsman ;
                  sto:alignsWith rami:Communication ,
@@ -2938,7 +3617,7 @@ sto:ContextAwareness rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ControlDomain
 sto:ControlDomain rdf:type owl:NamedIndividual ,
-                           sto:FunctionalDomain ,
+                           sto:IiraFunctionalDomain ,
                            sto:StandardClassification ;
                   sto:alignsWith rami:Integration ,
                                      sto:EdgecrossEdgeComputingLayer ,
@@ -3000,7 +3679,7 @@ sto:CrossLevel rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#CrosscuttingFunction
-sto:CrosscuttingFunction rdf:type owl:NamedIndividual ;
+sto:IiraCrosscuttingFunction rdf:type owl:NamedIndividual ;
                          dcterms:creator sto:sebastian .
 
 
@@ -3444,8 +4123,7 @@ sto:DataEncryption rdf:type owl:NamedIndividual ,
                             sto:Concern ;
                    dcterms:creator sto:MuhammadUsman ;
                    sto:supports sto:BusinessContext ,
-                                sto:Scalability ,
-                                sto:SecureCommunication ;
+                            sto:SecureCommunication ;
                    rdfs:comment ""@en ,
                                 "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers"@en ;
                    rdfs:label "Customization"@en ,
@@ -3653,6 +4331,18 @@ sto:DataTransferProject rdf:type owl:NamedIndividual ,
                         sto:hasOfficialResource <https://github.com/google/data-transfer-project> .
 
 
+sto:DataTransferProjectAnno a oa:Annotation ;
+    oa:hasBody sto:DataTransferProject ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf"] .
+
+sto:Data_Transfer_Project_Overview_and_Fundamentals a oa:SpecificResource;
+rdfs:label "Data Transfer Project Overview and Fundamentals"@en ;
+sto:hasOpenResource <https://datatransferproject.dev/dtp-overview.pdf>.
+
+
 ###  https://w3id.org/i40/sto#DataTransferProjectWhitepaper
 sto:DataTransferProjectWhitepaper rdf:type owl:NamedIndividual ,
                                            foaf:Document ,
@@ -3765,7 +4455,7 @@ sto:DigiMesh rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DistributedDataManagement
 sto:DistributedDataManagement rdf:type owl:NamedIndividual ,
-                                       sto:CrosscuttingFunction ,
+                                       sto:IiraCrosscuttingFunction ,
                                        sto:StandardClassification ;
                               dcterms:creator sto:sebastian ;
                               sto:alignsWith rami:Communication ,
@@ -5886,6 +6576,7 @@ sto:HierarchyPillar rdf:type owl:NamedIndividual ,
                                sto:DataAnalytics ,
                                sto:Sensing ;
                     sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+                    skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.8 Hierarchy Pillar' 'Page 31' " ;
                     rdfs:comment "OpenFog RA computing resources can be seen as a logical hierarchy based on the functional requirements of an end-to-end IoT system. Depending on the scale and nature of the scenario being addressed, the hierarchy may be a network of smart and connected partitioned systems arranged in physical or logical layers, or it may collapse into a single physical system (scalability pillar). source: OpenFog Reference Architecture"@en ;
                     rdfs:label "OpenFog Hierarchy Pillar"@en ;
                     skos:note "Publications referred: 'OPFRA001.020817' '4.8 Hierarchy Pillar' 'Page 31' " .
@@ -8922,14 +9613,18 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
                        foaf:Document ,
                        sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
+                       owl:sameAs sto:ISO_61508;
+              dcterms:creator sto:IEC ,
+              sto:ISO;
+              foaf:maker sto:IEC,
+              sto:ISO ;
               <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
-              sto:hasClassification rami:Safety ,
-                                    sto:Safety ,
+              sto:hasClassification  sto:Safety ,
+                                    rami:Safety ,
                                     idsram:Certification ;
-              sto:hasPublisher sto:IEC ;
-              sto:hasTargetConcern sto:Safety ;
+              sto:hasPublisher sto:IEC,
+              sto:ISO ;
+              sto:frames sto:Safety ;
               sto:relatedTo sto:IEC_61508 ,
                             sto:IEC_61511 ,
                             sto:IEC_62061 ,
@@ -12613,7 +13308,7 @@ sto:ImplementationViewpoint rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IndustrialAnalytics
 sto:IndustrialAnalytics rdf:type owl:NamedIndividual ,
-                                 sto:CrosscuttingFunction ,
+                                 sto:IiraCrosscuttingFunction ,
                                  sto:StandardClassification ;
                         dul:isPartOf sto:FunctionalViewpoint ;
                         sto:isDescribedin sto:IIRA .
@@ -12638,7 +13333,7 @@ sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#InformationDomain
 sto:InformationDomain rdf:type owl:NamedIndividual ,
-                               sto:FunctionalDomain ,
+                               sto:IiraFunctionalDomain ,
                                sto:StandardClassification ;
                       sto:alignsWith rami:Information ,
                                          sto:BdvaDataAnalytics ,
@@ -12710,7 +13405,7 @@ sto:IntegrityProtection rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IntelligentAndResilientControl
 sto:IntelligentAndResilientControl rdf:type owl:NamedIndividual ,
-                                            sto:CrosscuttingFunction ,
+                                            sto:IiraCrosscuttingFunction ,
                                             sto:StandardClassification ;
                                    dul:isPartOf sto:FunctionalViewpoint ;
                                    sto:isDescribedin sto:IIRA ;
@@ -14375,37 +15070,20 @@ sto:OpennessPillar rdf:type owl:NamedIndividual ,
                    sto:frames sto:Interoperability ,
                               sto:ServiceComposition ;
                    sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+                   skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.3 Openness Pillar' 'Page 26' " ;
                    rdfs:comment """Openness is essential for the success of a ubiquitous fog computing ecosystem for IoT platforms and applications. Proprietary or single vendor solutions can result in limited supplier diversity, which can have a negative impact on system cost, quality and innovation. The openness pillar importance is highlighted in our desire for fully interoperable systems, supported by a vibrant supplier ecosystem.
 source: OpenFog Reference Architecture"""@en ;
                    rdfs:label "OpenFog Opennes Pillar"@en ;
                    skos:note "Publications referred: 'OPFRA001.020817' '4.3 Openness Pillar' 'Page 26' " .
 
 
-###  https://w3id.org/i40/sto#OperationDomain
-sto:OperationDomain rdf:type owl:NamedIndividual ,
-                             sto:FunctionalDomain ,
-                             sto:StandardClassification ;
-                    sto:alignsWith rami:Functional ,
-                                       sto:DtpSystemView ,
-                                       sto:EdgecrossEdgeComputingLayer ,
-                                       sto:IotaInformationViewpoint ,
-                                       sto:IviActivityView ,
-                                       idsram:ProcessLayer ;
-                    dul:isPartOf sto:FunctionalViewpoint ;
-                    sto:alignsWith rami:Functional ,
-                                   sto:DtpSystemView ,
-                                   sto:EdgecrossEdgeComputingLayer ,
-                                   sto:IotaInformationViewpoint ,
-                                   sto:IviActivityView ,
-                                   idsram:ProcessLayer ;
-                    sto:frames sto:DataAnalytics ,
-                               sto:RealTimeAnalytics ,
-                               sto:ServiceDeployment ,
-                               sto:ServiceLifecycleManagement ;
-                    sto:isDescribedin sto:IIRA ;
-                    rdfs:label "IIRA Operation Domain"@en ;
-                    skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.2 THE OPERATIONS DOMAIN' 'Page 30' " .
-
+sto:SecurityPillar rdf:type owl:NamedIndividual ,
+                            sto:StandardClassification ;
+                   dcterms:creator sto:sebastian ;                  
+                   sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+                   skos:note "Publications referred: ' <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.1 Security Pillar' 'Page 23' " ;
+                   rdfs:comment """ Security implementations have many different descriptions and attributes such as privacy, anonymity, integrity, trust, attestation, verification, and measurement. These are key attributes for the OpenFog RA. Achieving the foundational elements for security requires an approach to discover, attest, and verify all smart and connected “things” before trust can be established source: OpenFog Reference Architecture"""@en ;
+                   rdfs:label "OpenFog Security Pillar"@en .
 
 ###  https://w3id.org/i40/sto#OrionContextBroker
 sto:OrionContextBroker rdf:type owl:NamedIndividual ,
@@ -14630,6 +15308,7 @@ sto:ProductionSystemModelData rdf:type owl:NamedIndividual ,
 sto:Programmability rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dul:isComponentOf sto:EdgeComputing ;
+                    skos:note "Publications referred: ' <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.5 Programmability Pillar' 'Page 29' " ;
                     sto:supports sto:EdgeComputing ;
                     rdfs:comment "In the edge computing, computation is offloaded from the cloud, and the edge nodes are most likely heterogeneous platforms. In this case, the runtime of these nodes differ from each other, and the programmer faces huge difficulties to write an application that may be deployed in the edge computing paradigm." ;
                     rdfs:label "Programmability" ;
@@ -14644,6 +15323,7 @@ sto:ProgrammabilityPillar rdf:type owl:NamedIndividual ,
                           dcterms:creator sto:sebastian ;
                           sto:frames sto:Programmability ;
                           sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+                          skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.5 Programmability Pillar' 'Page 29' " ;
                           rdfs:comment """The programmability pillar enables highly adaptive deployments including support for programming at the software and hardware layers. This means that re-tasking a fog node or cluster of fog nodes for accommodating operational dynamics, can be completely automated. The re-tasking can be done with the help of the fog nodes inherent programmability interfaces which we describe using general purpose compute or accelerator interfaces.
 source: OpenFog Reference Architecture"""@en ;
                           rdfs:label "OpenFog Programmability Pillar"@en ;
@@ -15073,13 +15753,14 @@ sto:RadioActivityControl rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RasPillar
-sto:RasPillar rdf:type owl:NamedIndividual ,
+sto:RASPillar rdf:type owl:NamedIndividual ,
                        sto:StandardClassification ;
               dcterms:creator sto:sebastian ;
               sto:frames sto:Availability ,
                          sto:MaintenanceCost ,
                          sto:Reliability ;
               sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+               skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
               rdfs:comment """Reliability, availability, and serviceability (RAS) is resident throughout successful system architectures and, as such, takes on great importance in the OpenFog RA. Hardware, software, and operations are the three main areas of the RAS pillar.
 source: OpenFog Reference Architecture"""@en ;
               rdfs:label "OpenFog RAS Pillar"@en ;
@@ -15122,7 +15803,9 @@ sto:Regulatory_Compliance rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Reliability
 sto:Reliability rdf:type owl:NamedIndividual ,
                          sto:Concern ;
-                dcterms:creator sto:sebastian ;
+                dcterms:creator sto:sebastian ;                
+                skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'";
+                skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
                 sto:supports sto:Trustworthiness ;
                 rdfs:comment "In computer networking, a reliable protocol provides reliability properties with respect to the delivery of data to the intended recipient(s), as opposed to an unreliable protocol, which does not provide notifications to the sender as to the delivery of transmitted data. (source: wikipedia)"@en ;
                 rdfs:label "Reliability"@en ;
@@ -15398,6 +16081,8 @@ sto:ScalabilityPillar rdf:type owl:NamedIndividual ,
                       dcterms:creator sto:sebastian ;
                       sto:frames sto:Scalability ;
                       sto:isDescribedin sto:OpenFogReferenceArchitecture ;
+
+                   skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.2 Scalability Pillar' 'Page 24' " ;
                       rdfs:comment """The scalability pillar addresses the dynamic technical and business needs behind fog deployments. Elastic scalability cuts across all fog computing applications and verticals. The hierarchical properties of fog and its location at logical edges of networks add additional scaling opportunities.
 source: OpenFog Reference Architecture"""@en ;
                       rdfs:label "OpenFog Scalability Pillar"@en ;
@@ -15468,7 +16153,7 @@ sto:Security rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#SecurityConfiguration
 sto:SecurityConfiguration rdf:type owl:NamedIndividual ,
                                    sto:Concern ;
-                          sto:supports sto:SecurityConfiguration ;
+                          sto:supports sto:Security ;
                           rdfs:comment "Users should be able to monitor and control the security and privacy settings of all the devices that they own."@en ;
                           rdfs:label "Security Configuration"@en ;
                           rdfs:seeAlso "IoT-A Requirement UNI.625" ;
@@ -17130,7 +17815,7 @@ sto:xTee rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto/AiiData
-:AiiData rdf:type owl:NamedIndividual ,
+sto:AiiData rdf:type owl:NamedIndividual ,
                   :AiiClassification ;
          sto:alignsWith sto:InformationDomain ,
                         idsram:InformationLayer ;
@@ -17143,8 +17828,28 @@ sto:xTee rdf:type owl:NamedIndividual ,
          rdfs:label "AII Data Classification"@en .
 
 
+ sto:AnnoAiiData a oa:Annotation ;
+    oa:hasBody sto:AiiData ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 25" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ] ] .
+
+sto:Industrial_Internet_Architecture_Version_1 a oa:SpecificResource;
+rdfs:label "Industrial Internet Architecture Version 1"@en ;
+sto:hasOpenResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf>.
+
+
 ###  https://w3id.org/i40/sto/AiiNetwork
-:AiiNetwork rdf:type owl:NamedIndividual ,
+sto:AiiNetwork rdf:type owl:NamedIndividual ,
                      :AiiClassification ;
             sto:alignsWith rami:Communication ,
                            rami:Integration ,
@@ -17158,8 +17863,26 @@ sto:xTee rdf:type owl:NamedIndividual ,
             rdfs:label "AII Network Classification"@en .
 
 
+sto:AnnoAiiNetwork a oa:Annotation ;
+    oa:hasBody sto:AiiNetwork;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 10" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 25" ] ] ] .
+
+
+
+
 ###  https://w3id.org/i40/sto/AiiSecurity
-:AiiSecurity rdf:type owl:NamedIndividual ,
+sto:AiiSecurity rdf:type owl:NamedIndividual ,
                       :AiiClassification ;
              sto:alignsWith sto:Security ,
                             idsram:Security ;
@@ -17167,6 +17890,23 @@ sto:xTee rdf:type owl:NamedIndividual ,
                         sto:Security ;
              sto:isDescribedin :IndustrialInternetArchitecture ;
              rdfs:label "AII Security Classification"@en .
+
+
+
+sto:AnnoAiiSecurity a oa:Annotation ;
+    oa:hasBody sto:AiiSecurity;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_Architecture_Version_1 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 37" ] ] ] .
 
 
 ###  https://w3id.org/i40/sto/AllianceIndustrieDuFutur
@@ -17667,7 +18407,7 @@ sto:ConstrainedDevices rdfs:seeAlso "IoT-A Requirement UNI.307" ,
                                     "IoT-A Requirement UNI.306" .
 
 
-sto:CrosscuttingFunction dcterms:creator "sebastian"@en ;
+sto:IiraCrosscuttingFunction dcterms:creator "sebastian"@en ;
                          rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en ;
                          rdfs:label "IIRA Crosscutting Function"@en ;
                          skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.6 CROSSCUTTING FUNCTIONS AND SYSTEM CHARACTERISTICS' 'Page 34' " .
