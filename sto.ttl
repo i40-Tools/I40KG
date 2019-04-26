@@ -875,6 +875,17 @@ sto:EdgecrossLayer rdf:type owl:Class ;
                    rdfs:label "Edgecross Layer"@en .
 
 
+sto:EdgecrossLayerAnno a oa:Annotation ;
+    oa:hasBody sto:EdgecrossLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Edgecross_Consortium_to_Address_Edge_Integration_in_IIoT_enabled_Architectures ; 
+        dc:format "pdf" ] .
+
+sto:Edgecross_Consortium_to_Address_Edge_Integration_in_IIoT_enabled_Architectures a oa:SpecificResource;
+rdfs:label "Edgecross Consortium to Address Edge Integration in IIoT-enabled Architectures"@en ;
+sto:hasOpenResource <https://www.edgecross.org/ja/data-download/pdf/Edgecross_Consortium_WP(E).pdf>.
+
 ###  https://w3id.org/i40/sto#FiwareChapter
 sto:FiwareChapter rdf:type owl:Class ;
                   rdfs:subClassOf sto:StandardClassification .
@@ -4542,6 +4553,22 @@ sto:EdgecrossEdgeComputingLayer rdf:type owl:NamedIndividual ,
                                 rdfs:label "Edgecross Edgecomputing Layer"@en .
 
 
+sto:EdgecrossEdgeComputingLayerAnno a oa:Annotation ;
+    oa:hasBody sto:EdgecrossEdgeComputingLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Edgecross_Consortium_to_Address_Edge_Integration_in_IIoT_enabled_Architectures;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 9" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 15" ] ] ] .
+
+
 ###  https://w3id.org/i40/sto#EdgecrossFacilityLayer
 sto:EdgecrossFacilityLayer rdf:type owl:NamedIndividual ,
                                     sto:EdgecrossLayer ,
@@ -4552,6 +4579,23 @@ sto:EdgecrossFacilityLayer rdf:type owl:NamedIndividual ,
                                           rami:Asset ;
                            sto:isDescribedin sto:EdgecrossArchitecture ;
                            rdfs:label "Edgecross FA"@en .
+
+
+sto:EdgecrossFacilityLayerAnno a oa:Annotation ;
+    oa:hasBody sto:EdgecrossFacilityLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Edgecross_Consortium_to_Address_Edge_Integration_in_IIoT_enabled_Architectures;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 9" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 15" ] ] ] .
+
 
 
 ###  https://w3id.org/i40/sto#EdgecrossItSystemsLayer
@@ -4569,6 +4613,23 @@ sto:EdgecrossItSystemsLayer rdf:type owl:NamedIndividual ,
                                        sto:DataInMotion ;
                             sto:isDescribedin sto:EdgecrossArchitecture ;
                             rdfs:label "Edgecross IT Systems Layer"@en .
+
+
+
+sto:EdgecrossItSystemsLayerAnno a oa:Annotation ;
+    oa:hasBody sto:EdgecrossItSystemsLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Edgecross_Consortium_to_Address_Edge_Integration_in_IIoT_enabled_Architectures;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 9" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 15" ] ] ] .
 
 
 ###  https://w3id.org/i40/sto#EdgecrossWhitepaper
@@ -17142,7 +17203,7 @@ sto:AiiData rdf:type owl:NamedIndividual ,
          rdfs:label "AII Data Classification"@en .
 
 
- sto:AnnoAiiData a oa:Annotation ;
+ sto:AiiDataAnno a oa:Annotation ;
     oa:hasBody sto:AiiData ;
     oa:hasTarget [ 
          a oa:SpecificResource;
@@ -17177,7 +17238,7 @@ sto:AiiNetwork rdf:type owl:NamedIndividual ,
             rdfs:label "AII Network Classification"@en .
 
 
-sto:AnnoAiiNetwork a oa:Annotation ;
+sto:AiiNetworkAnno a oa:Annotation ;
     oa:hasBody sto:AiiNetwork;
     oa:hasTarget [ 
          a oa:SpecificResource;
@@ -17207,7 +17268,7 @@ sto:AiiSecurity rdf:type owl:NamedIndividual ,
 
 
 
-sto:AnnoAiiSecurity a oa:Annotation ;
+sto:AiiSecurityAnno a oa:Annotation ;
     oa:hasBody sto:AiiSecurity;
     oa:hasTarget [ 
          a oa:SpecificResource;
@@ -17618,7 +17679,7 @@ idsram:SystemLayer rdf:type owl:NamedIndividual ,
                                   rami:Integration ,
                                   sto:DtpSystemView ,
                                   sto:EdgecrossEdgeComputingLayer ,
-                                  sto:EdgecrossItSystemsLayer ,
+                                  sto:EdgecrossItSystemsLayer , 
                                   sto:FIWARE ,
                                   sto:FiwareCloudHosting ,
                                   sto:FiwareIotServicesEnablement ,
