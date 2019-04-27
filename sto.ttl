@@ -689,6 +689,26 @@ sto:IIRACrosscuttingFunction rdf:type owl:Class ;
                                             owl:hasValue sto:IIRAFunctionalViewpoint
                                           ] .
 
+sto:IIRACrosscuttingFunctionAnno a oa:Annotation ;
+    oa:hasBody sto:IIRACrosscuttingFunction ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 34" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 36" ] ] ] .
+
+sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture a oa:SpecificResource;
+rdfs:label "Industrial Internet Architecture Version 1"@en ;
+skos:note "The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131";
+sto:hasOpenResource <https://www.iiconsortium.org/IIC_PUB_G1_V1.80_2017-01-31.pdf>.
+
 
 ###  http://example.org/iira#FunctionalDomain
 sto:IIRAFunctionalDomain rdf:type owl:Class ;
@@ -1318,6 +1338,21 @@ sto:IIRAApplicationDomain rdf:type owl:NamedIndividual ,
                        rdfs:label "IIRA Application Domain"@en ;
                        skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.4 THE APPLICATION DOMAIN' 'Page 34' " .
 
+sto:IIRAApplicationDomainAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAApplicationDomain ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 34" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 35" ] ] ] .
+
 
 ###  http://example.org/iira#BusinessDomain
 sto:IIRABusinessDomain rdf:type owl:NamedIndividual ,
@@ -1335,6 +1370,20 @@ sto:IIRABusinessDomain rdf:type owl:NamedIndividual ,
                     rdfs:label "IIRA Business Domain"@en ;
                     skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.5 THE BUSINESS DOMAIN' 'Page 34' " .
 
+sto:IIRABusinessDomainAnno a oa:Annotation ;
+    oa:hasBody sto:IIRABusinessDomain ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 34" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 35" ] ] ] .
 
 ###  http://example.org/iira#BusinessViewpoint
 sto:IIRABusinessViewpoint rdf:type owl:NamedIndividual ,
@@ -1361,6 +1410,20 @@ sto:IIRABusinessViewpoint rdf:type owl:NamedIndividual ,
                        rdfs:label "IIRA Business Viewpoint"@en ;
                        skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.1 BUSINESS VIEWPOINT' 'Page 15' " .
 
+sto:IIRABusinessViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IIRABusinessViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 20" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 22" ] ] ] .
 
 ###  http://example.org/iira#Connectivity
 sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
@@ -1426,6 +1489,25 @@ sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
                   sto:isDescribedin sto:IIRA ;
                   rdfs:label "IIRA Connectivity"@en .
 
+sto:IIRAConnectivityAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAConnectivity ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G5_Connectivity_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 8" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 127" ] ] ] .
+
+sto:The_Industrial_Internet_of_Things_Volume_G5_Connectivity_Framework  a oa:SpecificResource;
+rdfs:label "The Industrial Internet of Things Volume G5: Connectivity Framework "@en ;
+skos:note "The Industrial Internet of Things Volume G5: Connectivity Framework IIC:PUB:G5:V1.0:PB:20170228";
+sto:hasOpenResource <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.0_PB_20170228.pdf>.
 
 ###  http://example.org/iira#ControlDomain
 sto:IIRAControlDomain rdf:type owl:NamedIndividual ,
@@ -1456,6 +1538,21 @@ sto:IIRAControlDomain rdf:type owl:NamedIndividual ,
                    sto:isDescribedin sto:IIRA ;
                    rdfs:label "IIRA Control Domain"@en ;
                    skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 27' " .
+
+sto:IIRAControlDomainAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAControlDomain ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 27" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 30" ] ] ] .
 
 
 ###  http://example.org/iira#CrosscuttingFunction
@@ -1558,6 +1655,22 @@ sto:IIRAFunctionalViewpoint rdf:type owl:NamedIndividual ,
                          skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.3 FUNCTIONAL VIEWPOINT' 'Page 16' " .
 
 
+sto:IIRAFunctionalViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAFunctionalViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 25" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 38" ] ] ] .
+
+
 ###  http://example.org/iira#ImplementationViewpoint
 sto:IIRAImplementationViewpoint rdf:type owl:NamedIndividual ,
                                       sto:StandardClassification ,
@@ -1566,7 +1679,7 @@ sto:IIRAImplementationViewpoint rdf:type owl:NamedIndividual ,
                                                 sto:IIRABusinessDomain ,
                                                 sto:ControlDomain ,
                                                 sto:InformationDomain ,
-                                                sto:IIRAOperationDomain ,
+                                                sto:IIRAOperationsDomain ,
                                                 sto:DtpDeploymentView ,
                                                 sto:FIWARE ,
                                                 sto:IotaDeploymentOperationViewpoint ,
@@ -1588,6 +1701,21 @@ sto:IIRAImplementationViewpoint rdf:type owl:NamedIndividual ,
                              sto:isDescribedin sto:IIRA ;
                              rdfs:label "IIRA Implementation Viewpoint"@en ;
                              skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.4 IMPLEMENTATION VIEWPOINT' 'Page 16' " .
+
+sto:IIRAImplementationViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAImplementationViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 38" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 47" ] ] ] .
 
 
 ###  http://example.org/iira#IndustrialAnalytics
@@ -1631,6 +1759,20 @@ sto:IIRAInformationDomain rdf:type owl:NamedIndividual ,
                        rdfs:label "IIRA Information Domain"@en ;
                        skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.3 THE INFORMATION DOMAIN' 'Page 32' " .
 
+sto:IIRAInformationDomainAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAInformationDomain ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 34" ] ] ] .
 
 ###  http://example.org/iira#IntelligentAndResilientControl
 sto:IIRAIntelligentAndResilientControl rdf:type owl:NamedIndividual ,
@@ -1670,7 +1812,7 @@ sto:IICFNetworkLayer rdf:type owl:NamedIndividual ,
 
 
 ###  http://example.org/iira#OperationDomain
-sto:IIRAOperationDomain rdf:type owl:NamedIndividual ,
+sto:IIRAOperationsDomain rdf:type owl:NamedIndividual ,
                               sto:IIRAFunctionalDomain ,
                               sto:StandardClassification ;
                      dul:associatedWith rami:Functional ,
@@ -1694,6 +1836,20 @@ sto:IIRAOperationDomain rdf:type owl:NamedIndividual ,
                      rdfs:label "IIRA Operation Domain"@en ;
                      skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.2 THE OPERATIONS DOMAIN' 'Page 30' " .
 
+sto:IIRAOperationsDomainAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAOperationsDomain ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 30" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ] ] .
 
 ###  http://example.org/iira#PhysicalLayer
 sto:IICFPhysicalLayer rdf:type owl:NamedIndividual ,
@@ -1728,7 +1884,7 @@ sto:IIRAPhysicalSystems rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#Privacy
 sto:IIRAPrivacy rdf:type owl:NamedIndividual ,
-                      sto:SystemCharacteristics ,
+                      sto:IIRASystemCharacteristics ,
                       sto:StandardClassification ;
              dul:associatedWith sto:DtpSecurityPrivacy ;
              dul:isPartOf sto:IIRAFunctionalViewpoint ;
@@ -1740,9 +1896,25 @@ sto:IIRAPrivacy rdf:type owl:NamedIndividual ,
              rdfs:label "IIRA Privacy"@en .
 
 
+sto:IIRAResilienceAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAResilience ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 19" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 20" ] ] ] .
+
+
 ###  http://example.org/iira#Reliability
 sto:IIRAReliability rdf:type owl:NamedIndividual ,
-                          sto:SystemCharacteristics ,
+                          sto:IIRASystemCharacteristics ,
                           sto:StandardClassification ;
                  dul:isPartOf sto:IIRAFunctionalViewpoint ;
                  skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>' '3.4 RELIABILITY' 'Page 18'";
@@ -1751,28 +1923,71 @@ sto:IIRAReliability rdf:type owl:NamedIndividual ,
                  sto:isDescribedin sto:IIRA ;
                  rdfs:label "IIRA Reliability"@en .
 
+sto:IIRAReliabilityAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAReliability ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 18" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 19" ] ] ] .
 
 ###  http://example.org/iira#Resilience
 sto:IIRAResilience rdf:type owl:NamedIndividual ,
-                         sto:SystemCharacteristics ,
+                         sto:IIRASystemCharacteristics ,
                          sto:StandardClassification ;
                 dul:isPartOf sto:IIRAFunctionalViewpoint ;
                 sto:isDescribedin sto:IIRA ;
                 rdfs:label "IIRA Resilience"@en .
 
+sto:IIRAResilienceAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAResilience ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 18" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 19" ] ] ] .
 
 ###  http://example.org/iira#Safety
 sto:IIRASafety rdf:type owl:NamedIndividual ,
-                     sto:SystemCharacteristics ,
+                     sto:IIRASystemCharacteristics ,
                      sto:StandardClassification ;
             dul:isPartOf sto:IIRAFunctionalViewpoint ;
             sto:isDescribedin sto:IIRA ;
             rdfs:label "IIRA Safety"@en .
 
+sto:IIRASafetyAnno a oa:Annotation ;
+    oa:hasBody sto:IIRASafety ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 17" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 18" ] ] ] .
+
 
 ###  http://example.org/iira#Scalability
 sto:IIRAScalability rdf:type owl:NamedIndividual ,
-                          sto:SystemCharacteristics ,
+                          sto:IIRASystemCharacteristics ,
                           sto:StandardClassification ;
                  dul:associatedWith sto:FiwareCloudHosting ;
                  dul:isPartOf sto:IIRAFunctionalViewpoint ;
@@ -1785,7 +2000,7 @@ sto:IIRAScalability rdf:type owl:NamedIndividual ,
 
 ###  http://example.org/iira#Security
 sto:IIRASecurity rdf:type owl:NamedIndividual ,
-                       sto:SystemCharacteristics ,
+                       sto:IIRASystemCharacteristics ,
                        sto:StandardClassification ;
               dcterms:creator sto:sebastian ;
               dul:associatedWith sto:DataOwner ,
@@ -1831,9 +2046,25 @@ sto:IIRASecurity rdf:type owl:NamedIndividual ,
               sto:isDescribedin sto:IIRA ;
               rdfs:label "IIRA Security"@en .
 
+sto:IIRASecurityAnno a oa:Annotation ;
+    oa:hasBody sto:IIRASecurity ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 11" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 121" ] ] ] .
+
+
 
 ###  http://example.org/iira#SecurityFramework
-sto:IICSecurityFramework rdf:type owl:NamedIndividual ,
+sto:IIRASecurityFramework rdf:type owl:NamedIndividual ,
                                 sto:StandardClassification ;
                        dcterms:creator sto:sebastian ;
                        dul:associatedWith sto:BdvaCyberSecurityTrust ,
@@ -1848,6 +2079,25 @@ sto:IICSecurityFramework rdf:type owl:NamedIndividual ,
                        skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'";
                        sto:hasOfficialResource <https://www.iiconsortium.org/IISF.htm> .
 
+sto:IIRASecurityFrameworkAnno a oa:Annotation ;
+    oa:hasBody sto:IIRASecurityFramework ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 11" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 121" ] ] ] .
+
+sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  a oa:SpecificResource;
+rdfs:label "Industrial Internet of Things Volume G4: Security Framework"@en ;
+skos:note "Industrial Internet of Things Volume G4: Security Framework IIC:PUB:G4:V1.0:PB:20160926";
+sto:hasOpenResource <https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf>.
 
 ###  http://example.org/iira#TansportLayer
 sto:IICFTansportLayer rdf:type owl:NamedIndividual ,
@@ -1903,6 +2153,20 @@ sto:IIRAUsageViewpoint rdf:type owl:NamedIndividual ,
                     rdfs:label "IIRA Usage Viewpoint"@en ;
                     skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.2 USAGE VIEWPOINT' 'Page 16' " .
 
+sto:IIRAUsageViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IIRAUsageViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 22" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 25" ] ] ] .
 
 ###  http://example.org/iira#Vocabulary
 sto:IICVocabulary rdf:type owl:NamedIndividual ,
@@ -2134,7 +2398,7 @@ rami:Functional rdf:type owl:NamedIndividual ,
                          rami:RAMIITLayer ,
                          sto:StandardClassification ;
                 dul:associatedWith sto:IIRAApplicationDomain ,
-                                   sto:IIRAOperationDomain ,
+                                   sto:IIRAOperationsDomain ,
                                    sto:BdvaDataAnalytics ,
                                    sto:BdvaDataViualisationAndUserInteraction ,
                                    sto:DtpSystemView ,
@@ -2145,7 +2409,7 @@ rami:Functional rdf:type owl:NamedIndividual ,
                                    sto:xRoadSystemComponents ,
                                    sto:IDSRAMProcessLayer ;
                 sto:alignsWith sto:IIRAApplicationDomain ,
-                               sto:IIRAOperationDomain ,
+                               sto:IIRAOperationsDomain ,
                                sto:BdvaDataAnalytics ,
                                sto:BdvaDataViualisationAndUserInteraction ,
                                sto:DtpSystemView ,
@@ -4325,14 +4589,14 @@ sto:DtpSystemView rdf:type owl:NamedIndividual ,
                            sto:Viewpoint ;
                   dul:associatedWith sto:IIRAConnectivity ,
                                      sto:InformationDomain ,
-                                     sto:IIRAOperationDomain ,
+                                     sto:IIRAOperationsDomain ,
                                      rami:Functional ,
                                      rami:Integration ,
                                      sto:RFC_6750 ,
                                      sto:IDSRAMSystemLayer ;
                   sto:alignsWith sto:IIRAConnectivity ,
                                  sto:InformationDomain ,
-                                 sto:IIRAOperationDomain ,
+                                 sto:IIRAOperationsDomain ,
                                  rami:Functional ,
                                  rami:Integration ,
                                  sto:IDSRAMSystemLayer ;
@@ -4547,13 +4811,13 @@ sto:EdgecrossEdgeComputingLayer rdf:type owl:NamedIndividual ,
                                          sto:StandardClassification ;
                                 dul:associatedWith sto:IIRAControlDomain ,
                                                    sto:InformationDomain ,
-                                                   sto:IIRAOperationDomain ,
+                                                   sto:IIRAOperationsDomain ,
                                                    rami:Information ,
                                                    rami:Integration ,
                                                    sto:IDSRAMSystemLayer ;
                                 sto:alignsWith sto:IIRAControlDomain ,
                                                sto:InformationDomain ,
-                                               sto:IIRAOperationDomain ,
+                                               sto:IIRAOperationsDomain ,
                                                rami:Information ,
                                                rami:Integration ,
                                                sto:IDSRAMSystemLayer ;
@@ -10690,7 +10954,7 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               sto:hasAvailableLanguage lang:eng ;
               sto:hasClassification sto:IIRAApplicationDomain ,
                                     sto:InformationDomain ,
-                                    sto:IIRAOperationDomain ,
+                                    sto:IIRAOperationsDomain ,
                                     rami:Communication ,
                                     rami:ConnectedWorld ,
                                     rami:ControlDevice ,
@@ -13178,6 +13442,7 @@ sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
                             rdfs:label "IoT-A Functional Viewpoint"@en .
 
 
+
 ###  https://w3id.org/i40/sto#IotaInformationViewpoint
 sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
                                       sto:StandardClassification ,
@@ -13185,13 +13450,13 @@ sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
                              dcterms:creator sto:sebastian ;
                              dul:associatedWith sto:IIRAControlDomain ,
                                                 sto:InformationDomain ,
-                                                sto:IIRAOperationDomain ,
+                                                sto:IIRAOperationsDomain ,
                                                 rami:Communication ,
                                                 sto:IDSRAMInformationLayer ,
                                                 sto:IDSRAMProcessLayer ;
                              sto:alignsWith sto:IIRAControlDomain ,
                                             sto:InformationDomain ,
-                                            sto:IIRAOperationDomain ,
+                                            sto:IIRAOperationsDomain ,
                                             rami:Communication ,
                                             sto:IDSRAMInformationLayer ,
                                             sto:IDSRAMProcessLayer ;
@@ -13311,9 +13576,9 @@ sto:IviActivityView rdf:type owl:NamedIndividual ,
                              sto:StandardClassification ,
                              sto:Viewpoint ;
                     dcterms:creator sto:sebastian ;
-                    dul:associatedWith sto:IIRAOperationDomain ,
+                    dul:associatedWith sto:IIRAOperationsDomain ,
                                        rami:Engineering ;
-                    sto:alignsWith sto:IIRAOperationDomain ,
+                    sto:alignsWith sto:IIRAOperationsDomain ,
                                    rami:Engineering ;
                     sto:frames sto:Manufacturing ;
                     sto:isDescribedin sto:IVRA ;
@@ -15062,7 +15327,7 @@ sto:RFC_7252 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:IETF ;
              foaf:maker sto:IETF ;
-             sto:hasClassification sto:IIRAOperationDomain ,
+             sto:hasClassification sto:IIRAOperationsDomain ,
                                    sto:TansportLayer ;
              sto:hasPublisher sto:IETF ;
              sto:hasPublicationDate "2014-06-01"^^xsd:date ;
@@ -17654,7 +17919,7 @@ sto:IDSRAMProcessLayer rdf:type owl:NamedIndividual ,
                              sto:IDSRAMLayer ;
                     dul:associatedWith sto:IIRAApplicationDomain ,
                                        sto:InformationDomain ,
-                                       sto:IIRAOperationDomain ,
+                                       sto:IIRAOperationsDomain ,
                                        rami:Functional ,
                                        sto:BdvaDataAnalytics ,
                                        sto:BdvaDataManagement ,
@@ -17670,7 +17935,7 @@ sto:IDSRAMProcessLayer rdf:type owl:NamedIndividual ,
                                        sto:xRoadSystemComponents ;
                     sto:alignsWith sto:IIRAApplicationDomain ,
                                    sto:InformationDomain ,
-                                   sto:IIRAOperationDomain ,
+                                   sto:IIRAOperationsDomain ,
                                    rami:Functional ,
                                    sto:BdvaDataAnalytics ,
                                    sto:BdvaDataManagement ,
