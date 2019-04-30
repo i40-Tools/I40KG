@@ -1994,7 +1994,7 @@ sto:IIRAScalability rdf:type owl:NamedIndividual ,
                  sto:alignsWith sto:FiwareCloudHosting ;
                  sto:frames sto:Scalability ;
                  sto:isDescribedin sto:IIRA ;
-                  skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.2 Scalability Pillar' 'Page 24' " ;
+       #           skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.2 Scalability Pillar' 'Page 24' " ;
                  rdfs:label "IIRA Scalability"@en .
 
 
@@ -2898,7 +2898,7 @@ Spurce: OpenFog Consortum Architecture Whitepaper"""@en .
 
 
 ###  https://w3id.org/i40/sto#AgilityPillar
-sto:AgilityPillar rdf:type owl:NamedIndividual ,
+sto:OFRAAgilityPillar rdf:type owl:NamedIndividual ,
                            sto:StandardClassification ;
                   dcterms:creator sto:sebastian ;
                   sto:frames sto:Agility ;
@@ -2908,6 +2908,24 @@ sto:AgilityPillar rdf:type owl:NamedIndividual ,
 source: OpenFog Reference Architecture"""@en ;
                   rdfs:label "OpenFog Agility Pillar"@en .
 
+ sto:OFRAAgilityPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAAgilityPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 31" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 32" ] ] ] .
+
+sto:OpenFog_Reference_Architecture_for_Fog_Computing a oa:SpecificResource;
+rdfs:label "OpenFog Reference Architecture for Fog Computing"@en ;
+sto:hasOpenResource <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf>.
 
 ###  https://w3id.org/i40/sto#AllSeenAlliance
 sto:AllSeenAlliance rdf:type owl:NamedIndividual ,
@@ -3042,7 +3060,7 @@ sto:AutonomousConfiguration rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#AutonomyPillar
-sto:AutonomyPillar rdf:type owl:NamedIndividual ,
+sto:OFRAAutonomyPillar rdf:type owl:NamedIndividual ,
                             sto:StandardClassification ;
                    dcterms:creator sto:sebastian ;
                    sto:frames sto:AutonomousCommunication ,
@@ -3051,6 +3069,21 @@ sto:AutonomyPillar rdf:type owl:NamedIndividual ,
                    skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.4 Autonomy Pillar' 'Page 27' " ;
                    rdfs:comment "The autonomy pillar enables fog nodes to continue to deliver the designed functionality in the face of the external service failures. In this architecture, autonomy is supported throughout the hierarchy. Decision making will be made at all levels of a deployment’s hierarchy including near the device or higher order layers. Centralized decision-making in the cloud is no longer the only option. Autonomy at the network edge means intelligence from local devices and peer data can be used to fulfill the business’ mission at the point where it makes the most business sense."@en ;
                    rdfs:label "OpenFog AutonomyPillar"@en .
+
+ sto:OFRAAutonomyPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAAutonomyPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 27" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 29" ] ] ] .
 
 
 ###  https://w3id.org/i40/sto#Availability
@@ -6483,7 +6516,7 @@ sto:HTTP2 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#HierarchyPillar
-sto:HierarchyPillar rdf:type owl:NamedIndividual ,
+sto:OFRAHierarchyPillar rdf:type owl:NamedIndividual ,
                              sto:StandardClassification ;
                     dcterms:creator sto:sebastian ;
                     sto:frames sto:BusinessValue ,
@@ -6493,6 +6526,21 @@ sto:HierarchyPillar rdf:type owl:NamedIndividual ,
                     skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.8 Hierarchy Pillar' 'Page 31' " ;
                     rdfs:comment "OpenFog RA computing resources can be seen as a logical hierarchy based on the functional requirements of an end-to-end IoT system. Depending on the scale and nature of the scenario being addressed, the hierarchy may be a network of smart and connected partitioned systems arranged in physical or logical layers, or it may collapse into a single physical system (scalability pillar). source: OpenFog Reference Architecture"@en ;
                     rdfs:label "OpenFog Hierarchy Pillar"@en .
+
+ sto:OFRAHierarchyPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAHierarchyPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 31" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 34" ] ] ] .
 
 
 ###  https://w3id.org/i40/sto#HyperCat
@@ -15130,7 +15178,7 @@ sto:OpenWSN rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#OpennessPillar
-sto:OpennessPillar rdf:type owl:NamedIndividual ,
+sto:OFRAOpennessPillar rdf:type owl:NamedIndividual ,
                             sto:StandardClassification ;
                    dcterms:creator sto:sebastian ;
                    sto:frames sto:Interoperability ,
@@ -15142,13 +15190,43 @@ source: OpenFog Reference Architecture"""@en ;
                    rdfs:label "OpenFog Opennes Pillar"@en .
 
 
-sto:SecurityPillar rdf:type owl:NamedIndividual ,
+ sto:OFRAOpennessPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAOpennessPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 26" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 27" ] ] ] .
+
+sto:OFRASecurityPillar rdf:type owl:NamedIndividual ,
                             sto:StandardClassification ;
                    dcterms:creator sto:sebastian ;                  
                    sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                    skos:note "Publications referred: ' <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.1 Security Pillar' 'Page 23' " ;
                    rdfs:comment """ Security implementations have many different descriptions and attributes such as privacy, anonymity, integrity, trust, attestation, verification, and measurement. These are key attributes for the OpenFog RA. Achieving the foundational elements for security requires an approach to discover, attest, and verify all smart and connected “things” before trust can be established source: OpenFog Reference Architecture"""@en ;
                    rdfs:label "OpenFog Security Pillar"@en .
+
+ sto:OFRASecurityPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRASecurityPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OrionContextBroker
 sto:OrionContextBroker rdf:type owl:NamedIndividual ,
@@ -15340,7 +15418,7 @@ sto:Programmability rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ProgrammabilityPillar
-sto:ProgrammabilityPillar rdf:type owl:NamedIndividual ,
+sto:OFRAProgrammabilityPillar rdf:type owl:NamedIndividual ,
                                    sto:StandardClassification ;
                           dcterms:creator sto:sebastian ;
                           sto:frames sto:Programmability ;
@@ -15350,6 +15428,20 @@ sto:ProgrammabilityPillar rdf:type owl:NamedIndividual ,
 source: OpenFog Reference Architecture"""@en ;
                           rdfs:label "OpenFog Programmability Pillar"@en .
 
+sto:OFRAProgrammabilityPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAProgrammabilityPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 29" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 30" ] ] ] .
 
 ###  https://w3id.org/i40/sto#ProjectManager
 sto:ProjectManager rdf:type owl:NamedIndividual ,
@@ -15771,7 +15863,7 @@ sto:RadioActivityControl rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RasPillar
-sto:RASPillar rdf:type owl:NamedIndividual ,
+sto:OFRA_RASPillar rdf:type owl:NamedIndividual ,
                        sto:StandardClassification ;
               dcterms:creator sto:sebastian ;
               sto:frames sto:Availability ,
@@ -15783,6 +15875,20 @@ sto:RASPillar rdf:type owl:NamedIndividual ,
 source: OpenFog Reference Architecture"""@en ;
               rdfs:label "OpenFog RAS Pillar"@en .
 
+sto:OFRA_RASPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRA_RASPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 29" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 31" ] ] ] .
 
 ###  https://w3id.org/i40/sto#ReactiveStreams
 sto:ReactiveStreams rdf:type owl:NamedIndividual ,
@@ -16068,7 +16174,7 @@ sto:Scalability rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ScalabilityPillar
-sto:ScalabilityPillar rdf:type owl:NamedIndividual ,
+sto:OFRAScalabilityPillar rdf:type owl:NamedIndividual ,
                                sto:StandardClassification ;
                       dcterms:creator sto:sebastian ;
                       sto:frames sto:Scalability ;
@@ -16079,6 +16185,21 @@ sto:ScalabilityPillar rdf:type owl:NamedIndividual ,
 source: OpenFog Reference Architecture"""@en ;
                       rdfs:label "OpenFog Scalability Pillar"@en .
 
+
+sto:OFRAScalabilityPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAScalabilityPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 26" ] ] ] .
 
 ###  https://w3id.org/i40/sto#SebastianBader
 sto:SebastianBader rdf:type owl:NamedIndividual .
@@ -16157,7 +16278,7 @@ sto:SecurityConfiguration rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#SecurityPillar
-sto:SecurityPillar rdf:type owl:NamedIndividual ,
+sto:OFRASecurityPillar rdf:type owl:NamedIndividual ,
                             sto:StandardClassification ;
                    dcterms:creator sto:sebastian ;
                    sto:frames sto:Security ;
@@ -16166,6 +16287,20 @@ sto:SecurityPillar rdf:type owl:NamedIndividual ,
 source: OpenFog Reference Architecture"""@en ;
                    rdfs:label "OpenFog Security Pillar"@en .
 
+ sto:OFRASecurityPillarAnno a oa:Annotation ;
+    oa:hasBody sto:OFRASecurityPillar ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/sto#SelectionOfServiceProvider
 sto:SelectionOfServiceProvider rdf:type owl:NamedIndividual ,
