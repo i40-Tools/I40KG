@@ -3246,10 +3246,10 @@ sto:BdvaCyberSecurityTrust rdf:type owl:NamedIndividual ,
                                     sto:BdvaConcern ,
                                     sto:StandardClassification ;
                            dcterms:creator sto:sebastian ;
-                           dul:associatedWith sto:SecurityFramework ,
+                           dul:associatedWith sto:IIRASecurityFramework ,
                                               rami:Security ,
                                               sto:IDSRAMSecurity ;
-                           sto:alignsWith sto:SecurityFramework ,
+                           sto:alignsWith sto:IIRASecurityFramework ,
                                           rami:Security ,
                                           sto:IDSRAMSecurity ;
                            sto:frames sto:Communication ,
@@ -3341,9 +3341,9 @@ sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
                                 sto:BdvaConcern ,
                                 sto:StandardClassification ;
                        dcterms:creator sto:sebastian ;
-                       dul:associatedWith sto:SecurityFramework ,
+                       dul:associatedWith sto:IIRASecurityFramework ,
                                           sto:IDSRAMSecurity ;
-                       sto:alignsWith sto:SecurityFramework ,
+                       sto:alignsWith sto:IIRASecurityFramework ,
                                       sto:IDSRAMSecurity ;
                        sto:frames sto:DataProtection ,
                                   sto:DataSovereignty ,
@@ -13344,6 +13344,8 @@ sto:IoTA rdf:type owl:NamedIndividual ,
          rdfs:seeAlso <http://open-platforms.eu/standard_protocol/iot-a-architectural-reference-model/> .
 
 
+
+
 ###  https://w3id.org/i40/sto#IoTivity
 sto:IoTivity rdf:type owl:NamedIndividual ,
                       foaf:Document ,
@@ -13368,6 +13370,20 @@ sto:IotaAvailabilityResilience rdf:type owl:NamedIndividual ,
                                sto:isDescribedin sto:IotaReferenceArchitecture ;
                                rdfs:label "IoT-A Availability and Resilience"@en .
 
+sto:IotaAvailabilityResilienceAnno a oa:Annotation ;
+    oa:hasBody sto:IotaAvailabilityResilience ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 155" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 156" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IotaDeploymentOperationViewpoint
 sto:IotaDeploymentOperationViewpoint rdf:type owl:NamedIndividual ,
@@ -13389,6 +13405,20 @@ sto:IotaDeploymentOperationViewpoint rdf:type owl:NamedIndividual ,
                                      sto:isDescribedin sto:IotaReferenceArchitecture ;
                                      rdfs:label "IoT-A Deployment and Operation"@en .
 
+sto:IotaDeploymentOperationViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IotaDeploymentOperationViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 141" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 149" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IotaEvolutionInteroperability
 sto:IotaEvolutionInteroperability rdf:type owl:NamedIndividual ,
@@ -13407,6 +13437,20 @@ sto:IotaEvolutionInteroperability rdf:type owl:NamedIndividual ,
                                   sto:isDescribedin sto:IotaReferenceArchitecture ;
                                   rdfs:label "IoT-A Evolution and Interoperability"@en .
 
+sto:IotaEvolutionInteroperabilityAnno a oa:Annotation ;
+    oa:hasBody sto:IotaEvolutionInteroperability ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 150" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 151" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IotaFunctionalViewpoint
 sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
@@ -13441,6 +13485,20 @@ sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
                             sto:isDescribedin sto:IotaReferenceArchitecture ;
                             rdfs:label "IoT-A Functional Viewpoint"@en .
 
+sto:IotaFunctionalViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IotaFunctionalViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 105" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 126" ] ] ] .
 
 
 ###  https://w3id.org/i40/sto#IotaInformationViewpoint
@@ -13477,6 +13535,20 @@ sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
                              rdfs:label "IoT-A Information Viewpoint"@en ;
                              sto:hasOfficialResource <http://doi.org/10.1007/978-3-642-40403-0> .
 
+sto:IotaInformationViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:IotaInformationViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 126" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 141" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IotaPerformanceScalability
 sto:IotaPerformanceScalability rdf:type owl:NamedIndividual ,
@@ -13492,11 +13564,39 @@ sto:IotaPerformanceScalability rdf:type owl:NamedIndividual ,
                                sto:isDescribedin sto:IotaReferenceArchitecture ;
                                rdfs:label "IoT-A Performance and Scalability"@en .
 
+sto:IotaPerformanceScalabilityAnno a oa:Annotation ;
+    oa:hasBody sto:IotaPerformanceScalability ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 151" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 152" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IotaPerspective
 sto:IotaPerspective rdf:type owl:NamedIndividual ;
                     dcterms:creator sto:sebastian .
 
+sto:IotaPerspectiveAnno a oa:Annotation ;
+    oa:hasBody sto:IotaPerspective ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 149" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 156" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IotaReferenceArchitecture
 sto:IotaReferenceArchitecture rdf:type owl:NamedIndividual ,
@@ -13505,6 +13605,46 @@ sto:IotaReferenceArchitecture rdf:type owl:NamedIndividual ,
                               dcterms:creator sto:sebastian ;
                               sto:hasPublisher sto:IoTA ;
                               rdfs:label "IoT-A Reference Architecture"@en .
+
+ sto:IotaReferenceArchitectureAnno a oa:Annotation ;
+    oa:hasBody sto:IotaReferenceArchitecture ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 1" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 482" ] ] ] .
+
+sto:Final_architectural_reference_model_for_the_IoT_v3_0 a oa:SpecificResource;
+rdfs:label "Internet of Things – Architecture IoT-A Final architectural reference model for the IoT v3.0"@en ;
+skos:note "Internet of Things – Architecture IoT-A Deliverable D1.5 – Final architectural reference model for the IoT v3.0";
+sto:hasOpenResource <http://cocoa.ethz.ch/downloads/2014/01/1360_D1%202_Initial_architectural_reference_model_for_IoT.pdf>.
+
+sto:IIRASecurityFrameworkAnno a oa:Annotation ;
+    oa:hasBody sto:IIRASecurityFramework ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 11" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 121" ] ] ] .
+
+sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework  a oa:SpecificResource;
+rdfs:label "Industrial Internet of Things Volume G4: Security Framework"@en ;
+skos:note "Industrial Internet of Things Volume G4: Security Framework IIC:PUB:G4:V1.0:PB:20160926";
+sto:hasOpenResource <https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf>.
 
 
 ###  https://w3id.org/i40/sto#IotaTrustSecurityPrivacy
@@ -13522,6 +13662,20 @@ sto:IotaTrustSecurityPrivacy rdf:type owl:NamedIndividual ,
                              sto:isDescribedin sto:IotaReferenceArchitecture ;
                              rdfs:label "IoT-A Trust Security and Privacy"@en .
 
+ sto:IotaTrustSecurityPrivacyAnno a oa:Annotation ;
+    oa:hasBody sto:IotaTrustSecurityPrivacy ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Final_architectural_reference_model_for_the_IoT_v3_0 ; 
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 152" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 155" ] ] ] .
 
 ###  https://w3id.org/i40/sto#IpsoAppFramework
 sto:IpsoAppFramework rdf:type owl:NamedIndividual ,
@@ -17422,11 +17576,11 @@ sto:xRoadProtocolsInterfaces rdf:type owl:NamedIndividual ,
 sto:xRoadSystemComponents rdf:type owl:NamedIndividual ,
                                    sto:StandardClassification ,
                                    sto:xRoadSection ;
-                          dul:associatedWith sto:SecurityFramework ,
+                          dul:associatedWith sto:IIRASecurityFramework ,
                                              rami:Functional ,
                                              sto:IDSRAMBusinessLayer ,
                                              sto:IDSRAMProcessLayer ;
-                          sto:alignsWith sto:SecurityFramework ,
+                          sto:alignsWith sto:IIRASecurityFramework ,
                                          rami:Functional ,
                                          sto:IDSRAMBusinessLayer ,
                                          sto:IDSRAMProcessLayer ;
@@ -17986,7 +18140,7 @@ sto:IDSRAMSecurity rdf:type owl:NamedIndividual ,
                          <http://w3id.org/ids/ram/Perspective> ,
                          sto:StandardClassification ;
                 dul:associatedWith sto:IIRASecurity ,
-                                   sto:SecurityFramework ,
+                                   sto:IIRASecurityFramework ,
                                    sto:BdvaCyberSecurityTrust ,
                                    sto:BdvaDataProtection ,
                                    sto:FiwareSecurity ,
@@ -17994,7 +18148,7 @@ sto:IDSRAMSecurity rdf:type owl:NamedIndividual ,
                                    sto:IotaTrustSecurityPrivacy ,
                                    sto:RAMI ;
                 sto:alignsWith sto:IIRASecurity ,
-                               sto:SecurityFramework ,
+                               sto:IIRASecurityFramework ,
                                sto:BdvaCyberSecurityTrust ,
                                sto:BdvaDataProtection ,
                                sto:FiwareSecurity ,
