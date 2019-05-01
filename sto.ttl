@@ -800,13 +800,13 @@ rami:AdminShellSubmodel rdf:type owl:Class ;
 ###  https://w3id.org/i40/rami#RAMIHierarchyLevel
 rami:RAMIHierarchyLevel rdf:type owl:Class ;
                         owl:equivalentClass [ rdf:type owl:Class ;
-                                              owl:oneOf ( rami:ConnectedWorld
-                                                          rami:ControlDevice
-                                                          rami:Enterprise
-                                                          rami:FieldDevice
-                                                          rami:Product
-                                                          rami:Station
-                                                          rami:WorkCenter
+                                              owl:oneOf ( sto:RAMIConnectedWorld
+                                                          sto:RAMIControlDevice
+                                                          sto:RAMIEnterprise
+                                                          sto:RAMIFieldDevice
+                                                          sto:RAMIProduct
+                                                          sto:RAMIStation
+                                                          sto:RAMIWorkCenter
                                                         )
                                             ] ;
                         rdfs:subClassOf sto:StandardClassification ;
@@ -816,12 +816,12 @@ rami:RAMIHierarchyLevel rdf:type owl:Class ;
 ###  https://w3id.org/i40/rami#RAMIITLayer
 rami:RAMIITLayer rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
-                                       owl:oneOf ( rami:Asset
-                                                   rami:Business
-                                                   rami:Communication
-                                                   rami:Functional
-                                                   rami:Information
-                                                   rami:Integration
+                                       owl:oneOf ( sto:RAMIAssetlayer
+                                                   sto:RAMIBusinessLayer
+                                                   sto:RAMICommunicationlayer
+                                                   sto:RAMIFunctionalLayer
+                                                   sto:RAMIInformationLayer
+                                                   sto:RAMIIntegrationLayer
                                                  )
                                      ] ;
                  rdfs:subClassOf sto:StandardClassification ;
@@ -1314,16 +1314,16 @@ dbr:_Texas rdf:type owl:NamedIndividual ,
 sto:IIRAApplicationDomain rdf:type owl:NamedIndividual ,
                                 sto:IIRAFunctionalDomain ,
                                 sto:StandardClassification ;
-                       dul:associatedWith rami:Functional ,
-                                          rami:Information ,
+                       dul:associatedWith sto:RAMIFunctionalLayer ,
+                                          sto:RAMIInformationLayer ,
                                           sto:BdvaCloudAndHighPerformanceComputing ,
                                           sto:EdgecrossItSystemsLayer ,
                                           sto:FiwareAdvancedUi ,
                                           sto:FiwareCloudHosting ,
                                           sto:IDSRAMProcessLayer ;
                        dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                       sto:alignsWith rami:Functional ,
-                                      rami:Information ,
+                       sto:alignsWith sto:RAMIFunctionalLayer ,
+                                      sto:RAMIInformationLayer ,
                                       sto:BdvaCloudAndHighPerformanceComputing ,
                                       sto:EdgecrossItSystemsLayer ,
                                       sto:FiwareAdvancedUi ,
@@ -1358,11 +1358,11 @@ sto:IIRAApplicationDomainAnno a oa:Annotation ;
 sto:IIRABusinessDomain rdf:type owl:NamedIndividual ,
                              sto:IIRAFunctionalDomain ,
                              sto:StandardClassification ;
-                    dul:associatedWith rami:Business ,
+                    dul:associatedWith sto:RAMIBusinessLayer ,
                                        sto:OceanSystemViewpoint ,
                                        sto:IDSRAMBusinessLayer ;
                     dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                    sto:alignsWith rami:Business ,
+                    sto:alignsWith sto:RAMIBusinessLayer ,
                                    sto:OceanSystemViewpoint ,
                                    sto:IDSRAMBusinessLayer ;
                     sto:frames rami:ProcessPlanning ;
@@ -1430,7 +1430,7 @@ sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
                            sto:IIRACrosscuttingFunction ,
                            sto:StandardClassification ;
                   dul:associatedWith sto:LinkLayer ,
-                                     rami:Communication ,
+                                     sto:RAMICommunicationlayer ,
                                      sto:BdvaDataProcessingArchitectures ,
                                      sto:DecisionMaker ,
                                      sto:DtpSystemView ,
@@ -1443,7 +1443,7 @@ sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
                                      sto:oneM2M ,
                                      <https://www.wikidata.org/wiki/Q1548249> ;
                   dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                  sto:alignsWith rami:Communication ,
+                  sto:alignsWith sto:RAMICommunicationlayer ,
                                  sto:BdvaDataProcessingArchitectures ,
                                  sto:DtpSystemView ,
                                  sto:FiwareApplicationsServicesAndDataDelivery ,
@@ -1513,7 +1513,7 @@ sto:hasOpenResource <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.0_PB_2017022
 sto:IIRAControlDomain rdf:type owl:NamedIndividual ,
                             sto:IIRAFunctionalDomain ,
                             sto:StandardClassification ;
-                   dul:associatedWith rami:Integration ,
+                   dul:associatedWith sto:RAMIIntegrationLayer ,
                                       sto:EdgecrossEdgeComputingLayer ,
                                       sto:FiwareIotServicesEnablement ,
                                       sto:IotaInformationViewpoint ,
@@ -1521,7 +1521,7 @@ sto:IIRAControlDomain rdf:type owl:NamedIndividual ,
                                       sto:xRoadProtocolsInterfaces ,
                                       sto:IDSRAMSystemLayer ;
                    dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                   sto:alignsWith rami:Integration ,
+                   sto:alignsWith sto:RAMIIntegrationLayer ,
                                   sto:EdgecrossEdgeComputingLayer ,
                                   sto:FiwareIotServicesEnablement ,
                                   sto:IotaInformationViewpoint ,
@@ -1565,10 +1565,10 @@ sto:IIRADistributedDataManagement rdf:type owl:NamedIndividual ,
                                         sto:IIRACrosscuttingFunction ,
                                         sto:StandardClassification ;
                                dcterms:creator sto:sebastian ;
-                               dul:associatedWith rami:Communication ,
+                               dul:associatedWith sto:RAMICommunicationlayer ,
                                                   sto:FiwareCloudHosting ;
                                dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                               sto:alignsWith rami:Communication ,
+                               sto:alignsWith sto:RAMICommunicationlayer ,
                                               sto:FiwareCloudHosting ;
                                sto:frames sto:Interoperability ,
                                           sto:SemanticInteroperability ;
@@ -1730,7 +1730,7 @@ sto:IIRAIndustrialAnalytics rdf:type owl:NamedIndividual ,
 sto:IIRAInformationDomain rdf:type owl:NamedIndividual ,
                                 sto:IIRAFunctionalDomain ,
                                 sto:StandardClassification ;
-                       dul:associatedWith rami:Information ,
+                       dul:associatedWith sto:RAMIInformationLayer ,
                                           sto:BdvaDataAnalytics ,
                                           sto:BdvaDataProcessingArchitectures ,
                                           sto:DtpSystemView ,
@@ -1740,7 +1740,7 @@ sto:IIRAInformationDomain rdf:type owl:NamedIndividual ,
                                           sto:IDSRAMInformationLayer ,
                                           sto:IDSRAMProcessLayer ;
                        dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                       sto:alignsWith rami:Information ,
+                       sto:alignsWith sto:RAMIInformationLayer ,
                                       sto:BdvaDataAnalytics ,
                                       sto:BdvaDataProcessingArchitectures ,
                                       sto:DtpSystemView ,
@@ -1815,14 +1815,14 @@ sto:IICFNetworkLayer rdf:type owl:NamedIndividual ,
 sto:IIRAOperationsDomain rdf:type owl:NamedIndividual ,
                               sto:IIRAFunctionalDomain ,
                               sto:StandardClassification ;
-                     dul:associatedWith rami:Functional ,
+                     dul:associatedWith sto:RAMIFunctionalLayer ,
                                         sto:DtpSystemView ,
                                         sto:EdgecrossEdgeComputingLayer ,
                                         sto:IotaInformationViewpoint ,
                                         sto:IviActivityView ,
                                         sto:IDSRAMProcessLayer ;
                      dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                     sto:alignsWith rami:Functional ,
+                     sto:alignsWith sto:RAMIFunctionalLayer ,
                                     sto:DtpSystemView ,
                                     sto:EdgecrossEdgeComputingLayer ,
                                     sto:IotaInformationViewpoint ,
@@ -1866,12 +1866,12 @@ sto:IICFPhysicalLayer rdf:type owl:NamedIndividual ,
 sto:IIRAPhysicalSystems rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
                      dcterms:creator sto:sebastian ;
-                     dul:associatedWith rami:Asset ,
+                     dul:associatedWith sto:RAMIAssetlayer ,
                                         sto:EdgecrossFacilityLayer ,
                                         sto:IviAssetView ,
                                         sto:IDSRAMSystemLayer ;
                      dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                     sto:alignsWith rami:Asset ,
+                     sto:alignsWith sto:RAMIAssetlayer ,
                                     sto:EdgecrossFacilityLayer ,
                                     sto:IviAssetView ,
                                     sto:IDSRAMSystemLayer ;
@@ -2237,9 +2237,10 @@ rami:AdminShellGeneral rdf:type owl:NamedIndividual ,
                                 sto:StandardClassification ;
                        sto:isDescribedin sto:AdministrationShell .
 
+ 
 
 ###  https://w3id.org/i40/rami#Asset
-rami:Asset rdf:type owl:NamedIndividual ,
+sto:RAMIAssetlayer rdf:type owl:NamedIndividual ,
                     rami:RAMIITLayer ,
                     sto:StandardClassification ;
            dul:associatedWith sto:IIRAPhysicalSystems ,
@@ -2264,18 +2265,48 @@ rami:Asset rdf:type owl:NamedIndividual ,
            sto:isDescribedin sto:RAMI ;
            rdfs:label "RAMI Asset Layer"@en .
 
+ sto:RAMIAssetlayerAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIAssetlayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 22" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ] ] .
+
 
 ###  https://w3id.org/i40/rami#Body
-rami:Body rdf:type owl:NamedIndividual ,
+sto:RAMIBody rdf:type owl:NamedIndividual ,
                    sto:StandardizationFramework ;
           dul:isPartOf sto:AdministrationShell ;
           sto:hasPublisher sto:PlatformIndustry40 ;
           rdfs:comment "TODO: Find better class assignement"@en ;
           rdfs:label "Administration Shell Body"@en .
 
+ sto:RAMIBodyAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIBody ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 30" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 31" ] ] ] .
+
 
 ###  https://w3id.org/i40/rami#Business
-rami:Business rdf:type owl:NamedIndividual ,
+sto:RAMIBusinessLayer rdf:type owl:NamedIndividual ,
                        rami:RAMIITLayer ,
                        sto:StandardClassification ;
               dul:associatedWith sto:IIRABusinessDomain ,
@@ -2293,9 +2324,27 @@ rami:Business rdf:type owl:NamedIndividual ,
               sto:isDescribedin sto:RAMI ;
               rdfs:label "RAMI Business Layer"@en .
 
+ sto:RAMIBusinessLayerAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIBusinessLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 20" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 21" ] ] ] .
+
+sto:DIN_SPEC_91345 a oa:SpecificResource;
+rdfs:label "Reference Architecture Model Industrie 4.0 (RAMI4.0) English translation of DIN SPEC 91345:2016-04"@en.
+
 
 ###  https://w3id.org/i40/rami#Communication
-rami:Communication rdf:type owl:NamedIndividual ,
+sto:RAMICommunicationlayer rdf:type owl:NamedIndividual ,
                             rami:RAMIITLayer ,
                             sto:StandardClassification ;
                    dul:associatedWith sto:IIRAConnectivity ,
@@ -2318,12 +2367,27 @@ rami:Communication rdf:type owl:NamedIndividual ,
                    sto:isDescribedin sto:RAMI ;
                    rdfs:label "RAMI Communication Layer"@en .
 
+sto:RAMICommunicationlayerAnno a oa:Annotation ;
+    oa:hasBody sto:RAMICommunicationlayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 21" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 22" ] ] ] .
 
 ###  https://w3id.org/i40/rami#ConditionMonitoring
 rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
                                   rami:AdminShellSubmodel ,
                                   sto:StandardClassification ;
                          sto:isDescribedin sto:AdministrationShell .
+
 
 
 ###  https://w3id.org/i40/rami#Configuration
@@ -2334,8 +2398,9 @@ rami:Configuration rdf:type owl:NamedIndividual ,
                    skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'".
 
 
+
 ###  https://w3id.org/i40/rami#ConnectedWorld
-rami:ConnectedWorld rdf:type owl:NamedIndividual ,
+sto:RAMIConnectedWorld rdf:type owl:NamedIndividual ,
                              rami:RAMIHierarchyLevel ,
                              sto:StandardClassification ;
                     sto:frames sto:Interoperability ,
@@ -2343,13 +2408,41 @@ rami:ConnectedWorld rdf:type owl:NamedIndividual ,
                                sto:ThingDescription ;
                     sto:isDescribedin sto:RAMI .
 
+sto:RAMIConnectedWorldAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIConnectedWorld ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/rami#ControlDevice
-rami:ControlDevice rdf:type owl:NamedIndividual ,
+sto:RAMIControlDevice rdf:type owl:NamedIndividual ,
                             rami:RAMIHierarchyLevel ,
                             sto:StandardClassification ;
                    sto:isDescribedin sto:RAMI .
 
+sto:RAMIControlDeviceAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIControlDevice ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/rami#EnergyEfficiency
 sto:EnergyEfficiency rdf:type owl:NamedIndividual ,
@@ -2378,23 +2471,52 @@ rami:Engineering rdf:type owl:NamedIndividual ,
                  sto:isDescribedin sto:AdministrationShell .
 
 
+
 ###  https://w3id.org/i40/rami#Enterprise
-rami:Enterprise rdf:type owl:NamedIndividual ,
+sto:RAMIEnterprise rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel ,
                          sto:StandardClassification ;
                 sto:isDescribedin sto:RAMI .
 
+sto:RAMIEnterpriseAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIEnterprise ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/rami#FieldDevice
-rami:FieldDevice rdf:type owl:NamedIndividual ,
+sto:RAMIFieldDevice rdf:type owl:NamedIndividual ,
                           rami:RAMIHierarchyLevel ,
                           sto:StandardClassification ;
                  sto:frames sto:Manufacturing ;
                  sto:isDescribedin sto:RAMI .
 
+sto:RAMIFieldDeviceAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIFieldDevice ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/rami#Functional
-rami:Functional rdf:type owl:NamedIndividual ,
+sto:RAMIFunctionalLayer rdf:type owl:NamedIndividual ,
                          rami:RAMIITLayer ,
                          sto:StandardClassification ;
                 dul:associatedWith sto:IIRAApplicationDomain ,
@@ -2427,9 +2549,23 @@ rami:Functional rdf:type owl:NamedIndividual ,
                 sto:isDescribedin sto:RAMI ;
                 rdfs:label "RAMI Functional Layer"@en .
 
+sto:RAMIFunctionalLayerAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIFunctionalLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 20" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 21" ] ] ] .
 
 ###  https://w3id.org/i40/rami#Header
-rami:Header rdf:type owl:NamedIndividual ,
+sto:RAMIHeader rdf:type owl:NamedIndividual ,
                      sto:StandardClassification ,
                      sto:StandardizationFramework ;
             dul:isPartOf sto:AdministrationShell ;
@@ -2450,6 +2586,22 @@ rami:Header rdf:type owl:NamedIndividual ,
             rdfs:label "Administration Shell Header"@en ;
             skos:note "find better class assignment"@en .
 
+sto:RAMIHeaderAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIHeader ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 30" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 31" ] ] ] .
+
+
 
 ###  https://w3id.org/i40/rami#Identification
 rami:Identification rdf:type owl:NamedIndividual ,
@@ -2461,8 +2613,9 @@ rami:Identification rdf:type owl:NamedIndividual ,
                     rdfs:label "RAMI Identification"@en .
 
 
+
 ###  https://w3id.org/i40/rami#Information
-rami:Information rdf:type owl:NamedIndividual ,
+sto:RAMIInformationLayer rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer ,
                           sto:StandardClassification ;
                  dul:associatedWith sto:IIRAApplicationDomain ,
@@ -2491,6 +2644,20 @@ rami:Information rdf:type owl:NamedIndividual ,
                  sto:isDescribedin sto:RAMI ;
                  rdfs:label "RAMI Information Layer"@en .
 
+sto:RAMIInformationLayerAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIInformationLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 21" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 22" ] ] ] .
 
 ###  https://w3id.org/i40/rami#InstanceMaintenance
 rami:InstanceMaintenance rdf:type owl:NamedIndividual ,
@@ -2506,8 +2673,9 @@ rami:InstanceProduction rdf:type owl:NamedIndividual ,
                         rdfs:label "Instance Production"@en .
 
 
+
 ###  https://w3id.org/i40/rami#Integration
-rami:Integration rdf:type owl:NamedIndividual ,
+sto:RAMIIntegrationLayer rdf:type owl:NamedIndividual ,
                           rami:RAMIITLayer ,
                           sto:StandardClassification ;
                  dul:associatedWith sto:IIRAControlDomain ,
@@ -2538,6 +2706,20 @@ rami:Integration rdf:type owl:NamedIndividual ,
                  sto:isDescribedin sto:RAMI ;
                  rdfs:label "RAMI Integration Layer"@en .
 
+sto:RAMIIntegrationLayerAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIIntegrationLayer ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 22" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ] ] .
 
 ###  https://w3id.org/i40/rami#Lifecycle_Status
 rami:Lifecycle_Status rdf:type owl:NamedIndividual ,
@@ -2561,13 +2743,28 @@ rami:ProcessPlanning rdf:type owl:NamedIndividual ,
                      rdfs:label "Process planning"@en .
 
 
+
 ###  https://w3id.org/i40/rami#Product
-rami:Product rdf:type owl:NamedIndividual ,
+sto:RAMIProduct rdf:type owl:NamedIndividual ,
                       rami:RAMIHierarchyLevel ,
                       sto:StandardClassification ;
              sto:frames sto:Manufacturing ;
              sto:isDescribedin sto:RAMI .
 
+sto:RAMIProductAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIProduct ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/rami#Safety
 rami:Safety rdf:type owl:NamedIndividual ,
@@ -2575,6 +2772,7 @@ rami:Safety rdf:type owl:NamedIndividual ,
                      sto:StandardClassification ;
             sto:isDescribedin sto:AdministrationShell ;
             rdfs:label "RAMI Safety"@en .
+
 
 
 ###  https://w3id.org/i40/rami#Security
@@ -2592,11 +2790,25 @@ rami:Security rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/rami#Station
-rami:Station rdf:type owl:NamedIndividual ,
+sto:RAMIStation rdf:type owl:NamedIndividual ,
                       rami:RAMIHierarchyLevel ,
                       sto:StandardClassification ;
              sto:isDescribedin sto:RAMI .
 
+sto:RAMIStationAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIStation ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/rami#TypeDevelopment
 rami:TypeDevelopment rdf:type owl:NamedIndividual ,
@@ -2607,6 +2819,7 @@ rami:TypeDevelopment rdf:type owl:NamedIndividual ,
                      rdfs:label "Type Development"@en .
 
 
+
 ###  https://w3id.org/i40/rami#TypeMaintenance
 rami:TypeMaintenance rdf:type owl:NamedIndividual ,
                               rami:RAMILifeCycleLayer ,
@@ -2614,12 +2827,27 @@ rami:TypeMaintenance rdf:type owl:NamedIndividual ,
                      rdfs:label "Type Maintenance"@en .
 
 
+
 ###  https://w3id.org/i40/rami#WorkCenter
-rami:WorkCenter rdf:type owl:NamedIndividual ,
+sto:RAMIWorkCenter rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel ,
                          sto:StandardClassification ;
                 sto:isDescribedin sto:RAMI .
 
+sto:RAMIWorkCenterAnno a oa:Annotation ;
+    oa:hasBody sto:RAMIWorkCenter ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:DIN_SPEC_91345 ; #"The Industrial Internet of Things Volume G1: Reference Architecture IIC:PUB:G1:V1.80:20170131"@en
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 23" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 24" ] ] ] .
 
 ###  https://w3id.org/i40/sto#AI
 sto:AI rdf:type owl:NamedIndividual ,
@@ -3304,12 +3532,12 @@ sto:BdvaDataAnalytics rdf:type owl:NamedIndividual ,
                                sto:StandardClassification ;
                       dcterms:creator sto:sebastian ;
                       dul:associatedWith sto:InformationDomain ,
-                                         rami:Functional ,
-                                         rami:Information ,
+                                         sto:RAMIFunctionalLayer ,
+                                         sto:RAMIInformationLayer ,
                                          sto:IDSRAMProcessLayer ;
                       sto:alignsWith sto:InformationDomain ,
-                                     rami:Functional ,
-                                     rami:Information ,
+                                     sto:RAMIFunctionalLayer ,
+                                     sto:RAMIInformationLayer ,
                                      sto:IDSRAMProcessLayer ;
                       sto:frames sto:AI ,
                                  sto:DataAnalytics ,
@@ -3327,10 +3555,10 @@ sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
                                 sto:BdvaConcern ,
                                 sto:StandardClassification ;
                        dcterms:creator sto:sebastian ;
-                       dul:associatedWith rami:Information ,
+                       dul:associatedWith sto:RAMIInformationLayer ,
                                           sto:IDSRAMInformationLayer ,
                                           sto:IDSRAMProcessLayer ;
-                       sto:alignsWith rami:Information ,
+                       sto:alignsWith sto:RAMIInformationLayer ,
                                       sto:IDSRAMInformationLayer ,
                                       sto:IDSRAMProcessLayer ;
                        sto:frames sto:BigDataApplications ,
@@ -3408,9 +3636,9 @@ sto:BdvaDataVisualizationAndUserInteraction rdf:type owl:NamedIndividual ,
                                                     sto:StandardClassification ;
                                            dcterms:creator sto:sebastian ;
                                            dul:associatedWith sto:IIRAUsageViewpoint ,
-                                                              rami:Functional ;
+                                                              sto:RAMIFunctionalLayer ;
                                            sto:alignsWith sto:IIRAUsageViewpoint ,
-                                                          rami:Functional ;
+                                                          sto:RAMIFunctionalLayer ;
                                            sto:frames sto:BigDataApplications ;
                                            sto:isDescribedin sto:BdvaSira ;
                                            rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
@@ -3498,7 +3726,7 @@ sto:Bluetooth rdf:type owl:NamedIndividual ,
                        sto:Publication ,
                        sto:TechnicalSpecification ;
               dcterms:creator sto:sebastian ;
-              sto:hasClassification rami:Communication ;
+              sto:hasClassification sto:RAMICommunicationLayer ;
               rdfs:comment "Bluetooth works in the 2.4 GHz ISM band and uses frequency hopping. With a data rate up to 3 Mbps and maximum range of 100m. Each application type which can use Bluetooth has its own profile.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "Bluetooth"@en ;
               sto:hasOfficialResource <http://www.bluetooth.com/Pages/Bluetooth-Home.aspx> .
@@ -3862,7 +4090,7 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:DIN ;
                  foaf:maker sto:DIN ;
-                 <https://w3id.org/i40/hasTargetConcern> sto:Safety ;
+                 sto:frames sto:Safety ;
                  sto:hasClassification sto:IDSRAMCertification ;
                  sto:hasPublisher sto:DIN ;
                  sto:hasPublicationDate "2012-03-01"^^xsd:date ;
@@ -3870,6 +4098,33 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                  rdfs:label "DIN EN 50128"@en ;
                  sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50128/148018416> .
 
+###  https://w3id.org/i40/sto#DIN_EN_50128
+sto:DIN_SPEC_91345 rdf:type owl:NamedIndividual ,
+                          foaf:Document ,
+                          sto:Publication ,
+                          sto:Standard ;
+                 dcterms:creator sto:DIN ;
+                 foaf:maker sto:DIN ;
+                 sto:hasPublisher sto:DIN ;
+                 sto:hasPublicationDate "2016-04-01"^^xsd:date ;
+                 sto:hasAvailableLanguage lang:eng  ;
+             #        sto:hasFileSize sto:FileSizeIEC_60204_P11 ;
+                     sto:hasICS sto:ICS_03_100_01 ,
+                                sto:ICS_25_040_01 ,
+                                sto:ICS_35_240_50;     
+            #         sto:hasTechnicalCommittee sto:TC_44 ;
+            #         sto:hasEdition "1.0"^^xsd:float ;
+                     sto:hasImplementationFormat "Document"@en ;
+                     sto:hasPages "40"^^xsd:int ;
+            #         sto:hasStabilityDate "2018"^^xsd:gYear ;
+            #         sto:hasStatus "Withdrawn"@en ;
+                     dcterms:title "Reference Architecture Model Industrie 4.0 (RAMI4.0) English translation of DIN SPEC 91345:2016-04"@en ;
+             #        rdfs:comment "Applies to the electrical and electronic equipment and systems of machines, including a group of machines working together in a coordinated manner, but excluding higher level system aspects (i.e. communications between systems)."@en ;
+                     rdfs:label "DIN SPEC 91345:2016-04"@en ;
+                 
+                 rdfs:comment ""@de ;
+                 rdfs:label "DIN SPEC 91345:2016-04"@en ;
+                 sto:hasOfficialResource <https://www.beuth.de/en/technical-rule/din-spec-91345/250940128> .
 
 ###  https://w3id.org/i40/sto#DIN_EN_50129
 sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
@@ -4623,15 +4878,15 @@ sto:DtpSystemView rdf:type owl:NamedIndividual ,
                   dul:associatedWith sto:IIRAConnectivity ,
                                      sto:InformationDomain ,
                                      sto:IIRAOperationsDomain ,
-                                     rami:Functional ,
-                                     rami:Integration ,
+                                     sto:RAMIFunctionalLayer ,
+                                     sto:RAMIIntegrationLayer ,
                                      sto:RFC_6750 ,
                                      sto:IDSRAMSystemLayer ;
                   sto:alignsWith sto:IIRAConnectivity ,
                                  sto:InformationDomain ,
                                  sto:IIRAOperationsDomain ,
-                                 rami:Functional ,
-                                 rami:Integration ,
+                                 sto:RAMIFunctionalLayer ,
+                                 sto:RAMIIntegrationLayer ,
                                  sto:IDSRAMSystemLayer ;
                   sto:frames sto:Authentication ,
                              sto:Communication ,
@@ -4845,14 +5100,14 @@ sto:EdgecrossEdgeComputingLayer rdf:type owl:NamedIndividual ,
                                 dul:associatedWith sto:IIRAControlDomain ,
                                                    sto:InformationDomain ,
                                                    sto:IIRAOperationsDomain ,
-                                                   rami:Information ,
-                                                   rami:Integration ,
+                                                   sto:RAMIInformationLayer ,
+                                                   sto:RAMIIntegrationLayer ,
                                                    sto:IDSRAMSystemLayer ;
                                 sto:alignsWith sto:IIRAControlDomain ,
                                                sto:InformationDomain ,
                                                sto:IIRAOperationsDomain ,
-                                               rami:Information ,
-                                               rami:Integration ,
+                                               sto:RAMIInformationLayer ,
+                                               sto:RAMIIntegrationLayer ,
                                                sto:IDSRAMSystemLayer ;
                                 sto:frames sto:CloudComputing ,
                                            sto:DataProcessing ,
@@ -4884,9 +5139,9 @@ sto:EdgecrossFacilityLayer rdf:type owl:NamedIndividual ,
                                     sto:EdgecrossLayer ,
                                     sto:StandardClassification ;
                            dul:associatedWith sto:IIRAPhysicalSystems ,
-                                              rami:Asset ;
+                                              sto:RAMIAssetlayer ;
                            sto:alignsWith sto:IIRAPhysicalSystems ,
-                                          rami:Asset ;
+                                          sto:RAMIAssetlayer ;
                            sto:isDescribedin sto:EdgecrossArchitecture ;
                            rdfs:label "Edgecross FA"@en .
 
@@ -4913,10 +5168,10 @@ sto:EdgecrossItSystemsLayer rdf:type owl:NamedIndividual ,
                                      sto:EdgecrossLayer ,
                                      sto:StandardClassification ;
                             dul:associatedWith sto:IIRAApplicationDomain ,
-                                               rami:Integration ,
+                                               sto:RAMIIntegrationLayer ,
                                                sto:IDSRAMSystemLayer ;
                             sto:alignsWith sto:IIRAApplicationDomain ,
-                                           rami:Integration ,
+                                           sto:RAMIIntegrationLayer ,
                                            sto:IDSRAMSystemLayer ;
                             sto:frames sto:Communication ,
                                        sto:DataAnalytics ,
@@ -6307,12 +6562,12 @@ sto:FiwareIotServicesEnablement rdf:type owl:NamedIndividual ,
                                          sto:StandardClassification ;
                                 dcterms:creator sto:sebastian ;
                                 dul:associatedWith sto:IIRAControlDomain ,
-                                                   rami:Communication ,
-                                                   rami:Integration ,
+                                                   sto:RAMICommunicationlayer ,
+                                                   sto:RAMIIntegrationLayer ,
                                                    sto:IDSRAMSystemLayer ;
                                 sto:alignsWith sto:IIRAControlDomain ,
-                                               rami:Communication ,
-                                               rami:Integration ,
+                                               sto:RAMICommunicationlayer ,
+                                               sto:RAMIIntegrationLayer ,
                                                sto:IDSRAMSystemLayer ;
                                 sto:frames sto:CloudComputing ,
                                            sto:DataDiscovery ,
@@ -6899,13 +7154,13 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
               foaf:maker sto:IEC ;
               sto:alignsWith sto:Identification ;
               sto:hasClassification sto:IIRASecurity ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Information ,
-                                    rami:Product ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIInformationLayer ,
+                                    sto:RAMIProduct ,
                                     rami:Safety ,
                                     rami:Security ,
-                                    rami:Station ,
+                                    sto:RAMIStation ,
                                     sto:ProductModelDataExchange ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_24760 ,
@@ -7043,9 +7298,9 @@ sto:IEC_29182_P1 rdf:type owl:NamedIndividual ,
                                  sto:ISO ;
                  foaf:maker sto:IEC ,
                             sto:ISO ;
-                 sto:hasClassification rami:Communication ,
-                                       rami:ControlDevice ,
-                                       rami:FieldDevice ,
+                 sto:hasClassification sto:RAMICommunicationlayer ,
+                                       sto:RAMIControlDevice ,
+                                       sto:RAMIFieldDevice ,
                                        sto:ProductionSystemModelData ;
                  sto:hasPublisher sto:IEC ,
                                   sto:ISO ;
@@ -7666,9 +7921,9 @@ sto:IEC_60839_P5_S2_E2 rdf:type owl:NamedIndividual ,
                        foaf:maker sto:IEC ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
-                       sto:hasClassification rami:Communication ,
-                                             rami:ControlDevice ,
-                                             rami:FieldDevice ,
+                       sto:hasClassification sto:RAMICommunicationlayer ,
+                                             sto:RAMIControlDevice ,
+                                             sto:RAMIFieldDevice ,
                                              rami:Security ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P5_S2 ;
                        sto:hasICS sto:ICS_13_320 ;
@@ -8700,9 +8955,9 @@ sto:IEC_61131 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               dul:isComponentOf sto:IEC_62714 ;
               foaf:maker sto:IEC ;
-              sto:hasClassification rami:ControlDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ;
+              sto:hasClassification sto:RAMIControlDevice ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -9256,7 +9511,7 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              sto:hasClassification rami:Asset ,
+              sto:hasClassification sto:RAMIAssetlayer ,
                                     rami:Engineering ,
                                     sto:ManufacturingModelData ,
                                     sto:IDSRAMInformationLayer ;
@@ -9489,8 +9744,8 @@ sto:IEC_61499 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              sto:hasClassification rami:ControlDevice ,
-                                    rami:FieldDevice ;
+              sto:hasClassification sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -9618,10 +9873,10 @@ sto:IEC_61512 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              sto:hasClassification rami:ControlDevice ,
-                                    rami:Product ,
-                                    rami:Station ,
-                                    rami:WorkCenter ;
+              sto:hasClassification sto:RAMIControlDevice ,
+                                    sto:RAMIProduct ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:hasTag "ISA-88"@en ;
               rdfs:comment "Batch control - Models and terminology"@en ;
@@ -9720,9 +9975,9 @@ sto:IEC_61784 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              sto:hasClassification rami:Communication ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ;
+              sto:hasClassification sto:RAMICommunicationlayer ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_29182-1 ,
                             sto:IEC_61158 ,
@@ -9746,8 +10001,8 @@ sto:IEC_61804 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
               sto:hasClassification rami:Configuration ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ;
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -10738,13 +10993,13 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:IEC ;
                 foaf:maker sto:IEC ;
-                sto:hasClassification rami:ControlDevice ,
+                sto:hasClassification sto:RAMIControlDevice ,
                                       rami:Engineering ,
-                                      rami:Enterprise ,
-                                      rami:FieldDevice ,
-                                      rami:Product ,
-                                      rami:Station ,
-                                      rami:WorkCenter ;
+                                      sto:RAMIEnterprise ,
+                                      sto:RAMIFieldDevice ,
+                                      sto:RAMIProduct ,
+                                      sto:RAMIStation ,
+                                      sto:RAMIWorkCenter ;
                 sto:hasPublisher sto:IEC ;
                 sto:hasTag "LOPs in PA"@en ;
                 dcterms:license sto:PrivateLicenseDocument ;
@@ -10784,10 +11039,10 @@ sto:IEC_62237 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
               sto:hasClassification rami:AdminShellGeneral ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ,
                                     sto:ProductionSystemModelData ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62237 ,
@@ -10808,7 +11063,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
                               sto:MESA ;
               foaf:maker sto:IEC ,
                          sto:MESA ;
-              sto:hasClassification rami:Functional ;
+              sto:hasClassification sto:RAMIFunctional ;
               sto:hasDeveloper sto:IEC ;
               sto:hasPublisher sto:IEC ,
                                sto:MESA ;
@@ -10879,10 +11134,10 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
               sto:hasClassification rami:ConditionMonitoring ,
-                                    rami:Enterprise ,
-                                    rami:Functional ,
+                                    sto:RAMIEnterprise ,
+                                    sto:RAMIFunctionalLayer ,
                                     rami:Lifecycle_Status ,
-                                    rami:WorkCenter ,
+                                    sto:RAMIWorkCenter ,
                                     sto:ProductionSystemModelData ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62237 ,
@@ -10958,9 +11213,9 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
               sto:hasClassification rami:Configuration ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Station ;
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIStation ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -11003,13 +11258,13 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               sto:hasClassification sto:IIRAApplicationDomain ,
                                     sto:InformationDomain ,
                                     sto:IIRAOperationsDomain ,
-                                    rami:Communication ,
-                                    rami:ConnectedWorld ,
-                                    rami:ControlDevice ,
-                                    rami:Enterprise ,
-                                    rami:FieldDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ,
+                                    sto:RAMICommunicationlayer ,
+                                    sto:RAMIConnectedWorld ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIEnterprise ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ,
                                     sto:Communication ,
                                     sto:DataSovereignty ,
                                     sto:FrameworkLayer ,
@@ -11090,11 +11345,11 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
-              sto:hasClassification rami:ControlDevice ,
+              sto:hasClassification sto:RAMIControlDevice ,
                                     rami:Engineering ,
-                                    rami:FieldDevice ,
-                                    rami:Information ,
-                                    rami:Product ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIInformationLayer ,
+                                    sto:RAMIProduct ,
                                     sto:ProductionSystemEngineering ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -11142,10 +11397,10 @@ sto:IEC_62794 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
               sto:hasClassification rami:AdminShellGeneral ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ;
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62794 ,
                             sto:IEC_62832 ;
@@ -11169,10 +11424,10 @@ sto:IEC_62832 rdf:type owl:NamedIndividual ,
               foaf:maker sto:IEC ;
               sto:hasAvailableLanguage lang:eng ;
               sto:hasClassification rami:AdminShellGeneral ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ;
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ;
               sto:hasFileSize sto:FileSizeIEC_62832 ;
               sto:hasICS sto:ICS_25_040_40 ;
               sto:hasPublisher sto:IEC ;
@@ -11209,8 +11464,8 @@ sto:IEC_62890 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
               sto:hasClassification rami:Lifecycle_Status ,
-                                    rami:Station ,
-                                    rami:WorkCenter ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ,
                                     sto:ProductionLifeCycleDataManagement ;
               sto:hasPublisher sto:IEC ;
               sto:hasTag "IEC 62890"@en ;
@@ -11231,10 +11486,10 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
                               sto:ISO ;
               foaf:maker sto:IEC ,
                          sto:ISO ;
-              sto:hasClassification rami:Asset ,
+              sto:hasClassification sto:RAMIAssetlayer ,
                                     rami:Engineering ,
                                     rami:Identification ,
-                                    rami:Product ,
+                                    sto:RAMIProduct ,
                                     sto:ModelingPractice ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
@@ -11308,10 +11563,10 @@ sto:DIN_77005_P1 rdf:type owl:NamedIndividual ,
 sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                           sto:TechnicalSpecification ;
                  sto:hasClassification rami:AdminShellGeneral ,
-                                       rami:ControlDevice ,
-                                       rami:FieldDevice ,
-                                       rami:Station ,
-                                       rami:WorkCenter ;
+                                       sto:RAMIControlDevice ,
+                                       sto:RAMIFieldDevice ,
+                                       sto:RAMIStation ,
+                                       sto:RAMIWorkCenter ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTag "DF/TS"@en ;
                  dcterms:license sto:PrivateLicenseDocument ;
@@ -11680,8 +11935,8 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
-             sto:hasClassification rami:Asset ,
-                                   rami:Product ,
+             sto:hasClassification sto:RAMIAssetlayer ,
+                                   sto:RAMIProduct ,
                                    sto:ModelingPractice ;
              sto:hasPublisher sto:ISO ;
              sto:hasPublicationDate "2017-02-01"^^xsd:date ;
@@ -11729,7 +11984,7 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:ISO ;
                 foaf:maker sto:ISO ;
-                sto:hasClassification rami:Communication ,
+                sto:hasClassification sto:RAMICommunicationlayer ,
                                       rami:Engineering ,
                                       rami:Safety ;
                 sto:hasPublisher sto:ISO ;
@@ -11763,9 +12018,9 @@ sto:ISO_13374 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Business ,
+              sto:hasClassification sto:RAMIBusinessLayer ,
                                     rami:ConditionMonitoring ,
-                                    rami:Enterprise ,
+                                    sto:RAMIEnterprise ,
                                     sto:ProductionSystemEngineering ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
@@ -11869,11 +12124,11 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Asset ,
+              sto:hasClassification sto:RAMIAssetlayer ,
                                     rami:Engineering ,
                                     rami:Identification ,
                                     rami:ProcessPlanning ,
-                                    rami:Product ,
+                                    sto:RAMIProduct ,
                                     sto:ProductionSystemModelData ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -12049,8 +12304,8 @@ sto:ISO_15704 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Business ,
-                                    rami:Enterprise ,
+              sto:hasClassification sto:RAMIBusinessLayer ,
+                                    sto:RAMIEnterprise ,
                                     rami:Other ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
@@ -12070,14 +12325,14 @@ sto:ISO_15746 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Communication ,
-                                    rami:ControlDevice ,
+              sto:hasClassification sto:RAMICommunicationlayer ,
+                                    sto:RAMIControlDevice ,
                                     rami:Engineering ,
-                                    rami:FieldDevice ,
-                                    rami:Functional ,
-                                    rami:Information ,
-                                    rami:Integration ,
-                                    rami:Product ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIFunctional ,
+                                    sto:RAMIInformationLayer ,
+                                    sto:RAMIIntegrationLayer ,
+                                    sto:RAMIProduct ,
                                     sto:ProductLifeCycleManagement ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -12121,8 +12376,8 @@ sto:ISO_15926 rdf:type owl:NamedIndividual ,
               foaf:maker sto:ISO ;
               sto:hasClassification rami:Configuration ,
                                     rami:Engineering ,
-                                    rami:Integration ,
-                                    rami:Product ,
+                                    sto:RAMIIntegrationLayer ,
+                                    sto:RAMIProduct ,
                                     sto:ProductLifeCycleManagement ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -12165,8 +12420,8 @@ sto:ISO_16739 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
               sto:hasClassification rami:Lifecycle_Status ,
-                                    rami:Station ,
-                                    rami:WorkCenter ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ,
                                     sto:ProductLifeCycleManagement ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:IEC_62890 ,
@@ -12185,8 +12440,8 @@ sto:ISO_16792 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Asset ,
-                                    rami:Product ,
+              sto:hasClassification sto:RAMIAssetlayer ,
+                                    sto:RAMIProduct ,
                                     sto:ModelingPractice ;
               sto:hasPublisher sto:ISO ;
               sto:hasPublicationDate "2015-12-01"^^xsd:date ;
@@ -12203,15 +12458,15 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Communication ,
+              sto:hasClassification sto:RAMICommunicationlayer ,
                                     rami:Configuration ,
-                                    rami:ControlDevice ,
+                                    sto:RAMIControlDevice ,
                                     rami:Engineering ,
-                                    rami:FieldDevice ,
-                                    rami:Functional ,
-                                    rami:Information ,
-                                    rami:Integration ,
-                                    rami:Product ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIFunctionalLayer ,
+                                    sto:RAMIInformationLayer ,
+                                    sto:RAMIIntegrationLayer ,
+                                    sto:RAMIProduct ,
                                     sto:ProductModelDataExchange ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -12255,13 +12510,13 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:ISO ;
                 foaf:maker sto:ISO ;
-                sto:hasClassification rami:ControlDevice ,
+                sto:hasClassification sto:RAMIControlDevice ,
                                       rami:Engineering ,
-                                      rami:Enterprise ,
-                                      rami:FieldDevice ,
-                                      rami:Product ,
-                                      rami:Station ,
-                                      rami:WorkCenter ;
+                                      sto:RAMIEnterprise ,
+                                      sto:RAMIFieldDevice ,
+                                      sto:RAMIProduct ,
+                                      sto:RAMIStation ,
+                                      sto:RAMIWorkCenter ;
                 sto:hasPublisher sto:ISO ;
                 sto:relatedTo sto:DIN_SPEC_16592 ,
                               sto:IEC_61131 ,
@@ -12303,7 +12558,7 @@ sto:ISO_19439 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:ISO ;
               dul:associatedWith sto:Certification ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Business ;
+              sto:hasClassification sto:RAMIBusinessLayer ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
                             sto:ISO_15704 ,
@@ -12323,9 +12578,9 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
               sto:hasClassification rami:Engineering ,
-                                    rami:Enterprise ,
-                                    rami:Integration ,
-                                    rami:Product ,
+                                    sto:RAMIEnterprise ,
+                                    sto:RAMIIntegrationLayer ,
+                                    sto:RAMIProduct ,
                                     sto:EnterpriseLevel ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:BPMN ,
@@ -12515,15 +12770,15 @@ sto:ISO_22400 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
-              sto:hasClassification rami:Business ,
+              sto:hasClassification sto:RAMIBusinessLayer ,
                                     rami:ConditionMonitoring ,
-                                    rami:ConnectedWorld ,
-                                    rami:ControlDevice ,
-                                    rami:Enterprise ,
-                                    rami:FieldDevice ,
+                                    sto:RAMIConnectedWorld ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIEnterprise ,
+                                    sto:RAMIFieldDevice ,
                                     rami:Lifecycle_Status ,
-                                    rami:Station ,
-                                    rami:WorkCenter ;
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -12564,8 +12819,8 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:ISO ;
                  foaf:maker sto:ISO ;
-                 sto:hasClassification rami:Asset ,
-                                       rami:Product ,
+                 sto:hasClassification sto:RAMIAssetlayer ,
+                                       sto:RAMIProduct ,
                                        sto:ProductCatalogData ;
                  sto:hasPublisher sto:ISO ;
                  sto:hasPublicationDate "2010-02-01"^^xsd:date ;
@@ -12586,13 +12841,13 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
               foaf:maker sto:IEC ;
               sto:alignsWith sto:Identification ;
               sto:hasClassification sto:IIRASecurity ,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Information ,
-                                    rami:Product ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIInformationLayer ,
+                                    sto:RAMIProduct ,
                                     rami:Safety ,
                                     rami:Security ,
-                                    rami:Station ,
+                                    sto:RAMIStation ,
                                     sto:ProductModelDataExchange ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_24760 ,
@@ -12983,8 +13238,8 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
-             sto:hasClassification rami:Asset ,
-                                   rami:Product ,
+             sto:hasClassification sto:RAMIAssetlayer ,
+                                   sto:RAMIProduct ,
                                    sto:ModelingPractice ;
              sto:hasPublisher sto:ISO ;
              sto:hasPublicationDate "2011-08-01"^^xsd:date ;
@@ -13001,8 +13256,8 @@ sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                dcterms:creator sto:ISO ;
                foaf:maker sto:ISO ;
-               sto:hasClassification rami:Asset ,
-                                     rami:Product ,
+               sto:hasClassification sto:RAMIAssetlayer ,
+                                     sto:RAMIProduct ,
                                      sto:ProductionSystemModelData ;
                sto:hasPublisher sto:ISO ;
                sto:relatedTo sto:ISO_10303 ,
@@ -13078,10 +13333,10 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    dcterms:creator sto:ISO ;
                    foaf:maker sto:ISO ;
-                   sto:hasClassification rami:Asset ,
+                   sto:hasClassification sto:RAMIAssetlayer ,
                                          rami:Engineering ,
                                          rami:Identification ,
-                                         rami:Product ,
+                                         sto:RAMIProduct ,
                                          sto:ProductionSystemEngineering ;
                    sto:hasPublisher sto:ISO ;
                    sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -13166,11 +13421,11 @@ sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      dcterms:creator sto:ISO ;
                      foaf:maker sto:ISO ;
-                     sto:hasClassification rami:Asset ,
+                     sto:hasClassification sto:RAMIAssetlayer ,
                                            rami:Configuration ,
                                            rami:Engineering ,
-                                           rami:Integration ,
-                                           rami:Product ,
+                                           sto:RAMIIntegrationLayer ,
+                                           sto:RAMIProduct ,
                                            rami:Safety ,
                                            sto:ProductionSystemModelData ;
                      sto:hasPublisher sto:ISO ;
@@ -13473,9 +13728,9 @@ sto:IotaEvolutionInteroperability rdf:type owl:NamedIndividual ,
                                            sto:IotaPerspective ,
                                            sto:StandardClassification ;
                                   dul:associatedWith sto:IIRAConnectivity ,
-                                                     rami:Integration ;
+                                                     sto:RAMIIntegrationLayer ;
                                   sto:alignsWith sto:IIRAConnectivity ,
-                                                 rami:Integration ;
+                                                 sto:RAMIIntegrationLayer ;
                                   sto:frames sto:DynamicAdjustability ,
                                              sto:Evolvability ,
                                              sto:Interoperability ,
@@ -13506,13 +13761,13 @@ sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
                                      sto:Viewpoint ;
                             dcterms:creator sto:sebastian ;
                             dul:associatedWith sto:IIRAFunctionalViewpoint ,
-                                               rami:Asset ,
-                                               rami:Functional ,
+                                               sto:RAMIAssetlayer ,
+                                               sto:RAMIFunctional ,
                                                sto:IDSRAMProcessLayer ,
                                                sto:IDSRAMSecurity ;
                             sto:alignsWith sto:IIRAFunctionalViewpoint ,
-                                           rami:Asset ,
-                                           rami:Functional ,
+                                           sto:RAMIAssetlayer ,
+                                           sto:RAMIFunctionalLayer ,
                                            sto:IDSRAMProcessLayer ,
                                            sto:IDSRAMSecurity ;
                             sto:frames rami:Configuration ,
@@ -13557,13 +13812,13 @@ sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
                              dul:associatedWith sto:IIRAControlDomain ,
                                                 sto:InformationDomain ,
                                                 sto:IIRAOperationsDomain ,
-                                                rami:Communication ,
+                                                sto:RAMICommunicationlayer ,
                                                 sto:IDSRAMInformationLayer ,
                                                 sto:IDSRAMProcessLayer ;
                              sto:alignsWith sto:IIRAControlDomain ,
                                             sto:InformationDomain ,
                                             sto:IIRAOperationsDomain ,
-                                            rami:Communication ,
+                                            sto:RAMICommunicationlayer ,
                                             sto:IDSRAMInformationLayer ,
                                             sto:IDSRAMProcessLayer ;
                              sto:frames sto:Communication ,
@@ -13833,9 +14088,9 @@ sto:IviAssetView rdf:type owl:NamedIndividual ,
                           sto:Viewpoint ;
                  dcterms:creator sto:sebastian ;
                  dul:associatedWith sto:IIRAPhysicalSystems ,
-                                    rami:Asset ;
+                                    sto:RAMIAssetlayer ;
                  sto:alignsWith sto:IIRAPhysicalSystems ,
-                                rami:Asset ;
+                                sto:RAMIAssetlayer ;
                  sto:frames sto:ThingRepresentation ;
                  sto:isDescribedin sto:IVRA ;
                  rdfs:label "IVI Asset View"@en .
@@ -13862,9 +14117,9 @@ sto:IviBusinessLayer rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
                      dcterms:creator sto:sebastian ;
                      dul:associatedWith sto:IIRABusinessViewpoint ,
-                                        rami:Business ;
+                                        sto:RAMIBusinessLayer ;
                      sto:alignsWith sto:IIRABusinessViewpoint ,
-                                    rami:Business ;
+                                    sto:RAMIBusinessLayer ;
                      sto:frames sto:BusinessContext ,
                                 sto:BusinessTransactions ;
                      sto:isDescribedin sto:IVRA ;
@@ -13892,9 +14147,9 @@ sto:IviManagementView rdf:type owl:NamedIndividual ,
                                sto:Viewpoint ;
                       dcterms:creator sto:sebastian ;
                       dul:associatedWith sto:IIRAUsageViewpoint ,
-                                         rami:Functional ;
+                                         sto:RAMIFunctionalLayer ;
                       sto:alignsWith sto:IIRAUsageViewpoint ,
-                                     rami:Functional ;
+                                     sto:RAMIFunctionalLayer ;
                       sto:frames sto:BusinessContext ,
                                  sto:BusinessTransactions ,
                                  sto:ServiceLifecycleManagement ,
@@ -14055,7 +14310,7 @@ sto:LoWPAN rdf:type owl:NamedIndividual ,
                            sto:sebastian ;
            foaf:maker sto:IETF ;
            sto:hasClassification sto:IIRAConnectivity ,
-                                 rami:Communication ;
+                                 sto:RAMICommunicationlayer ;
            sto:hasDeveloper sto:IETF ;
            sto:hasPublisher sto:IETF ;
            sto:hasTargetConcern sto:Communication ;
@@ -14325,7 +14580,7 @@ sto:ModBus rdf:type owl:NamedIndividual ,
                     sto:Standard ;
            dcterms:creator sto:SE ;
            foaf:maker sto:SE ;
-           sto:hasClassification rami:Integration ;
+           sto:hasClassification sto:RAMIIntegrationLayer ;
            sto:hasPublisher sto:SE ;
            sto:hasTag "Modbus"@en ;
            rdfs:comment "Modbus is a serial communications protocol to be used in Programmable logic controllers (PLCs)."@en ;
@@ -14659,13 +14914,13 @@ sto:NgsiLdArchitecture rdf:type owl:NamedIndividual ,
                                 sto:NGSI_Context_Information_Management_API ,
                                 sto:StandardClassification ;
                        dul:associatedWith sto:IIRAImplementationViewpoint ,
-                                          rami:Integration ,
+                                          sto:RAMIIntegrationLayer ,
                                           sto:FiwareApplicationsServicesAndDataDelivery ,
                                           sto:FiwareCloudHosting ,
                                           sto:InterfaceNetworksDevices ,
                                           sto:IDSRAMSystemLayer ;
                        sto:alignsWith sto:IIRAImplementationViewpoint ,
-                                      rami:Integration ,
+                                      sto:RAMIIntegrationLayer ,
                                       sto:FiwareApplicationsServicesAndDataDelivery ,
                                       sto:FiwareCloudHosting ,
                                       sto:InterfaceNetworksDevices ,
@@ -14681,11 +14936,11 @@ sto:NgsiLdArchitecture rdf:type owl:NamedIndividual ,
 sto:NgsiLdDataRepresentation rdf:type owl:NamedIndividual ,
                                       sto:NGSI_Context_Information_Management_API ,
                                       sto:StandardClassification ;
-                             dul:associatedWith rami:Functional ,
+                             dul:associatedWith sto:RAMIFunctionalLayer ,
                                                 sto:FiwareDataContextManagement ,
                                                 sto:RDF ,
                                                 sto:IDSRAMInformationLayer ;
-                             sto:alignsWith rami:Functional ,
+                             sto:alignsWith sto:RAMIFunctionalLayer ,
                                             sto:FiwareDataContextManagement ,
                                             sto:IDSRAMInformationLayer ;
                              sto:frames sto:DataDescription ,
@@ -14701,11 +14956,11 @@ sto:NgsiLdInformationModel rdf:type owl:NamedIndividual ,
                                     sto:StandardClassification ;
                            dcterms:creator sto:sebastian ;
                            dul:associatedWith sto:InformationDomain ,
-                                              rami:Information ,
+                                              sto:RAMIInformationLayer ,
                                               sto:FiwareDataContextManagement ,
                                               sto:IDSRAMInformationLayer ;
                            sto:alignsWith sto:InformationDomain ,
-                                          rami:Information ,
+                                          sto:RAMIInformationLayer ,
                                           sto:FiwareDataContextManagement ,
                                           sto:IDSRAMInformationLayer ;
                            sto:frames sto:DataAnalytics ,
@@ -14960,14 +15215,14 @@ sto:OceanSystemViewpoint rdf:type owl:NamedIndividual ,
                                   sto:Viewpoint ;
                          dul:associatedWith sto:IIRABusinessDomain ,
                                             sto:IIRAFunctionalViewpoint ,
-                                            rami:Functional ,
+                                            sto:RAMIFunctionalLayer ,
                                             sto:DataConsumer ,
                                             sto:DataProvider ,
                                             sto:IDSRAMBusinessLayer ,
                                             sto:IDSRAMProcessLayer ;
                          sto:alignsWith sto:IIRABusinessDomain ,
                                         sto:IIRAFunctionalViewpoint ,
-                                        rami:Functional ,
+                                        sto:RAMIFunctionalLayer ,
                                         sto:IDSRAMBusinessLayer ,
                                         sto:IDSRAMProcessLayer ;
                          sto:frames sto:AI ,
@@ -15094,7 +15349,7 @@ sto:OpenFogNodeView rdf:type owl:NamedIndividual ,
                     dcterms:creator sto:sebastian ;
                     dul:associatedWith sto:WiFi ;
                     sto:alignsWith sto:IIRAPhysicalSystems ,
-                                   rami:Asset ,
+                                   sto:RAMIAssetlayer ,
                                    sto:IDSRAMSystemLayer ;
                     sto:frames sto:DataStorage ,
                                sto:NetworkPerformance ,
@@ -15586,7 +15841,7 @@ sto:RFC_2616 rdf:type owl:NamedIndividual ,
              foaf:maker sto:IETF ;
              sto:hasClassification sto:IIRAFunctionalViewpoint ,
                                    sto:TansportLayer ,
-                                   rami:Communication ,
+                                   sto:RAMICommunicationlayer ,
                                    sto:IDSRAMSystemLayer ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext, such as name servers and distributed object management systems, through extension of its request methods, error codes and headers. A feature of HTTP is the typing and negotiation of data representation, allowing systems to be built independently of the data being transferred."@en ;
@@ -15707,7 +15962,7 @@ sto:RFC_7540 rdf:type owl:NamedIndividual ,
              foaf:maker sto:IETF ;
              sto:hasClassification sto:IIRAFunctionalViewpoint ,
                                    sto:TansportLayer ,
-                                   rami:Communication ,
+                                   sto:RAMICommunicationlayer ,
                                    sto:IDSRAMInteroperability ,
                                    sto:IDSRAMSystemLayer ;
              sto:hasPublisher sto:IETF ;
@@ -15820,7 +16075,7 @@ sto:RFC_8323 rdf:type owl:NamedIndividual ,
                              sto:sebastian ;
              foaf:maker sto:IETF ;
              sto:hasClassification sto:IIRAConnectivity ,
-                                   rami:Communication ;
+                                   sto:RAMICommunicationlayer ;
              sto:hasDeveloper sto:IETF ;
              sto:hasPublisher sto:IETF ;
              rdfs:comment "CoAP (Constrained Application Protocol) is an application layer protocol that is intended for use in resource-constrained internet devices, such as WSN nodes. CoAP is designed to easily translate to HTTP for simplified integration with the web, while also meeting specialized requirements such as multicast support, very low overhead, and simplicity. The CoRE group has proposed the following features for CoAP: RESTful protocol design minimizing the complexity of mapping with HTTP, Low header overhead and parsing complexity, URI and content-type support, Support for the discovery of resources provided by known CoAP services. Simple subscription for a resource, and resulting push notifications, Simple caching based on max-age. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -17540,13 +17795,13 @@ sto:eClass rdf:type owl:NamedIndividual ,
                     sto:Standard ;
            dcterms:creator sto:eClassAssoc ;
            foaf:maker sto:eClassAssoc ;
-           sto:hasClassification rami:ConnectedWorld ,
-                                 rami:ControlDevice ,
+           sto:hasClassification sto:RAMIConnectedWorld ,
+                                 sto:RAMIControlDevice ,
                                  rami:Engineering ,
-                                 rami:Enterprise ,
-                                 rami:Product ,
-                                 rami:Station ,
-                                 rami:WorkCenter ;
+                                 sto:RAMIEnterprise ,
+                                 sto:RAMIProduct ,
+                                 sto:RAMIStation ,
+                                 sto:RAMIWorkCenter ;
            sto:hasDeveloper sto:eClassAssoc ;
            sto:hasPublisher sto:eClassAssoc ;
            sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -17772,10 +18027,10 @@ sto:xRoadDeploymentView rdf:type owl:NamedIndividual ,
                                  sto:StandardClassification ,
                                  sto:xRoadSection ;
                         dul:associatedWith sto:IIRAImplementationViewpoint ,
-                                           rami:Integration ,
+                                           sto:RAMIIntegrationLayer ,
                                            sto:IDSRAMSystemLayer ;
                         sto:alignsWith sto:IIRAImplementationViewpoint ,
-                                       rami:Integration ,
+                                       sto:RAMIIntegrationLayer ,
                                        sto:IDSRAMSystemLayer ;
                         sto:frames sto:Communication ,
                                    sto:DataAccess ,
@@ -17792,10 +18047,10 @@ sto:xRoadProtocolsInterfaces rdf:type owl:NamedIndividual ,
                                       sto:StandardClassification ,
                                       sto:xRoadSection ;
                              dul:associatedWith sto:IIRAControlDomain ,
-                                                rami:Integration ,
+                                                sto:RAMIIntegrationLayer ,
                                                 sto:IDSRAMProcessLayer ;
                              sto:alignsWith sto:IIRAControlDomain ,
-                                            rami:Integration ,
+                                            sto:RAMIIntegrationLayer ,
                                             sto:IDSRAMProcessLayer ;
                              sto:frames sto:Communication ,
                                         sto:Interoperability ,
@@ -17809,11 +18064,11 @@ sto:xRoadSystemComponents rdf:type owl:NamedIndividual ,
                                    sto:StandardClassification ,
                                    sto:xRoadSection ;
                           dul:associatedWith sto:IIRASecurityFramework ,
-                                             rami:Functional ,
+                                             sto:RAMIFunctionalLayer ,
                                              sto:IDSRAMBusinessLayer ,
                                              sto:IDSRAMProcessLayer ;
                           sto:alignsWith sto:IIRASecurityFramework ,
-                                         rami:Functional ,
+                                         sto:RAMIFunctionalLayer ,
                                          sto:IDSRAMBusinessLayer ,
                                          sto:IDSRAMProcessLayer ;
                           sto:frames sto:Authentication ,
@@ -17891,8 +18146,8 @@ sto:hasOpenResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.
 sto:AiiNetwork rdf:type owl:NamedIndividual ,
                      :AiiClassification ;
             sto:alignsWith sto:IIRAConnectivity ,
-                           rami:Communication ,
-                           rami:Integration ,
+                           sto:RAMICommunicationlayer ,
+                           sto:RAMIIntegrationLayer ,
                            sto:IDSRAMSystemLayer ;
             sto:frames sto:Communication ,
                        sto:Connectivity ,
@@ -18137,11 +18392,11 @@ sto:IDSRAMBusinessLayer rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ,
                               sto:IDSRAMLayer ;
                      dul:associatedWith sto:IIRABusinessDomain ,
-                                        rami:Business ,
+                                        sto:RAMIBusinessLayer ,
                                         sto:OceanSystemViewpoint ,
                                         sto:xRoadSystemComponents ;
                      sto:alignsWith sto:IIRABusinessDomain ,
-                                    rami:Business ,
+                                    sto:RAMIBusinessLayer ,
                                     sto:OceanSystemViewpoint ,
                                     sto:xRoadSystemComponents ;
                      sto:frames sto:RoleCategorization ;
@@ -18225,11 +18480,11 @@ sto:IDSRAMFunctionalLayerAnno a oa:Annotation ;
 sto:IDSRAMGovernance rdf:type owl:NamedIndividual ,
                            <http://w3id.org/ids/ram/Perspective> ,
                            sto:StandardClassification ;
-                  dul:associatedWith rami:Business ,
+                  dul:associatedWith sto:RAMIBusinessLayer ,
                                      sto:DtpEcosystemView ,
                                      sto:DtpSecurityPrivacy ,
                                      sto:FrameworkLayer ;
-                  sto:alignsWith rami:Business ,
+                  sto:alignsWith sto:RAMIBusinessLayer ,
                                  sto:DtpEcosystemView ,
                                  sto:DtpSecurityPrivacy ,
                                  sto:FrameworkLayer ;
@@ -18259,14 +18514,14 @@ sto:IDSRAMInformationLayer rdf:type owl:NamedIndividual ,
                                  sto:IDSRAMLayer ;
                         dul:associatedWith sto:InformationDomain ,
                                            sto:Vocabulary ,
-                                           rami:Information ,
+                                           sto:RAMIInformationLayer ,
                                            sto:BdvaDataManagement ,
                                            sto:IotaInformationViewpoint ,
                                            sto:NgsiLdDataRepresentation ,
                                            sto:NgsiLdInformationModel ;
                         sto:alignsWith sto:InformationDomain ,
                                        sto:Vocabulary ,
-                                       rami:Information ,
+                                       sto:RAMIInformationLayer ,
                                        sto:BdvaDataManagement ,
                                        sto:IotaInformationViewpoint ,
                                        sto:NgsiLdDataRepresentation ,
@@ -18306,7 +18561,7 @@ sto:IDSRAMProcessLayer rdf:type owl:NamedIndividual ,
                     dul:associatedWith sto:IIRAApplicationDomain ,
                                        sto:InformationDomain ,
                                        sto:IIRAOperationsDomain ,
-                                       rami:Functional ,
+                                       sto:RAMIFunctionalLayer ,
                                        sto:BdvaDataAnalytics ,
                                        sto:BdvaDataManagement ,
                                        sto:BdvaDataProcessingArchitectures ,
@@ -18322,7 +18577,7 @@ sto:IDSRAMProcessLayer rdf:type owl:NamedIndividual ,
                     sto:alignsWith sto:IIRAApplicationDomain ,
                                    sto:InformationDomain ,
                                    sto:IIRAOperationsDomain ,
-                                   rami:Functional ,
+                                   sto:RAMIFunctionalLayer ,
                                    sto:BdvaDataAnalytics ,
                                    sto:BdvaDataManagement ,
                                    sto:BdvaDataProcessingArchitectures ,
@@ -18426,8 +18681,8 @@ sto:IDSRAMSystemLayer rdf:type owl:NamedIndividual ,
                    dul:associatedWith sto:IIRAControlDomain ,
                                       sto:IIRAImplementationViewpoint ,
                                       sto:IIRAPhysicalSystems ,
-                                      rami:Communication ,
-                                      rami:Integration ,
+                                      sto:RAMICommunicationlayer ,
+                                      sto:RAMIIntegrationLayer ,
                                       sto:DtpSystemView ,
                                       sto:EdgecrossEdgeComputingLayer ,
                                       sto:EdgecrossItSystemsLayer ,
@@ -18442,8 +18697,8 @@ sto:IDSRAMSystemLayer rdf:type owl:NamedIndividual ,
                                       sto:xRoadDeploymentView ;
                    sto:alignsWith sto:IIRAControlDomain ,
                                   sto:IIRAPhysicalSystems ,
-                                  rami:Communication ,
-                                  rami:Integration ,
+                                  sto:RAMICommunicationlayer ,
+                                  sto:RAMIIntegrationLayer ,
                                   sto:DtpSystemView ,
                                   sto:EdgecrossEdgeComputingLayer ,
                                   sto:EdgecrossItSystemsLayer , 
