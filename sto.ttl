@@ -4657,7 +4657,7 @@ sto:DataTransferProjectAnno a oa:Annotation ;
     oa:hasBody sto:DataTransferProject ;
     oa:hasTarget [ 
          a oa:SpecificResource;
-        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals ; 
+        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals .]. 
 
 sto:Data_Transfer_Project_Overview_and_Fundamentals a oa:SpecificResource;
 rdfs:label "Data Transfer Project Overview and Fundamentals"@en ;
@@ -18040,6 +18040,23 @@ sto:xRoadDeploymentView rdf:type owl:NamedIndividual ,
                         sto:isDescribedin sto:xTee ;
                         rdfs:label "x-road Deplyoment View"@en .
 
+sto:xRoadDeploymentViewAnno a oa:Annotation ;
+    oa:hasBody sto:xRoadDeploymentView ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:X_Road_Architecture_Technical_Specification ; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 15" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 16" ] ] ] .
+
+sto:X_Road_Architecture_Technical_Specification a oa:SpecificResource;
+rdfs:label "X-Road Architecture Technical Specification Version: 1.0 18.09.2015 15 pages Doc. ID: ARC-G"@en ;
+sto:hasOpenResource <https://www.riha.ee/api/v1/systems/70006317-xroad-center/files/257bc950-9149-25be-496b-f54b6a608791>.
 
 ###  https://w3id.org/i40/sto#xRoadProtocolsInterfaces
 sto:xRoadProtocolsInterfaces rdf:type owl:NamedIndividual ,
@@ -18057,6 +18074,19 @@ sto:xRoadProtocolsInterfaces rdf:type owl:NamedIndividual ,
                              sto:isDescribedin sto:xTee ;
                              rdfs:label "x-road Protocols and Interfaces"@en .
 
+sto:xRoadProtocolsInterfacesAnno a oa:Annotation ;
+    oa:hasBody sto:xRoadProtocolsInterfaces ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:X_Road_Architecture_Technical_Specification ; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 10" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 14" ] ] ] .
 
 ###  https://w3id.org/i40/sto#xRoadSystemComponents
 sto:xRoadSystemComponents rdf:type owl:NamedIndividual ,
@@ -18080,6 +18110,20 @@ sto:xRoadSystemComponents rdf:type owl:NamedIndividual ,
                           sto:isDescribedin sto:xTee ;
                           rdfs:label "x-road System Components"@en .
 
+sto:xRoadSystemComponentsAnno a oa:Annotation ;
+    oa:hasBody sto:xRoadSystemComponents ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:X_Road_Architecture_Technical_Specification ; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 7" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 10" ] ] ] .
+
 
 ###  https://w3id.org/i40/sto#xRoadTechnologyMatrix
 sto:xRoadTechnologyMatrix rdf:type owl:NamedIndividual ,
@@ -18088,6 +18132,19 @@ sto:xRoadTechnologyMatrix rdf:type owl:NamedIndividual ,
                           sto:isDescribedin sto:xTee ;
                           rdfs:label "x-road Technology Matrix"@en .
 
+sto:xRoadTechnologyMatrixAnno a oa:Annotation ;
+    oa:hasBody sto:xRoadTechnologyMatrix ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:X_Road_Architecture_Technical_Specification ; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 14" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 15" ] ] ] .
 
 ###  https://w3id.org/i40/sto#xTee
 sto:xTee rdf:type owl:NamedIndividual ,
