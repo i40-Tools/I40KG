@@ -5601,6 +5601,12 @@ sto:FIWARE rdf:type owl:NamedIndividual ,
            rdfs:label "FIWARE Architecture"@en ;
            sto:hasOfficialResource <https://www.fiware.org/> .
 
+sto:FIWAREAnno a oa:Annotation ;
+    oa:hasBody sto:FIWARE ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Summary_of_FI-WARE_Open_Specifications> ; 
+        ] .
 
 ###  https://w3id.org/i40/sto#Fairness
 sto:Fairness rdf:type owl:NamedIndividual ,
@@ -6720,6 +6726,12 @@ sto:FiwareAdvancedUi rdf:type owl:NamedIndividual ,
 The objective of the Advanced Web-based UI GE is to significantly improve the user experience for the Future Internet by adding new user input and interaction capabilities, such as interactive 3D graphics, immersive interaction with the real and virtual world via Augmented Reality, virtualizing the display and driving them over the network, and many more."""@en ;
                      rdfs:label "FIWARE Advanced Web-based User Interface"@en .
 
+sto:FiwareAdvancedUiAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareAdvancedUi ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Advanced_Middleware_and_Web_UI_Architecture> ; 
+        ] .
 
 ###  https://w3id.org/i40/sto#FiwareApplicationsServicesAndDataDelivery
 sto:FiwareApplicationsServicesAndDataDelivery rdf:type owl:NamedIndividual ,
@@ -6748,6 +6760,13 @@ The Application Mashup GE aims at allowing end users without programming skills 
 The Data Visualisation GE aims at creating agile, beautiful visualizations and meaningful reports useful to present the large variety of datasets. Data stakeholders will bring in the play as well as providing customisable data analytics."""@en ;
                                               rdfs:label "FIWARE Applications Services and Data Delivery"@en .
 
+
+sto:FiwareApplicationsServicesAndDataDeliveryAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareApplicationsServicesAndDataDelivery ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Architecture_of_Applications,_Services_and_Data_Delivery_R3> ; 
+        ] .
 
 ###  https://w3id.org/i40/sto#FiwareChapter
 sto:FiwareChapter rdf:type owl:NamedIndividual ;
@@ -6789,6 +6808,12 @@ sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
 The IaaS Data Center Resource Management (DCRM) GE is offering provisioning and life cycle management of virtualized resources (compute, storage, network) associated with virtual machines. The Object Storage GE offers provisioning and life cycle management of object-based storage containers and elements. The Job Scheduler GE offers the application to submit and manage computational jobs in a unified and scalable manner. The Edgelet Management GE offers the capability to host lightweight application components, called edgelets. Moreover, the IaaS Service Management (SM) GE provides the means to host complex applications. Lastly, the PaaS Management GE uses the above capabilities to offer provisioning and management of complete PaaS environments, leveraging also the Software Deployment and Configuration (SDC) GE which offers a flexible framework for installation and customization of software products (via Chef recipes) within individual virtual machines."""@en ;
                        rdfs:label "FIWARE Cloud Hosting"@en .
 
+sto:FiwareCloudHostingAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareCloudHosting ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Cloud_Hosting_Architecture_R3> ; 
+        ] .
 
 ###  https://w3id.org/i40/sto#FiwareDataContextManagement
 sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
@@ -6812,7 +6837,13 @@ sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
 FIWARE Data/Context Management GEs allow to gather information from context and other sources (Context Broker), mediate metadata among GEs and applications (Metadata pre-processor) query stored information through an homogeneous layer (Query Broker), , annotate existing information (Semantic Annotation), store and manage semantic information (Semantic Application Support), generate new knowledge from big data stores using a Map & Reduce paradigm (Big Data analysis) and react to different types of scenarios (Complex Event Processing). It also provides GEs for media management, as easy creation of advanced video applications (Stream Oriented GE) and specifically, video analysis in the compressed domain (CDVA)."""@en ;
                                 rdfs:label "FIWARE Data/Context Management"@en .
 
-
+sto:FiwareDataContextManagementAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareDataContextManagement ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Data/Context_Management_Architecture_R3> ; 
+        ] .
+        
 ###  https://w3id.org/i40/sto#FiwareIotServicesEnablement
 sto:FiwareIotServicesEnablement rdf:type owl:NamedIndividual ,
                                          sto:FiwareChapter ,
@@ -6844,6 +6875,12 @@ IoT Resources are computational elements (software) that provide the technical m
 IoT GEs have been spread in two different domains: Gateway and Backend. While IoT Gateway GEs provide inter-networking and protocol conversion functionalities between devices and the IoT Backend GEs, the IoT Backend GEs provide management functionalities for the devices and IoT domain-specific support for the applications."""@en ;
                                 rdfs:label "FIWARE IoT Services Enablement"@en .
 
+sto:FiwareIotServicesEnablementAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareIotServicesEnablement ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Internet_of_Things_(IoT)_Services_Enablement_Architecture_R3> ; 
+        ] .
 
 ###  https://w3id.org/i40/sto#FiwareSecurity
 sto:FiwareSecurity rdf:type owl:NamedIndividual ,
@@ -6875,6 +6912,12 @@ Security, Privacy and Trust in FIWARE is mainly focusing on delivering tools and
 The high-level Reference Architecture is formed by four main blocks of GEs: Cybersecurity, Identity and Access Management (and Enforcement), Privacy, Trust and Trustworthiness."""@en ;
                    rdfs:label "FIWARE Security"@en .
 
+sto:FiwareSecurityAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareSecurity ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Security_Architecture_R3> ; 
+        ] .
 
 ###  https://w3id.org/i40/sto#FrameworkLayer
 sto:IICFFrameworkLayer rdf:type owl:NamedIndividual ,
@@ -13858,7 +13901,13 @@ Open networking elements enable cloud network application developers to build va
 The third set of functionalities enables the management of robots by means of platform components and interfaces towards other FIWARE GEs, allowing users to develop smarter and faster robotic applications."""@en ;
                              rdfs:label "FIWARE Interface to Networks and Devices"@en .
 
-
+sto:InterfaceNetworksDevicesAnno a oa:Annotation ;
+    oa:hasBody sto:InterfaceNetworksDevices ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Interface_to_Networks_and_Devices_(I2ND)_Architecture_R3> ; 
+        ] .
+        
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
 sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
                                             sto:abbreviation "ICS"@en .
@@ -19240,6 +19289,12 @@ sto:FiwareChapter dcterms:creator "sebastian"@en ;
                   rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
                   rdfs:label "Fiware Chapter"@en .
 
+sto:FiwareChapterAnno a oa:Annotation ;
+    oa:hasBody sto:FiwareChapter ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Summary_of_FI-WARE_Open_Specifications> ; 
+        ] .
 
 sto:GeospatialQuery rdfs:seeAlso "IoT-A Requirement UNI.401" .
 
