@@ -13907,7 +13907,7 @@ sto:InterfaceNetworksDevicesAnno a oa:Annotation ;
          a oa:SpecificResource;
         oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Interface_to_Networks_and_Devices_(I2ND)_Architecture_R3> ; 
         ] .
-        
+
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
 sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
                                             sto:abbreviation "ICS"@en .
@@ -15491,6 +15491,24 @@ sto:OceanBusinessViewpoint rdf:type owl:NamedIndividual ,
                            sto:isDescribedin sto:OceanProtocol ;
                            rdfs:label "Ocean Protocol Business Viewpoint"@en .
 
+ sto:OceanBusinessViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:OceanBusinessViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Ocean_Protocol_Business_Strategy_Oct_2017; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 1" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 41" ] ] ] .
+ 
+
+sto:Ocean_Protocol_Business_Strategy_Oct_2017 a oa:SpecificResource;
+rdfs:label "Ocean Protocol: A Decentralized Data Exchange Protocol,powered by blockchain technology and a cryptotoken. Business Strategy. Oct 2017"@en ;
+sto:hasOpenResource <https://oceanprotocol.com/business-strategy.pdf>.
 
 ###  https://w3id.org/i40/sto#OceanMarketplaceViewpoint
 sto:OceanMarketplaceViewpoint rdf:type owl:NamedIndividual ,
@@ -15501,6 +15519,24 @@ sto:OceanMarketplaceViewpoint rdf:type owl:NamedIndividual ,
                               sto:frames sto:BusinessContext ;
                               sto:isDescribedin sto:OceanProtocol ;
                               rdfs:label "Ocean Protocol Marketplace Viewpoint"@en .
+
+sto:OceanMarketplaceViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:OceanMarketplaceViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Ocean_Protocol_Reference_Marketplace_Framework_Feb_2019 ; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 1" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 27" ] ] ] .
+ 
+sto:Ocean_Protocol_Reference_Marketplace_Framework_Feb_2019 a oa:SpecificResource;
+rdfs:label "Ocean Protocol: A Decentralized Data Exchange Protocol to Unlock Data for Artificial Intelligence. Reference Marketplace Framework. Feb 2019"@en ;
+sto:hasOpenResource <https://oceanprotocol.com/marketplace-framework.pdf>.
 
 
 ###  https://w3id.org/i40/sto#OceanProtocol
@@ -15570,6 +15606,23 @@ sto:OceanSystemViewpoint rdf:type owl:NamedIndividual ,
                          sto:isDescribedin sto:OceanProtocol ;
                          rdfs:label "Ocean Protocol System Viewpoint"@en .
 
+sto:OceanSystemViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:OceanSystemViewpoint;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:Ocean_Protocol_Technical_Whitepaper_Apr_2019 ; 
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 1" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 59" ] ] ] .
+ 
+sto:Ocean_Protocol_Technical_Whitepaper_Apr_2019 a oa:SpecificResource;
+rdfs:label "Ocean Protocol: A Decentralized Substrate for AI Data & Services . Technical Whitepaper. Apr 2019"@en ;
+sto:hasOpenResource <https://oceanprotocol.com/tech-whitepaper.pdf>.
 
 ###  https://w3id.org/i40/sto#OpenApi
 sto:OpenApi rdf:type owl:NamedIndividual ,
