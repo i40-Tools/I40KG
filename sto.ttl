@@ -2872,6 +2872,7 @@ rami:Security rdf:type owl:NamedIndividual ,
                                  sto:DtpSecurityPrivacy ,
                                  sto:FiwareSecurity ;
               sto:alignsWith sto:BdvaCyberSecurityTrust ,
+                             sto:OcfSecurity,
                              sto:DtpSecurityPrivacy ,
                              sto:FiwareSecurity ;
               sto:isDescribedin sto:AdministrationShell ;
@@ -15665,7 +15666,7 @@ sto:OpenFogConsortium rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#OpenFogDataAnalyticsAndControlPerspective
-sto:OpenFogDataAnalyticsAndControlPerspective rdf:type owl:NamedIndividual ,
+sto:OFRADataAnalyticsAndControlPerspective rdf:type owl:NamedIndividual ,
                                                        sto:StandardClassification ;
                                               dcterms:creator sto:sebastian ;
                                               sto:alignsWith sto:IIRAControlDomain ,
@@ -15674,9 +15675,23 @@ sto:OpenFogDataAnalyticsAndControlPerspective rdf:type owl:NamedIndividual ,
                                               sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                                               rdfs:label "OpenFog Data Analytics and Control Perspective"@en .
 
+ sto:OFRADataAnalyticsAndControlPerspectiveAnno a oa:Annotation ;
+    oa:hasBody sto:OFRADataAnalyticsAndControlPerspective ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 54" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 56" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogDeploymentViewpoint
-sto:OpenFogDeploymentViewpoint rdf:type owl:NamedIndividual ,
+sto:OFRADeploymentViewpoint rdf:type owl:NamedIndividual ,
                                         sto:Viewpoint ;
                                dcterms:creator sto:sebastian ;
                                sto:alignsWith sto:IIRAImplementationViewpoint ;
@@ -15685,18 +15700,47 @@ sto:OpenFogDeploymentViewpoint rdf:type owl:NamedIndividual ,
                                rdfs:comment "How fog software and fog systems are deployed to address a given scenario is also very important. There are many deployment types ranging from embedded to large clustered systems that are fully interconnected. The deployment type(s) chosen are scenario specific, but key aspects of the architecture remain visible regardless of deployment type. However, some may grow or shrink in importance. source: OpenFog Reference Architecture"@en ;
                                rdfs:label "OpenFog Deployment Viewpoint"@en .
 
+ sto:OFRADeploymentViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:OFRADeploymentViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 39" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 40" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogFunctionalViewpoint
-sto:OpenFogFunctionalViewpoint rdf:type owl:NamedIndividual ,
+sto:OFRAFunctionalViewpoint rdf:type owl:NamedIndividual ,
                                         sto:Viewpoint ;
                                dcterms:creator sto:sebastian ;
                                sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                                rdfs:comment "The functional viewpoint of the architecture shows how we apply the OpenFog architectural elements and views to address the various concerns of the stakeholders to satisfy a given scenario. Each scenario chosen will focus on a different aspects and market opportunities for fog computing. We fully expect that the architectural description, views, and perspective may change over time. This change and refinement should be driven from testbeds and application of the OpenFog RA to multiple different markets we see as important to fog computing. source: OpenFog Reference Architecture"@en ;
                                rdfs:label "OpenFog Functional Viewpoint"@en .
 
+ sto:OFRAFunctionalViewpointAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAFunctionalViewpoint ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 38" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 39" ] ] ] .
+
 
 ###  https://w3id.org/i40/sto#OpenFogItBusinessAndCrossFogApplicationsPerspective
-sto:OpenFogItBusinessAndCrossFogApplicationsPerspective rdf:type owl:NamedIndividual ,
+sto:OFRAItBusinessAndCrossFogApplicationsPerspective rdf:type owl:NamedIndividual ,
                                                                  sto:StandardClassification ;
                                                         dcterms:creator sto:sebastian ;
                                                         sto:frames sto:BusinessContext ;
@@ -15704,9 +15748,23 @@ sto:OpenFogItBusinessAndCrossFogApplicationsPerspective rdf:type owl:NamedIndivi
                                                         rdfs:comment "Fog applications and services should have the flexibility to span and interoperate with various levels in a fog hierarchy. This is a foundational aspect of fog computing that enables a multi-vendor ecosystem. In addition, the data that is collected or generated by one fog node should be shareable with other nodes in the hierarchy. The figure below shows a cross-fog application spanning east to west nodes (it would also be able to span north to south). source: OpenFog Reference Architecture"@en ;
                                                         rdfs:label "OpenFog IT Business and Cross-fog Applications Perspective"@en .
 
+ sto:OFRAItBusinessAndCrossFogApplicationsPerspectiveAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAItBusinessAndCrossFogApplicationsPerspective ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 56" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 57" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogManageabilityPerspective
-sto:OpenFogManageabilityPerspective rdf:type owl:NamedIndividual ,
+sto:OFRAManageabilityPerspective rdf:type owl:NamedIndividual ,
                                              sto:StandardClassification ;
                                     dcterms:creator sto:sebastian ;
                                     sto:frames sto:AutonomousConfiguration ,
@@ -15715,9 +15773,23 @@ sto:OpenFogManageabilityPerspective rdf:type owl:NamedIndividual ,
                                     rdfs:comment "Many fog computing deployments involve machine vision, and associated human-like functions. As such, they have the ability to see, respond, remember, move, and make autonomous decisions in order to participate in other fog services. This range of actions requires a higher level of manageability than a traditional static model. In addition, fog nodes may be deployed in a wide range of locations: remote, fixed and non-fixed, and environmentally harsh conditions. source: OpenFog Reference Architecture"@en ;
                                     rdfs:label "OpenFog Manageability Perspective"@en .
 
+sto:OFRAManageabilityPerspectiveAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAManageabilityPerspective ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 51" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 54" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogNodeView
-sto:OpenFogNodeView rdf:type owl:NamedIndividual ,
+sto:OFRANodeView rdf:type owl:NamedIndividual ,
                              sto:Viewpoint ;
                     dcterms:creator sto:sebastian ;
                     dul:associatedWith sto:WiFi ;
@@ -15732,14 +15804,42 @@ sto:OpenFogNodeView rdf:type owl:NamedIndividual ,
                     rdfs:comment "The node view is the lowest level view we currently utilize in the architectural description. The stakeholders involved in formulating the viewpoint (and subsequently this view) are the system on a chip designers, silicon manufacturers, firmware architects, and system architects. source: OpenFog Reference Architecture"@en ;
                     rdfs:label "OpenFog Node View"@en .
 
+sto:OFRANodeViewAnno a oa:Annotation ;
+    oa:hasBody sto:OFRANodeView ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 56" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 73" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogPerformancePerspective
-sto:OpenFogPerformancePerspective rdf:type owl:NamedIndividual ,
+sto:OFRAPerformancePerspective rdf:type owl:NamedIndividual ,
                                            sto:StandardClassification ;
                                   dcterms:creator sto:sebastian ;
                                   sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                                   rdfs:label "Performance and Scale Perspective"@en .
 
+sto:OFRAPerformancePerspectiveAnno a oa:Annotation ;
+    oa:hasBody sto:OFRAPerformancePerspective ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 46" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 47" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogReferenceArchitecture
 sto:OpenFogReferenceArchitecture rdf:type owl:NamedIndividual ,
@@ -15753,9 +15853,17 @@ sto:OpenFogReferenceArchitecture rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#OpenFogSecurityPerspective
-sto:OpenFogSecurityPerspective rdf:type owl:NamedIndividual ,
+sto:OFRASecurityPerspective rdf:type owl:NamedIndividual ,
                                         sto:StandardClassification ;
                                dcterms:creator sto:sebastian ;
+                                sto:alignsWith rami:Security ,
+                            					sto:IDSRAMSecurity,
+                            					sto:OcfSecurity,
+                            					sto:IIRASecurity ,
+                            					sto:IIRASecurityFramework ,
+                            					sto:BdvaCyberSecurityTrust ,
+                            					sto:FiwareSecurity ,
+                            					sto:IotaTrustSecurityPrivacy;
                                sto:frames sto:Availability ,
                                           sto:Identification ,
                                           sto:IntegrityProtection ,
@@ -15765,9 +15873,23 @@ sto:OpenFogSecurityPerspective rdf:type owl:NamedIndividual ,
                                sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                                rdfs:label "OpenFog Security Perspective"@en .
 
+sto:OFRASecurityPerspectiveAnno a oa:Annotation ;
+    oa:hasBody sto:OFRASecurityPerspective ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 47" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 51" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogSoftwareView
-sto:OpenFogSoftwareView rdf:type owl:NamedIndividual ,
+sto:OFRASoftwareView rdf:type owl:NamedIndividual ,
                                  sto:Viewpoint ;
                         dcterms:creator sto:sebastian ;
                         sto:alignsWith sto:IIRAApplicationDomain ;
@@ -15775,9 +15897,23 @@ sto:OpenFogSoftwareView rdf:type owl:NamedIndividual ,
                         rdfs:comment "OpenFog Software Architecture View"@en ,
                                      "The software view of the OpenFog RA is composed of software running on a platform that is comprised of one or more node views coupled with other components to create a system addressing a given scenario. The stakeholders of the software view include the system integrators, software architects, solution designers, and application developers of a fog computing environment. The software running on fog platforms is used to satisfy a given deployment scenario. A robust fog deployment requires that the relationship between a fog node, fog platform, and fog software are seamless. source: OpenFog Reference Architecture"@en .
 
+sto:OFRASoftwareViewAnno a oa:Annotation ;
+    oa:hasBody sto:OFRASoftwareView ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 77" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 89" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenFogSystemView
-sto:OpenFogSystemView rdf:type owl:NamedIndividual ,
+sto:OFRASystemView rdf:type owl:NamedIndividual ,
                                sto:Viewpoint ;
                       dcterms:creator sto:sebastian ;
                       sto:frames sto:PhysicalConnectivity ;
@@ -15785,6 +15921,20 @@ sto:OpenFogSystemView rdf:type owl:NamedIndividual ,
                       rdfs:comment "The system view of the OpenFog RA is composed of one or more node views coupled with other components to create a platform. The stakeholders which typically create these systems to facilitate a fog deployment comprise the concerns of this viewpoint. Subsequently this view is intended to address the concerns of the system architects, hardware OEMs, and platform manufacturers. They also need to understand the Node view such that the systems they create can be deployed to address a given scenario. source: OpenFog Reference Architecture"@en ;
                       rdfs:label "OpenFog System Architecture View"@en .
 
+sto:OFRASystemViewAnno a oa:Annotation ;
+    oa:hasBody sto:OFRASystemView ;
+    oa:hasTarget [ 
+         a oa:SpecificResource;
+        oa:hasSource sto:OpenFog_Reference_Architecture_for_Fog_Computing ;
+        dc:format "pdf";
+        oa:hasSelector [
+          a oa:RangeSelector ;
+          oa:hasStartSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 73" ] ;
+          oa:hasEndSelector [
+            a oa:XPathSelector ;
+            rdf:value "Page 78" ] ] ] .
 
 ###  https://w3id.org/i40/sto#OpenLicenseDocument
 sto:OpenLicenseDocument rdf:type owl:NamedIndividual ,
@@ -15835,6 +15985,15 @@ source: OpenFog Reference Architecture"""@en ;
 
 sto:OFRASecurityPillar rdf:type owl:NamedIndividual ,
                             sto:StandardClassification ;
+                  sto:alignsWith rami:Security ,
+                            sto:IDSRAMSecurity, 
+                            sto:IIRASecurity ,
+                            sto:OcfSecurity,
+                            sto:OpenFogSecurityPerspective,
+                            sto:IIRASecurityFramework ,
+                            sto:BdvaCyberSecurityTrust ,
+                            sto:FiwareSecurity ,
+                            sto:IotaTrustSecurityPrivacy;
                    dcterms:creator sto:sebastian ;                  
                    sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                    skos:note "Publications referred: ' <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.1 Security Pillar' 'Page 23' " ;
@@ -18818,6 +18977,14 @@ sto:OcfSecurity rdf:type owl:NamedIndividual ,
                       sto:OcfBlock ;
              dcterms:creator sto:sebastian ;
              dul:associatedWith sto:RAML ;
+             sto:alignsWith rami:Security ,
+                            sto:IDSRAMSecurity, 
+                            sto:IIRASecurity ,
+                            sto:OpenFogSecurityPerspective,
+                            sto:IIRASecurityFramework ,
+                            sto:BdvaCyberSecurityTrust ,
+                            sto:FiwareSecurity ,
+                            sto:IotaTrustSecurityPrivacy;
              sto:frames sto:Certification ,
                         sto:Connectivity ,
                         sto:SecureCommunication ;
@@ -19149,6 +19316,7 @@ sto:IDSRAMSecurity rdf:type owl:NamedIndividual ,
                                    sto:IotaTrustSecurityPrivacy ,
                                    sto:RAMI ;
                 sto:alignsWith sto:IIRASecurity ,
+                               sto:OcfSecurity,
                                sto:IIRASecurityFramework ,
                                sto:BdvaCyberSecurityTrust ,
                                sto:BdvaDataProtection ,
