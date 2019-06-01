@@ -879,19 +879,6 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
                      rdfs:label "Business Cycle SCM"@en ;
                      rdfs:seeAlso "https://en.wikipedia.org/wiki/Supply_chain_management" .
 
-
-###  https://w3id.org/i40/sto#Concern
-
-
-
-###  https://w3id.org/i40/sto#ConnectivityLayer
-sto:ConnectivityLayer rdf:type owl:Class ;
-                      rdfs:subClassOf sto:StandardClassification ;
-                      rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
-                      rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
-                      rdfs:label "Connectivity Layer"@en .
-
-
 ###  https://w3id.org/i40/sto#DataSharingInitiative
 sto:DataSharingInitiative rdf:type owl:Class ;
                           rdfs:subClassOf foaf:Organization .
@@ -948,7 +935,7 @@ sto:IicfConnectivityLayer rdf:type owl:Class ;
                                             owl:onProperty dul:isPartOf ;
                                             owl:hasValue sto:IIRAConnectivity
                                           ] ;
-                          rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
+                         rdfs:comment "Connectivity Layer of the Internet Connectivity Framework"@en ;
                           rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
                           rdfs:label "IICF Connectivity Layer"@en .
 
@@ -1482,7 +1469,7 @@ sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
                                  sto:IotaEvolutionInteroperability ,
                                  sto:NgsiLdApiOperation ;
                   sto:frames sto:Authentication ,
-                             sto:Cardinality ,
+                             sto:CardinalityOfParticipants ,
                              sto:CardinalityOfDataSources ,
                              sto:Communication ,
                              sto:DataAccess ,
@@ -1626,7 +1613,7 @@ sto:IIRAFunctionalViewpoint rdf:type owl:NamedIndividual ,
                                     sto:Authorization ,
                                     sto:Availability ,
                                     sto:BdvaDataViualisationAndUserInteraction ,
-                                    sto:Cardinality ,
+                                    sto:CardinalityOfParticipants ,
                                     sto:CardinalityOfDataSources ,
                                     sto:CloudComputing ,
                                     sto:Communication ,
@@ -2186,7 +2173,7 @@ sto:IICFTansportLayer rdf:type owl:NamedIndividual ,
                                       sto:RFC_8323 ,
                                       sto:UDP ;
                    dul:isPartOf sto:IIRAConnectivity ;
-                   sto:frames sto:Cardinality ,
+                   sto:frames sto:CardinalityOfParticipants,
                               sto:CardinalityOfDataSources ,
                               sto:Communication ,
                               sto:EndpointInvocation ,
@@ -3063,17 +3050,6 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME_Y14.41> .
 
 
-###  https://w3id.org/i40/sto#Abuse_and_Nefarious_use
-sto:Abuse_and_Nefarious_use rdf:type owl:NamedIndividual ,
-                                     sto:Concern ;
-                            dcterms:creator sto:MuhammadUsman ;
-                            sto:supports sto:CloudComputing ;
-                            rdfs:comment "Many infrastructure-as-a-service (IaaS) providers make it easy to take advantage of their services. With a valid credit card, users can register and start using cloud services right away"@en ;
-                            rdfs:label "Abuse and Nefarious Use"@en ;
-                            rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3286606.3286865"@en ,
-                                         "https://ieeexplore.ieee.org/document/8249113"@en ;
-                            sto:hasDBpediaResource "http://dbpedia.org/page/Abuse"@en ;
-                            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Abuse"@en .
 
 
 ###  https://w3id.org/i40/sto#AccessPolicy
@@ -3099,17 +3075,6 @@ sto:Access_Rights_for_IoT-Cloud rdf:type owl:NamedIndividual ,
                                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Access_rights"@en .
 
 
-###  https://w3id.org/i40/sto#Account_Hijacking
-sto:Account_Hijacking rdf:type owl:NamedIndividual ,
-                               sto:Concern ;
-                      dcterms:creator sto:MuhammadUsman ;
-                      sto:supports sto:CloudComputing ;
-                      rdfs:comment "Attacks using methods such as phishing and fraud continue to be an ongoing threat. With stolen credentials, hackers can access critical areas of your cloud and potentially eavesdrop on transactions, manipulate or falsify data, and redirect your clients to illegitimate sites."@en ;
-                      rdfs:label "Account Hijacking"@en ;
-                      rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3286606.3286865"@en ,
-                                   "https://ieeexplore.ieee.org/document/7809737"@en ;
-                      skos:note "TODO sto:supports sto:CloudComputing" ;
-                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Hijacking"@en .
 
 
 ###  https://w3id.org/i40/sto#Accountability
@@ -3958,14 +3923,6 @@ sto:BigDataApplications rdf:type owl:NamedIndividual ,
                         sto:hasDBpediaResource <http://dbpedia.org/resource/Big_data> .
 
 
-###  https://w3id.org/i40/sto#Billing
-sto:Billing rdf:type owl:NamedIndividual ,
-                     sto:Concern ;
-            dcterms:creator sto:sebastian ;
-            sto:supports sto:BusinessContext ;
-            rdfs:comment "Billing frames the process of paying for any type of (digital) resource, whether software, apps, data or anything else."@en ;
-            rdfs:label "Billing"@en ;
-            sto:hasDBpediaResource <http://dbpedia.org/resource/Telecommunications_billing> .
 
 
 ###  https://w3id.org/i40/sto#Blockchain
@@ -3990,18 +3947,6 @@ sto:Bluetooth rdf:type owl:NamedIndividual ,
               rdfs:label "Bluetooth"@en ;
               sto:hasOfficialResource <http://www.bluetooth.com/Pages/Bluetooth-Home.aspx> .
 
-
-###  https://w3id.org/i40/sto#Bulk_Data
-sto:Bulk_Data rdf:type owl:NamedIndividual ,
-                       sto:Concern ;
-              dcterms:creator sto:MuhammadUsman ;
-              sto:supports sto:BigDataApplications ;
-              rdfs:comment """Data is the essential factor in Internet of Things. IoT associates different machines with cloud server farms, in the cloud all devices are associated with cloud
-models and stores and recover a huge amount of information and data to cloud data centers."""@en ;
-              rdfs:label "Bulk Data"@en ;
-              rdfs:seeAlso "https://ieeexplore.ieee.org/document/6188257"@en ;
-              sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Bulk"@en ,
-                                      "https://en.wikipedia.org/wiki/Data"@en .
 
 
 ###  https://w3id.org/i40/sto#BusinessContext
@@ -4096,7 +4041,7 @@ sto:CGMES rdf:type owl:NamedIndividual ,
           sto:seeAlso <https://docstore.entsoe.eu/major-projects/common-information-model-cim/cim-for-grid-models-exchange/standards/Pages/default.aspx> .
 
 
-###  https://w3id.org/i40/sto#Cardinality
+###  https://w3id.org/i40/sto#sto:CardinalityOfParticipants
 sto:CardinalityOfParticipants rdf:type owl:NamedIndividual ,
                          sto:Concern ;
                          sto:supports sto:interoperability;
@@ -4124,16 +4069,7 @@ sto:Certification rdf:type owl:NamedIndividual ,
                   sto:hasDBpediaResource <http://dbpedia.org/resource/Certification> .
 
 
-###  https://w3id.org/i40/sto#Change_Management
-sto:Change_Management rdf:type owl:NamedIndividual ,
-                               sto:Concern ;
-                      dcterms:creator sto:MuhammadUsman ;
-                      sto:supports sto:DynamicAdjustability ;
-                      rdfs:comment "The cloud computing implementation brings an adjustment in the manner organizations complete their regular duties. The procedure of managing adjustment is then a severe issue of management as it is going to define the successful implementation of Cloud Computing by organizations"@en ;
-                      rdfs:label "Change Management"@en ;
-                      rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3108421.3108426"@en ;
-                      sto:hasDBpediaResource "http://dbpedia.org/page/Change_management"@en ;
-                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Change_management"@en .
+
 
 
 ###  https://w3id.org/i40/sto#CloudComputing
@@ -4230,14 +4166,14 @@ equipment."""@en ;
 
 
 ###  https://w3id.org/i40/sto#ConstraintDevices
-sto:ConstraintDevices rdf:type owl:NamedIndividual ,
+sto:ConstrainedDevices rdf:type owl:NamedIndividual ,
                                sto:Concern ;
                       dcterms:creator sto:sebastian ;
                       sto:supports sto:IoT ;
                       <http://voag.linkedmodel.org/voag#hasStakeholder> "System Architect TODO"@en ;
                       rdfs:comment "Data-memory-constrained devices must be able to participate in communication. This means that a system built using the ARM shall support communication stacks with small data footprint."@en ,
                                    "Small devices with limited CPU, memory, and power resources, so-called \"constrained devices\" (often used as sensors/actuators, smart objects, or smart devices) can form a network, becoming \"constrained nodes\" in that network.  Such a network may itself exhibit constraints, e.g., with unreliable or lossy channels, limited and unpredictable bandwidth, and a highly dynamic topology. (source: https://tools.ietf.org/html/rfc7228)"@en ;
-                      rdfs:label "Constraint Devices"@en ;
+                      rdfs:label "Constrained Devices"@en ;
                       rdfs:seeAlso "UNI.306"@en .
 
 
@@ -4717,14 +4653,6 @@ sto:DataEncryption rdf:type owl:NamedIndividual ,
                                            "https://en.wikipedia.org/wiki/Encryption"@en .
 
 
-###  https://w3id.org/i40/sto#DataInMotion
-sto:DataInMotion rdf:type owl:NamedIndividual ,
-                          sto:Concern ;
-                 sto:supports sto:Communication ;
-                 rdfs:comment "Data in transit is defined into two categories, information that flows over the public or untrusted network such as the internet and data which flows in the confines of a private network such as a corporate or enterprise Local Area Network (LAN). Data in transit is also referred to as data in motion. Data in transit is used as a complement to the terms data in use and data at rest which together define the three states of digital data. (source: wikipedia)"@en ;
-                 rdfs:label "Data in motion"@en ;
-                 sto:hasDBpediaResource <http://dbpedia.org/resource/Data_in_transit> .
-
 
 ###  https://w3id.org/i40/sto#DataIntegrity
 sto:DataIntegrity rdf:type owl:NamedIndividual ,
@@ -4865,13 +4793,7 @@ sto:DataSecurity rdf:type owl:NamedIndividual ,
                  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Data_security"@en .
 
 
-###  https://w3id.org/i40/sto#DataSelection
-sto:DataSelection rdf:type owl:NamedIndividual ,
-                           sto:Concern ;
-                           sto:supports sto:DataProcessing;
-                  dcterms:creator sto:sebastian ;
-                  rdfs:label "Data Selection"@en ,
-                             "The ability of a system to query, filter, or request the desired data."@en .
+
 
 
 ###  https://w3id.org/i40/sto#DataSharingInitiative
@@ -5567,14 +5489,6 @@ sto:Evolvability rdf:type owl:NamedIndividual ,
                                         <http://dbpedia.org/resource/Software_evolution> .
 
 
-###  https://w3id.org/i40/sto#ExecutionVariability
-sto:ExecutionVariability rdf:type owl:NamedIndividual ,
-                                  sto:Concern ;
-                         dcterms:creator sto:sebastian ;
-                         sto:supports sto:DynamicAdjustability ,
-                                      sto:ServiceOrchestration ;
-                         rdfs:comment "The system's ability to flexibly connect/adjust data flows in order to reach a defined target."@en ;
-                         rdfs:label "Execution Variability"@en .
 
 
 ###  https://w3id.org/i40/sto#Extensibility
@@ -6950,8 +6864,8 @@ sto:IICFFrameworkLayer rdf:type owl:NamedIndividual ,
                               sto:ServiceDiscovery ,
                               sto:SyntacticInteroperability ,
                               sto:Trustworthiness ;
-                   rdfs:comment "Framework Layer"@en ,
-                                "Framework Layer an instance of the Connectivity Layer"@en ;
+                   rdfs:comment "IICF Framework Layer"@en ,
+                                "IICF Framework Layer an instance of the IICF Connectivity Layer"@en ;
                    rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
                    rdfs:label "IICF Framework Layer"@en .
 
@@ -13936,15 +13850,6 @@ sto:Interoperability rdf:type owl:NamedIndividual ,
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Interoperability> .
 
 
-###  https://w3id.org/i40/sto#Investigative_Support
-sto:Investigative_Support rdf:type owl:NamedIndividual ,
-                                   sto:Concern ;
-                          dcterms:creator sto:MuhammadUsman ;
-                          sto:supports sto:CloudComputing ;
-                          rdfs:comment "Cloud provider should be prepared to and technically capable of providing end-to-end help for inquest of breaches, problems or illegal access."@en ;
-                          rdfs:label "Investigative Support"@en ;
-                          rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3286606.3286865"@en ;
-                          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Investigation"@en .
 
 
 ###  https://w3id.org/i40/sto#IoT
@@ -14594,12 +14499,12 @@ sto:LWM2M rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Latency
-sto:Latency rdf:type owl:NamedIndividual ,
+sto:LatencyReduction rdf:type owl:NamedIndividual ,
                      sto:Concern ;
             dcterms:creator sto:MuhammadUsman ;
             sto:supports sto:Communication ;
             rdfs:comment "Latency is a time interval between the stimulation and response, or, from a more general point of view, a time delay between the cause and the effect of some physical change in the system being observed."@en ;
-            rdfs:label "Latency"@en ;
+            rdfs:label "LatencyReduction"@en ;
             rdfs:seeAlso "https://ieeexplore.ieee.org/document/7488250" ;
             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Latency_(engineering)"@en .
 
@@ -14641,13 +14546,6 @@ sto:LoWPAN rdf:type owl:NamedIndividual ,
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/6LoWPAN> .
 
 
-###  https://w3id.org/i40/sto#LocalDataConfidentiality
-sto:LocalDataConfidentiality rdf:type owl:NamedIndividual ,
-                                      sto:Concern ;
-                             dcterms:creator sto:sebastian ;
-                             sto:supports sto:DataProtection ;
-                             rdfs:comment "Describes the means by which local data is protected."@en ;
-                             rdfs:label "Local Data Confidentiality"@en .
 
 
 ###  https://w3id.org/i40/sto#Logging
@@ -14803,7 +14701,6 @@ sto:MaintenanceCost rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Manufacturing
 sto:Manufacturing rdf:type owl:NamedIndividual ,
-                           sto:Concern ,
                            sto:StandardClassification ;
                   dul:associatedWith sto:IviActivityLayer ;
                   sto:alignsWith sto:IviActivityLayer .
@@ -14926,15 +14823,7 @@ sto:MuhammadUsman rdf:type owl:NamedIndividual ,
                   rdfs:label "Muhammad Usman"@en .
 
 
-###  https://w3id.org/i40/sto#Multilaterism
-sto:Multilaterism rdf:type owl:NamedIndividual ,
-                           sto:Concern ;
-                  dcterms:creator sto:sebastian ;
-                  sto:supports sto:CardinalityOfDataSources ;
-                  rdfs:comment "Data Artefacts are received by 1 to m Data Consumer."@en ;
-                  rdfs:label "Multilateralism"@en ;
-                  skos:altLabel "Cardinality of Participants"@en ,
-                                "Multicast"@en .
+
 
 
 ###  https://w3id.org/i40/sto#MultipleIdentities
@@ -15001,8 +14890,19 @@ sto:NIST rdf:type owl:NamedIndividual ,
          rdfs:comment "The National Institute of Standards and Technology (NIST) is a measurement standards laboratory, and a non-regulatory agency of the United States Department of Commerce."@en ;
          sto:hasDBpediaResource <http://dbpedia.org/page/National_Institute_of_Standards_and_Technology> ;
          sto:hasOfficialResource <https://www.nist.gov/> ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology> .
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology>.
 
+
+###  https://w3id.org/i40/sto#Multilaterism
+sto:Multilaterism rdf:type owl:NamedIndividual ,
+                           sto:Concern ;
+                  dcterms:creator sto:sebastian ;
+                  sto:supports sto:CardinalityOfDataSources ;
+                  rdfs:comment "Data Artefacts are received by 1 to m Data Consumer."@en ;
+                  rdfs:label "Multilateralism"@en ;
+                  skos:altLabel "Cardinality of Participants"@en ,
+                                "Multicast"@en .
+                                
 
 ###  https://w3id.org/i40/sto#NISTIR_8062
 sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
@@ -16744,17 +16644,6 @@ sto:Resilience rdf:type owl:NamedIndividual ,
                sto:hasDBpediaResource <http://dbpedia.org/resource/Resilience_(network)> .
 
 
-###  https://w3id.org/i40/sto#Resource_Control_and_Management
-sto:Resource_Control_and_Management rdf:type owl:NamedIndividual ,
-                                             sto:Concern ;
-                                    dcterms:creator sto:MuhammadUsman ;
-                                    sto:supports sto:IoT ,
-                                                 <https://w3id.org/i40/sto/> ;
-                                    rdfs:comment "In organizational studies, resource management is the efficient and effective development of an organization's resources when they are needed"@en ;
-                                    rdfs:label "Resource Control and Management"@en ;
-                                    rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3266237.3266263"@en ;
-                                    sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Resource_management"@en .
-
 
 ###  https://w3id.org/i40/sto#ReturnOnInvestment
 sto:ReturnOnInvestment rdf:type owl:NamedIndividual ,
@@ -16765,11 +16654,11 @@ sto:ReturnOnInvestment rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Risk_Management
-sto:Risk_Management rdf:type owl:NamedIndividual ,
+sto:RiskManagement rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                     dcterms:creator sto:MuhammadUsman ;
                     sto:supports sto:BusinessContext ;
-                    rdfs:comment """To end with, organizations will be generally exposed to a broad range of different risks, by adopting the cloud computing. Managing these risks is very important concern, as the successful implementation of cloud computing relies upon the appropriate managing, reducing, as well as mitigating these risks linked to
+                    rdfs:comment """Organizations will be generally exposed to a broad range of different risks, by adopting the cloud computing. Managing these risks is very important concern, as the successful implementation of cloud computing relies upon the appropriate managing, reducing, as well as mitigating these risks linked to
 cloud computing"""@en ;
                     rdfs:label "Risk Management"@en ;
                     rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3108421.3108426"@en ;
@@ -17013,27 +16902,6 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
                                      "https://ieeexplore.ieee.org/document/7919553"@en .
 
 
-###  https://w3id.org/i40/sto#Secure_Data_Transmission
-sto:Secure_Data_Transmission rdf:type owl:NamedIndividual ,
-                                      sto:Concern ;
-                             dcterms:creator sto:MuhammadUsman ;
-                             sto:supports sto:SecureCommunication ;
-                             rdfs:comment "In computer science, secure transmission refers to the transfer of data such as confidential or proprietary information over a secure channel."@en ;
-                             rdfs:label "Secure Data Transmission"@en ;
-                             rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=2735399.2735405"@en ,
-                                          "https://ieeexplore.ieee.org/document/7919553"@en ;
-                             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Secure_transmission"@en .
-
-
-###  https://w3id.org/i40/sto#Secure_network_access
-sto:Secure_network_access rdf:type owl:NamedIndividual ,
-                                   sto:Concern ;
-                          dcterms:creator sto:MuhammadUsman ;
-                          sto:supports sto:SecureCommunication ;
-                          rdfs:comment "Network Access Control (NAC) is an approach to computer security that attempts to unify endpoint security technology (such as antivirus, host intrusion prevention, and vulnerability assessment), user or system authentication and network security enforcement"@en ;
-                          rdfs:label "Secure network access"@en ;
-                          rdfs:seeAlso "https://ieeexplore.ieee.org/document/6188257"@en ;
-                          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Network_Access_Control"@en .
 
 
 ###  https://w3id.org/i40/sto#Security
@@ -17253,15 +17121,6 @@ sto:ServiceLifecycleManagement rdf:type owl:NamedIndividual ,
                                sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management> .
 
 
-###  https://w3id.org/i40/sto#ServiceManagementAtEdge
-sto:ServiceManagementAtEdge rdf:type owl:NamedIndividual ,
-                                     sto:Concern ;
-                            dcterms:creator sto:MuhammadUsman ;
-                            sto:supports sto:EdgeComputing ;
-                            rdfs:comment "\"In terms of service management at the edge of the network, we argue that the following four fundamental features should be supported to guarantee a reliable system, including differentiation, extensibility, isolation, and reliability.\""@en ;
-                            rdfs:label "Service Management"@en ;
-                            rdfs:seeAlso "https://ieeexplore.ieee.org/document/7488250" ;
-                            sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Service_management"@en .
 
 
 ###  https://w3id.org/i40/sto#ServiceOrchestration
@@ -17439,16 +17298,7 @@ sto:SysML rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Systems_Modeling_Language> .
 
 
-###  https://w3id.org/i40/sto#SystemDistribution
-sto:SystemDistribution rdf:type owl:NamedIndividual ,
-                                sto:Concern ;
-                       dcterms:creator sto:MuhammadUsman ;
-                       sto:supports sto:CloudComputing ;
-                       rdfs:comment "A distributed system is a system whose components are located on different networked computers, which communicate and coordinate their actions by passing messages to one another. The components interact with one another in order to achieve a common goal."@en ;
-                       rdfs:label "System Distribution"@en ;
-                       rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=2508075.2508082"@en ;
-                       sto:hasDBpediaResource "http://dbpedia.org/page/Category:Distributed_computing"@en ;
-                       sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Distributed_computing"@en .
+
 
 
 ###  https://w3id.org/i40/sto#SystemEngineer
@@ -17701,16 +17551,6 @@ sto:Technology rdf:type owl:NamedIndividual ;
                dcterms:creator sto:sebastian .
 
 
-###  https://w3id.org/i40/sto#Technology_Bottleneck
-sto:Technology_Bottleneck rdf:type owl:NamedIndividual ,
-                                   sto:Concern ;
-                          dcterms:creator sto:MuhammadUsman ;
-                          sto:supports sto:CloudComputing ;
-                          rdfs:comment "Organizations that adopt cloud computing have to redesign their present technology into new structures of information to have the ability to care dynamic and huge quantities of information, new filing system, as well as storage technologies"@en ;
-                          rdfs:label "Technology Bottleneck"@en ;
-                          rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3108421.3108426"@en ;
-                          sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Bottleneck_(software)"@en .
-
 
 ###  https://w3id.org/i40/sto#Telehash
 sto:Telehash rdf:type owl:NamedIndividual ,
@@ -17883,28 +17723,18 @@ sto:UnreliableNetwork rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Updatability
-sto:Updatability rdf:type owl:NamedIndividual ,
+sto:Software_Updates rdf:type owl:NamedIndividual ,
                           sto:Concern ;
                  dcterms:creator sto:MuhammadUsman ;
                  sto:supports sto:Evolvability ;
-                 rdfs:comment "Software update is the process that contributes to compromise an IoT based  system..Organizations are yet to be geared up with mechanisms to Remotely Patch Connected Devices."@en ;
+                 rdfs:comment "Software update is the process that prevents compromise an IoT based  system. Organizations are yet to be geared up with mechanisms to Remotely Patch Connected Devices."@en ;
                  rdfs:label "Software Updates"@en ;
                  rdfs:seeAlso "https://ieeexplore.ieee.org/document/7919553"@en ;
                  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Wikipedia:Software_updates"@en .
 
 
 
-###  https://w3id.org/i40/sto#UserExperience
-sto:UserExperience rdf:type owl:NamedIndividual ,
-                            sto:Concern ;
-                   dcterms:creator sto:SebastianBader ;
-                   sto:supports sto:Reliability ;
-                   rdfs:comment ""@en ;
-                   rdfs:label "User Experience"@en ;
-                   rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3266237.3266263"@en .
-
-
-###  https://w3id.org/i40/sto#UserInteraction
+##  https://w3id.org/i40/sto#UserInteraction
 sto:UserInteraction rdf:type owl:NamedIndividual ,
                              sto:Concern ;
                              sto:supports sto:UserExperience;
@@ -18153,17 +17983,6 @@ sto:WebSocket rdf:type owl:NamedIndividual ,
               rdfs:label "WebSocket"@en ;
               sto:hasOfficialResource <https://websocket.org/> .
 
-
-###  https://w3id.org/i40/sto#Web_Interface
-sto:Web_Interface rdf:type owl:NamedIndividual ,
-                           sto:Concern ;
-                  dcterms:creator sto:MuhammadUsman ;
-                  sto:supports sto:UserInteraction ;
-                  rdfs:comment """Most of the IoT devices might have web interfaces that has to be connected to information servers. One among the most important security threats for such systems is SQL injection and cross website scripting that may impact the web
-interfaces"""@en ;
-                  rdfs:label "Web Interface"@en ;
-                  rdfs:seeAlso "https://ieeexplore.ieee.org/document/7919553"@en ;
-                  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/User_interface"@en .
 
 
 ###  https://w3id.org/i40/sto#Weightless
@@ -19156,6 +18975,9 @@ sto:IDSRAMFunctionalLayerAnno a oa:Annotation ;
             a oa:XPathSelector ;
             rdf:value "Page 25" ] ] ] .
 
+sto:IDS_REFERENCE_ARCHITECTURE_MODEL_INDUSTRIAL_DATA_SPACE_VERSION_2_0 a oa:SpecificResource;
+rdfs:label "IDS REFERENCE ARCHITECTURE MODEL INDUSTRIAL DATA SPACE VERSION 2 0"@en ;
+sto:hasOpenResource <https://www.fraunhofer.de/content/dam/zv/de/Forschungsfelder/industrial-data-space/IDS_Referenz_Architecture.pdf>.
 
 ###  https://w3id.org/ids/ram/Governance
 sto:IDSRAMGovernance rdf:type owl:NamedIndividual ,
