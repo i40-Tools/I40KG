@@ -106,18 +106,6 @@ dcterms:description rdf:type owl:AnnotationProperty ;
 dcterms:format rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/terms/hasLicense
-dcterms:hasLicense rdf:type owl:AnnotationProperty ;
-                   dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-                   dcterms:issued "2004-06-14"^^xsd:date ;
-                   dcterms:modified "2017-12-19"^^xsd:date ;
-                   rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
-                                "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ,
-                                "Represent the license document for a given Standard"@en ;
-                   rdfs:isDefinedBy dcterms: ;
-                   rdfs:label "has License"@en .
-
-
 ###  http://purl.org/dc/terms/hasVersion
 dcterms:hasVersion rdf:type owl:AnnotationProperty ;
                    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
@@ -137,18 +125,6 @@ dcterms:issued rdf:type owl:AnnotationProperty ;
                rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
                rdfs:isDefinedBy dcterms: ;
                rdfs:label "Date Issued"@en .
-
-
-###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty ;
-                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
-                dcterms:issued "2004-06-14"^^xsd:date ;
-                dcterms:modified "2017-12-19"^^xsd:date ;
-                rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
-                             "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ,
-                             "Represent the license document for a given Standard"@en ;
-                rdfs:isDefinedBy dcterms: ;
-                rdfs:label "has License"@en .
 
 
 ###  http://purl.org/dc/terms/modified
@@ -230,11 +206,6 @@ foaf:name rdf:type owl:AnnotationProperty ;
 sto:hasDBpediaResource rdf:type owl:AnnotationProperty ;
                        rdfs:comment "Instance's DBpedia Resource"@en ;
                        rdfs:label "has DBpedia Resource"@en .
-
-
-###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:AnnotationProperty ;
-              rdfs:range sto:Domain .
 
 
 ###  https://w3id.org/i40/sto#hasMotivation
@@ -10497,11 +10468,6 @@ sto:hasClassification rdfs:comment "An Standard is isCategorizedBy a given Categ
 
 sto:hasDeveloper rdfs:label "has Developer"@en ;
                  rdfs:comment "The organization that developed this Standard"@en .
-
-
-sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
-              rdfs:label "has Domain"@en ;
-              rdfs:comment "Points to the domain in which the standard is used"@en .
 
 
 sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
