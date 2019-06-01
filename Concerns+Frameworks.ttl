@@ -1000,7 +1000,6 @@ sto:Publication rdf:type owl:Class ;
                 rdfs:subClassOf foaf:Document ;
                 rdfs:comment """Specifies a Publication. E.g., International Standards,Technical Specifications,Publicly Available Specifications,Amendments
                 Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides"""@en ;
-                rdfs:isDefinedBy sto:IEC ;
                 rdfs:label "Publication"@en ;
                 rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> .
 
@@ -1128,11 +1127,6 @@ oa:XPathSelector rdf:type owl:Class .
 ###  http://voag.linkedmodel.org/voag#StakeholderGroup
 <http://voag.linkedmodel.org/voag#StakeholderGroup> rdf:type owl:NamedIndividual ;
                                                     dcterms:creator sto:sebastian .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/kilobyte
-om2:kilobyte rdf:type owl:NamedIndividual ,
-                      om2:Unit .
 
 
 ###  https://doi.org/10.1016/j.compind.2018.04.015
@@ -1680,14 +1674,6 @@ sto:Auto_Scaling rdf:type owl:NamedIndividual ,
                  rdfs:label "Auto Scaling"@en ;
                  skos:note "TODO already covered by scalability?"@en ;
                  sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Autoscaling"@en .
-
-
-###  https://w3id.org/i40/sto#Automation
-sto:Automation rdf:type owl:NamedIndividual ,
-                        sto:RelevantSubject ;
-               rdfs:comment "Technology with which a process or procedure is performed with minimal human intervention "@en ;
-               rdfs:label "Automation"@en ;
-               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Automation> .
 
 
 ###  https://w3id.org/i40/sto#AutonomousCommunication
@@ -2395,15 +2381,6 @@ sto:CCN rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://www.ccnx.org/> .
 
 
-###  https://w3id.org/i40/sto#CGMES
-sto:CGMES rdf:type owl:NamedIndividual ,
-                   sto:RelevantSubject ;
-          rdfs:comment "Specification for Energy Management"@en ;
-          rdfs:label "CGMES: Common Grid Model Exchange Specification "@en ;
-          sto:hasOpenResource <https://docstore.entsoe.eu/Documents/CIM_documents/IOP/CGMES_2_5_TechnicalSpecification_61970-600_Part%201_Ed2.pdf> ;
-          sto:seeAlso <https://docstore.entsoe.eu/major-projects/common-information-model-cim/cim-for-grid-models-exchange/standards/Pages/default.aspx> .
-
-
 ###  https://w3id.org/i40/sto#CardinalityOfDataSources
 sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
                                       sto:Concern ;
@@ -2604,14 +2581,6 @@ sto:Customization rdf:type owl:NamedIndividual ,
                   rdfs:label "Customization"@en ;
                   rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3108421.3108426"@en ;
                   sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Customization"@en .
-
-
-###  https://w3id.org/i40/sto#CyberSecurity
-sto:CyberSecurity rdf:type owl:NamedIndividual ,
-                           sto:RelevantSubject ;
-                  rdfs:comment " Protection of Computer Systems from damage of all kinds "@en ;
-                  rdfs:label "Cyber Security"@en ;
-                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Computer_security> .
 
 
 ###  https://w3id.org/i40/sto#DDS
@@ -3948,15 +3917,6 @@ sto:FunctionalSafety rdf:type owl:NamedIndividual ,
                      rdfs:label "Functional Safety"@en .
 
 
-###  https://w3id.org/i40/sto#GPLv2
-sto:GPLv2 rdf:type owl:NamedIndividual ,
-                   dcterms:LicenseDocument ;
-          rdfs:comment "Published under Open Content License."@en ;
-          rdfs:label "GNU General Public License"@en ;
-          rdfs:seeAlso <https://opcfoundation.org/license/gpl.htm> ;
-          skos:prefLabel "OCL 1.0" .
-
-
 ###  https://w3id.org/i40/sto#GeoTracking
 sto:GeoTracking rdf:type owl:NamedIndividual ,
                          sto:Concern ;
@@ -4517,22 +4477,6 @@ sto:IDS_REFERENCE_ARCHITECTURE_MODEL_INDUSTRIAL_DATA_SPACE_VERSION_2_0 rdf:type 
                                                                        sto:hasOpenResource <https://www.fraunhofer.de/content/dam/zv/de/Forschungsfelder/industrial-data-space/IDS_Referenz_Architecture.pdf> .
 
 
-###  https://w3id.org/i40/sto#IEC
-sto:IEC rdf:type owl:NamedIndividual ,
-                 dul:Collection ,
-                 foaf:Organization ,
-                 sto:StandardOrganization ;
-        sto:abbreviation "IEC" ,
-                         "IEC"^^xsd:string ;
-        sto:formationDate "1906-06-26"^^xsd:date ;
-        sto:orgName "Commission électrotechnique internationale"@fr ,
-                    "International Electrotechnical Commission"@en ;
-        rdfs:comment "Is a non-profit, non-governmental international standards organization that prepares and publishes International Standards for all electrical, electronic and related technologies – collectively known as \"electrotechnology\". IEC standards cover a vast range of technologies from power generation, transmission and distribution to home appliances and office equipment, semiconductors, fiber optics, batteries, solar energy, nanotechnology and marine energy as well as many others. The IEC also manages three global conformity assessment systems that certify whether equipment, system or components conform to its International Standards."@en ;
-        sto:hasDBpediaResource <http://dbpedia.org/resource/International_Electrotechnical_Commission> ;
-        sto:hasOfficialResource <http://www.iec.ch/> ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Commission> .
-
-
 ###  https://w3id.org/i40/sto#IEC_29182-1
 sto:IEC_29182-1 rdf:type owl:NamedIndividual .
 
@@ -4549,25 +4493,6 @@ sto:IEC_60050_1998 rdf:type owl:NamedIndividual .
 sto:IEC_60050_2013 rdf:type owl:NamedIndividual .
 
 
-###  https://w3id.org/i40/sto#IEC_62769_P1
-sto:IEC_62769_P1 rdf:type owl:NamedIndividual ,
-                          sto:standard ;
-                 dcterms:creator sto:IEC ;
-                 foaf:maker sto:IEC ;
-                 sto:hasICS sto:ICS_35_100_05 ;
-                 sto:hasPublisher sto:IEC ;
-                 sto:hasTechnicalCommittee sto:TC_65 ;
-                 sto:hasEdition "1.0"^^xsd:float ;
-                 sto:hasPages "64"^^xsd:int ;
-                 sto:hasPublicationDate "2015-05-12"^^xsd:date ;
-                 sto:hasStabilityDate "2019"^^xsd:gYear ;
-                 sto:hasTag "IEC 62769-1:2015   "@en ;
-                 dcterms:title "Field device integration (FDI) - Part 1: Overview"@en ;
-                 rdfs:comment "IEC 62769-1:2015 describes the concepts and overview of the Field Device Integration (FDI) specifications. The detailed motivation for the creation of this technology is also described. It helps to understand the other parts of this multi-part standard."@en ;
-                 rdfs:label "IEC 62769-1:2015  "@en ;
-                 sto:hasOfficialResource <https://webstore.iec.ch/publication/22453> .
-
-
 ###  https://w3id.org/i40/sto#IEC_TS_62832
 sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                           sto:TechnicalSpecification ;
@@ -4576,9 +4501,7 @@ sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                                        sto:RAMIFieldDevice ,
                                        sto:RAMIStation ,
                                        sto:RAMIWorkCenter ;
-                 sto:hasPublisher sto:IEC ;
                  sto:hasTag "DF/TS"@en ;
-                 dcterms:license sto:PrivateLicenseDocument ;
                  rdfs:comment "Digital Factory Reference model TS"@en ;
                  rdfs:label "IEC TS 62832"@en ;
                  sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. IEC TS 62832 defines methods, which allow to validate or plan connections between assets."@en ;
@@ -5806,27 +5729,6 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
           rdfs:label "ISA 95"@en .
 
 
-###  https://w3id.org/i40/sto#ISO
-sto:ISO rdf:type owl:NamedIndividual ,
-                 dul:Collection ,
-                 foaf:Organization ,
-                 sto:StandardOrganization ;
-        sto:abbreviation "ISO" ,
-                         "ISO"^^xsd:string ;
-        sto:formationDate "1947-02-23"^^xsd:date ;
-        sto:orgName "International Organization for Standardization"@en ,
-                    "Internationale Organisation für Normung"@de ,
-                    "Organisation internationale de normalisation"@fr ,
-                    "The International Organization for Standardization"@en ,
-                    "Международная организация по стандартизации"@ru ;
-        rdfs:comment "Is an independent, non-governmental organization, the members of which are the standards organizations of the 162 member countries. It is the world's largest developer of voluntary international standards and facilitates world trade by providing common standards between nations. Nearly twenty thousand standards have been set covering everything from manufactured products and technology to food safety, agriculture and healthcare."@en ,
-                     "The International Organization for Standardization (ISO) is an international standard-setting body composed of representatives from various national standards organizations."@en ;
-        sto:hasDBpediaResource <http://dbpedia.org/page/International_Organization_for_Standardization> ;
-        sto:hasOfficialResource <https://www.iso.org> ,
-                                <https://www.iso.org/about-us.html> ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Organization_for_Standardization> .
-
-
 ###  https://w3id.org/i40/sto#ISO_61508
 sto:ISO_61508 rdf:type owl:NamedIndividual .
 
@@ -6673,10 +6575,6 @@ sto:Jurisdictional_Issues rdf:type owl:NamedIndividual ,
 sto:KATS rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
                   sto:StandardOrganization ;
-         dul:associatedWith sto:IEC ,
-                            sto:ISO ;
-         dul:isMemberOf sto:IEC ,
-                        sto:ISO ;
          sto:abbreviation "KATS"@de ;
          sto:orgName "Korean Agency for Technology and Standards"@en ;
          rdfs:comment "Korean Agency for Technology and Standards is the government standards organization for South Korea. It is part of the Ministry of Knowledge Economy. It is authorized to regulate and manage the legal measures of South Korea by the current Measures Act."@en ;
@@ -8330,14 +8228,6 @@ sto:OpenFog_Reference_Architecture_for_Fog_Computing rdf:type owl:NamedIndividua
                                                      sto:hasOpenResource <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> .
 
 
-###  https://w3id.org/i40/sto#OpenLicenseDocument
-sto:OpenLicenseDocument rdf:type owl:NamedIndividual ,
-                                 dcterms:LicenseDocument ;
-                        rdfs:comment "Open or Free License"@en ;
-                        rdfs:label "Open or Free License"@en ;
-                        rdfs:seeAlso <https://en.wikipedia.org/wiki/Free_license> .
-
-
 ###  https://w3id.org/i40/sto#OpenWSN
 sto:OpenWSN rdf:type owl:NamedIndividual ,
                      foaf:Document ,
@@ -8427,14 +8317,6 @@ sto:Privacy rdf:type owl:NamedIndividual ,
                          "https://ieeexplore.ieee.org/document/6188257"@en ,
                          "https://ieeexplore.ieee.org/document/7919553"@en ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/Information_privacy> .
-
-
-###  https://w3id.org/i40/sto#PrivateLicenseDocument
-sto:PrivateLicenseDocument rdf:type owl:NamedIndividual ,
-                                    dcterms:LicenseDocument ;
-                           rdfs:comment "Published under a Private License."@en ;
-                           rdfs:label "Private License"@en ;
-                           rdfs:seeAlso <https://en.wikipedia.org/wiki/Trade_secret> .
 
 
 ###  https://w3id.org/i40/sto#Priyanka
@@ -8576,14 +8458,6 @@ sto:Pseudonimity rdf:type owl:NamedIndividual ,
                  rdfs:label "Pseudonimity"@en ;
                  rdfs:seeAlso "IoT-A Requirement UNI.624" ;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/Pseudonymity> .
-
-
-###  https://w3id.org/i40/sto#PublicLicenseDocument
-sto:PublicLicenseDocument rdf:type owl:NamedIndividual ,
-                                   dcterms:LicenseDocument ;
-                          rdfs:comment "Published under a Public License."@en ;
-                          rdfs:label "Public License"@en ;
-                          rdfs:seeAlso <https://en.wikipedia.org/wiki/Public_copyright_license> .
 
 
 ###  https://w3id.org/i40/sto#QUIC
@@ -9337,14 +9211,6 @@ sto:RoleCategorization rdf:type owl:NamedIndividual ,
                        rdfs:label "Role Categorization"@en .
 
 
-###  https://w3id.org/i40/sto#RuralElectrification
-sto:RuralElectrification rdf:type owl:NamedIndividual ,
-                                  sto:RelevantSubject ;
-                         rdfs:comment "Bringing electricity into remote areas"@en ;
-                         rdfs:label "Rural Electrification"@en ;
-                         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Rural_electrification> .
-
-
 ###  https://w3id.org/i40/sto#SCADALevel
 sto:SCADALevel rdf:type owl:NamedIndividual ,
                         sto:ISA95Level ,
@@ -9752,30 +9618,6 @@ sto:Service_Recovery rdf:type owl:NamedIndividual ,
                      rdfs:label "Service Recovery"@en ;
                      rdfs:seeAlso "https://dl.acm.org/citation.cfm?doid=3286606.3286865"@en ;
                      sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Service_recovery"@en .
-
-
-###  https://w3id.org/i40/sto#SmartCity
-sto:SmartCity rdf:type owl:NamedIndividual ,
-                       sto:RelevantSubject ;
-              rdfs:comment " A city that collects data which is used for better Maintenance of it's resources"@en ;
-              rdfs:label " Smart City"@en ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Smart_city> .
-
-
-###  https://w3id.org/i40/sto#SmartEnergy
-sto:SmartEnergy rdf:type owl:NamedIndividual ,
-                         sto:RelevantSubject ;
-                rdfs:comment " Intelligent technologies in value chain of energy industry"@en ;
-                rdfs:label " Smart Energy"@en ;
-                sto:hasWikipediaArticle <https://translate.google.com/translate?hl=en&sl=de&u=https://de.wikipedia.org/wiki/Smart_Energy&prev=search> .
-
-
-###  https://w3id.org/i40/sto#SmartGrid
-sto:SmartGrid rdf:type owl:NamedIndividual ,
-                       sto:RelevantSubject ;
-              rdfs:comment "An electrical grid having smart appliances"@en ;
-              rdfs:label "Smart Grid"@en ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Smart_grid> .
 
 
 ###  https://w3id.org/i40/sto#Software_Updates
@@ -11038,7 +10880,6 @@ sto:ServiceDescriptions rdfs:seeAlso "IoT-A Requirement UNI.244" .
 sto:Standard rdfs:label "Standard"@en ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
              cc:attributionURL <http://www.iec.ch> ;
-             rdfs:isDefinedBy sto:IEC ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
@@ -11064,13 +10905,11 @@ sto:SyntacticInteroperablity rdfs:seeAlso "IoT-A Requirement UNI.315" ,
 sto:TechnicalCommittee skos:note "1.sto:       a property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
                        rdfs:label "Technical Committee"@en ;
                        rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
-                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
-                       rdfs:isDefinedBy sto:IEC .
+                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> .
 
 
 sto:TechnicalReport cc:attributionURL "http://www.iec.ch"^^xsd:string ,
                                       "http://www.iec.ch" ;
-                    rdfs:isDefinedBy sto:IEC ;
                     rdfs:comment "Technical Reports contain collected data of a kind different from that normally published as an International Standard, for example data obtained from a survey carried out among national committees, data of work in other international organizations or data on \"the state of the art\" in relation to standards of national committees on a particular subject.Technical Reports are entirely informative in nature and shall not contain matter implying that they are normative"@en ;
                     rdfs:label "Technical Report"@en ;
                     rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/tr.htm> ;
@@ -11082,7 +10921,6 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                            rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
                            cc:attributionURL "http://www.iec.ch" ,
                                              <http://www.iec.ch> ;
-                           rdfs:isDefinedBy sto:IEC ;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 
