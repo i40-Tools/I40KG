@@ -1176,13 +1176,6 @@ dbr:Geneva rdf:type owl:NamedIndividual ,
            rdfs:label "Geneva"@en .
 
 
-###  http://dbpedia.org/resource#Germany
-dbr:Germany rdf:type owl:NamedIndividual ,
-                     dbo:Country ;
-            rdfs:comment "Refers to a Country called Germany."@en ;
-            rdfs:label "Germany"@en .
-
-
 ###  http://dbpedia.org/resource#Hoehenkirchen-Siegertsbrunn
 dbr:Hoehenkirchen-Siegertsbrunn rdf:type owl:NamedIndividual ,
                                          dbo:Place ;
@@ -1209,27 +1202,6 @@ dbr:Paris rdf:type owl:NamedIndividual ,
                    dbo:Place ;
           rdfs:comment "Refers to a place called Paris."@en ;
           rdfs:label "Paris"@en .
-
-
-###  http://dbpedia.org/resource#South_Korea
-dbr:South_Korea rdf:type owl:NamedIndividual ,
-                         dbo:Country ;
-                rdfs:comment "Refers to a Country called South Korea."@en ;
-                rdfs:label "South Korea"@en .
-
-
-###  http://dbpedia.org/resource#Switzerland
-dbr:Switzerland rdf:type owl:NamedIndividual ,
-                         dbo:Country ;
-                rdfs:comment "Refers to a Country called Switzerland."@en ;
-                rdfs:label "Switzerland"@en .
-
-
-###  http://dbpedia.org/resource#United_States
-dbr:United_States rdf:type owl:NamedIndividual ,
-                           dbo:Country ;
-                  rdfs:comment "Refers to a Country called United_States."@en ;
-                  rdfs:label "United States"@en .
 
 
 ###  http://dbpedia.org/resource#Valbonne
@@ -1548,7 +1520,6 @@ sto:APICS rdf:type owl:NamedIndividual ,
 sto:ASAM rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
                   sto:StandardOrganization ;
-         sto:belongsTo dbr:Germany ;
          sto:hasHeadquaterIn dbr:Hoehenkirchen_Siegertsbrunn ;
          sto:abbreviation "ASAM" ,
                           "ASAM"^^xsd:string ;
@@ -2947,7 +2918,6 @@ sto:DDS rdf:type owl:NamedIndividual ,
 sto:DIN rdf:type owl:NamedIndividual ,
                  foaf:Organization ,
                  sto:StandardOrganization ;
-        sto:belongsTo dbr:Germany ;
         sto:hasHeadquaterIn dbr:Berlin ;
         sto:abbreviation "DIN"@de ;
         sto:formationDate "1918-01-01"^^xsd:date ;
@@ -12306,7 +12276,6 @@ sto:ISO rdf:type owl:NamedIndividual ,
                  dul:Collection ,
                  foaf:Organization ,
                  sto:StandardOrganization ;
-        sto:belongsTo dbr:Switzerland ;
         sto:hasHeadquaterIn dbr:Geneva ;
         sto:abbreviation "ISO" ,
                          "ISO"^^xsd:string ;
@@ -14706,7 +14675,6 @@ sto:KATS rdf:type owl:NamedIndividual ,
                             sto:ISO ;
          dul:isMemberOf sto:IEC ,
                         sto:ISO ;
-         sto:belongsTo dbr:South_Korea ;
          sto:hasHeadquaterIn dbr:Eumseong ;
          sto:abbreviation "KATS"@de ;
          sto:orgName "Korean Agency for Technology and Standards"@en ;
@@ -15141,7 +15109,6 @@ sto:NGSI rdf:type owl:NamedIndividual ,
 sto:NIST rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
                   sto:StandardOrganization ;
-         sto:belongsTo dbr:United_States ;
          sto:hasHeadquaterIn dbr:_Maryland ;
          sto:abbreviation "NIST" ,
                           "NIST"^^xsd:string ;
@@ -19723,7 +19690,6 @@ sto:xTee rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto/AllianceIndustrieDuFutur
 :AllianceIndustrieDuFutur rdf:type owl:NamedIndividual ,
                                    sto:IIoTConsortium ;
-                          sto:hasHeadquaterIn :France ;
                           rdfs:label "Alliance Industrie du Futur"@en ;
                           sto:hasOfficialResource <http://www.industrie-dufutur.org/> .
 
@@ -19756,27 +19722,12 @@ sto:xTee rdf:type owl:NamedIndividual ,
         rdfs:label "FIWARE"^^xsd:string .
 
 
-###  https://w3id.org/i40/sto/France
-:France rdf:type owl:NamedIndividual ,
-                 dbo:Country .
-
-
 ###  https://w3id.org/i40/sto/IndustrialInternetArchitecture
 :IndustrialInternetArchitecture rdf:type owl:NamedIndividual ,
                                          sto:ArchitectureDescription ;
                                 sto:hasPublisher :AllianceOfIndustrialInternet ;
                                 rdfs:label "AII Industrial Internet Architecture"@en ;
                                 sto:hasOfficialResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf> .
-
-
-###  https://w3id.org/i40/sto/Italy
-:Italy rdf:type owl:NamedIndividual ,
-                dbo:Country .
-
-
-###  https://w3id.org/i40/sto/Japan
-:Japan rdf:type owl:NamedIndividual ,
-                dbo:Country .
 
 
 ###  https://w3id.org/i40/sto/OcfFramework
