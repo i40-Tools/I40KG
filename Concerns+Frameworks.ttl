@@ -537,11 +537,6 @@ sto:uses rdf:type owl:ObjectProperty ;
 cc:attributionName rdf:type owl:DatatypeProperty .
 
 
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
-om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
-                      rdfs:label "has numerical value"@en .
-
-
 ###  https://w3id.org/i40/sto#abbreviation
 sto:abbreviation rdf:type owl:DatatypeProperty ;
                  rdfs:domain owl:Thing ;
@@ -565,22 +560,6 @@ sto:formationDate rdf:type owl:DatatypeProperty ,
                   rdfs:range xsd:date ;
                   rdfs:comment "Formation date of the Organization"@en ;
                   rdfs:label "has Formation Date"@en .
-
-
-###  https://w3id.org/i40/sto#hasEdition
-sto:hasEdition rdf:type owl:DatatypeProperty ;
-               rdfs:domain foaf:Document ;
-               rdfs:range xsd:float ;
-               rdfs:comment "Indicates the current Edition/Version number of the document."@en ;
-               rdfs:label "has Edition"@en .
-
-
-###  https://w3id.org/i40/sto#hasImplementationFormat
-sto:hasImplementationFormat rdf:type owl:DatatypeProperty ;
-                            rdfs:domain sto:Publication ;
-                            rdfs:range rdfs:Literal ;
-                            rdfs:comment "Describes the name of the implementation or serialization format of the Publication, e.g., XML, Document, binary, batch"@en ;
-                            rdfs:label "has Implementation Format"@en .
 
 
 ###  https://w3id.org/i40/sto#hasObjective
@@ -607,32 +586,6 @@ sto:hasOntology rdf:type owl:DatatypeProperty ;
 sto:hasOpenResource rdf:type owl:DatatypeProperty ;
                     rdfs:domain sto:Publication ;
                     rdfs:range xsd:anyURI .
-
-
-###  https://w3id.org/i40/sto#hasPages
-sto:hasPages rdf:type owl:DatatypeProperty ;
-             rdfs:domain foaf:Document ;
-             rdfs:range xsd:integer ;
-             rdfs:comment "Indicates the number of pages in the document."@en ;
-             rdfs:label "has Pages"@en .
-
-
-###  https://w3id.org/i40/sto#hasPublicationDate
-sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
-                       rdfs:domain sto:Publication ;
-                       rdfs:range xsd:date ;
-                       rdfs:comment "Publication date of the Publication"@en ;
-                       rdfs:label "has Publication Date"@en .
-
-
-###  https://w3id.org/i40/sto#hasStabilityDate
-sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
-                     rdfs:domain sto:Publication ;
-                     rdfs:range xsd:gYear ;
-                     rdfs:comment "Stability date of a publication. Publications are valid for a certain period, i.e., the Stability Period. This property defines the end of the stability period."@en ;
-                     rdfs:label "has Stability Date"@en ;
-                     rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5> ;
-                     skos:note "The data specified is not actually a Date but an Year" .
 
 
 ###  https://w3id.org/i40/sto#hasStatus
@@ -668,13 +621,6 @@ sto:orgName rdf:type owl:DatatypeProperty ;
             rdfs:range rdf:PlainLiteral ;
             rdfs:comment "Name of the Organization"@en ;
             rdfs:label "Org Name"@en .
-
-
-###  https://w3id.org/i40/sto#stoPartName
-sto:stoPartName rdf:type owl:DatatypeProperty ;
-                rdfs:range xsd:string ;
-                rdfs:comment "Name of the standard part."@en ;
-                rdfs:label "std Part Name"@en .
 
 
 #################################################################
