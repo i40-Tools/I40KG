@@ -317,10 +317,6 @@ dcterms:creator rdf:type owl:ObjectProperty ;
                 owl:equivalentProperty foaf:maker .
 
 
-###  http://purl.org/dc/terms/language
-dcterms:language rdf:type owl:ObjectProperty .
-
-
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
 om2:hasUnit rdf:type owl:ObjectProperty ;
             rdfs:label "has unit"@en .
@@ -398,12 +394,6 @@ sto:frames rdf:type owl:ObjectProperty ;
            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> .
 
 
-###  https://w3id.org/i40/sto#hasAvailableLanguage
-sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf dcterms:language ;
-                         rdfs:domain foaf:Document .
-
-
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
                       rdfs:domain sto:Publication ;
@@ -422,30 +412,9 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Publication .
 
 
-###  https://w3id.org/i40/sto#hasFileSize
-sto:hasFileSize rdf:type owl:ObjectProperty ;
-                rdfs:domain foaf:Document ;
-                rdfs:comment "The size of document file in some unit, e.g., 104 Kilobyte."@en ;
-                rdfs:label "has File Size"@en ;
-                rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5> ;
-                skos:note """1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
-                         2. om2:Measure om2:hasNumericalValue xsd:float;
-                         3. om2:Measure om2:hasUnit om2:Unit;
-                         4. om2:hasUnit om2:InformationCapacityUnit; is another possibility for range that could not be verified.
-                         5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
-                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>""" .
-
-
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
 sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
                     rdfs:domain sto:StandardOrganization .
-
-
-###  https://w3id.org/i40/sto#hasICS
-sto:hasICS rdf:type owl:ObjectProperty ;
-           rdfs:domain sto:Publication ;
-           rdfs:comment "Serves as a catalogue of International Classification For Standards"@en ;
-           rdfs:label "has ICS"@en .
 
 
 ###  https://w3id.org/i40/sto#hasMotivation
@@ -471,13 +440,6 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
 sto:hasTargetConcern rdf:type owl:ObjectProperty .
 
 
-###  https://w3id.org/i40/sto#hasTechnicalCommittee
-sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
-                          rdfs:domain sto:Publication ;
-                          rdfs:comment "Specifies the Technical Committee or a Sub-Committee that is responsible for creation and maintenance of a standard"@en ;
-                          rdfs:label "has Technical Committee"@en .
-
-
 ###  https://w3id.org/i40/sto#identifies
 sto:identifies rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf dul:associatedWith ;
@@ -496,12 +458,6 @@ sto:isDescribedin rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#isImplementationOf
 sto:isImplementationOf rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf sto:relatedTo .
-
-
-###  https://w3id.org/i40/sto#isRelevantFor
-sto:isRelevantFor rdf:type owl:ObjectProperty ;
-                  rdfs:comment "An Standard is concerned with Relevant Subjects"@en ;
-                  rdfs:label "is Relevant for"@en .
 
 
 ###  https://w3id.org/i40/sto#relatedTo
@@ -10533,12 +10489,6 @@ sto:VirtualEntities rdfs:seeAlso "IoT-A Requirement UNI.409" .
 
 sto:belongsTo rdfs:label "belongs To"@en ;
               rdfs:comment "A Standard Organization that belongs to the country"@en .
-
-
-sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ,
-                                    "has Available Language"@en ;
-                         rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
-                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
 
 sto:hasClassification rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
