@@ -973,16 +973,6 @@ sto:RelevantSubject rdf:type owl:Class ;
                     rdfs:label "Relevant Subject"@en .
 
 
-###  https://w3id.org/i40/sto#Stakeholder
-sto:Stakeholder rdf:type owl:Class ;
-                rdfs:subClassOf foaf:Person ;
-                rdfs:comment " A stakeholder is an individual, team, organization or classes thereof,having an interest in a concern and by extension an interest in the viewpoint and system." ;
-                rdfs:label "Stakeholder"@en ;
-                rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" ;
-                skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4.1 STAKEHOLDERS' 'Page 20' " ;
-                sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Stakeholder" .
-
-
 ###  https://w3id.org/i40/sto#Standard
 sto:Standard rdf:type owl:Class ;
              rdfs:subClassOf sto:Publication .
@@ -2300,14 +2290,6 @@ sto:DataTransferProjectWhitepaper rdf:type owl:NamedIndividual ,
                                   rdfs:label "Data Transfer Project Whitepaper"@en ;
                                   sto:hasDBpediaResource <http://dbpedia.org/page/Data_Transfer_Project> ;
                                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_Transfer_Project> .
-
-
-###  https://w3id.org/i40/sto#DecisionMaker
-sto:DecisionMaker rdf:type owl:NamedIndividual ,
-                           sto:Stakeholder ;
-                  rdfs:comment "These are business Decision makers"@en ;
-                  rdfs:label "Decision maker"@en ;
-                  skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.1 BUSINESS VIEWPOINT' 'Page 15' 'Priyanka'" .
 
 
 ###  https://w3id.org/i40/sto#Developer
@@ -9116,10 +9098,7 @@ sto:IIRA rdf:type owl:NamedIndividual ,
                   sto:ArchitectureDescription ,
                   sto:StandardizationFramework ;
          sto:hasTargetConcern <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
-                              sto:DecisionMaker ,
                               sto:Developer ,
-                              sto:ProductManager ,
-                              sto:SystemEngineer ,
                               sto:SystemOperator ,
                               <https://www.wikidata.org/wiki/Q1548249> ;
          rdfs:comment "The IIRA addresses the need for a common architecture framework to develop interoperable IIoT systems for diverse applications across a broad spectrum of industrial verticals in the public and private sectors to achieve the true promise of IIoT."@en ;
@@ -9193,7 +9172,6 @@ sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
                               sto:IIRACrosscuttingFunction ,
                               sto:StandardClassification ;
                      dul:associatedWith sto:BdvaDataProcessingArchitectures ,
-                                        sto:DecisionMaker ,
                                         sto:DtpSystemView ,
                                         sto:FiwareApplicationsServicesAndDataDelivery ,
                                         sto:IEC_62541 ,
@@ -9451,7 +9429,6 @@ sto:IIRASecurity rdf:type owl:NamedIndividual ,
                           sto:StandardClassification ;
                  dcterms:creator sto:sebastian ;
                  dul:associatedWith sto:DataOwner ,
-                                    sto:DecisionMaker ,
                                     sto:DtpSecurityPrivacy ,
                                     sto:FiwareSecurity ,
                                     sto:IDSRAMSecurity ,
@@ -12606,15 +12583,6 @@ sto:ProductLifeCycleManagement rdf:type owl:NamedIndividual ,
                                rdfs:label "Production Life Cycle Management"@en .
 
 
-###  https://w3id.org/i40/sto#ProductManager
-sto:ProductManager rdf:type owl:NamedIndividual ,
-                            <http://voag.linkedmodel.org/voag#StakeholderGroup> ,
-                            sto:Stakeholder ;
-                   rdfs:comment ""@en ;
-                   rdfs:label "Product Manager"@en ;
-                   skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.1 BUSINESS VIEWPOINT' 'Page 15' 'Priyanka'" .
-
-
 ###  https://w3id.org/i40/sto#ProductModelDataExchange
 sto:ProductModelDataExchange rdf:type owl:NamedIndividual ,
                                       sto:ProductDevelopmentLifeCycle ,
@@ -13488,15 +13456,6 @@ sto:SysML rdf:type owl:NamedIndividual ,
           sto:hasOfficialResource <http://sysml.org/> ,
                                   <http://www.omgsysml.org/what-is-sysml.htm> ;
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Systems_Modeling_Language> .
-
-
-###  https://w3id.org/i40/sto#SystemEngineer
-sto:SystemEngineer rdf:type owl:NamedIndividual ,
-                            <http://voag.linkedmodel.org/voag#StakeholderGroup> ,
-                            sto:Stakeholder ;
-                   rdfs:comment ""@en ;
-                   rdfs:label "System Engineer"@en ;
-                   skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.1 BUSINESS VIEWPOINT' 'Page 15' 'Priyanka'" .
 
 
 ###  https://w3id.org/i40/sto#SystemOperator
