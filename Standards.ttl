@@ -723,10 +723,6 @@ sto:Domain rdf:type owl:Class ;
 sto:InternationalClassificationForStandards rdf:type owl:Class .
 
 
-###  https://w3id.org/i40/sto#OcfBlock
-sto:OcfBlock rdf:type owl:Class .
-
-
 ###  https://w3id.org/i40/sto#Publication
 sto:Publication rdf:type owl:Class ;
                 rdfs:subClassOf foaf:Document ;
@@ -773,11 +769,6 @@ sto:TechnicalReport rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#TechnicalSpecification
 sto:TechnicalSpecification rdf:type owl:Class ;
                            rdfs:subClassOf sto:Publication .
-
-
-###  https://w3id.org/i40/sto#Technology
-sto:Technology rdf:type owl:Class ;
-               rdfs:subClassOf sto:Publication .
 
 
 ###  https://w3id.org/i40/sto#standard
@@ -1041,17 +1032,6 @@ om2:kilobyte rdf:type owl:NamedIndividual ,
 rami:EnergyEfficiency rdf:type owl:NamedIndividual .
 
 
-###  https://w3id.org/i40/sto#AMQP
-sto:AMQP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "AMQP (Advanced Message Queuing Protocol): An open standard application layer protocol for message-oriented middleware. The defining features of AMQP are message orientation, queuing, routing (including point-to-point and publish-and-subscribe), reliability and security. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "AMQP"@en ;
-         sto:hasOfficialResource <http://www.amqp.org/> .
-
-
 ###  https://w3id.org/i40/sto#ANSI
 sto:ANSI rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
@@ -1066,17 +1046,6 @@ sto:ANSI rdf:type owl:NamedIndividual ,
          sto:hasDBpediaResource <http://dbpedia.org/resource/American_National_Standards_Institute> ;
          sto:hasOfficialResource <https://www.ansi.org/> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/American_National_Standards_Institute?oldformat=true> .
-
-
-###  https://w3id.org/i40/sto#ANT
-sto:ANT rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "ANT is a proprietary wireless sensor network technology featuring a wireless communications protocol stack that enables semiconductor radios operating in the 2.4 GHz Industrial, Scientific and Medical allocation of the RF spectrum (ISM band) to communicate by establishing standard rules for co-existence, data representation, signalling, authentication and error detection.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "ANT"@en ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ANT_(network)> .
 
 
 ###  https://w3id.org/i40/sto#APICS
@@ -1151,28 +1120,6 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
                sto:hasDBpediaResource <http://dbpedia.org/resource/ASME_Y14.41> ;
                sto:hasOfficialResource <https://www.asme.org/products/codes-standards/y1441-2012-digital-product-definition-data> ;
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME_Y14.41> .
-
-
-###  https://w3id.org/i40/sto#Aeron
-sto:Aeron rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "Aeron - Efficient reliable UDP unicast, UDP multicast, and IPC message transport. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "Aeron"@en ;
-          sto:hasOfficialResource <https://github.com/real-logic/Aeron> .
-
-
-###  https://w3id.org/i40/sto#Alljoyn
-sto:Alljoyn rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification ;
-            dcterms:creator sto:sebastian ;
-            rdfs:comment "Alljoyn - An open source software framework that makes it easy for devices and apps to discover and communicate with each other. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-            rdfs:label "Alljoyn"@en ;
-            sto:hasOfficialResource <https://allseenalliance.org/framework> .
 
 
 ###  https://w3id.org/i40/sto#Automation
@@ -1293,29 +1240,6 @@ sto:BdvaDataViualisationAndUserInteraction rdf:type owl:NamedIndividual .
 sto:Billing rdf:type owl:NamedIndividual .
 
 
-###  https://w3id.org/i40/sto#Blockchain
-sto:Blockchain rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
-                        sto:TechnicalSpecification ;
-               rdfs:comment "The term Blockchain refers to a set of technologies for distributed databases."@en ;
-               rdfs:label "Blockchain"@en ;
-               rdfs:seeAlso <https://web.archive.org/web/20140320135003/https://bitcoin.org/bitcoin.pdf> ;
-               sto:hasDBpediaResource <http://dbpedia.org/resource/Blockchain.info> .
-
-
-###  https://w3id.org/i40/sto#Bluetooth
-sto:Bluetooth rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
-                       sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian ;
-              sto:hasClassification sto:RAMICommunicationLayer ;
-              rdfs:comment "Bluetooth works in the 2.4 GHz ISM band and uses frequency hopping. With a data rate up to 3 Mbps and maximum range of 100m. Each application type which can use Bluetooth has its own profile.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-              rdfs:label "Bluetooth"@en ;
-              sto:hasOfficialResource <http://www.bluetooth.com/Pages/Bluetooth-Home.aspx> .
-
-
 ###  https://w3id.org/i40/sto#CAD
 sto:CAD rdf:type owl:NamedIndividual ,
                  sto:Domain ;
@@ -1324,17 +1248,6 @@ sto:CAD rdf:type owl:NamedIndividual ,
         rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Computer-aided_design> ;
         rdfs:label "CAD" ;
         sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design> .
-
-
-###  https://w3id.org/i40/sto#CCN
-sto:CCN rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "Content-Centric Networking (CCN). Next-gen network architecture to solve challenges in content distribution scalability, mobility, and security. CCN directly routes and delivers named pieces of content at the packet level of the network, enabling automatic and application-neutral caching in memory wherever it’s located in the network. The result? Efficient and effective delivery of content wherever and whenever it is needed. Since the architecture enables these caching effects as an automatic side effect of packet delivery, memory can be used without building expensive application-level caching services. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "CCN"@en ;
-        sto:hasOfficialResource <http://www.ccnx.org/> .
 
 
 ###  https://w3id.org/i40/sto#CGMES
@@ -1370,17 +1283,6 @@ sto:CyberSecurity rdf:type owl:NamedIndividual ,
                   rdfs:comment " Protection of Computer Systems from damage of all kinds "@en ;
                   rdfs:label "Cyber Security"@en ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Computer_security> .
-
-
-###  https://w3id.org/i40/sto#DDS
-sto:DDS rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "DDS (Data-Distribution Service for Real-Time Systems): The first open international middleware standard directly addressing publish-subscribe communications for real-time and embedded systems. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "DDS"@en ;
-        sto:hasOfficialResource <http://portals.omg.org/dds/> .
 
 
 ###  https://w3id.org/i40/sto#DIN
@@ -1688,17 +1590,6 @@ sto:Developer rdf:type owl:NamedIndividual ,
                        <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
-###  https://w3id.org/i40/sto#DigiMesh
-sto:DigiMesh rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "DigiMesh is a proprietary peer-to-peer networking topology for use in wireless end-point connectivity solutions. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "DigiMesh"@en ;
-             sto:hasOfficialResource <http://www.digi.com/technology/digimesh/> .
-
-
 ###  https://w3id.org/i40/sto#ENISA
 sto:ENISA rdf:type owl:NamedIndividual ,
                    foaf:Organization ,
@@ -1795,56 +1686,12 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/DECT_Ultra_Low_Energy> .
 
 
-###  https://w3id.org/i40/sto#EcGsmIoT
-sto:EcGsmIoT rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "EC-GSM-IoT (Extended Coverage-GSM-IoT): Enables new capabilities of existing cellular networks for LPWA (Low Power Wide Area) IoT applications. EC-GSM-IoT can be activated through new software deployed over a very large GSM footprint, adding even more coverage to serve IoT devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "EC-GSM-IoT"@en ;
-             sto:hasOfficialResource <https://www.ericsson.com/news/1987789> .
-
-
-###  https://w3id.org/i40/sto#EclipsePaho
-sto:EclipsePaho rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
-                         sto:TechnicalSpecification ;
-                dcterms:creator sto:sebastian ;
-                rdfs:comment "The scope of the Paho project is to provide open source implementations of open and standard messaging protocols that support current and emerging requirements of M2M integration with Web and Enterprise middleware and applications. It will include client implementations for use on embedded platforms along with corresponding server support as determined by the community. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                rdfs:label "Eclipse Paho Project"@en ;
-                sto:hasOfficialResource <https://www.eclipse.org/proposals/technology.paho/> .
-
-
-###  https://w3id.org/i40/sto#Eddystone
-sto:Eddystone rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
-                       sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian ;
-              rdfs:comment "Eddystone - A protocol specification that defines a Bluetooth low energy (BLE) message format for proximity beacon messages. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-              rdfs:label "Eddystone"@en ;
-              sto:hasOfficialResource <https://github.com/google/eddystone> .
-
-
 ###  https://w3id.org/i40/sto#EdgecrossWhitepaper
 sto:EdgecrossWhitepaper rdf:type owl:NamedIndividual ,
                                  foaf:Document ,
                                  sto:Publication ;
                         rdfs:label "Edgecross Whitepaper"@en ;
                         sto:hasOfficialResource <https://www.edgecross.org/ja/data-download/pdf/Edgecross_Consortium_WP(E).pdf> .
-
-
-###  https://w3id.org/i40/sto#EnOcean
-sto:EnOcean rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification ;
-            dcterms:creator sto:sebastian ;
-            rdfs:comment "EnOcean is a an energy harvesting wireless technology which works in the frequencies of 868 MHz for europe and 315 MHz for North America. The transmit range goes up to 30 meter in buildings and up to 300 meter outdoor. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-            rdfs:label "EnOcean"@en ;
-            sto:hasOfficialResource <http://www.enocean.com/en/home/> .
 
 
 ###  https://w3id.org/i40/sto#Energy_management
@@ -3021,66 +2868,6 @@ sto:GPLv2 rdf:type owl:NamedIndividual ,
           skos:prefLabel "OCL 1.0" .
 
 
-###  https://w3id.org/i40/sto#HTML
-sto:HTML rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:IETF ;
-         foaf:maker sto:IETF ;
-         sto:hasDeveloper sto:IETF ;
-         sto:hasPublisher sto:IETF ;
-         rdfs:label "HTML"@en .
-
-
-###  https://w3id.org/i40/sto#HTTP
-sto:HTTP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:IETF ,
-                         sto:sebastian ;
-         foaf:maker sto:IETF ;
-         sto:hasDeveloper sto:IETF ;
-         sto:hasPublisher sto:IETF ;
-         rdfs:comment "HTTP is the most widely used protocol for internet communication."@en ;
-         rdfs:label "HTTP"@en ;
-         sto:hasDBpediaResource <http://dbpedia.org/resource/Hypertext_Transfer_Protocol> ;
-         sto:hasOfficialResource <https://tools.ietf.org/html/rfc7230> ,
-                                 <https://tools.ietf.org/html/rfc7231> ,
-                                 <https://tools.ietf.org/html/rfc7232> ,
-                                 <https://tools.ietf.org/html/rfc7233> ,
-                                 <https://tools.ietf.org/html/rfc7234> ,
-                                 <https://tools.ietf.org/html/rfc7235> ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol> .
-
-
-###  https://w3id.org/i40/sto#HTTP2
-sto:HTTP2 rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:IETF ,
-                          sto:sebastian ;
-          foaf:maker sto:IETF ;
-          sto:hasDeveloper sto:IETF ;
-          sto:hasPublisher sto:IETF ;
-          rdfs:comment "HTTP/2 - Enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "HTTP/2"@en ;
-          sto:hasOfficialResource <http://httpwg.org/specs/rfc7540.html> .
-
-
-###  https://w3id.org/i40/sto#HyperCat
-sto:HyperCat rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "HyperCat - An open, lightweight JSON-based hypermedia catalogue format for exposing collections of URIs. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "HyperCat"@en ;
-             sto:hasOfficialResource <http://www.hypercat.io/standard.html> .
-
-
 ###  https://w3id.org/i40/sto#IBM
 sto:IBM rdf:type owl:NamedIndividual ,
                  foaf:Organization ,
@@ -3320,18 +3107,6 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
                   rdfs:comment "This is ICS for IT applications in industry"@en ,
                                "This is ICS for “IT applications in industry)”"@en ;
                   rdfs:label "ICS 35.240.50"@en .
-
-
-###  https://w3id.org/i40/sto#ID4me
-sto:ID4me rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ,
-                          "sebastian" ;
-          rdfs:comment "ID4me is a federated digital identity service that aims to provide two main functions: (1) Authorization of a user for access to any third party accepting ID4me identifiers (“single sign-on” on an Internet scale); (2) Controlled communication of the user’s personal information to the third parties accessed by the user."@en ;
-          rdfs:label "ID4me"@en ;
-          sto:hasOfficialResource <https://id4me.org/files/ID4me_Technical_Overview_v1.3.pdf> .
 
 
 ###  https://w3id.org/i40/sto#IEC
@@ -7733,17 +7508,6 @@ sto:IIoTConsortium rdf:type owl:NamedIndividual ;
                    dcterms:creator sto:sebastian .
 
 
-###  https://w3id.org/i40/sto#IPv6
-sto:IPv6 rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "IPv6, is an Internet Layer protocol for packet-switched internetworking and provides end-to-end datagram transmission across multiple IP networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "IPv6"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IPv6> .
-
-
 ###  https://w3id.org/i40/sto#ISA
 sto:ISA rdf:type owl:NamedIndividual ,
                  foaf:Organization ,
@@ -7780,17 +7544,6 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
            sto:hasDBpediaResource <http://dbpedia.org/resource/ANSI/ISA-95> ;
            sto:hasOfficialResource <https://www.isa.org/isa95/> ;
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ANSI/ISA-95> .
-
-
-###  https://w3id.org/i40/sto#ISA10011a
-sto:ISA10011a rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
-                       sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian ;
-              rdfs:comment "ISA100.11a is a wireless networking technology standard developed by the International Society of Automation (ISA). The official description is Wireless Systems for Industrial Automation: Process Control and Related Application. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-              rdfs:label "ISA100.11a"@en ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISA100.11a> .
 
 
 ###  https://w3id.org/i40/sto#ISA_62443
@@ -9223,41 +8976,9 @@ sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
                                             sto:abbreviation "ICS"@en .
 
 
-###  https://w3id.org/i40/sto#IoTivity
-sto:IoTivity rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "IoTivity is an open source project hosted by the Linux Foundation, and sponsored by the OIC. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "IoTivity"@en ;
-             sto:hasOfficialResource <https://www.iotivity.org/> .
-
-
 ###  https://w3id.org/i40/sto#IotaPerspective
 sto:IotaPerspective rdf:type owl:NamedIndividual ;
                     dcterms:creator sto:sebastian .
-
-
-###  https://w3id.org/i40/sto#IpsoAppFramework
-sto:IpsoAppFramework rdf:type owl:NamedIndividual ,
-                              foaf:Document ,
-                              sto:Publication ,
-                              sto:TechnicalSpecification ;
-                     dcterms:creator sto:sebastian ;
-                     rdfs:comment "IPSO Application Framework (PDF): This design defines sets of REST interfaces that may be used by a smart object to represent its available resources, interact with other smart objects and backend services. This framework is designed to be complementary to existing Web profiles including SEP2 and oBIX. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                     rdfs:label "IPSO App Framework"@en ;
-                     sto:hasOfficialResource <http://www.ipso-alliance.org/wp-content/media/draft-ipso-app-framework-04.pdf> .
-
-
-###  https://w3id.org/i40/sto#JMS
-sto:JMS rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "JMS (Java Message Service) - A Java Message Oriented Middleware (MOM) API for sending messages between two or more clients. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "JMS"@en .
 
 
 ###  https://w3id.org/i40/sto#KATS
@@ -9278,100 +8999,8 @@ sto:KATS rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Korean_Agency_for_Technology_and_Standards> .
 
 
-###  https://w3id.org/i40/sto#KeyRock
-sto:KeyRock rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification .
-
-
-###  https://w3id.org/i40/sto#LLAP
-sto:LLAP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "LLAP (lightweight local automation protocol): is a simple short message that is sent between inteligent objects using normal text, it's not like TCP/IP, bluetooth, zigbee, 6lowpan, WiFi etc which achieve at a low level 'how' to move data around. This means LLAP can run over any communication medium. The three strengths of LLAP are, it'll run on anything now, anything in the future and it's easily understandable by humans. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "LLAP"@en ;
-         sto:hasOfficialResource <http://openkontrol.org/llap/index.php/openkontrol/69-LLAP%20-%20Lightweight%20Local%20Automation%20Protocol> .
-
-
-###  https://w3id.org/i40/sto#LWM2M
-sto:LWM2M rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "LWM2M (Lightweight M2M) is a system standard in the Open Mobile Alliance. It includes DTLS, CoAP, Block, Observe, SenML and Resource Directory and weaves them into a device-server interface along with an Object structure. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "LWM2M"@en ;
-          sto:hasOfficialResource <http://yucianga.info/?p=786> .
-
-
 ###  https://w3id.org/i40/sto#LinkLayer
 sto:LinkLayer rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#LinkedData
-sto:LinkedData rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
-                        sto:TechnicalSpecification .
-
-
-###  https://w3id.org/i40/sto#LoRaWAN
-sto:LoRaWAN rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification ;
-            dcterms:creator sto:sebastian ;
-            rdfs:comment "LoRaWAN - Network protocol intended for wireless battery operated Things in regional, national or global network. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-            rdfs:label "LoRaWAN"@en ;
-            sto:hasOfficialResource <https://www.lora-alliance.org/What-Is-LoRa/Technology> .
-
-
-###  https://w3id.org/i40/sto#LoWPAN
-sto:LoWPAN rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
-                    sto:TechnicalSpecification ;
-           dcterms:creator sto:IETF ,
-                           sto:sebastian ;
-           foaf:maker sto:IETF ;
-           sto:hasDeveloper sto:IETF ;
-           sto:hasPublisher sto:IETF ;
-           rdfs:comment "6LoWPAN is an acronym of IPv6 over Low power Wireless Personal Area Networks. It is an adaption layer for IPv6 over IEEE802.15.4 links. This protocol operates only in the 2.4 GHz frequency range with 250 kbps transfer rate. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-           rdfs:label "6LoWPAN"@en ;
-           sto:hasDBpediaResource <http://dbpedia.org/resource/6LoWPAN> ;
-           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/6LoWPAN> .
-
-
-###  https://w3id.org/i40/sto#LowPowerWiFi
-sto:LowPowerWiFi rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
-                          sto:Publication ,
-                          sto:TechnicalSpecification .
-
-
-###  https://w3id.org/i40/sto#LsDL
-sto:LsDL rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "LsDL (Lemonbeat smart Device Language) - XML-based device language for service oriented devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "LsDL"@en ;
-         sto:hasOfficialResource <http://www.lemonbeat.com/lsdl/> .
-
-
-###  https://w3id.org/i40/sto#LteMtc
-sto:LteMtc rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
-                    sto:TechnicalSpecification ;
-           dcterms:creator sto:sebastian ;
-           rdfs:comment "LTE-MTC (LTE-Machine Type Communication) - Standards-based family of technologies supports several technology categories, such as Cat-1 and CatM1, suitable for the IoT. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-           rdfs:label "LTE-MTC"@en ;
-           sto:hasOfficialResource <http://www.gsma.com/connectedliving/long-term-evolution-machine-type-communication-lte-mtc-cat-m1/> .
 
 
 ###  https://w3id.org/i40/sto#M2M
@@ -9484,17 +9113,6 @@ sto:MathML rdf:type owl:NamedIndividual ,
            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/MathML> .
 
 
-###  https://w3id.org/i40/sto#Mihini
-sto:Mihini rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
-                    sto:TechnicalSpecification ;
-           dcterms:creator sto:sebastian ;
-           rdfs:comment "Mihini/M3DA: The Mihini agent is a software component that acts as a mediator between an M2M server and the applications running on an embedded gateway. M3DA is a protocol optimized for the transport of binary M2M data. It is made available in the Mihini project both for means of Device Management, by easing the manipulation and synchronization of a device's data model, and for means of Asset Management, by allowing user applications to exchange typed data/commands back and forth with an M2M server, in a way that optimizes the use of bandwidth (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-           rdfs:label "Mihini"@en ;
-           sto:hasOfficialResource <https://wiki.eclipse.org/Mihini/M3DA_Specification> .
-
-
 ###  https://w3id.org/i40/sto#ModBus
 sto:ModBus rdf:type owl:NamedIndividual ,
                     foaf:Document ,
@@ -9526,33 +9144,6 @@ sto:NERC rdf:type owl:NamedIndividual ,
          dcterms:description "The North American Electric Reliability Corporation (NERC) is a not-for-profit international regulatory authority whose mission is to assure the effective and efficient reduction of risks to the reliability and security of the grid. NERC develops and enforces Reliability Standards; annually assesses seasonal and long‐term reliability; monitors the bulk power system through system awareness; and educates, trains, and certifies industry personnel. NERC’s area of responsibility spans the continental United States, Canada, and the northern portion of Baja California, Mexico. NERC is the electric reliability organization (ERO) for North America, subject to oversight by the Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. NERC's jurisdiction includes users, owners, and operators of the bulk power system, which serves more than 334 million people."@en ;
          rdfs:seeAlso <https://www.nerc.com/Pages/default.aspx> ;
          sto:hasWikipediaArticle <https://wikipedia.org/wiki/North_American_Electric_Reliability_Corporation> .
-
-
-###  https://w3id.org/i40/sto#NFC
-sto:NFC rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        sto:hasClassification sto:OpenFogNodeView ;
-        rdfs:comment "Based on the standard ISO/IEC 18092:2004, using inductive coupled devices at a center frequency of13.56 MHz. The data rate is up to 424 kbps and the rangeis with a few meters short compared to the wireless sensornetworks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "NFC"@en ;
-        sto:hasOfficialResource <http://www.nfc-forum.org/home/> .
-
-
-###  https://w3id.org/i40/sto#NGSI
-sto:NGSI rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         dcterms:title "Next Generation Service Interface"@en ;
-         rdfs:comment """The FIWARE NGSI (Next Generation Service Interface) API defines
--    a data model for context information, based on a simple information model using the notion of context entities
--    a context data interface for exchanging information by means of query, subscription, and update operations
--    a context availability interface for exchanging information on how to obtain context information (whether to separate the two interfaces is currently under discussion)."""@en ;
-         rdfs:label "NGSI"@en ;
-         sto:hasOfficialResource <http://fiware.github.io/specifications/ngsiv2/stable/> .
 
 
 ###  https://w3id.org/i40/sto#NIST
@@ -9672,28 +9263,6 @@ sto:NIST_800-146 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource <https://csrc.nist.gov/publications/detail/sp/800-146/final> .
 
 
-###  https://w3id.org/i40/sto#NanoIP
-sto:NanoIP rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
-                    sto:TechnicalSpecification ;
-           dcterms:creator sto:sebastian ;
-           rdfs:comment "NanoIP, which stands for the nano Internet Protocol, is a concept that was created to bring Internet-like networking services to embedded and sensor devices, without the overhead of TCP/IP. NanoIP was designed with minimal overheads, wireless networking, and local addressing in mind. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-           rdfs:label "NanoIP"@en ;
-           sto:hasOfficialResource <http://www.cwc.oulu.fi/nanoip/> .
-
-
-###  https://w3id.org/i40/sto#NbIoT
-sto:NbIoT rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "NB-IoT (Narrow-Band IoT) A technology being standardized by the 3GPP standards body. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "NB-IoT"@en ;
-          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/NarrowBand_IOT> .
-
-
 ###  https://w3id.org/i40/sto#NetworkLayer
 sto:NetworkLayer rdf:type owl:NamedIndividual .
 
@@ -9789,7 +9358,6 @@ sto:OFRAFunctionalViewpoint rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#OFRANodeView
 sto:OFRANodeView rdf:type owl:NamedIndividual ;
                  dcterms:creator sto:sebastian ;
-                 dul:associatedWith sto:WiFi ;
                  rdfs:comment "The node view is the lowest level view we currently utilize in the architectural description. The stakeholders involved in formulating the viewpoint (and subsequently this view) are the system on a chip designers, silicon manufacturers, firmware architects, and system architects. source: OpenFog Reference Architecture"@en ;
                  rdfs:label "OpenFog Node View"@en .
 
@@ -9806,17 +9374,6 @@ sto:OFRASystemView rdf:type owl:NamedIndividual ;
                    dcterms:creator sto:sebastian ;
                    rdfs:comment "The system view of the OpenFog RA is composed of one or more node views coupled with other components to create a platform. The stakeholders which typically create these systems to facilitate a fog deployment comprise the concerns of this viewpoint. Subsequently this view is intended to address the concerns of the system architects, hardware OEMs, and platform manufacturers. They also need to understand the Node view such that the systems they create can be deployed to address a given scenario. source: OpenFog Reference Architecture"@en ;
                    rdfs:label "OpenFog System Architecture View"@en .
-
-
-###  https://w3id.org/i40/sto#OMALightweightM2M
-sto:OMALightweightM2M rdf:type owl:NamedIndividual ,
-                               foaf:Document ,
-                               sto:Publication ,
-                               sto:TechnicalSpecification ;
-                      dcterms:creator sto:sebastian ;
-                      rdfs:comment "The motivation of LightweightM2M is to develop a fast deployable client-server specification to provide machine to machine service.<br> LightweightM2M is principly a device management protocol, but it should be designed to be able to extend to meet the requirements of applications. LightweightM2M is not restricted to device management, it should be able transfer service / application data. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                      rdfs:label "Lightweight M2M v1.0"@en ;
-                      sto:hasOfficialResource <http://technical.openmobilealliance.org/Technical/release_program/lightweightM2M_v1_0.aspx> .
 
 
 ###  https://w3id.org/i40/sto#OMG
@@ -9869,17 +9426,6 @@ sto:OPC_Foundation rdf:type owl:NamedIndividual ,
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Foundation> .
 
 
-###  https://w3id.org/i40/sto#OTrP
-sto:OTrP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "Open Trust Protocol (OTrP) - A protocol to install, update, and delete applications and to manage security configuration in a Trusted Execution Environment (TEE). (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "Open Trust Protocol"@en ;
-         sto:hasOfficialResource <https://www.ietf.org/id/draft-pei-opentrustprotocol-01.txt> .
-
-
 ###  https://w3id.org/i40/sto#OceanProtocolFoundation
 sto:OceanProtocolFoundation rdf:type owl:NamedIndividual ,
                                      foaf:Organization ,
@@ -9890,56 +9436,6 @@ sto:OceanProtocolFoundation rdf:type owl:NamedIndividual ,
                             sto:hasOfficialResource <https://oceanprotocol.com/> .
 
 
-###  https://w3id.org/i40/sto#OcfCoreFramework
-sto:OcfCoreFramework rdf:type owl:NamedIndividual ,
-                              sto:OcfBlock ;
-                     dcterms:creator sto:sebastian ;
-                     sto:isDescribedin :OcfFramework ;
-                     rdfs:label "OCF Core Framework"@en .
-
-
-###  https://w3id.org/i40/sto#OcfDataModels
-sto:OcfDataModels rdf:type owl:NamedIndividual ,
-                           sto:OcfBlock ;
-                  rdfs:label "OCF Data Models"@en .
-
-
-###  https://w3id.org/i40/sto#OcfL2Connectivity
-sto:OcfL2Connectivity rdf:type owl:NamedIndividual ,
-                               sto:OcfBlock ;
-                      rdfs:label "OCF L2 Connectivity"@en .
-
-
-###  https://w3id.org/i40/sto#OcfNetworking
-sto:OcfNetworking rdf:type owl:NamedIndividual ,
-                           sto:OcfBlock ;
-                  dcterms:creator sto:sebastian ;
-                  dul:associatedWith sto:IPv6 ;
-                  rdfs:label "OCF Networking"@en .
-
-
-###  https://w3id.org/i40/sto#OcfSecurity
-sto:OcfSecurity rdf:type owl:NamedIndividual ,
-                         sto:OcfBlock ;
-                dcterms:creator sto:sebastian ;
-                dul:associatedWith sto:RAML ;
-                sto:alignsWith sto:OpenFogSecurityPerspective ;
-                sto:hasPublisher sto:OpenConnectivityFoundation ;
-                rdfs:label "OCF Security"@en ;
-                rdfs:seeAlso <https://openconnectivity.org/industries/ocf-security> .
-
-
-###  https://w3id.org/i40/sto#OpenApi
-sto:OpenApi rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification ;
-            dcterms:creator sto:sebastian ;
-            rdfs:comment "The OpenAPI Specification (originally known as the Swagger Specification) is a specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services. A variety of tools can generate code, documentation and test cases given an interface file. Development of the OpenAPI Specification (OAS) is overseen by the Open API Initiative, an open source collaborative project of the Linux Foundation. (source: wikipedia)"@en ;
-            rdfs:label "OpenAPI"@en ;
-            sto:hasDBpediaResource <http://dbpedia.org/resource/OpenAPI_Specification> .
-
-
 ###  https://w3id.org/i40/sto#OpenConnectivityFoundation
 sto:OpenConnectivityFoundation rdf:type owl:NamedIndividual ,
                                         sto:StandardOrganization ;
@@ -9947,15 +9443,6 @@ sto:OpenConnectivityFoundation rdf:type owl:NamedIndividual ,
                                rdfs:label "Open Connectivity Foundation"^^xsd:string ;
                                rdfs:seeAlso <https://openconnectivity.org/> ;
                                sto:hasDBpediaResource <https://dbpedia.org/resource/Open_Connectivity_Foundation> .
-
-
-###  https://w3id.org/i40/sto#OpenDaylight
-sto:OpenDaylight rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
-                          sto:Publication ,
-                          sto:TechnicalSpecification ;
-                 dcterms:creator sto:sebastian ,
-                                 "sebastian" .
 
 
 ###  https://w3id.org/i40/sto#OpenFogArchitecture
@@ -9983,37 +9470,6 @@ sto:OpenLicenseDocument rdf:type owl:NamedIndividual ,
                         rdfs:comment "Open or Free License"@en ;
                         rdfs:label "Open or Free License"@en ;
                         rdfs:seeAlso <https://en.wikipedia.org/wiki/Free_license> .
-
-
-###  https://w3id.org/i40/sto#OpenWSN
-sto:OpenWSN rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification ;
-            dcterms:creator sto:sebastian ;
-            rdfs:comment "OpenWSN Serves as a repository for open-source implementations of protocol stacks based on Internet of Things standards, using a variety of hardware and software platforms. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-            rdfs:label "OpenWSN"@en ;
-            sto:hasOfficialResource <https://openwsn.atlassian.net/wiki/pages/viewpage.action?pageId=688187> .
-
-
-###  https://w3id.org/i40/sto#OrionContextBroker
-sto:OrionContextBroker rdf:type owl:NamedIndividual ,
-                                foaf:Document ,
-                                sto:Publication ,
-                                sto:TechnicalSpecification ;
-                       dcterms:creator sto:sebastian ;
-                       rdfs:label "ORION Context Broker"@en .
-
-
-###  https://w3id.org/i40/sto#PhysicalWeb
-sto:PhysicalWeb rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
-                         sto:TechnicalSpecification ;
-                dcterms:creator sto:sebastian ;
-                rdfs:comment "Physical Web - The Physical Web enables you to see a list of URLs being broadcast by objects in the environment around you with a Bluetooth Low Energy (BLE) beacon. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                rdfs:label "Physical Web"@en ;
-                sto:hasOfficialResource <https://google.github.io/physical-web/faq> .
 
 
 ###  https://w3id.org/i40/sto#PrivateLicenseDocument
@@ -10061,52 +9517,12 @@ sto:QIF rdf:type owl:NamedIndividual ,
         sto:hasOfficialResource <http://qifstandards.org/> .
 
 
-###  https://w3id.org/i40/sto#QUIC
-sto:QUIC rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "QUIC (Quick UDP Internet Connections, pronounced quick) supports a set of multiplexed connections between two endpoints over User Datagram Protocol (UDP), and was designed to provide security protection equivalent to TLS/SSL, along with reduced connection and transport latency, and bandwidth estimation in each direction to avoid congestion. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "QUIC"@en ;
-         sto:hasOfficialResource <https://en.wikipedia.org/wiki/QUIC> .
-
-
 ###  https://w3id.org/i40/sto#RAMICommunicationLayer
 sto:RAMICommunicationLayer rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#RAMIFunctional
 sto:RAMIFunctional rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#RAML
-sto:RAML rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "RAML (RESTful API Modeling Language) - Makes it easy to manage the whole API lifecycle from design to sharing. It's concise - you only write what you need to define - and reusable.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "RAML"@en ;
-         sto:hasOfficialResource <http://raml.org/> .
-
-
-###  https://w3id.org/i40/sto#RDF
-sto:RDF rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification .
-
-
-###  https://w3id.org/i40/sto#REST
-sto:REST rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "REST (Representational state transfer) - RESTful HTTP (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "REST"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Representational_state_transfer> .
 
 
 ###  https://w3id.org/i40/sto#RFC_1122
@@ -10152,22 +9568,6 @@ sto:RFC_2818 rdf:type owl:NamedIndividual ,
              rdfs:comment "This memo describes how to use TLS to secure HTTP connections over  the Internet. Current practice is to layer HTTP over SSL (the predecessor to TLS), distinguishing secured traffic from insecure traffic by the use of a different server port. This document documents that practice using TLS. A companion document describes a method for using HTTP/TLS over the same port as normal HTTP [RFC2817]."@en ;
              rdfs:label "HTTPS"@en ,
                         "RFC 2818"@en .
-
-
-###  https://w3id.org/i40/sto#RFC_4511
-sto:RFC_4511 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:IETF ,
-                             sto:sebastian ;
-             foaf:maker sto:IETF ;
-             sto:hasDeveloper sto:IETF ;
-             sto:hasPublisher sto:IETF ;
-             dcterms:title "Lightweight Directory Access Protocol"@en ;
-             rdfs:label "LDAP"@en ;
-             sto:hasOfficialResource <https://tools.ietf.org/html/rfc4511> ;
-             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol> .
 
 
 ###  https://w3id.org/i40/sto#RFC_5246
@@ -10334,82 +9734,12 @@ sto:RFC_793 rdf:type owl:NamedIndividual ,
             sto:hasOfficialResource <https://tools.ietf.org/html/rfc793> .
 
 
-###  https://w3id.org/i40/sto#RFC_8323
-sto:RFC_8323 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:IETF ,
-                             sto:sebastian ;
-             foaf:maker sto:IETF ;
-             sto:hasDeveloper sto:IETF ;
-             sto:hasPublisher sto:IETF ;
-             rdfs:comment "CoAP (Constrained Application Protocol) is an application layer protocol that is intended for use in resource-constrained internet devices, such as WSN nodes. CoAP is designed to easily translate to HTTP for simplified integration with the web, while also meeting specialized requirements such as multicast support, very low overhead, and simplicity. The CoRE group has proposed the following features for CoAP: RESTful protocol design minimizing the complexity of mapping with HTTP, Low header overhead and parsing complexity, URI and content-type support, Support for the discovery of resources provided by known CoAP services. Simple subscription for a resource, and resulting push notifications, Simple caching based on max-age. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "CoAP"@en ;
-             sto:hasDBpediaResource <http://dbpedia.org/resource/Constrained_Application_Protocol> ;
-             sto:hasOfficialResource <https://tools.ietf.org/html/rfc8323> ;
-             sto:hasWikipediaArticle <http://en.wikipedia.org/wiki/Constrained_Application_Protocol> .
-
-
-###  https://w3id.org/i40/sto#ROLL
-sto:ROLL rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "ROLL / RPL (IPv6 routing for low power/lossy networks) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "ROLL"@en ;
-         sto:hasOfficialResource <https://datatracker.ietf.org/wg/roll/> .
-
-
-###  https://w3id.org/i40/sto#RPMA
-sto:RPMA rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "RPMA (Random phase multiple access) A technology communication system employing direct-sequence spread spectrum (DSSS) with multiple access. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "RPMA"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Random_phase_multiple_access> .
-
-
-###  https://w3id.org/i40/sto#ReactiveStreams
-sto:ReactiveStreams rdf:type owl:NamedIndividual ,
-                             foaf:Document ,
-                             sto:Publication ,
-                             sto:TechnicalSpecification ;
-                    dcterms:creator sto:sebastian ;
-                    rdfs:comment "A standard for asynchronous stream processing with non-blocking back pressure on the JVM. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                    rdfs:label "Reactive Streams"@en ;
-                    sto:hasOfficialResource <http://www.reactive-streams.org/> .
-
-
 ###  https://w3id.org/i40/sto#RuralElectrification
 sto:RuralElectrification rdf:type owl:NamedIndividual ,
                                   sto:RelevantSubject ;
                          rdfs:comment "Bringing electricity into remote areas"@en ;
                          rdfs:label "Rural Electrification"@en ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Rural_electrification> .
-
-
-###  https://w3id.org/i40/sto#SCIM
-sto:SCIM rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:IETF ,
-                         sto:sebastian ;
-         dul:associatedWith sto:RFC_7642 ,
-                            sto:RFC_7643 ,
-                            sto:RFC_7644 ;
-         foaf:maker sto:IETF ;
-         sto:hasPublisher sto:IETF ;
-         dcterms:creator "sebastian" ;
-         dcterms:title "IETF System for Cross-domain Identity Management (SCIM) 2.0"@en ;
-         rdfs:comment "The System for Cross-domain Identity Management (SCIM) specification is designed to make managing user identities in cloud-based applications and services easier. The specification suite seeks to build upon experience with existing schemas and deployments, placing specific emphasis on simplicity of development and integration, while applying existing authentication, authorization, and privacy models. Its intent is to reduce the cost and complexity of user management operations by providing a common user schema and extension model, as well as binding documents to provide patterns for exchanging this schema using standard protocols. In essence: make it fast, cheap, and easy to move users in to, out of, and around the cloud."@en ;
-         rdfs:label "SCIM"@en ;
-         sto:hasDBpediaResource <http://dbpedia.org/resource/System_for_Cross-domain_Identity_Management> ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management> .
 
 
 ###  https://w3id.org/i40/sto#SCM
@@ -10450,85 +9780,8 @@ sto:SE rdf:type owl:NamedIndividual ,
        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Schneider_Electric> .
 
 
-###  https://w3id.org/i40/sto#SENML
-sto:SENML rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "SENML (Media Types for Sensor Markup Language) - A simple sensor, such as a temperature sensor, could use this media type in protocols such as HTTP or CoAP to transport the measurements of the sensor or to be configured.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "SENML"@en ;
-          sto:hasOfficialResource <https://tools.ietf.org/html/draft-jennings-senml-08> .
-
-
-###  https://w3id.org/i40/sto#SMCP
-sto:SMCP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "SMCP — A C-based CoAP stack which is suitable for embedded environments. Features include: Support draft-ietf-core-coap-13, Fully asynchronous I/O, Supports both BSD sockets and UIP. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "SMCP"@en ;
-         sto:hasOfficialResource <https://github.com/darconeous/smcp/tree/smcp-0.6> .
-
-
-###  https://w3id.org/i40/sto#SOAP
-sto:SOAP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "SOAP (Simple Object Access Protocol) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "SOAP"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SOAP> .
-
-
-###  https://w3id.org/i40/sto#SSI
-sto:SSI rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "SSI (Simple Sensor Interface) is a simple communications protocol designed for data transfer between computers or user terminals and smart sensors. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "SSI"@en ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Simple_Sensor_Interface_protocol> .
-
-
-###  https://w3id.org/i40/sto#SSN
-sto:SSN rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "Semantic Sensor Net Ontology - W3C This ontology describes sensors and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "SSN"@en ;
-        sto:hasOfficialResource <https://www.w3.org/2005/Incubator/ssn/wiki/Semantic_Sensor_Net_Ontology> .
-
-
-###  https://w3id.org/i40/sto#STOMP
-sto:STOMP rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "STOMP - The Simple Text Oriented Messaging Protocol (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "STOMP"@en ;
-          sto:hasOfficialResource <https://stomp.github.io/implementations.html> .
-
-
 ###  https://w3id.org/i40/sto#SebastianBader
 sto:SebastianBader rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#SensorML
-sto:SensorML rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "SensorML provides standard models and an XML encoding for describing sensors and measurement processes. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "SensorML"@en ;
-             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SensorML> .
 
 
 ###  https://w3id.org/i40/sto#SmartCity
@@ -10803,17 +10056,6 @@ The present document is depending on Core Protocol specification (oneM2M TS-0004
             sto:hasOfficialResource <https://w3id.org/i40/www.onem2m.org/images/files/deliverables/Release2A/TS-0009-HTTP_Protocol_Binding-v_2_13_1.pdf> .
 
 
-###  https://w3id.org/i40/sto#TSMP
-sto:TSMP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "Time Synchronized Mesh Protocol (TSMP): A communications protocol for self-organizing networks of wireless devices called motes. TSMP devices stay synchronized to each other and communicate in timeslots, similar to other TDM (time-division multiplexing) systems. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "TSMP"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/TSMP> .
-
-
 ###  https://w3id.org/i40/sto#TansportLayer
 sto:TansportLayer rdf:type owl:NamedIndividual .
 
@@ -10841,17 +10083,6 @@ sto:Technology rdf:type owl:NamedIndividual ;
                dcterms:creator sto:sebastian .
 
 
-###  https://w3id.org/i40/sto#Telehash
-sto:Telehash rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "Telehash - JSON+UDP+DHT=Freedom: A secure wire protocol powering a decentralized overlay network for apps and devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "Telehash"@en ;
-             sto:hasOfficialResource <http://telehash.org/> .
-
-
 ###  https://w3id.org/i40/sto#Thread
 sto:Thread rdf:type owl:NamedIndividual ,
                     foaf:Document ,
@@ -10864,8 +10095,7 @@ sto:Thread rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#TrustedConnector
-sto:TrustedConnector rdf:type owl:NamedIndividual ,
-                              sto:Technology ;
+sto:TrustedConnector rdf:type owl:NamedIndividual ;
                      dcterms:creator sto:sebastian ,
                                      "sebastian" ;
                      rdfs:comment "The advent of the Industrial Internet of Things (IIoT) also raises challenges with respect to security and privacy of sensitive and personal data that is created by sensors and processed by services hosted in different administrative domains. The Industrial Data Space initiative addresses these challenges and proposes a secure edge gateway platform named \"Trusted Connector\". In this report, we introduce the main security building blocks of the Trusted Connector and point out how they help protecting business-critical data and preserving the user's privacy."@en ;
@@ -10896,24 +10126,6 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
               sto:hasDBpediaResource <http://dbpedia.org/page/UN/CEFACT> ;
               sto:hasOfficialResource <https://www.unece.org/cefact/> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UN/CEFACT> .
-
-
-###  https://w3id.org/i40/sto#UPnP
-sto:UPnP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "UPnP (Universal Plug and Play) - Now managed by the Open Connectivity Foundation is a set of networking protocols that permits networked devices to seamlessly discover each other's presence on the network and establish functional network services for data sharing, communications, and entertainment.(source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "UPnP"@en ;
-         sto:hasOfficialResource <https://openconnectivity.org/upnp> .
-
-
-###  https://w3id.org/i40/sto#URI
-sto:URI rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification .
 
 
 ###  https://w3id.org/i40/sto#VDI
@@ -11093,83 +10305,6 @@ sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SPARQL> .
 
 
-###  https://w3id.org/i40/sto#Weave
-sto:Weave rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "A communications platform for IoT devices that enables device setup, phone-to-device-to-cloud communication, and user interaction from mobile devices and the web. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "Weave"@en ;
-          sto:hasOfficialResource <https://developers.google.com/weave/> .
-
-
-###  https://w3id.org/i40/sto#WebSocket
-sto:WebSocket rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
-                       sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian ;
-              rdfs:comment "The WebSocket specification — developed as part of the HTML5 initiative — introduced the WebSocket JavaScript interface, which defines a full-duplex single socket connection over which messages can be sent between client and server. The WebSocket standard simplifies much of the complexity around bi-directional web communication and connection management. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-              rdfs:label "WebSocket"@en ;
-              sto:hasOfficialResource <https://websocket.org/> .
-
-
-###  https://w3id.org/i40/sto#Weightless
-sto:Weightless rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
-                        sto:TechnicalSpecification ;
-               dcterms:creator sto:sebastian ;
-               rdfs:comment "Weightless is a proposed proprietary open wireless technology standard for exchanging data between a base station and thousands of machines around it (using wavelength radio transmissions in unoccupied TV transmission channels) with high levels of security.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-               rdfs:label "Weightless"@en ;
-               sto:hasOfficialResource <http://www.weightless.org/> .
-
-
-###  https://w3id.org/i40/sto#WiFi
-sto:WiFi rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         sto:hasClassification sto:OpenFogNodeView ;
-         rdfs:label "WiFi"@en ;
-         sto:hasOfficialResource <https://www.wi-fi.org/> .
-
-
-###  https://w3id.org/i40/sto#WiMax
-sto:WiMax rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
-          rdfs:comment "WiMax is based on the standard IEEE 802.16 and is intended for wireless metropolitan area networks. The range is different for fixed stations, where it can go up to 50 km and mobile devices with 5 to 15 km. WiMAx operates at frequencies between 2.5 GHz to 5.8 GHz with a transferrate of 40 Mbps.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-          rdfs:label "WiMax"@en ;
-          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/WiMAX> .
-
-
-###  https://w3id.org/i40/sto#WirelessHart
-sto:WirelessHart rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
-                          sto:Publication ,
-                          sto:TechnicalSpecification ;
-                 dcterms:creator sto:sebastian ;
-                 rdfs:comment "WirelessHART technology provides a robust wireless protocol for the full range of process measurement, control, and asset management applications. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                 rdfs:label "WirelessHart"@en ;
-                 sto:hasOfficialResource <http://www.hartcomm.org/protocol/wihart/wireless_technology.html> .
-
-
-###  https://w3id.org/i40/sto#WolframLanguage
-sto:WolframLanguage rdf:type owl:NamedIndividual ,
-                             foaf:Document ,
-                             sto:Publication ,
-                             sto:TechnicalSpecification ;
-                    dcterms:creator sto:sebastian ;
-                    rdfs:comment "A symbolic representation of each device. Then there are a standard set of Wolfram Language functions like DeviceRead, DeviceExecute, DeviceReadBuffer and DeviceReadTimeSeries that perform operations related to the device. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-                    rdfs:label "Wolfram Language"@en ;
-                    sto:hasOfficialResource <https://reference.wolfram.com/language/guide/ConnectingToDevices.html> .
-
-
 ###  https://w3id.org/i40/sto#Written
 sto:Written rdf:type owl:NamedIndividual ,
                      dcterms:LinguisticSystem ;
@@ -11188,35 +10323,6 @@ sto:X509 rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/X.509> .
 
 
-###  https://w3id.org/i40/sto#XACML
-sto:XACML rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
-                   sto:TechnicalSpecification .
-
-
-###  https://w3id.org/i40/sto#XMPP
-sto:XMPP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "XMPP (Extensible Messaging and Presence Protocol): An open technology for real-time communication, which powers a wide range of applications including instant messaging, presence, multi-party chat, voice and video calls, collaboration, lightweight middleware, content syndication, and generalized routing of XML data. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "XMPP"@en ;
-         sto:hasOfficialResource <https://xmpp.org/> .
-
-
-###  https://w3id.org/i40/sto#XMPP-IoT
-sto:XMPP-IoT rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
-                      sto:TechnicalSpecification ;
-             dcterms:creator sto:sebastian ;
-             rdfs:comment "XMPP-IoT: In the same manor as XMPP silently has created people to people communication interoperable. We are aiming to make communication machine to people and machine to machine interoperable. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-             rdfs:label "XMPP-IoT"@en ;
-             sto:hasOfficialResource <https://github.com/joachimlindborg/XMPP-IoT> .
-
-
 ###  https://w3id.org/i40/sto#ZVEI
 sto:ZVEI rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
@@ -11226,17 +10332,6 @@ sto:ZVEI rdf:type owl:NamedIndividual ,
          rdfs:comment "The ZVEI is one of the most important manufacturers' associations in Germany. It represents the interests of a high-tech branch with a very widely varied and extremely dynamic product portfolio."@en ;
          rdfs:label "ZVEI"@en ;
          sto:hasOfficialResource <https://www.zvei.org/> .
-
-
-###  https://w3id.org/i40/sto#ZigBee
-sto:ZigBee rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
-                    sto:TechnicalSpecification ;
-           dcterms:creator sto:sebastian ;
-           rdfs:comment "The ZigBee protocol uses the 802.15.4 standard and operates in the 2.4 GHz frequency range with 250 kbps. The maximum number of nodes in the network is 1024 with a range up to 200 meter. ZigBee can use 128 bit AES encryption. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-           rdfs:label "ZigBee"@en ;
-           sto:hasOfficialResource <http://www.zigbee.org/> .
 
 
 ###  https://w3id.org/i40/sto#belongsTo
@@ -11370,12 +10465,9 @@ sto:hasPublisher rdf:type owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#iShare
 sto:iShare rdf:type owl:NamedIndividual ,
                     foaf:Organization ;
-           dul:associatedWith sto:HTTP ,
-                              sto:ISO_9594 ,
-                              sto:REST ,
+           dul:associatedWith sto:ISO_9594 ,
                               sto:RFC_5246 ,
-                              sto:RFC_7519 ,
-                              sto:XACML ;
+                              sto:RFC_7519 ;
            rdfs:comment "iSHARE is a uniform set of agreements or a scheme for identification, authentication and authorization. All companies that join the iSHARE Scheme comply with the set of agreements. They all use the same methods to both provide and gain access to data. (source: iShare: 'It is not a platform…')"@en ;
            rdfs:label "iShare"@en ;
            sto:hasOfficialResource <https://www.ishareworks.org/> .
@@ -11412,17 +10504,6 @@ sto:isImplementationOf rdf:type owl:NamedIndividual ;
                        dcterms:creator sto:irlan .
 
 
-###  https://w3id.org/i40/sto#mDNS
-sto:mDNS rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
-                  sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
-         rdfs:comment "mDNS (multicast Domain Name System) - Resolves host names to IP addresses within small networks that do not include a local name server. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-         rdfs:label "mDNS"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Multicast_DNS> .
-
-
 ###  https://w3id.org/i40/sto#oneM2M
 sto:oneM2M rdf:type owl:NamedIndividual ,
                     foaf:Organization ,
@@ -11430,20 +10511,6 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
            rdfs:label "oneM2M"@en ;
            sto:hasOfficialResource <http://www.onem2m.org/about-onem2m/why-onem2m> .
-
-
-###  https://w3id.org/i40/sto#openAAS
-sto:openAAS rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
-                     sto:TechnicalSpecification ;
-            dcterms:creator sto:sebastian ,
-                            "sebastian" ;
-            rdfs:comment """Im Open Source Projekt „openAAS“ – die Abkürzung „AAS“ steht für den englischen Begriff „Asset Administration Shell“, zu Deutsch „Verwaltungsschale“ – arbeitet der ZVEI gemeinsam mit der RWTH Aachen und Unternehmen aus Maschinenbau und Elektroindustrie daran, Industrie 4.0 in die Praxis
-umzusetzen. Die Veranschaulichung und Erprobung einer Industrie-4.0-konformen Verwaltungsschale stehen im Mittelpunkt. Dies ist Voraussetzung für eine international erfolgreiche Technologieverifikation
-und Standardisierung."""@de ,
-                         "openAAS is an open source project to establish a Platform Industry 4.0 conform Administration Shell with open software."@en ;
-            rdfs:label "openAAS"@en .
 
 
 ###  https://w3id.org/i40/sto#relatedTo
@@ -11459,17 +10526,6 @@ sto:sebastian rdf:type owl:NamedIndividual ,
               foaf:name sto:sebastian ,
                         "Sebastian"^^xsd:string ;
               sto:hasOfficialResource <https://sebastianrbader.de> .
-
-
-###  https://w3id.org/i40/sto#uIP
-sto:uIP rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
-                 sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
-        rdfs:comment "The uIP is an open source TCP/IP stack capable of being used with tiny 8- and 16-bit microcontrollers. It was initially developed by Adam Dunkels of the 'Networked Embedded Systems' group at the Swedish Institute of Computer Science, licensed under a BSD style license, and further developed by a wide group of developers. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
-        rdfs:label "uIP"@en ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/UIP_%28micro_IP%29> .
 
 
 ###  https://w3id.org/i40/sto#useStructureOf
@@ -11565,8 +10621,7 @@ sto:uses rdf:type owl:NamedIndividual ;
 
 
 ###  https://w3id.org/ids/core/TrustedConnector
-ids:TrustedConnector rdf:type owl:NamedIndividual ,
-                              sto:Technology ;
+ids:TrustedConnector rdf:type owl:NamedIndividual ;
                      rdfs:comment "TODO: model IDS concepts correctly"@en ;
                      rdfs:label "Trusted Connector"@en .
 
@@ -11698,11 +10753,6 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                                              <http://www.iec.ch> ;
                            rdfs:isDefinedBy sto:IEC ;
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
-
-
-sto:Technology rdfs:label "Technology"@en ;
-               rdfs:comment "A Technology is an implementation of one or many standards in order to achieve a goal."@en ;
-               dcterms:creator "sebastian"@en .
 
 
 sto:VirtualEntities rdfs:seeAlso "IoT-A Requirement UNI.409" .
