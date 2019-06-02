@@ -189,10 +189,6 @@ skos:definition rdf:type owl:AnnotationProperty ;
                 rdfs:label "definition"@en .
 
 
-###  http://www.w3.org/2004/02/skos/core#narrower
-skos:narrower rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.w3.org/2004/02/skos/core#note
 skos:note rdf:type owl:AnnotationProperty ;
           rdfs:label "note"@en .
@@ -347,7 +343,6 @@ foaf:maker rdf:type owl:ObjectProperty .
 ###  https://w3id.org/i40/hasTargetConcern
 <https://w3id.org/i40/hasTargetConcern> rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf dul:associatedWith ;
-                                        rdfs:range sto:Concern ;
                                         rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
                                         rdfs:label "has Target Concern"@en .
 
@@ -370,7 +365,6 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#frames
 sto:frames rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf dul:associatedWith ;
-           rdfs:range sto:Concern ;
            rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en ;
            rdfs:label "frames"@en ;
            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> .
@@ -448,10 +442,6 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
                  rdfs:range sto:StandardOrganization .
 
 
-###  https://w3id.org/i40/sto#hasTargetConcern
-sto:hasTargetConcern rdf:type owl:ObjectProperty .
-
-
 ###  https://w3id.org/i40/sto#hasTechnicalCommittee
 sto:hasTechnicalCommittee rdf:type owl:ObjectProperty ;
                           rdfs:domain sto:Publication ;
@@ -491,14 +481,6 @@ sto:relatedTo rdf:type owl:ObjectProperty ;
               owl:inverseOf sto:relatedTo ;
               rdf:type owl:SymmetricProperty ,
                        owl:TransitiveProperty .
-
-
-###  https://w3id.org/i40/sto#supports
-sto:supports rdf:type owl:ObjectProperty ;
-             rdfs:domain sto:Concern ;
-             rdfs:range sto:Concern ;
-             rdfs:comment "A relation between two different concerns where dealing with the subject Concern supports in achieving the object concern"@en ;
-             rdfs:label "supports" .
 
 
 ###  https://w3id.org/i40/sto#useStructureOf
@@ -707,10 +689,6 @@ foaf:Organization rdf:type owl:Class .
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class .
-
-
-###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/sto#Domain
@@ -8753,7 +8731,6 @@ sto:ISO_50001 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
               sto:hasPublisher sto:ISO ;
-              sto:hasTargetConcern sto:Energy_management ;
               rdfs:comment "Energy management systems – Requirements with guidance for use is a specification created by the International Organization for Standardization (ISO) for an energy management system."@en ;
               rdfs:label "ISO 50001"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/page/ISO_50001> ;
@@ -8804,7 +8781,6 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
              sto:hasPublisher sto:ISO ;
-             sto:hasTargetConcern :QualityOfService ;
              rdfs:comment "The ISO 9000 family of quality management systems standards is designed to help organizations ensure that they meet the needs of customers and other stakeholders while meeting statutory and regulatory requirements related to a product or program."@en ;
              rdfs:label "ISO 9000"@en ;
              sto:hasDBpediaResource <http://dbpedia.org/page/ISO_9000> ;
@@ -10667,13 +10643,6 @@ sto:BusinessManager rdfs:label "Business Manager"@en ;
                     sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_manager" .
 
 
-sto:Concern rdfs:label "Concern" ;
-            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
-            sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
-            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
-            rdfs:comment "A concern regards a specific challenge or topic as defined by ISO42010. Each concern should at least be regarded by one view of an architecture."@en .
-
-
 sto:DataLifecycleManagement rdfs:seeAlso "IoT-A Requirement UNI.097" .
 
 
@@ -10828,105 +10797,6 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
 :sc2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 :concern rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-:classification rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-:framework rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-:concern1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-:concern2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-:concern_a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-:concern_b rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment ""^^xsd:string ;
-   rdfs:label "FrameworksAndConcerns"^^xsd:string ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:isDescribedin ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :framework
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:hasTargetConcern ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :framework ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment ""^^xsd:string ;
-   rdfs:label "ClassificationsAndConcerns"^^xsd:string ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:supports ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :concern1 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern2
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :concern1
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern2
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment ""^^xsd:string ;
-   rdfs:label "ConcernTransivity"^^xsd:string ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:supports ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :concern_a ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern_b
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :concern_a
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern_b
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "Instances of StandardClassification inherit all frames relations of their parts."^^xsd:string ;
