@@ -790,8 +790,6 @@ sto:NGSI_Context_Information_Management_API rdf:type owl:Class ;
                                             rdfs:label "NGSI Context Information Management API"@en .
 
 
-###  https://w3id.org/i40/sto#OcfBlock
-sto:OcfBlock rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -873,7 +871,7 @@ sto:xRoadSection rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto/OcfBlock
-:OcfBlock rdf:type owl:Class ;
+sto:OcfBlock rdf:type owl:Class ;
           rdfs:subClassOf sto:StandardClassification ;
           rdfs:label "OCF Framework Block" .
 
@@ -1574,14 +1572,32 @@ sto:BdvaCloudAndHighPerformanceComputing rdf:type owl:NamedIndividual ,
                                          sto:frames sto:AI ,
                                                     sto:BigDataApplications ,
                                                     sto:CloudComputing ,
+                                                    sto:DataAccess,
                                                     sto:DataAnalytics ,
                                                     sto:DataProcessing ,
+                                                    sto:interoperability,
+                                                    sto:Trustworthiness,
                                                     sto:DataPublishing ,
                                                     sto:MachineLearning ;
                                          sto:isDescribedin sto:BdvaSira ;
                                          rdfs:comment "The Cloud and High Performance Computing (HPC): Effective Big Data processing and data management might imply the effective usage of Cloud and High Performance Computing infrastructures. This area is separately elaborated further in collaboration with the Cloud and High Performance Computing (ETP4HPC) communities."@en ;
                                          rdfs:label "BDVA Cloud and High Performance Computing"@en .
 
+sto:BdvaCloudAndHighPerformanceComputingConcernsAnno rdf:type owl:NamedIndividual ,
+                                                      oa:Annotation ;
+                                             oa:hasBody sto:BdvaCloudAndHighPerformanceComputing ;
+                                             oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                            oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                             oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                                 rdf:value "Page 48"
+                                                                                               ] ;
+                                                                             oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                   rdf:value "Page 45"
+                                                                                                 ]
+                                                                           ] ;
+                                            skos:note "This annotation is for sto:AI ,  sto:BigDataApplications ,   sto:CloudComputing ,  sto:DataAccess,   sto:DataAnalytics ,   sto:DataProcessing , sto:interoperability, sto:Trustworthiness,  sto:DataPublishing ,  sto:MachineLearning concerns";
+                                                            oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                          ] .
 
 ###  https://w3id.org/i40/sto#BdvaCloudAndHighPerformanceComputingAnno
 sto:BdvaCloudAndHighPerformanceComputingAnno rdf:type owl:NamedIndividual ,
@@ -1616,6 +1632,22 @@ sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
                                   rdfs:comment "Effective communication and connectivity mechanisms are necessary in providing support for Big Data. This area is separately further elaborated, along with various communication communities, such as the 5G community."@en ;
                                   rdfs:label "BDVA Communication and Connectivity"@en .
 
+sto:BdvaCommunicationConnectivityConcernsAnno rdf:type owl:NamedIndividual ,
+                                               oa:Annotation ;
+                                      oa:hasBody sto:BdvaCommunicationConnectivity ;
+                                      oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                     oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                      oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                          rdf:value "Page 50"
+                                                                                        ] ;
+                                                                      oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                            rdf:value "Page 49"
+                                                                                          ]
+                                                                    ] ;
+
+                                       skos:note "This annotation is for sto:Communication ,     sto:DataAccess ,        sto:DataAnalytics , sto:Interoperability ,    sto:QualityOfService ,  sto:SemanticInteroperability , sto:ServiceDescription concerns";                              
+                                                     oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                   ] .
 
 ###  https://w3id.org/i40/sto#BdvaCommunicationConnectivityAnno
 sto:BdvaCommunicationConnectivityAnno rdf:type owl:NamedIndividual ,
@@ -1691,6 +1723,24 @@ mechanisms such as blockchain technologies, smart contracts and various forms of
                            rdfs:label "BDVA Cybersecurity and Trust"@en .
 
 
+sto:BdvaCyberSecurityTrustConcernsAnno rdf:type owl:NamedIndividual ,
+                                        oa:Annotation ;
+                               oa:hasBody sto:BdvaCyberSecurityTrust ;
+                               oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                              oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                               oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                   rdf:value "Page 48"
+                                                                                 ] ;
+                                                               oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                     rdf:value "Page 47"
+                                                                                   ]
+                                                             ] ;
+
+                              skos:note "This annotation is for sto:Communication ,   sto:DataSovereignty ,sto:IntegrityProtection , sto:Privacy , sto:SecureCommunication , sto:Security , sto:Trustworthiness concerns";
+                                              oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                            ] .
+
+
 ###  https://w3id.org/i40/sto#BdvaCyberSecurityTrustAnno
 sto:BdvaCyberSecurityTrustAnno rdf:type owl:NamedIndividual ,
                                         oa:Annotation ;
@@ -1725,12 +1775,28 @@ sto:BdvaDataAnalytics rdf:type owl:NamedIndividual ,
                                  sto:DataAnalytics ,
                                  sto:DataProcessing ,
                                  sto:MachineLearning ,
-                                 sto:StreamProcessing ,
+                                 sto:StreamProcessing ,                                 
                                  sto:Trustworthiness ;
                       sto:isDescribedin sto:BdvaSira ;
                       rdfs:comment "Data analytics to improve data understanding, deep learning and the meaningfulness of data."@en ;
                       rdfs:label "BDVA Data Analytics"@en .
 
+
+sto:BdvaDataAnalyticsConcernsAnno rdf:type owl:NamedIndividual ,
+                                   oa:Annotation ;
+                          oa:hasBody sto:BdvaDataAnalytics ;
+                          oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                          oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 64"
+                                                                            ] ;
+                                                          oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                rdf:value "Page 60"
+                                                                              ]
+                                                        ] ;
+                          skos:note "This annotation is for sto:AI ,sto:DataAnalytics , sto:DataProcessing ,sto:MachineLearning ,sto:StreamProcessing ,sto:Trustworthiness concerns";
+                                         oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                       ] .
 
 ###  https://w3id.org/i40/sto#BdvaDataAnalyticsAnno
 sto:BdvaDataAnalyticsAnno rdf:type owl:NamedIndividual ,
@@ -1749,6 +1815,8 @@ sto:BdvaDataAnalyticsAnno rdf:type owl:NamedIndividual ,
                                        ] .
 
 
+
+
 ###  https://w3id.org/i40/sto#BdvaDataManagement
 sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
                                 sto:BdvaConcern ,
@@ -1761,7 +1829,9 @@ sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
                                       sto:IDSRAMProcessLayer ,
                                       sto:RAMIInformationLayer ;
                        sto:frames sto:BigDataApplications ,
+                                  sto:DataLifecycleManagement,
                                   sto:DataQuality ,
+                                  sto:DataIntegrity,
                                   sto:Interoperability ,
                                   sto:ProvenanceTracking ,
                                   sto:Security ,
@@ -1789,7 +1859,24 @@ sto:BdvaDataManagementAnno rdf:type owl:NamedIndividual ,
                                           oa:hasSource sto:European_BDV_SRIA_version_4_0
                                         ] .
 
+sto:BdvaDataManagementConcernsAnno rdf:type owl:NamedIndividual ,
+                                   oa:Annotation ;
+                          oa:hasBody sto:BdvaDataManagement ;
+                          oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                          oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 57"
+                                                                            ] ;
+                                                          oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                rdf:value "Page 53"
+                                                                              ]
+                                                        ] ;
 
+                          skos:note "This annotation is for sto:BigDataApplications ,sto:DataLifecycleManagement,sto:DataQuality , sto:DataIntegrity, sto:Interoperability ,   sto:ProvenanceTracking , sto:Security ,   sto:SemanticInteroperability ,sto:SyntacticInteroperability , sto:Trustworthiness concerns";
+                                         oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                       ] .
+
+                                       
 ###  https://w3id.org/i40/sto#BdvaDataProcessingArchitectures
 sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
                                              sto:BdvaConcern ,
@@ -1814,6 +1901,22 @@ sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#BdvaDataProcessingArchitecturesAnno
+sto:BdvaDataProcessingArchitecturesConcernsAnno rdf:type owl:NamedIndividual ,
+                                                 oa:Annotation ;
+                                        oa:hasBody sto:BdvaDataProcessingArchitectures ;
+                                        oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                       oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                            rdf:value "Page 61"
+                                                                                          ] ;
+                                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                              rdf:value "Page 57"
+                                                                                            ]
+                                                                      ] ;
+                                                                      skos:note "This annotation is for sto:BigDataApplications, sto:Communication ,sto:DataAtRest ,sto:DataInMotion ,     sto:DataProcessing ,sto:Scalability ,sto:StreamProcessing concerns";
+                                                       oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                     ] .
+
 sto:BdvaDataProcessingArchitecturesAnno rdf:type owl:NamedIndividual ,
                                                  oa:Annotation ;
                                         oa:hasBody sto:BdvaDataProcessingArchitectures ;
@@ -1842,11 +1945,30 @@ sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
                        sto:frames sto:DataProtection ,
                                   sto:DataSovereignty ,
                                   sto:Privacy ,
+                                  sto:DataOwnership,
+                                  sto:CardinalityOfDataSources,
+                                  sto:DataEncryption,
                                   sto:Trustworthiness ;
                        sto:isDescribedin sto:BdvaSira ;
                        rdfs:comment "Privacy and anonymisation mechanisms to facilitate data protection. This is shown related to data management and processing as there is a strong link here, but it can also be associated with the area of cybersecurity."@en ;
                        rdfs:label "BDVA Data Protection"@en .
 
+
+sto:BdvaDataProtectionConcernsAnno rdf:type owl:NamedIndividual ,
+                                    oa:Annotation ;
+                           oa:hasBody sto:BdvaDataProtection ;
+                           oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                          oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                           oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                               rdf:value "Page 68"
+                                                                             ] ;
+                                                           oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                 rdf:value "Page 65"
+                                                                               ]
+                                                         ] ;
+                            skos:note "This annotation is for sto:DataProtection , sto:DataSovereignty ,   sto:Privacy ,  sto:DataOwnership, sto:CardinalityOfDataSources, sto:DataEncryption concerns  ";
+                                          oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                        ] .
 
 ###  https://w3id.org/i40/sto#BdvaDataProtectionAnno
 sto:BdvaDataProtectionAnno rdf:type owl:NamedIndividual ,
@@ -1906,10 +2028,31 @@ sto:BdvaDataVisualizationAndUserInteraction rdf:type owl:NamedIndividual ,
                                                                sto:RAMIFunctionalLayer ;
                                             sto:alignsWith sto:IIRAUsageViewpoint ,
                                                            sto:RAMIFunctionalLayer ;
-                                            sto:frames sto:BigDataApplications ;
+                                            sto:frames sto:BigDataApplications,
+                                                       sto:DataDiscovery,
+                                                       sto:GeospatialData,
+                                                       sto:DataAggregation  ;
                                             sto:isDescribedin sto:BdvaSira ;
                                             rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
-                                            rdfs:label "Data Visualisation and User Interaction"@en .
+                                            rdfs:label "BDVA Data Visualisation and User Interaction"@en .
+
+sto:BdvaDataVisualizationAndUserInteractionConcernsAnno rdf:type owl:NamedIndividual ,
+                                                         oa:Annotation ;
+                                                oa:hasBody sto:BdvaDataVisualizationAndUserInteraction ;
+                                                oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                               oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                                oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                                    rdf:value "Page 66"
+                                                                                                  ] ;
+                                                                                oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                      rdf:value "Page 63"
+                                                                                                    ]
+                                                                              ] ;
+                                                skos:note "This annotation is for sto:BigDataApplications,     sto:DataDiscovery,   sto:GeospatialData, sto:DataAggregation concerns";                              
+                                                               oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                             ] .
+
+
 
 
 ###  https://w3id.org/i40/sto#BdvaDataVisualizationAndUserInteractionAnno
@@ -1939,8 +2082,30 @@ sto:BdvaDevelopmentEngineering rdf:type owl:NamedIndividual ,
                                         sto:StandardClassification ;
                                dcterms:creator sto:sebastian ;
                                sto:isDescribedin sto:BdvaSira ;
+                               sto:frames sto:DataQuality,
+                               sto:reliability,
+                               sto:security,
+                               sto:EnergyEfficiency;                               
                                rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
                                rdfs:label "BDVA Engineering and DevOps"@en .
+
+
+sto:BdvaDevelopmentEngineeringConcernsAnno rdf:type owl:NamedIndividual ,
+                                            oa:Annotation ;
+                                   oa:hasBody sto:BdvaDevelopmentEngineering ;
+                                   oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                  oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                       rdf:value "Page 71"
+                                                                                     ] ;
+                                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                         rdf:value "Page 69"
+                                                                                       ]
+                                                                 ] ;
+
+                                    skos:note "This annotation is for sto:DataQuality, sto:reliability,  sto:security,  sto:EnergyEfficiency concerns"; 
+                                                  oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaDevelopmentEngineeringAnno
@@ -1995,10 +2160,27 @@ sto:BdvaStandards rdf:type owl:NamedIndividual ,
                   sto:frames sto:BusinessContext ,
                              sto:Communication ,
                              sto:DataEconomy ,
+                             sto:DataMarkets,
                              sto:Interoperability ;
                   sto:isDescribedin sto:BdvaSira ;
                   rdfs:comment "Standardisation of Big Data technology areas to facilitate data integration, sharing and interoperability"@en ;
                   rdfs:label "BDVA Standards"@en .
+
+sto:BdvaStandardsConcernsAnno rdf:type owl:NamedIndividual ,
+                               oa:Annotation ;
+                      oa:hasBody sto:BdvaStandards ;
+                      oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                     oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                      oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                          rdf:value "Page 70"
+                                                                        ] ;
+                                                      oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 68"
+                                                                          ]
+                                                    ] ;
+                      skos:note "This annotation is for sto:BusinessContext ,  sto:Communication ,  sto:DataEconomy ,  sto:DataMarkets, sto:Interoperability concerns";
+                                    oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                   ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaStandardsAnno
@@ -2023,10 +2205,28 @@ sto:BdvaThingsAssetsSensorsActuators rdf:type owl:NamedIndividual ,
                                               sto:BdvaConcern ,
                                               sto:StandardClassification ;
                                      dcterms:creator sto:sebastian ;
-                                     sto:frames sto:IoT ;
+                                     sto:frames sto:IoT,
+                                     sto:EdgeComputing ;
                                      sto:isDescribedin sto:BdvaSira ;
                                      rdfs:comment "IoT, CPS, Edge and Fog Computing: A main source of Big Data is sensor data from an IoT context and actuator interaction in Cyber Physical Systems. In order to meet real-time needs it will often be necessary to handle Big Data aspects at the edge of the system. This area is separately elaborated further in collaboration with the IoT (Alliance for Internet of Things Innovation (AIOTI)) and CPS communities"@en ;
                                      rdfs:label "BDVA IoT CPS and Edge Computing"@en .
+
+
+sto:BdvaThingsAssetsSensorsActuatorsAnno rdf:type owl:NamedIndividual ,
+                                                  oa:Annotation ;
+                                         oa:hasBody sto:BdvaThingsAssetsSensorsActuators ;
+                                         oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                        oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                         oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                             rdf:value "Page 50"
+                                                                                           ] ;
+                                                                         oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                               rdf:value "Page 47"
+                                                                                             ];
+                                                                       ] ;
+                                          skos:note "This annotation is for sto:IoT,  sto:EdgeComputing concerns" ;                            
+                                                        oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                      ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaThingsAssetsSensorsActuatorsAnno
@@ -2567,6 +2767,7 @@ sto:DataLifecycleManagment rdf:type owl:NamedIndividual ,
                            sto:supports sto:DataAnalytics ;
                            rdfs:comment "Data lifecycle management includes every phase of a \"record\" from its beginning to its end. And while it is generally applied to information that rises to the classic definition of a record (and thus related to records management), it applies to all informational assets. During its existence, information can become a record by being identified as documenting a business transaction or as satisfying a business need. (source: wikipedia)"@en ;
                            rdfs:label "Data lifecycle management"@en ;
+                           muto:tag 'DataManagement';
                            sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management> .
 
 
@@ -8147,6 +8348,7 @@ sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
                        sto:supports sto:Security ;
                        <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
                        rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
+                       muto:tag 'data provenance';
                        rdfs:label "Provenance Tracking"@en ;
                        rdfs:seeAlso "IoT-A Requirement UNI.041" ,
                                     "IoT-A Requirement UNI.606" ;
