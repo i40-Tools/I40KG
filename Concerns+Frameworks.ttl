@@ -3103,14 +3103,35 @@ sto:DtpDeploymentView rdf:type owl:NamedIndividual ,
                       sto:alignsWith sto:IDSRAMProcessLayer ,
                                      sto:IIRAImplementationViewpoint ;
                       sto:frames sto:Identification ,
-                                 sto:IdentityManagement ,
-                                 sto:Security ,
+                                sto:DataAccess,
+                                sto:IdentityManagement ,
+                                 sto:DataProtection,
+                                 sto:DataEncryption,
                                  sto:ServiceDeployment ,
                                  sto:ServiceLifecycleManagement ,
                                  sto:Trustworthiness ,
                                  sto:UserInteraction ;
                       sto:isDescribedin sto:DtpArchitecture ;
                       rdfs:label "DTP Deployment"@en .
+
+sto:DtpDeploymentViewConcernsAnno rdf:type owl:NamedIndividual ,
+                             oa:Annotation ;
+                    oa:hasBody sto:DtpDeploymentView ;
+                    oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                   dcterms:format "pdf" ;
+                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                        rdf:value "Page 15"
+                                                                      ] ;
+                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                          rdf:value "Page 12"
+                                                                        ]
+                                                  ] ;
+
+                    skos:note "This annotation is for sto:Identification, sto:DataAccess,  sto:IdentityManagement, sto:DataProtection, sto:DataEncryption, sto:ServiceDeployment , sto:ServiceLifecycleManagement, sto:Trustworthiness , sto:UserInteraction concerns" ; 
+                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                 ] .
+
 
 sto:DtpDeploymentViewAnno rdf:type owl:NamedIndividual ,
                              oa:Annotation ;
@@ -3142,8 +3163,28 @@ sto:DtpEcosystemView rdf:type owl:NamedIndividual ,
                                         sto:IIRAUsageViewpoint ;
                      sto:alignsWith sto:IDSRAMGovernance ,
                                     sto:IIRAUsageViewpoint ;
+                     sto:frames sto:security,
+                                sto:Privacy;
                      sto:isDescribedin sto:DtpArchitecture ;
                      rdfs:label "DTP Ecosystem"@en .
+
+sto:DtpEcosystemViewConcernsAnno rdf:type owl:NamedIndividual ,
+                             oa:Annotation ;
+                    oa:hasBody sto:DtpEcosystemView ;
+                    oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                   dcterms:format "pdf" ;
+                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                        rdf:value "Page 19"
+                                                                      ] ;
+                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                          rdf:value "Page 17"
+                                                                        ]
+                                                  ] ;
+                    skos:note "This annotation is for sto:security, sto:Privacy concerns" ; 
+                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                 ] .
+
 
 sto:DtpEcosystemViewAnno rdf:type owl:NamedIndividual ,
                              oa:Annotation ;
@@ -3173,8 +3214,28 @@ sto:DtpSecurityPrivacy rdf:type owl:NamedIndividual ,
                                       sto:IDSRAMGovernance ,
                                       sto:IIRAPrivacy ,
                                       sto:Security ;
+                       sto:frames  sto:Security,
+                                  sto:Authorization ;
                        sto:isDescribedin sto:DtpArchitecture ;
                        rdfs:label "DTP Security & Privacy"@en .
+
+sto:DtpSecurityPrivacyConcernsAnno rdf:type owl:NamedIndividual ,
+                             oa:Annotation ;
+                    oa:hasBody sto:DtpSecurityPrivacy ;
+                    oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                   dcterms:format "pdf" ;
+                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                        rdf:value "Page 18"
+                                                                      ] ;
+                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                          rdf:value "Page 14"
+                                                                        ]
+                                                  ] ;
+
+                    skos:note "This annotation is for sto:Security, sto:Authorization  concerns" ; 
+                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                 ] .
 
 sto:DtpSecurityPrivacyAnno rdf:type owl:NamedIndividual ,
                              oa:Annotation ;
@@ -3219,6 +3280,24 @@ sto:DtpSystemView rdf:type owl:NamedIndividual ,
                              sto:Trustworthiness ;
                   sto:isDescribedin sto:DtpArchitecture ;
                   rdfs:label "DTP System"@en .
+
+sto:DtpSystemViewConcernsAnno rdf:type owl:NamedIndividual ,
+                             oa:Annotation ;
+                    oa:hasBody sto:DtpSystemView ;
+                    oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                   dcterms:format "pdf" ;
+                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                        rdf:value "Page 13"
+                                                                      ] ;
+                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                          rdf:value "Page 8"
+                                                                        ]
+                                                  ] ;
+
+                      skos:note "This annotation is for sto:Authentication , sto:Communication , sto:DataAccess , sto:Interoperability ,sto:SecureCommunication , sto:Security , sto:SemanticInteroperability , sto:SyntacticInteroperability , sto:Trustworthiness concerns" ; 
+                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                 ] .
 
 sto:DtpSystemViewAnno rdf:type owl:NamedIndividual ,
                              oa:Annotation ;
