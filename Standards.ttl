@@ -753,6 +753,58 @@ sto:TechnicalSpecification rdf:type owl:Class ;
 sto:standard rdf:type owl:Class .
 
 
+
+
+###  https://w3id.org/i40/rami#AdminShellSubmodel
+rami:AdminShellSubmodel rdf:type owl:Class ;
+                        rdfs:subClassOf sto:StandardClassification ;
+                        rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
+                        rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
+                        rdfs:label "Admin Shell Sub Model"@en .
+
+
+###  https://w3id.org/i40/rami#RAMIHierarchyLevel
+rami:RAMIHierarchyLevel rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( sto:RAMIConnectedWorld
+                                                          sto:RAMIControlDevice
+                                                          sto:RAMIEnterprise
+                                                          sto:RAMIFieldDevice
+                                                          sto:RAMIProduct
+                                                          sto:RAMIStation
+                                                          sto:RAMIWorkCenter
+                                                        )
+                                            ] ;
+                        rdfs:subClassOf sto:StandardClassification ;
+                        rdfs:label "RAMI Hierarchy Level"@en .
+
+
+###  https://w3id.org/i40/rami#RAMIITLayer
+rami:RAMIITLayer rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( sto:RAMIAssetlayer
+                                                   sto:RAMIBusinessLayer
+                                                   sto:RAMICommunicationlayer
+                                                   sto:RAMIFunctionalLayer
+                                                   sto:RAMIInformationLayer
+                                                   sto:RAMIIntegrationLayer
+                                                 )
+                                     ] ;
+                 rdfs:subClassOf sto:StandardClassification ;
+                 rdfs:label "RAMI IT Layer"@en .
+
+
+###  https://w3id.org/i40/rami#RAMILifeCycleLayer
+rami:RAMILifeCycleLayer rdf:type owl:Class ;
+                        rdfs:subClassOf sto:StandardClassification ;
+                        rdfs:label "RAMI Life Cycle Layer"@en ;
+                        rdfs:seeAlso "http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx" ;
+                        skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
+                        skos:prefLabel "RAMI Life Cycle Layer"@en .
+
+
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -993,21 +1045,132 @@ om2:kilobyte rdf:type owl:NamedIndividual ,
                       om2:Unit .
 
 
-###  https://doi.org/10.1016/j.compind.2018.04.015
-<https://doi.org/10.1016/j.compind.2018.04.015> rdf:type owl:NamedIndividual ,
-                                                         sto:Publication ;
-                                                rdfs:label "The industrial internet of things (IIoT): An analysis framework" .
-
-
-###  https://doi.org/10.1016/j.jksuci.2016.10.003
-<https://doi.org/10.1016/j.jksuci.2016.10.003> rdf:type owl:NamedIndividual ,
-                                                        sto:Publication ;
-                                               dc11:title "A survey on Internet of Things architectures" ;
-                                               rdfs:label "A survey on Internet of Things architectures" .
-
 
 ###  https://w3id.org/i40/rami#EnergyEfficiency
 rami:EnergyEfficiency rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/i40/rami#AdminShellGeneral
+rami:AdminShellGeneral rdf:type owl:NamedIndividual ,
+                                rami:AdminShellSubmodel ,
+                                sto:StandardClassification ;
+                       sto:isDescribedin sto:AdministrationShell .
+
+
+###  https://w3id.org/i40/rami#ConditionMonitoring
+rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
+                                  rami:AdminShellSubmodel ,
+                                  sto:StandardClassification ;
+                         sto:isDescribedin sto:AdministrationShell .
+
+
+###  https://w3id.org/i40/rami#Configuration
+rami:Configuration rdf:type owl:NamedIndividual ,
+                            rami:AdminShellSubmodel ,
+                            sto:StandardClassification ;
+                   sto:isDescribedin sto:AdministrationShell ;
+                   skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'" .
+
+
+
+
+###  https://w3id.org/i40/rami#Engineering
+rami:Engineering rdf:type owl:NamedIndividual ,
+                          rami:AdminShellSubmodel ,
+                          sto:StandardClassification ;
+                 dul:associatedWith sto:IviActivityLayer ,
+                                    sto:IviActivityView ,
+                                    sto:IviSpecificationLayer ;
+                 sto:alignsWith sto:IviActivityLayer ,
+                                sto:IviActivityView ,
+                                sto:IviSpecificationLayer ;
+                 sto:isDescribedin sto:AdministrationShell .
+
+
+###  https://w3id.org/i40/rami#Identification
+rami:Identification rdf:type owl:NamedIndividual ,
+                             rami:AdminShellSubmodel ,
+                             sto:StandardClassification ;
+                    dul:associatedWith sto:Identification ;
+                    sto:alignsWith sto:Identification ;
+                    sto:isDescribedin sto:AdministrationShell ;
+                    rdfs:label "RAMI Identification"@en .
+
+
+###  https://w3id.org/i40/rami#InstanceMaintenance
+rami:InstanceMaintenance rdf:type owl:NamedIndividual ,
+                                  rami:RAMILifeCycleLayer ,
+                                  sto:StandardClassification ;
+                         rdfs:label "Instance Maintenance"@en .
+
+
+###  https://w3id.org/i40/rami#InstanceProduction
+rami:InstanceProduction rdf:type owl:NamedIndividual ,
+                                 rami:RAMILifeCycleLayer ,
+                                 sto:StandardClassification ;
+                        rdfs:label "Instance Production"@en .
+
+
+###  https://w3id.org/i40/rami#Lifecycle_Status
+rami:Lifecycle_Status rdf:type owl:NamedIndividual ,
+                               rami:AdminShellSubmodel ,
+                               sto:StandardClassification ;
+                      sto:isDescribedin sto:AdministrationShell ;
+                      rdfs:label "Lifecycle Status" .
+
+
+###  https://w3id.org/i40/rami#Other
+rami:Other rdf:type owl:NamedIndividual ,
+                    sto:StandardClassification .
+
+
+###  https://w3id.org/i40/rami#ProcessPlanning
+rami:ProcessPlanning rdf:type owl:NamedIndividual ,
+                              rami:AdminShellSubmodel ,
+                              sto:StandardClassification ;
+                     sto:isDescribedin sto:AdministrationShell ;
+                     rdfs:comment "Process planning frames everything related to model, plan and manage business workflows and processes."@en ;
+                     rdfs:label "Process planning"@en .
+
+
+###  https://w3id.org/i40/rami#Safety
+rami:Safety rdf:type owl:NamedIndividual ,
+                     rami:AdminShellSubmodel ,
+                     sto:StandardClassification ;
+            sto:isDescribedin sto:AdministrationShell ;
+            rdfs:label "RAMI Safety"@en .
+
+
+###  https://w3id.org/i40/rami#Security
+rami:Security rdf:type owl:NamedIndividual ,
+                       rami:AdminShellSubmodel ,
+                       sto:StandardClassification ;
+              dul:associatedWith sto:BdvaCyberSecurityTrust ,
+                                 sto:DtpSecurityPrivacy ,
+                                 sto:FiwareSecurity ;
+              sto:alignsWith sto:BdvaCyberSecurityTrust ,
+                             sto:DtpSecurityPrivacy ,
+                             sto:FiwareSecurity ,
+                             sto:OcfSecurity ;
+              sto:isDescribedin sto:AdministrationShell ;
+              rdfs:label "RAMI Security"@en .
+
+
+###  https://w3id.org/i40/rami#TypeDevelopment
+rami:TypeDevelopment rdf:type owl:NamedIndividual ,
+                              rami:RAMILifeCycleLayer ,
+                              sto:StandardClassification ;
+                     dul:associatedWith sto:IviSpecificationLayer ;
+                     sto:alignsWith sto:IviSpecificationLayer ;
+                     rdfs:label "Type Development"@en .
+
+
+###  https://w3id.org/i40/rami#TypeMaintenance
+rami:TypeMaintenance rdf:type owl:NamedIndividual ,
+                              rami:RAMILifeCycleLayer ,
+                              sto:StandardClassification ;
+                     rdfs:label "Type Maintenance"@en .
+
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -9791,18 +9954,23 @@ sto:Standard rdf:type owl:NamedIndividual ;
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
-sto:StandardClassification rdf:type owl:NamedIndividual ;
-                           dcterms:creator sto:irlan .
-
+sto:StandardClassification rdf:type owl:NamedIndividual ; #TODO: more infos
+                           dcterms:creator sto:irlan ;
+						   rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
+                           rdfs:label "Standard Classification"@en .
 
 ###  https://w3id.org/i40/sto#StandardOrganization
-sto:StandardOrganization rdf:type owl:NamedIndividual ;
-                         dcterms:creator sto:irlan .
-
+sto:StandardOrganization rdf:type owl:NamedIndividual ; #TODO: more infos
+                         dcterms:creator sto:irlan ;
+                         rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
+                         rdfs:label "StandardOrganization"@en .
 
 ###  https://w3id.org/i40/sto#StandardizationFramework
-sto:StandardizationFramework rdf:type owl:NamedIndividual ;
-                             dcterms:creator sto:irlan .
+sto:StandardizationFramework rdf:type owl:NamedIndividual ; #TODO: more infos
+                             dcterms:creator sto:irlan ;
+							 skos:altLabel "Reference Architecture"@en ;
+                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
+                             rdfs:label "Standarization Framework"@en .
 
 
 ###  https://w3id.org/i40/sto#SysML

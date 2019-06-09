@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/i40/sto/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix oa: <https://www.w3.org/ns/oa> .
@@ -30,209 +29,37 @@
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/i40/sto/> .
+@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
+# @base <https://w3id.org/i40/sto/iot/sto_iot_ontology/> . #TODO: a base URI/URL leads to a translation of relative (file) paths to suffixes of the base URI for values of owl:imports. Not sure if a Protege bug or intended behavior
 
-<https://w3id.org/i40/sto/> rdf:type owl:Ontology ;
-                             dcterms:modified "2017-09-08"^^xsd:date ,
-                                              "2019-01-23"^^xsd:date ;
-                             sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
-                             vann:preferredNamespaceUri "https://w3id.org/i40/sto/" ;
-                             owl:versionInfo "0.4" ,
-                                             "0.3" ;
-                             sto:hasDBpediaResource "http://dbpedia.org/page/Internet_of_things"@en ;
-                             rdfs:label "Internet of Things (IOT)"@en ;
-                             dcterms:title "Standards Ontology"@en ;
-                             rdfs:comment "An ontology to describe standards related to Industry 4.0 and Smart Manufacturing"@en ;
-                             sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Internet_of_things"@en ;
-                             rdfs:comment "The Internet of things (IoT) is the network of devices such as vehicles, and home appliances that contain electronics, software, sensors, actuators, and connectivity which allows these things to connect, interact and exchange data."@en ;
-                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
-                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
-                             doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
-                             vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
-                             vann:preferredNamespacePrefix "sto" ;
-                             dcterms:created "2017-01-25"^^xsd:date .
+<sto_iot_ontology> rdf:type owl:Ontology ;
+                                                 owl:versionIRI <https://w3id.org/i40/sto/iot/0.1/> ;
+												 owl:ontologyIRI <https://w3id.org/i40/sto/iot/> ;
+												 #TODO: better way to add ontology URI
+                                                 owl:imports <Standards.ttl> ;
+                                                 dcterms:title "Industrial IoT Architecture Ontology"@en ;
+                                                 sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
+                                                 vann:preferredNamespacePrefix "sto_iot" ;
+                                                 dcterms:creator sto:sebastian ;
+                                                 sto:hasDBpediaResource "http://dbpedia.org/page/Internet_of_things"@en ;
+                                                 rdfs:comment "An ontology to describe the landscape of IIoT, Industry 4.0 and Smart Manufacturing"@en ;
+                                                 dcterms:creator "Priyanka Nanjappa"^^xsd:string ;
+                                                 dcterms:modified "2019-06-09"^^xsd:date ;
+                                                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Internet_of_things"@en ;
+                                                 owl:versionInfo "0.1" ;
+                                                 rdfs:comment "The Internet of things (IoT) is the network of devices such as vehicles, and home appliances that contain electronics, software, sensors, actuators, and connectivity which allows these things to connect, interact and exchange data."@en ;
+                                                 dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+                                                 dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
+                                                 doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
+                                                 dcterms:created "2019-06-09"^^xsd:date .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://creativecommons.org/ns#attributionURL
-cc:attributionURL rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/date
-dc11:date rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/description
-dc11:description rdf:type owl:AnnotationProperty ;
-                 dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-                 dcterms:hasVersion <http://dublincore.org/usage/terms/history/#description-006> ;
-                 dcterms:issued "1999-07-02"^^xsd:date ;
-                 dcterms:modified "2008-01-14"^^xsd:date ;
-                 rdfs:comment "An account of the resource."@en ;
-                 rdfs:isDefinedBy dc11: ;
-                 rdfs:label "Description"@en ;
-                 skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
-
-
-###  http://purl.org/dc/elements/1.1/relation
-dc11:relation rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/title
-dc11:title rdf:type owl:AnnotationProperty ;
-           dcterms:hasVersion <http://dublincore.org/usage/terms/history/#title-006> ;
-           dcterms:issued "1999-07-02"^^xsd:date ;
-           dcterms:modified "2008-01-14"^^xsd:date ;
-           rdfs:comment "A name given to the resource."@en ;
-           rdfs:isDefinedBy dc11: ;
-           rdfs:label "Title"@en ;
-           skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
-
-
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:AnnotationProperty ;
-                    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-                    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
-                    dcterms:issued "2008-01-14"^^xsd:date ;
-                    dcterms:modified "2008-01-14"^^xsd:date ;
-                    rdfs:comment "An account of the resource."@en ;
-                    rdfs:isDefinedBy dcterms: ;
-                    rdfs:label "Description"@en .
-
-
-###  http://purl.org/dc/terms/format
-dcterms:format rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/hasVersion
-dcterms:hasVersion rdf:type owl:AnnotationProperty ;
-                   dcterms:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
-                   dcterms:issued "2000-07-11"^^xsd:date ;
-                   dcterms:modified "2008-01-14"^^xsd:date ;
-                   rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
-                   rdfs:isDefinedBy dcterms: ;
-                   rdfs:label "Has Version"@en ;
-                   skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en .
-
-
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty ;
-               dcterms:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
-               dcterms:issued "2000-07-11"^^xsd:date ;
-               dcterms:modified "2008-01-14"^^xsd:date ;
-               rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
-               rdfs:isDefinedBy dcterms: ;
-               rdfs:label "Date Issued"@en .
-
-
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty ;
-                 dcterms:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
-                 dcterms:issued "2000-07-11"^^xsd:date ;
-                 dcterms:modified "2008-01-14"^^xsd:date ;
-                 rdfs:comment "Date on which the resource was changed."@en ;
-                 rdfs:isDefinedBy dcterms: ;
-                 rdfs:label "Date Modified"@en .
-
-
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty ;
-              dcterms:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
-              dcterms:issued "2008-01-14"^^xsd:date ;
-              dcterms:modified "2010-10-11"^^xsd:date ;
-              rdfs:comment "A name given to the resource."@en ;
-              rdfs:isDefinedBy dcterms: ;
-              rdfs:label "Title"@en .
-
-
-###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
-<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
-
 
 ###  http://voag.linkedmodel.org/voag#hasStakeholder
 <http://voag.linkedmodel.org/voag#hasStakeholder> rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/1999/02/22-rdf-syntax-ns#value
-rdf:value rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#altLabel
-skos:altLabel rdf:type owl:AnnotationProperty ;
-              rdfs:label "alternative label"@en .
-
-
-###  http://www.w3.org/2004/02/skos/core#definition
-skos:definition rdf:type owl:AnnotationProperty ;
-                rdfs:label "definition"@en .
-
-
-###  http://www.w3.org/2004/02/skos/core#narrower
-skos:narrower rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#note
-skos:note rdf:type owl:AnnotationProperty ;
-          rdfs:label "note"@en .
-
-
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty ;
-               rdfs:label "preferred label"@en .
-
-
-###  http://www.w3.org/ns/prov#wasRevisionOf
-prov:wasRevisionOf rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/familyName
-foaf:familyName rdf:type owl:AnnotationProperty ;
-                rdfs:label "Family Name"@en .
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-foaf:mbox rdf:type owl:AnnotationProperty ;
-          rdfs:label "mbox"@en .
-
-
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:AnnotationProperty ;
-          rdfs:label "name"@en .
-
-
-###  https://w3id.org/i40/sto#hasDBpediaResource
-sto:hasDBpediaResource rdf:type owl:AnnotationProperty ;
-                       rdfs:comment "Instance's DBpedia Resource"@en ;
-                       rdfs:label "has DBpedia Resource"@en .
-
-
-###  https://w3id.org/i40/sto#hasMotivation
-sto:hasMotivation rdf:type owl:AnnotationProperty ;
-                  rdfs:range deo:Motivation .
-
-
-###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:AnnotationProperty ;
-                        rdfs:range xsd:anyURI ;
-                        rdfs:domain sto:Publication .
-
-
-###  https://w3id.org/i40/sto#hasWikipediaArticle
-sto:hasWikipediaArticle rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#hasstatus
-sto:hasstatus rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#isPartOf
-sto:isPartOf rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/i40/sto#publisher
-sto:publisher rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/i40/sto#seeAlso
@@ -267,68 +94,12 @@ oa:hasTarget rdf:type owl:AnnotationProperty .
 #    Datatypes
 #################################################################
 
-###  http://purl.org/muto/core#Tag
-muto:Tag rdf:type rdfs:Datatype .
-
-
-###  http://www.w3.org/2001/XMLSchema#date
-xsd:date rdf:type rdfs:Datatype .
-
-
-###  http://www.w3.org/2001/XMLSchema#gYear
-xsd:gYear rdf:type rdfs:Datatype .
 
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:ObjectProperty ;
-                owl:equivalentProperty foaf:maker .
-
-
-###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
-om2:hasUnit rdf:type owl:ObjectProperty ;
-            rdfs:label "has unit"@en .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
-dul:associatedWith rdf:type owl:ObjectProperty .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
-dul:isComponentOf rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf sto:relatedTo ;
-                  rdfs:comment "Represents Standards that are component of other Standards. This relation is not transitive"@en ;
-                  rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
-                  rdfs:label "is Component Of"@en .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
-dul:isMemberOf rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf dul:associatedWith ;
-               rdfs:comment "A relation between collections and entities, e.g. 'the Night Watch by Rembrandt is in the Rijksmuseum collection'; 'Davide is member of the Pen Club', 'Igor is one the subjects chosen for the experiment'."@en ;
-               rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
-               rdfs:label "is member of"@en ,
-                          "è membro di"@it .
-
-
-###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
-dul:isPartOf rdf:type owl:ObjectProperty ;
-             rdfs:label "isPartOf"@en .
-
-
-###  http://www.w3.org/ns/prov#wasGeneratedBy
-prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf sto:relatedTo ;
-                    rdfs:comment "Standard A has influences in Standard B. For example, IEC_61499 hasInfluenceIn IEC_61804-2(EDDL)"@en ;
-                    rdfs:isDefinedBy "https://www.w3.org/TR/prov-o/#wasGeneratedBy"@en ;
-                    rdfs:label "was Generated By"@en .
-
-
-###  http://xmlns.com/foaf/0.1/maker
-foaf:maker rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/i40/hasTargetConcern
@@ -350,10 +121,6 @@ sto:alignsWith rdf:type owl:ObjectProperty ;
                rdfs:label "alignes With"@en .
 
 
-###  https://w3id.org/i40/sto#belongsTo
-sto:belongsTo rdf:type owl:ObjectProperty ;
-              rdfs:domain foaf:Organization .
-
 
 ###  https://w3id.org/i40/sto#frames
 sto:frames rdf:type owl:ObjectProperty ;
@@ -365,77 +132,10 @@ sto:frames rdf:type owl:ObjectProperty ;
            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> .
 
 
-###  https://w3id.org/i40/sto#hasClassification
-sto:hasClassification rdf:type owl:ObjectProperty ;
-                      rdfs:domain sto:Publication ;
-                      rdfs:range sto:StandardClassification .
-
-
-###  https://w3id.org/i40/sto#hasDeveloper
-sto:hasDeveloper rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf foaf:maker ;
-                 rdfs:domain sto:Publication ;
-                 rdfs:range sto:StandardOrganization .
-
-
-###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Publication .
-
-
-###  https://w3id.org/i40/sto#hasHeadquaterIn
-sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
-                    rdfs:domain sto:StandardOrganization .
-
-
-###  https://w3id.org/i40/sto#hasMotivation
-sto:hasMotivation rdf:type owl:ObjectProperty ;
-                  rdfs:domain sto:Publication .
-
-
-###  https://w3id.org/i40/sto#hasPreviousVersion
-sto:hasPreviousVersion rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf sto:relatedTo ;
-                       rdfs:comment "Indicates the list of Standards that are previous versions of a Standard. For example,IEC 60038:2009 has IEC 60038:1983+AMD1:1994+AMD2:1997,IEC 60038:1983/AMD2:1997,IEC 60038:1983/AMD1:1994,IEC 60038:1983,IEC 60038:1975/AMD1:1977,IEC 60038:1975,IEC 60038:1967,IEC 60038:1954,IEC 60038:1938,IEC 60038:1927 as previous versions."@en ;
-                       rdfs:label "has Previous Version"@en .
-
-
-###  https://w3id.org/i40/sto#hasPublisher
-sto:hasPublisher rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf foaf:maker ;
-                 rdfs:domain sto:Publication ;
-                 rdfs:range sto:StandardOrganization .
-
 
 ###  https://w3id.org/i40/sto#hasTargetConcern
 sto:hasTargetConcern rdf:type owl:ObjectProperty .
 
-
-###  https://w3id.org/i40/sto#identifies
-sto:identifies rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf dul:associatedWith ;
-               rdfs:comment "ISO 42010 relation between an architecture description on the on hand and stakeholders and concerns on the other." ;
-               rdfs:label "identifies" .
-
-
-###  https://w3id.org/i40/sto#isDescribedin
-sto:isDescribedin rdf:type owl:ObjectProperty ;
-                  rdfs:domain sto:StandardClassification ;
-                  rdfs:range sto:StandardizationFramework ;
-                  rdfs:comment "Links the Standarization Frameworks with the Classification of Standards"@en ;
-                  rdfs:label "is Described in"@en .
-
-
-###  https://w3id.org/i40/sto#isImplementationOf
-sto:isImplementationOf rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf sto:relatedTo .
-
-
-###  https://w3id.org/i40/sto#relatedTo
-sto:relatedTo rdf:type owl:ObjectProperty ;
-              owl:inverseOf sto:relatedTo ;
-              rdf:type owl:SymmetricProperty ,
-                       owl:TransitiveProperty .
 
 
 ###  https://w3id.org/i40/sto#supports
@@ -446,108 +146,11 @@ sto:supports rdf:type owl:ObjectProperty ;
              rdfs:label "supports" .
 
 
-###  https://w3id.org/i40/sto#useStructureOf
-sto:useStructureOf rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf sto:relatedTo .
-
-
-###  https://w3id.org/i40/sto#uses
-sto:uses rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf sto:relatedTo .
-
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://creativecommons.org/ns#attributionName
-cc:attributionName rdf:type owl:DatatypeProperty .
-
-
-###  https://w3id.org/i40/sto#abbreviation
-sto:abbreviation rdf:type owl:DatatypeProperty ;
-                 rdfs:domain owl:Thing ;
-                 rdfs:range rdf:PlainLiteral ;
-                 rdfs:comment "Abbreviated  name of the thing."@en ;
-                 rdfs:label "has Abbreviated Name"@en .
-
-
-###  https://w3id.org/i40/sto#domainName
-sto:domainName rdf:type owl:DatatypeProperty ;
-               rdfs:domain sto:Domain ;
-               rdfs:range rdf:PlainLiteral ;
-               rdfs:comment "Points the Standard with the name of the Industrial Domain"@en ;
-               rdfs:label "has Domain Name"@en .
-
-
-###  https://w3id.org/i40/sto#formationDate
-sto:formationDate rdf:type owl:DatatypeProperty ,
-                           owl:FunctionalProperty ;
-                  rdfs:domain sto:StandardOrganization ;
-                  rdfs:range xsd:date ;
-                  rdfs:comment "Formation date of the Organization"@en ;
-                  rdfs:label "has Formation Date"@en .
-
-
-###  https://w3id.org/i40/sto#hasObjective
-sto:hasObjective rdf:type owl:DatatypeProperty ;
-                 rdfs:domain sto:ISA95Level ;
-                 rdfs:range xsd:string ;
-                 rdfs:comment "Specifies the objectives for the different ISA 95 levels."@en ;
-                 rdfs:label "has Objective"@en .
-
-
-###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:DatatypeProperty .
-
-
-###  https://w3id.org/i40/sto#hasOntology
-sto:hasOntology rdf:type owl:DatatypeProperty ;
-                rdfs:domain sto:Publication ;
-                rdfs:range xsd:anyURI ;
-                rdfs:comment "Point to the URL of a recognized Ontology representation of the Standard"@en ;
-                rdfs:label "has Ontology"@en .
-
-
-###  https://w3id.org/i40/sto#hasOpenResource
-sto:hasOpenResource rdf:type owl:DatatypeProperty ;
-                    rdfs:domain sto:Publication ;
-                    rdfs:range xsd:anyURI .
-
-
-###  https://w3id.org/i40/sto#hasStatus
-sto:hasStatus rdf:type owl:DatatypeProperty ;
-              rdfs:domain sto:Publication ;
-              rdfs:range rdfs:Literal ;
-              rdfs:comment "Publication status of the Standard, e.g., Valid, Revised, Published, under preparation, Released"@en ;
-              rdfs:label "has Status"@en .
-
-
-###  https://w3id.org/i40/sto#hasTag
-sto:hasTag rdf:type owl:DatatypeProperty ;
-           rdfs:range rdfs:Literal ;
-           rdfs:comment "Points to the identification of the standards"@en ;
-           rdfs:label "has Tag"@en .
-
-
-###  https://w3id.org/i40/sto#hasTask
-sto:hasTask rdf:type owl:DatatypeProperty ;
-            rdfs:domain sto:ISA95Level ;
-            rdfs:range xsd:string ;
-            rdfs:comment "Specifies the tasks for the different ISA 95 levels."@en ;
-            rdfs:label "has Task"@en .
-
-
-###  https://w3id.org/i40/sto#hasWikipediaArticle
-sto:hasWikipediaArticle rdf:type owl:DatatypeProperty .
-
-
-###  https://w3id.org/i40/sto#orgName
-sto:orgName rdf:type owl:DatatypeProperty ;
-            rdfs:domain sto:StandardOrganization ;
-            rdfs:range rdf:PlainLiteral ;
-            rdfs:comment "Name of the Organization"@en ;
-            rdfs:label "Org Name"@en .
 
 
 #################################################################
@@ -570,81 +173,9 @@ sto:orgName rdf:type owl:DatatypeProperty ;
                                       rdfs:label "IDS RAM Perspective"@en .
 
 
-###  http://xmlns.com/foaf/0.1/Document
-foaf:Document rdf:type owl:Class .
-
-
-###  http://xmlns.com/foaf/0.1/Organization
-foaf:Organization rdf:type owl:Class .
-
-
-###  http://xmlns.com/foaf/0.1/Person
-foaf:Person rdf:type owl:Class .
-
-
-###  https://w3id.org/i40/rami#AdminShellSubmodel
-rami:AdminShellSubmodel rdf:type owl:Class ;
-                        rdfs:subClassOf sto:StandardClassification ;
-                        rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
-                        rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
-                        rdfs:label "Admin Shell Sub Model"@en .
-
-
-###  https://w3id.org/i40/rami#RAMIHierarchyLevel
-rami:RAMIHierarchyLevel rdf:type owl:Class ;
-                        owl:equivalentClass [ rdf:type owl:Class ;
-                                              owl:oneOf ( sto:RAMIConnectedWorld
-                                                          sto:RAMIControlDevice
-                                                          sto:RAMIEnterprise
-                                                          sto:RAMIFieldDevice
-                                                          sto:RAMIProduct
-                                                          sto:RAMIStation
-                                                          sto:RAMIWorkCenter
-                                                        )
-                                            ] ;
-                        rdfs:subClassOf sto:StandardClassification ;
-                        rdfs:label "RAMI Hierarchy Level"@en .
-
-
-###  https://w3id.org/i40/rami#RAMIITLayer
-rami:RAMIITLayer rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Class ;
-                                       owl:oneOf ( sto:RAMIAssetlayer
-                                                   sto:RAMIBusinessLayer
-                                                   sto:RAMICommunicationlayer
-                                                   sto:RAMIFunctionalLayer
-                                                   sto:RAMIInformationLayer
-                                                   sto:RAMIIntegrationLayer
-                                                 )
-                                     ] ;
-                 rdfs:subClassOf sto:StandardClassification ;
-                 rdfs:label "RAMI IT Layer"@en .
-
-
-###  https://w3id.org/i40/rami#RAMILifeCycleLayer
-rami:RAMILifeCycleLayer rdf:type owl:Class ;
-                        rdfs:subClassOf sto:StandardClassification ;
-                        rdfs:label "RAMI Life Cycle Layer"@en ;
-                        rdfs:seeAlso "http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx" ;
-                        skos:definition "It describes the different Life Cycle and Value Stream layers for the RAMI model according to the IEC 62890 Standard."@en ;
-                        skos:prefLabel "RAMI Life Cycle Layer"@en .
-
-
-###  https://w3id.org/i40/sto#AiiClassification
-sto:AiiClassification rdf:type owl:Class ;
-                      rdfs:subClassOf sto:StandardClassification ;
-                      rdfs:label "Alliance of Industrial Internet Architecture Classification"@en .
-
 
 ###  https://w3id.org/i40/sto#ArchitectureDescription
-sto:ArchitectureDescription rdf:type owl:Class ;
-                            rdfs:subClassOf sto:StandardizationFramework ;
-                            rdfs:comment """A Reference Architecture describes the structure of a system with its element types and their structures, as well as their interaction types, among each other and with their environment. Describing this, a Reference Architecture defines restrictions for an instantiation (concrete architecture). Through abstraction from individual details, a Reference Architecture is universally valid within a specific domain. Further architectures with the same functional requirements can be constructed based on the reference architecture. Along with reference architectures comes a recommendation, based on experiences from existing developments as well as from a wide acceptance and recognition by its users or per definition. [ISO/IEC42010]
-
-Note: It is important to distinguish the Reference Architecture from a Reference Architecture Description. While the first refers to a mental model or shared concept, the second is potentially only one of several different documents describing this model."""@en ,
-                                         "ISO 42010 definition of an Architecture Description"@en ;
-                            rdfs:label "Architecture Description" ;
-                            rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
+sto:ArchitectureDescription rdf:type owl:Class . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#BdvaConcern
@@ -662,18 +193,13 @@ sto:BusinessCycleSCM rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:Class .
+sto:Concern rdf:type owl:Class . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#DataSharingInitiative
 sto:DataSharingInitiative rdf:type owl:Class ;
-                          rdfs:subClassOf foaf:Organization .
+                          rdfs:subClassOf foaf:Organization . #TODO: more infos
 
-
-###  https://w3id.org/i40/sto#Domain
-sto:Domain rdf:type owl:Class ;
-           rdfs:comment "Represents the Domains in which the Standards can be used"@en ;
-           rdfs:label "Domain"@en .
 
 
 ###  https://w3id.org/i40/sto#EdgecrossLayer
@@ -688,7 +214,7 @@ sto:EdgecrossLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#FiwareChapter
 sto:FiwareChapter rdf:type owl:Class ;
-                  rdfs:subClassOf sto:StandardClassification .
+                  rdfs:subClassOf sto:StandardClassification . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#IDSRAMLayer
@@ -711,7 +237,12 @@ sto:IIRACrosscuttingFunction rdf:type owl:Class ;
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty dul:isPartOf ;
                                                owl:hasValue sto:IIRAFunctionalViewpoint
-                                             ] .
+                                             ] ;											 
+							 skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.6 CROSSCUTTING FUNCTIONS AND SYSTEM CHARACTERISTICS' 'Page 34' " ;
+                             rdfs:label "IIRA Crosscutting Function"@en ;
+                             dcterms:creator "sebastian"@en ;
+                             rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en .
+
 
 
 ###  https://w3id.org/i40/sto#IIRAFunctionalDomain
@@ -744,7 +275,7 @@ sto:IIRASystemCharacteristics rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#IIoTConsortium
 sto:IIoTConsortium rdf:type owl:Class ;
-                   rdfs:subClassOf foaf:Organization .
+                   rdfs:subClassOf foaf:Organization . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#ISA95Level
@@ -767,7 +298,7 @@ sto:IicfConnectivityLayer rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#IotaPerspective
-sto:IotaPerspective rdf:type owl:Class ;
+sto:IotaPerspective rdf:type owl:Class ; #TODO: more infos
                     rdfs:subClassOf sto:StandardClassification .
 
 
@@ -790,6 +321,10 @@ sto:NGSI_Context_Information_Management_API rdf:type owl:Class ;
                                             rdfs:label "NGSI Context Information Management API"@en .
 
 
+###  https://w3id.org/i40/sto#OcfBlock
+sto:OcfBlock rdf:type owl:Class ; #TODO: more infos
+             rdfs:subClassOf sto:StandardClassification ;
+             rdfs:label "OCF Framework Block" .
 
 
 ###  https://w3id.org/i40/sto#ProductDevelopmentLifeCycle
@@ -828,31 +363,14 @@ sto:Stakeholder rdf:type owl:Class ;
                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Stakeholder" .
 
 
-###  https://w3id.org/i40/sto#StandardClassification
-sto:StandardClassification rdf:type owl:Class .
-
-
-###  https://w3id.org/i40/sto#StandardOrganization
-sto:StandardOrganization rdf:type owl:Class ;
-                         rdfs:subClassOf foaf:Organization .
-
-
-###  https://w3id.org/i40/sto#StandardizationFramework
-sto:StandardizationFramework rdf:type owl:Class .
-
-
-###  https://w3id.org/i40/sto#TechnicalSpecification
-sto:TechnicalSpecification rdf:type owl:Class ;
-                           rdfs:subClassOf sto:Publication .
-
 
 ###  https://w3id.org/i40/sto#Technology
-sto:Technology rdf:type owl:Class ;
+sto:Technology rdf:type owl:Class ; #TODO: more infos
                rdfs:subClassOf sto:Publication .
 
 
 ###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:Class ;
+sto:Viewpoint rdf:type owl:Class ; #TODO: more infos
               rdfs:subClassOf sto:StandardClassification .
 
 
@@ -866,14 +384,21 @@ sto:xRoadSection rdf:type owl:Class ;
                  rdfs:label "x-road Section"@en .
 
 
-###  https://w3id.org/i40/sto/AiiClassification
-:AiiClassification rdf:type owl:Class .
+###  https://w3id.org/i40/sto/iot#AiiClassification
+sto_iot:AiiClassification rdf:type owl:Class ;
+                          rdfs:subClassOf sto:StandardClassification ;
+                          rdfs:label "Alliance of Industrial Internet Architecture Classification"@en .
 
 
-###  https://w3id.org/i40/sto/OcfBlock
-sto:OcfBlock rdf:type owl:Class ;
-          rdfs:subClassOf sto:StandardClassification ;
-          rdfs:label "OCF Framework Block" .
+###  https://w3id.org/i40/sto/iot#ArchitectureDescription
+sto_iot:ArchitectureDescription rdf:type owl:Class ;
+                                rdfs:subClassOf sto:StandardizationFramework ;
+                                rdfs:comment """A Reference Architecture describes the structure of a system with its element types and their structures, as well as their interaction types, among each other and with their environment. Describing this, a Reference Architecture defines restrictions for an instantiation (concrete architecture). Through abstraction from individual details, a Reference Architecture is universally valid within a specific domain. Further architectures with the same functional requirements can be constructed based on the reference architecture. Along with reference architectures comes a recommendation, based on experiences from existing developments as well as from a wide acceptance and recognition by its users or per definition. [ISO/IEC42010]
+
+Note: It is important to distinguish the Reference Architecture from a Reference Architecture Description. While the first refers to a mental model or shared concept, the second is potentially only one of several different documents describing this model."""@en ,
+                                             "ISO 42010 definition of an Architecture Description"@en ;
+                                rdfs:label "Architecture Description" ;
+                                rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
 
 
 ###  https://www.w3.org/ns/oaAnnotation
@@ -896,9 +421,6 @@ oa:XPathSelector rdf:type owl:Class .
 #    Individuals
 #################################################################
 
-###  http://data.semanticweb.org/person/steffen-lohmann
-<http://data.semanticweb.org/person/steffen-lohmann> rdf:type owl:NamedIndividual ,
-                                                              foaf:Person .
 
 
 ###  http://purl.oclc.org/NET/mvco.owl#EndUser
@@ -909,6 +431,68 @@ oa:XPathSelector rdf:type owl:Class .
 ###  http://voag.linkedmodel.org/voag#StakeholderGroup
 <http://voag.linkedmodel.org/voag#StakeholderGroup> rdf:type owl:NamedIndividual ;
                                                     dcterms:creator sto:sebastian .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#AllianceIndustrieDuFutur
+sto_iot:AllianceIndustrieDuFutur rdf:type owl:NamedIndividual ,
+                                   sto:IIoTConsortium ;
+                          rdfs:label "Alliance Industrie du Futur"@en ;
+                          sto:hasOfficialResource <http://www.industrie-dufutur.org/> .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#AllianceOfIndustrialInternet
+sto_iot:AllianceOfIndustrialInternet rdf:type owl:NamedIndividual ,
+                                       sto:IIoTConsortium ;
+                              rdfs:label "Alliance of Industrial Internet"@en ;
+                              skos:altLabel "工业互联网产业联盟"@cn ;
+                              sto:seeAlso <http://www.aii-alliance.org/> .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#ArrowheadProject
+sto_iot:ArrowheadProject rdf:type owl:NamedIndividual ,
+                           foaf:Organization ;
+                  rdfs:label "Arrowhead Project"^^xsd:string ;
+                  sto:seeAlso <http://www.arrowhead.eu/> .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#BDVA
+sto_iot:BDVA rdf:type owl:NamedIndividual ,
+               foaf:Organization ;
+      rdfs:label "Big Data Value Association"^^xsd:string ;
+      skos:altLabel "BDVA"^^xsd:string .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#Fiware
+sto_iot:Fiware rdf:type owl:NamedIndividual ,
+                 foaf:Organization ;
+        rdfs:label "FIWARE"^^xsd:string .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#IndustrialInternetArchitecture
+sto_iot:IndustrialInternetArchitecture rdf:type owl:NamedIndividual ,
+                                         sto:ArchitectureDescription ;
+                                sto:hasPublisher sto_iot:AllianceOfIndustrialInternet ;
+                                rdfs:label "AII Industrial Internet Architecture"@en ;
+                                sto:hasOfficialResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf> .
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#OcfFramework
+sto_iot:OcfFramework rdf:type owl:NamedIndividual .  #TODO: more infos
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#OpenFogConsortium
+sto_iot:OpenFogConsortium rdf:type owl:NamedIndividual . #TODO: more infos
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#QualityOfService
+sto_iot:QualityOfService rdf:type owl:NamedIndividual ,
+									sto:Concern . #TODO: more infos
+
+
+###  http://www.semanticweb.org/owl/owlapi/turtle#x-road
+sto_iot:x-road rdf:type owl:NamedIndividual ,  #TODO: more infos
+                 sto:DataSharingInitiative ;
+        rdfs:label "x-road"^^xsd:string .
 
 
 ###  https://doi.org/10.1016/j.compind.2018.04.015
@@ -924,129 +508,6 @@ oa:XPathSelector rdf:type owl:Class .
                                                rdfs:label "A survey on Internet of Things architectures" .
 
 
-###  https://w3id.org/i40/rami#AdminShellGeneral
-rami:AdminShellGeneral rdf:type owl:NamedIndividual ,
-                                rami:AdminShellSubmodel ,
-                                sto:StandardClassification ;
-                       sto:isDescribedin sto:AdministrationShell .
-
-
-###  https://w3id.org/i40/rami#ConditionMonitoring
-rami:ConditionMonitoring rdf:type owl:NamedIndividual ,
-                                  rami:AdminShellSubmodel ,
-                                  sto:StandardClassification ;
-                         sto:isDescribedin sto:AdministrationShell .
-
-
-###  https://w3id.org/i40/rami#Configuration
-rami:Configuration rdf:type owl:NamedIndividual ,
-                            rami:AdminShellSubmodel ,
-                            sto:StandardClassification ;
-                   sto:isDescribedin sto:AdministrationShell ;
-                   skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'" .
-
-
-###  https://w3id.org/i40/rami#EnergyEfficiency
-rami:EnergyEfficiency rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Engineering
-rami:Engineering rdf:type owl:NamedIndividual ,
-                          rami:AdminShellSubmodel ,
-                          sto:StandardClassification ;
-                 dul:associatedWith sto:IviActivityLayer ,
-                                    sto:IviActivityView ,
-                                    sto:IviSpecificationLayer ;
-                 sto:alignsWith sto:IviActivityLayer ,
-                                sto:IviActivityView ,
-                                sto:IviSpecificationLayer ;
-                 sto:isDescribedin sto:AdministrationShell .
-
-
-###  https://w3id.org/i40/rami#Identification
-rami:Identification rdf:type owl:NamedIndividual ,
-                             rami:AdminShellSubmodel ,
-                             sto:StandardClassification ;
-                    dul:associatedWith sto:Identification ;
-                    sto:alignsWith sto:Identification ;
-                    sto:isDescribedin sto:AdministrationShell ;
-                    rdfs:label "RAMI Identification"@en .
-
-
-###  https://w3id.org/i40/rami#InstanceMaintenance
-rami:InstanceMaintenance rdf:type owl:NamedIndividual ,
-                                  rami:RAMILifeCycleLayer ,
-                                  sto:StandardClassification ;
-                         rdfs:label "Instance Maintenance"@en .
-
-
-###  https://w3id.org/i40/rami#InstanceProduction
-rami:InstanceProduction rdf:type owl:NamedIndividual ,
-                                 rami:RAMILifeCycleLayer ,
-                                 sto:StandardClassification ;
-                        rdfs:label "Instance Production"@en .
-
-
-###  https://w3id.org/i40/rami#Lifecycle_Status
-rami:Lifecycle_Status rdf:type owl:NamedIndividual ,
-                               rami:AdminShellSubmodel ,
-                               sto:StandardClassification ;
-                      sto:isDescribedin sto:AdministrationShell ;
-                      rdfs:label "Lifecycle Status" .
-
-
-###  https://w3id.org/i40/rami#Other
-rami:Other rdf:type owl:NamedIndividual ,
-                    sto:StandardClassification .
-
-
-###  https://w3id.org/i40/rami#ProcessPlanning
-rami:ProcessPlanning rdf:type owl:NamedIndividual ,
-                              rami:AdminShellSubmodel ,
-                              sto:StandardClassification ;
-                     sto:isDescribedin sto:AdministrationShell ;
-                     rdfs:comment "Process planning frames everything related to model, plan and manage business workflows and processes."@en ;
-                     rdfs:label "Process planning"@en .
-
-
-###  https://w3id.org/i40/rami#Safety
-rami:Safety rdf:type owl:NamedIndividual ,
-                     rami:AdminShellSubmodel ,
-                     sto:StandardClassification ;
-            sto:isDescribedin sto:AdministrationShell ;
-            rdfs:label "RAMI Safety"@en .
-
-
-###  https://w3id.org/i40/rami#Security
-rami:Security rdf:type owl:NamedIndividual ,
-                       rami:AdminShellSubmodel ,
-                       sto:StandardClassification ;
-              dul:associatedWith sto:BdvaCyberSecurityTrust ,
-                                 sto:DtpSecurityPrivacy ,
-                                 sto:FiwareSecurity ;
-              sto:alignsWith sto:BdvaCyberSecurityTrust ,
-                             sto:DtpSecurityPrivacy ,
-                             sto:FiwareSecurity ,
-                             sto:OcfSecurity ;
-              sto:isDescribedin sto:AdministrationShell ;
-              rdfs:label "RAMI Security"@en .
-
-
-###  https://w3id.org/i40/rami#TypeDevelopment
-rami:TypeDevelopment rdf:type owl:NamedIndividual ,
-                              rami:RAMILifeCycleLayer ,
-                              sto:StandardClassification ;
-                     dul:associatedWith sto:IviSpecificationLayer ;
-                     sto:alignsWith sto:IviSpecificationLayer ;
-                     rdfs:label "Type Development"@en .
-
-
-###  https://w3id.org/i40/rami#TypeMaintenance
-rami:TypeMaintenance rdf:type owl:NamedIndividual ,
-                              rami:RAMILifeCycleLayer ,
-                              sto:StandardClassification ;
-                     rdfs:label "Type Maintenance"@en .
-
 
 ###  https://w3id.org/i40/sto#AI
 sto:AI rdf:type owl:NamedIndividual ,
@@ -1055,8 +516,7 @@ sto:AI rdf:type owl:NamedIndividual ,
        sto:supports sto:DataAnalytics ;
        rdfs:comment "Artificial intelligence (AI) is intelligence exhibited by machines. In computer science, an ideal \"intelligent\" machine is a flexible rational agent that perceives its environment and takes actions that maximize its chance of success at some goal. Colloquially, the term \"artificial intelligence\" is applied when a machine mimics \"cognitive\" functions that humans associate with other human minds, such as \"learning\" and \"problem solving\". (source: wikipedia)"@en ;
        rdfs:label "Artificial Intelligence"@en ;
-       sto:hasDBpediaResource <http://dbpedia.org/resource/Artificial_intelligence> ,
-                              ""@en .
+       sto:hasDBpediaResource <http://dbpedia.org/resource/Artificial_intelligence> .
 
 
 ###  https://w3id.org/i40/sto#AMQP
@@ -1113,8 +573,7 @@ sto:APICS rdf:type owl:NamedIndividual ,
 sto:ASAM rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
                   sto:StandardOrganization ;
-         sto:abbreviation "ASAM" ,
-                          "ASAM"^^xsd:string ;
+         sto:abbreviation "ASAM"^^xsd:string ;
          sto:formationDate "1998-12-01"^^xsd:date ;
          sto:orgName "Association for Standardization of Automation and Measuring Systems"@en ;
          rdfs:comment "Association for Standardization of Automation and Measuring Systems or ASAM is an incorporated association under German law. Its members are primarily international car manufacturers, suppliers and engineering service providers from the automotive industry. The association coordinates the development of technical standards, which are developed by working groups composed of experts from its member companies. ASAM pursues the vision that the tools of a development process chain can be freely interconnected and allow a seamless exchange of data. The standards define protocols, data models, file formats and application programming interfaces (APIs) for the use in the development and testing of automotive electronic control units. A large amount of popular tools in the areas of simulation, measurement, calibration and test automation are compliant to ASAM standards. Compliance shall guarantee interoperability of tools from different vendors, allow data exchange without the need for converters, and facilitate the exchange of unambiguous specification between customers and suppliers."@en ;
@@ -1128,8 +587,7 @@ sto:ASAM rdf:type owl:NamedIndividual ,
 sto:ASME rdf:type owl:NamedIndividual ,
                   foaf:Organization ,
                   sto:StandardOrganization ;
-         sto:abbreviation "ASME" ,
-                          "ASME"^^xsd:string ;
+         sto:abbreviation "ASME"^^xsd:string ;
          sto:formationDate "1880-01-01"^^xsd:date ;
          sto:orgName "American Society of Mechanical Engineers"@en ;
          rdfs:comment "The American Society of Mechanical Engineers (ASME) is a professional association that, promotes the art, science, and practice of multidisciplinary engineering and allied sciences around the globe via continuing education, training and professional development, codes and standards, research, conferences and publications, government relations, and other forms of outreach."@en ;
@@ -1157,7 +615,7 @@ sto:Access_Rights_for_IoT-Cloud rdf:type owl:NamedIndividual ,
                                 sto:supports sto:Cloud_Connectivity ;
                                 rdfs:label "Access Rights for IoT-Cloud"@en ;
                                 rdfs:seeAlso "https://ieeexplore.ieee.org/document/7919553"@en ;
-                                skos:note "TODO what is the IoT Cloud?" ;
+                                skos:note "TODO what is the IoT Cloud?" ; #TODO: more infos
                                 sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Access_rights"@en .
 
 
@@ -1247,7 +705,7 @@ Spurce: OpenFog Consortum Architecture Whitepaper"""@en ;
 
 ###  https://w3id.org/i40/sto#AiiData
 sto:AiiData rdf:type owl:NamedIndividual ,
-                     :AiiClassification ;
+                     sto_iot:AiiClassification ;
             sto:alignsWith sto:IDSRAMInformationLayer ,
                            sto:InformationDomain ;
             sto:frames sto:DataAnalytics ,
@@ -1255,7 +713,7 @@ sto:AiiData rdf:type owl:NamedIndividual ,
                        sto:Data_Collection ,
                        sto:EdgeComputing ,
                        sto:SemanticInteroperability ;
-            sto:isDescribedin :IndustrialInternetArchitecture ;
+            sto:isDescribedin sto_iot:IndustrialInternetArchitecture ;
             rdfs:label "AII Data Classification"@en .
 
 
@@ -1278,7 +736,7 @@ sto:AiiDataAnno rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#AiiNetwork
 sto:AiiNetwork rdf:type owl:NamedIndividual ,
-                        :AiiClassification ;
+                        sto_iot:AiiClassification ;
                sto:alignsWith sto:IDSRAMSystemLayer ,
                               sto:IIRAConnectivity ,
                               sto:RAMICommunicationlayer ,
@@ -1287,7 +745,7 @@ sto:AiiNetwork rdf:type owl:NamedIndividual ,
                           sto:Connectivity ,
                           sto:Identification ,
                           sto:SyntacticInteroperability ;
-               sto:isDescribedin :IndustrialInternetArchitecture ;
+               sto:isDescribedin sto_iot:IndustrialInternetArchitecture ;
                rdfs:label "AII Network Classification"@en .
 
 
@@ -1311,12 +769,12 @@ sto:AiiNetworkAnno rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#AiiSecurity
 sto:AiiSecurity rdf:type owl:NamedIndividual ,
-                         :AiiClassification ;
+                         sto_iot:AiiClassification ;
                 sto:alignsWith sto:IDSRAMSecurity ,
                                sto:IIRASecurity ;
                 sto:frames sto:DataAccess ,
                            sto:Security ;
-                sto:isDescribedin :IndustrialInternetArchitecture ;
+                sto:isDescribedin sto_iot:IndustrialInternetArchitecture ;
                 rdfs:label "AII Security Classification"@en .
 
 
@@ -1380,7 +838,7 @@ sto:AnnoActuation rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#AnnoAiiClassification
 sto:AnnoAiiClassification rdf:type owl:NamedIndividual ,
                                    oa:Annotation ;
-                          oa:hasBody sto:AiiClassification ;
+                          oa:hasBody sto_iot:AiiClassification ;
                           oa:hasTarget [ rdf:type oa:SpecificResource ;
                                          dcterms:format "pdf" ;
                                          oa:hasSource sto:Industrial_Internet_Architecture_Version_1
@@ -1405,7 +863,7 @@ sto:Anonymity rdf:type owl:NamedIndividual ,
 sto:ArrowheadFramework rdf:type owl:NamedIndividual ,
                                 sto:IIoTConsortium ,
                                 sto:StandardizationFramework ;
-                       sto:hasPublisher :ArrowheadProject ;
+                       sto:hasPublisher sto:ArrowheadProject ;
                        rdfs:label "Arrowhead Framework"^^xsd:string ;
                        sto:seeAlso <http://www.arrowhead.eu/> .
 
@@ -1572,32 +1030,17 @@ sto:BdvaCloudAndHighPerformanceComputing rdf:type owl:NamedIndividual ,
                                          sto:frames sto:AI ,
                                                     sto:BigDataApplications ,
                                                     sto:CloudComputing ,
-                                                    sto:DataAccess,
+                                                    sto:DataAccess ,
                                                     sto:DataAnalytics ,
                                                     sto:DataProcessing ,
-                                                    sto:interoperability,
-                                                    sto:Trustworthiness,
                                                     sto:DataPublishing ,
-                                                    sto:MachineLearning ;
+                                                    sto:MachineLearning ,
+                                                    sto:Trustworthiness ,
+                                                    sto:interoperability ;
                                          sto:isDescribedin sto:BdvaSira ;
                                          rdfs:comment "The Cloud and High Performance Computing (HPC): Effective Big Data processing and data management might imply the effective usage of Cloud and High Performance Computing infrastructures. This area is separately elaborated further in collaboration with the Cloud and High Performance Computing (ETP4HPC) communities."@en ;
                                          rdfs:label "BDVA Cloud and High Performance Computing"@en .
 
-sto:BdvaCloudAndHighPerformanceComputingConcernsAnno rdf:type owl:NamedIndividual ,
-                                                      oa:Annotation ;
-                                             oa:hasBody sto:BdvaCloudAndHighPerformanceComputing ;
-                                             oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                                            oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                                             oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                                 rdf:value "Page 48"
-                                                                                               ] ;
-                                                                             oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                                   rdf:value "Page 45"
-                                                                                                 ]
-                                                                           ] ;
-                                            skos:note "This annotation is for sto:AI ,  sto:BigDataApplications ,   sto:CloudComputing ,  sto:DataAccess,   sto:DataAnalytics ,   sto:DataProcessing , sto:interoperability, sto:Trustworthiness,  sto:DataPublishing ,  sto:MachineLearning concerns";
-                                                            oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                                          ] .
 
 ###  https://w3id.org/i40/sto#BdvaCloudAndHighPerformanceComputingAnno
 sto:BdvaCloudAndHighPerformanceComputingAnno rdf:type owl:NamedIndividual ,
@@ -1616,6 +1059,24 @@ sto:BdvaCloudAndHighPerformanceComputingAnno rdf:type owl:NamedIndividual ,
                                                           ] .
 
 
+###  https://w3id.org/i40/sto#BdvaCloudAndHighPerformanceComputingConcernsAnno
+sto:BdvaCloudAndHighPerformanceComputingConcernsAnno rdf:type owl:NamedIndividual ,
+                                                              oa:Annotation ;
+                                                     oa:hasBody sto:BdvaCloudAndHighPerformanceComputing ;
+                                                     oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                                    skos:note "This annotation is for sto:AI ,  sto:BigDataApplications ,   sto:CloudComputing ,  sto:DataAccess,   sto:DataAnalytics ,   sto:DataProcessing , sto:interoperability, sto:Trustworthiness,  sto:DataPublishing ,  sto:MachineLearning concerns" ;
+                                                                    oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                                     oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                                         rdf:value "Page 48"
+                                                                                                       ] ;
+                                                                                     oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                           rdf:value "Page 45"
+                                                                                                         ]
+                                                                                   ] ;
+                                                                    oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                                  ] .
+
+
 ###  https://w3id.org/i40/sto#BdvaCommunicationConnectivity
 sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
                                            sto:BdvaConcern ,
@@ -1632,22 +1093,6 @@ sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
                                   rdfs:comment "Effective communication and connectivity mechanisms are necessary in providing support for Big Data. This area is separately further elaborated, along with various communication communities, such as the 5G community."@en ;
                                   rdfs:label "BDVA Communication and Connectivity"@en .
 
-sto:BdvaCommunicationConnectivityConcernsAnno rdf:type owl:NamedIndividual ,
-                                               oa:Annotation ;
-                                      oa:hasBody sto:BdvaCommunicationConnectivity ;
-                                      oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                                     oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                                      oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                          rdf:value "Page 50"
-                                                                                        ] ;
-                                                                      oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                            rdf:value "Page 49"
-                                                                                          ]
-                                                                    ] ;
-
-                                       skos:note "This annotation is for sto:Communication ,     sto:DataAccess ,        sto:DataAnalytics , sto:Interoperability ,    sto:QualityOfService ,  sto:SemanticInteroperability , sto:ServiceDescription concerns";                              
-                                                     oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                                   ] .
 
 ###  https://w3id.org/i40/sto#BdvaCommunicationConnectivityAnno
 sto:BdvaCommunicationConnectivityAnno rdf:type owl:NamedIndividual ,
@@ -1664,6 +1109,24 @@ sto:BdvaCommunicationConnectivityAnno rdf:type owl:NamedIndividual ,
                                                                     ] ;
                                                      oa:hasSource sto:European_BDV_SRIA_version_4_0
                                                    ] .
+
+
+###  https://w3id.org/i40/sto#BdvaCommunicationConnectivityConcernsAnno
+sto:BdvaCommunicationConnectivityConcernsAnno rdf:type owl:NamedIndividual ,
+                                                       oa:Annotation ;
+                                              oa:hasBody sto:BdvaCommunicationConnectivity ;
+                                              oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                             skos:note "This annotation is for sto:Communication ,     sto:DataAccess ,        sto:DataAnalytics , sto:Interoperability ,    sto:QualityOfService ,  sto:SemanticInteroperability , sto:ServiceDescription concerns" ;
+                                                             oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                              oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                                  rdf:value "Page 50"
+                                                                                                ] ;
+                                                                              oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                    rdf:value "Page 49"
+                                                                                                  ]
+                                                                            ] ;
+                                                             oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                           ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaConcern
@@ -1723,24 +1186,6 @@ mechanisms such as blockchain technologies, smart contracts and various forms of
                            rdfs:label "BDVA Cybersecurity and Trust"@en .
 
 
-sto:BdvaCyberSecurityTrustConcernsAnno rdf:type owl:NamedIndividual ,
-                                        oa:Annotation ;
-                               oa:hasBody sto:BdvaCyberSecurityTrust ;
-                               oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                              oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                               oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                   rdf:value "Page 48"
-                                                                                 ] ;
-                                                               oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                     rdf:value "Page 47"
-                                                                                   ]
-                                                             ] ;
-
-                              skos:note "This annotation is for sto:Communication ,   sto:DataSovereignty ,sto:IntegrityProtection , sto:Privacy , sto:SecureCommunication , sto:Security , sto:Trustworthiness concerns";
-                                              oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                            ] .
-
-
 ###  https://w3id.org/i40/sto#BdvaCyberSecurityTrustAnno
 sto:BdvaCyberSecurityTrustAnno rdf:type owl:NamedIndividual ,
                                         oa:Annotation ;
@@ -1756,6 +1201,24 @@ sto:BdvaCyberSecurityTrustAnno rdf:type owl:NamedIndividual ,
                                                              ] ;
                                               oa:hasSource sto:European_BDV_SRIA_version_4_0
                                             ] .
+
+
+###  https://w3id.org/i40/sto#BdvaCyberSecurityTrustConcernsAnno
+sto:BdvaCyberSecurityTrustConcernsAnno rdf:type owl:NamedIndividual ,
+                                                oa:Annotation ;
+                                       oa:hasBody sto:BdvaCyberSecurityTrust ;
+                                       oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                      skos:note "This annotation is for sto:Communication ,   sto:DataSovereignty ,sto:IntegrityProtection , sto:Privacy , sto:SecureCommunication , sto:Security , sto:Trustworthiness concerns" ;
+                                                      oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                       oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                           rdf:value "Page 48"
+                                                                                         ] ;
+                                                                       oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                             rdf:value "Page 47"
+                                                                                           ]
+                                                                     ] ;
+                                                      oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                    ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaDataAnalytics
@@ -1775,28 +1238,12 @@ sto:BdvaDataAnalytics rdf:type owl:NamedIndividual ,
                                  sto:DataAnalytics ,
                                  sto:DataProcessing ,
                                  sto:MachineLearning ,
-                                 sto:StreamProcessing ,                                 
+                                 sto:StreamProcessing ,
                                  sto:Trustworthiness ;
                       sto:isDescribedin sto:BdvaSira ;
                       rdfs:comment "Data analytics to improve data understanding, deep learning and the meaningfulness of data."@en ;
                       rdfs:label "BDVA Data Analytics"@en .
 
-
-sto:BdvaDataAnalyticsConcernsAnno rdf:type owl:NamedIndividual ,
-                                   oa:Annotation ;
-                          oa:hasBody sto:BdvaDataAnalytics ;
-                          oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                          oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                              rdf:value "Page 64"
-                                                                            ] ;
-                                                          oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                rdf:value "Page 60"
-                                                                              ]
-                                                        ] ;
-                          skos:note "This annotation is for sto:AI ,sto:DataAnalytics , sto:DataProcessing ,sto:MachineLearning ,sto:StreamProcessing ,sto:Trustworthiness concerns";
-                                         oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                       ] .
 
 ###  https://w3id.org/i40/sto#BdvaDataAnalyticsAnno
 sto:BdvaDataAnalyticsAnno rdf:type owl:NamedIndividual ,
@@ -1815,6 +1262,22 @@ sto:BdvaDataAnalyticsAnno rdf:type owl:NamedIndividual ,
                                        ] .
 
 
+###  https://w3id.org/i40/sto#BdvaDataAnalyticsConcernsAnno
+sto:BdvaDataAnalyticsConcernsAnno rdf:type owl:NamedIndividual ,
+                                           oa:Annotation ;
+                                  oa:hasBody sto:BdvaDataAnalytics ;
+                                  oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                 skos:note "This annotation is for sto:AI ,sto:DataAnalytics , sto:DataProcessing ,sto:MachineLearning ,sto:StreamProcessing ,sto:Trustworthiness concerns" ;
+                                                 oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                  oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                      rdf:value "Page 64"
+                                                                                    ] ;
+                                                                  oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                        rdf:value "Page 60"
+                                                                                      ]
+                                                                ] ;
+                                                 oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                               ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaDataManagement
@@ -1829,9 +1292,9 @@ sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
                                       sto:IDSRAMProcessLayer ,
                                       sto:RAMIInformationLayer ;
                        sto:frames sto:BigDataApplications ,
-                                  sto:DataLifecycleManagement,
+                                  sto:DataIntegrity ,
+                                  sto:DataLifecycleManagement ,
                                   sto:DataQuality ,
-                                  sto:DataIntegrity,
                                   sto:Interoperability ,
                                   sto:ProvenanceTracking ,
                                   sto:Security ,
@@ -1859,24 +1322,25 @@ sto:BdvaDataManagementAnno rdf:type owl:NamedIndividual ,
                                           oa:hasSource sto:European_BDV_SRIA_version_4_0
                                         ] .
 
+
+###  https://w3id.org/i40/sto#BdvaDataManagementConcernsAnno
 sto:BdvaDataManagementConcernsAnno rdf:type owl:NamedIndividual ,
-                                   oa:Annotation ;
-                          oa:hasBody sto:BdvaDataManagement ;
-                          oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                          oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                              rdf:value "Page 57"
-                                                                            ] ;
-                                                          oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                rdf:value "Page 53"
-                                                                              ]
-                                                        ] ;
+                                            oa:Annotation ;
+                                   oa:hasBody sto:BdvaDataManagement ;
+                                   oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                  skos:note "This annotation is for sto:BigDataApplications ,sto:DataLifecycleManagement,sto:DataQuality , sto:DataIntegrity, sto:Interoperability ,   sto:ProvenanceTracking , sto:Security ,   sto:SemanticInteroperability ,sto:SyntacticInteroperability , sto:Trustworthiness concerns" ;
+                                                  oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                       rdf:value "Page 57"
+                                                                                     ] ;
+                                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                         rdf:value "Page 53"
+                                                                                       ]
+                                                                 ] ;
+                                                  oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                ] .
 
-                          skos:note "This annotation is for sto:BigDataApplications ,sto:DataLifecycleManagement,sto:DataQuality , sto:DataIntegrity, sto:Interoperability ,   sto:ProvenanceTracking , sto:Security ,   sto:SemanticInteroperability ,sto:SyntacticInteroperability , sto:Trustworthiness concerns";
-                                         oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                       ] .
 
-                                       
 ###  https://w3id.org/i40/sto#BdvaDataProcessingArchitectures
 sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
                                              sto:BdvaConcern ,
@@ -1901,22 +1365,6 @@ sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#BdvaDataProcessingArchitecturesAnno
-sto:BdvaDataProcessingArchitecturesConcernsAnno rdf:type owl:NamedIndividual ,
-                                                 oa:Annotation ;
-                                        oa:hasBody sto:BdvaDataProcessingArchitectures ;
-                                        oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                                       oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                            rdf:value "Page 61"
-                                                                                          ] ;
-                                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                              rdf:value "Page 57"
-                                                                                            ]
-                                                                      ] ;
-                                                                      skos:note "This annotation is for sto:BigDataApplications, sto:Communication ,sto:DataAtRest ,sto:DataInMotion ,     sto:DataProcessing ,sto:Scalability ,sto:StreamProcessing concerns";
-                                                       oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                                     ] .
-
 sto:BdvaDataProcessingArchitecturesAnno rdf:type owl:NamedIndividual ,
                                                  oa:Annotation ;
                                         oa:hasBody sto:BdvaDataProcessingArchitectures ;
@@ -1933,6 +1381,24 @@ sto:BdvaDataProcessingArchitecturesAnno rdf:type owl:NamedIndividual ,
                                                      ] .
 
 
+###  https://w3id.org/i40/sto#BdvaDataProcessingArchitecturesConcernsAnno
+sto:BdvaDataProcessingArchitecturesConcernsAnno rdf:type owl:NamedIndividual ,
+                                                         oa:Annotation ;
+                                                oa:hasBody sto:BdvaDataProcessingArchitectures ;
+                                                oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                               skos:note "This annotation is for sto:BigDataApplications, sto:Communication ,sto:DataAtRest ,sto:DataInMotion ,     sto:DataProcessing ,sto:Scalability ,sto:StreamProcessing concerns" ;
+                                                               oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                                oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                                    rdf:value "Page 61"
+                                                                                                  ] ;
+                                                                                oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                      rdf:value "Page 57"
+                                                                                                    ]
+                                                                              ] ;
+                                                               oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                             ] .
+
+
 ###  https://w3id.org/i40/sto#BdvaDataProtection
 sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
                                 sto:BdvaConcern ,
@@ -1942,33 +1408,17 @@ sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
                                           sto:IIRASecurityFramework ;
                        sto:alignsWith sto:IDSRAMSecurity ,
                                       sto:IIRASecurityFramework ;
-                       sto:frames sto:DataProtection ,
+                       sto:frames sto:CardinalityOfDataSources ,
+                                  sto:DataEncryption ,
+                                  sto:DataOwnership ,
+                                  sto:DataProtection ,
                                   sto:DataSovereignty ,
                                   sto:Privacy ,
-                                  sto:DataOwnership,
-                                  sto:CardinalityOfDataSources,
-                                  sto:DataEncryption,
                                   sto:Trustworthiness ;
                        sto:isDescribedin sto:BdvaSira ;
                        rdfs:comment "Privacy and anonymisation mechanisms to facilitate data protection. This is shown related to data management and processing as there is a strong link here, but it can also be associated with the area of cybersecurity."@en ;
                        rdfs:label "BDVA Data Protection"@en .
 
-
-sto:BdvaDataProtectionConcernsAnno rdf:type owl:NamedIndividual ,
-                                    oa:Annotation ;
-                           oa:hasBody sto:BdvaDataProtection ;
-                           oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                          oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                           oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                               rdf:value "Page 68"
-                                                                             ] ;
-                                                           oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                 rdf:value "Page 65"
-                                                                               ]
-                                                         ] ;
-                            skos:note "This annotation is for sto:DataProtection , sto:DataSovereignty ,   sto:Privacy ,  sto:DataOwnership, sto:CardinalityOfDataSources, sto:DataEncryption concerns  ";
-                                          oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                        ] .
 
 ###  https://w3id.org/i40/sto#BdvaDataProtectionAnno
 sto:BdvaDataProtectionAnno rdf:type owl:NamedIndividual ,
@@ -1985,6 +1435,24 @@ sto:BdvaDataProtectionAnno rdf:type owl:NamedIndividual ,
                                                          ] ;
                                           oa:hasSource sto:European_BDV_SRIA_version_4_0
                                         ] .
+
+
+###  https://w3id.org/i40/sto#BdvaDataProtectionConcernsAnno
+sto:BdvaDataProtectionConcernsAnno rdf:type owl:NamedIndividual ,
+                                            oa:Annotation ;
+                                   oa:hasBody sto:BdvaDataProtection ;
+                                   oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                  skos:note "This annotation is for sto:DataProtection , sto:DataSovereignty ,   sto:Privacy ,  sto:DataOwnership, sto:CardinalityOfDataSources, sto:DataEncryption concerns  " ;
+                                                  oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                       rdf:value "Page 68"
+                                                                                     ] ;
+                                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                         rdf:value "Page 65"
+                                                                                       ]
+                                                                 ] ;
+                                                  oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaDataSharingPlatforms
@@ -2028,31 +1496,13 @@ sto:BdvaDataVisualizationAndUserInteraction rdf:type owl:NamedIndividual ,
                                                                sto:RAMIFunctionalLayer ;
                                             sto:alignsWith sto:IIRAUsageViewpoint ,
                                                            sto:RAMIFunctionalLayer ;
-                                            sto:frames sto:BigDataApplications,
-                                                       sto:DataDiscovery,
-                                                       sto:GeospatialData,
-                                                       sto:DataAggregation  ;
+                                            sto:frames sto:BigDataApplications ,
+                                                       sto:DataAggregation ,
+                                                       sto:DataDiscovery ,
+                                                       sto:GeospatialData ;
                                             sto:isDescribedin sto:BdvaSira ;
                                             rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
                                             rdfs:label "BDVA Data Visualisation and User Interaction"@en .
-
-sto:BdvaDataVisualizationAndUserInteractionConcernsAnno rdf:type owl:NamedIndividual ,
-                                                         oa:Annotation ;
-                                                oa:hasBody sto:BdvaDataVisualizationAndUserInteraction ;
-                                                oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                                               oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                                                oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                                    rdf:value "Page 66"
-                                                                                                  ] ;
-                                                                                oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                                      rdf:value "Page 63"
-                                                                                                    ]
-                                                                              ] ;
-                                                skos:note "This annotation is for sto:BigDataApplications,     sto:DataDiscovery,   sto:GeospatialData, sto:DataAggregation concerns";                              
-                                                               oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                                             ] .
-
-
 
 
 ###  https://w3id.org/i40/sto#BdvaDataVisualizationAndUserInteractionAnno
@@ -2072,8 +1522,26 @@ sto:BdvaDataVisualizationAndUserInteractionAnno rdf:type owl:NamedIndividual ,
                                                              ] .
 
 
+###  https://w3id.org/i40/sto#BdvaDataVisualizationAndUserInteractionConcernsAnno
+sto:BdvaDataVisualizationAndUserInteractionConcernsAnno rdf:type owl:NamedIndividual ,
+                                                                 oa:Annotation ;
+                                                        oa:hasBody sto:BdvaDataVisualizationAndUserInteraction ;
+                                                        oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                                       skos:note "This annotation is for sto:BigDataApplications,     sto:DataDiscovery,   sto:GeospatialData, sto:DataAggregation concerns" ;
+                                                                       oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                                            rdf:value "Page 66"
+                                                                                                          ] ;
+                                                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                              rdf:value "Page 63"
+                                                                                                            ]
+                                                                                      ] ;
+                                                                       oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                                     ] .
+
+
 ###  https://w3id.org/i40/sto#BdvaDataViualisationAndUserInteraction
-sto:BdvaDataViualisationAndUserInteraction rdf:type owl:NamedIndividual .
+sto:BdvaDataViualisationAndUserInteraction rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#BdvaDevelopmentEngineering
@@ -2081,31 +1549,13 @@ sto:BdvaDevelopmentEngineering rdf:type owl:NamedIndividual ,
                                         sto:BdvaConcern ,
                                         sto:StandardClassification ;
                                dcterms:creator sto:sebastian ;
+                               sto:frames sto:DataQuality ,
+                                          sto:EnergyEfficiency ,
+                                          sto:Security ,
+                                          sto:reliability ;
                                sto:isDescribedin sto:BdvaSira ;
-                               sto:frames sto:DataQuality,
-                               sto:reliability,
-                               sto:security,
-                               sto:EnergyEfficiency;                               
                                rdfs:comment "Engineering and DevOps for building Big Data Value systems: This topic will be elaborated in greater detail along with the NESSI Software and Service community."@en ;
                                rdfs:label "BDVA Engineering and DevOps"@en .
-
-
-sto:BdvaDevelopmentEngineeringConcernsAnno rdf:type owl:NamedIndividual ,
-                                            oa:Annotation ;
-                                   oa:hasBody sto:BdvaDevelopmentEngineering ;
-                                   oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                                  oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                       rdf:value "Page 71"
-                                                                                     ] ;
-                                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                         rdf:value "Page 69"
-                                                                                       ]
-                                                                 ] ;
-
-                                    skos:note "This annotation is for sto:DataQuality, sto:reliability,  sto:security,  sto:EnergyEfficiency concerns"; 
-                                                  oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                                ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaDevelopmentEngineeringAnno
@@ -2125,11 +1575,29 @@ sto:BdvaDevelopmentEngineeringAnno rdf:type owl:NamedIndividual ,
                                                 ] .
 
 
+###  https://w3id.org/i40/sto#BdvaDevelopmentEngineeringConcernsAnno
+sto:BdvaDevelopmentEngineeringConcernsAnno rdf:type owl:NamedIndividual ,
+                                                    oa:Annotation ;
+                                           oa:hasBody sto:BdvaDevelopmentEngineering ;
+                                           oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                          skos:note "This annotation is for sto:DataQuality, sto:reliability,  sto:security,  sto:EnergyEfficiency concerns" ;
+                                                          oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                           oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                               rdf:value "Page 71"
+                                                                                             ] ;
+                                                                           oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                                 rdf:value "Page 69"
+                                                                                               ]
+                                                                         ] ;
+                                                          oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                        ] .
+
+
 ###  https://w3id.org/i40/sto#BdvaSira
 sto:BdvaSira rdf:type owl:NamedIndividual ,
                       sto:StandardizationFramework ;
              dcterms:creator sto:sebastian ;
-             sto:hasPublisher :BDVA ;
+             sto:hasPublisher sto:BDVA ;
              dcterms:title "BDVA Strategic Research and Innovation Agenda"@en ;
              rdfs:comment "This Strategic Research and Innovation Agenda (SRIA) defines the overall goals, main technical and non-technical priorities, and a research and innovation roadmap for the European Public Private Partnership (PPP) on Big Data Value. The SRIA has been developed by the Big Data Value Association (BDVA), an industry-led organisation representing large businesses, small and medium-sized enterprises (SMEs), and research organisations in Europe."@en ;
              rdfs:label "BDVA SIRA"@en .
@@ -2160,27 +1628,11 @@ sto:BdvaStandards rdf:type owl:NamedIndividual ,
                   sto:frames sto:BusinessContext ,
                              sto:Communication ,
                              sto:DataEconomy ,
-                             sto:DataMarkets,
+                             sto:DataMarkets ,
                              sto:Interoperability ;
                   sto:isDescribedin sto:BdvaSira ;
                   rdfs:comment "Standardisation of Big Data technology areas to facilitate data integration, sharing and interoperability"@en ;
                   rdfs:label "BDVA Standards"@en .
-
-sto:BdvaStandardsConcernsAnno rdf:type owl:NamedIndividual ,
-                               oa:Annotation ;
-                      oa:hasBody sto:BdvaStandards ;
-                      oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                     oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                      oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 70"
-                                                                        ] ;
-                                                      oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                            rdf:value "Page 68"
-                                                                          ]
-                                                    ] ;
-                      skos:note "This annotation is for sto:BusinessContext ,  sto:Communication ,  sto:DataEconomy ,  sto:DataMarkets, sto:Interoperability concerns";
-                                    oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                   ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaStandardsAnno
@@ -2200,33 +1652,34 @@ sto:BdvaStandardsAnno rdf:type owl:NamedIndividual ,
                                    ] .
 
 
+###  https://w3id.org/i40/sto#BdvaStandardsConcernsAnno
+sto:BdvaStandardsConcernsAnno rdf:type owl:NamedIndividual ,
+                                       oa:Annotation ;
+                              oa:hasBody sto:BdvaStandards ;
+                              oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                             skos:note "This annotation is for sto:BusinessContext ,  sto:Communication ,  sto:DataEconomy ,  sto:DataMarkets, sto:Interoperability concerns" ;
+                                             oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                              oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                  rdf:value "Page 70"
+                                                                                ] ;
+                                                              oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                    rdf:value "Page 68"
+                                                                                  ]
+                                                            ] ;
+                                             oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                           ] .
+
+
 ###  https://w3id.org/i40/sto#BdvaThingsAssetsSensorsActuators
 sto:BdvaThingsAssetsSensorsActuators rdf:type owl:NamedIndividual ,
                                               sto:BdvaConcern ,
                                               sto:StandardClassification ;
                                      dcterms:creator sto:sebastian ;
-                                     sto:frames sto:IoT,
-                                     sto:EdgeComputing ;
+                                     sto:frames sto:EdgeComputing ,
+                                                sto:IoT ;
                                      sto:isDescribedin sto:BdvaSira ;
                                      rdfs:comment "IoT, CPS, Edge and Fog Computing: A main source of Big Data is sensor data from an IoT context and actuator interaction in Cyber Physical Systems. In order to meet real-time needs it will often be necessary to handle Big Data aspects at the edge of the system. This area is separately elaborated further in collaboration with the IoT (Alliance for Internet of Things Innovation (AIOTI)) and CPS communities"@en ;
                                      rdfs:label "BDVA IoT CPS and Edge Computing"@en .
-
-
-sto:BdvaThingsAssetsSensorsActuatorsAnno rdf:type owl:NamedIndividual ,
-                                                  oa:Annotation ;
-                                         oa:hasBody sto:BdvaThingsAssetsSensorsActuators ;
-                                         oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                                        oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                                         oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                                             rdf:value "Page 50"
-                                                                                           ] ;
-                                                                         oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                                               rdf:value "Page 47"
-                                                                                             ];
-                                                                       ] ;
-                                          skos:note "This annotation is for sto:IoT,  sto:EdgeComputing concerns" ;                            
-                                                        oa:hasSource sto:European_BDV_SRIA_version_4_0
-                                                      ] .
 
 
 ###  https://w3id.org/i40/sto#BdvaThingsAssetsSensorsActuatorsAnno
@@ -2234,6 +1687,18 @@ sto:BdvaThingsAssetsSensorsActuatorsAnno rdf:type owl:NamedIndividual ,
                                                   oa:Annotation ;
                                          oa:hasBody sto:BdvaThingsAssetsSensorsActuators ;
                                          oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                        skos:note "This annotation is for sto:IoT,  sto:EdgeComputing concerns" ;
+                                                        oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                         oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                             rdf:value "Page 50"
+                                                                                           ] ;
+                                                                         oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                               rdf:value "Page 47"
+                                                                                             ]
+                                                                       ] ;
+                                                        oa:hasSource sto:European_BDV_SRIA_version_4_0
+                                                      ] ,
+                                                      [ rdf:type oa:SpecificResource ;
                                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
                                                                          oa:hasEndSelector [ rdf:type oa:XPathSelector ;
                                                                                              rdf:value "Page 40"
@@ -2256,7 +1721,7 @@ sto:BigDataApplications rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Billing
-sto:Billing rdf:type owl:NamedIndividual .
+sto:Billing rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#Blockchain
@@ -2367,7 +1832,7 @@ sto:CCN rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#CardinalityOfDataSources
 sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
-                                      sto:Concern ;
+                                      sto:Concern ; #TODO: more infos
                              sto:supports sto:Interoperability .
 
 
@@ -2405,7 +1870,7 @@ sto:CloudComputing rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Cloud_Connectivity
-sto:Cloud_Connectivity rdf:type owl:NamedIndividual ;
+sto:Cloud_Connectivity rdf:type owl:NamedIndividual ; #TODO: more infos
                        sto:supports sto:CloudComputing .
 
 
@@ -2453,11 +1918,6 @@ sto:Compliance rdf:type owl:NamedIndividual ,
                rdfs:comment "In general, compliance means conforming to a rule, such as a specification, policy, standard or law. Regulatory compliance describes the goal that organisations aspire to achieve in their efforts to ensure that they are aware of and take steps to comply with relevant laws and regulations. Due to the increasing number of regulations and need for operational transparency, organizations are increasingly adopting the use of consolidated and harmonized sets of compliance controls. This approach is used to ensure that all necessary governance requirements can be met without the unnecessary duplication of effort and activity from resources. (source: wikipedia)"@en ;
                rdfs:label "Compliance"@en ;
                sto:hasDBpediaResource <http://dbpedia.org/resource/Regulatory_compliance> .
-
-
-###  https://w3id.org/i40/sto#Concern
-sto:Concern rdf:type owl:NamedIndividual ;
-            dcterms:creator sto:sebastian .
 
 
 ###  https://w3id.org/i40/sto#Confidentiality
@@ -2515,13 +1975,13 @@ sto:ContextAwareness rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ControlDomain
-sto:ControlDomain rdf:type owl:NamedIndividual .
+sto:ControlDomain rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#CostEfficiency
 sto:CostEfficiency rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator sto:SebastianBader ;
+                   dcterms:creator sto:sebastian ;
                    sto:supports sto:BusinessContext ;
                    rdfs:comment ""@en ;
                    rdfs:label "Cost Efficiency"@en ,
@@ -2551,7 +2011,7 @@ sto:CrossLevel rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Customer
-sto:Customer rdf:type owl:NamedIndividual ,
+sto:Customer rdf:type owl:NamedIndividual , #TODO: more infos
                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
@@ -2677,7 +2137,7 @@ sto:DataAtRest rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#DataConsumer
-sto:DataConsumer rdf:type owl:NamedIndividual ,
+sto:DataConsumer rdf:type owl:NamedIndividual , #TODO: more infos
                           <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
@@ -2735,7 +2195,7 @@ sto:DataEncryption rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#DataInMotion
-sto:DataInMotion rdf:type owl:NamedIndividual .
+sto:DataInMotion rdf:type owl:NamedIndividual . #TODO: more infos or delete?
 
 
 ###  https://w3id.org/i40/sto#DataIntegrity
@@ -2761,13 +2221,18 @@ sto:DataIsolation rdf:type owl:NamedIndividual ,
                   sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Isolation_(database_systems)"@en .
 
 
+###  https://w3id.org/i40/sto#DataLifecycleManagement
+sto:DataLifecycleManagement rdf:type owl:NamedIndividual ;
+                            rdfs:seeAlso "IoT-A Requirement UNI.097" . #TODO: more infos
+
+
 ###  https://w3id.org/i40/sto#DataLifecycleManagment
 sto:DataLifecycleManagment rdf:type owl:NamedIndividual ,
                                     sto:Concern ;
                            sto:supports sto:DataAnalytics ;
+                           muto:tag "DataManagement" ;
                            rdfs:comment "Data lifecycle management includes every phase of a \"record\" from its beginning to its end. And while it is generally applied to information that rises to the classic definition of a record (and thus related to records management), it applies to all informational assets. During its existence, information can become a record by being identified as documenting a business transaction or as satisfying a business need. (source: wikipedia)"@en ;
                            rdfs:label "Data lifecycle management"@en ;
-                           muto:tag 'DataManagement';
                            sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management> .
 
 
@@ -2805,7 +2270,7 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataOwner
 sto:DataOwner rdf:type owl:NamedIndividual ,
-                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                       <http://voag.linkedmodel.org/voag#StakeholderGroup> . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#DataOwnership
@@ -2845,7 +2310,7 @@ sto:DataProtection rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataProvider
 sto:DataProvider rdf:type owl:NamedIndividual ,
-                          <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                          <http://voag.linkedmodel.org/voag#StakeholderGroup> . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#DataPublishing
@@ -2879,11 +2344,11 @@ sto:DataSecurity rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#DataSelection
-sto:DataSelection rdf:type owl:NamedIndividual .
+sto:DataSelection rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#DataSharingInitiative
-sto:DataSharingInitiative rdf:type owl:NamedIndividual ;
+sto:DataSharingInitiative rdf:type owl:NamedIndividual ; #TODO: more infos, better as a class?
                           dcterms:creator sto:sebastian .
 
 
@@ -2988,7 +2453,8 @@ sto:Data_Confidentiality rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Data_Transfer_Project_Overview_and_Fundamentals
 sto:Data_Transfer_Project_Overview_and_Fundamentals rdf:type owl:NamedIndividual ,
                                                              oa:SpecificResource ;
-                                                    rdfs:label "Data Transfer Project Overview and Fundamentals"@en ;
+                                                    rdfs:label "Data Transfer Project Overview and Fundamentals"@en ,
+                                                               "Data Transfer Project Overview and Fundamentals July 20, 2018"@en ;
                                                     sto:hasOpenResource <https://datatransferproject.dev/dtp-overview.pdf> .
 
 
@@ -3002,7 +2468,7 @@ sto:DecisionMaker rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Developer
 sto:Developer rdf:type owl:NamedIndividual ,
-                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                       <http://voag.linkedmodel.org/voag#StakeholderGroup> . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#DeviceLevel
@@ -3016,7 +2482,7 @@ sto:DeviceLevel rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DeviceSecurity
 sto:DeviceSecurity rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator sto:SebastianBader ;
+                   dcterms:creator sto:sebastian ;
                    sto:supports sto:Objects_Safety_and_security ;
                    rdfs:comment ""@en ;
                    rdfs:label "Device Security"@en ;
@@ -3102,11 +2568,11 @@ sto:DtpDeploymentView rdf:type owl:NamedIndividual ,
                                          sto:IIRAImplementationViewpoint ;
                       sto:alignsWith sto:IDSRAMProcessLayer ,
                                      sto:IIRAImplementationViewpoint ;
-                      sto:frames sto:Identification ,
-                                sto:DataAccess,
-                                sto:IdentityManagement ,
-                                 sto:DataProtection,
-                                 sto:DataEncryption,
+                      sto:frames sto:DataAccess ,
+                                 sto:DataEncryption ,
+                                 sto:DataProtection ,
+                                 sto:Identification ,
+                                 sto:IdentityManagement ,
                                  sto:ServiceDeployment ,
                                  sto:ServiceLifecycleManagement ,
                                  sto:Trustworthiness ,
@@ -3114,45 +2580,42 @@ sto:DtpDeploymentView rdf:type owl:NamedIndividual ,
                       sto:isDescribedin sto:DtpArchitecture ;
                       rdfs:label "DTP Deployment"@en .
 
-sto:DtpDeploymentViewConcernsAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpDeploymentView ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 15"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 12"
-                                                                        ]
-                                                  ] ;
 
-                    skos:note "This annotation is for sto:Identification, sto:DataAccess,  sto:IdentityManagement, sto:DataProtection, sto:DataEncryption, sto:ServiceDeployment , sto:ServiceLifecycleManagement, sto:Trustworthiness , sto:UserInteraction concerns" ; 
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
-
-
+###  https://w3id.org/i40/sto#DtpDeploymentViewAnno
 sto:DtpDeploymentViewAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpDeploymentView ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 15"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 12"
-                                                                        ]
-                                                  ] ;
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
+                                   oa:Annotation ;
+                          oa:hasBody sto:DtpDeploymentView ;
+                          oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                         dcterms:format "pdf" ;
+                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                          oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 15"
+                                                                            ] ;
+                                                          oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                rdf:value "Page 12"
+                                                                              ]
+                                                        ] ;
+                                         oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                       ] .
 
-sto:Data_Transfer_Project_Overview_and_Fundamentals  rdf:type owl:NamedIndividual ,
-                                                        oa:SpecificResource ;
-                                               rdfs:label "Data Transfer Project Overview and Fundamentals July 20, 2018"@en ;
-                                               sto:hasOpenResource <https://datatransferproject.dev/dtp-overview.pdf> .
+
+###  https://w3id.org/i40/sto#DtpDeploymentViewConcernsAnno
+sto:DtpDeploymentViewConcernsAnno rdf:type owl:NamedIndividual ,
+                                           oa:Annotation ;
+                                  oa:hasBody sto:DtpDeploymentView ;
+                                  oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                 dcterms:format "pdf" ;
+                                                 skos:note "This annotation is for sto:Identification, sto:DataAccess,  sto:IdentityManagement, sto:DataProtection, sto:DataEncryption, sto:ServiceDeployment , sto:ServiceLifecycleManagement, sto:Trustworthiness , sto:UserInteraction concerns" ;
+                                                 oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                  oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                      rdf:value "Page 15"
+                                                                                    ] ;
+                                                                  oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                        rdf:value "Page 12"
+                                                                                      ]
+                                                                ] ;
+                                                 oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                               ] .
 
 
 ###  https://w3id.org/i40/sto#DtpEcosystemView
@@ -3163,44 +2626,48 @@ sto:DtpEcosystemView rdf:type owl:NamedIndividual ,
                                         sto:IIRAUsageViewpoint ;
                      sto:alignsWith sto:IDSRAMGovernance ,
                                     sto:IIRAUsageViewpoint ;
-                     sto:frames sto:security,
-                                sto:Privacy;
+                     sto:frames sto:Privacy ,
+                                sto:Security ;
                      sto:isDescribedin sto:DtpArchitecture ;
                      rdfs:label "DTP Ecosystem"@en .
 
-sto:DtpEcosystemViewConcernsAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpEcosystemView ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 19"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 17"
-                                                                        ]
-                                                  ] ;
-                    skos:note "This annotation is for sto:security, sto:Privacy concerns" ; 
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
 
-
+###  https://w3id.org/i40/sto#DtpEcosystemViewAnno
 sto:DtpEcosystemViewAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpEcosystemView ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 19"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 17"
-                                                                        ]
-                                                  ] ;
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
+                                  oa:Annotation ;
+                         oa:hasBody sto:DtpEcosystemView ;
+                         oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                        dcterms:format "pdf" ;
+                                        oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                         oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                             rdf:value "Page 19"
+                                                                           ] ;
+                                                         oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                               rdf:value "Page 17"
+                                                                             ]
+                                                       ] ;
+                                        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                      ] .
+
+
+###  https://w3id.org/i40/sto#DtpEcosystemViewConcernsAnno
+sto:DtpEcosystemViewConcernsAnno rdf:type owl:NamedIndividual ,
+                                          oa:Annotation ;
+                                 oa:hasBody sto:DtpEcosystemView ;
+                                 oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                dcterms:format "pdf" ;
+                                                skos:note "This annotation is for sto:security, sto:Privacy concerns" ;
+                                                oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                 oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                     rdf:value "Page 19"
+                                                                                   ] ;
+                                                                 oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                       rdf:value "Page 17"
+                                                                                     ]
+                                                               ] ;
+                                                oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                              ] .
+
 
 ###  https://w3id.org/i40/sto#DtpSecurityPrivacy
 sto:DtpSecurityPrivacy rdf:type owl:NamedIndividual ,
@@ -3214,44 +2681,48 @@ sto:DtpSecurityPrivacy rdf:type owl:NamedIndividual ,
                                       sto:IDSRAMGovernance ,
                                       sto:IIRAPrivacy ,
                                       sto:Security ;
-                       sto:frames  sto:Security,
-                                  sto:Authorization ;
+                       sto:frames sto:Authorization ,
+                                  sto:Security ;
                        sto:isDescribedin sto:DtpArchitecture ;
                        rdfs:label "DTP Security & Privacy"@en .
 
-sto:DtpSecurityPrivacyConcernsAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpSecurityPrivacy ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 18"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 14"
-                                                                        ]
-                                                  ] ;
 
-                    skos:note "This annotation is for sto:Security, sto:Authorization  concerns" ; 
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
-
+###  https://w3id.org/i40/sto#DtpSecurityPrivacyAnno
 sto:DtpSecurityPrivacyAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpSecurityPrivacy ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 18"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 14"
-                                                                        ]
-                                                  ] ;
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
+                                    oa:Annotation ;
+                           oa:hasBody sto:DtpSecurityPrivacy ;
+                           oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                          dcterms:format "pdf" ;
+                                          oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                           oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                               rdf:value "Page 18"
+                                                                             ] ;
+                                                           oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                 rdf:value "Page 14"
+                                                                               ]
+                                                         ] ;
+                                          oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                        ] .
+
+
+###  https://w3id.org/i40/sto#DtpSecurityPrivacyConcernsAnno
+sto:DtpSecurityPrivacyConcernsAnno rdf:type owl:NamedIndividual ,
+                                            oa:Annotation ;
+                                   oa:hasBody sto:DtpSecurityPrivacy ;
+                                   oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                  dcterms:format "pdf" ;
+                                                  skos:note "This annotation is for sto:Security, sto:Authorization  concerns" ;
+                                                  oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                       rdf:value "Page 18"
+                                                                                     ] ;
+                                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                         rdf:value "Page 14"
+                                                                                       ]
+                                                                 ] ;
+                                                  oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                                ] .
+
 
 ###  https://w3id.org/i40/sto#DtpSystemView
 sto:DtpSystemView rdf:type owl:NamedIndividual ,
@@ -3281,39 +2752,43 @@ sto:DtpSystemView rdf:type owl:NamedIndividual ,
                   sto:isDescribedin sto:DtpArchitecture ;
                   rdfs:label "DTP System"@en .
 
-sto:DtpSystemViewConcernsAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpSystemView ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 13"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 8"
-                                                                        ]
-                                                  ] ;
 
-                      skos:note "This annotation is for sto:Authentication , sto:Communication , sto:DataAccess , sto:Interoperability ,sto:SecureCommunication , sto:Security , sto:SemanticInteroperability , sto:SyntacticInteroperability , sto:Trustworthiness concerns" ; 
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
-
+###  https://w3id.org/i40/sto#DtpSystemViewAnno
 sto:DtpSystemViewAnno rdf:type owl:NamedIndividual ,
-                             oa:Annotation ;
-                    oa:hasBody sto:DtpSystemView ;
-                    oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                   dcterms:format "pdf" ;
-                                   oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                    oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                        rdf:value "Page 13"
-                                                                      ] ;
-                                                    oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                          rdf:value "Page 8"
-                                                                        ]
-                                                  ] ;
-                                   oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
-                                 ] .
+                               oa:Annotation ;
+                      oa:hasBody sto:DtpSystemView ;
+                      oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                     dcterms:format "pdf" ;
+                                     oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                      oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                          rdf:value "Page 13"
+                                                                        ] ;
+                                                      oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 8"
+                                                                          ]
+                                                    ] ;
+                                     oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                   ] .
+
+
+###  https://w3id.org/i40/sto#DtpSystemViewConcernsAnno
+sto:DtpSystemViewConcernsAnno rdf:type owl:NamedIndividual ,
+                                       oa:Annotation ;
+                              oa:hasBody sto:DtpSystemView ;
+                              oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                             dcterms:format "pdf" ;
+                                             skos:note "This annotation is for sto:Authentication , sto:Communication , sto:DataAccess , sto:Interoperability ,sto:SecureCommunication , sto:Security , sto:SemanticInteroperability , sto:SyntacticInteroperability , sto:Trustworthiness concerns" ;
+                                             oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                              oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                  rdf:value "Page 13"
+                                                                                ] ;
+                                                              oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                    rdf:value "Page 8"
+                                                                                  ]
+                                                            ] ;
+                                             oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals
+                                           ] .
+
 
 ###  https://w3id.org/i40/sto#DynamicAdjustability
 sto:DynamicAdjustability rdf:type owl:NamedIndividual ,
@@ -3637,7 +3112,7 @@ sto:EnergyEfficiency rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Energy_management
-sto:Energy_management rdf:type owl:NamedIndividual .
+sto:Energy_management rdf:type owl:NamedIndividual , sto:Concern . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
@@ -3716,7 +3191,7 @@ sto:FIWARE rdf:type owl:NamedIndividual ,
                               sto:IIRAImplementationViewpoint ;
            sto:alignsWith sto:IDSRAMSystemLayer ,
                           sto:IIRAImplementationViewpoint ;
-           sto:hasPublisher :Fiware ;
+           sto:hasPublisher sto:Fiware ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
            rdfs:label "FIWARE Architecture"@en ;
            sto:hasOfficialResource <https://www.fiware.org/> .
@@ -3829,7 +3304,7 @@ sto:FiwareApplicationsServicesAndDataDeliveryAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#FiwareChapter
-sto:FiwareChapter rdf:type owl:NamedIndividual ;
+sto:FiwareChapter rdf:type owl:NamedIndividual ; #TODO: more infos
                   dcterms:creator sto:sebastian .
 
 
@@ -4001,7 +3476,7 @@ sto:FiwareSecurityAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#FunctionalSafety
-sto:FunctionalSafety rdf:type owl:NamedIndividual ,
+sto:FunctionalSafety rdf:type owl:NamedIndividual , #TODO: more infos
                               sto:Domain ;
                      rdfs:comment "Functional Safety"@en ;
                      rdfs:label "Functional Safety"@en .
@@ -4041,7 +3516,7 @@ sto:GeospatialData rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Governance
 sto:Governance rdf:type owl:NamedIndividual ,
-                        sto:Concern ;
+                        sto:Concern ; #TODO: more infos
                sto:supports sto:BusinessContext .
 
 
@@ -5095,7 +4570,7 @@ sto:IIRAControlDomainAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IIRACrosscuttingFunction
-sto:IIRACrosscuttingFunction rdf:type owl:NamedIndividual ;
+sto:IIRACrosscuttingFunction rdf:type owl:NamedIndividual ; #TODO: more infos
                              dcterms:creator sto:sebastian .
 
 
@@ -5780,7 +5255,7 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_61508
-sto:ISO_61508 rdf:type owl:NamedIndividual .
+sto:ISO_61508 rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#ITSecurity
@@ -5900,13 +5375,13 @@ sto:Industrial_Value_Chain_Reference_Architecture_IVRA_Next rdf:type owl:NamedIn
 
 
 ###  https://w3id.org/i40/sto#InformationDomain
-sto:InformationDomain rdf:type owl:NamedIndividual .
+sto:InformationDomain rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#InformationSecurity
 sto:InformationSecurity rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
-                        dcterms:creator sto:SebastianBader ;
+                        dcterms:creator sto:sebastian ;
                         sto:supports sto:Security ;
                         rdfs:comment ""@en ;
                         rdfs:label "Information Security"@en ;
@@ -5992,7 +5467,7 @@ sto:InterfaceNetworksDevicesAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#InternationalClassificationForStandards
-sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ;
+sto:InternationalClassificationForStandards rdf:type owl:NamedIndividual ; #TODO: more infos, or delete?
                                             sto:abbreviation "ICS"@en .
 
 
@@ -6296,7 +5771,7 @@ sto:IotaPerformanceScalabilityAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IotaPerspective
-sto:IotaPerspective rdf:type owl:NamedIndividual ;
+sto:IotaPerspective rdf:type owl:NamedIndividual ; #TODO: more infos
                     dcterms:creator sto:sebastian .
 
 
@@ -6677,7 +6152,7 @@ sto:LatencyReduction rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#LinkLayer
-sto:LinkLayer rdf:type owl:NamedIndividual .
+sto:LinkLayer rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#LinkedData
@@ -6741,7 +6216,7 @@ sto:Long_Term_Business_Sustainability rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#LowPowerWiFi
-sto:LowPowerWiFi rdf:type owl:NamedIndividual ,
+sto:LowPowerWiFi rdf:type owl:NamedIndividual , #TODO: more infos
                           foaf:Document ,
                           sto:Publication ,
                           sto:TechnicalSpecification .
@@ -6849,7 +6324,7 @@ sto:MaintenanceCost rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Manufacturing
-sto:Manufacturing rdf:type owl:NamedIndividual ,
+sto:Manufacturing rdf:type owl:NamedIndividual , #TODO: more infos
                            sto:StandardClassification ;
                   dul:associatedWith sto:IviActivityLayer ;
                   sto:alignsWith sto:IviActivityLayer .
@@ -7035,7 +6510,7 @@ sto:NetworkCongestionAvoidance rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#NetworkLayer
-sto:NetworkLayer rdf:type owl:NamedIndividual .
+sto:NetworkLayer rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#NetworkPerformance
@@ -7052,7 +6527,7 @@ sto:NetworkPerformance rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#NetworkSecurity
 sto:NetworkSecurity rdf:type owl:NamedIndividual ,
                              sto:Concern ;
-                    dcterms:creator sto:SebastianBader ;
+                    dcterms:creator sto:sebastian ;
                     sto:supports sto:Security ;
                     rdfs:comment """Data flow is an integral part of any cloud service over the network of computers or
 clusters of systems using internet. Any intruder can analyze the data packet to detect any weakness in the system and can gain access to applications and data
@@ -8037,7 +7512,7 @@ sto:OcfCoreFramework rdf:type owl:NamedIndividual ,
                                 sto:Identification ,
                                 sto:ServiceDiscovery ,
                                 sto:SyntacticInteroperability ;
-                     sto:isDescribedin :OcfFramework ;
+                     sto:isDescribedin sto:OcfFramework ;
                      rdfs:label "OCF Core Framework"@en .
 
 
@@ -8253,7 +7728,7 @@ sto:OpenFogConsortium rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#OpenFogNodeView
-sto:OpenFogNodeView rdf:type owl:NamedIndividual .
+sto:OpenFogNodeView rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#OpenFogReferenceArchitecture
@@ -8261,14 +7736,14 @@ sto:OpenFogReferenceArchitecture rdf:type owl:NamedIndividual ,
                                           sto:ArchitectureDescription ,
                                           sto:StandardizationFramework ;
                                  dcterms:creator sto:sebastian ;
-                                 sto:hasPublisher :OpenFogConsortium ;
+                                 sto:hasPublisher sto:OpenFogConsortium ;
                                  rdfs:comment "The OpenFog Reference Architecture (OpenFog RA) is intended to help business leaders, software developers, silicon architects, and system designers create and maintain the hardware, software and system elements necessary for fog computing."@en ;
                                  rdfs:label "OpenFog Reference Architecture"@en ;
                                  sto:hasOfficialResource <https://www.openfogconsortium.org/ra/> .
 
 
 ###  https://w3id.org/i40/sto#OpenFogSecurityPerspective
-sto:OpenFogSecurityPerspective rdf:type owl:NamedIndividual .
+sto:OpenFogSecurityPerspective rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#OpenFog_Reference_Architecture_for_Fog_Computing
@@ -8482,7 +7957,7 @@ sto:Programmability rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ProjectManager
-sto:ProjectManager rdf:type owl:NamedIndividual ,
+sto:ProjectManager rdf:type owl:NamedIndividual , #TODO: more infos
                             <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
@@ -8491,9 +7966,9 @@ sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
                                 sto:Concern ;
                        dcterms:creator sto:sebastian ;
                        sto:supports sto:Security ;
+                       muto:tag "data provenance" ;
                        <http://voag.linkedmodel.org/voag#hasStakeholder> <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
                        rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
-                       muto:tag 'data provenance';
                        rdfs:label "Provenance Tracking"@en ;
                        rdfs:seeAlso "IoT-A Requirement UNI.041" ,
                                     "IoT-A Requirement UNI.606" ;
@@ -8776,7 +8251,7 @@ sto:RAMIEnterpriseAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RAMIFieldDevice
-sto:RAMIFieldDevice rdf:type owl:NamedIndividual ,
+sto:RAMIFieldDevice rdf:type owl:NamedIndividual , #TODO: more infos
                              rami:RAMIHierarchyLevel ,
                              sto:StandardClassification ;
                     sto:frames sto:Manufacturing ;
@@ -8801,7 +8276,7 @@ sto:RAMIFieldDeviceAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RAMIFunctional
-sto:RAMIFunctional rdf:type owl:NamedIndividual .
+sto:RAMIFunctional rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#RAMIFunctionalLayer
@@ -9020,7 +8495,7 @@ sto:RAMIProductAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RAMIStation
-sto:RAMIStation rdf:type owl:NamedIndividual ,
+sto:RAMIStation rdf:type owl:NamedIndividual , #TODO: more infos
                          rami:RAMIHierarchyLevel ,
                          sto:StandardClassification ;
                 sto:isDescribedin sto:RAMI .
@@ -9044,7 +8519,7 @@ sto:RAMIStationAnno rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RAMIWorkCenter
-sto:RAMIWorkCenter rdf:type owl:NamedIndividual ,
+sto:RAMIWorkCenter rdf:type owl:NamedIndividual , #TODO: more infos
                             rami:RAMIHierarchyLevel ,
                             sto:StandardClassification ;
                    sto:isDescribedin sto:RAMI .
@@ -9079,7 +8554,7 @@ sto:RAML rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#RDF
-sto:RDF rdf:type owl:NamedIndividual ,
+sto:RDF rdf:type owl:NamedIndividual , #TODO: more infos
                  foaf:Document ,
                  sto:Publication ,
                  sto:TechnicalSpecification .
@@ -9406,10 +8881,6 @@ sto:Scalability rdf:type owl:NamedIndividual ,
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Scalability> .
 
 
-###  https://w3id.org/i40/sto#SebastianBader
-sto:SebastianBader rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/sto#SecureCommunication
 sto:SecureCommunication rdf:type owl:NamedIndividual ,
                                  sto:Concern ;
@@ -9699,20 +9170,6 @@ sto:Standard rdf:type owl:NamedIndividual ;
              sto:abbreviation "IS" .
 
 
-###  https://w3id.org/i40/sto#StandardClassification
-sto:StandardClassification rdf:type owl:NamedIndividual ;
-                           dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#StandardOrganization
-sto:StandardOrganization rdf:type owl:NamedIndividual ;
-                         dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#StandardizationFramework
-sto:StandardizationFramework rdf:type owl:NamedIndividual ;
-                             dcterms:creator sto:irlan .
-
 
 ###  https://w3id.org/i40/sto#StreamProcessing
 sto:StreamProcessing rdf:type owl:NamedIndividual ,
@@ -9766,14 +9223,14 @@ sto:SystemEvolution rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#SystemOperator
-sto:SystemOperator rdf:type owl:NamedIndividual ,
+sto:SystemOperator rdf:type owl:NamedIndividual , #TODO: more infos
                             <http://voag.linkedmodel.org/voag#StakeholderGroup> .
 
 
 ###  https://w3id.org/i40/sto#SystemRecovery
 sto:SystemRecovery rdf:type owl:NamedIndividual ,
                             sto:Concern ;
-                   dcterms:creator sto:SebastianBader ;
+                   dcterms:creator sto:sebastian ;
                    sto:supports sto:Reliability ;
                    rdfs:comment ""@en ;
                    rdfs:label "System Recovery"@en .
@@ -9790,8 +9247,8 @@ sto:TSMP rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/TSMP> .
 
 
-###  https://w3id.org/i40/sto#TansportLayer
-sto:TansportLayer rdf:type owl:NamedIndividual .
+###  https://w3id.org/i40/sto#TansportLayer 
+sto:TansportLayer rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
@@ -9801,19 +9258,19 @@ sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
 
 
 ###  https://w3id.org/i40/sto#TechnicalReport
-sto:TechnicalReport rdf:type owl:NamedIndividual ;
+sto:TechnicalReport rdf:type owl:NamedIndividual ; #TODO: more infos
                     sto:abbreviation "TR" ,
                                      "TR"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#TechnicalSpecification
-sto:TechnicalSpecification rdf:type owl:NamedIndividual ;
+sto:TechnicalSpecification rdf:type owl:NamedIndividual ; #TODO: more infos
                            sto:abbreviation "TS" ,
                                             "TS"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#Technology
-sto:Technology rdf:type owl:NamedIndividual ;
+sto:Technology rdf:type owl:NamedIndividual ; #TODO: more infos
                dcterms:creator sto:sebastian .
 
 
@@ -9949,7 +9406,7 @@ sto:UPnP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#URI
 sto:URI rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
+                 foaf:Document , #TODO: more infos
                  sto:Publication ,
                  sto:TechnicalSpecification .
 
@@ -9979,7 +9436,7 @@ sto:UnreliableNetwork rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#UserExperience
-sto:UserExperience rdf:type owl:NamedIndividual .
+sto:UserExperience rdf:type owl:NamedIndividual , sto:Concern . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#UserInteraction
@@ -10054,7 +9511,7 @@ annually."""@en ;
 
 
 ###  https://w3id.org/i40/sto#Viewpoint
-sto:Viewpoint rdf:type owl:NamedIndividual .
+sto:Viewpoint rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#VirtualEntity
@@ -10072,7 +9529,7 @@ sto:VirtualEntity rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Vocabulary
-sto:Vocabulary rdf:type owl:NamedIndividual .
+sto:Vocabulary rdf:type owl:NamedIndividual . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#W3C
@@ -10178,7 +9635,7 @@ sto:WolframLanguage rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#XACML
-sto:XACML rdf:type owl:NamedIndividual ,
+sto:XACML rdf:type owl:NamedIndividual , #TODO: more infos
                    foaf:Document ,
                    sto:Publication ,
                    sto:TechnicalSpecification ;
@@ -10256,7 +9713,7 @@ sto:bitkom rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#communication
-sto:communication rdf:type owl:NamedIndividual .
+sto:Communication rdf:type owl:NamedIndividual , sto:Concern . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#eClassAssoc
@@ -10274,35 +9731,6 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
                 sto:hasWikipediaArticle <https://www.wikiwand.com/de/ECl@ss> .
 
 
-###  https://w3id.org/i40/sto#hasAvailableLanguage
-sto:hasAvailableLanguage rdf:type owl:NamedIndividual ;
-                         dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#hasClassification
-sto:hasClassification rdf:type owl:NamedIndividual ;
-                      dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#hasDeveloper
-sto:hasDeveloper rdf:type owl:NamedIndividual ;
-                 dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:NamedIndividual ;
-              dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#hasHeadquaterIn
-sto:hasHeadquaterIn rdf:type owl:NamedIndividual ;
-                    dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#hasPublisher
-sto:hasPublisher rdf:type owl:NamedIndividual ;
-                 dcterms:creator sto:irlan .
-
 
 ###  https://w3id.org/i40/sto#iShare
 sto:iShare rdf:type owl:NamedIndividual ,
@@ -10318,7 +9746,7 @@ sto:iShare rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#interoperability
-sto:interoperability rdf:type owl:NamedIndividual .
+sto:Interoperability rdf:type owl:NamedIndividual , sto:Concern . #TODO: more infos
 
 
 ###  https://w3id.org/i40/sto#irlan
@@ -10331,7 +9759,7 @@ sto:irlan rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#isImplementationOf
-sto:isImplementationOf rdf:type owl:NamedIndividual ;
+sto:isImplementationOf rdf:type owl:NamedIndividual ; #TODO: more infos, maybe object property?
                        dcterms:creator sto:irlan .
 
 
@@ -10369,10 +9797,6 @@ und Standardisierung."""@de ,
                          "openAAS is an open source project to establish a Platform Industry 4.0 conform Administration Shell with open software."@en ;
             rdfs:label "openAAS"@en .
 
-
-###  https://w3id.org/i40/sto#relatedTo
-sto:relatedTo rdf:type owl:NamedIndividual ;
-              dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#sebastian
@@ -10546,85 +9970,15 @@ sto:xRoadTechnologyMatrixAnno rdf:type owl:NamedIndividual ,
 sto:xTee rdf:type owl:NamedIndividual ,
                   sto:ArchitectureDescription ,
                   sto:StandardizationFramework ;
-         sto:hasPublisher :x-road ;
+         sto:hasPublisher sto:x-road ;
          rdfs:label "x-Tee"@en .
 
-
-###  https://w3id.org/i40/sto/
-<https://w3id.org/i40/sto/> rdf:type owl:NamedIndividual ;
-                            dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ,
-                                            sto:irlan ,
-                                            <https://www.linkedin.com/in/paul-baptista-601177b2> ;
-                            foaf:maker <http://data.semanticweb.org/person/steffen-lohmann> ,
-                                       sto:irlan ,
-                                       <https://www.linkedin.com/in/paul-baptista-601177b2> .
-
-
-###  https://w3id.org/i40/sto/AllianceIndustrieDuFutur
-:AllianceIndustrieDuFutur rdf:type owl:NamedIndividual ,
-                                   sto:IIoTConsortium ;
-                          rdfs:label "Alliance Industrie du Futur"@en ;
-                          sto:hasOfficialResource <http://www.industrie-dufutur.org/> .
-
-
-###  https://w3id.org/i40/sto/AllianceOfIndustrialInternet
-:AllianceOfIndustrialInternet rdf:type owl:NamedIndividual ,
-                                       sto:IIoTConsortium ;
-                              rdfs:label "Alliance of Industrial Internet"@en ;
-                              skos:altLabel "工业互联网产业联盟"@cn ;
-                              sto:seeAlso <http://www.aii-alliance.org/> .
-
-
-###  https://w3id.org/i40/sto/ArrowheadProject
-:ArrowheadProject rdf:type owl:NamedIndividual ,
-                           foaf:Organization ;
-                  rdfs:label "Arrowhead Project"^^xsd:string ;
-                  sto:seeAlso <http://www.arrowhead.eu/> .
-
-
-###  https://w3id.org/i40/sto/BDVA
-:BDVA rdf:type owl:NamedIndividual ,
-               foaf:Organization ;
-      rdfs:label "Big Data Value Association"^^xsd:string ;
-      skos:altLabel "BDVA"^^xsd:string .
-
-
-###  https://w3id.org/i40/sto/Fiware
-:Fiware rdf:type owl:NamedIndividual ,
-                 foaf:Organization ;
-        rdfs:label "FIWARE"^^xsd:string .
-
-
-###  https://w3id.org/i40/sto/IndustrialInternetArchitecture
-:IndustrialInternetArchitecture rdf:type owl:NamedIndividual ,
-                                         sto:ArchitectureDescription ;
-                                sto:hasPublisher :AllianceOfIndustrialInternet ;
-                                rdfs:label "AII Industrial Internet Architecture"@en ;
-                                sto:hasOfficialResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf> .
-
-
-###  https://w3id.org/i40/sto/OcfFramework
-:OcfFramework rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto/OpenFogConsortium
-:OpenFogConsortium rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto/QualityOfService
-:QualityOfService rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto/x-road
-:x-road rdf:type owl:NamedIndividual ,
-                 sto:DataSharingInitiative ;
-        rdfs:label "x-road"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto/10#IndustrialInternetStandardSystem
 <https://w3id.org/i40/sto/10#IndustrialInternetStandardSystem> rdf:type owl:NamedIndividual ,
                                                                         sto:Publication ;
-                                                               sto:hasPublisher :AllianceOfIndustrialInternet ;
+                                                               sto:hasPublisher sto_iot:AllianceOfIndustrialInternet ;
                                                                rdfs:comment "Industrial Internet involves all industrial segment and all entities of industry field and ICT field, and it’s forming a complicated and total new ecological system. With industrial system networking and collaboration increasing, lots of new standardization requirements rise. While considering about the problems for Industrial Internet such as standard lacking, standard lagging, and standard duplicated, under the guidance of the Ministry of Industry and Information Technology (MIIT), Alliance of Industrial Internet (referred to as AII hereinafter) launched the study on the Industrial Internet standard system. Based on Industrial Internet Architecture (Version 1.0) and research on Industrial Internet standard requirements, AII drafted the Report on Industrial Internet Standard System (Version 1.0). In this Report, we propose the general idea, basic principles, standard system framework, key standardization directions and promotion suggestions. It aims to provide a systemized guidance of Industrial  Internet standardization for the industrial communities, to provide references and basis for development and amendment of Industrial Internet national standards, industrial standards and group standards, and to provide support for Industrial Internet development."@en ;
                                                                rdfs:label "Industrial Internet Standard System" .
 
@@ -10637,14 +9991,10 @@ ids:TrustedConnector rdf:type owl:NamedIndividual ,
                                         sto:IDSRAMReferenceArchitectureModel ;
                      foaf:maker sto:IDSRAMReferenceArchitectureModel ;
                      sto:alignsWith sto:AdministrationShell ;
-                     rdfs:comment "TODO: model IDS concepts correctly"@en ;
+                     rdfs:comment "TODO: model IDS concepts correctly"@en ; #TODO: more infos
                      rdfs:label "Trusted Connector"@en .
 
 
-###  https://www.linkedin.com/in/paul-baptista-601177b2
-<https://www.linkedin.com/in/paul-baptista-601177b2> rdf:type owl:NamedIndividual ,
-                                                              foaf:Person ;
-                                                     rdfs:label "Paul Baptista" .
 
 
 ###  https://www.wikidata.org/wiki/Q1548249
@@ -10678,10 +10028,12 @@ dcterms:creator rdfs:comment "An entity primarily responsible for making the res
                                                     rdfs:comment "A stakeholder is everyone with an interest in a system."@en .
 
 
-sto:AoutonomousCommunication rdfs:seeAlso "IoT-A Requirement UNI.247" .
+sto:AoutonomousCommunication rdf:type sto:Concern ; #TODO: more infos
+								rdfs:seeAlso "IoT-A Requirement UNI.247" .
 
 
-sto:BdvaConcern rdfs:label "BDVA Concern"@en ;
+sto:BdvaConcern rdf:type sto:StandardClassification ;
+				rdfs:label "BDVA Concern"@en ;
                 dcterms:creator "sebastian" ;
                 rdfs:comment """The BDV Reference Model distinguishes between two different elements. On the one hand, it describes the elements that are at the core of the BDVA; on the other, it outlines the features that are developed in strong collaboration with related European activities. The BDV Reference Model is structured into horizontal and vertical concerns.
 Horizontal concerns cover specific aspects along the data processing
@@ -10693,39 +10045,37 @@ Horizontal concerns cover specific aspects along the data processing Vertical co
                 dcterms:creator "sebastian"@en .
 
 
-sto:BusinessManager rdfs:label "Business Manager"@en ;
+sto:BusinessManager rdf:type owl:NamedIndividual , 
+                          <http://voag.linkedmodel.org/voag#StakeholderGroup> ;
+					rdfs:label "Business Manager"@en ;
                     rdfs:comment " A business manager is responsible for the running of the business and to make large profits." ;
                     skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '1.5 AUDIENCE' 'Page 7' " ;
                     rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" ;
                     sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Business_manager" .
 
 
-sto:Concern rdfs:label "Concern" ;
+sto:Concern rdf:type owl:Class ; 
+			rdfs:label "Concern" ;
             sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
             rdfs:comment "A concern regards a specific challenge or topic as defined by ISO42010. Each concern should at least be regarded by one view of an architecture."@en .
 
 
-sto:DataLifecycleManagement rdfs:seeAlso "IoT-A Requirement UNI.097" .
+sto:DataSharingInitiative rdf:type owl:NamedIndividual ; #TODO add more infos
+						rdfs:comment "This class frames all organizations with the main intend to create, specify and implement a data sharing concept with according interfaces, components, data descriptions, and retrieval algorithms."@en ;
+                        rdfs:label "Data Sharing Initiative"@en .
 
 
-sto:DataSharingInitiative rdfs:comment "This class frames all organizations with the main intend to create, specify and implement a data sharing concept with according interfaces, components, data descriptions, and retrieval algorithms."@en ;
-                          rdfs:label "Data Sharing Initiative"@en .
-
-
-sto:FiwareChapter dcterms:creator "sebastian"@en ;
+sto:FiwareChapter 	rdf:type owl:Class ,
+					sto:StandardClassification ; #TODO add more infos
+					dcterms:creator "sebastian"@en ;
                   rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
                   rdfs:label "Fiware Chapter"@en .
 
 
-sto:GeospatialQuery rdfs:seeAlso "IoT-A Requirement UNI.401" .
+sto:GeospatialQuery rdfs:seeAlso "IoT-A Requirement UNI.401" .#TODO add more infos 
 
-
-sto:IIRACrosscuttingFunction skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.6 CROSSCUTTING FUNCTIONS AND SYSTEM CHARACTERISTICS' 'Page 34' " ;
-                             rdfs:label "IIRA Crosscutting Function"@en ;
-                             dcterms:creator "sebastian"@en ;
-                             rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en .
 
 
 sto:IIoTConsortium dcterms:creator "sebastian" .
@@ -10738,16 +10088,21 @@ sto:ITManager rdfs:label "IT Manager"@en ;
               rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" .
 
 
-sto:IotaPerspective rdfs:label "IoT-A Perspective"@en .
+sto:IotaPerspective rdf:type owl:Class ; 
+					rdfs:label "IoT-A Perspective"@en .  #TODO add more infos
 
 
-sto:Multicast rdfs:seeAlso "IoT-A Requirement UNI.302" ,
+sto:Multicast rdf:type owl:NamedIndividual ,
+						sto:Concern ; #TODO add more infos
+						rdfs:seeAlso "IoT-A Requirement UNI.302" ,
                            "IoT-A Requirement UNI.305" ,
                            "IoT-A Requirement UNI.303" ,
                            "IoT-A Requirement UNI.304" .
 
 
-sto:MultipleIdenities rdfs:seeAlso "IoT-A Requirement UNI.320" .
+sto:MultipleIdenities rdf:type owl:NamedIndividual ,
+						sto:Concern ; #TODO add more infos
+						rdfs:seeAlso "IoT-A Requirement UNI.320" .
 
 
 sto:PlantManager rdfs:comment " A plant manager is responsible for the functioning of a plant/facility." ;
@@ -10758,29 +10113,22 @@ sto:PlantManager rdfs:comment " A plant manager is responsible for the functioni
                  skos:altLabel "Facility Manager"@en .
 
 
-sto:ServiceDescriptions rdfs:seeAlso "IoT-A Requirement UNI.244" .
+sto:ServiceDescriptions rdf:type owl:NamedIndividual ,
+						sto:Concern ; #TODO add more infos
+						rdfs:seeAlso "IoT-A Requirement UNI.244" .
 
 
-sto:StandardClassification rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
-                           rdfs:label "Standard Classification"@en .
 
-
-sto:StandardOrganization rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
-                         rdfs:label "StandardOrganization"@en .
-
-
-sto:StandardizationFramework skos:altLabel "Reference Architecture"@en ;
-                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-                             rdfs:label "Standarization Framework"@en .
-
-
-sto:SyntacticInteroperablity rdfs:seeAlso "IoT-A Requirement UNI.315" ,
+sto:SyntacticInteroperablity rdf:type owl:NamedIndividual ,
+						sto:Concern ; #TODO add more infos
+						rdfs:seeAlso "IoT-A Requirement UNI.315" ,
                                           "IoT-A Requirement UNI.313" ,
                                           "IoT-A Requirement UNI.312" ,
                                           "IoT-A Requirement UNI.311" .
 
 
-sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ;
+sto:TechnicalSpecification rdf:type sto:Publication ;
+						rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ;
                            rdfs:label "Technical Specification"@en ;
                            rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
                            cc:attributionURL "http://www.iec.ch" ,
@@ -10788,12 +10136,13 @@ sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a
                            rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 
-sto:Technology rdfs:label "Technology"@en ;
+sto:Technology rdfs:label "Technology"@en ; #TODO add more infos
                rdfs:comment "A Technology is an implementation of one or many standards in order to achieve a goal."@en ;
                dcterms:creator "sebastian"@en .
 
 
-sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
+sto:Viewpoint 	rdf:type owl:Class ;
+				rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
               rdfs:seeAlso <https://www.iso.org/standard/50508.html> ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Architecture_Viewpoint> ;
@@ -10802,80 +10151,40 @@ sto:Viewpoint rdfs:comment "ISO 42010 definition of a Viewpoint"@en ;
               rdfs:label "Viewpoint" .
 
 
-sto:VirtualEntities rdfs:seeAlso "IoT-A Requirement UNI.409" .
+sto:VirtualEntities rdf:type owl:NamedIndividual ,
+						sto:Concern ; #TODO add more infos
+						rdfs:seeAlso "IoT-A Requirement UNI.409" .
 
 
-sto:belongsTo rdfs:label "belongs To"@en ;
-              rdfs:comment "A Standard Organization that belongs to the country"@en .
-
-
-sto:hasClassification rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                      rdfs:label "has Classification"@en .
-
-
-sto:hasDeveloper rdfs:label "has Developer"@en ;
-                 rdfs:comment "The organization that developed this Standard"@en .
-
-
-sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
-                    rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en .
-
-
-sto:hasOfficialResource rdfs:comment "Points to the URL of the official websilte from which published the document"@en ,
-                                     "Standard Official Website"@en ;
-                        rdfs:label "has Official Resource"@en .
-
-
-sto:hasOpenResource rdfs:label "has Open Resource"@en ;
-                    rdfs:comment "points to the URLs of the resources(documents) openly available for the standard" .
-
-
-sto:hasPublisher rdfs:label "has Publisher"@en ;
-                 rdfs:comment "The organization that published this Standard"@en .
-
-
-sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
-                        rdfs:comment "Wikipedia Article about the Standard"@en .
-
-
-sto:isImplementationOf rdfs:label "is Implementation Of"@en ;
-                       rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en .
-
-
-sto:relatedTo skos:altLabel "has Associated Standard"@en ;
+sto:relatedTo rdf:type owl:ObjectProperty ; 
+				skos:altLabel "has Associated Standard"@en ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en .
 
 
-sto:useStructureOf rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
-                   rdfs:label "use Structure Of"@en .
-
-
-sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC_62714(AML) uses MathML."@en ;
-         rdfs:label "uses"@en .
 
 
 #################################################################
 #    Rules
 #################################################################
 
-:sc1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:sc1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:sc2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:sc2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:concern rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:concern rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:classification rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:classification rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:framework rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:framework rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:concern1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:concern1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:concern2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:concern2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:concern_a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:concern_a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-:concern_b rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+sto_iot:concern_b rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "Instances of StandardClassification inherit all frames relations of their parts."^^xsd:string ;
@@ -10884,14 +10193,14 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> dul:isPartOf ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :sc1 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :sc2
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:sc1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:sc2
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :sc1 ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :concern
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> sto_iot:sc1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
@@ -10899,8 +10208,8 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :sc2 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:sc2 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
@@ -10913,14 +10222,14 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:classification ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:isDescribedin ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :framework
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> sto_iot:classification ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> sto_iot:framework
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
@@ -10928,8 +10237,8 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:hasTargetConcern ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :framework ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:framework ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
@@ -10942,14 +10251,14 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:supports ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :concern1 ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern2
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:concern1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern2
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :concern1
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> sto_iot:classification ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern1
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
@@ -10957,8 +10266,8 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern2
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:classification ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern2
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
@@ -10971,14 +10280,14 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:supports ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :concern_a ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern_b
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:concern_a ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern_b
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> :concern_a
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> sto_iot:classification ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern_a
                                                                 ] ;
                                                       rdf:rest rdf:nil
                                                     ]
@@ -10986,8 +10295,8 @@ sto:uses rdfs:comment "Defines that Standard A uses Standard B. For example, IEC
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> sto:frames ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :classification ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> :concern_b
+                                                       <http://www.w3.org/2003/11/swrl#argument1> sto_iot:classification ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> sto_iot:concern_b
                                                      ] ;
                                            rdf:rest rdf:nil
                                          ]
