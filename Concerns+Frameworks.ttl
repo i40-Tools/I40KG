@@ -4904,17 +4904,82 @@ sto:IIRAPrivacy rdf:type owl:NamedIndividual ,
                 rdfs:label "IIRA Privacy"@en .
 
 
+sto:IIRAPrivacyConcernsAnno rdf:type owl:NamedIndividual ,
+                                 oa:Annotation ;
+                        oa:hasBody sto:IIRAPrivacy ;
+                        oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                       dcterms:format "pdf" ;
+                                       oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 21"
+                                                                          ] ;
+                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 19"
+                                                                            ]
+                                                      ] ;
+                      skos:note "This annotation is for sto:DataSovereignty , sto:Privacy , sto:Trustworthiness concerns";                                
+                                       oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                     ] .
+
+
+
+sto:IIRAPrivacyAnno rdf:type owl:NamedIndividual ,
+                                 oa:Annotation ;
+                        oa:hasBody sto:IIRAPrivacy ;
+                        oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                       dcterms:format "pdf" ;
+                                       oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 20"
+                                                                          ] ;
+                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 19"
+                                                                            ]
+                                                      ] ;
+                                       oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                     ] .
+
+
 ###  https://w3id.org/i40/sto#IIRAReliability
 sto:IIRAReliability rdf:type owl:NamedIndividual ,
                              sto:IIRASystemCharacteristics ,
                              sto:StandardClassification ;
                     dul:isPartOf sto:IIRAFunctionalViewpoint ;
                     sto:frames sto:Reliability ,
-                               sto:Trustworthiness ;
+                               sto:Availability,
+                              sto:ObjectsSafetyandsecurity,
+                               sto:DataIntegrity,                              sto:Trustworthiness ;
                     sto:isDescribedin sto:IIRA ;
                     rdfs:label "IIRA Reliability"@en ;
                     skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>' '3.4 RELIABILITY' 'Page 18'" .
 
+sto:IIRAReliabilityConcernsAnno rdf:type owl:NamedIndividual ,
+                                 oa:Annotation ;
+                        oa:hasBody sto:IIRAReliability ;
+                        oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                       dcterms:format "pdf" ;
+                                       oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 75"
+                                                                          ] ;
+                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 74"
+                                                                            ];
+                                      skos:note "This annotation is for sto:DataIntegrity Concerns";
+                                                      ] ;
+
+                                        oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 75"
+                                                                          ] ;
+                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 74"
+                                                                            ];
+                                      skos:note "This annotation is for sto:DataIntegrity Concerns";
+                                                      ] ;
+
+                                       oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                     ] .
 
 ###  https://w3id.org/i40/sto#IIRAReliabilityAnno
 sto:IIRAReliabilityAnno rdf:type owl:NamedIndividual ,
@@ -7327,7 +7392,7 @@ sto:OTrP rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Objects_Safety_and_security
-sto:Objects_Safety_and_security rdf:type owl:NamedIndividual ,
+sto:ObjectsSafetyandsecurity rdf:type owl:NamedIndividual ,
                                          sto:Concern ;
                                 dcterms:creator sto:MuhammadUsman ;
                                 sto:supports sto:Safety ,
