@@ -36,7 +36,7 @@
                                                  owl:versionIRI <https://w3id.org/i40/sto/iot/0.1/> ;
 												 owl:ontologyIRI <https://w3id.org/i40/sto/iot/> ;
 												 #TODO: better way to add ontology URI
-                                                 owl:imports <Standards.ttl> ;
+                                                 owl:imports <https://raw.githubusercontent.com/i40-Tools/StandardOntology/Master_Thesis/Standards.ttl> ;
                                                  dcterms:title "Industrial IoT Architecture Ontology"@en ;
                                                  sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
                                                  vann:preferredNamespacePrefix "sto_iot" ;
@@ -3324,13 +3324,11 @@ sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
                        dcterms:creator sto:sebastian ;
                        dul:associatedWith sto:IDSRAMSystemLayer ,
                                           sto:IIRAApplicationDomain ,
-                                          sto:IIRADistributedDataManagement ,
-                                          sto:IIRAScalability ,
+                                          sto:IIRADistributedDataManagement,
                                           sto:NgsiLdArchitecture ;
                        sto:alignsWith sto:IDSRAMSystemLayer ,
                                       sto:IIRAApplicationDomain ,
                                       sto:IIRADistributedDataManagement ,
-                                      sto:IIRAScalability ,
                                       sto:NgsiLdArchitecture ;
                        sto:frames sto:Availability ,
                                   sto:CloudComputing ,
@@ -4544,6 +4542,8 @@ sto:IIRAControlDomain rdf:type owl:NamedIndividual ,
                                  sto:Communication ,
                                  sto:EdgeAnalytics ,
                                  sto:IoT ,
+                                 sto:QualityOfService,
+                                 sto:ThingRepresentation,
                                  sto:Sensing ,
                                  sto:VirtualEntity ;
                       sto:isDescribedin sto:IIRA ;
@@ -4620,6 +4620,7 @@ sto:IIRAFunctionalViewpoint rdf:type owl:NamedIndividual ,
                                            sto:IotaFunctionalViewpoint ,
                                            sto:OceanSystemViewpoint ;
                             sto:frames rami:ProcessPlanning ,
+                                       sto:AssetManagement,
                                        sto:AccessPolicy ,
                                        sto:Actuation ,
                                        sto:Authentication ,
@@ -4686,6 +4687,22 @@ sto:IIRAFunctionalViewpoint rdf:type owl:NamedIndividual ,
                             rdfs:label "IIRA Functional Viewpoint"@en ;
                             skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.3 FUNCTIONAL VIEWPOINT' 'Page 16' " .
 
+
+sto:IIRAFunctionalViewpointConcernsAnno rdf:type owl:NamedIndividual ,
+                                         oa:Annotation ;
+                                oa:hasBody sto:IIRAFunctionalViewpoint ;
+                                oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                               dcterms:format "pdf" ;
+                                               oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                    rdf:value "Page 38"
+                                                                                  ] ;
+                                                                oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                      rdf:value "Page 25"
+                                                                                    ]
+                                                              ] ;
+                                               oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture
+                                             ] .
 
 ###  https://w3id.org/i40/sto#IIRAFunctionalViewpointAnno
 sto:IIRAFunctionalViewpointAnno rdf:type owl:NamedIndividual ,
@@ -4787,6 +4804,7 @@ sto:IIRAInformationDomain rdf:type owl:NamedIndividual ,
                                          sto:NgsiLdInformationModel ,
                                          sto:RAMIInformationLayer ;
                           sto:frames sto:DataAnalytics ,
+                          sto:DataStorage,
                                      sto:DataProcessing ,
                                      sto:Interoperability ,
                                      sto:SemanticInteroperability ,
@@ -4843,7 +4861,11 @@ sto:IIRAOperationsDomain rdf:type owl:NamedIndividual ,
                                         sto:IotaInformationViewpoint ,
                                         sto:IviActivityView ,
                                         sto:RAMIFunctionalLayer ;
-                         sto:frames sto:DataAnalytics ,
+                         sto:frames sto:AssetManagement,
+                                    sto:DataAnalytics ,
+                                    sto:EnergyEfficiency,
+                                    sto:performance,
+                                    sto:CEP,
                                     sto:RealTimeAnalytics ,
                                     sto:ServiceDeployment ,
                                     sto:ServiceLifecycleManagement ;
@@ -4960,12 +4982,12 @@ sto:IIRAReliabilityConcernsAnno rdf:type owl:NamedIndividual ,
                                        dcterms:format "pdf" ;
                                        oa:hasSelector [ rdf:type oa:RangeSelector ;
                                                         oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                            rdf:value "Page 75"
+                                                                            rdf:value "Page 87"
                                                                           ] ;
                                                         oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                              rdf:value "Page 74"
+                                                                              rdf:value "Page 86"
                                                                             ];
-                                      skos:note "This annotation is for sto:DataIntegrity Concerns";
+                                      skos:note "This annotation is for  sto:ObjectsSafetyandsecurity Concerns";
                                                       ] ;
 
                                         oa:hasSelector [ rdf:type oa:RangeSelector ;
@@ -4976,6 +4998,19 @@ sto:IIRAReliabilityConcernsAnno rdf:type owl:NamedIndividual ,
                                                                               rdf:value "Page 74"
                                                                             ];
                                       skos:note "This annotation is for sto:DataIntegrity Concerns";
+                                                      ] ;
+
+
+                                      oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                        oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                            rdf:value "Page 19"
+                                                                          ] ;
+                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                              rdf:value "Page 18"
+                                                                            ];
+
+                                      skos:note "This annotation is for sto:Reliability , sto:Availability Concerns";
+                                            
                                                       ] ;
 
                                        oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
@@ -5004,9 +5039,31 @@ sto:IIRAResilience rdf:type owl:NamedIndividual ,
                             sto:IIRASystemCharacteristics ,
                             sto:StandardClassification ;
                    dul:isPartOf sto:IIRAFunctionalViewpoint ;
+                   sto:frames sto:FaultTolerance,
+                   sto:Isolation,
+                   sto:SystemRecovery;
                    sto:isDescribedin sto:IIRA ;
                    rdfs:label "IIRA Resilience"@en .
 
+
+
+sto:IIRAResilienceConcernsAnno rdf:type owl:NamedIndividual ,
+                                oa:Annotation ;
+                       oa:hasBody sto:IIRAResilience ;
+                       oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                      dcterms:format "pdf" ;
+                                      oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                       oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                           rdf:value "Page 20"
+                                                                         ] ;
+                                                       oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                             rdf:value "Page 18"
+                                                                           ];
+                                      skos:note "This annotation is for sto:FaultTolerance,  sto:Isolation, sto:SystemRecovery Concerns ";
+                                                     ] ;
+                                      oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                    
+                                    ] .
 
 ###  https://w3id.org/i40/sto#IIRAResilienceAnno
 sto:IIRAResilienceAnno rdf:type owl:NamedIndividual ,
@@ -5019,22 +5076,11 @@ sto:IIRAResilienceAnno rdf:type owl:NamedIndividual ,
                                                                            rdf:value "Page 20"
                                                                          ] ;
                                                        oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                             rdf:value "Page 19"
-                                                                           ]
-                                                     ] ;
-                                      oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
-                                    ] ,
-                                    [ rdf:type oa:SpecificResource ;
-                                      dcterms:format "pdf" ;
-                                      oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                       oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                           rdf:value "Page 19"
-                                                                         ] ;
-                                                       oa:hasStartSelector [ rdf:type oa:XPathSelector ;
                                                                              rdf:value "Page 18"
                                                                            ]
                                                      ] ;
                                       oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                    
                                     ] .
 
 
@@ -5043,9 +5089,29 @@ sto:IIRASafety rdf:type owl:NamedIndividual ,
                         sto:IIRASystemCharacteristics ,
                         sto:StandardClassification ;
                dul:isPartOf sto:IIRAFunctionalViewpoint ;
+               sto:frames sto:RiskManagement,
+               sto:FaultTolerance;
                sto:isDescribedin sto:IIRA ;
                rdfs:label "IIRA Safety"@en .
 
+
+
+sto:IIRASafetyConcernsAnno rdf:type owl:NamedIndividual ,
+                            oa:Annotation ;
+                   oa:hasBody sto:IIRASafety ;
+                   oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                  dcterms:format "pdf" ;
+                                  oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                       rdf:value "Page 18"
+                                                                     ] ;
+                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                         rdf:value "Page 17"
+                                                                       ]
+                                                 ] ;
+                              skos:note "This annotation is for sto:RiskManagement, sto:FaultTolerance concerns";
+                                  oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                ] .
 
 ###  https://w3id.org/i40/sto#IIRASafetyAnno
 sto:IIRASafetyAnno rdf:type owl:NamedIndividual ,
@@ -5064,17 +5130,6 @@ sto:IIRASafetyAnno rdf:type owl:NamedIndividual ,
                                   oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
                                 ] .
 
-
-###  https://w3id.org/i40/sto#IIRAScalability
-sto:IIRAScalability rdf:type owl:NamedIndividual ,
-                             sto:IIRASystemCharacteristics ,
-                             sto:StandardClassification ;
-                    dul:associatedWith sto:FiwareCloudHosting ;
-                    dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                    sto:alignsWith sto:FiwareCloudHosting ;
-                    sto:frames sto:Scalability ;
-                    sto:isDescribedin sto:IIRA ;
-                    rdfs:label "IIRA Scalability"@en .
 
 
 ###  https://w3id.org/i40/sto#IIRASecurity
@@ -5100,13 +5155,17 @@ sto:IIRASecurity rdf:type owl:NamedIndividual ,
                             sto:Authorization ,
                             sto:Availability ,
                             sto:CloudComputing ,
+                            sto:DataIntegrity,
+                            sto:confidentiality,
                             sto:Communication ,
                             sto:DataAccessControl ,
+                            sto:DataEncryption,
                             sto:DataAtRest ,
                             sto:DataInMotion ,
                             sto:DataProcessing ,
                             sto:DataProtection ,
                             sto:DataSovereignty ,
+                            sto:EnergyEfficiency,
                             sto:Identification ,
                             sto:IdentityManagement ,
                             sto:IntegrityProtection ,
@@ -5125,6 +5184,26 @@ sto:IIRASecurity rdf:type owl:NamedIndividual ,
                  sto:isDescribedin sto:IIRA ;
                  rdfs:label "IIRA Security"@en .
 
+
+
+sto:IIRASecurityConcernsAnno rdf:type owl:NamedIndividual ,
+                              oa:Annotation ;
+                     oa:hasBody sto:IIRASecurity ;
+                     oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                    dcterms:format "pdf" ;
+                                    oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                     oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                         rdf:value "Page 121"
+                                                                       ] ;
+                                                     oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                           rdf:value "Page 11"
+                                                                         ]
+                                                   ] ;
+
+
+                                    skos:note "This annotation is for sto:AccessPolicy , sto:Authorization , sto:Availability , sto:CloudComputing ,sto:DataIntegrity, sto:confidentiality, sto:Communication , sto:DataAccessControl , sto:DataEncryption,   sto:DataAtRest ,  sto:DataInMotion ,    sto:DataProcessing ,   sto:DataProtection ,    sto:DataSovereignty , sto:EnergyEfficiency, sto:Identification ,   sto:IdentityManagement ,  sto:IntegrityProtection ,  sto:Privacy , sto:Reliability , sto:Resilience ,sto:Safety , sto:SecureCommunication ,  sto:Security ,  sto:SecurityConfiguration ,sto:ServiceAccessControl ,sto:ServiceIsolation , sto:ServiceLevelAgreements , sto:ServiceLifecycleManagement ,sto:Trustworthiness Concerns ";
+                                    oa:hasSource sto:Industrial_Internet_of_Things_Volume_G4_Security_Framework
+                                  ] .
 
 ###  https://w3id.org/i40/sto#IIRASecurityAnno
 sto:IIRASecurityAnno rdf:type owl:NamedIndividual ,
