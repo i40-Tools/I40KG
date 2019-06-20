@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/i40/sto/iot/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix oa: <https://www.w3.org/ns/oa> .
@@ -30,7 +31,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
-# @base <https://w3id.org/i40/sto/iot/sto_iot_ontology/> . #TODO: a base URI/URL leads to a translation of relative (file) paths to suffixes of the base URI for values of owl:imports. Not sure if a Protege bug or intended behavior
+#@base <https://w3id.org/i40/sto/iot/sto_iot_ontology/> . #TODO: a base URI/URL leads to a translation of relative (file) paths to suffixes of the base URI for values of owl:imports. Not sure if a Protege bug or intended behavior
 
 <sto_iot_ontology> rdf:type owl:Ontology ;
                                                  owl:versionIRI <https://w3id.org/i40/sto/iot/0.1/> ;
@@ -118,7 +119,7 @@ sto:alignsWith rdf:type owl:ObjectProperty ;
                rdfs:domain sto:StandardClassification ;
                rdfs:range sto:StandardClassification ;
                rdfs:comment "indicates that some Standard Classification entity has a similar scope as another. This property most probably is symmetric but not transitive."@en ;
-               rdfs:label "alignes With"@en .
+               rdfs:label "aligns With"@en .
 
 
 
@@ -1076,6 +1077,11 @@ sto:BdvaCloudAndHighPerformanceComputingConcernsAnno rdf:type owl:NamedIndividua
                                                                     oa:hasSource sto:European_BDV_SRIA_version_4_0
                                                                   ] .
 
+sto:isDescribedin rdf:type owl:ObjectProperty ;
+                  rdfs:domain sto:StandardClassification ;
+                  rdfs:range sto:StandardizationFramework ;
+                  rdfs:comment "Links the Standarization Frameworks with the Classification of Standards"@en ;
+                  rdfs:label "is Described in"@en .
 
 ###  https://w3id.org/i40/sto#BdvaCommunicationConnectivity
 sto:BdvaCommunicationConnectivity rdf:type owl:NamedIndividual ,
@@ -10117,7 +10123,14 @@ sto:xTee rdf:type owl:NamedIndividual ,
          sto:hasPublisher sto:x-road ;
          rdfs:label "x-Tee"@en .
 
+sto:ArchitectureDescription rdf:type owl:Class ;
+                            rdfs:subClassOf sto:StandardizationFramework ;
+                            rdfs:comment """A Reference Architecture describes the structure of a system with its element types and their structures, as well as their interaction types, among each other and with their environment. Describing this, a Reference Architecture defines restrictions for an instantiation (concrete architecture). Through abstraction from individual details, a Reference Architecture is universally valid within a specific domain. Further architectures with the same functional requirements can be constructed based on the reference architecture. Along with reference architectures comes a recommendation, based on experiences from existing developments as well as from a wide acceptance and recognition by its users or per definition. [ISO/IEC42010]
 
+Note: It is important to distinguish the Reference Architecture from a Reference Architecture Description. While the first refers to a mental model or shared concept, the second is potentially only one of several different documents describing this model."""@en ,
+                                         "ISO 42010 definition of an Architecture Description"@en ;
+                            rdfs:label "Architecture Description" ;
+                            rdfs:seeAlso "https://www.iso.org/standard/50508.html" .
 
 ###  https://w3id.org/i40/sto/10#IndustrialInternetStandardSystem
 <https://w3id.org/i40/sto/10#IndustrialInternetStandardSystem> rdf:type owl:NamedIndividual ,
@@ -10305,8 +10318,15 @@ sto:relatedTo rdf:type owl:ObjectProperty ;
               rdfs:comment "Represent any type of relation that connects two standards."@en ;
               rdfs:label "related To"@en .
 
+sto:StandardClassification rdf:type owl:Class ;
+                           rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
+                           rdfs:label "Standard Classification"@en .
 
-
+sto:StandardizationFramework rdf:type owl:Class ;
+                             dcterms:creator sto:irlan ;
+                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
+                             rdfs:label "Standarization Framework"@en ;
+                             skos:altLabel "Reference Architecture"@en .
 
 #################################################################
 #    Rules

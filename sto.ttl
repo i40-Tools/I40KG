@@ -1023,7 +1023,7 @@ sto:RelevantSubject rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
-sto:StandardClassification rdf:type owl:Class .
+
 
 
 ###  https://w3id.org/i40/sto#StandardOrganization
@@ -1039,7 +1039,7 @@ sto:StandardPart rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#StandardizationFramework
-sto:StandardizationFramework rdf:type owl:Class .
+
 
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
@@ -4838,7 +4838,7 @@ sto:DataTransferProjectAnno a oa:Annotation ;
     oa:hasBody sto:DataTransferProject ;
     oa:hasTarget [ 
          a oa:SpecificResource;
-        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals .]. 
+        oa:hasSource sto:Data_Transfer_Project_Overview_and_Fundamentals ]. 
 
 sto:Data_Transfer_Project_Overview_and_Fundamentals a oa:SpecificResource;
 rdfs:label "Data Transfer Project Overview and Fundamentals"@en ;
@@ -13505,7 +13505,7 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
-             sto:hasTargetConcern:QualityOfService;
+             sto:hasTargetConcern sto:QualityOfService;
              sto:hasClassification sto:CrossLevel ,
                                    sto:IDSRAMCertification ;
              sto:hasPublisher sto:ISO ;
@@ -17212,7 +17212,10 @@ sto:SpatialModeling rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
-sto:StandardClassification rdf:type owl:NamedIndividual ;
+sto:StandardClassification rdf:type owl:NamedIndividual,
+                                    owl:Class ;
+                           rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
+                           rdfs:label "Standard Classification"@en ;
                            dcterms:creator sto:irlan .
 
 
@@ -17222,9 +17225,11 @@ sto:StandardOrganization rdf:type owl:NamedIndividual ;
 
 
 ###  https://w3id.org/i40/sto#StandardizationFramework
-sto:StandardizationFramework rdf:type owl:NamedIndividual ;
-                             dcterms:creator sto:irlan .
-
+sto:StandardizationFramework rdf:type owl:Class ;
+                             dcterms:creator sto:irlan ;
+                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
+                             rdfs:label "Standarization Framework"@en ;
+                             skos:altLabel "Reference Architecture"@en .
 
 ###  https://w3id.org/i40/sto#StreamProcessing
 sto:StreamProcessing rdf:type owl:NamedIndividual ,
@@ -19412,8 +19417,7 @@ sto:Standard rdf:type owl:Class ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> .
 
 
-sto:StandardClassification rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
-                           rdfs:label "Standard Classification"@en .
+
 
 
 sto:StandardOrganization rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
