@@ -1,6 +1,5 @@
 # baseURI: https://w3id.org/i40/sto/
 
-@prefix : <https://w3id.org/i40/sto/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -17,7 +16,6 @@
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix oa: <https://www.w3.org/ns/oa> .
-@prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -16966,7 +16964,10 @@ sto:SpatialModeling
   sto:supports sto:SemanticInteroperability ;
 .
 sto:Stakeholder
+  a owl:Class ;
   rdfs:comment " A stakeholder is an individual, team, organization or classes thereof,having an interest in a concern and by extension an interest in the viewpoint and system." ;
+  rdfs:comment "Describes the layers of the standardization frameworks. In some cases, the layers are connected to dimensions of the frameworks. "@en ;
+  rdfs:label "Layer"@en ;
   rdfs:label "Stakeholder"@en ;
   rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" ;
   rdfs:subClassOf foaf:Person ;
@@ -17006,7 +17007,6 @@ sto:StandardPart
 .
 sto:StandardizationFramework
   a owl:Class ;
-  a owl:NamedIndividual ;
   terms:creator sto:irlan ;
   rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
   rdfs:label "Standarization Framework"@en ;
@@ -18559,8 +18559,7 @@ sto:xTee
   rdfs:label "x-Tee"@en ;
   sto:hasPublisher :x-road ;
 .
-:
-  a owl:NamedIndividual ;
+sto:
   a owl:Ontology ;
   terms:created "2017-01-25"^^xsd:date ;
   terms:creator <http://data.semanticweb.org/person/steffen-lohmann> ;
@@ -18587,21 +18586,21 @@ sto:xTee
   sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
   sto:hasWikipediaArticle "https://en.wikipedia.org/wiki/Internet_of_things"@en ;
 .
-<https://w3id.org/i40/sto/10#IndustrialInternetStandardSystem>
+sto:IndustrialInternetStandardSystem
   a owl:NamedIndividual ;
   a sto:Publication ;
   rdfs:comment "Industrial Internet involves all industrial segment and all entities of industry field and ICT field, and it’s forming a complicated and total new ecological system. With industrial system networking and collaboration increasing, lots of new standardization requirements rise. While considering about the problems for Industrial Internet such as standard lacking, standard lagging, and standard duplicated, under the guidance of the Ministry of Industry and Information Technology (MIIT), Alliance of Industrial Internet (referred to as AII hereinafter) launched the study on the Industrial Internet standard system. Based on Industrial Internet Architecture (Version 1.0) and research on Industrial Internet standard requirements, AII drafted the Report on Industrial Internet Standard System (Version 1.0). In this Report, we propose the general idea, basic principles, standard system framework, key standardization directions and promotion suggestions. It aims to provide a systemized guidance of Industrial  Internet standardization for the industrial communities, to provide references and basis for development and amendment of Industrial Internet national standards, industrial standards and group standards, and to provide support for Industrial Internet development."@en ;
   rdfs:label "Industrial Internet Standard System" ;
   sto:hasPublisher :AllianceOfIndustrialInternet ;
 .
-:AllianceIndustrieDuFutur
+sto:AllianceIndustrieDuFutur
   a owl:NamedIndividual ;
   a sto:IIoTConsortium ;
   rdfs:label "Alliance Industrie du Futur"@en ;
   sto:hasHeadquaterIn :France ;
   sto:hasOfficialResource <http://www.industrie-dufutur.org/> ;
 .
-:AllianceOfIndustrialInternet
+sto:AllianceOfIndustrialInternet
   a owl:NamedIndividual ;
   a sto:IIoTConsortium ;
   rdfs:label "Alliance of Industrial Internet"@en ;
@@ -18609,48 +18608,60 @@ sto:xTee
   sto:hasHeadquaterIn dbr:China ;
   sto:seeAlso <http://www.aii-alliance.org/> ;
 .
-:ArrowheadProject
+sto:ArrowheadProject
   a owl:NamedIndividual ;
   a foaf:Organization ;
   rdfs:label "Arrowhead Project" ;
   sto:seeAlso <http://www.arrowhead.eu/> ;
 .
-:BDVA
+sto:BDVA
   a owl:NamedIndividual ;
   a foaf:Organization ;
   rdfs:label "Big Data Value Association" ;
   skos:altLabel "BDVA" ;
 .
-:Fiware
+sto:Dimension
+  a owl:Class ;
+  rdfs:comment "Links the Standardization Frameworks with the Layers"@en ;
+  rdfs:label "Dimension"@en ;
+  rdfs:subClassOf owl:Thing ;
+.
+sto:Fiware
   a owl:NamedIndividual ;
   a foaf:Organization ;
   rdfs:label "FIWARE" ;
 .
-:France
+sto:France
   a dbo:Country ;
   a owl:NamedIndividual ;
 .
-:IndustrialInternetArchitecture
+sto:IndustrialInternetArchitecture
   a owl:NamedIndividual ;
   a sto:ArchitectureDescription ;
   rdfs:label "AII Industrial Internet Architecture"@en ;
   sto:hasOfficialResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf> ;
   sto:hasPublisher :AllianceOfIndustrialInternet ;
 .
-:Italy
+sto:Italy
   a dbo:Country ;
   a owl:NamedIndividual ;
 .
-:Japan
+sto:Japan
   a dbo:Country ;
   a owl:NamedIndividual ;
 .
-:OcfBlock
+sto:Layer
+  a owl:Class ;
+  rdfs:comment "Describes the layers of the standardization frameworks. In some cases, the layers are connected to dimensions of the frameworks. "@en ;
+  rdfs:label "Layer"@en ;
+.
+
+sto:OcfBlock
   a owl:Class ;
   rdfs:label "OCF Framework Block" ;
   rdfs:subClassOf sto:StandardClassification ;
 .
-<https://w3id.org/i40/sto/VDI/VDE_2182>
+st:VDE_2182
   a owl:NamedIndividual ;
   a foaf:Document ;
   a sto:Publication ;
@@ -18668,7 +18679,28 @@ sto:xTee
   sto:hasOfficialResource <http://www.vdi.eu/nc/guidelines/vdivde_2182_blatt_1-informationssicherheit_in_der_industriellen_automatisierung_allgemeines_vorgehensmode/> ;
   sto:hasPublisher sto:VDI ;
 .
-:x-road
+sto:hasDimension
+  a owl:ObjectProperty ;
+  rdfs:comment "Links the Standardization Frameworks with the Dimensions."@en ;
+  rdfs:domain sto:StandardizationFramework ;
+  rdfs:label "has Dimension"@en ;
+  rdfs:range sto:Dimension ;
+.
+sto:hasDimensionLayer
+  a owl:ObjectProperty ;
+  rdfs:comment "Links the Dimensions with Layers."@en ;
+  rdfs:domain sto:Dimension ;
+  rdfs:label "has Dimension Layer"@en ;
+  rdfs:range sto:Layer ;
+.
+sto:hasLayer
+  a owl:ObjectProperty ;
+  rdfs:comment "Links the Standardization Frameworks with the Layers "@en ;
+  rdfs:domain sto:StandardizationFramework ;
+  rdfs:label "has Layer"@en ;
+  rdfs:range :Layer ;
+.
+sto:x-road
   a owl:NamedIndividual ;
   a sto:DataSharingInitiative ;
   rdfs:label "x-road" ;
@@ -18694,9 +18726,3 @@ ids:TrustedConnector
   a owl:NamedIndividual ;
   rdfs:label "System Architect"@en ;
 .
-[
-  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true ;
-].
-[
-  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true ;
-].
