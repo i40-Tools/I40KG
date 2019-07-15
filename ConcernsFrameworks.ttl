@@ -7630,6 +7630,15 @@ sto:OceanBusinessViewpoint rdf:type owl:NamedIndividual ,
                            sto:frames sto:BusinessContext ,
                                       sto:BusinessTransactions ,
                                       sto:RoleCategorization ,
+                                      sto:DataPublishing,
+                                      sto:RegulatoryCompliance,
+                                      sto:DataEconomy,
+                                      sto:DataOwnership,
+                                      sto:DataMarkets,
+                                      sto:Governance,
+                                      sto:DataAccessControl,
+                                      sto:DataAnalytics,
+                                      sto:DataStorage,
                                       sto:Trustworthiness ;
                            sto:isDescribedin sto:OceanProtocol ;
                            rdfs:label "Ocean Protocol Business Viewpoint"@en .
@@ -7651,6 +7660,20 @@ sto:OceanBusinessViewpointAnno rdf:type owl:NamedIndividual ,
                                               oa:hasSource sto:Ocean_Protocol_Business_Strategy_Oct_2017
                                             ] .
 
+sto:OceanBusinessViewpointConcernsAnno rdf:type owl:NamedIndividual ,
+                                        oa:Annotation ;
+                               oa:hasBody sto:OceanBusinessViewpoint ;
+                               oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                              oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                               oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                   rdf:value "Page 41"
+                                                                                 ] ;
+                                                               oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                     rdf:value "Page 1"
+                                                                                   ]
+                                                             ] ;
+                                              oa:hasSource sto:Ocean_Protocol_Business_Strategy_Oct_2017
+                                            ] .
 
 ###  https://w3id.org/i40/sto#OceanMarketplaceViewpoint
 sto:OceanMarketplaceViewpoint rdf:type owl:NamedIndividual ,
@@ -7658,13 +7681,36 @@ sto:OceanMarketplaceViewpoint rdf:type owl:NamedIndividual ,
                                        sto:Viewpoint ;
                               dul:associatedWith sto:IIRABusinessViewpoint ;
                               sto:alignsWith sto:IIRABusinessViewpoint ;
-                              sto:frames sto:BusinessContext ;
+                              sto:frames sto:BusinessContext,
+                                         sto:DataStorage,
+                                         sto:LatencyReduction, 
+                                         sto:ProvenanceTracking,
+                                         sto:Authentication,
+                                         sto:DataIntegrity,
+                                         sto:Authorization,
+                                         sto:DataProcessing
+                                          ;
                               sto:isDescribedin sto:OceanProtocol ;
                               rdfs:label "Ocean Protocol Marketplace Viewpoint"@en .
 
 
 ###  https://w3id.org/i40/sto#OceanMarketplaceViewpointAnno
 sto:OceanMarketplaceViewpointAnno rdf:type owl:NamedIndividual ,
+                                           oa:Annotation ;
+                                  oa:hasBody sto:OceanMarketplaceViewpoint ;
+                                  oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                                 oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                                  oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                                      rdf:value "Page 27"
+                                                                                    ] ;
+                                                                  oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                                        rdf:value "Page 1"
+                                                                                      ]
+                                                                ] ;
+                                                 oa:hasSource sto:Ocean_Protocol_Reference_Marketplace_Framework_Feb_2019
+                                               ] .
+
+sto:OceanMarketplaceViewpointConcernsAnno rdf:type owl:NamedIndividual ,
                                            oa:Annotation ;
                                   oa:hasBody sto:OceanMarketplaceViewpoint ;
                                   oa:hasTarget [ rdf:type oa:SpecificResource ;
