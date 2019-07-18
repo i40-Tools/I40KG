@@ -424,8 +424,12 @@ sto:hasClassification rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasDeveloper
 sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf foaf:maker ;
+                 rdfs:label "has Developer"@en;
+                 rdfs:comment "Links the Standard Organization that developed the Publication with the specific type of publication, e.g., Standard, Technical Report"@en;
                  rdfs:domain sto:Publication ;
-                 rdfs:range sto:StandardOrganization .
+                 rdfs:range sto:StandardOrganization ;
+                 dcterms:creator sto:irlan ;                 
+                 .
 
 
 ###  https://w3id.org/i40/sto#hasDimension
