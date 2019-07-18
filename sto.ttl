@@ -18090,7 +18090,6 @@ sto:SCOR rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SE
 sto:SE rdf:type owl:NamedIndividual ,
-                foaf:Organization ,
                 sto:StandardOrganization ;
        sto:hasHeadquaterIn dbr:Paris ;
        sto:abbreviation "SE" ;
@@ -18104,10 +18103,8 @@ sto:SE rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SENML
 sto:SENML rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
+          dcterms:creator sto:sebastian, sto:irlan ;
           rdfs:comment "SENML (Media Types for Sensor Markup Language) - A simple sensor, such as a temperature sensor, could use this media type in protocols such as HTTP or CoAP to transport the measurements of the sensor or to be configured.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
           rdfs:label "SENML"@en ;
           sto:hasOfficialResource <https://tools.ietf.org/html/draft-jennings-senml-08> .
@@ -18115,10 +18112,8 @@ sto:SENML rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SMCP
 sto:SMCP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
+         dcterms:creator sto:sebastian, sto:irlan ;
          rdfs:comment "SMCP — A C-based CoAP stack which is suitable for embedded environments. Features include: Support draft-ietf-core-coap-13, Fully asynchronous I/O, Supports both BSD sockets and UIP. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "SMCP"@en ;
          sto:hasOfficialResource <https://github.com/darconeous/smcp/tree/smcp-0.6> .
@@ -18126,32 +18121,30 @@ sto:SMCP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SOAP
 sto:SOAP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
-         dcterms:creator sto:sebastian ;
+         dcterms:creator sto:sebastian, sto:irlan ;
          rdfs:comment "SOAP (Simple Object Access Protocol) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "SOAP"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SOAP> .
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SOAP> ;
+         sto:hasDBpediaResource <http://dbpedia.org/page/Service-oriented_architecture>;
+         .
 
 
 ###  https://w3id.org/i40/sto#SSI
 sto:SSI rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
+        dcterms:creator sto:sebastian, sto:irlan ;
         rdfs:comment "SSI (Simple Sensor Interface) is a simple communications protocol designed for data transfer between computers or user terminals and smart sensors. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
         rdfs:label "SSI"@en ;
-        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Simple_Sensor_Interface_protocol> .
+        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Simple_Sensor_Interface_protocol> ;
+        sto:hasDBpediaResource <http://dbpedia.org/page/Simple_Sensor_Interface_protocol> ;
+        .
 
 
 ###  https://w3id.org/i40/sto#SSN
 sto:SSN rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
-        dcterms:creator sto:sebastian ;
+        dcterms:creator sto:sebastian, sto:irlan ;
         rdfs:comment "Semantic Sensor Net Ontology - W3C This ontology describes sensors and observations, and related concepts. It does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
         rdfs:label "SSN"@en ;
         sto:hasOfficialResource <https://www.w3.org/2005/Incubator/ssn/wiki/Semantic_Sensor_Net_Ontology> .
