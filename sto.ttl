@@ -1,7 +1,5 @@
 # baseURI: https://w3id.org/i40/sto#
 # prefix: sto
-
-@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -827,10 +825,8 @@ sto:ASAM
 .
 sto:ASAM_ODS
   a owl:NamedIndividual ;
-  a foaf:Document ;
-  a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:ASAM ;
+  terms:creator sto:irlan ;
   rdfs:comment "Set up a test data management system on top of test systems that produce measured or calculated data from testing activities"@en ;
   rdfs:label "ASAM ODS"@en ;
   foaf:maker sto:ASAM ;
@@ -855,7 +851,7 @@ sto:ASME_Y1441
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:ASME ;
+  terms:creator sto:irlan ;
   rdfs:comment "ASME Y14.41 establishs requirements for model-based definition upon CAD software and those who use CAD software to create product definition within the 3D model."@en ;
   rdfs:label "ASME Y14.41"@en ;
   foaf:maker sto:ASME ;
@@ -1292,7 +1288,7 @@ sto:B2MML
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:MESA ;
+  terms:creator sto:irlan ;
   rdfs:comment "B2MML or Business To Manufacturing Markup Language is an XML implementation of the ANSI/ISA-95 family of standards (ISA-95)"@en ;
   rdfs:label "Business To Manufacturing Markup Language" ;
   skos:altLabel "IEC 62264"@en ;
@@ -1328,7 +1324,7 @@ sto:BBF_TR-069
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:BBF ;
+  terms:creator sto:irlan ;
   rdfs:comment "Digital Enhanced Cordless Telecommunications (DECT) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en ;
   rdfs:label "BBF TR-069"@en ;
   foaf:maker sto:BBF ;
@@ -1359,7 +1355,7 @@ sto:BPEL
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:OASIS ;
+  terms:creator sto:irlan ;
   rdfs:comment "The Web Services Business Process Execution Language (WS-BPEL), commonly known as BPEL Business Process Execution Language, is a standard executable language for specifying actions within business processes with web services."@en ;
   rdfs:label "Business Process Execution Language"@en ;
   foaf:maker sto:OASIS ;
@@ -2021,10 +2017,19 @@ sto:CAD
   a sto:Domain ;
   rdfs:comment "Computer-Aided Design"@en ;
   rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Computer-aided_design> ;
-  rdfs:label "CAD" ;
+  rdfs:label "CAD"@en;
   sto:domainName "Computer-Aided Design"@en ;
   sto:hasDBpediaResource <http://dbpedia.org/resource/Computer-aided_design> ;
 .
+
+sto:Enterprise_Control
+   a owl:NamedIndividual ;
+   a sto:Domain ;
+rdfs:label "Enterprise Control"@en;   
+sto:domainName "Enterprise Control"@en ;
+rdfs:comment "Enterprise Control Domain"@en;
+.
+
 sto:CASAGRAS
   a owl:NamedIndividual ;
   a foaf:Organization ;
@@ -5615,8 +5620,8 @@ sto:IEC_11404
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:IEC ;
-  terms:creator sto:ISO ;
+  terms:creator sto:irlan ;
+  rdfs:label "IEC 11404"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:hasDeveloper sto:IEC ;
@@ -5650,7 +5655,8 @@ sto:IEC_15408
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:ISO ;
+  terms:creator sto:irlan ;
+  rdfs:label "IEC 15408"@en ;
   foaf:maker sto:ISO ;
   sto:hasClassification sto:IIRASecurity ;
   sto:hasPublisher sto:ISO ;
@@ -5705,8 +5711,9 @@ sto:IEC_27018
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:IEC ;
-  terms:creator sto:ISO ;
+  terms:creator sto:irlan ;
+  terms:creator sto:sebastian ;
+  rdfs:label "IEC 27018"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:hasClassification sto:IIRAPrivacy ;
@@ -5720,8 +5727,9 @@ sto:IEC_27031
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:IEC ;
-  terms:creator sto:ISO ;
+  terms:creator sto:irlan ;
+  terms:creator sto:sebastian ;
+  rdfs:label "IEC 27031"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:domainName "Business Continuity"@en ;
@@ -5735,8 +5743,9 @@ sto:IEC_27036
   a foaf:Document ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:IEC ;
-  terms:creator sto:ISO ;
+  terms:creator sto:irlan ;
+  terms:creator sto:sebastian ;
+  rdfs:label "IEC 27036"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:hasClassification sto:IIRASecurity ;
@@ -5751,6 +5760,7 @@ sto:IEC_29100
   a sto:Standard ;
   terms:creator sto:IEC ;
   terms:creator sto:ISO ;
+  rdfs:label "IEC 29100"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:hasClassification sto:IIRAPrivacy ;
@@ -5800,7 +5810,7 @@ sto:IEC_29161
   rdfs:label "IEC 29161"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
-  sto:hasDomain "Automatic identification and data capture techniques"@en ;
+  sto:hasDomain sto:Automatic_Id_Data_Capture_Techniques ;
   sto:hasOfficialResource <https://webstore.iec.ch/publication/60834> ;
   sto:hasOfficialResource <https://www.iso.org/standard/45240.html> ;
   sto:hasPublicationDate "2016-08-01"^^xsd:date ;
@@ -5840,6 +5850,7 @@ sto:IEC_29190
   a sto:Standard ;
   terms:creator sto:IEC ;
   terms:creator sto:ISO ;
+  rdfs:label "IEC 29190"@en ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:hasClassification sto:IIRAPrivacy ;
@@ -7041,7 +7052,6 @@ sto:IEC_60870_P6_S2_E1
   terms:title "Telecontrol equipment and systems - Part 6: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Section 2: Use of basic standards (OSI layers 1-4)"@en ;
   rdfs:comment """Considers the standards related to layers 1-4 of the OSI reference model and describes the role and the functions carried out by each layer.
 This publication is of high relevance for Smart Grid."""@en ;
-  rdfs:comment "Considers the standards related to layers 1-4 of the OSI reference model and describes the role and the functions carried out by each layer.nThis publication is of high relevance for Smart Grid."@en ;
   rdfs:label "IEC 60870-6-2:1995"@en ;
   foaf:maker sto:IEC ;
   sto:hasAvailableLanguage lang:eng ;
@@ -7324,16 +7334,6 @@ sto:IEC_61010_P2_S012_E1
   terms:language lang:eng ;
   terms:language lang:fra ;
   terms:title "Safety requirements for electrical equipment for measurement, control, and laboratory use - Part 2-012: Particular requirements for climatic and environmental testing and other temperature conditioning equipment"@en ;
-  rdfs:comment """IEC 61010-2-012:2016 specifies safety requirements for electrical equipment and their accessories within the categories a) through c), wherever they are intended to be used, whenever that equipment incorporates one or more of the following characteristics:
-- A REFRIGERATING SYSTEM that is acted on or impacted by an integral heating function such that the combined heating and cooling system generates additional and/or more severe HAZARDS than those for the two systems if treated separately.
-- The materials being treated in the intended application introduce significant heat into the REFRIGERATING SYSTEM that the cooling system in the application yield additional and/or more severe HAZARDS than those for the cooling system if operated at the maximum RATED ambient alone.
-- An irradiation function for the materials being treated presenting additional HAZARDS.
-- A function to expose the materials being treated to excessive humidity, carbon dioxide, salt mist, or other substances which may result in additional HAZARDS.
-- A function of MECHANICAL MOVEMENT presenting additional HAZARDS.
-- Provision for an OPERATOR to walk-in to the operating area to load or unload the materials being treated.
-It has the status of a group safety publication in accordance with IEC Guide 104.
-This publication is to be read in conjunction with IEC 61010-1:2010."""@en ;
-  rdfs:comment "IEC 61010-2-012:2016 specifies safety requirements for electrical equipment and their accessories within the categories a) through c), wherever they are intended to be used, whenever that equipment incorporates one or more of the following characteristics:- A REFRIGERATING SYSTEM that is acted on or impacted by an integral heating function such that the combined heating and cooling system generates additional and/or more severe HAZARDS than those for the two systems if treated separately.- The materials being treated in the intended application introduce significant heat into the REFRIGERATING SYSTEM that the cooling system in the application yield additional and/or more severe HAZARDS than those for the cooling system if operated at the maximum RATED ambient alone.- An irradiation function for the materials being treated presenting additional HAZARDS.- A function to expose the materials being treated to excessive humidity, carbon dioxide, salt mist, or other substances which may result in additional HAZARDS.- A function of MECHANICAL MOVEMENT presenting additional HAZARDS.- Provision for an OPERATOR to walk-in to the operating area to load or unload the materials being treated.It has the status of a group safety publication in accordance with IEC Guide 104. This publication is to be read in conjunction with IEC 61010-1:2010."@en ;
   rdfs:comment "IEC 61010-2-012:2016 specifies safety requirements for electrical equipment and their accessories within the categories a) through c), wherever they are intended to be used, whenever that equipment incorporates one or more of the following characteristics:n- A REFRIGERATING SYSTEM that is acted on or impacted by an integral heating function such that the combined heating and cooling system generates additional and/or more severe HAZARDS than those for the two systems if treated separately.n- The materials being treated in the intended application introduce significant heat into the REFRIGERATING SYSTEM that the cooling system in the application yield additional and/or more severe HAZARDS than those for the cooling system if operated at the maximum RATED ambient alone.n- An irradiation function for the materials being treated presenting additional HAZARDS.n- A function to expose the materials being treated to excessive humidity, carbon dioxide, salt mist, or other substances which may result in additional HAZARDS.n- A function of MECHANICAL MOVEMENT presenting additional HAZARDS.n- Provision for an OPERATOR to walk-in to the operating area to load or unload the materials being treated.nIt has the status of a group safety publication in accordance with IEC Guide 104.nThis publication is to be read in conjunction with IEC 61010-1:2010."@en ;
   rdfs:label "IEC 61010-2-012:2016"@en ;
   foaf:maker sto:IEC ;
@@ -7951,7 +7951,7 @@ sto:IEC_61360
   sto:hasClassification sto:IDSRAMInformationLayer ;
   sto:hasClassification sto:ManufacturingModelData ;
   sto:hasClassification sto:RAMIAssetlayer ;
-  sto:hasDomain "Electrotechnical"@en ;
+  sto:hasDomain sto:Electrotechnical ;
   sto:hasMotivation "Standard data elements (properties) are used as elements in administration shell"@en ;
   sto:hasOfficialResource <http://cdd.iec.ch/cdd/iec61360/iec61360.nsf> ;
   sto:hasOfficialResource <https://webstore.iec.ch/publication/5380> ;
@@ -8605,8 +8605,6 @@ sto:IEC_61810_P7_E2
 .
 sto:IEC_61850
   a owl:NamedIndividual ;
-  a foaf:Document ;
-  a sto:Publication ;
   a sto:Standard ;
   rdfs:comment "IEC 61850 is a standard for vendor-agnostic engineering of the configuration of Intelligent Electronic Devices for electrical substation automation systems to be able to communicate with each other.."@en ;
   rdfs:label "IEC 61850"@en ;
@@ -9378,7 +9376,7 @@ sto:IEC_62264
   sto:hasClassification sto:RAMIFunctional ;
   sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_62264> ;
   sto:hasDeveloper sto:IEC ;
-  sto:hasDomain "Enterprise Control"@en ;
+  sto:hasDomain sto:Enterprise_Control ;
   sto:hasMotivation "Informational representation of MES and ERP models."@en ;
   sto:hasOfficialResource <http://www.iso.org/iso/catalogue_detail.htm?csnumber=63740> ;
   sto:hasOfficialResource <https://webstore.iec.ch/publication/6675> ;
@@ -11493,7 +11491,7 @@ sto:ISO_13849
   sto:hasClassification sto:IDSRAMCertification ;
   sto:hasClassification sto:IIRASecurity ;
   sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13849> ;
-  sto:hasDomain "Safety of machinery"@en ;
+  sto:hasDomain sto:Safety_Machinery ;
   sto:hasOfficialResource <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=69883> ;
   sto:hasPublisher sto:ISO ;
   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13849> ;
@@ -11603,6 +11601,7 @@ sto:ISO_15459
   a sto:Standard ;
   terms:creator sto:IEC ;
   terms:creator sto:ISO ;
+  rdfs:label "ISO 15459" ;
   foaf:maker sto:IEC ;
   foaf:maker sto:ISO ;
   sto:hasPublisher sto:IEC ;
@@ -12196,6 +12195,7 @@ sto:ISO_24760
   a sto:StandardClassification ;
   terms:creator sto:IEC ;
   dul:associatedWith sto:Identification ;
+  rdfs:label "ISO 24760" ;
   foaf:maker sto:IEC ;
   sto:alignsWith sto:Identification ;
   sto:hasClassification rami:Safety ;
@@ -12334,7 +12334,6 @@ sto:ISO_27019
 sto:ISO_27031
   a owl:NamedIndividual ;
   a foaf:Document ;
-  a sto:Domain ;
   a sto:Publication ;
   a sto:Standard ;
   dc11:title "Guidelines for information and communication technology readiness for business continuity"@en ;
@@ -12533,11 +12532,8 @@ sto:ISO_29190
 sto:ISO_42010
   a owl:NamedIndividual ;
   a foaf:Document ;
-  a sto:Domain ;
   a sto:Publication ;
   a sto:Standard ;
-  terms:creator sto:IEC ;
-  terms:creator sto:ISO ;
   terms:title "Systems and software engineering — Architecture description"@en ;
   rdfs:comment """ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages.
 
@@ -12782,6 +12778,31 @@ sto:ITSecurity
   rdfs:label "IT Security"@en ;
   skos:altLabel "Information Security Management"@en ;
 .
+
+sto:Safety_Machinery 
+a owl:NamedIndividual ;
+  a sto:Domain ;
+  rdfs:label "Safety of Machinery"@en ;
+  rdfs:comment "Safety of Machinery domain"@en ;
+  sto:domainName "Safety of Machinery"@en ;
+.
+
+sto:Automatic_Id_Data_Capture_Techniques 
+a owl:NamedIndividual ;
+  a sto:Domain ;
+  rdfs:label "Automatic Id Data Capture Techniques"@en ;
+  rdfs:comment "Automatic Id Data Capture Techniques domain"@en ;
+  sto:domainName "Automatic Id Data Capture Techniques"@en ;
+.
+
+sto:Electrotechnical 
+ a owl:NamedIndividual ;
+  a sto:Domain ;
+  rdfs:label "Electrotechnical"@en ;
+  rdfs:comment "Electrotechnical domain"@en;
+  sto:domainName "Electrotechnical"@en;
+ .
+
 sto:IVRA
   a owl:NamedIndividual ;
   a sto:ArchitectureDescription ;
@@ -13006,7 +13027,6 @@ sto:InterfaceNetworksDevicesAnno
 .
 sto:InternationalClassificationForStandards
   a owl:Class ;
-  a owl:NamedIndividual ;
   rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en ;
   rdfs:label "International Classification For Standards"@en ;
   rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
