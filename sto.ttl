@@ -219,6 +219,10 @@ lang:eng
   a terms:LinguisticSystem ;
   a owl:NamedIndividual ;
 .
+lang:deu
+  a terms:LinguisticSystem ;
+  a owl:NamedIndividual ;
+.
 lang:fra
   a terms:LinguisticSystem ;
   a owl:NamedIndividual ;
@@ -460,37 +464,36 @@ dul:isPartOf
   a owl:ObjectProperty ;
   rdfs:label "isPartOf"@en ;
 .
-:AiiClassification
+sto:AiiClassification
   a owl:Class ;
 .
-:AllianceOfIndustrialInternet
+
+sto:ArrowheadProject
   a owl:NamedIndividual ;
 .
-:ArrowheadProject
+sto:BDVA
   a owl:NamedIndividual ;
 .
-:BDVA
+sto:Fiware
   a owl:NamedIndividual ;
 .
-:Fiware
+
+sto:IndustrialInternetArchitecture
   a owl:NamedIndividual ;
 .
-:France
-  a owl:NamedIndividual ;
-.
-:IndustrialInternetArchitecture
-  a owl:NamedIndividual ;
-.
-:Layer
+sto:Layer
   a owl:Class ;
 .
-:OcfFramework
+
+sto:OcfFramework
   a owl:NamedIndividual ;
 .
-:OpenFogConsortium
+
+sto:OpenFogConsortium
   a owl:NamedIndividual ;
 .
-:x-road
+
+sto:x-road
   a owl:NamedIndividual ;
 .
 rdf:value
@@ -966,7 +969,7 @@ sto:AiiClassification
   rdfs:subClassOf sto:StandardClassification ;
 .
 sto:AiiData
-  a :AiiClassification ;
+  a sto:AiiClassification ;
   a owl:NamedIndividual ;
   rdfs:label "AII Data Classification"@en ;
   sto:alignsWith sto:IDSRAMInformationLayer ;
@@ -976,7 +979,7 @@ sto:AiiData
   sto:frames sto:Data_Collection ;
   sto:frames sto:EdgeComputing ;
   sto:frames sto:SemanticInteroperability ;
-  sto:isDescribedin :IndustrialInternetArchitecture ;
+  sto:isDescribedin sto:IndustrialInternetArchitecture ;
 .
 sto:AiiDataAnno
   a owl:NamedIndividual ;
@@ -999,7 +1002,7 @@ sto:AiiDataAnno
     ] ;
 .
 sto:AiiNetwork
-  a :AiiClassification ;
+  a sto:AiiClassification ;
   a owl:NamedIndividual ;
   rdfs:label "AII Network Classification"@en ;
   sto:alignsWith sto:IDSRAMSystemLayer ;
@@ -1010,7 +1013,7 @@ sto:AiiNetwork
   sto:frames sto:Connectivity ;
   sto:frames sto:Identification ;
   sto:frames sto:SyntacticInteroperability ;
-  sto:isDescribedin :IndustrialInternetArchitecture ;
+  sto:isDescribedin sto:IndustrialInternetArchitecture ;
 .
 sto:AiiNetworkAnno
   a owl:NamedIndividual ;
@@ -1034,14 +1037,14 @@ sto:AiiNetworkAnno
     ] ;
 .
 sto:AiiSecurity
-  a :AiiClassification ;
+  a sto:AiiClassification ;
   a owl:NamedIndividual ;
   rdfs:label "AII Security Classification"@en ;
   sto:alignsWith sto:IDSRAMSecurity ;
   sto:alignsWith sto:IIRASecurity ;
   sto:frames sto:DataAccess ;
   sto:frames sto:Security ;
-  sto:isDescribedin :IndustrialInternetArchitecture ;
+  sto:isDescribedin sto:IndustrialInternetArchitecture ;
 .
 sto:AiiSecurityAnno
   a owl:NamedIndividual ;
@@ -1077,13 +1080,13 @@ sto:AllianceIndustrieDuFutur
   a owl:NamedIndividual ;
   a sto:IIoTConsortium ;
   rdfs:label "Alliance Industrie du Futur"@en ;
-  sto:hasHeadquaterIn :France ;
+  sto:hasHeadquaterIn dbr:France ;
   sto:hasOfficialResource <http://www.industrie-dufutur.org/> ;
 .
 sto:AllianceOfIndustrialInternet
   a owl:NamedIndividual ;
   a sto:IIoTConsortium ;
-  rdfs:label "Alliance of Industrial Internet"@en ;
+  rdfs:label "Alliance of Industrial Internet"@en ; 
   skos:altLabel "工业互联网产业联盟"@cn ;
   sto:hasHeadquaterIn dbr:China ;
   sto:seeAlso <http://www.aii-alliance.org/> ;
@@ -1160,7 +1163,7 @@ sto:ArrowheadFramework
   a sto:IIoTConsortium ;
   a sto:StandardizationFramework ;
   rdfs:label "Arrowhead Framework" ;
-  sto:hasPublisher :ArrowheadProject ;
+  sto:hasPublisher sto:ArrowheadProject ;
   sto:seeAlso <http://www.arrowhead.eu/> ;
 .
 sto:ArrowheadProject
@@ -1833,7 +1836,7 @@ sto:BdvaSira
   terms:title "BDVA Strategic Research and Innovation Agenda"@en ;
   rdfs:comment "This Strategic Research and Innovation Agenda (SRIA) defines the overall goals, main technical and non-technical priorities, and a research and innovation roadmap for the European Public Private Partnership (PPP) on Big Data Value. The SRIA has been developed by the Big Data Value Association (BDVA), an industry-led organisation representing large businesses, small and medium-sized enterprises (SMEs), and research organisations in Europe."@en ;
   rdfs:label "BDVA SIRA"@en ;
-  sto:hasPublisher :BDVA ;
+  sto:hasPublisher sto:BDVA ;
 .
 sto:BdvaSiraAnno
   a owl:NamedIndividual ;
@@ -3547,7 +3550,7 @@ sto:FIWARE
   sto:alignsWith sto:IDSRAMSystemLayer ;
   sto:alignsWith sto:IIRAImplementationViewpoint ;
   sto:hasOfficialResource <https://www.fiware.org/> ;
-  sto:hasPublisher :Fiware ;
+  sto:hasPublisher sto:Fiware ; 
 .
 sto:FIWAREAnno
   a owl:NamedIndividual ;
@@ -12896,14 +12899,15 @@ sto:IndustrialInternetArchitecture
   a sto:ArchitectureDescription ;
   rdfs:label "AII Industrial Internet Architecture"@en ;
   sto:hasOfficialResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf> ;
-  sto:hasPublisher :AllianceOfIndustrialInternet ;
-.
+  sto:hasPublisher sto:AllianceOfIndustrialInternet ;
+. 
+
 sto:IndustrialInternetStandardSystem
   a owl:NamedIndividual ;
   a sto:Publication ;
   rdfs:comment "Industrial Internet involves all industrial segment and all entities of industry field and ICT field, and it’s forming a complicated and total new ecological system. With industrial system networking and collaboration increasing, lots of new standardization requirements rise. While considering about the problems for Industrial Internet such as standard lacking, standard lagging, and standard duplicated, under the guidance of the Ministry of Industry and Information Technology (MIIT), Alliance of Industrial Internet (referred to as AII hereinafter) launched the study on the Industrial Internet standard system. Based on Industrial Internet Architecture (Version 1.0) and research on Industrial Internet standard requirements, AII drafted the Report on Industrial Internet Standard System (Version 1.0). In this Report, we propose the general idea, basic principles, standard system framework, key standardization directions and promotion suggestions. It aims to provide a systemized guidance of Industrial  Internet standardization for the industrial communities, to provide references and basis for development and amendment of Industrial Internet national standards, industrial standards and group standards, and to provide support for Industrial Internet development."@en ;
-  rdfs:label "Industrial Internet Standard System" ;
-  sto:hasPublisher :AllianceOfIndustrialInternet ;
+  rdfs:label "Industrial Internet Standard System"@en ;
+  sto:hasPublisher sto:AllianceOfIndustrialInternet ;
 .
 sto:IndustrialProcessMeasurementControl
   a owl:NamedIndividual ;
@@ -12928,7 +12932,7 @@ sto:Industrial_Value_Chain_Reference_Architecture_IVRA
   a owl:NamedIndividual ;
   a <https://www.w3.org/ns/oaSpecificResource> ;
   rdfs:label "Industrial Value Chain Reference Architecture (IVRA)"@en ;
-  skos:note "Industrial Value Chain Reference Architecture (IVRA) Industrial Value Chain Initiative " ;
+  rdfs:comment "Industrial Value Chain Reference Architecture (IVRA) Industrial Value Chain Initiative "@en ;
   sto:hasOpenResource <https://iv-i.org/docs/doc_161208_Industrial_Value_Chain_Reference_Architecture.pdf> ;
 .
 sto:Industrial_Value_Chain_Reference_Architecture_IVRA_Next
@@ -15368,7 +15372,7 @@ sto:OcfCoreFramework
   sto:frames sto:Identification ;
   sto:frames sto:ServiceDiscovery ;
   sto:frames sto:SyntacticInteroperability ;
-  sto:isDescribedin :OcfFramework ;
+  sto:isDescribedin sto:OcfFramework ;
 .
 sto:OcfCoreFrameworkAnno
   a owl:NamedIndividual ;
@@ -15599,7 +15603,7 @@ sto:OpenFogReferenceArchitecture
   rdfs:comment "The OpenFog Reference Architecture (OpenFog RA) is intended to help business leaders, software developers, silicon architects, and system designers create and maintain the hardware, software and system elements necessary for fog computing."@en ;
   rdfs:label "OpenFog Reference Architecture"@en ;
   sto:hasOfficialResource <https://www.openfogconsortium.org/ra/> ;
-  sto:hasPublisher :OpenFogConsortium ;
+  sto:hasPublisher sto:OpenFogConsortium ;
 .
 sto:OpenFogSecurityPerspective
   a owl:NamedIndividual ;
@@ -18506,7 +18510,7 @@ sto:hasLayer
   rdfs:comment "Links the Standardization Frameworks with the Layers "@en ;
   rdfs:domain sto:StandardizationFramework ;
   rdfs:label "has Layer"@en ;
-  rdfs:range :Layer ;
+  rdfs:range sto:Layer ;
 .
 sto:hasMotivation
   a owl:ObjectProperty ;
@@ -18972,7 +18976,7 @@ sto:xTee
   a sto:ArchitectureDescription ;
   a sto:StandardizationFramework ;
   rdfs:label "x-Tee"@en ;
-  sto:hasPublisher :x-road ;
+  sto:hasPublisher sto:x-road ;
 .
 ids:TrustedConnector
   a owl:NamedIndividual ;
