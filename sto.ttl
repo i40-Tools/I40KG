@@ -236,12 +236,6 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
               .
 
 
-###  https://w3id.org/i40/sto#hasMotivation
-sto:hasMotivation rdf:type owl:AnnotationProperty ;
-                  rdfs:range deo:Motivation .
-
-
-
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
 sto:hasWikipediaArticle rdf:type owl:AnnotationProperty .
 
@@ -356,7 +350,7 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:range dbo:Country ;
               dcterms:creator sto:irlan;
               rdfs:label "belongs To"@en ;
-              rdfs:comment "A Standard Organization that belongs to the country"@en .
+              rdfs:comment "A Standard Organization that belongs to the country"@en ;
               .
 
 
@@ -429,8 +423,10 @@ sto:hasLayer rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasMotivation
-sto:hasMotivation rdf:type owl:ObjectProperty ;
-                  rdfs:domain sto:Publication .
+sto:hasMotivation rdf:type owl:DatatypeProperty ;
+                  rdfs:domain sto:Publication ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "has Motivation"@en .
 
 
 ###  https://w3id.org/i40/sto#hasPreviousVersion
@@ -576,9 +572,6 @@ sto:hasFileSize skos:note """1. Reference for om2:Measure <http://www.ontology-o
 
 sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
                     rdfs:comment "Denotes the countries in which the Headquarter of the organization who publishes the Standart"@en .
-
-
-sto:hasMotivation rdfs:label "has Motivation"@en .
 
 
 sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
@@ -2395,8 +2388,7 @@ sto:FileSizeIEC_60382 rdf:type owl:NamedIndividual ,
                       om2:hasUnit om2:kilobyte ;
                       om2:hasNumericalValue "1460.0"^^xsd:float ,
                                             "557.0"^^xsd:float ;
-                      rdfs:comment "Specifies the file size of the document for standard  IEC 60382:1991."@en ,
-                                   "Specifies the file size of the document for standard IEC 60382:1991"@en ;
+                      rdfs:comment "Specifies the file size of the document for standard  IEC 60382:1991."@en ;
                       rdfs:label "FileSize IEC 60382:1991"@en ;
                       skos:note "todo" .
 
@@ -3833,27 +3825,24 @@ sto:IEC_14443 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_15408
 sto:IEC_15408 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;  
               dcterms:creator sto:irlan ;
-              rdfs:label "IEC 11404"@en ;
-			  skos:note "todo, inconsistent label number" ;
-              foaf:maker sto:ISO ;
+              rdfs:label "IEC 15408"@en ;
               sto:hasClassification sto:IIRASecurity ;
-              sto:hasPublisher sto:ISO .
+              sto:hasPublisher sto:ISO ;
+              sto:Tag "Common Criteria"@en,
+                      "CC";
+              rdfs:comment "The Common Criteria for Information Technology Security Evaluation (referred to as Common Criteria or CC) is an international standard (ISO/IEC 15408) for computer security certification"@en;
+              sto:hasDBpediaResource <http://dbpedia.org/page/Common_Criteria>;
+              sto:hasOfficialResource <https://www.iso.org/standard/40612.html> ;
+              .
 
 
 ###  https://w3id.org/i40/sto#IEC_15459
 sto:IEC_15459 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               owl:sameAs sto:ISO_15459 ;
-              dcterms:creator sto:IEC ,
-                              sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasTag "Information technology -- Automatic identification and data capture techniques -- Unique identification"@en ;
@@ -3865,8 +3854,6 @@ sto:IEC_15459 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_24760
 sto:IEC_24760 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ,
                        sto:StandardClassification ;
               dcterms:creator sto:IEC ;
