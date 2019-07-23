@@ -353,7 +353,11 @@ foaf:maker rdf:type owl:ObjectProperty .
 sto:belongsTo rdf:type owl:ObjectProperty ;
               rdfs:domain foaf:Organization ,
                           sto:StandardOrganization ;
-              rdfs:range dbo:Country .
+              rdfs:range dbo:Country ;
+              dcterms:creator sto:irlan;
+              rdfs:label "belongs To"@en ;
+              rdfs:comment "A Standard Organization that belongs to the country"@en .
+              .
 
 
 
@@ -543,9 +547,6 @@ sto:uses rdf:type owl:NamedIndividual ;
          dcterms:creator sto:irlan .
 
 
-sto:belongsTo rdfs:label "belongs To"@en ;
-              rdfs:comment "A Standard Organization that belongs to the country"@en .
-
 
 sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ;
                          rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
@@ -583,7 +584,7 @@ sto:hasMotivation rdfs:label "has Motivation"@en .
 sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:anyURI ;
                         rdfs:domain sto:Publication ;
-                        rdfs:comment "Points to the URL of the official website from which published the document"@en ,
+                        rdfs:comment "Points to the URL of the official website from which published the document"@en ;
                         rdfs:label "has Official Resource"@en .
 
 
@@ -11717,10 +11718,9 @@ sto:WolframLanguage rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Written
-sto:Written rdf:type owl:NamedIndividual ,
+lang:deu rdf:type owl:NamedIndividual ,
                      dcterms:LinguisticSystem ;
-            rdfs:comment "Describes a Written Linguistic System"@en ;
-            rdfs:label "Written"@en .
+            rdfs:label "Deu"@en .
 
 
 ###  https://w3id.org/i40/sto#X509
@@ -11736,8 +11736,6 @@ sto:X509 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#XMPP
 sto:XMPP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "XMPP (Extensible Messaging and Presence Protocol): An open technology for real-time communication, which powers a wide range of applications including instant messaging, presence, multi-party chat, voice and video calls, collaboration, lightweight middleware, content syndication, and generalized routing of XML data. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -11747,8 +11745,6 @@ sto:XMPP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#XMPP-IoT
 sto:XMPP-IoT rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:TechnicalSpecification ;
              dcterms:creator sto:sebastian ;
              rdfs:comment "XMPP-IoT: In the same manor as XMPP silently has created people to people communication interoperable. We are aiming to make communication machine to people and machine to machine interoperable. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -11758,29 +11754,22 @@ sto:XMPP-IoT rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ZVEI
 sto:ZVEI rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          dcterms:title "German Electrical and Electronic Manufacturers' Association"@en ,
                        "Zentralverband Elektrotechnik- und Elektronikindustrie"@de ;
          rdfs:comment "The ZVEI is one of the most important manufacturers' associations in Germany. It represents the interests of a high-tech branch with a very widely varied and extremely dynamic product portfolio."@en ;
          rdfs:label "ZVEI"@en ;
-         sto:hasOfficialResource <https://www.zvei.org/> .
+         sto:hasOfficialResource <https://www.zvei.org/> ;
+         .
 
 
 ###  https://w3id.org/i40/sto#ZigBee
 sto:ZigBee rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:TechnicalSpecification ;
-           dcterms:creator sto:sebastian ;
+           dcterms:creator sto:sebastian, sto:irlan ;
            rdfs:comment "The ZigBee protocol uses the 802.15.4 standard and operates in the 2.4 GHz frequency range with 250 kbps. The maximum number of nodes in the network is 1024 with a range up to 200 meter. ZigBee can use 128 bit AES encryption. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
            rdfs:label "ZigBee"@en ;
            sto:hasOfficialResource <http://www.zigbee.org/> .
-
-
-###  https://w3id.org/i40/sto#belongsTo
-sto:belongsTo rdf:type owl:NamedIndividual ;
-              dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#bitkom
