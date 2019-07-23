@@ -836,10 +836,6 @@ dul:Collection rdf:type owl:Class .
 owl:class rdf:type owl:Class .
 
 
-###  http://www.w3.org/2002/07/owl#namedIndividial
-owl:namedIndividial rdf:type owl:Class .
-
-
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class .
 
@@ -1007,7 +1003,9 @@ sto:TechnicalCommittee rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#TechnicalReport
 sto:TechnicalReport rdf:type owl:Class ;
-                    rdfs:subClassOf sto:Publication .
+                    rdfs:subClassOf sto:Publication ;
+                    sto:abbreviation "TR" ;
+                    .
 
 
 ###  https://w3id.org/i40/sto#TechnicalSpecification
@@ -1467,8 +1465,6 @@ sto:ANSI rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ANT
 sto:ANT rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
         dcterms:creator sto:sebastian ;
         rdfs:comment "ANT is a proprietary wireless sensor network technology featuring a wireless communications protocol stack that enables semiconductor radios operating in the 2.4 GHz Industrial, Scientific and Medical allocation of the RF spectrum (ISM band) to communicate by establishing standard rules for co-existence, data representation, signalling, authentication and error detection.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -1707,8 +1703,6 @@ rdfs:comment "Enterprise Control Domain"@en .
 
 ###  https://w3id.org/i40/sto#CCN
 sto:CCN rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
         dcterms:creator sto:sebastian ;
         rdfs:comment "Content-Centric Networking (CCN). Next-gen network architecture to solve challenges in content distribution scalability, mobility, and security. CCN directly routes and delivers named pieces of content at the packet level of the network, enabling automatic and application-neutral caching in memory wherever it’s located in the network. The result? Efficient and effective delivery of content wherever and whenever it is needed. Since the architecture enables these caching effects as an automatic side effect of packet delivery, memory can be used without building expensive application-level caching services. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -1748,8 +1742,6 @@ sto:CyberSecurity rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DDS
 sto:DDS rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
         dcterms:creator sto:sebastian ;
         rdfs:comment "DDS (Data-Distribution Service for Real-Time Systems): The first open international middleware standard directly addressing publish-subscribe communications for real-time and embedded systems. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -2065,8 +2057,6 @@ sto:DeviceLevel rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DigiMesh
 sto:DigiMesh rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:TechnicalSpecification ;
              dcterms:creator sto:sebastian ;
              rdfs:comment "DigiMesh is a proprietary peer-to-peer networking topology for use in wireless end-point connectivity solutions. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -2175,8 +2165,6 @@ sto:ETSI_ULE rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EcGsmIoT
 sto:EcGsmIoT rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:TechnicalSpecification ;
              dcterms:creator sto:sebastian ;
              rdfs:comment "EC-GSM-IoT (Extended Coverage-GSM-IoT): Enables new capabilities of existing cellular networks for LPWA (Low Power Wide Area) IoT applications. EC-GSM-IoT can be activated through new software deployed over a very large GSM footprint, adding even more coverage to serve IoT devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -2186,8 +2174,6 @@ sto:EcGsmIoT rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EclipsePaho
 sto:EclipsePaho rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:TechnicalSpecification ;
                 dcterms:creator sto:sebastian ;
                 rdfs:comment "The scope of the Paho project is to provide open source implementations of open and standard messaging protocols that support current and emerging requirements of M2M integration with Web and Enterprise middleware and applications. It will include client implementations for use on embedded platforms along with corresponding server support as determined by the community. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -2197,10 +2183,8 @@ sto:EclipsePaho rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Eddystone
 sto:Eddystone rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian ;
+              dcterms:creator sto:sebastian, sto:irlan ;
               rdfs:comment "Eddystone - A protocol specification that defines a Bluetooth low energy (BLE) message format for proximity beacon messages. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "Eddystone"@en ;
               sto:hasOfficialResource <https://github.com/google/eddystone> .
@@ -2208,8 +2192,6 @@ sto:Eddystone rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EnOcean
 sto:EnOcean rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
                      sto:TechnicalSpecification ;
             dcterms:creator sto:sebastian ;
             rdfs:comment "EnOcean is a an energy harvesting wireless technology which works in the frequencies of 868 MHz for europe and 315 MHz for North America. The transmit range goes up to 30 meter in buildings and up to 300 meter outdoor. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -3526,11 +3508,8 @@ sto:GPLv2 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#HTML
 sto:HTML rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
-         dcterms:creator sto:IETF ;
-         foaf:maker sto:IETF ;
+         dcterms:creator sto:irlan ;
          sto:hasDeveloper sto:IETF ;
          sto:hasPublisher sto:IETF ;
          rdfs:label "HTML"@en .
@@ -3538,12 +3517,9 @@ sto:HTML rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#HTTP
 sto:HTTP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
-         dcterms:creator sto:IETF ,
+         dcterms:creator sto:irlan ,
                          sto:sebastian ;
-         foaf:maker sto:IETF ;
          sto:hasDeveloper sto:IETF ;
          sto:hasPublisher sto:IETF ;
          rdfs:comment "HTTP is the most widely used protocol for internet communication."@en ;
@@ -3560,12 +3536,9 @@ sto:HTTP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#HTTP2
 sto:HTTP2 rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:TechnicalSpecification ;
-          dcterms:creator sto:IETF ,
+          dcterms:creator sto:irlan ,
                           sto:sebastian ;
-          foaf:maker sto:IETF ;
           sto:hasDeveloper sto:IETF ;
           sto:hasPublisher sto:IETF ;
           rdfs:comment "HTTP/2 - Enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -3575,8 +3548,6 @@ sto:HTTP2 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#HyperCat
 sto:HyperCat rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:TechnicalSpecification ;
              dcterms:creator sto:sebastian ;
              rdfs:comment "HyperCat - An open, lightweight JSON-based hypermedia catalogue format for exposing collections of URIs. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -3829,8 +3800,6 @@ sto:ICS_35_240_50 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ID4me
 sto:ID4me rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:TechnicalSpecification ;
           dcterms:creator sto:sebastian ;
           rdfs:comment "ID4me is a federated digital identity service that aims to provide two main functions: (1) Authorization of a user for access to any third party accepting ID4me identifiers (“single sign-on” on an Internet scale); (2) Controlled communication of the user’s personal information to the third parties accessed by the user."@en ;
@@ -7856,12 +7825,9 @@ sto:IEC_62061 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62237
 sto:IEC_62237 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ,
                        sto:TechnicalSpecification ;
               dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
               sto:hasClassification rami:AdminShellGeneral ,
                                     rami:ControlDevice ,
                                     rami:FieldDevice ,
@@ -8228,12 +8194,9 @@ sto:IEC_62769_P1 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62794
 sto:IEC_62794 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ,
                        sto:TechnicalReport ;
-              dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification rami:AdminShellGeneral ,
                                     rami:ControlDevice ,
                                     rami:FieldDevice ,
@@ -8257,13 +8220,9 @@ sto:IEC_62794 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62832
 sto:IEC_62832 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ,
                        sto:TechnicalSpecification ;
-              dcterms:creator sto:IEC ;
-              dcterms:language lang:eng ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan ;
               sto:hasAvailableLanguage lang:eng ;
               sto:hasClassification rami:AdminShellGeneral ,
                                     sto:RAMIControlDevice ,
@@ -8565,13 +8524,13 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISA10011a
 sto:ISA10011a rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian ;
+              dcterms:creator sto:sebastian, sto:irlan ;
               rdfs:comment "ISA100.11a is a wireless networking technology standard developed by the International Society of Automation (ISA). The official description is Wireless Systems for Industrial Automation: Process Control and Related Application. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "ISA100.11a"@en ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISA100.11a> .
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISA100.11a> ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/ISA100.11a>;
+              .
 
 
 ###  https://w3id.org/i40/sto#ISA95
@@ -11484,18 +11443,6 @@ sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
                        sto:abbreviation "TC" .
 
 
-###  https://w3id.org/i40/sto#TechnicalReport
-sto:TechnicalReport rdf:type owl:NamedIndividual ,
-                             owl:namedIndividial ;
-                    sto:abbreviation "TR" .
-
-
-###  https://w3id.org/i40/sto#TechnicalSpecification
-sto:TechnicalSpecification rdf:type owl:NamedIndividual ,
-                                    owl:namedIndividial ;
-                           sto:abbreviation "TS" .
-
-
 ###  https://w3id.org/i40/sto#Technology
 sto:Technology rdf:type owl:NamedIndividual ;
                dcterms:creator sto:sebastian .
@@ -11503,8 +11450,6 @@ sto:Technology rdf:type owl:NamedIndividual ;
 
 ###  https://w3id.org/i40/sto#Telehash
 sto:Telehash rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:TechnicalSpecification ;
              dcterms:creator sto:sebastian ;
              rdfs:comment "Telehash - JSON+UDP+DHT=Freedom: A secure wire protocol powering a decentralized overlay network for apps and devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -11514,8 +11459,6 @@ sto:Telehash rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Thread
 sto:Thread rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "Thread - Built on open standards and IPv6 technology with 6LoWPAN as its foundation. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
