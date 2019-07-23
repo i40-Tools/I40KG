@@ -31,27 +31,22 @@
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                             dcterms:modified "2017-09-08"^^xsd:date ,
                                              "2019-01-23"^^xsd:date ;
-                            sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
                             vann:preferredNamespaceUri "https://w3id.org/i40/sto/" ;
-                            owl:versionInfo "0.4" ,
-                                            "0.3" ;
-                            rdfs:label "Internet of Things (IOT)"@en ;
+                            owl:versionInfo "0.4" ;
+                            rdfs:label "Industry 4.0 Knowledge Graph"@en ;
                             dcterms:title "Standards Ontology"@en ;
-                            rdfs:comment "An ontology to describe standards related to Industry 4.0 and Smart Manufacturing"@en ;
-                            rdfs:comment "The Internet of things (IoT) is the network of devices such as vehicles, and home appliances that contain electronics, software, sensors, actuators, and connectivity which allows these things to connect, interact and exchange data."@en ;
+                            rdfs:comment "A Knowledge Graph to describe standards and standardization frameworks related to Industry 4.0 and Smart Manufacturing"@en ;
                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
                             doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                             vann:preferredNamespaceUri "https://w3id.org/i40/sto#" ;
                             vann:preferredNamespacePrefix "sto" ;
                             dcterms:created "2017-01-25"^^xsd:date ;
-                            dcterms:creator <http://data.semanticweb.org/person/steffen-lohmann> ,
-                                            <http://http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/> ,
-                                            sto:irlan ,
+                            dcterms:creator sto:irlan,
+                                            sto:sebastian ,  
+                                             <http://data.semanticweb.org/person/steffen-lohmann> ,
                                             <https://www.linkedin.com/in/paul-baptista-601177b2> ;
-                            foaf:maker <http://data.semanticweb.org/person/steffen-lohmann> ,
-                                       sto:irlan ,
-                                       <https://www.linkedin.com/in/paul-baptista-601177b2> .
+                           .
 
 
 #################################################################
@@ -232,10 +227,13 @@ sto:hasDBpediaResource rdf:type owl:AnnotationProperty ;
                        rdfs:comment "Instance's DBpedia Resource"@en ;
                        rdfs:label "has DBpedia Resource"@en .
 
-
 ###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:AnnotationProperty ;
-              rdfs:range sto:Domain .
+sto:hasDomain rdf:type owl:ObjectProperty ;
+              rdfs:domain sto:Publication ;
+              rdfs:range sto:Domain ;
+              rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
+              rdfs:label "has Domain"@en ;
+              .
 
 
 ###  https://w3id.org/i40/sto#hasMotivation
@@ -403,12 +401,6 @@ sto:hasDimensionLayer rdf:type owl:ObjectProperty ;
                       rdfs:comment "Links the Dimensions with Layers."@en ;
                       rdfs:label "has Dimension Layer"@en .
 
-
-###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:ObjectProperty ;
-              rdfs:domain sto:Publication .
-
-
 ###  https://w3id.org/i40/sto#hasFileSize
 sto:hasFileSize rdf:type owl:ObjectProperty ;
                 rdfs:domain foaf:Document ;
@@ -528,11 +520,6 @@ sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  dcterms:creator sto:irlan .
 
 
-###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:ObjectProperty ;
-              dcterms:creator sto:irlan .
-
-
 ###  https://w3id.org/i40/sto#hasFileSize
 sto:hasFileSize rdf:type owl:ObjectProperty ;
                 dcterms:creator sto:irlan .
@@ -582,9 +569,6 @@ sto:hasDeveloper rdfs:label "has Developer"@en ;
                  rdfs:comment "The organization that developed this Standard"@en .
 
 
-sto:hasDomain rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
-              rdfs:label "has Domain"@en ;
-              rdfs:comment "Points to the domain in which the standard is used"@en .
 
 
 sto:hasFileSize skos:note """1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
