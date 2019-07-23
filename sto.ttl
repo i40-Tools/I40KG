@@ -241,11 +241,6 @@ sto:hasMotivation rdf:type owl:AnnotationProperty ;
                   rdfs:range deo:Motivation .
 
 
-###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:AnnotationProperty ;
-                        rdfs:range xsd:anyURI ;
-                        rdfs:domain sto:Publication .
-
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
 sto:hasWikipediaArticle rdf:type owl:AnnotationProperty .
@@ -503,12 +498,9 @@ sto:useStructureOf rdf:type owl:ObjectProperty ;
 sto:uses rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf sto:relatedTo .
 
-
-
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          dcterms:creator sto:irlan .
-
 
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
@@ -555,8 +547,7 @@ sto:belongsTo rdfs:label "belongs To"@en ;
               rdfs:comment "A Standard Organization that belongs to the country"@en .
 
 
-sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ,
-                                    "has Available Language"@en ;
+sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ;
                          rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
                                       "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
@@ -589,8 +580,10 @@ sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
 sto:hasMotivation rdfs:label "has Motivation"@en .
 
 
-sto:hasOfficialResource rdfs:comment "Points to the URL of the official websilte from which published the document"@en ,
-                                     "Standard Official Website"@en ;
+sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
+                        rdfs:range xsd:anyURI ;
+                        rdfs:domain sto:Publication ;
+                        rdfs:comment "Points to the URL of the official website from which published the document"@en ,
                         rdfs:label "has Official Resource"@en .
 
 
@@ -687,10 +680,6 @@ sto:hasObjective rdf:type owl:DatatypeProperty ;
                  rdfs:range xsd:string ;
                  rdfs:comment "Specifies the objectives for the different ISA 95 levels."@en ;
                  rdfs:label "has Objective"@en .
-
-
-###  https://w3id.org/i40/sto#hasOfficialResource
-sto:hasOfficialResource rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#hasOntology
@@ -1632,11 +1621,8 @@ sto:BPEL rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#BPMN
 sto:BPMN rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:Standard ;
-         dcterms:creator sto:OMG ;
-         foaf:maker sto:OMG ;
+         dcterms:creator sto:irlan ;
          sto:hasClassification sto:SCM ;
          sto:hasDeveloper sto:OMG ;
          sto:hasTag "BPMN"@en ;
@@ -1735,7 +1721,6 @@ sto:DDS rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DIN
 sto:DIN rdf:type owl:NamedIndividual ,
-                 foaf:Organization ,
                  sto:StandardOrganization ;
         sto:belongsTo dbr:Germany ;
         sto:hasHeadquaterIn dbr:Berlin ;
@@ -1753,12 +1738,10 @@ sto:DIN rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DIN_77005_P1
 sto:DIN_77005_P1 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
-                          sto:Publication ,
                           sto:Standard ;
-                 dcterms:creator sto:DIN ;
-                 foaf:maker sto:DIN ;
+                 dcterms:creator sto:irlan ;
                  sto:hasPublisher sto:DIN ;
+                 sto:hasAvailableLanguage lang:deu;
                  sto:hasPublicationDate "2018-09-01"^^xsd:date ;
                  sto:hasTag "DIN 77005-1:2018-09" ;
                  rdfs:comment "Lifecycle record of technical objects - Part 1: Structural and content-related specifications"@en ;
@@ -4106,9 +4089,6 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
 sto:IEC_60027_P6_E1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
                     dcterms:creator sto:IEC ;
-                    dcterms:language lang:eng ,
-                                     lang:fra ,
-                                     lang:spa ;
                     foaf:maker sto:IEC ;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ,
@@ -4134,10 +4114,7 @@ sto:IEC_60027_P6_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60038_E7
 sto:IEC_60038_E7 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 dcterms:creator sto:IEC ;
-                 dcterms:language lang:eng ,
-                                  lang:fra ,
-                                  lang:spa ;
+                 dcterms:creator sto:sebastian, sto:irlan ;
                  foaf:maker sto:IEC ;
                  sto:hasAvailableLanguage lang:eng ,
                                           lang:fra ,
@@ -4163,8 +4140,6 @@ sto:IEC_60038_E7 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_60050
 sto:IEC_60050 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               sto:relatedTo sto:IEC_60050 ,
                             sto:IEC_60050_1984 ,
@@ -4192,12 +4167,8 @@ sto:IEC_60050_2013 rdf:type owl:NamedIndividual .
 ###  https://w3id.org/i40/sto#IEC_60050_P101_E2
 sto:IEC_60050_P101_E2 rdf:type owl:NamedIndividual ,
                                sto:StandardPart ;
-                      dcterms:creator sto:IEC ;
-                      dcterms:language lang:eng ,
-                                       lang:fra ,
-                                       lang:spa ;
+                      dcterms:creator sto:irlan ;
                       dul:isComponentOf sto:IEC_60050 ;
-                      foaf:maker sto:IEC ;
                       sto:hasAvailableLanguage lang:eng ,
                                                lang:fra ,
                                                lang:spa ;
@@ -4225,9 +4196,7 @@ sto:IEC_60050_P101_E2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050_P351_E4
 sto:IEC_60050_P351_E4 rdf:type owl:NamedIndividual ,
                                sto:StandardPart ;
-                      dcterms:creator sto:IEC ;
-                      dcterms:language lang:eng ,
-                                       lang:fra ;
+                      dcterms:creator sto:irlan ;
                       dul:isComponentOf sto:IEC_60050 ;
                       foaf:maker sto:IEC ;
                       sto:hasAvailableLanguage lang:eng ,
@@ -4255,10 +4224,7 @@ sto:IEC_60050_P351_E4 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050_P371_E1
 sto:IEC_60050_P371_E1 rdf:type owl:NamedIndividual ,
                                sto:StandardPart ;
-                      dcterms:creator sto:IEC ;
-                      dcterms:language lang:eng ,
-                                       lang:fra ,
-                                       lang:rus ;
+                      dcterms:creator sto:irlan ;
                       dul:isComponentOf sto:IEC_60050 ;
                       foaf:maker sto:IEC ;
                       sto:hasAvailableLanguage lang:eng ,
