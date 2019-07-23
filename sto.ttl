@@ -345,8 +345,7 @@ foaf:maker rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/i40/sto#belongsTo
 sto:belongsTo rdf:type owl:ObjectProperty ;
-              rdfs:domain foaf:Organization ,
-                          sto:StandardOrganization ;
+              rdfs:domain sto:StandardOrganization ;
               rdfs:range dbo:Country ;
               dcterms:creator sto:irlan;
               rdfs:label "belongs To"@en ;
@@ -365,7 +364,8 @@ sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasClassification
 sto:hasClassification rdf:type owl:ObjectProperty ;
                       rdfs:domain sto:Publication ;
-                      rdfs:range sto:StandardClassification .
+                      rdfs:range sto:StandardClassification ;
+                      dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasDeveloper
@@ -425,7 +425,7 @@ sto:hasLayer rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasMotivation
 sto:hasMotivation rdf:type owl:DatatypeProperty ;
                   rdfs:domain sto:Publication ;
-                  rdfs:range xsd:string ;
+                  rdfs:range rdfs:Literal ;
                   rdfs:label "has Motivation"@en .
 
 
@@ -501,11 +501,6 @@ sto:uses rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          dcterms:creator sto:irlan .
-
-###  https://w3id.org/i40/sto#hasClassification
-sto:hasClassification rdf:type owl:ObjectProperty ;
-                      dcterms:creator sto:irlan .
-
 
 ###  https://w3id.org/i40/sto#hasDeveloper
 sto:hasDeveloper rdf:type owl:ObjectProperty ;
@@ -1455,7 +1450,6 @@ sto:APICS rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ASAM
 sto:ASAM rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:Germany ;
          sto:hasHeadquaterIn dbr:Hoehenkirchen_Siegertsbrunn ;
@@ -4002,16 +3996,13 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_29182-1
-sto:IEC_29182-1 rdf:type owl:NamedIndividual .
+sto:IEC_29182-1 rdf:type owl:NamedIndividual, sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_29182_P1
 sto:IEC_29182_P1 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 dcterms:creator sto:IEC ,
-                                 sto:ISO ;
-                 foaf:maker sto:IEC ,
-                            sto:ISO ;
+                 dcterms:creator sto:irlan ;
                  sto:hasClassification sto:ProductionSystemModelData ,
                                        sto:RAMICommunicationlayer ,
                                        sto:RAMIControlDevice ,
@@ -4031,15 +4022,10 @@ sto:IEC_29182_P1 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_29190
 sto:IEC_29190 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               rdfs:label "IEC 29190"@en ;
               owl:sameAs sto:ISO_29190 ;
-              dcterms:creator sto:IEC ,
-                              sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -4049,14 +4035,10 @@ sto:IEC_29190 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_42010
 sto:IEC_42010 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               owl:sameAs sto:ISO_42010 ;
-              dcterms:creator sto:IEC ,
-                              sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
+              dcterms:creator sto:sebastian ,
+                              sto:irlan ;
               sto:hasPublisher sto:IEC ,
                                sto:IEEE ,
                                sto:ISO ;
@@ -4076,8 +4058,7 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60027_P6_E1
 sto:IEC_60027_P6_E1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
-                    foaf:maker sto:IEC ;
+                    dcterms:creator sto:irlan ;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ,
                                              lang:spa ;
@@ -4141,15 +4122,16 @@ sto:IEC_60050 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_1984
-sto:IEC_60050_1984 rdf:type owl:NamedIndividual .
+sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
+                            sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_1998
-sto:IEC_60050_1998 rdf:type owl:NamedIndividual .
+sto:IEC_60050_1998 rdf:type owl:NamedIndividual, sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_2013
-sto:IEC_60050_2013 rdf:type owl:NamedIndividual .
+sto:IEC_60050_2013 rdf:type owl:NamedIndividual, sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_P101_E2
@@ -4186,7 +4168,6 @@ sto:IEC_60050_P351_E4 rdf:type owl:NamedIndividual ,
                                sto:StandardPart ;
                       dcterms:creator sto:irlan ;
                       dul:isComponentOf sto:IEC_60050 ;
-                      foaf:maker sto:IEC ;
                       sto:hasAvailableLanguage lang:eng ,
                                                lang:fra ;
                       sto:hasFileSize sto:FileSizeIEC_60050_P351 ;
@@ -4214,7 +4195,6 @@ sto:IEC_60050_P371_E1 rdf:type owl:NamedIndividual ,
                                sto:StandardPart ;
                       dcterms:creator sto:irlan ;
                       dul:isComponentOf sto:IEC_60050 ;
-                      foaf:maker sto:IEC ;
                       sto:hasAvailableLanguage lang:eng ,
                                                lang:fra ,
                                                lang:rus ;
@@ -6618,8 +6598,6 @@ sto:IEC_61506 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_61508
 sto:IEC_61508 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               owl:sameAs sto:ISO_61508 ;
               dcterms:creator sto:IEC ,
@@ -8349,7 +8327,8 @@ sto:IEEE_2413 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEEE_42010
-sto:IEEE_42010 rdf:type owl:NamedIndividual ;
+sto:IEEE_42010 rdf:type owl:NamedIndividual, 
+               sto:Standard ;
                owl:sameAs sto:ISO_42010 .
 
 
@@ -8473,12 +8452,10 @@ sto:ISA_62443 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO
 sto:ISO rdf:type owl:NamedIndividual ,
                  dul:Collection ,
-                 foaf:Organization ,
                  sto:StandardOrganization ;
         sto:belongsTo dbr:Switzerland ;
         sto:hasHeadquaterIn dbr:Geneva ;
-        sto:abbreviation "ISO" ,
-                         "ISO"^^xsd:string ;
+        sto:abbreviation "ISO" ;
         sto:formationDate "1947-02-23"^^xsd:date ;
         sto:orgName "International Organization for Standardization"@en ,
                     "Internationale Organisation für Normung"@de ,
@@ -8495,11 +8472,8 @@ sto:ISO rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_10303
 sto:ISO_10303 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:ISO ;
-              foaf:maker sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:ProductLifeCycleManagement ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_10303 ,
@@ -9824,16 +9798,14 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ISO_61508
-sto:ISO_61508 rdf:type owl:NamedIndividual .
+sto:ISO_61508 rdf:type owl:NamedIndividual ,
+                       sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#ISO_8062-4
 sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
                         sto:Standard ;
-               dcterms:creator sto:ISO ;
-               foaf:maker sto:ISO ;
+               dcterms:creator sto:irlan ;
                sto:hasClassification sto:ProductionSystemModelData ,
                                      sto:RAMIAssetlayer ,
                                      sto:RAMIProduct ;
@@ -10194,7 +10166,6 @@ sto:MESA rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#MIIT
 sto:MIIT rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:China ;
          sto:hasHeadquaterIn dbr:Beijing ;
@@ -10365,7 +10336,6 @@ sto:NFC rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST
 sto:NIST rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:United_States ;
          sto:hasHeadquaterIn dbr:_Maryland ;
