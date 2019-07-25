@@ -6126,8 +6126,6 @@ This publication is of high relevance for Smart Grid."""@en ,
 
 ###  https://w3id.org/i40/sto#IEC_61360
 sto:IEC_61360 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
@@ -6172,8 +6170,6 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_61400
 sto:IEC_61400 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:IEC ;
               foaf:maker sto:IEC ;
@@ -6359,11 +6355,8 @@ sto:IEC_61400_P25_S6_E2 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_61499
 sto:IEC_61499 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:RAMIControlDevice ,
                                     sto:RAMIFieldDevice ;
               sto:hasPublisher sto:IEC ;
@@ -6404,13 +6397,8 @@ sto:IEC_61499 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_61506
 sto:IEC_61506 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              dcterms:language lang:eng ,
-                               lang:fra ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan, sto:sebastian ;
               sto:hasAvailableLanguage lang:eng ,
                                        lang:fra ;
               sto:hasFileSize sto:FileSizeIEC_61506 ;
@@ -6432,10 +6420,8 @@ sto:IEC_61506 rdf:type owl:NamedIndividual ,
 sto:IEC_61508 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_61508 ;
-              dcterms:creator sto:IEC ,
-                              sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
+              dcterms:creator sto:sebastian , 
+                                 sto:irlan ;
               sto:hasClassification rami:Safety ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
@@ -6786,8 +6772,6 @@ sto:IEC_61810_P7_E2 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_61850
 sto:IEC_61850 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               sto:hasPublisher sto:IEC ;
               rdfs:comment "IEC 61850 is a standard for vendor-agnostic engineering of the configuration of Intelligent Electronic Devices for electrical substation automation systems to be able to communicate with each other.."@en ;
@@ -7511,11 +7495,9 @@ sto:IEC_61970_P452_E3 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_61987_X
 sto:IEC_61987_X rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:Standard ;
-                dcterms:creator sto:IEC ;
-                foaf:maker sto:IEC ;
+                dcterms:creator sto:irlan, 
+                                sto:sebastian ;
                 sto:hasClassification rami:Engineering ,
                                       sto:RAMIControlDevice ,
                                       sto:RAMIEnterprise ,
@@ -7524,6 +7506,8 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
                                       sto:RAMIStation ,
                                       sto:RAMIWorkCenter ;
                 sto:hasPublisher sto:IEC ;
+                sto:hasAvailableLanguage lang:eng , 
+                                         lang:fra ;
                 sto:hasTag "LOPs in PA"@en ;
                 dcterms:license sto:PrivateLicenseDocument ;
                 rdfs:comment "Industrial-process measurement and control - Data structures and elements in process equipment catalogs - Measuring equipment with analogue and digital output"@en ;
