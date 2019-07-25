@@ -241,7 +241,7 @@ sto:hasWikipediaArticle rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/i40/sto#hasstatus
-sto:hasstatus rdf:type owl:AnnotationProperty .
+sto:hasStatus rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/i40/sto#isPartOf
@@ -3841,14 +3841,10 @@ sto:IEC_27036 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_29100
 sto:IEC_29100 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29100 ;
               dcterms:creator sto:irlan ,
                               sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -4456,13 +4452,9 @@ sto:IEC_60381_P2_E1 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_60382
 sto:IEC_60382 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              dcterms:language lang:eng ,
-                               lang:fra ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:sebastian, 
+                              sto:irlan ;
               sto:hasAvailableLanguage lang:eng ,
                                        lang:fra ;
               sto:hasFileSize sto:FileSizeIEC_60382 ;
@@ -4557,7 +4549,7 @@ sto:IEC_60839_P7_S1_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Describes the requirements for standard serial data interfaces in alarm transmission systems. Gives an outline of how alarm transmission systems are connected and the various types of serial data interfaces that might be employed."@en ;
                        rdfs:label "IEC 60839-7-1:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3666> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S2_E1
@@ -4583,7 +4575,7 @@ sto:IEC_60839_P7_S2_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Specifies a common application layer protocol (message structure, formats and transmission procedures) to be used at standard interfaces in alarm transmission systems. Should be used at all such interfaces where equipment from one supplier is intended to inter-work with equipment from other suppliers."@en ;
                        rdfs:label "IEC 60839-7-2:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3669> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S3_E1
@@ -4609,7 +4601,7 @@ sto:IEC_60839_P7_S3_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Specifies the data link layer message structure, formats and transmission procedures which should be used at standard serial data interfaces in alarm transmission systems where the transmission network employed does not offer a standard protocol. Is necessary in order to ensure compatibility of equipment from different suppliers."@en ;
                        rdfs:label "IEC 60839-7-3:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3671> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S4_E1
@@ -4635,7 +4627,7 @@ sto:IEC_60839_P7_S4_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Specifies the transport layer message structure, formats and transmission procedures to be used at standard interfaces in alarm transmission systems. Should be used at all such interfaces where equipment from one supplier is intended to inter-work with equipment from other suppliers, and where the underlying system architecture does not provide the necessary facilities to support the common application layer."@en ;
                        rdfs:label "IEC 60839-7-4:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3672> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S5_E1
@@ -4661,7 +4653,7 @@ sto:IEC_60839_P7_S5_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Specifies the requirements for standard interfaces using a two-wire connection employing ISO/IEC 8482 signalling for use between the control and indicating equipment of an alarm system and one or more alarm system transceivers connected to alarm transmission systems."@en ;
                        rdfs:label "IEC 60839-7-5:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3673> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S6_E1
@@ -4687,7 +4679,7 @@ sto:IEC_60839_P7_S6_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Specifies the requirements for standard interfaces employing ITU-T V.24/V.28 signalling for communications between the control and indicating equipment of an alarm system and transmission equipment used for remote communications, where the transmission equipment is general purpose equipment. Is intended to be used as interfacing to standard modems, packet switching networks, X.25 PADs, etc."@en ;
                        rdfs:label "IEC 60839-7-6:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3674> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S7_E1
@@ -4713,7 +4705,7 @@ sto:IEC_60839_P7_S7_E1 rdf:type owl:NamedIndividual ,
                        rdfs:comment "Specifies the requirements for standard interfaces between the control and indicating equipment (CIE) of an alarm system and an alarm system transceiver where the alarm system transceiver is intended to plug into a standard space inside the CIE of the alarm system."@en ;
                        rdfs:label "IEC 60839-7-7:2001"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3675> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60848_E3
@@ -4739,7 +4731,7 @@ sto:IEC_60848_E3 rdf:type owl:NamedIndividual ,
                  rdfs:comment "IEC 60848:2013 defines the GRAFCET specification language for the functional description of the behaviour of the sequential part of a control system. It specifies the symbols and rules for the graphical representation of this language, as well as for its interpretation and has been prepared for automated production systems of industrial applications. This third edition cancels and replaces the second edition published in 2002 and constitutes a global technical revision with the extended definition of the concept of variables introducing: internal variable, input variable and output variable."@en ;
                  rdfs:label "IEC 60848:2013"@en ;
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/3684> ;
-                 sto:hasstatus "Valid" .
+                 sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60864_P1_E1
@@ -4765,7 +4757,7 @@ sto:IEC_60864_P1_E1 rdf:type owl:NamedIndividual ,
                     rdfs:comment "Applies to all classes of transmitters for sound and television broadcasting. Deals with the interface between a transmitter (or system of transmitters) and the supervisory equipment which is intended to remotely monitor and/or control the transmitter(s). Details the interconnections and facilities to be provided with a view to achieving compatibility between different types and makes of transmitters and supervisory equipment."@en ;
                     rdfs:label "IEC 60864-1:1986 "@en ;
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/3727> ;
-                    sto:hasstatus "Valid" .
+                    sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60864_P2_E1
@@ -4792,16 +4784,13 @@ sto:IEC_60864_P2_E1 rdf:type owl:NamedIndividual ,
                                  "Deals with the itnerface between a transmitter (or system of transmitters) and the supervisory equipment which is entended to remotely monitor and/or control the transmitter(s). It details the interconnections and facilities to be provided with a view to achieving compatibility between different types and makes of transmitters and supervisory equipement."@en ;
                     rdfs:label "IEC 60864-2:1997"@en ;
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/3728> ;
-                    sto:hasstatus "Valid" .
+                    sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870
 sto:IEC_60870 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan ;
               sto:hasPublisher sto:IEC ;
               rdfs:comment "In electrical engineering and power system automation, the IEC 60870 series define systems used for telecontrol (supervisory control and data acquisition)"@en ;
               rdfs:label "IEC 60870"@en ;
@@ -4812,11 +4801,10 @@ sto:IEC_60870 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60870_P2_S1_E2
 sto:IEC_60870_P2_S1_E2 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan ;
                        dcterms:language lang:eng ,
                                         lang:fra ,
                                         lang:spa ;
-                       foaf:maker sto:IEC ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ,
                                                 lang:spa ;
@@ -4837,17 +4825,14 @@ sto:IEC_60870_P2_S1_E2 rdf:type owl:NamedIndividual ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3738> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P2_S2_E1
 sto:IEC_60870_P2_S2_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
-                       dcterms:language lang:eng ,
-                                        lang:fra ,
-                                        lang:spa ;
-                       foaf:maker sto:IEC ;
+                       dcterms:creator sto:sebastian, 
+                                       sto:irlan ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ,
                                                 lang:spa ;
@@ -4867,7 +4852,7 @@ sto:IEC_60870_P2_S2_E1 rdf:type owl:NamedIndividual ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3739> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S101_E2_1
@@ -4896,7 +4881,7 @@ This publication is of high relevance for Smart Grid. This consolidated version 
                            sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                            sto:hasOfficialResource <https://webstore.iec.ch/publication/23822> ;
                            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                           sto:hasstatus "Valid" .
+                           sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S102_E1
@@ -4925,7 +4910,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3744> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S103_E1
@@ -4954,7 +4939,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3745> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S104_E2_1
@@ -4983,7 +4968,7 @@ This publication is of high relevance for Smart Grid. This consolidated version 
                            sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                            sto:hasOfficialResource <https://webstore.iec.ch/publication/25035> ;
                            sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                           sto:hasstatus "Valid" .
+                           sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S1_E1
@@ -5010,7 +4995,7 @@ sto:IEC_60870_P5_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3742> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S2_E1
@@ -5039,7 +5024,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3747> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S3_E1
@@ -5068,7 +5053,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3748> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S4_E1
@@ -5097,7 +5082,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3749> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S5_E1
@@ -5126,7 +5111,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3750> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S6_E1
@@ -5153,7 +5138,7 @@ sto:IEC_60870_P5_S6_E1 rdf:type owl:NamedIndividual ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3751> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S2_1995
@@ -5205,7 +5190,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/3757> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                       sto:hasstatus "Valid" .
+                       sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S501_1995
@@ -5258,7 +5243,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3758> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S502_1995
@@ -5311,7 +5296,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3759> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S503_2014
@@ -5362,7 +5347,7 @@ sto:IEC_60870_P6_S503_E3 rdf:type owl:NamedIndividual ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3760> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S601_E1
@@ -5391,7 +5376,7 @@ This publication is of high relevance for Smart Grid."""@en ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3765> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S701_E1
@@ -5420,7 +5405,7 @@ This publication is of high relevance for Smart Grid"""@en ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3767> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S702_E2
@@ -5450,7 +5435,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3768> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S802_E3
@@ -5478,7 +5463,7 @@ sto:IEC_60870_P6_S802_E3 rdf:type owl:NamedIndividual ,
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3769> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60870> ;
-                         sto:hasstatus "Valid" .
+                         sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_60904
@@ -5517,7 +5502,7 @@ sto:IEC_60946_E1 rdf:type owl:NamedIndividual ,
                  rdfs:comment "Applies to non-multiplexed two wire binary direct voltage signals of nominal 24 V level that are used in industrial-process measurement and control systems to transmit information between elements of systems."@en ;
                  rdfs:label "IEC 60946:1988"@en ;
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/3961> ;
-                 sto:hasstatus "Valid" .
+                 sto:hasStatus "Valid" .
 
 
 ###  https://w3id.org/i40/sto#IEC_61000_P6_S2_E3
@@ -5543,7 +5528,7 @@ IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and elect
                                     "IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nIEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."@en ;
                        rdfs:label "IEC 61000-6-2:2016"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/25629> ;
-                       sto:hasstatus "Redline version" .
+                       sto:hasStatus "Redline version" .
 
 
 ###  https://w3id.org/i40/sto#IEC_61010_P2_S012_E1
@@ -11499,8 +11484,6 @@ lang:deu rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#X509
 sto:X509 rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:Standard ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "Standard for public key infrastructure (PKI) to manage digital certificates and public-key encryption. A key part of the Transport Layer Security protocol used to secure web and email communication.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -11564,8 +11547,6 @@ sto:communication rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#eClass
 sto:eClass rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
            dcterms:creator sto:eClassAssoc ;
            foaf:maker sto:eClassAssoc ;
@@ -11627,13 +11608,9 @@ sto:eClassAssoc rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ebXML
 sto:ebXML rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:Standard ;
-          dcterms:creator sto:OASIS ,
-                          sto:UN-CEFACT ;
-          foaf:maker sto:OASIS ,
-                     sto:UN-CEFACT ;
+          dcterms:creator sto:irlan ,
+                          sto:sebastian ;
           sto:hasClassification sto:BusinessProcessExecution ;
           sto:hasPublisher sto:OASIS ,
                            sto:UN-CEFACT ;
@@ -11656,18 +11633,17 @@ sto:irlan rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#mDNS
 sto:mDNS rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "mDNS (multicast Domain Name System) - Resolves host names to IP addresses within small networks that do not include a local name server. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "mDNS"@en ;
-         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Multicast_DNS> .
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Multicast_DNS> ;
+         sto:hasDBpediaResource <http://dbpedia.org/page/Multicast_DNS>;
+         .
 
 
 ###  https://w3id.org/i40/sto#oneM2M
 sto:oneM2M rdf:type owl:NamedIndividual ,
-                    foaf:Organization ,
                     sto:StandardOrganization ;
            rdfs:comment "The purpose and goal of oneM2M is to develop technical specifications which address the need for a common M2M Service Layer that can be readily embedded within various hardware and software, and relied upon to connect the myriad of devices in the field with M2M application servers worldwide. A critical objective of oneM2M is to attract and actively involve organizations from M2M-related business domains such as: telematics and intelligent transportation, healthcare, utilities, industrial automation, smart homes, etc."@en ;
            rdfs:label "oneM2M"@en ;
@@ -11676,8 +11652,6 @@ sto:oneM2M rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#openAAS
 sto:openAAS rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
                      sto:TechnicalSpecification ;
             dcterms:creator sto:sebastian ;
             dul:associatedWith sto:AdministrationShell ;
@@ -11699,8 +11673,6 @@ sto:sebastian rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#uIP
 sto:uIP rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
         dcterms:creator sto:sebastian ;
         rdfs:comment "The uIP is an open source TCP/IP stack capable of being used with tiny 8- and 16-bit microcontrollers. It was initially developed by Adam Dunkels of the 'Networked Embedded Systems' group at the Swedish Institute of Computer Science, licensed under a BSD style license, and further developed by a wide group of developers. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
