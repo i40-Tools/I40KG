@@ -358,6 +358,9 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
                          rdfs:domain foaf:Document ;
+                         rdfs:label "hasAvailableLanguage"@en ;
+                         rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
+                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
                          rdfs:range dcterms:LinguisticSystem .
 
 
@@ -498,14 +501,9 @@ sto:useStructureOf rdf:type owl:ObjectProperty ;
 sto:uses rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf sto:relatedTo .
 
-###  https://w3id.org/i40/sto#hasAvailableLanguage
-sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
-                         dcterms:creator sto:irlan .
-
 ###  https://w3id.org/i40/sto#hasDeveloper
 sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  dcterms:creator sto:irlan .
-
 
 ###  https://w3id.org/i40/sto#hasFileSize
 sto:hasFileSize rdf:type owl:ObjectProperty ;
@@ -522,26 +520,6 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
                  dcterms:creator sto:irlan .
 
 
-
-###  https://w3id.org/i40/sto#relatedTo
-sto:relatedTo rdf:type owl:NamedIndividual ;
-              dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#useStructureOf
-sto:useStructureOf rdf:type owl:NamedIndividual ;
-                   dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#uses
-sto:uses rdf:type owl:NamedIndividual ;
-         dcterms:creator sto:irlan .
-
-
-
-sto:hasAvailableLanguage rdfs:label "hasAvailableLanguage"@en ;
-                         rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
-                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
 
 sto:hasClassification rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
@@ -1649,7 +1627,7 @@ sto:CCN rdf:type owl:NamedIndividual ,
 sto:CGMES rdf:type owl:NamedIndividual ,
                    sto:RelevantSubject ;
           rdfs:comment "Specification for Energy Management"@en ;
-          rdfs:label "CGMES: Common Grid Model Exchange Specification "@en ;
+          rdfs:label "CGMES: Common Grid Model Exchange Specification"@en ;
           sto:hasOpenResource <https://docstore.entsoe.eu/Documents/CIM_documents/IOP/CGMES_2_5_TechnicalSpecification_61970-600_Part%201_Ed2.pdf> ;
           sto:seeAlso <https://docstore.entsoe.eu/major-projects/common-information-model-cim/cim-for-grid-models-exchange/standards/Pages/default.aspx> .
 
@@ -1861,7 +1839,7 @@ sto:DIN_SPEC_16592 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_SPEC_16593_P1
 sto:DIN_SPEC_16593_P1 rdf:type owl:NamedIndividual ,
                                sto:Standard ;
-                      dcterms:creator sto:sebastian
+                      dcterms:creator sto:sebastian ,
                                       sto:irlan ;
                       sto:hasPublisher sto:DIN ;
                       sto:hasPublicationDate "2018-04-01"^^xsd:date ;
@@ -1903,7 +1881,7 @@ sto:DIN_SPEC_91345 rdf:type owl:NamedIndividual ,
                    sto:hasPages "40"^^xsd:int ;
                    sto:hasPublicationDate "2016-04-01"^^xsd:date ;
                    rdfs:comment "Reference Architecture Model Industrie 4.0 (RAMI4.0) English translation of DIN SPEC 91345:2016-04"@en ;
-                   rdfs:label "DIN SPEC 91345:2016-04"@en ,
+                   rdfs:label "DIN SPEC 91345:2016-04"@en ;
                    sto:hasOfficialResource <https://www.beuth.de/en/technical-rule/din-spec-91345/250940128> .
 
 
@@ -1944,7 +1922,7 @@ sto:DMSC rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DTLS
 sto:DTLS rdf:type owl:NamedIndividual ,
                   sto:Standard ;
-         dcterms:creator sto:sebastian
+         dcterms:creator sto:sebastian ,
                          sto:irlan ;
          rdfs:comment "Datagram Transport Layer - The DTLS protocol provides communications privacy for datagram protocols. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. The DTLS protocol is based on the Transport Layer Security (TLS) protocol and provides equivalent security guarantees. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "DTLS"@en ;
@@ -3717,7 +3695,8 @@ sto:IEC rdf:type owl:NamedIndividual ,
 sto:IEC_11404 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_11404 ;
-              dcterms:creator sto:IEC 
+              dcterms:creator sto:irlan ,
+                              sto:sebastian ; 
               sto:hasDeveloper sto:IEC ,
                                sto:ISO ;
               sto:hasPublisher sto:ISO ;
@@ -4708,7 +4687,8 @@ sto:IEC_60864_P1_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60864_P2_E1
 sto:IEC_60864_P2_E1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
+                    dcterms:creator sto:sebastian , 
+                                    sto:irlan ;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ;
                     sto:hasFileSize sto:FileSizeIEC_60864_P2 ;
@@ -7456,11 +7436,8 @@ sto:IEC_62264_P6 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62279
 sto:IEC_62279 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:Safety ;
               sto:hasPublisher sto:IEC ;
               sto:hasPublicationDate "2015-06-25"^^xsd:date ;
@@ -7472,11 +7449,8 @@ sto:IEC_62279 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62337
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
-              foaf:maker sto:IEC ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification rami:ConditionMonitoring ,
                                     rami:Lifecycle_Status ,
                                     sto:ProductionSystemModelData ,
@@ -7484,6 +7458,8 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
                                     sto:RAMIFunctionalLayer ,
                                     sto:RAMIWorkCenter ;
               sto:hasPublisher sto:IEC ;
+              sto:hasAvailableLanguage lang:eng ,
+                                       lang:fra ;
               sto:relatedTo sto:IEC_62237 ,
                             sto:IEC_62337 ;
               sto:hasPublicationDate "2012-02-22"^^xsd:date ;
@@ -7495,12 +7471,9 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62424
 sto:IEC_62424 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan  ;
               dul:isComponentOf sto:IEC_62714 ;
-              foaf:maker sto:IEC ;
               sto:hasPublisher sto:IEC ;
               sto:hasTag "CAEX"@en ;
               dcterms:license sto:PrivateLicenseDocument ;
@@ -7690,7 +7663,6 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
                             sto:ISO_29002 ,
                             sto:ISO_ASTM_52915 ,
                             sto:ISO_PAS_17506 ,
-                            sto:MathML ,
                             sto:SysML ,
                             sto:eClass ;
               sto:uses sto:MathML ;
@@ -7708,7 +7680,6 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
 sto:IEC_62769_P1 rdf:type owl:NamedIndividual ,
                           sto:standard ;
                  dcterms:creator sto:irlan ;
-                 foaf:maker sto:IEC ;
                  sto:hasAvailableLanguage lang:eng ,
                                           lang:fra ;
                  sto:hasFileSize sto:FileSizeIEC_62769_P1 ;
@@ -7745,8 +7716,7 @@ sto:IEC_62794 rdf:type owl:NamedIndividual ,
               sto:relatedTo sto:IEC_62794 ,
                             sto:IEC_62832 ;
               sto:hasTag "DF/TR"@en ;
-              dcterms:hasLicense "Private"@en ;
-              dcterms:license sto:PrivateLicenseDocument ;
+              dcterms:hasLicense sto:PrivateLicenseDocument ;
               rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
               rdfs:label "IEC TR 62794"@en ;
               sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. "@en ;
@@ -7781,12 +7751,10 @@ sto:IEC_62832 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62837
 sto:IEC_62837 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              foaf:maker sto:IEC ;
               sto:hasPublisher sto:IEC ;
+              sto:hasAvailableLanguage lang:eng;
               rdfs:comment "Provides to the technical committees a framework for the development and adaptation of documents in order to improve energy efficiency in manufacturing, process control and industrial facility management."@en ;
               rdfs:label "IEC 62837"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/7446> .
@@ -7794,11 +7762,8 @@ sto:IEC_62837 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_62890
 sto:IEC_62890 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              foaf:maker sto:IEC ;
               sto:hasClassification rami:Lifecycle_Status ,
                                     sto:ProductionLifeCycleDataManagement ,
                                     sto:RAMIStation ,
@@ -7815,13 +7780,9 @@ sto:IEC_62890 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_81714
 sto:IEC_81714 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:irlan ,
-                              sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
+                              sto:sebastian ;
               sto:hasClassification rami:Engineering ,
                                     rami:Identification ,
                                     sto:ModelingPractice ,
@@ -7838,11 +7799,8 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_PAS_63088
 sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
-                           foaf:Document ,
-                           sto:Publication ,
                            sto:Standard ;
                   dcterms:creator sto:irlan ;
-                  foaf:maker sto:IEC ;
                   sto:hasPublisher sto:IEC ;
                   sto:hasPublicationDate "2017-03-07"^^xsd:date ;
                   sto:hasTag "RAMI 4.0" ;
@@ -7881,10 +7839,8 @@ sto:IEEE rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_1377-2012
 sto:IEEE_1377-2012 rdf:type owl:NamedIndividual ,
-                            foaf:Document ,
-                            sto:Publication ,
-                            sto:Standard ;
-                   dcterms:creator sto:sebastian ;
+                            sto:Standard ; 
+                            dcterms:creator sto:sebastian ;
                    rdfs:comment "IEEE Standard for Utility Industry Metering Communication Protocol Application Layer (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
                    rdfs:label "IEEE 1377-2012"@en ;
                    sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1377-2012.html> .
@@ -7892,8 +7848,6 @@ sto:IEEE_1377-2012 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_1451
 sto:IEEE_1451 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
               rdfs:comment "The IEEE 1451, a family of Smart Transducer Interface Standards, describes a set of open, common, network-independent communication interfaces for connecting transducers (sensors or actuators) to microprocessors, instrumentation systems, and control/field networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -7903,11 +7857,9 @@ sto:IEEE_1451 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_1686
 sto:IEEE_1686 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEEE ;
-              foaf:maker sto:IEEE ;
+              dcterms:creator sto:sebastian,
+                              sto:irlan ;
               sto:hasClassification sto:IDSRAMSecurity ;
               sto:hasDeveloper sto:IEEE ;
               sto:hasPublisher sto:IEEE ;
@@ -7921,8 +7873,6 @@ sto:IEEE_1686 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_1856
 sto:IEEE_1856 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
               rdfs:comment "Standard Framework for Prognostics and Health Management of Electronic Systems (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -7932,8 +7882,6 @@ sto:IEEE_1856 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_1888-3-2013
 sto:IEEE_1888-3-2013 rdf:type owl:NamedIndividual ,
-                              foaf:Document ,
-                              sto:Publication ,
                               sto:Standard ;
                      dcterms:creator sto:sebastian ;
                      rdfs:comment " - IEEE Standard for Ubiquitous Green Community Control Network: Security (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -7943,8 +7891,6 @@ sto:IEEE_1888-3-2013 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_1905_1-2013
 sto:IEEE_1905_1-2013 rdf:type owl:NamedIndividual ,
-                              foaf:Document ,
-                              sto:Publication ,
                               sto:Standard ;
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "IEEE Standard for a Convergent Digital Home Network for Heterogeneous Technologies (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -7954,8 +7900,6 @@ sto:IEEE_1905_1-2013 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_2413
 sto:IEEE_2413 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
               rdfs:comment "IEEE P2413 - Standard for an Architectural Framework for the Internet of Things (IoT) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -7971,19 +7915,18 @@ sto:IEEE_42010 rdf:type owl:NamedIndividual,
 
 ###  https://w3id.org/i40/sto#IEEE_802
 sto:IEEE_802 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
-             dcterms:creator sto:sebastian ;
+             dcterms:creator sto:sebastian , 
+                             sto:irlan ;
              rdfs:comment "IEEE 802.15.4 is a standard which specifies the physical layer and media access control for low-rate wireless personal area networks (LR-WPANs). It is maintained by the IEEE 802.15 working group. It is the basis for the ZigBee,ISA100.11a, WirelessHART, and MiWi specifications, each of which further extends the standard by developing the upper layers which are not defined in IEEE 802.15.4. Alternatively, it can be used with 6LoWPAN and standard Internet protocols to build a wireless embedded Internet. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
              rdfs:label "IEEE 802.15.4"@en ;
-             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEEE_802.15.4> .
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEEE_802.15.4> ;
+             sto:hasDBpediaResource <http://dbpedia.org/page/IEEE_802.15.4>;
+             .
 
 
 ###  https://w3id.org/i40/sto#IEEE_802_16-2012
 sto:IEEE_802_16-2012 rdf:type owl:NamedIndividual ,
-                              foaf:Document ,
-                              sto:Publication ,
                               sto:Standard ;
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "IEEE Standard for Air Interface for Broadband Wireless Access Systems (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -7993,8 +7936,6 @@ sto:IEEE_802_16-2012 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEEE_P1828
 sto:IEEE_P1828 rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
                         sto:Standard ;
                dcterms:creator sto:sebastian ;
                rdfs:comment "Standard for Systems With Virtual Components (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -8004,7 +7945,6 @@ sto:IEEE_P1828 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IETF
 sto:IETF rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:abbreviation "IETF"@en ;
          sto:orgName "Internet Engineering Task Force"@en ;
@@ -8037,13 +7977,8 @@ sto:ISA rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISA-95
 sto:ISA-95 rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
-           dcterms:creator sto:ANSI ,
-                           sto:ISA ;
-           foaf:maker sto:ANSI ,
-                      sto:ISA ;
+           dcterms:creator sto:irlan ;
            sto:hasDeveloper sto:ANSI ,
                             sto:ISA ;
            sto:hasPublisher sto:ANSI ,
@@ -8061,7 +7996,8 @@ sto:ISA-95 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISA10011a
 sto:ISA10011a rdf:type owl:NamedIndividual ,
                        sto:TechnicalSpecification ;
-              dcterms:creator sto:sebastian, sto:irlan ;
+              dcterms:creator sto:sebastian, 
+                              sto:irlan ;
               rdfs:comment "ISA100.11a is a wireless networking technology standard developed by the International Society of Automation (ISA). The official description is Wireless Systems for Industrial Automation: Process Control and Related Application. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "ISA100.11a"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISA100.11a> ;
@@ -8123,11 +8059,8 @@ sto:ISO_10303 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_1101
 sto:ISO_1101 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
-             dcterms:creator sto:ISO ;
-             foaf:maker sto:ISO ;
+             dcterms:creator sto:irlan ;
              sto:hasClassification sto:ModelingPractice ,
                                    sto:RAMIAssetlayer ,
                                    sto:RAMIProduct ;
@@ -8150,16 +8083,15 @@ sto:ISO_11404 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://webstore.iec.ch/publication/9602> ,
                                       <https://www.iso.org/standard/39479.html> ;
               sto:hasOpenResource <http://www.open-std.org/jtc1/sc22/open/n3620.pdf> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_11404> .
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_11404> ;
+              sto:hasDBpediaResource <http://dbpedia.org/page/ISO/IEC_11404>;
+              .
 
 
 ###  https://w3id.org/i40/sto#ISO_11783
 sto:ISO_11783 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:ISO ;
-              foaf:maker sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_11783 ,
                             sto:ISO_11898-1 ;
@@ -8173,11 +8105,8 @@ sto:ISO_11783 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_11898-1
 sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:Standard ;
-                dcterms:creator sto:ISO ;
-                foaf:maker sto:ISO ;
+                dcterms:creator sto:irlan ;
                 sto:hasClassification rami:Engineering ,
                                       rami:Safety ,
                                       sto:RAMICommunicationlayer ;
@@ -8195,8 +8124,6 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_1302
 sto:ISO_1302 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
              sto:hasClassification sto:ModelingPractice ;
              sto:hasPublicationDate "2002-02-01"^^xsd:date ;
@@ -8207,11 +8134,8 @@ sto:ISO_1302 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_13374
 sto:ISO_13374 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:ISO ;
-              foaf:maker sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification rami:ConditionMonitoring ,
                                     sto:ProductionSystemEngineering ,
                                     sto:RAMIBusinessLayer ,
@@ -8229,11 +8153,8 @@ sto:ISO_13374 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_13485
 sto:ISO_13485 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:ISO ;
-              foaf:maker sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification rami:Safety ;
               sto:hasPublisher sto:ISO ;
               rdfs:comment "Medical devices -- Quality management systems -- Requirements for regulatory purposes."@en ;
@@ -8244,11 +8165,8 @@ sto:ISO_13485 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_13584
 sto:ISO_13584 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:ISO ;
-              foaf:maker sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:ProductCatalogData ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -8288,11 +8206,8 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_13849
 sto:ISO_13849 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:ISO ;
-              foaf:maker sto:ISO ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification rami:Safety ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:IEC_61508 ,
