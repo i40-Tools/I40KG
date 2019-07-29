@@ -235,11 +235,6 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:label "has Domain"@en ;
               .
 
-
-###  https://w3id.org/i40/sto#hasWikipediaArticle
-sto:hasWikipediaArticle rdf:type owl:AnnotationProperty .
-
-
 ###  https://w3id.org/i40/sto#hasstatus
 sto:hasStatus rdf:type owl:AnnotationProperty .
 
@@ -553,16 +548,12 @@ sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
                         rdfs:comment "Points to the URL of the official website from which published the document"@en ;
                         rdfs:label "has Official Resource"@en .
 
-
-sto:hasOpenResource rdfs:label "has Open Resource"@en ;
-                    rdfs:comment "points to the URLs of the resources(documents) openly available for the standard" .
-
-
 sto:hasPublisher rdfs:label "has Publisher"@en ;
                  rdfs:comment "The organization that published this Standard"@en .
 
 
-sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
+sto:hasWikipediaArticle  rdf:type owl:DatatypeProperty;
+                        rdfs:label "has Wikipedia Article"@en ;
                         rdfs:comment "Wikipedia Article about the Standard"@en .
 
 
@@ -659,9 +650,11 @@ sto:hasOntology rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasOpenResource
 sto:hasOpenResource rdf:type owl:DatatypeProperty ;
+                    rdfs:label "has Open Resource"@en ;
+                    rdfs:comment "points to the URLs of the resources(documents) openly available for the standard"@en ;
                     rdfs:domain sto:Publication ;
-                    rdfs:range xsd:anyURI .
-
+                    rdfs:range xsd:anyURI ;
+                    .
 
 ###  https://w3id.org/i40/sto#hasPages
 sto:hasPages rdf:type owl:DatatypeProperty ;
@@ -670,14 +663,12 @@ sto:hasPages rdf:type owl:DatatypeProperty ;
              rdfs:comment "Indicates the number of pages in the document."@en ;
              rdfs:label "has Pages"@en .
 
-
 ###  https://w3id.org/i40/sto#hasPublicationDate
 sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
                        rdfs:domain sto:Publication ;
                        rdfs:range xsd:date ;
                        rdfs:comment "Publication date of the Publication"@en ;
                        rdfs:label "has Publication Date"@en .
-
 
 ###  https://w3id.org/i40/sto#hasStabilityDate
 sto:hasStabilityDate rdf:type owl:DatatypeProperty ;
@@ -711,11 +702,6 @@ sto:hasTask rdf:type owl:DatatypeProperty ;
             rdfs:range xsd:string ;
             rdfs:comment "Specifies the tasks for the different ISA 95 levels."@en ;
             rdfs:label "has Task"@en .
-
-
-###  https://w3id.org/i40/sto#hasWikipediaArticle
-sto:hasWikipediaArticle rdf:type owl:DatatypeProperty .
-
 
 ###  https://w3id.org/i40/sto#orgName
 sto:orgName rdf:type owl:DatatypeProperty ;
@@ -857,7 +843,6 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#Dimension
 sto:Dimension rdf:type owl:Class ;
-              rdfs:subClassOf owl:Thing ;
               rdfs:comment "Links the Standardization Frameworks with the Layers"@en ;
               rdfs:label "Dimension"@en .
 
@@ -8881,7 +8866,6 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_26262
 sto:ISO_26262 rdf:type owl:NamedIndividual ,
-                       
                        sto:Standard ;
               dcterms:creator sto:ISO ;
               foaf:maker sto:ISO ;
@@ -9209,8 +9193,6 @@ sto:ISO_50001 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_5459
 sto:ISO_5459 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
@@ -9249,8 +9231,6 @@ sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_9000
 sto:ISO_9000 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
@@ -9265,8 +9245,6 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_9594
 sto:ISO_9594 rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
              dcterms:creator sto:ISO ;
              foaf:maker sto:ISO ;
@@ -9278,8 +9256,6 @@ sto:ISO_9594 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_9594-8
 sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
                         sto:Standard ;
                dcterms:creator sto:ISO ;
                foaf:maker sto:ISO ;
@@ -9298,8 +9274,6 @@ sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_ASTM_52915
 sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
-                            foaf:Document ,
-                            sto:Publication ,
                             sto:Standard ;
                    dcterms:creator sto:ISO ;
                    foaf:maker sto:ISO ;
@@ -9343,8 +9317,6 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_PAS_17506
 sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
-                           foaf:Document ,
-                           sto:Publication ,
                            sto:Standard ;
                   dcterms:creator sto:ISO ;
                   dul:isComponentOf sto:IEC_62714 ;
@@ -9387,8 +9359,6 @@ sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_TS_14649-201
 sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
-                              foaf:Document ,
-                              sto:Publication ,
                               sto:Standard ;
                      dcterms:creator sto:ISO ;
                      foaf:maker sto:ISO ;
@@ -9508,8 +9478,6 @@ sto:KATS rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LLAP
 sto:LLAP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "LLAP (lightweight local automation protocol): is a simple short message that is sent between inteligent objects using normal text, it's not like TCP/IP, bluetooth, zigbee, 6lowpan, WiFi etc which achieve at a low level 'how' to move data around. This means LLAP can run over any communication medium. The three strengths of LLAP are, it'll run on anything now, anything in the future and it's easily understandable by humans. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9519,10 +9487,9 @@ sto:LLAP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LWM2M
 sto:LWM2M rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:TechnicalSpecification ;
-          dcterms:creator sto:sebastian ;
+          dcterms:creator sto:sebastian,
+                          sto:irlan ;
           rdfs:comment "LWM2M (Lightweight M2M) is a system standard in the Open Mobile Alliance. It includes DTLS, CoAP, Block, Observe, SenML and Resource Directory and weaves them into a device-server interface along with an Object structure. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
           rdfs:label "LWM2M"@en ;
           sto:hasOfficialResource <http://yucianga.info/?p=786> .
@@ -9537,8 +9504,6 @@ sto:LinkedData rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LoRaWAN
 sto:LoRaWAN rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
                      sto:TechnicalSpecification ;
             dcterms:creator sto:sebastian ;
             rdfs:comment "LoRaWAN - Network protocol intended for wireless battery operated Things in regional, national or global network. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9548,8 +9513,6 @@ sto:LoRaWAN rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LsDL
 sto:LsDL rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "LsDL (Lemonbeat smart Device Language) - XML-based device language for service oriented devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9559,8 +9522,6 @@ sto:LsDL rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LteMtc
 sto:LteMtc rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:TechnicalSpecification ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "LTE-MTC (LTE-Machine Type Communication) - Standards-based family of technologies supports several technology categories, such as Cat-1 and CatM1, suitable for the IoT. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9663,8 +9624,6 @@ sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#MathML
 sto:MathML rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
            dcterms:creator sto:W3C ;
            foaf:maker sto:W3C ;
@@ -9703,8 +9662,6 @@ sto:MathML rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Mihini
 sto:Mihini rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:TechnicalSpecification ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "Mihini/M3DA: The Mihini agent is a software component that acts as a mediator between an M2M server and the applications running on an embedded gateway. M3DA is a protocol optimized for the transport of binary M2M data. It is made available in the Mihini project both for means of Device Management, by easing the manipulation and synchronization of a device's data model, and for means of Asset Management, by allowing user applications to exchange typed data/commands back and forth with an M2M server, in a way that optimizes the use of bandwidth (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9714,8 +9671,6 @@ sto:Mihini rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ModBus
 sto:ModBus rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
            dcterms:creator sto:SE ;
            foaf:maker sto:SE ;
@@ -9752,7 +9707,6 @@ sto:NERC rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#NFC
 sto:NFC rdf:type owl:NamedIndividual ,
                  foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
         dcterms:creator sto:sebastian ;
         sto:hasClassification sto:OpenFogNodeView ;
@@ -9778,8 +9732,6 @@ sto:NIST rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NISTIR_8062
 sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:Standard ;
                 dcterms:creator sto:NIST ;
                 foaf:maker sto:NIST ;
@@ -9795,8 +9747,6 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
 sto:NISTIR_8107 rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:Standard ,
                          sto:StandardClassification ;
                 sto:isDescribedin sto:BusinessProcessExecution ,
@@ -9818,9 +9768,7 @@ sto:NISTInitiative rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-291
 sto:NIST_500-291 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
                           sto:Domain ,
-                          sto:Publication ,
                           sto:Standard ;
                  dcterms:creator sto:NIST ;
                  foaf:maker sto:NIST ;
@@ -9836,9 +9784,7 @@ sto:NIST_500-291 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-292
 sto:NIST_500-292 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
                           sto:Domain ,
-                          sto:Publication ,
                           sto:Standard ;
                  dcterms:creator sto:NIST ;
                  foaf:maker sto:NIST ;
@@ -9872,12 +9818,9 @@ sto:NIST_500-293 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_800-144
 sto:NIST_800-144 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
                           sto:Domain ,
-                          sto:Publication ,
                           sto:Standard ;
                  dcterms:creator sto:NIST ;
-                 foaf:maker sto:NIST ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
                  sto:domainName "Cloud Computing"@en ;
@@ -9890,8 +9833,6 @@ sto:NIST_800-144 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_800-146
 sto:NIST_800-146 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
-                          sto:Publication ,
                           sto:Standard ;
                  dcterms:creator sto:NIST ;
                  foaf:maker sto:NIST ;
@@ -10782,8 +10723,6 @@ sto:Thread rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#UDP
 sto:UDP rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:Standard ;
         dcterms:creator sto:sebastian ;
         rdfs:comment "UDP (User Datagram Protocol) - A simple OSI transport layer protocol for client/server network applications based on Internet Protocol (IP). UDP is the main alternative to TCP and one of the oldest network protocols in existence, introduced in 1980. UDP is often used in applications specially tuned for real-time performance."@en ;
@@ -10806,8 +10745,6 @@ sto:UN-CEFACT rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#UPnP
 sto:UPnP rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "UPnP (Universal Plug and Play) - Now managed by the Open Connectivity Foundation is a set of networking protocols that permits networked devices to seamlessly discover each other's presence on the network and establish functional network services for data sharing, communications, and entertainment.(source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -10817,17 +10754,14 @@ sto:UPnP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#URI
 sto:URI rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification .
 
 
 ###  https://w3id.org/i40/sto#VDE_2182
 sto:VDE_2182 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             dcterms:creator sto:VDI ,
+             dcterms:creator sto:irlan ,
                              sto:sebastian ;
-             foaf:maker sto:VDI ;
              sto:hasClassification rami:Security ;
              sto:hasDeveloper sto:VDI ;
              sto:hasPublisher sto:VDI ;
@@ -10841,7 +10775,6 @@ sto:VDE_2182 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#VDI
 sto:VDI rdf:type owl:NamedIndividual ,
-                 foaf:Organization ,
                  sto:StandardOrganization ;
         dcterms:creator sto:sebastian ;
         sto:hasHeadquaterIn dbr:Berlin ;
@@ -10890,8 +10823,6 @@ sto:VDMA rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#VDMA_24582
 sto:VDMA_24582 rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
                         sto:Standard ;
                dcterms:creator sto:VDMA ;
                foaf:maker sto:VDMA ;
@@ -10908,7 +10839,6 @@ sto:Vocabulary rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#W3C
 sto:W3C rdf:type owl:NamedIndividual ,
-                 foaf:Organization ,
                  sto:StandardOrganization ;
         sto:hasHeadquaterIn dbr:_Massachusetts ;
         sto:abbreviation "W3C" ;
@@ -10923,10 +10853,8 @@ sto:W3C rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#W3C_DCAT
 sto:W3C_DCAT rdf:type owl:NamedIndividual ,
-                      foaf:Document ,
-                      sto:Publication ,
                       sto:Standard ;
-             dcterms:creator sto:W3C ,
+             dcterms:creator sto:irlan ,
                              sto:sebastian ;
              foaf:maker sto:W3C ;
              sto:hasDeveloper sto:W3C ;
@@ -10942,8 +10870,6 @@ By using DCAT to describe datasets in data catalogs, publishers increase discove
 
 ###  https://w3id.org/i40/sto#W3C_OWL
 sto:W3C_OWL rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
                      sto:Standard ;
             dcterms:creator sto:W3C ;
             foaf:maker sto:W3C ;
@@ -10960,8 +10886,6 @@ sto:W3C_OWL rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#W3C_RDF
 sto:W3C_RDF rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
                      sto:Standard ;
             dcterms:creator sto:W3C ;
             foaf:maker sto:W3C ;
@@ -10977,8 +10901,6 @@ sto:W3C_RDF rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#W3C_RIF
 sto:W3C_RIF rdf:type owl:NamedIndividual ,
-                     foaf:Document ,
-                     sto:Publication ,
                      sto:Standard ;
             dcterms:creator sto:W3C ;
             foaf:maker sto:W3C ;
@@ -10995,8 +10917,6 @@ sto:W3C_RIF rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#W3C_SPARQL
 sto:W3C_SPARQL rdf:type owl:NamedIndividual ,
-                        foaf:Document ,
-                        sto:Publication ,
                         sto:Standard ;
                dcterms:creator sto:W3C ;
                foaf:maker sto:W3C ;
