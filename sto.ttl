@@ -489,7 +489,10 @@ sto:relatedTo rdf:type owl:ObjectProperty ;
               rdf:type owl:SymmetricProperty ,
                        owl:TransitiveProperty ;
               rdfs:domain sto:Standard ;
-              rdfs:range sto:Standard .
+              rdfs:range sto:Standard ;
+              skos:altLabel "has Associated Standard"@en ;
+              rdfs:comment "General property to represent any type of relation that connects two standards."@en ;
+              rdfs:label "related To"@en .
 
 
 ###  https://w3id.org/i40/sto#useStructureOf
@@ -568,12 +571,6 @@ sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
 
 sto:isImplementationOf rdfs:label "is Implementation Of"@en ;
                        rdfs:comment "Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95."@en .
-
-
-sto:relatedTo skos:altLabel "has Associated Standard"@en ;
-              rdfs:comment "Represent any type of relation that connects two standards."@en ;
-              rdfs:label "related To"@en .
-
 
 sto:useStructureOf rdfs:comment "Standard A uses the structure of Standard B. For example, OPC UA uses Structure Of IEC_61804 (EDDL)"@en ;
                    rdfs:label "use Structure Of"@en .
@@ -3993,11 +3990,13 @@ sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_1998
-sto:IEC_60050_1998 rdf:type owl:NamedIndividual, sto:Standard .
+sto:IEC_60050_1998 rdf:type owl:NamedIndividual, 
+                            sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_2013
-sto:IEC_60050_2013 rdf:type owl:NamedIndividual, sto:Standard .
+sto:IEC_60050_2013 rdf:type owl:NamedIndividual,
+                   sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_P101_E2
