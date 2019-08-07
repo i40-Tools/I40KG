@@ -168,7 +168,10 @@ dcterms:title rdf:type owl:AnnotationProperty ;
 
 
 ###  http://voag.linkedmodel.org/voag#hasStakeholder
-<http://voag.linkedmodel.org/voag#hasStakeholder> rdf:type owl:AnnotationProperty .
+sto:hasStakeholder rdf:type owl:AnnotationProperty;
+                   rdfs:comment "realtes sto:concerns to the sto:StakeholderGroup that are associated with the concerns. ";
+                   rdfs:label "hasStakeholder"@en.
+
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#value
@@ -5307,7 +5310,7 @@ sto:IEC_60870_P6_S802_E3 rdf:type owl:NamedIndividual ,
                          sto:hasStabilityDate "2019"^^xsd:gYear ;
                          sto:hasTag "IEC 60870-6-802:2014"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6-802: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - TASE.2 Object models"@en ;
-                         rdfs:comment "IEC 60870-6-802:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. The standard includes the exchange of real-time data indications, control operations, time series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition: -certain objects have been changed from informative to normative; - certain TASE.2 conformance blocks have been made out of scope."@en ,
+                         rdfs:comment "IEC 60870-6-802:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. The standard includes the exchange of real-time data indications, control operations, time series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition: -certain objects have been changed from informative to normative; - certain TASE.2 conformance blocks have been made out of scope."@en ;
                          rdfs:label "IEC 60870-6-802:2014"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3769> ;
@@ -9791,7 +9794,6 @@ sto:NIST_500-291 rdf:type owl:NamedIndividual ,
                  dcterms:creator sto:irlan ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 sto:hasDomain 
                  sto:hasPublicationDate "2011-08-10"^^xsd:date ;
                  dcterms:title "NIST Cloud Computing Standards Roadmap"@en ;
                  rdfs:comment "The NIST Cloud Computing Standards Roadmap Working Group has surveyed the existing standards landscape for security, portability, and interoperability standards/models/studies/use cases, etc., relevant to cloud computing. Using this available information, current standards, standards gaps, and standardization priorities are identified in this document. The NIST Definition of Cloud Computing identified cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction."@en ;
@@ -11244,9 +11246,17 @@ sto:uIP rdf:type owl:NamedIndividual ,
 
 ###  https://www.wikidata.org/wiki/Q1548249
 <https://www.wikidata.org/wiki/Q1548249> rdf:type owl:NamedIndividual ,
-                                                  <http://voag.linkedmodel.org/voag#StakeholderGroup> ;
+                                                  sto:StakeholderGroup ;
                                          rdfs:label "System Architect"@en .
 
+
+
+
+sto:StakeholderGroup  a owl:Class ;
+             rdfs:label "StakeholderGroup"@en ;
+             rdfs:comment "Stakeholder (Stakeholder Group) is an individual, organisation, or classses thereof, having an interest in a system."@en;
+             rdfs:isDefinedBy sto:IEC_42010;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Stakeholder> .
 
 #################################################################
 #    Annotations
