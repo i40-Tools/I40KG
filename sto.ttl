@@ -109,11 +109,8 @@ dcterms:hasLicense rdf:type owl:AnnotationProperty ;
                    dcterms:issued "2004-06-14"^^xsd:date ;
                    dcterms:modified "2017-12-19"^^xsd:date ;
                    rdfs:comment "A legal document giving official permission to do something with the resource."@en ,
-                                "A legal document giving official permission to do something with the resource. In this ontology denotes the license of a Standard."@en ,
                                 "Represent the license document for a given Standard"@en ;
-                   rdfs:isDefinedBy dcterms: ;
                    rdfs:label "has License"@en .
-
 
 ###  http://purl.org/dc/terms/hasVersion
 dcterms:hasVersion rdf:type owl:AnnotationProperty ;
@@ -125,7 +122,6 @@ dcterms:hasVersion rdf:type owl:AnnotationProperty ;
                    rdfs:label "Has Version"@en ;
                    skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en .
 
-
 ###  http://purl.org/dc/terms/issued
 dcterms:issued rdf:type owl:AnnotationProperty ;
                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
@@ -134,7 +130,6 @@ dcterms:issued rdf:type owl:AnnotationProperty ;
                rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
                rdfs:isDefinedBy dcterms: ;
                rdfs:label "Date Issued"@en .
-
 
 ###  http://purl.org/dc/terms/license
 dcterms:license rdf:type owl:AnnotationProperty ;
@@ -599,9 +594,8 @@ om2:hasNumericalValue rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#abbreviation
 sto:abbreviation rdf:type owl:DatatypeProperty ;
-                 rdfs:domain owl:Thing ;
                  rdfs:range rdf:PlainLiteral ;
-                 rdfs:comment "Abbreviated  name of the thing."@en ;
+                 rdfs:comment "Abbreviated name of the thing."@en ;
                  rdfs:label "has Abbreviated Name"@en .
 
 
@@ -854,7 +848,6 @@ rami:RAMILifeCycleLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#Dimension
 sto:Dimension rdf:type owl:Class ;
-              rdfs:subClassOf owl:Thing ;
               rdfs:comment "Links the Standardization Frameworks with the Layers"@en ;
               rdfs:label "Dimension"@en .
 
@@ -1363,14 +1356,12 @@ rami:TypeDevelopment rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/rami#TypeMaintenance
 rami:TypeMaintenance rdf:type owl:NamedIndividual ,
-                              rami:RAMILifeCycleLayer ,
                               sto:StandardClassification ;
                      rdfs:label "Type Maintenance"@en .
 
 
 ###  https://w3id.org/i40/rami#WorkCenter
 rami:WorkCenter rdf:type owl:NamedIndividual .
-
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -2069,6 +2060,15 @@ sto:EnterpriseIntegration rdf:type owl:NamedIndividual ,
                           rdfs:label "EnterpriseIntegration"@en ;
                           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Enterprise_integration> ;
                           sto:hasDBpediaResource <http://dbpedia.org/page/Enterprise_integration>;
+                          .
+
+sto:CloudComputing rdf:type owl:NamedIndividual ,
+                                   sto:Domain ;
+                          sto:domainName "Cloud Computing"@en ;
+                          rdfs:comment "Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user."@en ;
+                          rdfs:label "Cloud Computing"@en ;
+                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Cloud_computing> ;
+                          sto:hasDBpediaResource <http://dbpedia.org/page/Cloud_computing>;
                           .
 
 
@@ -3696,7 +3696,7 @@ sto:IEC_11404 rdf:type owl:NamedIndividual ,
 sto:IEC_14443 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_14443 ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasTag "IEC 14443"@en ;
@@ -3772,7 +3772,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
 sto:IEC_27018 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27018 ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -3785,7 +3785,7 @@ sto:IEC_27031 rdf:type owl:NamedIndividual ,
                        sto:Domain ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27031 ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -3799,7 +3799,7 @@ sto:IEC_27031 rdf:type owl:NamedIndividual ,
 sto:IEC_27036 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27036 ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
@@ -3823,7 +3823,7 @@ sto:IEC_29100 rdf:type owl:NamedIndividual ,
 sto:IEC_29115 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29115 ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               dcterms:title "Information technology -- Security techniques -- Entity authentication assurance framework"@en ;
@@ -3847,7 +3847,7 @@ sto:IEC_29115 rdf:type owl:NamedIndividual ,
 sto:IEC_29161 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29161 ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2016-08-01"^^xsd:date ;
@@ -3991,7 +3991,7 @@ sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_60050_1998
 sto:IEC_60050_1998 rdf:type owl:NamedIndividual, 
-                            sto:Standard .
+                           sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_2013
@@ -4086,7 +4086,7 @@ sto:IEC_60050_P371_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60073_E6
 sto:IEC_60073_E6 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 dcterms:creator sto:IEC ;
+                 dcterms:creator sto:irlan;
                  sto:hasAvailableLanguage lang:eng ,
                                           lang:fra ,
                                           lang:spa ;
@@ -4111,7 +4111,7 @@ sto:IEC_60073_E6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60086
 sto:IEC_60086 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ;
               rdfs:comment "Standard battery nomenclature describes portable dry cell batteries that have physical dimensions and electrical characteristics interchangeable between manufacturers."@en ;
               rdfs:label "IEC 60086"@en ;
@@ -4309,7 +4309,7 @@ sto:IEC_60286_P4_E3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60286_P5_E3
 sto:IEC_60286_P5_E3 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
+                    dcterms:creator sto:irlan;
                     sto:hasAvailableLanguage lang:eng ;
                     sto:hasFileSize sto:FileSizeIEC_60286_P5 ;
                     sto:hasICS sto:ICS_31_020 ;
@@ -4332,7 +4332,7 @@ sto:IEC_60286_P5_E3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60364
 sto:IEC_60364 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ;
               rdfs:comment "Electrical Installations for Buildings is the International Electrotechnical Commission's international standard on electrical installations of buildings"@en ;
               rdfs:label "IEC 60364"@en ;
@@ -4438,7 +4438,7 @@ sto:IEC_60382_E2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P5_S2_E2
 sto:IEC_60839_P5_S2_E2 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasClassification rami:Security ,
@@ -4465,7 +4465,7 @@ sto:IEC_60839_P5_S2_E2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S1_E1
 sto:IEC_60839_P7_S1_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S1 ;
@@ -4488,7 +4488,7 @@ sto:IEC_60839_P7_S1_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S2_E1
 sto:IEC_60839_P7_S2_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S2 ;
@@ -4511,7 +4511,7 @@ sto:IEC_60839_P7_S2_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S3_E1
 sto:IEC_60839_P7_S3_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S3 ;
@@ -4534,7 +4534,7 @@ sto:IEC_60839_P7_S3_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S4_E1
 sto:IEC_60839_P7_S4_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S4 ;
@@ -4557,7 +4557,7 @@ sto:IEC_60839_P7_S4_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S5_E1
 sto:IEC_60839_P7_S5_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S5 ;
@@ -4580,7 +4580,7 @@ sto:IEC_60839_P7_S5_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S6_E1
 sto:IEC_60839_P7_S6_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S6 ;
@@ -4603,7 +4603,7 @@ sto:IEC_60839_P7_S6_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60839_P7_S7_E1
 sto:IEC_60839_P7_S7_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P7_S7 ;
@@ -4626,7 +4626,7 @@ sto:IEC_60839_P7_S7_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60848_E3
 sto:IEC_60848_E3 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 dcterms:creator sto:IEC ;
+                 dcterms:creator sto:irlan;
                  sto:hasAvailableLanguage lang:eng ,
                                           lang:fra ;
                  sto:hasFileSize sto:FileSizeIEC_60848 ;
@@ -4649,7 +4649,7 @@ sto:IEC_60848_E3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60864_P1_E1
 sto:IEC_60864_P1_E1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
+                    dcterms:creator sto:irlan;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ;
                     sto:hasFileSize sto:FileSizeIEC_60864_P1 ;
@@ -4762,7 +4762,7 @@ sto:IEC_60870_P2_S2_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S101_E2_1
 sto:IEC_60870_P5_S101_E2_1 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
-                           dcterms:creator sto:IEC ;
+                           dcterms:creator sto:irlan;
                            sto:hasAvailableLanguage lang:eng ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P5_S101 ;
                            sto:hasICS sto:ICS_33_200 ;
@@ -4789,7 +4789,7 @@ This publication is of high relevance for Smart Grid. This consolidated version 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S102_E1
 sto:IEC_60870_P5_S102_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P5_S102 ;
@@ -4815,7 +4815,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S103_E1
 sto:IEC_60870_P5_S103_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P5_S103 ;
@@ -4841,7 +4841,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S104_E2_1
 sto:IEC_60870_P5_S104_E2_1 rdf:type owl:NamedIndividual ,
                                     sto:Standard ;
-                           dcterms:creator sto:IEC ;
+                           dcterms:creator sto:irlan;
                            sto:hasAvailableLanguage lang:eng ,
                                                     lang:fra ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P5_S104 ;
@@ -4867,7 +4867,7 @@ This publication is of high relevance for Smart Grid. This consolidated version 
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S1_E1
 sto:IEC_60870_P5_S1_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S1 ;
@@ -4891,7 +4891,7 @@ sto:IEC_60870_P5_S1_E1 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S2_E1
 sto:IEC_60870_P5_S2_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S2 ;
@@ -4917,7 +4917,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S3_E1
 sto:IEC_60870_P5_S3_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S3 ;
@@ -4943,7 +4943,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S4_E1
 sto:IEC_60870_P5_S4_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S4 ;
@@ -4969,7 +4969,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S5_E1
 sto:IEC_60870_P5_S5_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S5 ;
@@ -4995,7 +4995,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P5_S6_E1
 sto:IEC_60870_P5_S6_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S6 ;
@@ -5042,7 +5042,7 @@ This publication is of high relevance for Smart Grid."""@en ;
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S2_E1
 sto:IEC_60870_P6_S2_E1 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P6_S2 ;
@@ -5092,7 +5092,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S501_E1
 sto:IEC_60870_P6_S501_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S501 ;
@@ -5142,7 +5142,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S502_E1
 sto:IEC_60870_P6_S502_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S502 ;
@@ -5180,8 +5180,7 @@ sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
                            sto:hasStabilityDate "2018"^^xsd:gYear ;
                            sto:hasTag "IEC 60870-6-503:2014"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 6-503: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - TASE.2 Services and protocol"@en ;
-                           rdfs:comment "IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition: - certain objects were made informative; - services associated with the informative objects were made informative; - certain TASE.2 conformance blocks were made out-of-scope."@en ,
-                                        "IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:n- certain objects were made informative;n- services associated with the informative objects were made informative;n- certain TASE.2 conformance blocks were made out-of-scope."@en ;
+                           rdfs:comment "IEC 60870-6-503:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. This standard includes the exchange of real-time data indications, control operations, time-series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition: - certain objects were made informative; - services associated with the informative objects were made informative; - certain TASE.2 conformance blocks were made out-of-scope."@en ;
                            rdfs:label "IEC 60870-6-503:2014"@en ;
                            sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                            sto:hasOfficialResource <https://webstore.iec.ch/publication/3760> ;
@@ -5191,7 +5190,7 @@ sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S503_E3
 sto:IEC_60870_P6_S503_E3 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S503 ;
@@ -5216,7 +5215,7 @@ sto:IEC_60870_P6_S503_E3 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S601_E1
 sto:IEC_60870_P6_S601_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S601 ;
@@ -5229,9 +5228,7 @@ sto:IEC_60870_P6_S601_E1 rdf:type owl:NamedIndividual ,
                          sto:hasStabilityDate "2018"^^xsd:gYear ;
                          sto:hasTag "IEC 60870-6-601:1994"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6: Telecontrol protocol s compatible with ISO standards and ITU-T recommendations - Sect ion 601: Functional profile for providing the connection-oriente d transport service in an end system connected via permanent acc ess to a packet switched data network"@en ;
-                         rdfs:comment """Defines the functional profile which provides the connection-oriented transport service in an end system connected via permanent access to a packet switched data network.
-This publication is of high relevance for Smart Grid."""@en ,
-                                      "Defines the functional profile which provides the connection-oriented transport service in an end system connected via permanent access to a packet switched data network.nThis publication is of high relevance for Smart Grid."@en ;
+                         rdfs:comment "Defines the functional profile which provides the connection-oriented transport service in an end system connected via permanent access to a packet switched data network.nThis publication is of high relevance for Smart Grid."@en ;
                          rdfs:label "IEC 60870-6-601:1994"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3765> ;
@@ -5242,7 +5239,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S701_E1
 sto:IEC_60870_P6_S701_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S701 ;
@@ -5255,9 +5252,7 @@ sto:IEC_60870_P6_S701_E1 rdf:type owl:NamedIndividual ,
                          sto:hasStabilityDate "2018"^^xsd:gYear ;
                          sto:hasTag "IEC 60870-6-701:1998"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6-701: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Functional profile for providing the TASE.1 application service in end systems"@en ;
-                         rdfs:comment """Describes the functional profile which defines the provision of the TASE.1 communication services between two control centre end systems.
-This publication is of high relevance for Smart Grid"""@en ,
-                                      "Describes the functional profile which defines the provision of the TASE.1 communication services between two control centre end systems.nThis publication is of high relevance for Smart Grid"@en ;
+                         rdfs:comment "Describes the functional profile which defines the provision of the TASE.1 communication services between two control centre end systems.nThis publication is of high relevance for Smart Grid"@en ;
                          rdfs:label "IEC 60870-6-701:1998"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3767> ;
@@ -5268,7 +5263,7 @@ This publication is of high relevance for Smart Grid"""@en ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S702_E2
 sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S702 ;
@@ -5282,9 +5277,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-6-702:2014"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6-702: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Functional profile for providing the TASE.2 application service in end systems"@en ;
                          rdfs:comment """IEC 60870-6-702:2014 is a functional profile (FP) and defines the provision of the TASE.2 communications services between two control centre end systems. It is supported by the transport services implemented in accordance with transport-profiles defined for the type of network that interconnects the control centre end systems. The main changes with respect to the previous edition are listed below:
-- certain objects were moved from being normative to informative
-- certain TASE.2 conformance blocks have been made out-of-scope. These changes were made in order to remove TASE.2 blocks that were seldom used and whose capabilities are typically implemented by some other means besides TASE.2. This was done to promote interoperability of implementations from an application perspective."""@en ,
-                                      "IEC 60870-6-702:2014 is a functional profile (FP) and defines the provision of the TASE.2 communications services between two control centre end systems. It is supported by the transport services implemented in accordance with transport-profiles defined for the type of network that interconnects the control centre end systems. The main changes with respect to the previous edition are listed below:n- certain objects were moved from being normative to informative;n- certain TASE.2 conformance blocks have been made out-of-scope. These changes were made in order to remove TASE.2 blocks that were seldom used and whose capabilities are typically implemented by some other means besides TASE.2. This was done to promote interoperability of implementations from an application perspective."@en ;
+- certain objects were moved from being normative to informative - certain TASE.2 conformance blocks have been made out-of-scope. ";
                          rdfs:label "IEC 60870-6-702:2014"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3768> ;
@@ -5295,7 +5288,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60870_P6_S802_E3
 sto:IEC_60870_P6_S802_E3 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S802 ;
@@ -5309,7 +5302,6 @@ sto:IEC_60870_P6_S802_E3 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-6-802:2014"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6-802: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - TASE.2 Object models"@en ;
                          rdfs:comment "IEC 60870-6-802:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. The standard includes the exchange of real-time data indications, control operations, time series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition: -certain objects have been changed from informative to normative; - certain TASE.2 conformance blocks have been made out of scope."@en ,
-                                      "IEC 60870-6-802:2014 specifies a method of exchanging time-critical control centre data through wide-area and local-area networks using a full ISO compliant protocol stack. It contains provisions for supporting both centralized and distributed architectures. The standard includes the exchange of real-time data indications, control operations, time series data, scheduling and accounting information, remote program control and event notification. This new edition includes the following significant technical changes with respect to the previous edition:n- certain objects have been changed from informative to normative;n- certain TASE.2 conformance blocks have been made out of scope."@en ;
                          rdfs:label "IEC 60870-6-802:2014"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3769> ;
@@ -5367,15 +5359,13 @@ sto:IEC_61000_P6_S2_E3 rdf:type owl:NamedIndividual ,
                        sto:hasPages "57"^^xsd:int ;
                        sto:hasPublicationDate "2016-08-10"^^xsd:date ;
                        sto:hasStabilityDate "2020"^^xsd:gYear ;
-                       sto:hasTag " IEC 61000-6-2:2016 "@en ;
+                       sto:hasTag "IEC 61000-6-2:2016"@en ;
                        dcterms:title "Electromagnetic compatibility (EMC) - Part 6-2: Generic standards - Immunity standard for industrial environments"@en ;
-                       rdfs:comment """IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
-IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."""@en ,
-                                    "IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document. IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."@en ,
-                                    "IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nIEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."@en ;
+                       rdfs:comment "IEC 61000-6-2:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document. IEC 61000-6-2:2016 for EMC immunity requirements applies to electrical and electronic equipment intended for use in industrial locations, as described below. Immunity requirements in the frequency range 0 Hz to 400 GHz are covered. No tests need to be performed at frequencies where no requirements are specified. This generic EMC immunity standard is applicable if no relevant dedicated product or product-family EMC immunity standard exists. This third edition cancels and replaces the second edition published in 2005. This edition constitutes a technical revision."@en ;
                        rdfs:label "IEC 61000-6-2:2016"@en ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/25629> ;
-                       sto:hasStatus "Redline version" .
+                       sto:hasStatus "Redline version" ;
+                       .
 
 
 ###  https://w3id.org/i40/sto#IEC_61010_P2_S012_E1
@@ -5442,10 +5432,8 @@ sto:IEC_61010_P2_S202_E1 rdf:type owl:NamedIndividual ,
                          sto:hasStabilityDate "2019"^^xsd:gYear ;
                          sto:hasTag "IEC 61010-2-202:2016"@en ;
                          dcterms:title "Safety requirements for electrical equipment for measurement, control and laboratory use - Part 2-202: Particular requirements for electrically operated valve actuators"@en ;
-                         rdfs:comment """IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. 
-
-This publication is to be read in conjunction with IEC 61010-1:2010."""@en ,
-                                      "IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. nnThis publication is to be read in conjunction with IEC 61010-1:2010."@en ;
+                         rdfs:comment "IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. 
+This publication is to be read in conjunction with IEC 61010-1:2010."@en ;
                          rdfs:label "IEC 61010-2-202:2016"@en ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/25399> .
 
@@ -5633,9 +5621,7 @@ sto:IEC_61334_P3_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 61334-3-1:1998 "@en ;
                        dcterms:title "Distribution automation using distribution line carrier systems - Part 3-1: Mains signalling requirements - Frequency bands and output levels"@en ;
-                       rdfs:comment """Applies to electrical equipment used in distribution line carrier systems on both medium-voltage and low-voltage distribution networks. Specifies requirements such as frequency bands, output levels, spurious emissions, etc.
-This publication is of high relevance for Smart Grid."""@en ,
-                                    "Applies to electrical equipment used in distribution line carrier systems on both medium-voltage and low-voltage distribution networks. Specifies requirements such as frequency bands, output levels, spurious emissions, etc.nThis publication is of high relevance for Smart Grid."@en ;
+                       rdfs:comment "Applies to electrical equipment used in distribution line carrier systems on both medium-voltage and low-voltage distribution networks. Specifies requirements such as frequency bands, output levels, spurious emissions, etc. This publication is of high relevance for Smart Grid."@en ;
                        rdfs:label "IEC 61334-3-1:1998 "@en ;
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_61334> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/5297> ;
@@ -5661,8 +5647,7 @@ sto:IEC_61334_P3_S21_E1 rdf:type owl:NamedIndividual ,
                         sto:hasTag "IEC 61334-3-21:1996 "@en ;
                         dcterms:title "Distribution automation using distribution line carrier systems - Part 3: Mains signalling requirements - Section 21: MV phase-to-phase isolated capacitive coupling device"@en ;
                         rdfs:comment """Establishes definitions, requirements, methods of testing and rated values for phase-to-phase isolated capacitive coupling devices to be used in medium-voltage (MV) distribution line carrier systems.
-This publication is of high relevance for Smart Grid."""@en ,
-                                     "Establishes definitions, requirements, methods of testing and rated values for phase-to-phase isolated capacitive coupling devices to be used in medium-voltage (MV) distribution line carrier systems.nThis publication is of high relevance for Smart Grid."@en ;
+This publication is of high relevance for Smart Grid."""@en ;
                         rdfs:label "IEC 61334-3-21:1996 "@en ;
                         sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_61334> ;
                         sto:hasOfficialResource <https://webstore.iec.ch/publication/5298> ;
@@ -5805,7 +5790,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S42_E1
 sto:IEC_61334_P4_S42_E1 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ,
                                                  lang:fra ;
                         sto:hasFileSize sto:FileSizeIEC_61334_P4_S42 ;
@@ -5831,7 +5816,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S511_E1
 sto:IEC_61334_P4_S511_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S511 ;
@@ -5857,7 +5842,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S512_E1
 sto:IEC_61334_P4_S512_E1 rdf:type owl:NamedIndividual ,
                                   sto:Standard ;
-                         dcterms:creator sto:IEC ;
+                         dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_61334_P4_S512 ;
@@ -5882,7 +5867,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61334_P4_S61_E1
 sto:IEC_61334_P4_S61_E1 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ,
                                                  lang:fra ;
                         sto:hasFileSize sto:FileSizeIEC_61334_P4_S61 ;
@@ -5908,7 +5893,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61334_P5_S1_E2
 sto:IEC_61334_P5_S1_E2 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
-                       dcterms:creator sto:IEC ;
+                       dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_61334_P5_S1 ;
@@ -5934,7 +5919,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61334_P6_E1
 sto:IEC_61334_P6_E1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
+                    dcterms:creator sto:irlan;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ;
                     sto:hasFileSize sto:FileSizeIEC_61334_P6 ;
@@ -5960,7 +5945,7 @@ This publication is of high relevance for Smart Grid."""@en ,
 ###  https://w3id.org/i40/sto#IEC_61360
 sto:IEC_61360 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasClassification rami:Engineering ,
                                     sto:IDSRAMInformationLayer ,
                                     sto:ManufacturingModelData ,
@@ -6003,7 +5988,7 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61400
 sto:IEC_61400 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ;
               sto:hasPublicationDate "2017-03-03"^^xsd:date ;
               rdfs:comment "IEC 61334 , known as Distribution automation using distribution line carrier systems, is a standard for low-speed reliable power line communications by electricity meters, water meters and SCADA."@en ;
@@ -6015,7 +6000,7 @@ sto:IEC_61400 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S1_E2
 sto:IEC_61400_P25_S1_E2 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ;
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S1 ;
                         sto:hasICS sto:ICS_27_180 ;
@@ -6039,7 +6024,7 @@ IEC 61400-25-1:2017 gives an overall description of the principles and models us
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S2_E2
 sto:IEC_61400_P25_S2_E2 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ,
                                                  lang:fra ;
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S2 ;
@@ -6066,7 +6051,7 @@ sto:IEC_61400_P25_S2_E2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S3_E2
 sto:IEC_61400_P25_S3_E2 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ;
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S3 ;
                         sto:hasICS sto:ICS_27_180 ;
@@ -6097,7 +6082,7 @@ Main changes with respect to the previous edition consist of:
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S4_E2
 sto:IEC_61400_P25_S4_E2 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ;
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S4 ;
                         sto:hasICS sto:ICS_27_180 ;
@@ -6110,7 +6095,6 @@ sto:IEC_61400_P25_S4_E2 rdf:type owl:NamedIndividual ,
                         sto:hasTag "IEC 61400-25-4:2016"@en ;
                         dcterms:title "Wind energy generation systems - Part 25-4: Communications for monitoring and control of wind power plants - Mapping to communication profile"@en ;
                         rdfs:comment """IEC 61400-25-4:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
-
 IEC 61400-25-4:2016 specifies the specific mappings to protocol stacks encoding the messages required for the information exchange between a client and a remote server for: data access and retrieval, device control, event reporting and logging, publisher/subscriber, self-description of devices (device data dictionary), data typing and discovery of data types. The mappings specified in this part of IEC 61400-25 comprise:
 - a mapping to SOAP-based web services,
 - a mapping to OPC/XML-DA,
@@ -6128,7 +6112,7 @@ The main technical changes with regard to the previous edition are as follows:
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S5_E2
 sto:IEC_61400_P25_S5_E2 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ;
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S5 ;
                         sto:hasICS sto:ICS_27_180 ;
@@ -6151,7 +6135,7 @@ sto:IEC_61400_P25_S5_E2 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S6_E2
 sto:IEC_61400_P25_S6_E2 rdf:type owl:NamedIndividual ,
                                  sto:Standard ;
-                        dcterms:creator sto:IEC ;
+                        dcterms:creator sto:irlan;
                         sto:hasAvailableLanguage lang:eng ;
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S6 ;
                         sto:hasICS sto:ICS_27_180 ;
@@ -6482,7 +6466,7 @@ sto:IEC_61804_P4 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61804_P5
 sto:IEC_61804_P5 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 dcterms:creator sto:IEC ;
+                 dcterms:creator sto:irlan;
                  sto:hasAvailableLanguage lang:eng ,
                                           lang:fra ;
                  sto:hasFileSize sto:FileSizeIEC_61804_P5 ;
@@ -6504,7 +6488,7 @@ sto:IEC_61804_P5 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61804_P6
 sto:IEC_61804_P6 rdf:type owl:NamedIndividual ,
                           sto:TechnicalReport ;
-                 dcterms:creator sto:IEC ;
+                 dcterms:creator sto:irlan;
                  sto:hasAvailableLanguage lang:eng ,
                                           lang:fra ;
                  sto:hasFileSize sto:FileSizeIEC_61804_P6 ;
@@ -6526,7 +6510,7 @@ sto:IEC_61804_P6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_61810_P2_E3
 sto:IEC_61810_P2_E3 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
+                    dcterms:creator sto:irlan;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ;
                     sto:hasFileSize sto:FileSizeIEC_61810_P2 ;
@@ -6558,7 +6542,7 @@ This edition includes the following significant technical changes with respect t
 ###  https://w3id.org/i40/sto#IEC_61810_P7_E2
 sto:IEC_61810_P7_E2 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
-                    dcterms:creator sto:IEC ;
+                    dcterms:creator sto:irlan;
                     sto:hasAvailableLanguage lang:eng ,
                                              lang:fra ,
                                              lang:spa ;
@@ -7345,7 +7329,7 @@ sto:IEC_62061 rdf:type owl:NamedIndividual ,
 sto:IEC_62237 rdf:type owl:NamedIndividual ,
                        sto:Standard ,
                        sto:TechnicalSpecification ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasClassification rami:AdminShellGeneral ,
                                     rami:ControlDevice ,
                                     rami:FieldDevice ,
@@ -8248,7 +8232,7 @@ sto:ISO_14443 rdf:type owl:NamedIndividual ,
                        foaf:Document ,
                        sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               foaf:maker sto:IEC ,
                          sto:ISO ;
               sto:hasPublisher sto:IEC ,
@@ -8653,8 +8637,6 @@ sto:ISO_19770 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_19941
 sto:ISO_19941 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
               dcterms:title "Cloud Computing - Interoperability and Portability"@en ;
@@ -8703,7 +8685,7 @@ sto:ISO_20546 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_20547-3
 sto:ISO_20547-3 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
-                dcterms:creator sto:IEC ;
+                dcterms:creator sto:irlan;
                 sto:hasPublisher sto:IEC ,
                                  sto:ISO ;
                 dcterms:title "Big data reference architecture -- Part 3: Reference architecture"@en ;
@@ -8914,7 +8896,7 @@ sto:ISO_27001 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_27017
 sto:ISO_27017 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC  ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
@@ -9065,7 +9047,7 @@ source: IIC SF"""@en ;
 ###  https://w3id.org/i40/sto#ISO_29101
 sto:ISO_29101 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
@@ -9096,7 +9078,7 @@ sto:ISO_29134 rdf:type owl:NamedIndividual ,
                        foaf:Document ,
                        sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ,
+              dcterms:creator sto:irlan,
                               sto:ISO ;
               foaf:maker sto:IEC ,
                          sto:ISO ;
@@ -9116,7 +9098,7 @@ sto:ISO_29161 rdf:type owl:NamedIndividual ,
                        foaf:Document ,
                        sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2016-08-01"^^xsd:date ;
@@ -9150,7 +9132,7 @@ sto:ISO_29190 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_42010
 sto:ISO_42010 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              dcterms:creator sto:IEC ;
+              dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:domainName "Reference Architecture Description"@en ;
@@ -9498,8 +9480,6 @@ sto:LoRaWAN rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LsDL
 sto:LsDL rdf:type owl:NamedIndividual ,
-                  foaf:Document ,
-                  sto:Publication ,
                   sto:TechnicalSpecification ;
          dcterms:creator sto:sebastian ;
          rdfs:comment "LsDL (Lemonbeat smart Device Language) - XML-based device language for service oriented devices. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9509,8 +9489,6 @@ sto:LsDL rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#LteMtc
 sto:LteMtc rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:TechnicalSpecification ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "LTE-MTC (LTE-Machine Type Communication) - Standards-based family of technologies supports several technology categories, such as Cat-1 and CatM1, suitable for the IoT. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9568,8 +9546,6 @@ sto:MOMLevel rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#MTConnect
 sto:MTConnect rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:MTConnect_Institute ;
               foaf:maker sto:MTConnect_Institute ;
@@ -9586,10 +9562,8 @@ sto:MTConnect rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#MTConnect_Institute
 sto:MTConnect_Institute rdf:type owl:NamedIndividual ,
-                                 foaf:Organization ,
                                  sto:StandardOrganization ;
-                        sto:abbreviation "MTC" ,
-                                         "MTC"^^xsd:string ;
+                        sto:abbreviation "MTC" ;
                         sto:formationDate "2006-01-01"^^xsd:date ;
                         sto:orgName "MTConnect Institute"@en ;
                         rdfs:comment "MTConnect Institute is a collaborative effort to develop technical standards and specifications intended to foster greater interoperability between automation/control applications, field systems/devices, and business/office applications in the manufacturing industry (\"MTConnect Specifications\"), as well as schema, prototype software examples, and related documentation in order to facilitate the implementation of the MTConnect Specifications in compliant applications, drivers, and other services"@en ;
@@ -9614,11 +9588,8 @@ sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#MathML
 sto:MathML rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
-           dcterms:creator sto:W3C ;
-           foaf:maker sto:W3C ;
+           dcterms:creator sto:irlan ;
            sto:hasPublisher sto:W3C ;
            sto:relatedTo sto:DIN_SPEC_16592 ,
                          sto:IEC_61131 ,
@@ -9654,8 +9625,6 @@ sto:MathML rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Mihini
 sto:Mihini rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:TechnicalSpecification ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "Mihini/M3DA: The Mihini agent is a software component that acts as a mediator between an M2M server and the applications running on an embedded gateway. M3DA is a protocol optimized for the transport of binary M2M data. It is made available in the Mihini project both for means of Device Management, by easing the manipulation and synchronization of a device's data model, and for means of Asset Management, by allowing user applications to exchange typed data/commands back and forth with an M2M server, in a way that optimizes the use of bandwidth (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9665,8 +9634,6 @@ sto:Mihini rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ModBus
 sto:ModBus rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:Standard ;
            dcterms:creator sto:SE ;
            foaf:maker sto:SE ;
@@ -9691,7 +9658,6 @@ sto:ModelingPractice rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NERC
 sto:NERC rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:abbreviation "NERC"@en ;
          sto:orgName "North American Electric Reliability Corporation"@en ;
@@ -9702,8 +9668,6 @@ sto:NERC rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NFC
 sto:NFC rdf:type owl:NamedIndividual ,
-                 foaf:Document ,
-                 sto:Publication ,
                  sto:TechnicalSpecification ;
         dcterms:creator sto:sebastian ;
         sto:hasClassification sto:OpenFogNodeView ;
@@ -9717,8 +9681,7 @@ sto:NIST rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:United_States ;
          sto:hasHeadquaterIn dbr:_Maryland ;
-         sto:abbreviation "NIST" ,
-                          "NIST"^^xsd:string ;
+         sto:abbreviation "NIST" ;
          sto:formationDate "1901-01-01"^^xsd:date ;
          sto:orgName "National Institute of Standards and Technology"@en ;
          rdfs:comment "The National Institute of Standards and Technology (NIST) is a measurement standards laboratory, and a non-regulatory agency of the United States Department of Commerce."@en ;
@@ -9729,11 +9692,8 @@ sto:NIST rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NISTIR_8062
 sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:Standard ;
-                dcterms:creator sto:NIST ;
-                foaf:maker sto:NIST ;
+                dcterms:creator sto:irlan ;
                 sto:hasClassification sto:IIRAPrivacy ;
                 sto:hasPublisher sto:NIST ;
                 sto:hasPublicationDate "2017-04-01"^^xsd:date ;
@@ -9746,8 +9706,6 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NISTIR_8107
 sto:NISTIR_8107 rdf:type owl:NamedIndividual ,
-                         foaf:Document ,
-                         sto:Publication ,
                          sto:Standard ,
                          sto:StandardClassification ;
                 sto:isDescribedin sto:BusinessProcessExecution ,
@@ -9769,15 +9727,12 @@ sto:NISTInitiative rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-291
 sto:NIST_500-291 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
                           sto:Domain ,
-                          sto:Publication ,
                           sto:Standard ;
-                 dcterms:creator sto:NIST ;
-                 foaf:maker sto:NIST ;
+                 dcterms:creator sto:irlan ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 sto:domainName "Cloud Computing"@en ;
+                 sto:hasDomain 
                  sto:hasPublicationDate "2011-08-10"^^xsd:date ;
                  dcterms:title "NIST Cloud Computing Standards Roadmap"@en ;
                  rdfs:comment "The NIST Cloud Computing Standards Roadmap Working Group has surveyed the existing standards landscape for security, portability, and interoperability standards/models/studies/use cases, etc., relevant to cloud computing. Using this available information, current standards, standards gaps, and standardization priorities are identified in this document. The NIST Definition of Cloud Computing identified cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction."@en ;
@@ -9787,16 +9742,12 @@ sto:NIST_500-291 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-292
 sto:NIST_500-292 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
                           sto:Domain ,
-                          sto:Publication ,
                           sto:Standard ;
-                 dcterms:creator sto:NIST ;
-                 foaf:maker sto:NIST ;
                  sto:hasClassification sto:IIRASecurity ,
                                        sto:Security ;
                  sto:hasPublisher sto:NIST ;
-                 sto:domainName "Cloud Computing"@en ;
+                 sto:hasDomain sto:CloudComputing;
                  sto:hasPublicationDate "2011-09-09"^^xsd:date ;
                  dc11:title "NIST Cloud Computing Reference Architecture"@en ;
                  rdfs:comment "The adoption of cloud computing into the Federal Government and its implementation depend upon a variety of technical and non-technical factors. A fundamental reference point, based on the NIST definition of Cloud Computing, is needed to describe an overall framework that can be used government-wide. This document presents the NIST Cloud Computing Reference Architecture (RA) and Taxonomy (Tax) that will accurately communicate the components and offerings of cloud computing."@en ;
@@ -9813,7 +9764,7 @@ sto:NIST_500-293 rdf:type owl:NamedIndividual ,
                  sto:hasAvailableLanguage lang:eng ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 sto:domainName "Cloud Computing"@en ;
+                 sto:hasDomain sto:CloudComputing ;
                  sto:hasPublicationDate "2014-10-21"^^xsd:date ;
                  dcterms:title "US Government Cloud Computing Technology Roadmap"@en ;
                  rdfs:comment "The National Institute of Standards and Technology (NIST), consistent with its mission, has a technology leadership role in support of United States Government (USG) secure and effective adoption of the Cloud Computing model to reduce costs and improve services. This role is described in the 2011 Federal Cloud Computing Strategy as “... a central one in defining and advancing standards, and collaborating with USG Agency CIOs, private sector experts, and international bodies to identify and reach consensus on cloud computing technology & standardization priorities.” This NIST Cloud Computing program and initiative to develop a USG Cloud Computing Technology Roadmap is one of several complementary and parallel USG initiatives defined in the broader Federal Cloud Computing Strategy referenced above. The Federal Cloud Computing Strategy characterizes cloud computing as a “profound economic and technical shift (with) great potential to reduce the cost of federal Information Technology (IT) systems while … improving IT capabilities and stimulating innovation in IT solutions.” In the technology vision of Federal Cloud Computing Strategy success, USG agencies will be able to easily locate desired IT services in a mature and competitive marketplace, rapidly procure access to these services, and use them to deliver innovative mission solutions. Cloud services will be secure, interoperable, and reliable. Agencies will be able to switch between providers easily and with minimal cost, and receive equal or superior service."@en ;
@@ -9831,7 +9782,7 @@ sto:NIST_800-144 rdf:type owl:NamedIndividual ,
                  foaf:maker sto:NIST ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 sto:domainName "Cloud Computing"@en ;
+                 sto:hasDomain sto:CloudComputing ;
                  sto:hasPublicationDate "2011-12-01"^^xsd:date ;
                  dcterms:title "Guidelines on Security and Privacy in Public Cloud Computing"@en ;
                  rdfs:comment "Cloud computing can and does mean different things to different people. The common characteristics most interpretations share are on-demand scalability of highly available and reliable pooled computing resources, secure access to metered services from nearly anywhere, and displacement of data and services from inside to outside the organization. While aspects of these characteristics have been realized to a certain extent, cloud computing remains a work in progress. This publication provides an overview of the security and privacy challenges pertinent to public cloud computing and points out considerations organizations should take when outsourcing data, applications, and infrastructure to a public cloud environment."@en ;
@@ -9841,24 +9792,20 @@ sto:NIST_800-144 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_800-146
 sto:NIST_800-146 rdf:type owl:NamedIndividual ,
-                          foaf:Document ,
-                          sto:Publication ,
                           sto:Standard ;
-                 dcterms:creator sto:NIST ;
-                 foaf:maker sto:NIST ;
+                 dcterms:creator sto:irlan ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
                  sto:hasPublicationDate "2012-05-01"^^xsd:date ;
                  dc11:title "Cloud Computing Synopsis and Recommendations"@en ;
                  rdfs:comment "This document reprises the NIST-established definition of cloud computing, describes cloud computing benefits and open issues, presents an overview of major classes of cloud technology, and provides guidelines and recommendations on how organizations should consider the relative opportunities and risks of cloud computing."@en ;
                  rdfs:label "NIST 800-146"@en ;
+                 sto:hasDomain sto:CloudComputing ;
                  sto:hasOfficialResource <https://csrc.nist.gov/publications/detail/sp/800-146/final> .
 
 
 ###  https://w3id.org/i40/sto#NanoIP
 sto:NanoIP rdf:type owl:NamedIndividual ,
-                    foaf:Document ,
-                    sto:Publication ,
                     sto:TechnicalSpecification ;
            dcterms:creator sto:sebastian ;
            rdfs:comment "NanoIP, which stands for the nano Internet Protocol, is a concept that was created to bring Internet-like networking services to embedded and sensor devices, without the overhead of TCP/IP. NanoIP was designed with minimal overheads, wireless networking, and local addressing in mind. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9868,8 +9815,6 @@ sto:NanoIP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NbIoT
 sto:NbIoT rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:TechnicalSpecification ;
           dcterms:creator sto:sebastian ;
           rdfs:comment "NB-IoT (Narrow-Band IoT) A technology being standardized by the 3GPP standards body. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -9883,11 +9828,8 @@ sto:NetworkLayer rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#OAGIS
 sto:OAGIS rdf:type owl:NamedIndividual ,
-                   foaf:Document ,
-                   sto:Publication ,
                    sto:Standard ;
-          dcterms:creator sto:OAGi ;
-          foaf:maker sto:OAGi ;
+          dcterms:creator sto:sebastian ;
           sto:hasPublisher sto:OAGi ;
           sto:hasTag "Open Applications Group Integration Specification"@en ;
           rdfs:comment "The Open Applications Group Integration Specification (OAGIS) is an effort to provide a canonical business language for information integration. It uses XML as the common alphabet for defining business messages, and for identifying business processes (scenarios) that allow businesses and business applications to communicate."@en ;
@@ -9898,7 +9840,6 @@ sto:OAGIS rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#OAGi
 sto:OAGi rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:hasHeadquaterIn dbr:_Georgia ;
          sto:abbreviation "OAGi"^^xsd:string ;
@@ -9911,11 +9852,9 @@ sto:OAGi rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#OASIS
 sto:OASIS rdf:type owl:NamedIndividual ,
-                   foaf:Organization ,
                    sto:StandardOrganization ;
           sto:hasHeadquaterIn dbr:Boston ;
-          sto:abbreviation "OASIS" ,
-                           "OASIS"^^xsd:string ;
+          sto:abbreviation "OASIS" ;
           sto:formationDate "1993-01-01"^^xsd:date ;
           sto:orgName "Organization for the Advancement of Structured Information Standards"@en ;
           rdfs:comment "The Organization for the Advancement of Structured Information Standards (OASIS) is a global nonprofit consortium that works on the development, convergence, and adoption of standards for security, Internet of Things, energy, content technologies, emergency management, and other areas."@en ;
@@ -9933,11 +9872,9 @@ sto:OCF_Core_Specification_VERSION_2_0_1 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ODVA
 sto:ODVA rdf:type owl:NamedIndividual ,
-                  foaf:Organization ,
                   sto:StandardOrganization ;
          sto:hasHeadquaterIn dbr:_Michigan ;
-         sto:abbreviation "ODVA" ,
-                          "ODVA"^^xsd:string ;
+         sto:abbreviation "ODVA" ;
          sto:formationDate "1995-01-01"^^xsd:date ;
          sto:orgName "ODVA, Inc"@en ;
          rdfs:comment "Founded in 1995, ODVA is a global association whose members comprise the world’s leading automation companies. ODVA’s mission is to advance open, interoperable information and communication technologies in industrial automation. ODVA recognizes its media independent network protocol, the Common Industrial Protocol or “CIP” — and the network adaptations of CIP — EtherNet/IP, DeviceNet, CompoNet and ControlNet — as its core technology and the primary common interest of its membership. For future interoperability of production systems and the integration of the production systems with other systems, ODVA embraces the adoption of commercial-off-the-shelf (COTS) and standard, unmodified Internet and Ethernet technologies as a guiding principle wherever possible. This principle is exemplified by EtherNet/IP — the world’s number one industrial Ethernet network."@en ;
@@ -9948,10 +9885,9 @@ sto:ODVA rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#OMG
 sto:OMG rdf:type owl:NamedIndividual ,
-                 foaf:Organization ,
                  sto:StandardOrganization ;
         sto:hasHeadquaterIn dbr:_Massachusetts ;
-        sto:abbreviation "OMG"^^xsd:string ;
+        sto:abbreviation "OMG" ;
         sto:formationDate "1989-01-01"^^xsd:date ;
         sto:orgName "Object Management Group"@en ;
         rdfs:comment "The Object Management Group (OMG) is an international, open membership, not-for-profit technology standards consortium. OMG Task Forces develop enterprise integration standards for a wide range of technologies and industries. OMG modeling standards enable visual design, execution and maintenance of software and other processes. Originally aimed at standardizing distributed object-oriented systems, the company now focuses on modeling (programs, systems and business processes) and model-based standards." ;
@@ -9963,10 +9899,9 @@ sto:OMG rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#OPC_Foundation
 sto:OPC_Foundation rdf:type owl:NamedIndividual ,
-                            foaf:Organization ,
                             sto:StandardOrganization ;
                    sto:hasHeadquaterIn dbr:_Arizona ;
-                   sto:abbreviation "OPC"^^xsd:string ;
+                   sto:abbreviation "OPC" ;
                    sto:formationDate "1994-01-01"^^xsd:date ;
                    sto:orgName "OPC Foundation"@en ;
                    rdfs:comment "Is an industry consortium that creates and maintains standards for open connectivity of industrial automation devices and systems, such as industrial control systems and process control generally"@en ;
