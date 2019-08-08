@@ -12,7 +12,7 @@
 @prefix sto: <https://w3id.org/i40/sto#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
@@ -23,7 +23,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/i40/sto#> .
@@ -58,32 +57,32 @@ cc:attributionURL rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/date
-dc11:date rdf:type owl:AnnotationProperty .
+dce:date rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/description
-dc11:description rdf:type owl:AnnotationProperty ;
+dce:description rdf:type owl:AnnotationProperty ;
                  dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
                  dcterms:hasVersion <http://dublincore.org/usage/terms/history/#description-006> ;
                  dcterms:issued "1999-07-02"^^xsd:date ;
                  dcterms:modified "2008-01-14"^^xsd:date ;
                  rdfs:comment "An account of the resource."@en ;
-                 rdfs:isDefinedBy dc11: ;
+                 rdfs:isDefinedBy dce: ;
                  rdfs:label "Description"@en ;
                  skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
 
 
 ###  http://purl.org/dc/elements/1.1/relation
-dc11:relation rdf:type owl:AnnotationProperty .
+dce:relation rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/title
-dc11:title rdf:type owl:AnnotationProperty ;
+dce:title rdf:type owl:AnnotationProperty ;
            dcterms:hasVersion <http://dublincore.org/usage/terms/history/#title-006> ;
            dcterms:issued "1999-07-02"^^xsd:date ;
            dcterms:modified "2008-01-14"^^xsd:date ;
            rdfs:comment "A name given to the resource."@en ;
-           rdfs:isDefinedBy dc11: ;
+           rdfs:isDefinedBy dce: ;
            rdfs:label "Title"@en ;
            skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
 
@@ -165,12 +164,6 @@ dcterms:title rdf:type owl:AnnotationProperty ;
 
 ###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
 <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
-
-
-###  http://voag.linkedmodel.org/voag#hasStakeholder
-sto:hasStakeholder rdf:type owl:AnnotationProperty;
-                   rdfs:comment "realtes sto:concerns to the sto:StakeholderGroup that are associated with the concerns. ";
-                   rdfs:label "hasStakeholder"@en.
 
 
 
@@ -326,6 +319,16 @@ dul:isMemberOf rdf:type owl:ObjectProperty ;
 ###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
 dul:isPartOf rdf:type owl:ObjectProperty ;
              rdfs:label "isPartOf"@en .
+
+
+
+###  https://w3id.org/i40/sto#isPartOf
+sto:isPartOf rdf:type owl:ObjectProperty ;
+             rdfs:domain sto:Publication ;
+             rdfs:range sto:Publication ;
+			 rdfs:comment "specifies that one publication is a part or a section of another publication. Mostly used to indicate that a sto:Standard is a part of standard familiy or group of standards."@en ;
+             rdfs:label "is part of"@en .
+
 
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
@@ -693,8 +696,10 @@ sto:hasStatus rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#hasTag
 sto:hasTag rdf:type owl:DatatypeProperty ;
-           rdfs:range muto:Tag ,
-                      rdfs:Literal ;
+           rdfs:range [ owl:unionOf ( muto:Tag
+                                      rdfs:Literal
+                                    )
+                      ] ;
            rdfs:comment "Points to the identification of the standards"@en ;
            rdfs:label "has Tag"@en .
 
@@ -1188,7 +1193,7 @@ om2:kilobyte rdf:type owl:NamedIndividual ,
 ###  https://doi.org/10.1016/j.jksuci.2016.10.003
 <https://doi.org/10.1016/j.jksuci.2016.10.003> rdf:type owl:NamedIndividual ,
                                                         sto:Publication ;
-                                               dc11:title "A survey on Internet of Things architectures" ;
+                                               dce:title "A survey on Internet of Things architectures" ;
                                                rdfs:label "A survey on Internet of Things architectures" .
 
 
@@ -3142,12 +3147,6 @@ sto:FileSizeIEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                                rdfs:comment "Specifies the file size of the document for standard IEC 61850-7-4:2010."@en ;
                                rdfs:label "FileSize IEC 61850-7-4:2010 "@en .
 
-sto:FileSizeIEC_61850_P8_S1_E2 rdf:type owl:NamedIndividual ,
-                                        om2:Measure ;
-                               om2:hasUnit om2:kilobyte ;
-                               om2:hasNumericalValue "3365.0"^^xsd:float ;
-                               rdfs:comment "Specifies the file size of the document for standard IEC 61850-8-1:2011."@en ;
-                               rdfs:label "FileSize IEC 61850-8-1:2011 "@en .
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_61968_P3_E1
 sto:FileSizeIEC_61968_P3_E1 rdf:type owl:NamedIndividual ,
@@ -4722,6 +4721,7 @@ sto:IEC_60870_P2_S1_E2 rdf:type owl:NamedIndividual ,
                                                 lang:fra ,
                                                 lang:spa ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P2_S1 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasICS sto:ICS_29_020 ,
                                   sto:ICS_33_100_10 ,
                                   sto:ICS_33_200 ;
@@ -4749,6 +4749,7 @@ sto:IEC_60870_P2_S2_E1 rdf:type owl:NamedIndividual ,
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ,
                                                 lang:spa ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P2_S2 ;
                        sto:hasICS sto:ICS_29_020 ,
                                   sto:ICS_33_200 ;
@@ -4774,6 +4775,7 @@ sto:IEC_60870_P5_S101_E2_1 rdf:type owl:NamedIndividual ,
                            dcterms:creator sto:irlan;
                            sto:hasAvailableLanguage lang:eng ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P5_S101 ;
+                           sto:isPartOf sto:IEC_60870 ;
                            sto:hasICS sto:ICS_33_200 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4803,6 +4805,7 @@ sto:IEC_60870_P5_S102_E1 rdf:type owl:NamedIndividual ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P5_S102 ;
                          sto:hasICS sto:ICS_33_200 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "1.0"^^xsd:float ;
@@ -4829,6 +4832,7 @@ sto:IEC_60870_P5_S103_E1 rdf:type owl:NamedIndividual ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P5_S103 ;
                          sto:hasICS sto:ICS_33_200 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "1.0"^^xsd:float ;
@@ -4855,6 +4859,7 @@ sto:IEC_60870_P5_S104_E2_1 rdf:type owl:NamedIndividual ,
                                                     lang:fra ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P5_S104 ;
                            sto:hasICS sto:ICS_33_200 ;
+                           sto:isPartOf sto:IEC_60870 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
                            sto:hasEdition "2.1"^^xsd:float ;
@@ -4880,6 +4885,7 @@ sto:IEC_60870_P5_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S1 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
@@ -4905,6 +4911,7 @@ sto:IEC_60870_P5_S2_E1 rdf:type owl:NamedIndividual ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S2 ;
                        sto:hasICS sto:ICS_33_200 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
                        sto:hasEdition "1.0"^^xsd:float ;
@@ -4931,6 +4938,7 @@ sto:IEC_60870_P5_S3_E1 rdf:type owl:NamedIndividual ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S3 ;
                        sto:hasICS sto:ICS_33_200 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
                        sto:hasEdition "1.0"^^xsd:float ;
@@ -4957,6 +4965,7 @@ sto:IEC_60870_P5_S4_E1 rdf:type owl:NamedIndividual ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S4 ;
                        sto:hasICS sto:ICS_33_200 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
                        sto:hasEdition "1.0"^^xsd:float ;
@@ -4982,6 +4991,7 @@ sto:IEC_60870_P5_S5_E1 rdf:type owl:NamedIndividual ,
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S5 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
@@ -5009,6 +5019,7 @@ sto:IEC_60870_P5_S6_E1 rdf:type owl:NamedIndividual ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P5_S6 ;
                        sto:hasICS sto:ICS_33_200 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
                        sto:hasEdition "1.0"^^xsd:float ;
@@ -5032,6 +5043,7 @@ sto:IEC_60870_P6_S2_1995 rdf:type owl:NamedIndividual ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S2_1995 ;
                          sto:hasICS sto:ICS_33_200 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "1.0"^^xsd:float ;
@@ -5056,6 +5068,7 @@ sto:IEC_60870_P6_S2_E1 rdf:type owl:NamedIndividual ,
                                                 lang:fra ;
                        sto:hasFileSize sto:FileSizeIEC_60870_P6_S2 ;
                        sto:hasICS sto:ICS_33_200 ;
+                       sto:isPartOf sto:IEC_60870 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
                        sto:hasEdition "1.0"^^xsd:float ;
@@ -5081,6 +5094,7 @@ sto:IEC_60870_P6_S501_1995 rdf:type owl:NamedIndividual ,
                                                     lang:fra ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P6_S501_1995 ;
                            sto:hasICS sto:ICS_33_200 ;
+                           sto:isPartOf sto:IEC_60870 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
                            sto:hasEdition "1.0"^^xsd:float ;
@@ -5106,6 +5120,7 @@ sto:IEC_60870_P6_S501_E1 rdf:type owl:NamedIndividual ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S501 ;
                          sto:hasICS sto:ICS_33_200 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "1.0"^^xsd:float ;
@@ -5131,6 +5146,7 @@ sto:IEC_60870_P6_S502_1995 rdf:type owl:NamedIndividual ,
                                                     lang:fra ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P6_S502_1995 ;
                            sto:hasICS sto:ICS_33_200 ;
+                           sto:isPartOf sto:IEC_60870 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
                            sto:hasEdition "1.0"^^xsd:float ;
@@ -5156,6 +5172,7 @@ sto:IEC_60870_P6_S502_E1 rdf:type owl:NamedIndividual ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S502 ;
                          sto:hasICS sto:ICS_33_200 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "1.0"^^xsd:float ;
@@ -5181,6 +5198,7 @@ sto:IEC_60870_P6_S503_2014 rdf:type owl:NamedIndividual ,
                                                     lang:fra ;
                            sto:hasFileSize sto:FileSizeIEC_60870_P6_S503_2014 ;
                            sto:hasICS sto:ICS_33_200 ;
+                           sto:isPartOf sto:IEC_60870 ;
                            sto:hasPublisher sto:IEC ;
                            sto:hasTechnicalCommittee sto:TC_57 ;
                            sto:hasEdition "3.0"^^xsd:float ;
@@ -5205,6 +5223,7 @@ sto:IEC_60870_P6_S503_E3 rdf:type owl:NamedIndividual ,
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S503 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "3.0"^^xsd:float ;
                          sto:hasPages "310"^^xsd:int ;
@@ -5228,6 +5247,7 @@ sto:IEC_60870_P6_S601_E1 rdf:type owl:NamedIndividual ,
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S601 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
@@ -5251,6 +5271,7 @@ sto:IEC_60870_P6_S701_E1 rdf:type owl:NamedIndividual ,
                          dcterms:creator sto:irlan;
                          sto:hasAvailableLanguage lang:eng ,
                                                   lang:fra ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S701 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
@@ -5277,6 +5298,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                                                   lang:fra ;
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S702 ;
                          sto:hasICS sto:ICS_33_200 ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "2.0"^^xsd:float ;
@@ -5286,7 +5308,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-6-702:2014"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6-702: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Functional profile for providing the TASE.2 application service in end systems"@en ;
                          rdfs:comment """IEC 60870-6-702:2014 is a functional profile (FP) and defines the provision of the TASE.2 communications services between two control centre end systems. It is supported by the transport services implemented in accordance with transport-profiles defined for the type of network that interconnects the control centre end systems. The main changes with respect to the previous edition are listed below:
-- certain objects were moved from being normative to informative - certain TASE.2 conformance blocks have been made out-of-scope. """@en;
+- certain objects were moved from being normative to informative - certain TASE.2 conformance blocks have been made out-of-scope.""";
                          rdfs:label "IEC 60870-6-702:2014"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3768> ;
@@ -5303,6 +5325,7 @@ sto:IEC_60870_P6_S802_E3 rdf:type owl:NamedIndividual ,
                          sto:hasFileSize sto:FileSizeIEC_60870_P6_S802 ;
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
+                         sto:isPartOf sto:IEC_60870 ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
                          sto:hasEdition "3.0"^^xsd:float ;
                          sto:hasPages "188"^^xsd:int ;
@@ -5417,7 +5440,7 @@ sto:IEC_61010_P2_S201_E2 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 61010-2-201:2017"@en ;
                          dcterms:title "Safety requirements for electrical equipment for measurement, control, and laboratory use - Part 2-201: Particular requirements for control equipment"@en ;
                          rdfs:comment "IEC 61010-2-201:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.IEC 61010-2-201:2017 specifies safety requirements and related verification tests for any product performing the function of control equipment and/or their associated peripherals. In addition, these products have as their intended use the command and control of machines, automated manufacturing and industrial processes, e.g. discrete and continuous control.This second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This second edition includes the following significant technical changes with respect to the previous edition;a) clarify, change, delete definitions which were causing confusion,b) change and clarify the temperature testing methodology,c) change documentation methodologies allowed,d) change some terminal markings,e) add clarity to some of the informative annexes,f) add Annex E with changes,g) add Annexes AA – FF."@en ,
-                                      "nIEC 61010-2-201:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nnIEC 61010-2-201:2017 specifies safety requirements and related verification tests for any product performing the function of control equipment and/or their associated peripherals. In addition, these products have as their intended use the command and control of machines, automated manufacturing and industrial processes, e.g. discrete and continuous control.nThis second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This second edition includes the following significant technical changes with respect to the previous edition;na) clarify, change, delete definitions which were causing confusion,nb) change and clarify the temperature testing methodology,nc) change documentation methodologies allowed,nd) change some terminal markings,ne) add clarity to some of the informative annexes,nf) add Annex E with changes,ng) add Annexes AA – FF."@en ;
+                                      "IEC 61010-2-201:2017 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.nnIEC 61010-2-201:2017 specifies safety requirements and related verification tests for any product performing the function of control equipment and/or their associated peripherals. In addition, these products have as their intended use the command and control of machines, automated manufacturing and industrial processes, e.g. discrete and continuous control.nThis second edition cancels and replaces the first edition published in 2013. This edition constitutes a technical revision. This second edition includes the following significant technical changes with respect to the previous edition;na) clarify, change, delete definitions which were causing confusion,nb) change and clarify the temperature testing methodology,nc) change documentation methodologies allowed,nd) change some terminal markings,ne) add clarity to some of the informative annexes,nf) add Annex E with changes,ng) add Annexes AA – FF."@en ;
                          rdfs:label "IEC 61010-2-201:2017"@en ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/60204> .
 
@@ -5441,8 +5464,7 @@ sto:IEC_61010_P2_S202_E1 rdf:type owl:NamedIndividual ,
                          sto:hasStabilityDate "2019"^^xsd:gYear ;
                          sto:hasTag "IEC 61010-2-202:2016"@en ;
                          dcterms:title "Safety requirements for electrical equipment for measurement, control and laboratory use - Part 2-202: Particular requirements for electrically operated valve actuators"@en ;
-                         rdfs:comment "IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. 
-This publication is to be read in conjunction with IEC 61010-1:2010."@en ;
+                         rdfs:comment "IEC 61010-2-202:2016 specifies the safety requirements for electric ACTUATORs and SOLENOIDs, as applied to valves, intended to be installed in an industrial process or discrete control environment. This publication is to be read in conjunction with IEC 61010-1:2010."@en ;
                          rdfs:label "IEC 61010-2-202:2016"@en ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/25399> .
 
@@ -5631,7 +5653,7 @@ sto:IEC_61334_P3_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:hasTag "IEC 61334-3-1:1998 "@en ;
                        dcterms:title "Distribution automation using distribution line carrier systems - Part 3-1: Mains signalling requirements - Frequency bands and output levels"@en ;
                        rdfs:comment "Applies to electrical equipment used in distribution line carrier systems on both medium-voltage and low-voltage distribution networks. Specifies requirements such as frequency bands, output levels, spurious emissions, etc. This publication is of high relevance for Smart Grid."@en ;
-                       rdfs:label "IEC 61334-3-1:1998 "@en ;
+                       rdfs:label "IEC 61334-3-1:1998"@en ;
                        sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_61334> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/5297> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61334> .
@@ -5653,11 +5675,11 @@ sto:IEC_61334_P3_S21_E1 rdf:type owl:NamedIndividual ,
                         sto:hasPages "33"^^xsd:int ;
                         sto:hasPublicationDate "1996-03-27"^^xsd:date ;
                         sto:hasStabilityDate "2018"^^xsd:gYear ;
-                        sto:hasTag "IEC 61334-3-21:1996 "@en ;
+                        sto:hasTag "IEC 61334-3-21:1996"@en ;
                         dcterms:title "Distribution automation using distribution line carrier systems - Part 3: Mains signalling requirements - Section 21: MV phase-to-phase isolated capacitive coupling device"@en ;
                         rdfs:comment """Establishes definitions, requirements, methods of testing and rated values for phase-to-phase isolated capacitive coupling devices to be used in medium-voltage (MV) distribution line carrier systems.
 This publication is of high relevance for Smart Grid."""@en ;
-                        rdfs:label "IEC 61334-3-21:1996 "@en ;
+                        rdfs:label "IEC 61334-3-21:1996"@en ;
                         sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_61334> ;
                         sto:hasOfficialResource <https://webstore.iec.ch/publication/5298> ;
                         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61334> .
@@ -6101,11 +6123,6 @@ sto:IEC_61400_P25_S4_E2 rdf:type owl:NamedIndividual ,
                         sto:hasPages "829"^^xsd:int ;
                         sto:hasPublicationDate "2016-11-30"^^xsd:date ;
                         sto:hasStabilityDate "2018"^^xsd:gYear ;
-                        sto:relatedTo sto:SOAP,
-                                      sto:OPC_XML-DA,
-                                      sto:IEC_61850_P8_S1_E2,
-                                      sto:IEC_60870_P5_S104_E2_1,
-                                      sto:IEEE_1815-2012;
                         sto:hasTag "IEC 61400-25-4:2016"@en ;
                         dcterms:title "Wind energy generation systems - Part 25-4: Communications for monitoring and control of wind power plants - Mapping to communication profile"@en ;
                         rdfs:comment """IEC 61400-25-4:2016 RLV contains the International Standard and its Redline version. The Redline version is available in English only. The Redline version provides you with a quick and easy way to compare all the changes between this standard and its previous edition. The Redline version is not an official IEC Standard, only the current version of the standard is to be considered the official document.
@@ -6122,25 +6139,6 @@ The main technical changes with regard to the previous edition are as follows:
                         rdfs:label "IEC 61400-25-4:2016"@en ;
                         sto:hasOfficialResource <https://webstore.iec.ch/publication/59497> .
 
-
-sto:OPC_XML-DA rdf:type owl:NamedIndividual ,
-                           sto:TechnicalSpecification ;
-                  dcterms:creator sto:priyanka ;
-                  sto:hasPublisher sto:OPC_Foundation ;
-                  sto:hasPublicationDate "2004-12-01"^^xsd:date ;
-                  sto:hasTag "OPC XML-DA" ;
-                  rdfs:comment "OPC XML-DA builds on the OPC Data Access specifications to communicate data in XML. Incorporates SOAP and Web services"@en ;
-                  rdfs:label "OPC_XML-DA"@en ;
-                  sto:hasOfficialResource <https://www.opcconnect.com/xml.php#xmlspec>;
-                  sto:hasOpenResource <http://www.diit.unict.it/users/scava/dispense/II/OPCDataAccessXMLSpecification.pdf> .
-
-sto:SOAP rdf:type owl:NamedIndividual ,
-                           sto:TechnicalSpecification ;
-                           dcterms:creator sto:priyanka ;
-                  sto:hasTag "SOAP" ;
-                  rdfs:comment "SOAP (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks."@en ;
-                  rdfs:label "SOAP"@en ;
-                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SOAP>.
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S5_E2
 sto:IEC_61400_P25_S5_E2 rdf:type owl:NamedIndividual ,
@@ -6893,27 +6891,6 @@ sto:IEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                        sto:hasDBpediaResource <http://dbpedia.org/page/IEC_61850> ;
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/6017> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
-
-sto:IEC_61850_P8_S1_E2 rdf:type owl:NamedIndividual ,
-                          sto:Standard ;
-                 dcterms:creator sto:priyanka;
-                 sto:hasAvailableLanguage lang:eng ,
-                                          lang:fra ;
-                 sto:hasFileSize sto:FileSizeIEC_61850_P8_S1_E2 ;
-                 sto:hasICS sto:ICS_33_200 ;
-                 sto:hasPublisher sto:IEC ;
-                 sto:hasTechnicalCommittee sto:TC_57 ;
-                 sto:hasEdition "2.0"^^xsd:float ;
-                 sto:hasPages "386"^^xsd:int ;
-                 sto:hasPublicationDate "2011-06-17"^^xsd:date ;
-                 sto:hasStabilityDate "2020"^^xsd:gYear ;
-                 sto:hasTag "IEC 61850-8-1:2011"@en ;
-                 sto:hasStatus "Valid";
-                 dcterms:title "Communication networks and systems for power utility automation - Part 7-4: Basic communication structure - Compatible logical node classes and data object classes"@en ;
-                 rdfs:comment "IEC 61850-8-1:2011 specifies a method of exchanging time-critical and non-time-critical data through local-area networks by mapping ACSI to MMS and ISO/IEC 8802-3 frames. Defines a standardized method of using the ISO 9506 services to implement the exchange of data. For those ACSI services defined in IEC 61850-7-2 that are not mapped to MMS, this part defines additional protocols. It describes real utility devices with respect to their external visible data and behaviour using an object oriented approach. The objects are abstract in nature and may be used to a wide variety of applications. The use of this mapping goes far beyond the application in the utility communications. The main changes with respect to the previous edition are listed below: - the support of gigabit Ethernet, - the link layer redundancy, - the extension of the length of the object reference, - the extension of the reason for inclusion type for comprehensive logging, - the mapping of the tracking services, - a second mapping of the objectReference when used in the tracking services, or as linking, - the extension of the AdditionalCause enumeration, - the simulation of GOOSE telegram, - the so-called fixed-length encoded GOOSE, - the removal of the SCL Control Block."@en ;
-                 rdfs:label "IEC 61850-8-1:2011"@en ;
-                 sto:hasOfficialResource <https://webstore.iec.ch/publication/6021>;
-                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
 
 
 ###  https://w3id.org/i40/sto#IEC_61968_P3_E1
@@ -7859,14 +7836,6 @@ sto:IEEE_1377-2012 rdf:type owl:NamedIndividual ,
                    rdfs:label "IEEE 1377-2012"@en ;
                    sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1377-2012.html> .
 
-sto:IEEE_1815-2012 rdf:type owl:NamedIndividual ,
-                            sto:Standard ; 
-                            dcterms:creator sto:priyanka ;
-                   sto:hasPublicationDate "2012-10-10"^^xsd:date ;
-                   rdfs:comment "IEEE Standard for Electric Power Systems Communications-Distributed Network Protocol (DNP3)"@en ;
-                   rdfs:label "IEEE 1377-2012"@en ;
-                   sto:hasTag "DNP3"@en;
-                   sto:hasOfficialResource <https://standards.ieee.org/standard/1815-2012.html> .
 
 ###  https://w3id.org/i40/sto#IEEE_1451
 sto:IEEE_1451 rdf:type owl:NamedIndividual ,
@@ -8327,7 +8296,7 @@ sto:ISO_15408 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan ;
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:ISO ;
-              dc11:title "Common Criteria for Information Technology Security Evaluation"@en ;
+              dce:title "Common Criteria for Information Technology Security Evaluation"@en ;
               rdfs:comment "The Common Criteria for Information Technology Security Evaluation (abbreviated as Common Criteria or CC) is an international standard (ISO/IEC 15408) for computer security certification"@en ;
               rdfs:label "ISO/IEC 15408"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/10255> ,
@@ -8963,7 +8932,7 @@ sto:ISO_27017 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2015-12-01"^^xsd:date ;
-              dc11:title "Code of practice for information security controls based on ISO/IEC 27002 for cloud services"@en ;
+              dce:title "Code of practice for information security controls based on ISO/IEC 27002 for cloud services"@en ;
               rdfs:comment "The ISO/IEC 270172 standard provides guidance on the information security elements of cloud computing. It assists with the implementation of cloud-specific information security controls, supplementing the guidance in ISO 27000 series standards."@en ;
               rdfs:label "ISO/IEC 27017"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
@@ -8984,7 +8953,7 @@ sto:ISO_27018 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2014-08-01"^^xsd:date ;
-              dc11:title "Information technology -- Security techniques -- Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ;
+              dce:title "Information technology -- Security techniques -- Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ;
               rdfs:comment "ISO/IEC 27018:2014 establishes commonly accepted control objectives, controls and guidelines for implementing measures to protect Personally Identifiable Information (PII) in accordance with the privacy principles in ISO/IEC 29100 for the public cloud computing environment."@en ;
               rdfs:label "IEC 27018"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
@@ -9018,7 +8987,7 @@ sto:ISO_27031 rdf:type owl:NamedIndividual ,
                                sto:ISO ;
               sto:domainName "Business Continuity"@en ;
               sto:hasPublicationDate "2011-03-01"^^xsd:date ;
-              dc11:title "Guidelines for information and communication technology readiness for business continuity"@en ;
+              dce:title "Guidelines for information and communication technology readiness for business continuity"@en ;
               rdfs:comment "ISO/IEC 27031:2011 describes the concepts and principles of information and comunication technology (ICT) readiness for business continuity, and provides a framework of methods and processes to identify and specify all aspects (such as performance criteria, design, and implementation) for improving an organization's ICT readiness to ensure business continuity."@en ;
               rdfs:label "IEC 27031"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/11304> ,
@@ -9034,7 +9003,7 @@ sto:ISO_27036 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2016-10-01"^^xsd:date ;
-              dc11:title "Information security for supplier relationships"@en ;
+              dce:title "Information security for supplier relationships"@en ;
               rdfs:comment """ISO/IEC 27036-4:2016 provides cloud service customers and cloud service providers with guidance on
 
 a) gaining visibility into the information security risks associated with the use of cloud services and managing those risks effectively, and
@@ -9148,7 +9117,7 @@ sto:ISO_29134 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2017-06-01"^^xsd:date ;
-              dc11:title "Privacy impact assessment–Guidelines"@en ;
+              dce:title "Privacy impact assessment–Guidelines"@en ;
               rdfs:comment "‘Privacy impact assessment–Guidelines’ proposes a methodology to conduct assessments on the impact of privacy."@en ;
               rdfs:label "ISO/IEC 29134"@en ;
               sto:hasDomain sto:ITSecurity ;
@@ -9759,7 +9728,7 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
                 sto:hasClassification sto:IIRAPrivacy ;
                 sto:hasPublisher sto:NIST ;
                 sto:hasPublicationDate "2017-04-01"^^xsd:date ;
-                dc11:title "Privacy Risk Management for Federal Information Systems"@en ;
+                dce:title "Privacy Risk Management for Federal Information Systems"@en ;
                 rdfs:comment "This document provides an introduction to the concepts of privacy engineering and risk management for federal information systems. These concepts establish the basis for a common vocabulary to facilitate better understanding and communication of privacy risk within federal information systems, and the effective implementation of privacy principles. This publication introduces two key components to support the application of privacy engineering and risk management: privacy engineering objectives and a privacy risk model."@en ;
                 rdfs:label "NIST Internal Report (NISTIR) 8062"@en ,
                            "NISTIR 8062"@en ;
@@ -9794,6 +9763,7 @@ sto:NIST_500-291 rdf:type owl:NamedIndividual ,
                  dcterms:creator sto:irlan ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
+                 #sto:hasDomain 
                  sto:hasPublicationDate "2011-08-10"^^xsd:date ;
                  dcterms:title "NIST Cloud Computing Standards Roadmap"@en ;
                  rdfs:comment "The NIST Cloud Computing Standards Roadmap Working Group has surveyed the existing standards landscape for security, portability, and interoperability standards/models/studies/use cases, etc., relevant to cloud computing. Using this available information, current standards, standards gaps, and standardization priorities are identified in this document. The NIST Definition of Cloud Computing identified cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction."@en ;
@@ -9810,7 +9780,7 @@ sto:NIST_500-292 rdf:type owl:NamedIndividual ,
                  sto:hasPublisher sto:NIST ;
                  sto:hasDomain sto:CloudComputing;
                  sto:hasPublicationDate "2011-09-09"^^xsd:date ;
-                 dc11:title "NIST Cloud Computing Reference Architecture"@en ;
+                 dce:title "NIST Cloud Computing Reference Architecture"@en ;
                  rdfs:comment "The adoption of cloud computing into the Federal Government and its implementation depend upon a variety of technical and non-technical factors. A fundamental reference point, based on the NIST definition of Cloud Computing, is needed to describe an overall framework that can be used government-wide. This document presents the NIST Cloud Computing Reference Architecture (RA) and Taxonomy (Tax) that will accurately communicate the components and offerings of cloud computing."@en ;
                  rdfs:label "NIST 500-292"@en ;
                  sto:hasOfficialResource <https://www.nist.gov/publications/nist-cloud-computing-reference-architecture> .
@@ -9858,7 +9828,7 @@ sto:NIST_800-146 rdf:type owl:NamedIndividual ,
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
                  sto:hasPublicationDate "2012-05-01"^^xsd:date ;
-                 dc11:title "Cloud Computing Synopsis and Recommendations"@en ;
+                 dce:title "Cloud Computing Synopsis and Recommendations"@en ;
                  rdfs:comment "This document reprises the NIST-established definition of cloud computing, describes cloud computing benefits and open issues, presents an overview of major classes of cloud technology, and provides guidelines and recommendations on how organizations should consider the relative opportunities and risks of cloud computing."@en ;
                  rdfs:label "NIST 800-146"@en ;
                  sto:hasDomain sto:CloudComputing ;
@@ -11244,19 +11214,6 @@ sto:uIP rdf:type owl:NamedIndividual ,
                                                      rdfs:label "Paul Baptista" .
 
 
-###  https://www.wikidata.org/wiki/Q1548249
-<https://www.wikidata.org/wiki/Q1548249> rdf:type owl:NamedIndividual ,
-                                                  sto:StakeholderGroup ;
-                                         rdfs:label "System Architect"@en .
-
-
-
-
-sto:StakeholderGroup  a owl:Class ;
-             rdfs:label "StakeholderGroup"@en ;
-             rdfs:comment "Stakeholder (Stakeholder Group) is an individual, organisation, or classses thereof, having an interest in a system."@en;
-             rdfs:isDefinedBy sto:IEC_42010;
-             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Stakeholder> .
 
 #################################################################
 #    Annotations
