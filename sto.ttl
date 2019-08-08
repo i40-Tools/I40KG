@@ -3144,6 +3144,13 @@ sto:FileSizeIEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                                rdfs:comment "Specifies the file size of the document for standard IEC 61850-7-4:2010."@en ;
                                rdfs:label "FileSize IEC 61850-7-4:2010 "@en .
 
+sto:FileSizeIEC_61850_P8_S1_E2 rdf:type owl:NamedIndividual ,
+                                        om2:Measure ;
+                               om2:hasUnit om2:kilobyte ;
+                               om2:hasNumericalValue "3365.0"^^xsd:float ;
+                               rdfs:comment "Specifies the file size of the document for standard IEC 61850-8-1:2011."@en ;
+                               rdfs:label "FileSize IEC 61850-8-1:2011 "@en .
+
 
 ###  https://w3id.org/i40/sto#FileSizeIEC_61968_P3_E1
 sto:FileSizeIEC_61968_P3_E1 rdf:type owl:NamedIndividual ,
@@ -6106,6 +6113,24 @@ Main changes with respect to the previous edition consist of:
                         rdfs:label "IEC 61400-25-3:2015"@en ;
                         sto:hasOfficialResource <https://webstore.iec.ch/publication/22808> .
 
+sto:OPC_XML-DA rdf:type owl:NamedIndividual ,
+                           sto:TechnicalSpecification ;
+                  dcterms:creator sto:priyanka ;
+                  sto:hasPublisher sto:OPC_Foundation ;
+                  sto:hasPublicationDate "2004-12-01"^^xsd:date ;
+                  sto:hasTag "OPC XML-DA" ;
+                  rdfs:comment "OPC XML-DA builds on the OPC Data Access specifications to communicate data in XML. Incorporates SOAP and Web services"@en ;
+                  rdfs:label "OPC_XML-DA"@en ;
+                  sto:hasOfficialResource <https://www.opcconnect.com/xml.php#xmlspec>;
+                  sto:hasOpenResource <http://www.diit.unict.it/users/scava/dispense/II/OPCDataAccessXMLSpecification.pdf> .
+
+sto:SOAP rdf:type owl:NamedIndividual ,
+                           sto:TechnicalSpecification ;
+                           dcterms:creator sto:priyanka ;
+                  sto:hasTag "SOAP" ;
+                  rdfs:comment "SOAP (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks."@en ;
+                  rdfs:label "SOAP"@en ;
+                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/SOAP>.
 
 ###  https://w3id.org/i40/sto#IEC_61400_P25_S4_E2
 sto:IEC_61400_P25_S4_E2 rdf:type owl:NamedIndividual ,
@@ -6115,6 +6140,11 @@ sto:IEC_61400_P25_S4_E2 rdf:type owl:NamedIndividual ,
                         sto:hasFileSize sto:FileSizeIEC_61400_P25_S4 ;
                         sto:hasICS sto:ICS_27_180 ;
                         sto:hasPublisher sto:IEC ;
+                        sto:relatedTo sto:SOAP,
+                                      sto:OPC_XML-DA,
+                                      sto:IEC_61850_P8_S1_E2,
+                                      sto:IEC_60870_P5_S104_E2_1,
+                                      sto:IEEE_1815-2012;
                         sto:hasTechnicalCommittee sto:TC_88 ;
                         sto:hasEdition "2.0"^^xsd:float ;
                         sto:hasPages "829"^^xsd:int ;
@@ -6600,6 +6630,9 @@ sto:IEC_61850 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
 
 
+
+
+
 ###  https://w3id.org/i40/sto#IEC_61850_P10_E1
 sto:IEC_61850_P10_E1 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
@@ -6889,6 +6922,26 @@ sto:IEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                        sto:hasOfficialResource <https://webstore.iec.ch/publication/6017> ;
                        sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
 
+sto:IEC_61850_P8_S1_E2 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 dcterms:creator sto:priyanka;
+                 sto:hasAvailableLanguage lang:eng ,
+                                          lang:fra ;
+                 sto:hasFileSize sto:FileSizeIEC_61850_P8_S1_E2 ;
+                 sto:hasICS sto:ICS_33_200 ;
+                 sto:hasPublisher sto:IEC ;
+                 sto:hasTechnicalCommittee sto:TC_57 ;
+                 sto:hasEdition "2.0"^^xsd:float ;
+                 sto:hasPages "386"^^xsd:int ;
+                 sto:hasPublicationDate "2011-06-17"^^xsd:date ;
+                 sto:hasStabilityDate "2020"^^xsd:gYear ;
+                 sto:hasTag "IEC 61850-8-1:2011"@en ;
+                 sto:hasStatus "Valid";
+                 dcterms:title "Communication networks and systems for power utility automation - Part 7-4: Basic communication structure - Compatible logical node classes and data object classes"@en ;
+                 rdfs:comment "IEC 61850-8-1:2011 specifies a method of exchanging time-critical and non-time-critical data through local-area networks by mapping ACSI to MMS and ISO/IEC 8802-3 frames. Defines a standardized method of using the ISO 9506 services to implement the exchange of data. For those ACSI services defined in IEC 61850-7-2 that are not mapped to MMS, this part defines additional protocols. It describes real utility devices with respect to their external visible data and behaviour using an object oriented approach. The objects are abstract in nature and may be used to a wide variety of applications. The use of this mapping goes far beyond the application in the utility communications. The main changes with respect to the previous edition are listed below: - the support of gigabit Ethernet, - the link layer redundancy, - the extension of the length of the object reference, - the extension of the reason for inclusion type for comprehensive logging, - the mapping of the tracking services, - a second mapping of the objectReference when used in the tracking services, or as linking, - the extension of the AdditionalCause enumeration, - the simulation of GOOSE telegram, - the so-called fixed-length encoded GOOSE, - the removal of the SCL Control Block."@en ;
+                 rdfs:label "IEC 61850-8-1:2011"@en ;
+                 sto:hasOfficialResource <https://webstore.iec.ch/publication/6021>;
+                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
 
 ###  https://w3id.org/i40/sto#IEC_61968_P3_E1
 sto:IEC_61968_P3_E1 rdf:type owl:NamedIndividual ,
@@ -6909,6 +6962,14 @@ sto:IEC_61968_P3_E1 rdf:type owl:NamedIndividual ,
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/6202> ;
                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61968> .
 
+sto:IEEE_1815-2012 rdf:type owl:NamedIndividual ,
+                            sto:Standard ; 
+                            dcterms:creator sto:priyanka ;
+                   sto:hasPublicationDate "2012-10-10"^^xsd:date ;
+                   rdfs:comment "IEEE Standard for Electric Power Systems Communications-Distributed Network Protocol (DNP3)"@en ;
+                   rdfs:label "IEEE 1377-2012"@en ;
+                   sto:hasTag "DNP3"@en;
+                   sto:hasOfficialResource <https://standards.ieee.org/standard/1815-2012.html> .
 
 ###  https://w3id.org/i40/sto#IEC_61968_P3_E2
 sto:IEC_61968_P3_E2 rdf:type owl:NamedIndividual ,
