@@ -1,5 +1,4 @@
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/terms/> .
 @prefix oa: <https://www.w3.org/ns/oa> .
 @prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix dbr: <http://dbpedia.org/resource#> .
@@ -13,9 +12,7 @@
 @prefix sto: <https://w3id.org/i40/sto#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dc11: <http://purl.org/dc/elements/1.1/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
-@prefix voag: <http://voag.linkedmodel.org/voag#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
@@ -25,7 +22,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
@@ -33,9 +29,8 @@
 @prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
 
 
-<https://w3id.org/i40/sto/iot/frameworks/> rdf:type owl:Ontology ;
+sto_iot:frameworks rdf:type owl:Ontology ;
                                  owl:versionIRI <https://w3id.org/i40/sto/iot/0.1/frameworks/> ;
-                                 owl:imports <https://raw.githubusercontent.com/i40-Tools/StandardOntology/master/concerns.ttl> ;
                                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Internet_of_things> ;
                                  dcterms:title "Industrial IoT Architecture Ontology"@en ;
                                  sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
@@ -51,7 +46,8 @@
                                  dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                                  dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
                                  doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
-                                 dcterms:created "2019-06-09"^^xsd:date .
+                                 dcterms:created "2019-06-09"^^xsd:date ;
+                                 owl:imports <concerns.ttl> .
 
 
 
@@ -87,6 +83,8 @@ oa:hasStartSelector rdf:type owl:AnnotationProperty .
 ###  https://www.w3.org/ns/oahasTarget
 oa:hasTarget rdf:type owl:AnnotationProperty .
 
+
+
 #################################################################
 #    Object Properties
 #################################################################
@@ -106,7 +104,7 @@ sto_iot:alignsWith rdf:type owl:ObjectProperty ;
 sto_iot:frames rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf dul:associatedWith ;
            rdfs:domain sto:StandardClassification ;
-           rdfs:range sto:Concern ;
+           rdfs:range sto_iot:Concern ;
            rdfs:comment "A relation specifying that a vewpoint regards a Concern."@en ;
            rdfs:label "frames"@en ;
            sto:hasOfficialResource <http://www.iso-architecture.org/42010/> .
@@ -125,15 +123,15 @@ sto_iot:hasTargetConcern rdf:type owl:ObjectProperty ;
                                                  sto:StandardizationFramework
                                                )
                                  ] ;
-                     rdfs:range sto:Concern ;
+                     rdfs:range sto_iot:Concern ;
                      rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
                      rdfs:label "has Target Concern"@en .
 
 
 ###  https://w3id.org/i40/sto#supports
 sto_iot:supports rdf:type owl:ObjectProperty ;
-             rdfs:domain sto:Concern ;
-             rdfs:range sto:Concern ;
+             rdfs:domain sto_iot:Concern ;
+             rdfs:range sto_iot:Concern ;
              rdfs:comment "A relation between two different concerns where dealing with the subject Concern supports in achieving the object concern"@en ;
              rdfs:label "supports" .
 
@@ -143,10 +141,6 @@ sto_iot:supports rdf:type owl:ObjectProperty ;
 #    Classes
 #################################################################
 
-
-
-###  http://voag.linkedmodel.org/voag#StakeholderGroup
-voag:StakeholderGroup rdf:type owl:Class .
 
 
 
@@ -215,7 +209,10 @@ sto:EdgecrossLayer rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#FiwareChapter
 sto:FiwareChapter rdf:type owl:Class ;
-                  rdfs:subClassOf sto:StandardClassification .
+                  dcterms:creator sto:sebastian ;
+                  rdfs:subClassOf sto:StandardClassification ;
+                  rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
+                  rdfs:label "Fiware Chapter"@en .
 
 
 ###  https://w3id.org/i40/sto#IDSRAMLayer
@@ -257,6 +254,7 @@ sto:IIRAFunctionalDomain rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#IIRASystemCharacteristics
 sto:IIRASystemCharacteristics rdf:type owl:Class ;
+                              rdfs:comment "Class of all System Characteristics as defined by the IIRA." ;
                               rdfs:subClassOf sto:StandardClassification ,
                                               [ rdf:type owl:Restriction ;
                                                 owl:onProperty dul:isPartOf ;
@@ -316,6 +314,7 @@ sto:NGSI_Context_Information_Management_API rdf:type owl:Class ;
                                                             ] ;
                                             dcterms:creator sto:sebastian ;
                                             dcterms:title "NGSI-LD" ;
+                                            rdfs:comment "The section of the FIWARE specification about the NGSI API."@en ;
                                             rdfs:label "NGSI Context Information Management API"@en .
 
 
@@ -329,10 +328,8 @@ sto:OcfBlock rdf:type owl:Class ;
 ###  https://w3id.org/i40/sto#Stakeholder
 sto:Stakeholder rdf:type owl:Class ;
                 rdfs:subClassOf foaf:Person ;
-                rdfs:comment " A stakeholder is an individual, team, organization or classes thereof,having an interest in a concern and by extension an interest in the viewpoint and system." ,
-                             "Describes the layers of the standardization frameworks. In some cases, the layers are connected to dimensions of the frameworks. "@en ;
-                rdfs:label "Layer"@en ,
-                           "Stakeholder"@en ;
+                rdfs:comment "A stakeholder is an individual, team, organization or classes thereof,having an interest in a concern and by extension an interest in the viewpoint and system."@en ,
+                rdfs:label "Layer"@en ;
                 rdfs:seeAlso "IIC:PUB:G1:V1.80:20170131" ;
                 skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4.1 STAKEHOLDERS' 'Page 20' " ;
                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Stakeholder> .
@@ -350,6 +347,7 @@ sto:xRoadSection rdf:type owl:Class ;
                                    owl:onProperty sto:isDescribedin ;
                                    owl:hasValue sto:xTee
                                  ] ;
+                 rdfs:comment "Class of all parts of the xRoad specification."@en ;
                  dcterms:creator sto:sebastian ;
                  rdfs:label "x-road Section"@en .
 
@@ -380,12 +378,8 @@ oa:XPathSelector rdf:type owl:Class .
 
 ###  http://purl.oclc.org/NET/mvco.owl#EndUser
 <http://purl.oclc.org/NET/mvco.owl#EndUser> rdf:type owl:NamedIndividual ,
-                                                     <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                                                     sto_iot:StakeholderGroup .
 
-
-###  http://voag.linkedmodel.org/voag#StakeholderGroup
-<http://voag.linkedmodel.org/voag#StakeholderGroup> rdf:type owl:NamedIndividual ;
-                                                    dcterms:creator sto:sebastian .
 
 
 ###  https://w3id.org/i40/sto#AMQP
@@ -1304,7 +1298,7 @@ sto:Bluetooth rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataConsumer
 sto:DataConsumer rdf:type owl:NamedIndividual ,
-                          <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                          sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#DataMarketAustria
@@ -1320,12 +1314,12 @@ sto:DataMarketAustria rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataOwner
 sto:DataOwner rdf:type owl:NamedIndividual ,
-                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                       sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#DataProvider
 sto:DataProvider rdf:type owl:NamedIndividual ,
-                          <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                          sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#DataSelection
@@ -1398,7 +1392,7 @@ sto:DecisionMaker rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Developer
 sto:Developer rdf:type owl:NamedIndividual ,
-                       <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                       sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#DmaArchitecture
@@ -1835,10 +1829,6 @@ sto:FiwareApplicationsServicesAndDataDeliveryAnno rdf:type owl:NamedIndividual ,
                                                                  oa:hasSource <https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Architecture_of_Applications,_Services_and_Data_Delivery_R3>
                                                                ] .
 
-
-###  https://w3id.org/i40/sto#FiwareChapter
-sto:FiwareChapter rdf:type owl:NamedIndividual ;
-                  dcterms:creator sto:sebastian .
 
 
 ###  https://w3id.org/i40/sto#FiwareChapterAnno
@@ -6241,7 +6231,7 @@ sto:OpenFogArchitecture rdf:type owl:NamedIndividual ,
                                  sto:Publication ;
                         dcterms:creator sto:sebastian ;
                         sto:hasPublisher sto:OpenFogConsortium ;
-                        dc11:title "OpenFog Architecture Overview"@en ;
+                        dcterms:title "OpenFog Architecture Overview"@en ;
                         rdfs:comment "The OpenFog Architecture is a system-level architecture that extends elements of compute, networking and storage across the cloud through to the edge of the network. This approach is particularly suited to IoT systems and accelerates the decision-making velocity. This architecture serves a specific subset of business problems that can’t be successfully implemented using “cloud only” based architectures or relying solely on intelligent edge devices. OpenFog should be thought of as complementary to, and an extension of the traditional cloud based model where implementations of the architecture can reside in multiple layers of a network’s topology. The goal of the OpenFog architecture is to facilitate deployments which highlight interoperability, performance, security, scalability, programmability, reliability, availability, serviceability, and agility. Proprietary or single vendor solutions can result in limited supplier diversity, which can have a negative impact on market adoption, system cost, quality and innovation."@en ;
                         rdfs:label "OpenFog Architecture Whitepaper" ,
                                    "OpenFog Architecture Whitepaper"^^xsd:string ;
@@ -6319,7 +6309,7 @@ sto:PlatformIndustry40 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ProductManager
 sto:ProductManager rdf:type owl:NamedIndividual ,
-                            <http://voag.linkedmodel.org/voag#StakeholderGroup> ,
+                            sto_iot:StakeholderGroup ,
                             sto:Stakeholder ;
                    rdfs:comment ""@en ;
                    rdfs:label "Product Manager"@en ;
@@ -6328,7 +6318,7 @@ sto:ProductManager rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ProjectManager
 sto:ProjectManager rdf:type owl:NamedIndividual ,
-                            <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                            sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#RAMIAssetlayer
@@ -7294,7 +7284,7 @@ sto:SCIM rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SystemEngineer
 sto:SystemEngineer rdf:type owl:NamedIndividual ,
-                            <http://voag.linkedmodel.org/voag#StakeholderGroup> ,
+                            sto_iot:StakeholderGroup ,
                             sto:Stakeholder ;
                    rdfs:comment ""@en ;
                    rdfs:label "System Engineer"@en ;
@@ -7303,7 +7293,7 @@ sto:SystemEngineer rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SystemOperator
 sto:SystemOperator rdf:type owl:NamedIndividual ,
-                            <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                            sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture
@@ -7543,13 +7533,17 @@ ids:TrustedConnector rdf:type owl:NamedIndividual ,
                                         sto:IDSRAMReferenceArchitectureModel ;
                      foaf:maker sto:IDSRAMReferenceArchitectureModel ;
                      sto_iot:alignsWith sto:AdministrationShell ;
-                     rdfs:comment "TODO: model IDS concepts correctly"@en ;
+                     rdfs:comment """The Trusted Connector is an Apache Karaf-based platform for the Industrial Internet of Things (IIoT). It supports Docker and trust|me as containerization environments and provides the following features:
+   - Message routing and conversion between protocols with Apache Camel
+   - Apps in isolated containers
+   - Data flow- and data usage control
+   - An Apache Camel component for secure communication and remote attestation between Connectors."""@en ;
                      rdfs:label "Trusted Connector"@en .
 
 
 ###  https://w3id.org/i40/sto#Customer
 sto:Customer rdf:type owl:NamedIndividual ,
-                      <http://voag.linkedmodel.org/voag#StakeholderGroup> .
+                      sto_iot:StakeholderGroup .
 
 
 ###  https://w3id.org/i40/sto#ISO_19941
@@ -7832,7 +7826,7 @@ sto:RAMIProduct rdf:type owl:NamedIndividual ,
 #################################################################
 
 
-<http://voag.linkedmodel.org/voag#StakeholderGroup> skos:note "Stakeholders are interpreted in the same manner as outlined by ISO 42010: '<system> individual, team, organization, or classes thereof, having an interest in a system'"@en ;
+sto_iot:StakeholderGroup skos:note "Stakeholders are interpreted in the same manner as outlined by ISO 42010: '<system> individual, team, organization, or classes thereof, having an interest in a system'"@en ;
                                                     rdfs:comment "A Stakeholder Group is a party of people who have common interests and concerns."@en ;
                                                     rdfs:label "Stakeholder Group"@en ;
                                                     rdfs:comment "A stakeholder is everyone with an interest in a system."@en .
@@ -7865,11 +7859,6 @@ sto:DataLifecycleManagement rdfs:seeAlso "IoT-A Requirement UNI.097" .
 
 sto:DataSharingInitiative rdfs:comment "This class frames all organizations with the main intend to create, specify and implement a data sharing concept with according interfaces, components, data descriptions, and retrieval algorithms."@en ;
                           rdfs:label "Data Sharing Initiative"@en .
-
-
-sto:FiwareChapter dcterms:creator sto:sebastian ;
-                  rdfs:comment "Following is a description of the Reference Architecture linked to the different chapters of FIWARE. A description of FIWARE Generic Enablers (GEs) being supported in each chapter is provided, including the high-level description of the APIs that each FIWARE Generic Enabler (GE) exposes to application developers or it uses to connect to another FIWARE GEs."@en ;
-                  rdfs:label "Fiware Chapter"@en .
 
 
 sto:GeospatialQuery rdfs:seeAlso "IoT-A Requirement UNI.401" .
