@@ -3930,6 +3930,18 @@ sto:IEC_42010 rdf:type owl:NamedIndividual ,
               sto:hasOpenResource <http://cabibbo.dia.uniroma3.it/asw/altrui/iso-iec-ieee-42010-2011.pdf> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010> .
 
+sto:IEC_60027 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasAvailableLanguage lang:eng ,
+                                             lang:fra ,
+                                             lang:spa ;
+                    sto:hasImplementationFormat "Document"@en ;
+                    rdfs:comment "IEC 60027 (formerly IEC 27) is a technical international standard for letter symbols."@en ;
+                    rdfs:label "IEC 60027"@en ;
+                    sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
+                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
+
+
 
 ###  https://w3id.org/i40/sto#IEC_60027_P6_E1
 sto:IEC_60027_P6_E1 rdf:type owl:NamedIndividual ,
@@ -3939,6 +3951,7 @@ sto:IEC_60027_P6_E1 rdf:type owl:NamedIndividual ,
                                              lang:fra ,
                                              lang:spa ;
                     sto:hasFileSize sto:FileSizeIEC_60027_P6 ;
+                    sto:isPartOf sto:IEC_60027;
                     sto:hasICS sto:ICS_01_060 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_25 ;
@@ -3954,6 +3967,20 @@ sto:IEC_60027_P6_E1 rdf:type owl:NamedIndividual ,
                     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/96> ;
                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
+
+
+
+sto:IEC_60038 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 sto:hasAvailableLanguage lang:eng ,
+                                          lang:fra ,
+                                          lang:spa ;
+                 sto:hasPublisher sto:IEC ;
+                 sto:hasImplementationFormat "Document"@en ;
+                 rdfs:comment "IEC 60038 specifies standard voltage values which are intended to serve as preferential values for the nominal voltage of electrical supply systems, and as reference values for equipment and system design. "@en ;
+                 rdfs:label "IEC 60038"@en ;
+                 sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60038> ;
+                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60038> .
 
 
 ###  https://w3id.org/i40/sto#IEC_60038_E7
@@ -3985,30 +4012,15 @@ sto:IEC_60038_E7 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050
 sto:IEC_60050 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:relatedTo sto:IEC_60050 ,
-                            sto:IEC_60050_1984 ,
-                            sto:IEC_60050_1998 ,
-                            sto:IEC_60050_2013 ;
+              sto:relatedTo sto:IEC_60050_P101_E2,
+                           sto:IEC_60050_P351_E4,
+                           sto:IEC_60050_P371_E1 ;
               rdfs:comment "The International Electrotechnical Vocabulary (IEV) serves to promote the global unification of terminology in the field of electrotechnology, electronics and telecommunications."@en ;
               rdfs:label "IEC 60050"@en ;
               skos:altLabel "Electropedia"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
-
-###  https://w3id.org/i40/sto#IEC_60050_1984
-sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
-                            sto:Standard .
-
-
-###  https://w3id.org/i40/sto#IEC_60050_1998
-sto:IEC_60050_1998 rdf:type owl:NamedIndividual, 
-                           sto:Standard .
-
-
-###  https://w3id.org/i40/sto#IEC_60050_2013
-sto:IEC_60050_2013 rdf:type owl:NamedIndividual,
-                   sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_P101_E2
@@ -4023,10 +4035,10 @@ sto:IEC_60050_P101_E2 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_01_040_07 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_1 ;
+                      sto:isPartOf sto:IEC_60050;
                       sto:relatedTo sto:IEC_60050 ,
-                                    sto:IEC_60050_1984 ,
-                                    sto:IEC_60050_1998 ,
-                                    sto:IEC_60050_2013 ;
+                                    sto:IEC_60050_P351_E4,
+                                    sto:IEC_60050_P371_E1 ;
                       sto:hasEdition "2.0"^^xsd:float ;
                       sto:hasImplementationFormat "Document"@en ;
                       sto:hasPages "129"^^xsd:int ;
@@ -4052,10 +4064,10 @@ sto:IEC_60050_P351_E4 rdf:type owl:NamedIndividual ,
                                  sto:ICS_25_040_40 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_1 ;
+                      sto:isPartOf sto:IEC_60050;
                       sto:relatedTo sto:IEC_60050 ,
-                                    sto:IEC_60050_1984 ,
-                                    sto:IEC_60050_1998 ,
-                                    sto:IEC_60050_2013 ;
+                                    sto:IEC_60050_P101_E2,
+                                    sto:IEC_60050_P371_E1 ;
                       sto:hasEdition "4.0"^^xsd:float ;
                       sto:hasImplementationFormat "Document"@en ;
                       sto:hasPages "457"^^xsd:int ;
@@ -4080,10 +4092,10 @@ sto:IEC_60050_P371_E1 rdf:type owl:NamedIndividual ,
                                  sto:ICS_35_240_50 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_1 ;
+                      sto:isPartOf sto:IEC_60050;
                       sto:relatedTo sto:IEC_60050 ,
-                                    sto:IEC_60050_1984 ,
-                                    sto:IEC_60050_1998 ,
-                                    sto:IEC_60050_2013 ;
+                                    sto:IEC_60050_P101_E2,
+                                    sto:IEC_60050_P351_E4;
                       sto:hasEdition "1.0"^^xsd:float ;
                       sto:hasImplementationFormat "Document"@en ;
                       sto:hasPages "44"^^xsd:int ;
@@ -4131,6 +4143,14 @@ sto:IEC_60086 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://webstore.iec.ch/publication/22991> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Battery_nomenclature#IEC_60086> .
 
+sto:IEC_60204 rdf:type owl:NamedIndividual ,
+                              sto:Standard ;
+                     sto:hasPublisher sto:IEC ;
+                     dcterms:title "IEC 60204-1 / EN 60204 Safety of machinery – Electrical equipment of machines"@en ;
+                     rdfs:comment "Applies to the electrical and electronic equipment and systems of machines, including a group of machines working together in a coordinated manner, but excluding higher level system aspects (i.e. communications between systems)."@en ;
+                     rdfs:label "IEC 60204"@en ;
+                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60204> .
+
 
 ###  https://w3id.org/i40/sto#IEC_60204_P11_E1
 sto:IEC_60204_P11_E1 rdf:type owl:NamedIndividual ,
@@ -4144,6 +4164,7 @@ sto:IEC_60204_P11_E1 rdf:type owl:NamedIndividual ,
                                 sto:ICS_29_020 ;
                      sto:hasPublisher sto:IEC ;
                      sto:hasTechnicalCommittee sto:TC_44 ;
+                     sto:isPartOf sto:IEC_60204;
                      sto:hasEdition "1.0"^^xsd:float ;
                      sto:hasImplementationFormat "Document"@en ;
                      sto:hasPages "111"^^xsd:int ;
@@ -4156,8 +4177,17 @@ sto:IEC_60204_P11_E1 rdf:type owl:NamedIndividual ,
                      sto:hasOfficialResource <https://webstore.iec.ch/publication/1022> .
 
 
+sto:IEC_60255 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   sto:hasPublisher sto:IEC ;
+                   sto:hasTag "IEC 60255"@en ;
+                   dcterms:title "Measuring relays and protection equipment "@en ;
+                   rdfs:comment ""@en ;
+                   rdfs:label "IEC 60255"@en  .
+
+
 ###  https://w3id.org/i40/sto#IEC_60255_2010
-sto:IEC_60255_2010 rdf:type owl:NamedIndividual ,
+sto:IEC_60255_P127_E1 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    sto:hasAvailableLanguage lang:eng ,
                                             lang:fra ;
@@ -4165,17 +4195,16 @@ sto:IEC_60255_2010 rdf:type owl:NamedIndividual ,
                    sto:hasICS sto:ICS_29_120_70 ;
                    sto:hasPublisher sto:IEC ;
                    sto:hasTechnicalCommittee sto:TC_95 ;
+                   sto:isPartOf sto:IEC_60255;
                    sto:hasEdition "1.0"^^xsd:float ;
                    sto:hasImplementationFormat "Document"@en ;
                    sto:hasPages "93"^^xsd:int ;
                    sto:hasPublicationDate "2010-04-27"^^xsd:date ;
                    sto:hasStatus "Valid"@en ;
-                   sto:hasTag "IEC 60255-127:2010"@en ,
-                              "IEC 60255-149:2013 "@en ;
+                   sto:hasTag "IEC 60255-127:2010"@en ;
                    dcterms:title "Measuring relays and protection equipment - Part 127: Functional requirements for over/under voltage protection"@en ;
                    rdfs:comment "IEC 60255-127:2010 specifies minimum requirements for over/under voltage relays. The standard includes specification of the protection function, measurement characteristics and time delay characteristics."@en ;
-                   rdfs:label "IEC 60255-127:2010"@en ,
-                              "IEC 60255-149:2013 "@en ;
+                   rdfs:label "IEC 60255-127:2010"@en ;
                    sto:hasOfficialResource <https://webstore.iec.ch/publication/1165> .
 
 
@@ -4189,6 +4218,7 @@ sto:IEC_60255_P149_E1 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_29_120_70 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_95 ;
+                      sto:isPartOf sto:IEC_60255;
                       sto:hasEdition "1.0"^^xsd:float ;
                       sto:hasImplementationFormat "Document"@en ;
                       sto:hasPages "93"^^xsd:int ;
@@ -4211,6 +4241,7 @@ sto:IEC_60255_P151_E1 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_29_120_70 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_95 ;
+                      sto:isPartOf sto:IEC_60255;
                       sto:hasEdition "1.0"^^xsd:float ;
                       sto:hasImplementationFormat "Document"@en ;
                       sto:hasPages "63"^^xsd:int ;
@@ -4234,6 +4265,7 @@ sto:IEC_60255_P1_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_29_120_70 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_95 ;
+                    sto:isPartOf sto:IEC_60255;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasImplementationFormat "Document"@en ;
                     sto:hasPages "89"^^xsd:int ;
@@ -4257,6 +4289,7 @@ sto:IEC_60255_P27_E2 rdf:type owl:NamedIndividual ,
                      sto:hasICS sto:ICS_29_120_70 ;
                      sto:hasPublisher sto:IEC ;
                      sto:hasTechnicalCommittee sto:TC_95 ;
+                     sto:isPartOf sto:IEC_60255;
                      sto:hasEdition "2.0"^^xsd:float ;
                      sto:hasImplementationFormat "Document"@en ;
                      sto:hasPages "197"^^xsd:int ;
@@ -4269,6 +4302,12 @@ sto:IEC_60255_P27_E2 rdf:type owl:NamedIndividual ,
                      rdfs:label "IEC 60255-27:2013 "@en ;
                      sto:hasOfficialResource <https://webstore.iec.ch/publication/1172> .
 
+sto:IEC_60286 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Packaging of components for automatic handling."@en ;
+                    rdfs:comment "In electrical engineering, IEC 60269 is a set of technical standards for low-voltage power fuses."@en ;
+                    rdfs:label "IEC 60286"@en.                  
 
 ###  https://w3id.org/i40/sto#IEC_60286_P3_E5
 sto:IEC_60286_P3_E5 rdf:type owl:NamedIndividual ,
@@ -4281,6 +4320,7 @@ sto:IEC_60286_P3_E5 rdf:type owl:NamedIndividual ,
                                sto:ICS_31_240 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_40 ;
+                    sto:isPartOf sto:IEC_60286;
                     sto:hasEdition "5.0"^^xsd:float ;
                     sto:hasImplementationFormat "Document"@en ;
                     sto:hasPages "77"^^xsd:int ;
@@ -4305,6 +4345,7 @@ sto:IEC_60286_P4_E3 rdf:type owl:NamedIndividual ,
                                sto:ICS_31_240 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_40 ;
+                    sto:isPartOf sto:IEC_60286;
                     sto:hasEdition "3.0"^^xsd:float ;
                     sto:hasImplementationFormat "Document"@en ;
                     sto:hasPages "32"^^xsd:int ;
@@ -4327,6 +4368,7 @@ sto:IEC_60286_P5_E3 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_31_020 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_40 ;
+                    sto:isPartOf sto:IEC_60286;
                     sto:hasEdition "3.0"^^xsd:float ;
                     sto:hasImplementationFormat "Document"@en ;
                     sto:hasPages "71"^^xsd:int ;
@@ -4352,6 +4394,12 @@ sto:IEC_60364 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://webstore.iec.ch/publication/1865> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60364> .
 
+sto:IEC_60381 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Analogue signals for process control systems. "@en ;
+                    rdfs:comment "Applicable to analogue direct current signals used in industrial-process measurement and control systems to transmit information between elements of systems. Does not apply to signals used entirely within an element."@en ;
+                    rdfs:label "IEC 60381"@en  .
 
 ###  https://w3id.org/i40/sto#IEC_60381_P1_E2
 sto:IEC_60381_P1_E2 rdf:type owl:NamedIndividual ,
@@ -4363,6 +4411,7 @@ sto:IEC_60381_P1_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_40 ;
+                    sto:isPartOf sto:IEC_60381;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasImplementationFormat "Document"@en ;
                     sto:hasPages "9"^^xsd:int ;
@@ -4388,6 +4437,7 @@ sto:IEC_60381_P2_E1 rdf:type owl:NamedIndividual ,
                                sto:ICS_35_240_50 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_65 ;
+                    sto:isPartOf sto:IEC_60381;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasImplementationFormat "Document"@en ;
                     sto:hasPages "9"^^xsd:int ;
@@ -4399,6 +4449,7 @@ sto:IEC_60381_P2_E1 rdf:type owl:NamedIndividual ,
                     rdfs:comment "Applicable to analogue direct voltage signals used in industrial process measurement and control systems. lt specifies ranges of analogue direct voltage signals and the signal common; it also deals with ripple content. The analogue direct voltage signal, unlike the analogue direct current signal specified in IEC 60381-1, is not intended for transmission over long distances. This standard does not apply to signals used entirely within an element."@en ;
                     rdfs:label "IEC 60381-2:1978"@en ;
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/1949> .
+
 
 
 ###  https://w3id.org/i40/sto#IEC_60382
@@ -4447,6 +4498,13 @@ sto:IEC_60382_E2 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/1950> .
 
 
+sto:IEC_60839 rdf:type owl:NamedIndividual ,
+                                sto:Standard ;
+                       sto:hasPublisher sto:IEC ;
+                       dcterms:title "Alarm and electronic security systems"@en ;
+                       rdfs:comment ""@en ;
+                       rdfs:label "IEC 60839"@en  .
+
 ###  https://w3id.org/i40/sto#IEC_60839_P5_S2_E2
 sto:IEC_60839_P5_S2_E2 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
@@ -4461,6 +4519,7 @@ sto:IEC_60839_P5_S2_E2 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasImplementationFormat "Document"@en ;
                        sto:hasPages "63"^^xsd:int ;
@@ -4484,6 +4543,7 @@ sto:IEC_60839_P7_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "39"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4507,6 +4567,7 @@ sto:IEC_60839_P7_S2_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "53"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4530,6 +4591,7 @@ sto:IEC_60839_P7_S3_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "29"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4553,6 +4615,7 @@ sto:IEC_60839_P7_S4_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "23"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4576,6 +4639,7 @@ sto:IEC_60839_P7_S5_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "13"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4599,6 +4663,7 @@ sto:IEC_60839_P7_S6_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "9"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4622,6 +4687,7 @@ sto:IEC_60839_P7_S7_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_79 ;
+                       sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "21"^^xsd:int ;
                        sto:hasPublicationDate "1968-03-01"^^xsd:date ,
@@ -4657,6 +4723,14 @@ sto:IEC_60848_E3 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/3684> ;
                  sto:hasStatus "Valid" .
 
+sto:IEC_60864 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Standardization of interconnections between broadcasting transmitters or transmitter systems and supervisory equipment. "@en ;
+                    rdfs:comment "Applies to all classes of transmitters for sound and television broadcasting. Deals with the interface between a transmitter (or system of transmitters) and the supervisory equipment which is intended to remotely monitor and/or control the transmitter(s). "@en ;
+                    rdfs:label "IEC 60864 "@en ;
+                    sto:hasOfficialResource <https://webstore.iec.ch/publication/3727> ;
+                    sto:hasStatus "Valid" .
 
 ###  https://w3id.org/i40/sto#IEC_60864_P1_E1
 sto:IEC_60864_P1_E1 rdf:type owl:NamedIndividual ,
@@ -4669,6 +4743,7 @@ sto:IEC_60864_P1_E1 rdf:type owl:NamedIndividual ,
                                sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_103 ;
+                    sto:isPartOf sto:IEC_60864;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "43"^^xsd:int ;
                     sto:hasPublicationDate "1986-01-01"^^xsd:date ;
@@ -4693,6 +4768,7 @@ sto:IEC_60864_P2_E1 rdf:type owl:NamedIndividual ,
                                sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_103 ;
+                    sto:isPartOf sto:IEC_60864;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "79"^^xsd:int ;
                     sto:hasPublicationDate "1997-06-17"^^xsd:date ;
@@ -5380,6 +5456,12 @@ sto:IEC_60946_E1 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/3961> ;
                  sto:hasStatus "Valid" .
 
+sto:IEC_61000 rdf:type owl:NamedIndividual ,
+                                sto:Standard ;
+                       sto:hasPublisher sto:IEC ;;
+                       dcterms:title "Electromagnetic compatibility (EMC) "@en ;
+                       rdfs:comment ""@en ;
+                       rdfs:label "IEC 61000"@en .
 
 ###  https://w3id.org/i40/sto#IEC_61000_P6_S2_E3
 sto:IEC_61000_P6_S2_E3 rdf:type owl:NamedIndividual ,
@@ -5391,6 +5473,7 @@ sto:IEC_61000_P6_S2_E3 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_100_20 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_77 ;
+                       sto:isPartOf sto:IEC_61000;
                        sto:hasEdition "3.0"^^xsd:float ;
                        sto:hasPages "57"^^xsd:int ;
                        sto:hasPublicationDate "2016-08-10"^^xsd:date ;
@@ -5403,6 +5486,12 @@ sto:IEC_61000_P6_S2_E3 rdf:type owl:NamedIndividual ,
                        sto:hasStatus "Redline version" ;
                        .
 
+sto:IEC_61010 rdf:type owl:NamedIndividual ,
+                                  sto:Standard ;
+                         sto:hasPublisher sto:IEC ;
+                         dcterms:title "Safety requirements for electrical equipment for measurement, control, and laboratory use "@en ;
+                         rdfs:comment "IEC 61010 specifies safety requirements for electrical equipment and their accessories . "@en ;
+                         rdfs:label "IEC 61010"@en .
 
 ###  https://w3id.org/i40/sto#IEC_61010_P2_S012_E1
 sto:IEC_61010_P2_S012_E1 rdf:type owl:NamedIndividual ,
@@ -5415,6 +5504,7 @@ sto:IEC_61010_P2_S012_E1 rdf:type owl:NamedIndividual ,
                          sto:hasICS sto:ICS_19_08 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_66 ;
+                         sto:isPartOf sto:IEC_61010; 
                          sto:hasEdition "1.0"^^xsd:float ;
                          sto:hasPages "174"^^xsd:int ;
                          sto:hasPublicationDate "2016-07-12"^^xsd:date ;
@@ -5437,6 +5527,7 @@ sto:IEC_61010_P2_S201_E2 rdf:type owl:NamedIndividual ,
                                     sto:ICS_25_040_40 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_65 ;
+                         sto:isPartOf sto:IEC_61010; 
                          sto:hasEdition "2.0"^^xsd:float ;
                          sto:hasPages "235"^^xsd:int ;
                          sto:hasPublicationDate "2017-03-24"^^xsd:date ;
@@ -5462,6 +5553,7 @@ sto:IEC_61010_P2_S202_E1 rdf:type owl:NamedIndividual ,
                                     sto:ICS_19_020 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_65 ;
+                         sto:isPartOf sto:IEC_61010; 
                          sto:hasEdition "1.0"^^xsd:float ;
                          sto:hasPages "25"^^xsd:int ;
                          sto:hasPublicationDate "2016-07-12"^^xsd:date ;
@@ -5556,6 +5648,12 @@ sto:IEC_61160_E2 rdf:type owl:NamedIndividual ,
                  rdfs:label "IEC 61160:2005"@en ;
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/4707> .
 
+sto:IEC_61310 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Safety of machinery - Indication, marking and actuation "@en ;
+                    rdfs:comment "Specifies requirements for visual, acoustic and tactile methods of indicating safety-related information"@en ;
+                    rdfs:label "IEC 61310"@en .
 
 ###  https://w3id.org/i40/sto#IEC_61310_P1_E2
 sto:IEC_61310_P1_E2 rdf:type owl:NamedIndividual ,
@@ -5569,6 +5667,7 @@ sto:IEC_61310_P1_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_13_110 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_44 ;
+                    sto:isPartOf sto:IEC_61310;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "43"^^xsd:int ;
                     sto:hasPublicationDate "2007-02-16"^^xsd:date ;
@@ -5592,6 +5691,7 @@ sto:IEC_61310_P2_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_13_110 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_44 ;
+                    sto:isPartOf sto:IEC_61310;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "25"^^xsd:int ;
                     sto:hasPublicationDate "2007-02-16"^^xsd:date ;
@@ -5615,6 +5715,7 @@ sto:IEC_61310_P3_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_13_110 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_44 ;
+                    sto:isPartOf sto:IEC_61310;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "25"^^xsd:int ;
                     sto:hasPublicationDate "2007-02-16"^^xsd:date ;
@@ -5650,6 +5751,7 @@ sto:IEC_61334_P3_S1_E1 rdf:type owl:NamedIndividual ,
                                   sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61334;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "27"^^xsd:int ;
                        sto:hasPublicationDate "1998-11-24"^^xsd:date ;
@@ -5675,6 +5777,7 @@ sto:IEC_61334_P3_S21_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "33"^^xsd:int ;
                         sto:hasPublicationDate "1996-03-27"^^xsd:date ;
@@ -5701,6 +5804,7 @@ sto:IEC_61334_P3_S22_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "35"^^xsd:int ;
                         sto:hasPublicationDate "2001-01-12"^^xsd:date ;
@@ -5728,6 +5832,7 @@ sto:IEC_61334_P4_S1_E1 rdf:type owl:NamedIndividual ,
                                   sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "43"^^xsd:int ;
                        sto:hasPublicationDate "1996-07-31"^^xsd:date ;
@@ -5755,6 +5860,7 @@ sto:IEC_61334_P4_S32_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "69"^^xsd:int ;
                         sto:hasPublicationDate "1996-09-26"^^xsd:date ;
@@ -5782,6 +5888,7 @@ sto:IEC_61334_P4_S33_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "51"^^xsd:int ;
                         sto:hasPublicationDate "1998-07-10"^^xsd:date ;
@@ -5807,6 +5914,7 @@ sto:IEC_61334_P4_S41_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "247"^^xsd:int ;
                         sto:hasPublicationDate "1996-08-13"^^xsd:date ;
@@ -5833,6 +5941,7 @@ sto:IEC_61334_P4_S42_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "89"^^xsd:int ;
                         sto:hasPublicationDate "1996-10-09"^^xsd:date ;
@@ -5859,6 +5968,7 @@ sto:IEC_61334_P4_S511_E1 rdf:type owl:NamedIndividual ,
                                     sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                          sto:hasEdition "1.0"^^xsd:float ;
                          sto:hasPages "65"^^xsd:int ;
                          sto:hasPublicationDate "2000-04-18"^^xsd:date ;
@@ -5884,6 +5994,7 @@ sto:IEC_61334_P4_S512_E1 rdf:type owl:NamedIndividual ,
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
+                         sto:isPartOf sto:IEC_61334;
                          sto:hasEdition "1.0"^^xsd:float ;
                          sto:hasPages "47"^^xsd:int ;
                          sto:hasPublicationDate "2001-10-30"^^xsd:date ;
@@ -5910,6 +6021,7 @@ sto:IEC_61334_P4_S61_E1 rdf:type owl:NamedIndividual ,
                                    sto:ICS_33_200 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                         sto:hasEdition "1.0"^^xsd:float ;
                         sto:hasPages "63"^^xsd:int ;
                         sto:hasPublicationDate "1998-07-10"^^xsd:date ;
@@ -5935,6 +6047,7 @@ sto:IEC_61334_P5_S1_E2 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                        sto:isPartOf sto:IEC_61334;
                        sto:isRelevantFor sto:SmartCity ;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasPages "123"^^xsd:int ;
@@ -5962,6 +6075,7 @@ sto:IEC_61334_P6_E1 rdf:type owl:NamedIndividual ,
                                sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61334;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "75"^^xsd:int ;
                     sto:hasPublicationDate "2000-06-16"^^xsd:date ;
@@ -6041,6 +6155,7 @@ sto:IEC_61400_P25_S1_E2 rdf:type owl:NamedIndividual ,
                         sto:hasICS sto:ICS_27_180 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_88 ;
+                        sto:isPartOf sto:IEC_61400;
                         sto:hasEdition "2.0"^^xsd:float ;
                         sto:hasPages "109"^^xsd:int ;
                         sto:hasPublicationDate "2017-07-20"^^xsd:date ;
@@ -6066,6 +6181,7 @@ sto:IEC_61400_P25_S2_E2 rdf:type owl:NamedIndividual ,
                         sto:hasICS sto:ICS_27_180 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_88 ;
+                        sto:isPartOf sto:IEC_61400;
                         sto:hasEdition "2.0"^^xsd:float ;
                         sto:hasPages "221"^^xsd:int ;
                         sto:hasPublicationDate "2015-06-30"^^xsd:date ;
@@ -6146,6 +6262,7 @@ sto:IEC_61400_P25_S4_E2 rdf:type owl:NamedIndividual ,
                                       sto:IEC_60870_P5_S104_E2_1,
                                       sto:IEEE_1815-2012;
                         sto:hasTechnicalCommittee sto:TC_88 ;
+                        sto:isPartOf sto:IEC_61400;
                         sto:hasEdition "2.0"^^xsd:float ;
                         sto:hasPages "829"^^xsd:int ;
                         sto:hasPublicationDate "2016-11-30"^^xsd:date ;
@@ -6176,6 +6293,7 @@ sto:IEC_61400_P25_S5_E2 rdf:type owl:NamedIndividual ,
                         sto:hasICS sto:ICS_27_180 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_88 ;
+                        sto:isPartOf sto:IEC_61400;
                         sto:hasEdition "2.0"^^xsd:float ;
                         sto:hasPages "56"^^xsd:int ;
                         sto:hasPublicationDate "2017-09-20"^^xsd:date ;
@@ -6199,6 +6317,7 @@ sto:IEC_61400_P25_S6_E2 rdf:type owl:NamedIndividual ,
                         sto:hasICS sto:ICS_27_180 ;
                         sto:hasPublisher sto:IEC ;
                         sto:hasTechnicalCommittee sto:TC_88 ;
+                        sto:isPartOf sto:IEC_61400;
                         sto:hasEdition "2.0"^^xsd:float ;
                         sto:hasPages "49"^^xsd:int ;
                         sto:hasPublicationDate "2016-12-16"^^xsd:date ;
@@ -6354,6 +6473,12 @@ sto:IEC_61513 rdf:type owl:NamedIndividual ,
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_61508> ;
               .
 
+sto:IEC_61690 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Electronic design interchange format (EDIF) "@en ;
+                    rdfs:comment "IEC 61690 defines the syntax and semantics for EDIF "@en ;
+                    rdfs:label "IEC 61690"@en .
 
 ###  https://w3id.org/i40/sto#IEC_61690_P1_E1
 sto:IEC_61690_P1_E1 rdf:type owl:NamedIndividual ,
@@ -6365,6 +6490,7 @@ sto:IEC_61690_P1_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_35_240_50 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_91 ;
+                    sto:isPartOf sto:IEC_61690;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPublicationDate "2000-01-31"^^xsd:date ;
                     sto:hasStabilityDate "2018"^^xsd:gYear ;
@@ -6385,6 +6511,7 @@ sto:IEC_61690_P2_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_35_240_50 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_91 ;
+                    sto:isPartOf sto:IEC_61690;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPublicationDate "2000-01-31"^^xsd:date ;
                     sto:hasStabilityDate "2018"^^xsd:gYear ;
@@ -6393,6 +6520,12 @@ sto:IEC_61690_P2_E1 rdf:type owl:NamedIndividual ,
                     rdfs:label "IEC 61690-2:2000"@en ;
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/5724> .
 
+sto:IEC_61691 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Behavioural languages "@en ;
+                    rdfs:comment ""@en ;
+                    rdfs:label "IEC 61691"@en  .
 
 ###  https://w3id.org/i40/sto#IEC_61691_P6_E1
 sto:IEC_61691_P6_E1 rdf:type owl:NamedIndividual ,
@@ -6404,6 +6537,7 @@ sto:IEC_61691_P6_E1 rdf:type owl:NamedIndividual ,
                                sto:ICS_35_060 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_91 ;
+                    sto:isPartOf sto:IEC_61691;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "332"^^xsd:int ;
                     sto:hasPublicationDate "2009-12-14"^^xsd:date ;
@@ -6488,6 +6622,7 @@ sto:IEC_61804_P3 rdf:type owl:NamedIndividual ,
                             sto:ICS_35_240_50 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_65 ;
+                 sto:isPartOf sto:IEC_61804;
                  sto:hasEdition "3.0"^^xsd:float ;
                  sto:hasPages "694"^^xsd:int ;
                  sto:hasPublicationDate "2015-06-09"^^xsd:date ;
@@ -6510,6 +6645,7 @@ sto:IEC_61804_P4 rdf:type owl:NamedIndividual ,
                             sto:ICS_35_240_50 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_65 ;
+                 sto:isPartOf sto:IEC_61804;
                  sto:hasEdition "1.0"^^xsd:float ;
                  sto:hasPages "253"^^xsd:int ;
                  sto:hasPublicationDate "2015-10-07"^^xsd:date ;
@@ -6532,6 +6668,7 @@ sto:IEC_61804_P5 rdf:type owl:NamedIndividual ,
                             sto:ICS_35_240_50 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_65 ;
+                 sto:isPartOf sto:IEC_61804;
                  sto:hasEdition "1.0"^^xsd:float ;
                  sto:hasPages "472"^^xsd:int ;
                  sto:hasPublicationDate "2015-06-09"^^xsd:date ;
@@ -6554,6 +6691,7 @@ sto:IEC_61804_P6 rdf:type owl:NamedIndividual ,
                             sto:ICS_35_240_50 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_65 ;
+                 sto:isPartOf sto:IEC_61804;
                  sto:hasEdition "1.0"^^xsd:float ;
                  sto:hasPages "15"^^xsd:int ;
                  sto:hasPublicationDate "2012-04-04"^^xsd:date ;
@@ -6564,6 +6702,12 @@ sto:IEC_61804_P6 rdf:type owl:NamedIndividual ,
                  rdfs:label "IEC 61804-6:2012 "@en ;
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/59577> .
 
+sto:IEC_61810 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Electromechanical elementary relays"@en ;
+                    rdfs:comment "Electromechanical elementary relays."@en ;
+                    rdfs:label "IEC 61810"@en  .
 
 ###  https://w3id.org/i40/sto#IEC_61810_P2_E3
 sto:IEC_61810_P2_E3 rdf:type owl:NamedIndividual ,
@@ -6575,6 +6719,7 @@ sto:IEC_61810_P2_E3 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_29_120_70 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_94 ;
+                    sto:isPartOf sto:IEC_61810;
                     sto:hasEdition "3.0"^^xsd:float ;
                     sto:hasPages "86"^^xsd:int ;
                     sto:hasPublicationDate "2017-05-30"^^xsd:date ;
@@ -6608,6 +6753,7 @@ sto:IEC_61810_P7_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_29_120_70 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_94 ;
+                    sto:isPartOf sto:IEC_61810;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "176"^^xsd:int ;
                     sto:hasPublicationDate "2006-03-14"^^xsd:date ;
@@ -6641,6 +6787,7 @@ sto:IEC_61850_P10_E1 rdf:type owl:NamedIndividual ,
                      sto:hasICS sto:ICS_33_200 ;
                      sto:hasPublisher sto:IEC ;
                      sto:hasTechnicalCommittee sto:TC_57 ;
+                     sto:isPartOf sto:IEC_61850;
                      sto:hasEdition "1.0"^^xsd:float ;
                      sto:hasPages "43"^^xsd:int ;
                      sto:hasPublicationDate "2005-05-30"^^xsd:date ;
@@ -6663,6 +6810,7 @@ sto:IEC_61850_P10_E2 rdf:type owl:NamedIndividual ,
                      sto:hasICS sto:ICS_33_200 ;
                      sto:hasPublisher sto:IEC ;
                      sto:hasTechnicalCommittee sto:TC_57 ;
+                     sto:isPartOf sto:IEC_61850;
                      sto:hasEdition "2.0"^^xsd:float ;
                      sto:hasPages "170"^^xsd:int ;
                      sto:hasPublicationDate "2012-12-14"^^xsd:date ;
@@ -6687,6 +6835,7 @@ sto:IEC_61850_P4_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                     sto:isPartOf sto:IEC_61850;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "59"^^xsd:int ;
                     sto:hasPublicationDate "2002-01-17"^^xsd:date ;
@@ -6707,6 +6856,7 @@ sto:IEC_61850_P4_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                     sto:isPartOf sto:IEC_61850;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "74"^^xsd:int ;
                     sto:hasPublicationDate "2011-04-11"^^xsd:date ;
@@ -6730,6 +6880,7 @@ sto:IEC_61850_P7_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                     sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "110"^^xsd:int ;
                        sto:hasPublicationDate "2003-07-23"^^xsd:date ;
@@ -6752,6 +6903,7 @@ sto:IEC_61850_P7_S1_E2 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasPages "289"^^xsd:int ;
                        sto:hasPublicationDate "2011-07-15"^^xsd:date ;
@@ -6775,6 +6927,7 @@ sto:IEC_61850_P7_S2_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "171"^^xsd:int ;
                        sto:hasPublicationDate "2003-05-12"^^xsd:date ;
@@ -6796,6 +6949,7 @@ sto:IEC_61850_P7_S2_E2 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasPages "213"^^xsd:int ;
                        sto:hasPublicationDate "2010-08-24"^^xsd:date ;
@@ -6819,6 +6973,7 @@ sto:IEC_61850_P7_S3_E1 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "64"^^xsd:int ;
                        sto:hasPublicationDate "2003-05-12"^^xsd:date ;
@@ -6841,6 +6996,7 @@ sto:IEC_61850_P7_S3_E2 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasPages "182"^^xsd:int ;
                        sto:hasPublicationDate "2010-12-16"^^xsd:date ;
@@ -6864,6 +7020,7 @@ sto:IEC_61850_P7_S420_E1 rdf:type owl:NamedIndividual ,
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
+                         sto:isPartOf sto:IEC_61850;
                          sto:hasEdition "1.0"^^xsd:float ;
                          sto:hasPages "99"^^xsd:int ;
                          sto:hasPublicationDate "2009-03-10"^^xsd:date ;
@@ -6885,7 +7042,8 @@ sto:IEC_61850_P7_S4_E1 rdf:type owl:NamedIndividual ,
                        sto:hasFileSize sto:FileSizeIEC_61850_P7_S4_E1 ;
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
-                       sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:hasTechnicalCommittee sto:TC_57 ; 
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "104"^^xsd:int ;
                        sto:hasPublicationDate "2003-05-13"^^xsd:date ;
@@ -6908,6 +7066,7 @@ sto:IEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
+                       sto:isPartOf sto:IEC_61850;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasPages "421"^^xsd:int ;
                        sto:hasPublicationDate "2010-03-31"^^xsd:date ;
@@ -6931,6 +7090,7 @@ sto:IEC_61850_P8_S1_E2 rdf:type owl:NamedIndividual ,
                  sto:hasICS sto:ICS_33_200 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_57 ;
+                 sto:isPartOf sto:IEC_61850;
                  sto:hasEdition "2.0"^^xsd:float ;
                  sto:hasPages "386"^^xsd:int ;
                  sto:hasPublicationDate "2011-06-17"^^xsd:date ;
@@ -6943,6 +7103,16 @@ sto:IEC_61850_P8_S1_E2 rdf:type owl:NamedIndividual ,
                  sto:hasOfficialResource <https://webstore.iec.ch/publication/6021>;
                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61850> .
 
+
+sto:IEC_61968 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Application integration at electric utilities - System interfaces for distribution management "@en ;
+                    rdfs:comment "IEC 61968 is a series of standards under development that will define standards for information exchanges between electrical distribution systems."@en ;
+                    rdfs:label "IEC 61968"@en ;
+                    sto:hasDBpediaResource <http://dbpedia.org/page/IEC_61968> ;
+                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61968> .
+
 ###  https://w3id.org/i40/sto#IEC_61968_P3_E1
 sto:IEC_61968_P3_E1 rdf:type owl:NamedIndividual ,
                              sto:Standard ;
@@ -6951,6 +7121,7 @@ sto:IEC_61968_P3_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "36"^^xsd:int ;
                     sto:hasPublicationDate "2004-03-08"^^xsd:date ;
@@ -6980,6 +7151,7 @@ sto:IEC_61968_P3_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "322"^^xsd:int ;
                     sto:hasPublicationDate "2017-04-11"^^xsd:date ;
@@ -7003,6 +7175,7 @@ sto:IEC_61968_P4_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "101"^^xsd:int ;
                     sto:hasPublicationDate "2007-07-11"^^xsd:date ;
@@ -7025,6 +7198,7 @@ sto:IEC_61968_P4_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "344"^^xsd:int ;
                     sto:hasPublicationDate "2018-12-14"^^xsd:date ;
@@ -7048,6 +7222,7 @@ sto:IEC_61968_P6_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "291"^^xsd:int ;
                     sto:hasPublicationDate "2015-07-07"^^xsd:date ;
@@ -7070,6 +7245,7 @@ sto:IEC_61968_P8_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "130"^^xsd:int ;
                     sto:hasPublicationDate "2015-05-27"^^xsd:date ;
@@ -7091,6 +7267,7 @@ sto:IEC_61968_P9_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "257"^^xsd:int ;
                     sto:hasPublicationDate "2009-09-16"^^xsd:date ;
@@ -7112,6 +7289,7 @@ sto:IEC_61968_P9_E2 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61968;
                     sto:hasEdition "2.0"^^xsd:float ;
                     sto:hasPages "919"^^xsd:int ;
                     sto:hasPublicationDate "2013-10-16"^^xsd:date ;
@@ -7125,6 +7303,13 @@ sto:IEC_61968_P9_E2 rdf:type owl:NamedIndividual ,
                     sto:hasOfficialResource <https://webstore.iec.ch/publication/6204> ;
                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61968> .
 
+sto:IEC_61970 rdf:type owl:NamedIndividual ,
+                             sto:Standard ;
+                    sto:hasPublisher sto:IEC ;
+                    dcterms:title "Energy management system application program interface (EMS-API)"@en ;
+                    rdfs:comment "Provides a set of guidelines and general infrastructure capabilities required for the application of the EMS-API interface standards."@en ;
+                    rdfs:label "IEC 61970 "@en ;
+                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61970> .
 
 ###  https://w3id.org/i40/sto#IEC_61970_P1_E1
 sto:IEC_61970_P1_E1 rdf:type owl:NamedIndividual ,
@@ -7135,6 +7320,7 @@ sto:IEC_61970_P1_E1 rdf:type owl:NamedIndividual ,
                     sto:hasICS sto:ICS_33_200 ;
                     sto:hasPublisher sto:IEC ;
                     sto:hasTechnicalCommittee sto:TC_57 ;
+                    sto:isPartOf sto:IEC_61970;
                     sto:hasEdition "1.0"^^xsd:float ;
                     sto:hasPages "81"^^xsd:int ;
                     sto:hasPublicationDate "2005-12-07"^^xsd:date ;
@@ -7157,6 +7343,7 @@ sto:IEC_61970_P301_E1 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "1.0"^^xsd:float ;
                       sto:hasPages "369"^^xsd:int ;
                       sto:hasPublicationDate "2003-11-26"^^xsd:date ;
@@ -7177,6 +7364,7 @@ sto:IEC_61970_P301_E2 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "2.0"^^xsd:float ;
                       sto:hasPages "211"^^xsd:int ;
                       sto:hasPublicationDate "2009-04-07"^^xsd:date ;
@@ -7199,6 +7387,7 @@ sto:IEC_61970_P301_E3 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "3.0"^^xsd:float ;
                       sto:hasPages "533"^^xsd:int ;
                       sto:hasPublicationDate "2011-08-26"^^xsd:date ;
@@ -7221,6 +7410,7 @@ sto:IEC_61970_P301_E4 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "4.0"^^xsd:float ;
                       sto:hasPages "644"^^xsd:int ;
                       sto:hasPublicationDate "2013-05-23"^^xsd:date ;
@@ -7243,6 +7433,7 @@ sto:IEC_61970_P301_E5 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "5.0"^^xsd:float ;
                       sto:hasPages "766"^^xsd:int ;
                       sto:hasPublicationDate "2013-12-13"^^xsd:date ;
@@ -7265,6 +7456,7 @@ sto:IEC_61970_P301_E6 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "6.0"^^xsd:float ;
                       sto:hasPages "938"^^xsd:int ;
                       sto:hasPublicationDate "2016-12-16"^^xsd:date ;
@@ -7288,6 +7480,7 @@ sto:IEC_61970_P301_E6_RLV rdf:type owl:NamedIndividual ,
                           sto:hasICS sto:ICS_33_200 ;
                           sto:hasPublisher sto:IEC ;
                           sto:hasTechnicalCommittee sto:TC_57 ;
+                          sto:isPartOf sto:IEC_61970;
                           sto:hasEdition "6.0"^^xsd:float ;
                           sto:hasPages "1423"^^xsd:int ;
                           sto:hasPublicationDate "2016-12-16"^^xsd:date ;
@@ -7311,6 +7504,7 @@ sto:IEC_61970_P452_E1 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "1.0"^^xsd:float ;
                       sto:hasPages "244"^^xsd:int ;
                       sto:hasPublicationDate "2013-08-12"^^xsd:date ;
@@ -7332,6 +7526,7 @@ sto:IEC_61970_P452_E2 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:hasEdition "2.0"^^xsd:float ;
                       sto:hasPages "203"^^xsd:int ;
                       sto:hasPublicationDate "2015-04-09"^^xsd:date ;
@@ -7354,6 +7549,7 @@ sto:IEC_61970_P452_E3 rdf:type owl:NamedIndividual ,
                       sto:hasICS sto:ICS_33_200 ;
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
+                      sto:isPartOf sto:IEC_61970;
                       sto:isRelevantFor sto:Automation ,
                                         sto:CGMES ,
                                         sto:CyberSecurity ,
@@ -7476,6 +7672,7 @@ sto:IEC_62264_P6 rdf:type owl:NamedIndividual ,
                             sto:ICS_35_100_50 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_65 ;
+                 sto:isPartOf sto:IEC_62264;
                  sto:hasEdition "1.0"^^xsd:float ;
                  sto:hasPages "50"^^xsd:int ;
                  sto:hasPublicationDate "2016-07-05"^^xsd:date ;
@@ -7724,6 +7921,12 @@ sto:IEC_62714 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://www.automationml.org/> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/AutomationML> .
 
+sto:IEC_62769 rdf:type owl:NamedIndividual ,
+                          sto:standard ;
+                 sto:hasPublisher sto:IEC ;
+                 dcterms:title "Field device integration (FDI) "@en ;
+                 rdfs:comment "IEC 62769 describes the concepts of the Field Device Integration (FDI) specifications."@en ;
+                 rdfs:label "IEC 62769 "@en  .
 
 ###  https://w3id.org/i40/sto#IEC_62769_P1
 sto:IEC_62769_P1 rdf:type owl:NamedIndividual ,
@@ -7736,6 +7939,7 @@ sto:IEC_62769_P1 rdf:type owl:NamedIndividual ,
                             sto:ICS_35_100_05 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_65 ;
+                 sto:isPartOf sto:IEC_62769;
                  sto:hasEdition "1.0"^^xsd:float ;
                  sto:hasPages "64"^^xsd:int ;
                  sto:hasPublicationDate "2015-05-12"^^xsd:date ;
@@ -8734,6 +8938,7 @@ sto:ISO_19941 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <http://standards.iso.org/ittf/PubliclyAvailableStandards/c066639_ISO_IEC_19941_2017.zip> .
 
 
+
 ###  https://w3id.org/i40/sto#ISO_20140_5
 sto:ISO_20140_5 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
@@ -8746,6 +8951,7 @@ sto:ISO_20140_5 rdf:type owl:NamedIndividual ,
                 sto:hasOfficialResource <http://www.iso.org/iso/catalogue_detail.htm?csnumber=54809> .
 
 
+
 ###  https://w3id.org/i40/sto#ISO_20140_P1
 sto:ISO_20140_P1 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
@@ -8753,6 +8959,7 @@ sto:ISO_20140_P1 rdf:type owl:NamedIndividual ,
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasDeveloper sto:ISO ;
                  sto:hasPublisher sto:ISO ;
+                 sto:isPartOf sto:ISO_20140_5;
                  sto:hasPublicationDate "2013-05-01"^^xsd:date ;
                  dcterms:title "Automation systems and integration -- Evaluating energy efficiency and other factors of manufacturing systems that influence the environment -- Part 1: Overview and general principles"@en ;
                  rdfs:comment ""@en ;
