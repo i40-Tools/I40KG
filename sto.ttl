@@ -9,6 +9,7 @@
 @prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix sto: <https://w3id.org/i40/sto#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -180,9 +181,6 @@ skos:altLabel rdf:type owl:AnnotationProperty ;
 skos:definition rdf:type owl:AnnotationProperty ;
                 rdfs:label "definition"@en .
 
-
-###  http://www.w3.org/2004/02/skos/core#narrower
-skos:narrower rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#note
@@ -3689,6 +3687,7 @@ sto:IEC rdf:type owl:NamedIndividual ,
 sto:IEC_11404 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_11404 ;
+              rdfs:label "IEC 11404" ;
               dcterms:creator sto:irlan ,
                               sto:sebastian ; 
               sto:hasDeveloper sto:IEC ,
@@ -3777,6 +3776,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
 sto:IEC_27018 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27018 ;
+              rdfs:label "IEC 27018" ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
@@ -3790,6 +3790,8 @@ sto:IEC_27031 rdf:type owl:NamedIndividual ,
                        sto:Domain ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27031 ;
+              rdfs:comment "ISO/IEC 27031:2011 describes the concepts and principles of information and comunication technology (ICT) readiness for business continuity, and provides a framework of methods and processes to identify and specify all aspects (such as performance criteria, design, and implementation) for improving an organization's ICT readiness to ensure business continuity."@en ;
+              rdfs:label "IEC 27031"@en ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
@@ -3803,20 +3805,27 @@ sto:IEC_27031 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_27036
 sto:IEC_27036 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              rdfs:label "IEC 27036" ;
               owl:sameAs sto:ISO_27036 ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              sto:hasPublicationDate "2016-10-01"^^xsd:date .
+              sto:hasPublicationDate "2016-10-01"^^xsd:date ;
+                            rdfs:comment """ISO/IEC 27036-4:2016 provides cloud service customers and cloud service providers with guidance on
+
+a) gaining visibility into the information security risks associated with the use of cloud services and managing those risks effectively, and
+
+b) responding to risks specific to the acquisition or provision of cloud services that can have an information security impact on organizations using these services."""@en .
+
 
 
 ###  https://w3id.org/i40/sto#IEC_29100
 sto:IEC_29100 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29100 ;
-              dcterms:creator sto:irlan ,
-                              sto:ISO ;
+              rdfs:label "IEC 29100" ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -3865,7 +3874,8 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#IEC_29182-1
-sto:IEC_29182-1 rdf:type owl:NamedIndividual, sto:Standard .
+sto:IEC_29182-1 rdf:type owl:NamedIndividual, sto:Standard ;
+              rdfs:label "IEC 29182-1"@en ;.
 
 
 ###  https://w3id.org/i40/sto#IEC_29182_P1
@@ -3905,6 +3915,7 @@ sto:IEC_29190 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_42010
 sto:IEC_42010 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+              rdfs:label "IEC 42010" ;
               owl:sameAs sto:ISO_42010 ;
               dcterms:creator sto:sebastian ,
                               sto:irlan ;
@@ -3978,8 +3989,7 @@ sto:IEC_60038_E7 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_60050
 sto:IEC_60050 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:relatedTo sto:IEC_60050 ,
-                            sto:IEC_60050_1984 ,
+              sto:relatedTo sto:IEC_60050_1984 ,
                             sto:IEC_60050_1998 ,
                             sto:IEC_60050_2013 ;
               rdfs:comment "The International Electrotechnical Vocabulary (IEV) serves to promote the global unification of terminology in the field of electrotechnology, electronics and telecommunications."@en ;
@@ -3991,17 +4001,21 @@ sto:IEC_60050 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_60050_1984
 sto:IEC_60050_1984 rdf:type owl:NamedIndividual ,
-                            sto:Standard .
+                            sto:Standard ;
+                   rdfs:label "IEC 60050:1984"^^xsd:string ;
+.
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_1998
 sto:IEC_60050_1998 rdf:type owl:NamedIndividual, 
-                           sto:Standard .
+                           sto:Standard ;
+                   rdfs:label "IEC 60050-1998"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_2013
 sto:IEC_60050_2013 rdf:type owl:NamedIndividual,
-                   sto:Standard .
+                   sto:Standard ;
+                   rdfs:label "IEC 60050:2013"@en .
 
 
 ###  https://w3id.org/i40/sto#IEC_60050_P101_E2
@@ -7898,6 +7912,8 @@ sto:IEEE_2413 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEEE_42010
 sto:IEEE_42010 rdf:type owl:NamedIndividual, 
                sto:Standard ;
+               rdfs:label "IEEE 42010" ;              
+               rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
                owl:sameAs sto:ISO_42010 .
 
 
@@ -8986,7 +9002,7 @@ sto:ISO_27031 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2011-03-01"^^xsd:date ;
               dce:title "Guidelines for information and communication technology readiness for business continuity"@en ;
               rdfs:comment "ISO/IEC 27031:2011 describes the concepts and principles of information and comunication technology (ICT) readiness for business continuity, and provides a framework of methods and processes to identify and specify all aspects (such as performance criteria, design, and implementation) for improving an organization's ICT readiness to ensure business continuity."@en ;
-              rdfs:label "IEC 27031"@en ;
+              rdfs:label "ISO 27031"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/11304> ,
                                       <https://www.iso.org/standard/44374.html> .
 
@@ -9163,6 +9179,7 @@ sto:ISO_42010 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
+              rdfs:label "ISO 42010" ;
               sto:domainName "Reference Architecture Description"@en ;
               dcterms:title "Systems and software engineering — Architecture description"@en ;
               rdfs:comment """ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages.
@@ -9207,7 +9224,10 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_61508
 sto:ISO_61508 rdf:type owl:NamedIndividual ,
-                       sto:Standard .
+                       sto:Standard ;
+              owl:sameAs sto:IEC_61508 ;
+              rdfs:label "ISO 61508" ;
+                       .
 
 
 ###  https://w3id.org/i40/sto#ISO_8062-4
@@ -11240,9 +11260,79 @@ sto:Standard a owl:Class ;
              rdfs:label "Standard"@en ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
              cc:attributionURL <http://www.iec.ch> ;
-            cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
              rdfs:isDefinedBy sto:IEC ;
              rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> ;
+             
+             a sh:NodeShape ;
+             sh:property [
+                a sh:PropertyShape ;
+                sh:path rdfs:label ;
+                sh:minCount 1 ;
+                sh:message "At least one value for <i>rdfs:label</i> is required." ;
+                sh:name "label" ;
+                sh:nodeKind sh:Literal ;
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path rdfs:comment ;
+                sh:datatype rdf:langString ;
+                sh:minCount 1 ;
+                sh:severity sh:Violation ;
+                sh:message "All instances of Standards should contain an rdfs:comment with a language tag."@en ;
+                sh:name "comment" ;
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path sto:publisher ;
+                sh:minCount 1 ;
+                sh:nodeKind sh:IRI ;
+                sh:pattern "^https://w3id.org/i40/sto#" ;
+                sh:message "At least one value for <i>sto:publisher</i> is required." ;
+                sh:name "publisher" ;
+                sh:nodeKind sh:Resource ;
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path sto:developer ;
+                sh:minCount 1 ;
+                sh:nodeKind sh:IRI ;
+                sh:pattern "^https://w3id.org/i40/sto#" ;
+                sh:message "At least one value for <i>sto:developer</i> is required." ;
+                sh:name "developer" ;
+                sh:nodeKind sh:Resource ;
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path sto:hasOfficialResource ;
+                sh:nodeKind sh:IRI ;
+                # sh:minCount 1 ; # optional?
+                sh:message "At least one value for <i>sto:hasOfficialResource</i> is required." ;
+                sh:name "hasOfficialResource" ;
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path sto:hasDomain ;
+                # sh:minCount 1 ; # optional?
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path sto:hasClassification ;
+                sh:nodeKind sh:IRI ;
+                # sh:minCount 1 ; # optional?
+                sh:message "At least one value for <i>sto:hasClassification</i> is required." ;
+                sh:name "hasClassification" ;
+            ] ;
+            sh:property [
+                a sh:PropertyShape ;
+                sh:path sto:hasDBpediaResource ;
+                sh:maxCount 1 ;
+                # sh:minCount 1 ; # optional?
+                sh:nodeKind sh:IRI ;
+                sh:pattern "^http://dbpedia.org/" ;
+                sh:message "Only one value for <i>sto:hasDBpediaResource</i> is allowed." ;
+                sh:name "hasDBpediaResource" ;
+            ] ;
 .             
 
 
