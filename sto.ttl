@@ -219,9 +219,9 @@ sto:hasDBpediaResource rdf:type owl:AnnotationProperty ;
                        rdfs:label "has DBpedia Resource"@en .
 
 ###  https://w3id.org/i40/sto#hasDomain
-sto:hasDomain rdf:type owl:ObjectProperty ;
+sto:hasRelevantDomain rdf:type owl:ObjectProperty ;
               rdfs:domain sto:Publication ;
-              rdfs:range sto:Domain ;
+              rdfs:range sto:RelevantDomain;
               rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
               rdfs:label "has Domain"@en ;
               .
@@ -473,13 +473,6 @@ sto:isImplementationOf rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf sto:relatedTo .
 
 
-###  https://w3id.org/i40/sto#isRelevantFor
-sto:isRelevantFor rdf:type owl:ObjectProperty ;
-                  rdfs:domain sto:Standard ;
-                  rdfs:range sto:RelevantSubject ;
-                  rdfs:comment "An Standard is concerned with Relevant Subjects"@en ;
-                  rdfs:label "is Relevant for"@en .
-
 
 ###  https://w3id.org/i40/sto#relatedTo
 sto:relatedTo rdf:type owl:ObjectProperty ;
@@ -604,7 +597,7 @@ sto:abbreviation rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/i40/sto#domainName
 sto:domainName rdf:type owl:DatatypeProperty ;
-               rdfs:domain sto:Domain ;
+               rdfs:domain sto:RelevantDomain;
                rdfs:range rdf:PlainLiteral ;
                rdfs:comment "Points the Standard with the name of the Industrial Domain"@en ;
                rdfs:label "has Domain Name"@en .
@@ -858,9 +851,9 @@ sto:Dimension rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/sto#Domain
-sto:Domain rdf:type owl:Class ;
+sto:RelevantDomain rdf:type owl:Class ;
            rdfs:comment "Represents the Domains in which the Standards can be used"@en ;
-           rdfs:label "Domain"@en .
+           rdfs:label "RelevantDomain"@en .
 
 
 ###  https://w3id.org/i40/sto#ISA95Level
@@ -899,10 +892,7 @@ sto:Publication rdf:type owl:Class ;
                 rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> .
 
 
-###  https://w3id.org/i40/sto#RelevantSubject
-sto:RelevantSubject rdf:type owl:Class ;
-                    rdfs:comment "A subject that is relevant in the context of a standard (IEC standards in specific). As specified in IEC Website ."@en ;
-                    rdfs:label "Relevant Subject"@en .
+
 
 ###  https://w3id.org/i40/sto#StandardClassification
 sto:StandardClassification rdf:type owl:Class .
@@ -1469,7 +1459,7 @@ sto:AdministrationShell rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Automation
 sto:Automation rdf:type owl:NamedIndividual ,
-                        sto:RelevantSubject ;
+                        sto:RelevantDomain ;
                rdfs:comment "Technology with which a process or procedure is performed with minimal human intervention "@en ;
                rdfs:label "Automation"@en ;
                sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Automation> .
@@ -1571,7 +1561,7 @@ sto:BusinessProcessExecution rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#CAD
 sto:CAD rdf:type owl:NamedIndividual ,
-                 sto:Domain ;
+                 sto:RelevantDomain;
         sto:domainName "Computer-Aided Design"@en ;
         rdfs:comment "Computer-Aided Design"@en ;
         rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Computer-aided_design> ;
@@ -1591,7 +1581,7 @@ sto:CASAGRAS rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Enterprise_Control
 sto:Enterprise_Control
    a owl:NamedIndividual ;
-   a sto:Domain ;
+   a sto:RelevantDomain;
 rdfs:label "Enterprise Control"@en;   
 sto:domainName "Enterprise Control"@en ;
 rdfs:comment "Enterprise Control Domain"@en .
@@ -1608,7 +1598,7 @@ sto:CCN rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#CGMES
 sto:CGMES rdf:type owl:NamedIndividual ,
-                   sto:RelevantSubject ;
+                   sto:RelevantDomain ;
           rdfs:comment "Specification for Energy Management"@en ;
           rdfs:label "CGMES: Common Grid Model Exchange Specification"@en ;
           sto:hasOpenResource <https://docstore.entsoe.eu/Documents/CIM_documents/IOP/CGMES_2_5_TechnicalSpecification_61970-600_Part%201_Ed2.pdf> ;
@@ -1626,7 +1616,7 @@ sto:CrossLevel rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#CyberSecurity
 sto:CyberSecurity rdf:type owl:NamedIndividual ,
-                           sto:RelevantSubject ;
+                           sto:RelevantDomain ;
                   rdfs:comment "Protection of Computer Systems from damage of all kinds "@en ;
                   rdfs:label "Cyber Security"@en ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Computer_security> .
@@ -1943,7 +1933,7 @@ sto:ENISA rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ENISA_CloudComputing
 sto:ENISA_CloudComputing rdf:type owl:NamedIndividual ,
-                                  sto:Domain ,
+                                  sto:RelevantDomain,
                                   sto:Standard ;
                          dcterms:creator sto:ENISA ;
                          foaf:maker sto:ENISA ;
@@ -2059,7 +2049,7 @@ sto:EnOcean rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#EnterpriseIntegration
 sto:EnterpriseIntegration rdf:type owl:NamedIndividual ,
-                                   sto:Domain ;
+                                   sto:RelevantDomain;
                           sto:domainName "EnterpriseIntegration"@en ;
                           rdfs:comment "Enterprise Integration deals primarily with system interconnection, electronic data interchange, product data exchange and distributed computing environments."@en ;
                           rdfs:label "EnterpriseIntegration"@en ;
@@ -2068,7 +2058,7 @@ sto:EnterpriseIntegration rdf:type owl:NamedIndividual ,
                           .
 
 sto:CloudComputing rdf:type owl:NamedIndividual ,
-                                   sto:Domain ;
+                                   sto:RelevantDomain;
                           sto:domainName "Cloud Computing"@en ;
                           rdfs:comment "Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user."@en ;
                           rdfs:label "Cloud Computing"@en ;
@@ -3361,7 +3351,7 @@ sto:France rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#FunctionalSafety
 sto:FunctionalSafety rdf:type owl:NamedIndividual ,
-                              sto:Domain ;
+                              RelevantDomain;
                      rdfs:comment "Functional Safety"@en ;
                      rdfs:label "Functional Safety"@en .
 
@@ -3775,7 +3765,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2011-01-12"^^xsd:date ;
               rdfs:comment "ISO/IEC 24760: it defines terms for identity management, and also specifies core concepts of identity and identity management and their relationships. It is applicable to any information system that processes identity information. A bibliography of documents describing various aspects of identity information management is provided."@en ;
               rdfs:label "IEC 24760"@en ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/11190> ,
                                       <https://www.iso.org/standard/57914.html> .
 
@@ -3794,7 +3784,7 @@ sto:IEC_27018 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IEC_27031
 sto:IEC_27031 rdf:type owl:NamedIndividual ,
-                       sto:Domain ,
+                       sto:RelevantDomain,
                        sto:Standard ;
               owl:sameAs sto:ISO_27031 ;
               dcterms:creator sto:irlan;
@@ -3866,7 +3856,7 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
               sto:hasTag "Information technology -- Data structure -- Unique identification for the Internet of Things"@en ;
               rdfs:comment "ISO/IEC 29161:2016 establishes a unique identification scheme for the Internet of Things (IoT), based on existing and evolving data structures. This International Standard specifies the common rules applicable for unique identification that are required to ensure full compatibility across different identities. The unique identification is a universal construct for any physical object, virtual object, or person. It is used in IoT information systems that need to track or otherwise refer to entities. It is intended for use with any IoT media."@en ;
               rdfs:label "IEC 29161"@en ;
-              sto:hasDomain sto:Automatic_Id_Data_Capture_Techniques ;
+              sto:hasRelevantDomain sto:Automatic_Id_Data_Capture_Techniques ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/60834> ,
                                       <https://www.iso.org/standard/45240.html> .
 
@@ -3994,7 +3984,7 @@ sto:IEC_60038_E7 rdf:type owl:NamedIndividual ,
                  sto:hasICS sto:ICS_29_020 ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTechnicalCommittee sto:TC_8 ;
-                 sto:isRelevantFor sto:RuralElectrification ;
+                 sto:hasRelevantDomain sto:RuralElectrification ;
                  sto:hasEdition "7.0"^^xsd:float ;
                  sto:hasImplementationFormat "Document"@en ;
                  sto:hasPages "26"^^xsd:int ;
@@ -6048,7 +6038,7 @@ sto:IEC_61334_P5_S1_E2 rdf:type owl:NamedIndividual ,
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
                         sto:isPartOf sto:IEC_61334;
-                       sto:isRelevantFor sto:SmartCity ;
+                       sto:hasRelevantDomain sto:SmartCity ;
                        sto:hasEdition "2.0"^^xsd:float ;
                        sto:hasPages "123"^^xsd:int ;
                        sto:hasPublicationDate "2001-05-28"^^xsd:date ;
@@ -6128,7 +6118,7 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
               sto:hasTag "IEC Common Data Dictionary"@en ;
               rdfs:comment "IEC Common Data Dictionary (IEC CDD) is a common repository of concepts for all electrotechnical domains based on the methodology and the information model of IEC 61360 series. Standard data elements types with associated classification scheme for electric items."@en ;
               rdfs:label "IEC 61360"@en ;
-              sto:hasDomain sto:Electrotechnical ;
+              sto:hasRelevantDomain sto:Electrotechnical ;
               sto:hasMotivation "Standard data elements (properties) are used as elements in administration shell"@en ;
               sto:hasOfficialResource <http://cdd.iec.ch/cdd/iec61360/iec61360.nsf> ,
                                       <https://webstore.iec.ch/publication/5380> .
@@ -6434,7 +6424,7 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
               rdfs:comment "IEC 61511 is a technical standard which sets out practices in the engineering of systems that ensure the safety of an industrial process through the use of instrumentation."@en ;
               rdfs:label "IEC 61511" ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_61511> ;
-              sto:hasDomain sto:FunctionalSafety ;
+              sto:hasRelevantDomain sto:FunctionalSafety ;
               sto:hasMotivation "Defines the functional safety requirements established by IEC 61508 in process industry sector terminology"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/24241> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_61511> .
@@ -7550,7 +7540,7 @@ sto:IEC_61970_P452_E3 rdf:type owl:NamedIndividual ,
                       sto:hasPublisher sto:IEC ;
                       sto:hasTechnicalCommittee sto:TC_57 ;
                       sto:isPartOf sto:IEC_61970;
-                      sto:isRelevantFor sto:Automation ,
+                      sto:hasRelevantDomain sto:Automation ,
                                         sto:CGMES ,
                                         sto:CyberSecurity ,
                                         sto:SmartCity ,
@@ -7631,7 +7621,7 @@ sto:IEC_62237 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2003-10-26"^^xsd:date ;
               rdfs:comment "Live working - Insulating hoses with fittings for use with hydraulic tools and equipment."@en ;
               rdfs:label "IEC 62237"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/6626> .
 
 
@@ -7654,7 +7644,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
               rdfs:seeAlso <https://en.wikipedia.org/wiki/B2MML> ;
               skos:altLabel "B2MML" ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/IEC_62264> ;
-              sto:hasDomain sto:Enterprise_Control ;
+              sto:hasRelevantDomain sto:Enterprise_Control ;
               sto:hasMotivation "Informational representation of MES and ERP models."@en ;
               sto:hasOfficialResource <http://www.iso.org/iso/catalogue_detail.htm?csnumber=63740> ,
                                       <https://webstore.iec.ch/publication/6675> ,
@@ -7692,7 +7682,7 @@ sto:IEC_62279 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2015-06-25"^^xsd:date ;
               rdfs:comment "IEC 62279:2015 specifies the process and technical requirements for the development of software for programmable electronic systems for use in railway control and protection applications. It is aimed at use in any area where there are safety implications. These systems can be implemented using dedicated microprocessors, programmable logic controllers, multiprocessor distributed systems, larger scale central processor systems or other architectures."@en ;
               rdfs:label "IEC 62279"@en ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/22781> .
 
 
@@ -7714,7 +7704,7 @@ sto:IEC_62337 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2012-02-22"^^xsd:date ;
               rdfs:comment "Commissioning of electrical, instrumentation and control systems in the process industry - Specific phases and milestones."@en ;
               rdfs:label "IEC 62337"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/6871> .
 
 
@@ -7851,7 +7841,7 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
               rdfs:comment "OPC Unified Architecture (OPC UA) is an industrial M2M communication protocol for interoperability developed by the OPC Foundation. It is the successor to Open Platform Communications (OPC). Although developed by the same organization, OPC UA differs significantly from its predecessor. The Foundation's goal for this project was to provide a path forward from the original OPC communications model (namely the Microsoft Windows only process exchange COM/DCOM) to a cross-platform service-oriented architecture (SOA) for process control, while enhancing security and providing an information model."@en ;
               rdfs:label "IEC 62541"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/OPC_Unified_Architecture> ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://opcfoundation.org/about/opc-technologies/opc-ua/> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/OPC_Unified_Architecture> .
 
@@ -8046,7 +8036,7 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2004-10-01"^^xsd:date ;
               rdfs:comment "ISO/IEC 81714 Design of graphical symbols for use in the technical documentation of products -- Part 3: Classification of connect nodes, networks and their encoding-- specifies requirements concerning the classification of connect nodes assigned to graphical symbols, being a representation of functional and product concepts."@en ;
               rdfs:label "IEC 81714"@en ;
-              sto:hasDomain sto:CAD ;
+              sto:hasRelevantDomain sto:CAD ;
               sto:hasOfficialResource <https://www.iso.org/standard/40134.html> .
 
 
@@ -8371,7 +8361,7 @@ sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                 rdfs:comment "Used mainly for Road vehicles Controller area network (CAN) Data link layer and physical signalling."@en ;
                 rdfs:label "ISO 11898-1"@en ;
                 sto:hasDBpediaResource <http://dbpedia.org/page/CAN_bus> ;
-                sto:hasDomain sto:IndustrialAutomation ;
+                sto:hasRelevantDomain sto:IndustrialAutomation ;
                 sto:hasOfficialResource <https://www.iso.org/standard/63648.html> .
 
 
@@ -8400,7 +8390,7 @@ sto:ISO_13374 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2012-02-01"^^xsd:date ;
               rdfs:comment "Condition monitoring and diagnostics of machines -- Data processing, communication and presentation"@en ;
               rdfs:label "ISO 13374"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/61131.html> .
 
 
@@ -8470,7 +8460,7 @@ sto:ISO_13849 rdf:type owl:NamedIndividual ,
               rdfs:comment "Provides safety requirements and guidance on the principles for the design and integration of safety-related parts of control systems (SRP/CS), including the design of software."@en ;
               rdfs:label "ISO 13849"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13849> ;
-              sto:hasDomain sto:Safety_Machinery ;
+              sto:hasRelevantDomain sto:Safety_Machinery ;
               sto:hasOfficialResource <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=69883> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13849> .
 
@@ -8516,7 +8506,7 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2017-07-01"^^xsd:date ;
               rdfs:comment "It provides the description of the structure and content for a binary file having the extension of .jt. A binary file with the .jt extension is generally referred to as a JT file. The JT format described in ISO 14306:2012 is used primarily in industrial use cases as the means for capturing and repurposing lightweight 3D product definition data"@en ;
               rdfs:label "ISO 14306"@en ;
-              sto:hasDomain sto:CAD ;
+              sto:hasRelevantDomain sto:CAD ;
               sto:hasOfficialResource <https://www.iso.org/standard/60572.html> .
 
 
@@ -8546,7 +8536,7 @@ sto:ISO_14739-1 rdf:type owl:NamedIndividual ,
                 rdfs:comment "Document management -- 3D use of Product Representation Compact (PRC) format-ISO 14739-1:2014 describes PRC 10001 of a product representation compact (PRC) file format for three dimensional (3D) content data. This format is designed to be included in PDF (ISO 32000) and other similar document formats for the purpose of 3D visualization and exchange. "@en ;
                 rdfs:label "ISO 14739-1"@en ;
                 skos:altLabel "STEP"@en ;
-                sto:hasDomain sto:CAD ;
+                sto:hasRelevantDomain sto:CAD ;
                 sto:hasOfficialResource <https://www.iso.org/standard/54948.html> .
 
 
@@ -8591,7 +8581,7 @@ sto:ISO_15531 rdf:type owl:NamedIndividual ,
               rdfs:comment "This Standard models manufacturing management data such as, Resources management data (Resource model); Time related features (Time model); Flow management data in manufacturing (Flow management model)."@en ;
               rdfs:isDefinedBy <https://www.researchgate.net/publication/220171079_ISO_15531_MANDATE_a_standardised_data_model_for_manufacturing_management> ;
               rdfs:label "ISO 15531"@en ;
-              sto:hasDomain sto:IndustrialProcessMeasurementControl ;
+              sto:hasRelevantDomain sto:IndustrialProcessMeasurementControl ;
               sto:hasOfficialResource <https://www.iso.org/standard/28144.html> .
 
 
@@ -8657,7 +8647,7 @@ sto:ISO_15704 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2000-06-01"^^xsd:date ;
               rdfs:comment "Identifies requirements for enterprise-reference architectures and methodologies"@en ;
               rdfs:label "ISO 15704"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/28777.html> .
 
 
@@ -8703,7 +8693,7 @@ sto:ISO_15746 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2015-04-01"^^xsd:date ;
               rdfs:comment "Automation systems and integration -- Integration of advanced process control and optimization capabilities for manufacturing systems."@en ;
               rdfs:label "ISO 15746"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/61131.html> .
 
 
@@ -8745,7 +8735,7 @@ sto:ISO_15926 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2003-12-01"^^xsd:date ;
               rdfs:comment "Industrial automation systems and integration -- Integration of life-cycle data for process plants including oil and gas production facilities."@en ;
               rdfs:label "ISO 15926"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/29557.html> .
 
 
@@ -8763,7 +8753,7 @@ sto:ISO_16739 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2013-04-01"^^xsd:date ;
               rdfs:comment "Industry Foundation Classes (IFC) for data sharing in the construction and facility management industries."@en ;
               rdfs:label "ISO 16739"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/51622.html> .
 
 
@@ -8778,7 +8768,7 @@ sto:ISO_16792 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2015-12-01"^^xsd:date ;
               rdfs:comment "ISO 16792 Technical product documentation -- Digital product definition data practices-It supports two methods of application: model-only and model and drawing in digital format."@en ;
               rdfs:label "ISO 16792"@en ;
-              sto:hasDomain sto:CAD ;
+              sto:hasRelevantDomain sto:CAD ;
               sto:hasOfficialResource <https://www.iso.org/standard/56865.html> .
 
 
@@ -8827,7 +8817,7 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
               sto:hasTag "PSL"@en ;
               rdfs:comment "ISO 18629-1:2004 provides a general overview of the different series of parts of ISO 18629, which defines a process specification language aimed at identifying, formally defining and structuring the semantic concepts intrinsic to the capture and exchange of process information related to discrete manufacturing."@en ;
               rdfs:label "ISO 19629"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/35431.html> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Process_Specification_Language> .
 
@@ -8872,7 +8862,7 @@ sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                 sto:hasPublicationDate "2016-10-01"^^xsd:date ;
                 rdfs:comment "Industrial automation systems and integration -- Standardized procedures for production systems engineering."@en ;
                 rdfs:label "ISO 18828-2"@en ;
-                sto:hasDomain sto:IndustrialAutomation ;
+                sto:hasRelevantDomain sto:IndustrialAutomation ;
                 sto:hasOfficialResource <https://www.iso.org/standard/63505.html> .
 
 
@@ -8908,7 +8898,7 @@ sto:ISO_19440 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2007-12-01"^^xsd:date ;
               rdfs:comment "Enterprise integration -- Constructs for enterprise modelling-specifies the characteristics of the core constructs necessary for computer-supported modelling of enterprises conforming to ISO 19439.."@en ;
               rdfs:label "ISO 19440"@en ;
-              sto:hasDomain sto:EnterpriseIntegration ;
+              sto:hasRelevantDomain sto:EnterpriseIntegration ;
               sto:hasOfficialResource <https://www.iso.org/standard/33834.html> .
 
 
@@ -9044,7 +9034,7 @@ sto:ISO_20922 rdf:type owl:NamedIndividual ,
               rdfs:label "ISO 20922"@en ;
               sto:hasPublicationDate "2016-06-01"^^xsd:date ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/MQTT> ;
-              sto:hasDomain sto:M2M ;
+              sto:hasRelevantDomain sto:M2M ;
               sto:hasOfficialResource <http://mqtt.org/> ,
                                       <https://www.iso.org/standard/69466.html> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/MQTT> .
@@ -9092,7 +9082,7 @@ sto:ISO_22400 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2014-01-01"^^xsd:date ;
               rdfs:comment "Automation systems and integration -- Key performance indicators (KPIs) for manufacturing operations management."@en ;
               rdfs:label "ISO 22400"@en ;
-              sto:hasDomain sto:IndustrialAutomation ;
+              sto:hasRelevantDomain sto:IndustrialAutomation ;
               sto:hasOfficialResource <https://www.iso.org/standard/54497.html> .
 
 
@@ -9107,7 +9097,7 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
                  sto:hasPublicationDate "2010-02-01"^^xsd:date ;
                  rdfs:comment "ISO 22745-11:2010 provides guidelines that are recommended for the development of terminology for concepts in an open technical dictionary (OTD).Compliance with these guidelines is not required in order for a term or definition to be included in an OTD. These guidelines are provided as a framework for developers of industrial terminology to ensure that definitions are consistent and understandable. Terminology that complies with these guidelines will be marked as such in the OTD. This will allow a user to perform a search that filters terminology based on compliance with ISO 22745-11:2010."@en ;
                  rdfs:label "ISO 22745-11"@en ;
-                 sto:hasDomain sto:IndustrialAutomation ;
+                 sto:hasRelevantDomain sto:IndustrialAutomation ;
                  sto:hasAvailableLanguage lang:eng;
                  sto:hasOfficialResource <https://www.iso.org/standard/53999.html> .
 
@@ -9134,7 +9124,7 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
                             sto:IEC_62443 ,
                             sto:ISO_24760 ;
               sto:hasPublicationDate "2011-12-01"^^xsd:date ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://www.iso.org/standard/57914.html>;
               .
 
@@ -9150,7 +9140,7 @@ sto:ISO_26262 rdf:type owl:NamedIndividual ,
               rdfs:comment "ISO 26262, titled \"Road vehicles – Functional safety\", is an international standard for functional safety of electrical and/or electronic systems in production automobiles defined by the International Organization for Standardization (ISO) in 2011."@en ;
               rdfs:label "ISO 26262"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_26262> ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://www.iso.org/obp/ui/#iso:std:iso:26262:-1:ed-1:v1:en> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_26262> .
 
@@ -9184,7 +9174,7 @@ sto:ISO_27001 rdf:type owl:NamedIndividual ,
               rdfs:label "ISO 27001"@en ,
                          "ISO/IEC 27001"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27001> ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://www.iso.org/isoiec-27001-information-security.html> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27001> .
 
@@ -9201,7 +9191,7 @@ sto:ISO_27017 rdf:type owl:NamedIndividual ,
               rdfs:comment "The ISO/IEC 270172 standard provides guidance on the information security elements of cloud computing. It assists with the implementation of cloud-specific information security controls, supplementing the guidance in ISO 27000 series standards."@en ;
               rdfs:label "ISO/IEC 27017"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://www.iso.org/standard/43757.html> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_27000-series> .
 
@@ -9315,7 +9305,7 @@ sto:ISO_29002 rdf:type owl:NamedIndividual ,
               sto:hasPublicationDate "2010-04-01"^^xsd:date ;
               rdfs:comment "ISO 29002 is an interoperability standard, which provides a repository to be used in various ISO XML formats. It is used in ontoML."@en ;
               rdfs:label "ISO 29002"@en ;
-              sto:hasDomain sto:IndustrialProcessMeasurementControl ;
+              sto:hasRelevantDomain sto:IndustrialProcessMeasurementControl ;
               sto:hasOfficialResource <https://www.iso.org/standard/53617.html> .
 
 
@@ -9385,7 +9375,7 @@ sto:ISO_29134 rdf:type owl:NamedIndividual ,
               dce:title "Privacy impact assessment–Guidelines"@en ;
               rdfs:comment "‘Privacy impact assessment–Guidelines’ proposes a methodology to conduct assessments on the impact of privacy."@en ;
               rdfs:label "ISO/IEC 29134"@en ;
-              sto:hasDomain sto:ITSecurity ;
+              sto:hasRelevantDomain sto:ITSecurity ;
               sto:hasOfficialResource <https://www.iso.org/standard/62289.html> .
 
 
@@ -9469,7 +9459,7 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
              sto:hasPublicationDate "2011-08-01"^^xsd:date ;
              rdfs:comment "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Datums and datum systems--ISO 5459:2011 specifies terminology, rules and methodology for the indication and understanding of datums and datum systems in technical product documentation"@en ;
              rdfs:label "ISO 5459"@en ;
-             sto:hasDomain sto:M2M ;
+             sto:hasRelevantDomain sto:M2M ;
              sto:hasOfficialResource <https://www.iso.org/standard/40358.html> .
 
 
@@ -9571,7 +9561,7 @@ sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                    sto:hasPublicationDate "2016-02-01"^^xsd:date ;
                    rdfs:comment "ISO ASTM 52915:2016 provides the specification for the Additive Manufacturing File Format (AMF), an interchange format to address the current and future needs of additive manufacturing technology."@en ;
                    rdfs:label "ISO ASTM 52915"@en ;
-                   sto:hasDomain sto:IndustrialAutomation ;
+                   sto:hasRelevantDomain sto:IndustrialAutomation ;
                    sto:hasOfficialResource <https://www.iso.org/standard/60572.html> .
 
 
@@ -9631,13 +9621,13 @@ sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                      sto:hasPublicationDate "2011-12-01"^^xsd:date ;
                      rdfs:comment "SO/TS 14649-201:2011 specifies the technology-specific machine tool description data elements needed as process data for manufacturing and machine characteristics. The machine tool descriptions covered in this schema are, initially, milling machines, machining centres, turning machines and multi-tasking machines.ISO/TS 14649-201:2011 is not intended to replace existing machine tool description standards, but to cover the specific needs of manufacturing resource description for manufacturing needs in the technologies described in ISO 14649."@en ;
                      rdfs:label "ISO TS 14649-201"@en ;
-                     sto:hasDomain sto:IndustrialAutomation ;
+                     sto:hasRelevantDomain sto:IndustrialAutomation ;
                      sto:hasOfficialResource <https://www.iso.org/standard/60042.html> .
 
 
 ###  https://w3id.org/i40/sto#ITSecurity
 sto:ITSecurity rdf:type owl:NamedIndividual ,
-                        sto:Domain ;
+                        sto:RelevantDomain;
                rdfs:label "IT Security"@en ;
                skos:altLabel "Information Security Management"@en .
 
@@ -9645,7 +9635,7 @@ sto:ITSecurity rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Safety_Machinery
 sto:Safety_Machinery 
 a owl:NamedIndividual ;
-  a sto:Domain ;
+  a sto:RelevantDomain;
   rdfs:label "Safety of Machinery"@en ;
   rdfs:comment "Safety of Machinery domain"@en ;
   sto:domainName "Safety of Machinery"@en ;
@@ -9656,7 +9646,7 @@ a owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#Automatic_Id_Data_Capture_Techniques
 sto:Automatic_Id_Data_Capture_Techniques 
 a owl:NamedIndividual ;
-  a sto:Domain ;
+  a sto:RelevantDomain;
   rdfs:label "Automatic Id Data Capture Techniques"@en ;
   rdfs:comment "Automatic Id Data Capture Techniques domain"@en ;
   sto:domainName "Automatic Id Data Capture Techniques"@en ;
@@ -9666,7 +9656,7 @@ a owl:NamedIndividual ;
 ###  https://w3id.org/i40/sto#Electrotechnical
 sto:Electrotechnical 
  a owl:NamedIndividual ;
-  a sto:Domain ;
+  a sto:RelevantDomain;
   rdfs:label "Electrotechnical"@en ;
   rdfs:comment "Electrotechnical domain"@en;
   sto:domainName "Electrotechnical"@en;
@@ -9675,7 +9665,7 @@ sto:Electrotechnical
 
 ###  https://w3id.org/i40/sto#IndustrialAutomation
 sto:IndustrialAutomation rdf:type owl:NamedIndividual ,
-                                  sto:Domain ;
+                                  sto:RelevantDomain;
                          sto:domainName "Industrial Automation"@en ;
                          rdfs:comment "Industrial automation deals primarily with the automation of manufacturing, quality control and material handling processes. General purpose controllers for industrial processes include Programmable logic controllers, stand-alone I/O modules, and computers. Industrial automation is to replace the decision making of humans and manual command-response activities with the use of mechanized equipment and logical programming commands. One trend is increased use of Machine vision to provide automatic inspection and robot guidance functions, another is a continuing increase in the use of robots. Industrial automation is simply done at the industrial level."@en ;
                          rdfs:label "Industrial Automation"@en ;
@@ -9693,7 +9683,7 @@ sto:IndustrialInternetStandardSystem rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IndustrialProcessMeasurementControl
 sto:IndustrialProcessMeasurementControl rdf:type owl:NamedIndividual ,
-                                                 sto:Domain ;
+                                                 sto:RelevantDomain;
                                         sto:domainName "Industrial process measurement and control"@en ;
                                         rdfs:comment "Industrial process measurement and control"@en .
 
@@ -9794,7 +9784,7 @@ sto:LteMtc rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#M2M
 sto:M2M rdf:type owl:NamedIndividual ,
-                 sto:Domain ;
+                 sto:RelevantDomain;
         sto:domainName "Machine to machine Communication"@en ;
         rdfs:comment "Machine to machine refers to direct communication between devices using any communications channel, including wired and wireless"@en ;
         rdfs:label "Machine to Machine"@en ;
@@ -10023,12 +10013,12 @@ sto:NISTInitiative rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-291
 sto:NIST_500-291 rdf:type owl:NamedIndividual ,
-                          sto:Domain ,
+                          sto:RelevantDomain,
                           sto:Standard ;
                  dcterms:creator sto:irlan ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 #sto:hasDomain 
+                 #sto:hasRelevantDomain
                  sto:hasPublicationDate "2011-08-10"^^xsd:date ;
                  dcterms:title "NIST Cloud Computing Standards Roadmap"@en ;
                  rdfs:comment "The NIST Cloud Computing Standards Roadmap Working Group has surveyed the existing standards landscape for security, portability, and interoperability standards/models/studies/use cases, etc., relevant to cloud computing. Using this available information, current standards, standards gaps, and standardization priorities are identified in this document. The NIST Definition of Cloud Computing identified cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction."@en ;
@@ -10038,12 +10028,12 @@ sto:NIST_500-291 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-292
 sto:NIST_500-292 rdf:type owl:NamedIndividual ,
-                          sto:Domain ,
+                          sto:RelevantDomain,
                           sto:Standard ;
                  sto:hasClassification sto:IIRASecurity ,
                                        sto:Security ;
                  sto:hasPublisher sto:NIST ;
-                 sto:hasDomain sto:CloudComputing;
+                 sto:hasRelevantDomain sto:CloudComputing;
                  sto:hasPublicationDate "2011-09-09"^^xsd:date ;
                  dce:title "NIST Cloud Computing Reference Architecture"@en ;
                  rdfs:comment "The adoption of cloud computing into the Federal Government and its implementation depend upon a variety of technical and non-technical factors. A fundamental reference point, based on the NIST definition of Cloud Computing, is needed to describe an overall framework that can be used government-wide. This document presents the NIST Cloud Computing Reference Architecture (RA) and Taxonomy (Tax) that will accurately communicate the components and offerings of cloud computing."@en ;
@@ -10053,14 +10043,14 @@ sto:NIST_500-292 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#NIST_500-293
 sto:NIST_500-293 rdf:type owl:NamedIndividual ,
-                          sto:Domain ,
+                          sto:RelevantDomain,
                           sto:Standard ;
                  dcterms:creator sto:irlan,
                                  sto:sebastian ;
                  sto:hasAvailableLanguage lang:eng ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 sto:hasDomain sto:CloudComputing ;
+                 sto:hasRelevantDomain sto:CloudComputing ;
                  sto:hasPublicationDate "2014-10-21"^^xsd:date ;
                  dcterms:title "US Government Cloud Computing Technology Roadmap"@en ;
                  rdfs:comment "The National Institute of Standards and Technology (NIST), consistent with its mission, has a technology leadership role in support of United States Government (USG) secure and effective adoption of the Cloud Computing model to reduce costs and improve services. This role is described in the 2011 Federal Cloud Computing Strategy as “... a central one in defining and advancing standards, and collaborating with USG Agency CIOs, private sector experts, and international bodies to identify and reach consensus on cloud computing technology & standardization priorities.” This NIST Cloud Computing program and initiative to develop a USG Cloud Computing Technology Roadmap is one of several complementary and parallel USG initiatives defined in the broader Federal Cloud Computing Strategy referenced above. The Federal Cloud Computing Strategy characterizes cloud computing as a “profound economic and technical shift (with) great potential to reduce the cost of federal Information Technology (IT) systems while … improving IT capabilities and stimulating innovation in IT solutions.” In the technology vision of Federal Cloud Computing Strategy success, USG agencies will be able to easily locate desired IT services in a mature and competitive marketplace, rapidly procure access to these services, and use them to deliver innovative mission solutions. Cloud services will be secure, interoperable, and reliable. Agencies will be able to switch between providers easily and with minimal cost, and receive equal or superior service."@en ;
@@ -10071,14 +10061,14 @@ sto:NIST_500-293 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#NIST_800-144
 sto:NIST_800-144 rdf:type owl:NamedIndividual ,
                           foaf:Document ,
-                          sto:Domain ,
+                          sto:RelevantDomain,
                           sto:Publication ,
                           sto:Standard ;
                  dcterms:creator sto:NIST ;
                  foaf:maker sto:NIST ;
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
-                 sto:hasDomain sto:CloudComputing ;
+                 sto:hasRelevantDomain sto:CloudComputing ;
                  sto:hasPublicationDate "2011-12-01"^^xsd:date ;
                  dcterms:title "Guidelines on Security and Privacy in Public Cloud Computing"@en ;
                  rdfs:comment "Cloud computing can and does mean different things to different people. The common characteristics most interpretations share are on-demand scalability of highly available and reliable pooled computing resources, secure access to metered services from nearly anywhere, and displacement of data and services from inside to outside the organization. While aspects of these characteristics have been realized to a certain extent, cloud computing remains a work in progress. This publication provides an overview of the security and privacy challenges pertinent to public cloud computing and points out considerations organizations should take when outsourcing data, applications, and infrastructure to a public cloud environment."@en ;
@@ -10096,7 +10086,7 @@ sto:NIST_800-146 rdf:type owl:NamedIndividual ,
                  dce:title "Cloud Computing Synopsis and Recommendations"@en ;
                  rdfs:comment "This document reprises the NIST-established definition of cloud computing, describes cloud computing benefits and open issues, presents an overview of major classes of cloud technology, and provides guidelines and recommendations on how organizations should consider the relative opportunities and risks of cloud computing."@en ;
                  rdfs:label "NIST 800-146"@en ;
-                 sto:hasDomain sto:CloudComputing ;
+                 sto:hasRelevantDomain sto:CloudComputing ;
                  sto:hasOfficialResource <https://csrc.nist.gov/publications/detail/sp/800-146/final> .
 
 
@@ -10526,7 +10516,7 @@ sto:RAMIWorkCenterAnno rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#RuralElectrification
 sto:RuralElectrification rdf:type owl:NamedIndividual ,
-                                  sto:RelevantSubject ;
+                                  sto:RelevantDomain ;
                          rdfs:comment "Bringing electricity into remote areas"@en ;
                          rdfs:label "Rural Electrification"@en ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Rural_electrification> .
@@ -10653,7 +10643,7 @@ sto:SensorML rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SmartCity
 sto:SmartCity rdf:type owl:NamedIndividual ,
-                       sto:RelevantSubject ;
+                       sto:RelevantDomain ;
               rdfs:comment " A city that collects data which is used for better Maintenance of it's resources"@en ;
               rdfs:label " Smart City"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Smart_city> .
@@ -10661,7 +10651,7 @@ sto:SmartCity rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SmartEnergy
 sto:SmartEnergy rdf:type owl:NamedIndividual ,
-                         sto:RelevantSubject ;
+                         sto:RelevantDomain ;
                 rdfs:comment " Intelligent technologies in value chain of energy industry"@en ;
                 rdfs:label " Smart Energy"@en ;
                 sto:hasWikipediaArticle <https://translate.google.com/translate?hl=en&sl=de&u=https://de.wikipedia.org/wiki/Smart_Energy&prev=search> .
@@ -10669,7 +10659,7 @@ sto:SmartEnergy rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#SmartGrid
 sto:SmartGrid rdf:type owl:NamedIndividual ,
-                       sto:RelevantSubject ;
+                       sto:RelevantDomain ;
               rdfs:comment "An electrical grid having smart appliances"@en ;
               rdfs:label "Smart Grid"@en ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Smart_grid> .
