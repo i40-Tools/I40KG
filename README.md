@@ -1,4 +1,4 @@
-#The Industry 4.0 Standards Knowledge Graph (I40KG)
+# The Industry 4.0 Standards Knowledge Graph (I40KG)
 This repository host the development of the Standard Ontology. 
 The Industry 4.0 Standards Knowledge Graph is used for describing standards and their relations. Characteristics of I4.0 standards are described and these descriptions are exploited for classifying standards from different perspectives according to reference architectures development in different regions. Moreover, semantics encoded in the Standard Ontology allows for the discovery of relations between I4.0 standards, and
 for mappings across reference architectures proposed by different industrial communities such as RAMI, IIRA, etc.
