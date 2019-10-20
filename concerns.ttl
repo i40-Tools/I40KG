@@ -199,8 +199,7 @@ sto:MultipleIdentities rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DataSovereignty
 sto:DataSovereignty rdf:type owl:NamedIndividual ,
-                             sto_iot:Concern ,
-                             sto:StandardClassification ;
+                             sto_iot:Concern  ;
                     dcterms:creator sto:sebastian ;
                     rdfs:label "Data Sovereignty"@en ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Cyber_sovereignty> ;
@@ -1159,28 +1158,6 @@ sto:IPv4Support rdf:type owl:NamedIndividual ,
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_Protocol> .
 
 
-###  https://w3id.org/i40/sto#Identification
-sto:Identification rdf:type owl:NamedIndividual ,
-                            sto_iot:Concern ,
-                            sto:StandardClassification ;
-                   dul:associatedWith rami:Identification ,
-                                      sto:IEC_24760 ,
-                                      sto:IEC_62443 ,
-                                      sto:ISO_24760 ;
-                   sto_iot:alignsWith rami:Identification ,
-                                  sto:IEC_24760 ,
-                                  sto:IEC_62443 ,
-                                  sto:ISO_24760 ;
-                   sto_iot:supports sto:IdentityManagement ;
-                   rdfs:comment "The concern how to identify a participant (client, endpoint etc.) in the internet."@en ;
-                   rdfs:label "Identification"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.030" ,
-                                "IoT-A Requirement UNI.425" ,
-                                "IoT-A Requirement UNI.428" ,
-                                "IoT-A Requirement UNI.622" ;
-                   skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' 'Survey on domain specific IoT architectures' 'Page 299'" ;
-                   sto:hasDBpediaResource <http://dbpedia.org/resource/Identification_(information)> .
-
 
 ###  https://w3id.org/i40/sto#IdentityManagement
 sto:IdentityManagement rdf:type owl:NamedIndividual ,
@@ -1189,12 +1166,18 @@ sto:IdentityManagement rdf:type owl:NamedIndividual ,
                        sto_iot:supports sto:NonRepudiation ;
                        rdfs:comment "In computer security, identity and access management (IAM) is the security and business discipline that \"enables the right individuals to access the right resources at the right times and for the right reasons\".It addresses the need to ensure appropriate access to resources across increasingly heterogeneous technology environments and to meet increasingly rigorous compliance requirements. (source: wikipedia)"@en ;
                        rdfs:label "Identity Management"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.048" ,
+                       rdfs:seeAlso "IoT-A Requirement UNI.030" ,
+                                "IoT-A Requirement UNI.425" ,
+                                "IoT-A Requirement UNI.428" ,
+                                "IoT-A Requirement UNI.622",
+                                "IoT-A Requirement UNI.048" ,
                                     "IoT-A Requirement UNI.432" ,
                                     <https://ieeexplore.ieee.org/document/6188257> ,
                                     <https://ieeexplore.ieee.org/document/7488250> ,
                                     <https://ieeexplore.ieee.org/document/7919553> ;
-                       sto:hasDBpediaResource <http://dbpedia.org/resource/Identity_management> .
+                        skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' 'Survey on domain specific IoT architectures' 'Page 299'" ;
+                       sto:hasDBpediaResource <http://dbpedia.org/resource/Identity_management>.
+                       sto:hasDBpediaResource <http://dbpedia.org/resource/Identification_(information)> .
 
 
 ###  https://w3id.org/i40/sto#InformationSecurity

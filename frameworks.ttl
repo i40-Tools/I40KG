@@ -111,21 +111,7 @@ sto_iot:frames rdf:type owl:ObjectProperty ;
 
 
 
-###  https://w3id.org/i40/sto_iot#hasTargetConcern
-sto_iot:hasTargetConcern rdf:type owl:AnnotationProperty .
 
-
-###  https://w3id.org/i40/sto#hasTargetConcern
-sto_iot:hasTargetConcern rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf dul:associatedWith ;
-                     rdfs:domain [ rdf:type owl:Class ;
-                                   owl:unionOf ( sto:Standard
-                                                 sto:StandardizationFramework
-                                               )
-                                 ] ;
-                     rdfs:range sto_iot:Concern ;
-                     rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
-                     rdfs:label "has Target Concern"@en .
 
 
 ###  https://w3id.org/i40/sto#supports
@@ -295,7 +281,7 @@ sto:IviLayer rdf:type owl:Class ;
              rdfs:subClassOf sto:StandardClassification ;
              dcterms:creator sto:sebastian ;
              rdfs:comment "A IVI Layer describes one of three layers of smart manufactoring as proposed by the Industrial Value Chain Initiative (IVI)."@en ;
-             rdfs:isDefinedBy <https://iv-i.org/wp/wp-content/uploads/2018/04/IVRA-Next_en.pdf> ;
+              rdfs:isDefinedBy <https://iv-i.org/wp/wp-content/uploads/2018/04/IVRA-Next_en.pdf> ;
              rdfs:label "IVI Layer"@en .
 
 
@@ -401,6 +387,7 @@ sto:AdministrationShell rdf:type owl:NamedIndividual ,
                         sto_iot:alignsWith ids:TrustedConnector ;
                         sto_iot:frames rami:Lifecycle_Status ,
                                    sto:Availability ,
+                                   sto:EnergyEfficiency,
                                    sto:BusinessContext ,
                                    sto:Communication ,
                                    sto:DataAccess ,
@@ -2097,8 +2084,8 @@ sto:IDSRAMDataMarket rdf:type owl:NamedIndividual ,
 sto:IDSRAMFunctionalLayer rdf:type owl:NamedIndividual ,
                                    sto:IDSRAMLayer ,
                                    sto:StandardClassification ;
-                          dul:associatedWith sto:DataSovereignty ,
-                                             sto:Interoperability ;
+                          sto_iot:frames sto:DataSovereignty ,
+                                         sto:Interoperability ;
                           sto:isDescribedin sto:IDSRAMReferenceArchitectureModel ;
                           rdfs:label "IDS RAM Functional Layer"@en .
 
@@ -2468,6 +2455,7 @@ sto:IICFFrameworkLayer rdf:type owl:NamedIndividual ,
                                   sto:ServiceDiscovery ,
                                   sto:SyntacticInteroperability ,
                                   sto:Trustworthiness ;
+                        sto:isDescribedin sto:IIRC;
                        rdfs:comment "IICF Framework Layer"@en ,
                                     "IICF Framework Layer an instance of the IICF Connectivity Layer"@en ;
                        rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
@@ -2513,6 +2501,7 @@ sto:IICFLinkLayer rdf:type owl:NamedIndividual ,
                                      sto:WiFi ;
                   dul:isPartOf sto:IIRAConnectivity ;
                   sto_iot:frames sto:Communication ;
+                  sto:isDescribedin sto:IIRC;
                   rdfs:label "IICF Link Layer"@en .
 
 
@@ -2557,6 +2546,7 @@ sto:IICFNetworkLayer rdf:type owl:NamedIndividual ,
                                 sto:IPv6Support ,
                                 sto:Interoperability ,
                                 sto:SyntacticInteroperability ;
+                     sto:isDescribedin sto:IIRC;
                      rdfs:label "IICF Network Layer"@en .
 
 
@@ -2598,6 +2588,7 @@ sto:IICFPhysicalLayer rdf:type owl:NamedIndividual ,
                                          sto:IEEE_802_16-2012 ;
                       dul:isPartOf sto:IIRAConnectivity ;
                       sto_iot:frames sto:Communication ;
+                      sto:isDescribedin sto:IIRC;
                       rdfs:label "IICF Physical Layer" .
 
 
@@ -2657,6 +2648,7 @@ sto:IICFTansportLayer rdf:type owl:NamedIndividual ,
                                  sto:TimeSynchronization ,
                                  sto:Trustworthiness ,
                                  sto:Unicast ;
+                      sto:isDescribedin sto:IIRC;
                       rdfs:label "IICF Transport Layer"@en .
 
 
@@ -2735,6 +2727,21 @@ sto:IIRA rdf:type owl:NamedIndividual ,
          skos:note "Publications referred: 1. The Industrial Internet of Things Volume G1: Reference Architecture (IIC:PUB:G1:V1.80:20170131)" ;
          sto:hasOfficialResource <http://www.iiconsortium.org/IIRA.htm> .
 
+sto:IIRAAnno rdf:type owl:NamedIndividual ,
+                              oa:Annotation ;
+                     oa:hasBody sto:IIRA ;
+                     oa:hasTarget [ rdf:type oa:SpecificResource ;
+                     				dcterms:format "pdf" ;
+                                    oa:hasSelector [ rdf:type oa:RangeSelector ;
+                                                   oa:hasEndSelector [ rdf:type oa:XPathSelector ;
+                                                                       rdf:value "Page 18"
+                                                                     ] ;
+                                                   oa:hasStartSelector [ rdf:type oa:XPathSelector ;
+                                                                         rdf:value "Page 14"
+                                                                       ]
+                                                            ] ;
+                                    oa:hasSource sto:The_Industrial_Internet_of_Things_Volume_G1_Reference_Architecture
+                                  ] .
 
 ###  https://w3id.org/i40/sto#IIRAApplicationDomain
 sto:IIRAApplicationDomain rdf:type owl:NamedIndividual ,
@@ -3704,6 +3711,7 @@ sto:IIRASecurityFramework rdf:type owl:NamedIndividual ,
                                          sto:BdvaDataProtection ,
                                          sto:IDSRAMSecurity ,
                                          sto:xRoadSystemComponents ;
+                          sto:isDescribedin sto:IIRA;
                           rdfs:label "IIC Security Framework"@en ;
                           skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'" ;
                           sto:hasOfficialResource <https://www.iiconsortium.org/IISF.htm> .
@@ -3853,6 +3861,12 @@ sto:IVRA rdf:type owl:NamedIndividual ,
          skos:altLabel "IVRA"@en ;
          sto:hasOfficialResource <https://iv-i.org/wp-test/wp-content/uploads/2017/09/doc_161208_Industrial_Value_Chain_Reference_Architecture.pdf> .
 
+sto:IVRAAnno rdf:type owl:NamedIndividual ,
+                              oa:Annotation ;
+                     oa:hasBody sto:IVRA ;
+                     oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                    oa:hasSource sto:Industrial_Value_Chain_Reference_Architecture_IVRA
+                                  ] .
 
 ###  https://w3id.org/i40/sto#IdsPerspective
 sto:IdsPerspective rdf:type owl:NamedIndividual ;
@@ -3894,9 +3908,7 @@ sto:IicfConnectivityLayerAnno rdf:type owl:NamedIndividual ,
                                            ] .
 
 
-###  https://w3id.org/i40/sto#IndustrialDataSpace
-sto:IndustrialDataSpace rdf:type owl:NamedIndividual ,
-                                 sto:StandardizationFramework .
+
 
 
 ###  https://w3id.org/i40/sto#IndustrialInternetArchitecture
@@ -3906,7 +3918,12 @@ sto:IndustrialInternetArchitecture rdf:type owl:NamedIndividual ,
                                    rdfs:label "AII Industrial Internet Architecture"@en ;
                                    sto:hasOfficialResource <http://en.aii-alliance.org/uploadfile/2017/0307/Industrial.pdf> .
 
-
+sto:IndustrialInternetArchitectureAnno rdf:type owl:NamedIndividual ,
+                              oa:Annotation ;
+                     oa:hasBody sto:IndustrialInternetArchitecture ;
+                     oa:hasTarget [ rdf:type oa:SpecificResource ;
+                                    oa:hasSource sto:Industrial_Internet_Architecture_Version_1
+                                  ] .
 ###  https://w3id.org/i40/sto#Industrial_Internet_Architecture_Version_1
 sto:Industrial_Internet_Architecture_Version_1 rdf:type owl:NamedIndividual ,
                                                         oa:SpecificResource ;
@@ -6257,7 +6274,7 @@ sto:OpenFogNodeView rdf:type owl:NamedIndividual .
 sto:OpenFogReferenceArchitecture rdf:type owl:NamedIndividual ,
                                           sto:ArchitectureDescription ,
                                           sto:StandardizationFramework ;
-                                 dcterms:creator sto:sebastian ;
+                                 dcterms:creator sto:sebastian; 
                                  sto:hasPublisher sto:OpenFogConsortium ;
                                  rdfs:comment "The OpenFog Reference Architecture (OpenFog RA) is intended to help business leaders, software developers, silicon architects, and system designers create and maintain the hardware, software and system elements necessary for fog computing."@en ;
                                  rdfs:label "OpenFog Reference Architecture"@en ;
@@ -6315,6 +6332,13 @@ sto:ProductManager rdf:type owl:NamedIndividual ,
                    rdfs:label "Product Manager"@en ;
                    skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '3.5.1 BUSINESS VIEWPOINT' 'Page 15' 'Priyanka'" .
 
+sto:SoftwareArchitect  rdf:type owl:NamedIndividual ,
+                            sto_iot:StakeholderGroup ,
+                            sto:Stakeholder ;
+                            rdfs:comment ""@en ;
+                   rdfs:label "Software Architect"@en ;
+                   sto:hasWikipediaArticle <<https://www.wikidata.org/wiki/Q1548249>> ;
+                   skos:note "" .
 
 ###  https://w3id.org/i40/sto#ProjectManager
 sto:ProjectManager rdf:type owl:NamedIndividual ,
@@ -6700,8 +6724,7 @@ sto:RAMIFunctionalLayerAnno rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#RAMIHeader
 sto:RAMIHeader rdf:type owl:NamedIndividual ,
-                        sto:StandardClassification ,
-                        sto:StandardizationFramework ;
+                        sto:StandardClassification  ;
                dul:isPartOf sto:AdministrationShell ;
                sto_iot:frames rami:Lifecycle_Status ,
                           sto:BusinessContext ,
@@ -6716,6 +6739,7 @@ sto:RAMIHeader rdf:type owl:NamedIndividual ,
                           sto:ThingDescription ,
                           sto:ThingRepresentation ,
                           sto:Trustworthiness ;
+               sto:isDescribedin sto:RAMI;
                sto:hasPublisher sto:PlatformIndustry40 ;
                rdfs:label "Administration Shell Header"@en ;
                skos:note "find better class assignment"@en .
@@ -7040,8 +7064,8 @@ sto:RFC_5246 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:IETF ;
              foaf:maker sto:IETF ;
-             sto:hasClassification sto:DataSovereignty ,
-                                   sto:IDSRAMSecurity ;
+             sto:hasClassification sto:IDSRAMSecurity ;
+             sto:hasTargetConcern sto:DataSovereignty ;
              sto:hasPublisher sto:IETF ;
              dcterms:description "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
              rdfs:comment "This document specifies Version 1.2 of the Transport Layer Security (TLS) protocol.  The TLS protocol provides communications security over the Internet.  The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery."@en ;
@@ -7092,8 +7116,8 @@ sto:RFC_7519 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:IETF ;
              foaf:maker sto:IETF ;
-             sto:hasClassification sto:DataSovereignty ,
-                                   sto:IDSRAMSecurity ;
+             sto:hasClassification sto:IDSRAMSecurity ;
+             sto_iot:hasTargetConcern sto:DataSovereignty ;
              sto:hasPublisher sto:IETF ;
              dcterms:description "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
              rdfs:comment "JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted."@en ;
@@ -7318,7 +7342,8 @@ sto:TrustedConnector rdf:type owl:NamedIndividual ,
                      dcterms:creator sto:sebastian ;
                      dul:associatedWith sto:DIN_SPEC_27070 ,
                                         sto:IDSRAMReferenceArchitectureModel ;
-                     sto_iot:alignsWith sto:DIN_SPEC_27070 ;
+                    #aligns with is used between standard classifications.
+                    # sto_iot:alignsWith sto:DIN_SPEC_27070 ;
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "The advent of the Industrial Internet of Things (IIoT) also raises challenges with respect to security and privacy of sensitive and personal data that is created by sensors and processed by services hosted in different administrative domains. The Industrial Data Space initiative addresses these challenges and proposes a secure edge gateway platform named \"Trusted Connector\". In this report, we introduce the main security building blocks of the Trusted Connector and point out how they help protecting business-critical data and preserving the user's privacy."@en ;
                      rdfs:label "IDS Trusted Connector"@en ;
@@ -7577,9 +7602,9 @@ sto:ISO_9000 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_9594
 sto:ISO_9594 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:hasClassification sto:DataSovereignty ,
-                                   sto:IDSRAMCertification ,
+             sto:hasClassification sto:IDSRAMCertification ,
                                    sto:IDSRAMSecurity ;
+             sto_iot:hasTargetConcern sto:DataSovereignty ;
              rdfs:label "ISO/IEC 9594"@en ,
                         "X.509"@en .
 
@@ -7587,9 +7612,9 @@ sto:ISO_9594 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_9594-8
 sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
-               sto:hasClassification sto:DataSovereignty ,
-                                     sto:IDSRAMCertification ,
+               sto:hasClassification sto:IDSRAMCertification ,
                                      sto:IDSRAMSecurity ;
+               sto_iot:hasTargetConcern sto:DataSovereignty ;
                rdfs:label "ISO/IEC 9594-8"@en .
 
 
@@ -7691,9 +7716,7 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEC_62541
 sto:IEC_62541 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              sto:hasClassification sto:Communication ,
-                                    sto:DataSovereignty ,
-                                    sto:IDSRAMSystemLayer ,
+              sto:hasClassification sto:IDSRAMSystemLayer ,
                                     sto:IICFFrameworkLayer ,
                                     sto:IIRAApplicationDomain ,
                                     sto:IIRAOperationsDomain ,
@@ -7706,7 +7729,9 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
                                     sto:RAMIStation ,
                                     sto:RAMIWorkCenter ,
                                     sto:SCADALevel ;
-              sto_iot:hasTargetConcern sto:AutonomousCommunication .
+              sto_iot:hasTargetConcern sto:AutonomousCommunication,
+                                       sto:Communication ,
+                                       sto:DataSovereignty;.
 
 
 ###  https://w3id.org/i40/sto#IPv6
@@ -7739,7 +7764,8 @@ sto:ISO_13849 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#DIN_77005_P1
 sto:DIN_77005_P1 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
-                 sto_iot:frames sto:DataLifecycleManagment ;rdfs:label "DIN 77005-1:2018-09"@en .
+                 sto_iot:frames sto:DataLifecycleManagment ;
+                 rdfs:label "DIN 77005-1:2018-09"@en .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_50128
@@ -7810,6 +7836,7 @@ sto:RAMIConnectedWorld rdf:type owl:NamedIndividual ,
 sto:RAMIFieldDevice rdf:type owl:NamedIndividual ,
                              rami:RAMIHierarchyLevel ,
                              sto:StandardClassification ;
+                    sto:isDescribedin sto:RAMI;         
                     sto_iot:frames sto:Manufacturing .
 
 
@@ -7817,6 +7844,7 @@ sto:RAMIFieldDevice rdf:type owl:NamedIndividual ,
 sto:RAMIProduct rdf:type owl:NamedIndividual ,
                          rami:RAMIHierarchyLevel ,
                          sto:StandardClassification ;
+                sto:isDescribedin sto:RAMI;
                 sto_iot:frames sto:Manufacturing .
 
 
