@@ -2706,10 +2706,9 @@ sto:IIC_PUB_G1_V1_80_20170131 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#IIRA
 sto:IIRA rdf:type owl:NamedIndividual ,
-                  sto:ArchitectureDescription ,
                   sto:StandardizationFramework ;
          sto:hasPublisher sto:IIC ;
-         sto_iot:hasTargetConcern <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+         sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
                               sto:BusinessValue ,
                               sto:DecisionMaker ,
                               sto:Developer ,
@@ -6337,7 +6336,7 @@ sto:SoftwareArchitect  rdf:type owl:NamedIndividual ,
                             sto:Stakeholder ;
                             rdfs:comment ""@en ;
                    rdfs:label "Software Architect"@en ;
-                   sto:hasWikipediaArticle <<https://www.wikidata.org/wiki/Q1548249>> ;
+                   sto:hasWikipediaArticle <https://www.wikidata.org/wiki/Q1548249> ;
                    skos:note "" .
 
 ###  https://w3id.org/i40/sto#ProjectManager
@@ -7376,7 +7375,7 @@ sto:iShare rdf:type owl:NamedIndividual ,
                               sto:RFC_5246 ,
                               sto:RFC_7519 ,
                               sto:XACML ;
-           sto_iot:hasTargetConcern sto:Identification ,
+           sto_iot:hasTargetConcern sto:IdentityManagement ,
                                 sto:Interoperability ;
            rdfs:comment "iSHARE is a uniform set of agreements or a scheme for identification, authentication and authorization. All companies that join the iSHARE Scheme comply with the set of agreements. They all use the same methods to both provide and gain access to data. (source: iShare: 'It is not a platform…')"@en ;
            rdfs:label "iShare"@en ;
