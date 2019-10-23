@@ -63,7 +63,6 @@ sto_iot:concerns rdf:type owl:Ontology ;
 sto:hasStakeholder rdf:type owl:AnnotationProperty ;
             rdfs:label "has Stakeholder" ;
 			rdfs:comment "This property links entities to the typical stakeholder which is interested in the topic."@en ;
-			rdfs:range sto_iot:hasStakeholder ;
 			skos:note "Subproperty of http://voag.linkedmodel.org/voag#hasStakeholder (vocabulary not accessible)."@en
 			.
 
@@ -1019,7 +1018,6 @@ sto:EnergyEfficiency rdf:type owl:NamedIndividual ,
                               rami:AdminShellSubmodel ,
                               sto_iot:Concern ,
                               sto:StandardClassification ;
-                     sto:isDescribedin sto:AdministrationShell ;
                      sto_iot:supports sto:IoT ;
                      rdfs:comment "Efficient energy use, sometimes simply called energy efficiency, is the goal to reduce the amount of energy required to provide products and services."@en ;
                      rdfs:label "Energy Efficiency"@en ;
