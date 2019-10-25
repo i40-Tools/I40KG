@@ -48,7 +48,8 @@ sto_iot:concerns rdf:type owl:Ontology ;
                                  dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
                                  doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                                  dcterms:created "2019-06-09"^^xsd:date ;
-								 owl:imports <sto.ttl> .
+                                 owl:imports <sto.ttl> .
+
 
 
 
@@ -78,6 +79,9 @@ sto:hasStakeholder rdf:type owl:AnnotationProperty ;
 #    Object Properties
 #################################################################
 
+
+###  http://www.w3.org/2004/02/skos/core#narrower
+skos:broader rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -144,7 +148,7 @@ sto:DeviceSecurity rdf:type owl:NamedIndividual ,
                    rdfs:comment ""@en ;
                    rdfs:label "Device Security"@en ;
                    rdfs:seeAlso <https://ieeexplore.ieee.org/document/8552311> ;
-                   skos:narrower sto:Security .
+                   skos:broader sto:Security .
 
 
 ###  https://w3id.org/i40/sto#Multilaterism
@@ -690,7 +694,7 @@ sto:DataAggregation rdf:type owl:NamedIndividual ,
                     rdfs:label "Data Aggregation"@en ;
                     rdfs:seeAlso <https://ieeexplore.ieee.org/document/7566346> ,
                                  <https://www.researchgate.net/publication/319283535_Data_aggregation_mechanisms_in_the_Internet_of_things_A_systematic_review_of_the_literature_and_recommendations_for_future_research> ;
-                    skos:narrower sto:DataProcessing ;
+                    skos:broader sto:DataProcessing ;
                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_aggregation> .
 
 
@@ -790,7 +794,7 @@ sto:DataIsolation rdf:type owl:NamedIndividual ,
                   sto_iot:supports sto:DataIntegrity ;
                   rdfs:comment "Isolation is one of the ACID (Atomicity, Consistency, Isolation, Durability) properties adopted by the database systems"@en ;
                   rdfs:label "Data Isolation"@en ;
-                  skos:narrower sto:Isolation ;
+                  skos:broader sto:Isolation ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Isolation_(database_systems)> .
 
 
@@ -963,7 +967,7 @@ sto:EdgeAnalytics rdf:type owl:NamedIndividual ,
                   dcterms:creator sto:Priyanka ;
                   rdfs:comment "The concern of being able to understanding the states, conditions and behaviors of the systems under control and other systems by interpreting and correlating data gathered from sensors and other systems."@en ;
                   rdfs:label "Edge Analytics"@en ;
-                  skos:narrower sto:Analytics ;
+                  skos:broader sto:Analytics ;
                   skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' " ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Edge_computing> .
 
@@ -1546,7 +1550,7 @@ sto:Regulatory_Compliance rdf:type owl:NamedIndividual ,
                           rdfs:comment "Organizations are ultimately legally responsible for their process compliance and data security, Even though the data is in a public cloud."@en ;
                           rdfs:label "Regulatory Compliance"@en ;
                           rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3286606.3286865> ;
-                          skos:narrower sto:Compliance ;
+                          skos:broader sto:Compliance ;
                           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Regulatory_compliance> .
 
 
@@ -1829,7 +1833,7 @@ sto:ServiceIsolation rdf:type owl:NamedIndividual ,
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
                      rdfs:label "Service Isolation"@en ;
-                     skos:narrower sto:Isolation ;
+                     skos:broader sto:Isolation ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Process_isolation> .
 
 
@@ -2148,4 +2152,3 @@ sto:IPv6Support rdf:type owl:NamedIndividual ,
                 rdfs:label "IPv6 Support"@en ;
                 rdfs:seeAlso "IoT-A Requirement UNI.312" ;
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_Protocol> .
-
