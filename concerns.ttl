@@ -120,10 +120,7 @@ sto_iot:StakeholderGroup rdf:type owl:Class ;
 #################################################################
 
 
-###  https://www.wikidata.org/wiki/Q1548249
-<https://www.wikidata.org/wiki/Q1548249> rdf:type owl:NamedIndividual ,
-                                                  sto_iot:hasStakeholder ;
-                                         rdfs:label "System Architect"@en .
+
 										 
 
 ###  https://w3id.org/i40/sto#DataOwnership
@@ -285,7 +282,7 @@ Spurce: OpenFog Consortum Architecture Whitepaper"""@en ;
 sto:Anonymity rdf:type owl:NamedIndividual ,
                        sto_iot:Concern ;
               sto_iot:supports sto:Privacy ;
-              sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+              sto:hasStakeholder sto:EndUser ;
               rdfs:comment "Anonymity is the guarantee for a user to interact with a system without being tracked or connected to its real-world identity."@en ;
               rdfs:label "Anonymity"@en ;
               rdfs:seeAlso "IoT-A Requirement UNI.001" ,
@@ -349,8 +346,8 @@ sto:AutonomousCommunication rdf:type owl:NamedIndividual ,
                                      sto_iot:Concern ;
                             sto_iot:supports sto:Communication ,
                                          sto:ServiceChoreography ;
-                            sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
-                            rdfs:comment "Authonomous Communication frames all requirements in order to autonomously establish communication channels between participants of a network. In most cases, this will be a machine-to-machine communication channel. Main challenges are related to interoperability."@en ;
+                            sto:hasStakeholder sto:SoftwareArchitect ;
+                            rdfs:comment "Autonomous Communication frames all requirements in order to autonomously establish communication channels between participants of a network. In most cases, this will be a machine-to-machine communication channel. Main challenges are related to interoperability."@en ;
                             rdfs:label "Autonomous Communication"@en ;
                             rdfs:seeAlso "IoT-A Requirement UNI.005" ,
                                          "IoT-A Requirement UNI.012" ,
@@ -361,7 +358,7 @@ sto:AutonomousCommunication rdf:type owl:NamedIndividual ,
 sto:AutonomousConfiguration rdf:type owl:NamedIndividual ,
                                      sto_iot:Concern ;
                             sto_iot:supports sto:ServiceChoreography ;
-                            sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
+                            sto:hasStakeholder sto:SoftwareArchitect ;
                             rdfs:comment "A system built using the Reference Architecture shall be able to remotely control and configure devices."@en ;
                             rdfs:label "Autonomous Configuration"@en ;
                             rdfs:seeAlso "IoT-A Requirement UNI.015" ,
@@ -667,7 +664,7 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
                                sto_iot:Concern ;
                       dcterms:creator sto:sebastian ;
                       sto_iot:supports sto:Authorization ;
-                      sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+                      sto:hasStakeholder sto:EndUser ,
                                                                         <https://w3id.org/i40/DataOwner> ;
                       rdfs:comment "Automated access control based on formalized descriptions."@en ,
                                    "In the fields of physical security and information security, access control (AC) is the selective restriction of access to a place or other resource. The act of accessing may mean consuming, entering, or using. Permission to access a resource is called authorization. Locks and login credentials are two analogous mechanisms of access control. (source: wikipedia)"@en ;
@@ -767,7 +764,9 @@ sto:DataEncryption rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#DataInMotion
-sto:DataInMotion rdf:type owl:NamedIndividual .
+sto:DataInMotion rdf:type owl:NamedIndividual ,
+                           sto_iot:Concern ;
+                           sto_iot:supports sto:Communication ;.
 
 
 ###  https://w3id.org/i40/sto#DataIntegrity
@@ -827,7 +826,7 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
 sto:DataProcessing rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:sebastian ;
-                   sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
+                   sto:hasStakeholder sto:SoftwareArchitect ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.018" ,
@@ -1030,7 +1029,7 @@ sto:EnergyEfficiency rdf:type owl:NamedIndividual ,
 sto:EventDrivenMessaging rdf:type owl:NamedIndividual ,
                                   sto_iot:Concern ;
                          sto_iot:supports sto:DataInMotion ;
-                         sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
+                         sto:hasStakeholder sto:SoftwareArchitect ;
                          rdfs:label "Event-Driven Messaging"@en ;
                          rdfs:seeAlso "IoT-A Requirement UNI.005" ,
                                       "IoT-A Requirement UNI.233" ;
@@ -1098,7 +1097,7 @@ sto:FaultTolerance rdf:type owl:NamedIndividual ,
 sto:GeoTracking rdf:type owl:NamedIndividual ,
                          sto_iot:Concern ;
                 sto_iot:supports sto:ContextAwareness ;
-                sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                sto:hasStakeholder sto:EndUser ;
                 rdfs:comment "A system built using the ARM shall support physical entity location tracking (geo spatial and/or logical location)"@en ;
                 rdfs:label "Geo tracking"@en ;
                 rdfs:seeAlso "IoT-A Requirement UNI.016" ;
@@ -1174,7 +1173,7 @@ sto:IdentityManagement rdf:type owl:NamedIndividual ,
                                     <https://ieeexplore.ieee.org/document/7488250> ,
                                     <https://ieeexplore.ieee.org/document/7919553> ;
                         skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' 'Survey on domain specific IoT architectures' 'Page 299'" ;
-                       sto:hasDBpediaResource <http://dbpedia.org/resource/Identity_management>.
+                       sto:hasDBpediaResource <http://dbpedia.org/resource/Identity_management>;
                        sto:hasDBpediaResource <http://dbpedia.org/resource/Identification_(information)> .
 
 
@@ -1220,7 +1219,7 @@ sto:IntegrityProtection rdf:type owl:NamedIndividual ,
 sto:Interoperability rdf:type owl:NamedIndividual ,
                               sto_iot:Concern ;
                      sto:hasStakeholder <https://w3id.org/i40/GeneralMAnager> ,
-                                                                       <https://www.wikidata.org/wiki/Q1548249> ;
+                                                                      sto:SoftwareArchitect ;
                      rdfs:comment "A systems ability to connect with other systems."@en ,
                                   "Interoperability refers to the ability of two or more devices from the same vendor, or different vendors, to exchange information and use that information for correct co-operation [IEC61850-2010]."@en ;
                      rdfs:label "Interoperability"@en ;
@@ -1316,7 +1315,7 @@ sto:MaintenanceCost rdf:type owl:NamedIndividual ,
 sto:MessagePriority rdf:type owl:NamedIndividual ,
                              sto_iot:Concern ;
                     sto_iot:supports sto:Communication ;
-                    sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ,
+                    sto:hasStakeholder sto:SoftwareArchitect ,
                                                                       <owl:Developer> ;
                     rdfs:comment "Message precedence is an indicator attached to a message indicating its level of urgency. (source: wikipedia)"@en ;
                     rdfs:label "Message precedence"@en ;
@@ -1418,7 +1417,7 @@ sto:Performance rdf:type owl:NamedIndividual ,
 sto:PeriodicCommunication rdf:type owl:NamedIndividual ,
                                    sto_iot:Concern ;
                           sto_iot:supports sto:EventDrivenMessaging ;
-                          sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
+                          sto:hasStakeholder sto:SoftwareArchitect ;
                           rdfs:label "Periodic Communication"@en ;
                           rdfs:seeAlso "IoT-A Requirement UNI.005" .
 
@@ -1466,7 +1465,7 @@ sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
                                 sto_iot:Concern ;
                        dcterms:creator sto:sebastian ;
                        sto_iot:supports sto:Security ;
-                       sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                       sto:hasStakeholder sto:EndUser ;
                        rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
                        rdfs:label "Provenance Tracking"@en ;
                        rdfs:seeAlso "IoT-A Requirement UNI.041" ,
@@ -1514,7 +1513,7 @@ sto:RadioActivityControl rdf:type owl:NamedIndividual ,
 sto:RealTimeAnalytics rdf:type owl:NamedIndividual ,
                                sto_iot:Concern ;
                       sto_iot:supports sto:DataAnalytics ;
-                      sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                      sto:hasStakeholder sto:EndUser ;
                       rdfs:comment "In computer science, real-time computing (RTC), or reactive computing describes hardware and software systems subject to a \"real-time constraint\", for example from event to system response. Real-time programs must guarantee response within specified time constraints, often referred to as \"deadlines\". Systems of this type whose correctness depends on their temporal aspects as well as their functional aspects. Real-time responses are often understood to be in the order of milliseconds, and sometimes microseconds."@en ;
                       rdfs:label "Real Time Analytics"@en ;
                       rdfs:seeAlso "IoT-A Requirement UNI.020" ;
@@ -1554,7 +1553,7 @@ sto:Resilience rdf:type owl:NamedIndividual ,
                dcterms:creator sto:sebastian ;
                sto_iot:supports sto:Trustworthiness ;
                sto:hasStakeholder <http://dbpedia.org/ontology/generalManager> ,
-                                                                 <https://www.wikidata.org/wiki/Q1548249> ;
+                                                                 sto:SoftwareArchitect ;
                rdfs:comment "Resilience is the ability to provide and maintain an acceptable level of service in the face of faults and challenges to normal operation.” Threats and challenges for services can range from simple misconfiguration over large scale natural disasters to targeted attacks. As such, network resilience touches a very wide range of topics. In order to increase the resilience of a given communication network, the probable challenges and risks have to be identified and appropriate resilience metrics have to be defined for the service to be protected. (source: wikipedia)"@en ;
                rdfs:label "Resilience"@en ;
                rdfs:seeAlso "IoT-A Requirement UNI.012" ,
@@ -1630,7 +1629,7 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
                         sto_iot:supports sto:Communication ,
                                      sto:IntegrityProtection ;
                         sto:hasStakeholder <http://dbpedia.org/ontology/developer> ,
-                                                                          <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+                                                                          sto:EndUser ,
                                                                           <https://w3id.org/i40/SystemArchitect> ;
                         rdfs:comment <http://dbpedia.org/resource/Secure_communication> ,
                                      "This concern frames everything necessary to establish and conduct a secure communication channel, which cannot be read, intercepted or altered by a third party. Especially relevant are encrypting techniques."@en ;
@@ -1650,7 +1649,7 @@ sto:Security rdf:type owl:NamedIndividual ,
              dcterms:creator sto:sebastian ;
              sto_iot:supports sto:Privacy ;
              sto:hasStakeholder <http://dbpedia.org/ontology/generalManager> ,
-                                                               <https://www.wikidata.org/wiki/Q1548249> ;
+                                                               sto:SoftwareArchitect ;
              rdfs:comment "Information security, sometimes shortened to InfoSec, is the practice of defending information from unauthorized access, use, disclosure, disruption, modification, inspection, recording or destruction. It is a general term that can be used regardless of the form the data may take (e.g. electronic, physical). (source: wikipedia)"@en ;
              rdfs:label "Security"@en ;
              rdfs:seeAlso "IoT-A Requirement UNI.040" ,
@@ -1745,7 +1744,7 @@ sto:ServiceComposition rdf:type owl:NamedIndividual ,
                                 sto_iot:Concern ;
                        dcterms:creator sto:sebastian ;
                        sto_iot:supports sto:interoperability ;
-                       sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
+                       sto:hasStakeholder sto:SoftwareArchitect ;
                        rdfs:comment "2 to n Data Apps/Devices/Services are connected"@en ,
                                     "In computing, service composability is a design principle, applied within the service-orientation design paradigm, that encourages the design of services that can be reused in multiple solutions that are themselves made up of composed services. The ability to recompose the service is ideally independent of the size and complexity of the service composition. This principle is directly responsible for the agility promised by SOA as it promotes composing new solutions by reusing existing services. (source: wikipedia)"@en ;
                        rdfs:label "Service Composition"@en ;
@@ -1794,6 +1793,7 @@ sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "How to find desired (Web) services, Data Apps, functionalities."@en ;
                      rdfs:label "Service Discovery"@en ;
+                     sto_iot:supports sto:ServiceOrchestration ;
                      rdfs:seeAlso "IoT-A Requirement UNI.406" ,
                                   "IoT-A Requirement UNI.408" ,
                                   "IoT-A Requirement UNI.414" ,
@@ -1833,7 +1833,8 @@ sto:ServiceLifecycleManagement rdf:type owl:NamedIndividual ,
                                rdfs:comment "Information lifecycle management (ILM) refers to strategies for administering storage systems on computing devices. ILM is the practice of applying certain policies to effective information management. This practice had its basis in the management of information in paper or other physical forms (microfilm, negatives, photographs, audio or video recordings and other assets). ILM includes every phase of a \"record\" from its beginning to its end. And while it is generally applied to information that rises to the classic definition of a record (and thus related to records management), it applies to all informational assets. (source: wikipedia)"@en ;
                                rdfs:label "Service life-cycle management"@en ;
                                rdfs:seeAlso "IoT-A Requirement UNI.087" ;
-                               sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management> .
+                               sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management>;
+                               sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/Service-Lifecycle-Management> .
 
 
 ###  https://w3id.org/i40/sto#ServiceOrchestration
@@ -1841,8 +1842,8 @@ sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
                                   sto_iot:Concern ;
                          dcterms:creator sto:sebastian ;
                          sto_iot:supports sto:ServiceComposition ;
-                         sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ;
-                         rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrates by a central entity."@en ;
+                         sto:hasStakeholder sto:SoftwareArchitect ;
+                         rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrated by a central entity."@en ;
                          rdfs:label "Service Orchestration"@en ;
                          rdfs:seeAlso "IoT-A Requirement UNI.010" ,
                                       <https://dl.acm.org/citation.cfm?doid=3098208.3098210> ;
@@ -1951,7 +1952,7 @@ sto:ThingDescription rdf:type owl:NamedIndividual ,
                               sto_iot:Concern ;
                      dcterms:creator sto:sebastian ;
                      sto_iot:supports sto:SemanticInteroperability ;
-                     sto:hasStakeholder <https://www.wikidata.org/wiki/Q1548249> ,
+                     sto:hasStakeholder sto:SoftwareArchitect ,
                                                                        <owl:Developer> ;
                      rdfs:comment "'Things' in terms of physical objects in the IoT need to be described in order to identify them and to provide further information."@en ;
                      rdfs:label "Thing description"@en ;
@@ -2039,7 +2040,9 @@ sto:UnreliableNetwork rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#UserExperience
-sto:UserExperience rdf:type owl:NamedIndividual .
+sto:UserExperience rdf:type owl:NamedIndividual,
+                                sto_iot:Concern;
+                                sto_iot:supports sto:Customization .
 
 
 ###  https://w3id.org/i40/sto#UserInteraction
@@ -2047,7 +2050,7 @@ sto:UserInteraction rdf:type owl:NamedIndividual ,
                              sto_iot:Concern ;
                     dcterms:creator sto:sebastian ;
                     sto_iot:supports sto:UserExperience ;
-                    sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ;
+                    sto:hasStakeholder sto:EndUser ;
                     rdfs:comment "Interaction design, often abbreviated as IxD, is defined as \"the practice of designing interactive digital products, environments, systems, and services.\" While the digital side of this statement is true, Interaction design is also valid when creating physical (non-digital) products, covering the ideology of how a user may interact with it. (source: wikipedia)"@en ;
                     rdfs:label "User Interaction"@en ;
                     rdfs:seeAlso "IoT-A Requirement UNI.019" ,

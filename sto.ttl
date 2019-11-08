@@ -25,6 +25,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
@@ -698,7 +699,7 @@ sto_iot:hasTargetConcern rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf dul:associatedWith ;
                      rdfs:domain  sto:Standard;
                      rdfs:range sto_iot:Concern ;
-                     rdfs:comment "The relation declaring that a standard is relevant or targets a certain concern."@en ;
+                     rdfs:comment "The relation declaring that a standard is relevant for a certain concern."@en ;
                      rdfs:label "has Target Concern"@en .
 
 
@@ -898,8 +899,6 @@ sto:Publication rdf:type owl:Class ;
                 rdfs:isDefinedBy sto:IEC ;
                 rdfs:label "Publication"@en ;
                 rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/> .
-
-
 
 
 ###  https://w3id.org/i40/sto#StandardClassification
@@ -1669,12 +1668,14 @@ sto:DIN rdf:type owl:NamedIndividual ,
         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Deutsches_Institut_f%C3%BCr_Normung> .
 
 
+
 ###  https://w3id.org/i40/sto#DIN_77005_P1
 sto:DIN_77005_P1 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:irlan ;
                  sto:hasPublisher sto:DIN ;
                  sto:hasAvailableLanguage lang:deu;
+                 sto_iot:hasTargetConcern sto:DataLifecycleManagment ;
                  sto:hasPublicationDate "2018-09-01"^^xsd:date ;
                  sto:hasTag "DIN 77005-1:2018-09" ;
                  rdfs:comment "Lifecycle record of technical objects - Part 1: Structural and content-related specifications"@en ;
@@ -1689,6 +1690,7 @@ sto:DIN_EN_50128 rdf:type owl:NamedIndividual ,
                                  sto:irlan ;
                  sto:hasClassification sto:IDSRAMCertification ;
                  sto:hasPublisher sto:DIN ;
+                 sto_iot:hasTargetConcern sto:Safety ;
                  sto:hasAvailableLanguage lang:deu;
                  sto:hasPublicationDate "2012-03-01"^^xsd:date ;
                  rdfs:comment "Die EN 50128 ist eine Europäische Norm für sicherheitsrelevante Software der Eisenbahn, sowohl strecken- als auch zugseitig. Zusammen mit der EN 50129 für die Hardware und den Zulassungsprozessen ist die EN 50128 eine Spezialisierung der EN 61508. Die EN 50128 ist eine Prozessnorm. Sie stellt dar, welche Verfahren, Prinzipien und Maßnahmen anzuwenden sind, damit die Software als sicher gilt."@de ;
@@ -1702,6 +1704,8 @@ sto:DIN_EN_50129 rdf:type owl:NamedIndividual ,
                  dcterms:creator sto:sebastian, 
                                  sto:irlan ;
                  sto:hasPublisher sto:DIN ;
+                  sto:hasClassification sto:IDSRAMCertification ;
+                  sto_iot:hasTargetConcern sto:Safety;
                  dcterms:title "Railway applications - Communications, signalling and processing systems - Safety related electronic systems for signalling"@en ;
                  rdfs:comment "Für alle Eisenbahnsignalsysteme, -Teilsysteme und -Einrichtungen sind jedoch Gefährdungsanalyse und Risikobewertungsprozesse, wie in DIN EN 50126 und in dieser Norm definiert, notwendig, um die Sicherheitsanforderungen zu identifizieren."@de ,
                               "Specifies risk analysis for railway systems"@en ;
@@ -1716,6 +1720,8 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                  rdfs:comment "Diese Norm wird bei der Konstruktion, Fertigung und Prüfung von auf Schienenfahrzeugen eingebauten elektronischen Betriebsmitteln verwendet. Sie beschreibt außerdem die elektrischen sowie die Umweltbedingungen für den Betrieb. Die Norm gilt für alle elektronischen Betriebsmittel für die Steuerung, die Regelung, den Schutz, die Diagnose, die Versorgung und so weiter, die auf Schienenfahrzeugen installiert sind. Als ein elektronisches Betriebsmittel gilt dabei ein Betriebsmittel, das hauptsächlich aus Halbleiterbauelementen und üblicherweise zugehörigen Bauelementen aufgebaut ist. Auch Sensoren (Strom, Spannung, Geschwindigkeit und so weiter) und bestückte Leiterplatten von Zündeinheiten für leistungselektronische Geräte sind von dieser Norm umfasst. Vollständige Zündeinheiten und leistungselektronische Schaltkreise sind in EN 61287-1 enthalten. Die Norm umfasst die Betriebsbedingungen, die Konstruktionsanforderungen, die Dokumentation und die Prüfung der elektronischen Betriebsmittel sowie die grundlegenden Hardware- und Softwareanforderungen, die für ein leistungsfähiges, zuverlässiges Betriebsmittel als erforderlich erachtet werden. Zuständig ist das DKE/UK 351.1 \"Fahrzeuge\" der DKE Deutsche Kommission Elektrotechnik Elektronik Informationstechnik in DIN und VDE."@de ,
                               "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
                  rdfs:label "DIN EN 50155"@en ;
+                 sto:hasClassification sto:IDSRAMCertification;
+                 sto_iot:hasTargetConcern sto:Safety;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/EN_50155> ;
                  sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50155/275256249> ;
                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/EN_50155> .
@@ -1728,6 +1734,8 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                  rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
                  rdfs:label "DIN EN 50159"@en ;
                  sto:hasAvailableLanguage lang:deu;
+                 sto:hasClassification sto:IDSRAMCertification ;
+                 sto_iot:hasTargetConcern sto:Safety;
                  sto:hasPublicationDate "2011-04-01"^^xsd:date;
                  sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50159/137853742> .
 
@@ -1737,11 +1745,13 @@ sto:DIN_EN_61511 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:sebastian, sto:irlan ;
                  sto:hasPublisher sto:DIN ;
+                 owl:sameAs sto:IEC_61511;
                  sto:hasAvailableLanguage lang:deu;
                  sto:hasPublicationDate "2019-02-01"^^xsd:date;
                  dcterms:title "Functional safety - Safety instrumented systems for the process industry sector - Part 1: Framework, definitions, system, hardware and software requirements"@en ;
                  rdfs:comment "This standard gives requirements for the specification, design, installation, operation and maintenance of a safety instrumented system (SIS), so that it can be confidently entrusted to achieve or maintain a safe state of the process. This standard has been developed as a process sector implementation of IEC 61508."@en ;
                  rdfs:label "DIN EN 61511"@en .
+
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_13849
@@ -1751,12 +1761,31 @@ sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
                                      sto:irlan ;
                      sto:hasPublisher sto:DIN ,
                                       sto:ISO ;
-                     rdfs:comment """ISO 13849 is a safety standard which deals with safety-related design principles of employed control systems to establish different safety Performance Levels (PL). It replaced EN 954-1 in December 2011.
-    Part 1 defines the general principles for design.
-    Part 2 describes the validation."""@en ;
+                     owl:sameAs sto:ISO_13849;
+                     sto:hasClassification sto:IDSRAMCertification ,
+                                    sto:IIRASecurity;
+                     sto_iot:hasTargetConcern sto:Safety;
+                     rdfs:comment """ISO 13849 is a safety standard which deals with safety-related design principles of employed control systems to establish different safety Performance Levels (PL). It replaced EN 954-1 in December 2011.  Part 1 defines the general principles for design. Part 2 describes the validation."""@en ;
                      rdfs:label "DIN EN ISO 13849"@en ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13849> ;
                      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13849> .
+
+                     ###  https://w3id.org/i40/sto#ISO_13849
+sto:ISO_13849 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              dcterms:creator sto:irlan ;
+              sto:hasClassification sto:ASSafety  ;
+              sto:hasPublisher sto:ISO ;
+              sto:relatedTo sto:IEC_61508 ,
+                            sto:IEC_61511 ,
+                            sto:IEC_62061 ,
+                            sto:ISO_13849 ;
+              rdfs:comment "Provides safety requirements and guidance on the principles for the design and integration of safety-related parts of control systems (SRP/CS), including the design of software."@en ;
+              rdfs:label "ISO 13849"@en ;
+              sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13849> ;
+              sto:hasRelevantDomain sto:Safety_Machinery ;
+              sto:hasOfficialResource <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=69883> ;
+              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13849> .
 
 
 ###  https://w3id.org/i40/sto#DIN_EN_ISO_IEC_17025
@@ -1773,6 +1802,7 @@ sto:DIN_EN_ISO_IEC_17025 rdf:type owl:NamedIndividual ,
                          rdfs:label "DIN EN ISO/IEC 17025"@en ;
                          sto:hasAvailableLanguage lang:eng, 
                                                   lang:deu;
+                         sto:hasClassification sto:IDSRAMCertification;
                          sto:hasPublicationDate "2018-03-01"^^xsd:date;
                          sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-iso-iec-17025/278030106> .
 
@@ -1788,6 +1818,7 @@ sto:DIN_ISO_14638 rdf:type owl:NamedIndividual ,
                   rdfs:comment "Geometrical product specifications (GPS) - Matrix model (ISO 14638:2015); German version EN ISO 14638:2015"@en ;
                   rdfs:label "DIN EN ISO 14638:2015-12"@en ;
                   sto:hasAvailableLanguage lang:deu;
+                  sto_iot:hasTargetConcern sto:ThingDescription;
                   sto:hasPublicationDate "2015-12-01"^^xsd:date;
                   sto:hasOfficialResource <https://www.beuth.de/en/standard/din-en-iso-14638/208096393> .
 
@@ -3357,12 +3388,7 @@ sto:FileSizeIEC_62832 rdf:type owl:NamedIndividual ,
                       om2:hasNumericalValue "2722.0"^^xsd:float .
 
 
-###  https://w3id.org/i40/sto#Final_architectural_reference_model_for_the_IoT_v3_0
-sto:Final_architectural_reference_model_for_the_IoT_v3_0 rdf:type owl:NamedIndividual ,
-                                                                  oa:SpecificResource ;
-                                                         rdfs:label "Internet of Things – Architecture IoT-A Final architectural reference model for the IoT v3.0"@en ;
-                                                         skos:note "Internet of Things – Architecture IoT-A Deliverable D1.5 – Final architectural reference model for the IoT v3.0" ;
-                                                         sto:hasOpenResource <http://cocoa.ethz.ch/downloads/2014/01/1360_D1%202_Initial_architectural_reference_model_for_IoT.pdf> .
+
 
 
 ###  https://w3id.org/i40/sto#France
@@ -3838,6 +3864,22 @@ sto:IEC_29100 rdf:type owl:NamedIndividual ,
                                sto:ISO ;
               sto:hasPublicationDate "2011-12-01"^^xsd:date .
 
+
+###  https://w3id.org/i40/sto#ISO_29115
+sto:ISO_29115 rdf:type owl:NamedIndividual ,
+                       foaf:Document ,
+                       sto:Publication ,
+                       sto:Standard ;
+              dcterms:creator sto:irlan ,
+                              sto:ISO ;
+              foaf:maker sto:IEC ,
+                         sto:ISO ;
+              sto_iot:hasTargetConcern sto:Authentication ,
+                                   sto:Identification ;
+              sto:hasClassification sto:IIRASecurity ;
+              sto:hasPublisher sto:IEC ,
+                               sto:ISO ;
+              rdfs:label "ISO/IEC 29115"@en .
 
 ###  https://w3id.org/i40/sto#IEC_29115
 sto:IEC_29115 rdf:type owl:NamedIndividual ,
@@ -6409,7 +6451,10 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
               owl:sameAs sto:ISO_61508 ;
               dcterms:creator sto:sebastian , 
                                  sto:irlan ;
-              sto:hasClassification sto:ASSafety  ;
+              sto:hasClassification sto:ASSafety,
+                                    sto:IDSRAMCertification  ;
+
+              sto_iot:hasTargetConcern sto:Safety;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:relatedTo sto:IEC_61508 ,
@@ -6436,6 +6481,8 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
                             sto:IEC_61511 ,
                             sto:IEC_62061 ,
                             sto:ISO_13849 ;
+              sto:hasClassification sto:IDSRAMCertification ;
+              sto_iot:hasTargetConcern sto:Safety;
               sto:hasPublicationDate "2016-02-24"^^xsd:date ;
               sto:hasTag "Functional safety - Safety instrumented systems for the process industry sector"@en ;
               dcterms:license sto:PrivateLicenseDocument ;
@@ -8416,6 +8463,7 @@ sto:ISO_13485 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
               sto:hasClassification sto:ASSafety  ;
+               sto_iot:hasTargetConcern sto:QualityOfService;
               sto:hasPublisher sto:ISO ;
               rdfs:comment "Medical devices -- Quality management systems -- Requirements for regulatory purposes."@en ;
               rdfs:label "ISO 13485"@en ;
@@ -8464,22 +8512,7 @@ sto:ISO_13584 rdf:type owl:NamedIndividual ,
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13584> .
 
 
-###  https://w3id.org/i40/sto#ISO_13849
-sto:ISO_13849 rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
-              dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASSafety  ;
-              sto:hasPublisher sto:ISO ;
-              sto:relatedTo sto:IEC_61508 ,
-                            sto:IEC_61511 ,
-                            sto:IEC_62061 ,
-                            sto:ISO_13849 ;
-              rdfs:comment "Provides safety requirements and guidance on the principles for the design and integration of safety-related parts of control systems (SRP/CS), including the design of software."@en ;
-              rdfs:label "ISO 13849"@en ;
-              sto:hasDBpediaResource <http://dbpedia.org/resource/ISO_13849> ;
-              sto:hasRelevantDomain sto:Safety_Machinery ;
-              sto:hasOfficialResource <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=69883> ;
-              sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO_13849> .
+
 
 
 ###  https://w3id.org/i40/sto#ISO_14306
@@ -8940,6 +8973,7 @@ sto:ISO_19941 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
               dcterms:title "Cloud Computing - Interoperability and Portability"@en ;
+              sto_iot:hasTargetConcern sto:CloudComputing;
               rdfs:comment ""@en ;
               rdfs:label "ISO/IEC 19941:2017"@en ;
               sto:hasOfficialResource <http://standards.iso.org/ittf/PubliclyAvailableStandards/c066639_ISO_IEC_19941_2017.zip> .
@@ -9360,18 +9394,7 @@ sto:ISO_29101 rdf:type owl:NamedIndividual ,
               sto:hasOfficialResource <https://www.iso.org/standard/45124.html> .
 
 
-###  https://w3id.org/i40/sto#ISO_29115
-sto:ISO_29115 rdf:type owl:NamedIndividual ,
-                       foaf:Document ,
-                       sto:Publication ,
-                       sto:Standard ;
-              dcterms:creator sto:irlan ,
-                              sto:ISO ;
-              foaf:maker sto:IEC ,
-                         sto:ISO ;
-              sto:hasPublisher sto:IEC ,
-                               sto:ISO ;
-              rdfs:label "ISO/IEC 29115"@en .
+
 
 
 ###  https://w3id.org/i40/sto#ISO_29134
@@ -9413,12 +9436,12 @@ sto:ISO_29190 rdf:type owl:NamedIndividual ,
                        foaf:Document ,
                        sto:Publication ,
                        sto:Standard ;
-              dcterms:creator sto:irlan ,
-                              sto:ISO ;
+              dcterms:creator sto:irlan ;
               foaf:maker sto:IEC ,
                          sto:ISO ;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
+              sto_iot:hasTargetConcern sto:Privacy;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2015-08-01"^^xsd:date ;
@@ -9476,11 +9499,6 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
              rdfs:label "ISO 5459"@en ;
              sto:hasRelevantDomain sto:M2M ;
              sto:hasOfficialResource <https://www.iso.org/standard/40358.html> .
-
-
-###  https://w3id.org/i40/sto#ISO_61508
-sto:ISO_61508 rdf:type owl:NamedIndividual ,
-                       sto:Standard .
 
 
 ###  https://w3id.org/i40/sto#ISO_8062-4
@@ -10232,6 +10250,146 @@ sto:OpenDaylight rdf:type owl:NamedIndividual ,
                  dcterms:creator sto:sebastian .
 
 
+
+
+
+###  https://w3id.org/i40/sto#ISO_50001
+sto:ISO_50001 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto_iot:hasTargetConcern sto:Energy_management ;
+              rdfs:label "ISO 50001"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_9000
+sto:ISO_9000 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:CrossLevel ,
+                                   sto:IDSRAMCertification ;
+             sto_iot:hasTargetConcern sto:QualityOfService ;
+             rdfs:label "ISO 9000"@en .
+
+###  https://w3id.org/i40/sto#ISO_9594
+sto:ISO_9594 rdf:type owl:NamedIndividual ,
+                      sto:Standard ;
+             sto:hasClassification sto:IDSRAMCertification ,
+                                   sto:IDSRAMSecurity ;
+             sto_iot:hasTargetConcern sto:DataSovereignty ;
+             rdfs:label "ISO/IEC 9594"@en ,
+                        "X.509"@en .
+
+
+###  https://w3id.org/i40/sto#ISO_9594-8
+sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
+                        sto:Standard ;
+               sto:hasClassification sto:IDSRAMCertification ,
+                                     sto:IDSRAMSecurity ;
+               sto_iot:hasTargetConcern sto:DataSovereignty ;
+               rdfs:label "ISO/IEC 9594-8"@en .
+
+
+###  https://w3id.org/i40/sto#KeyRock
+sto:KeyRock rdf:type owl:NamedIndividual ,
+                     foaf:Document ,
+                     sto:Publication ,
+                     sto:TechnicalSpecification ;
+            dul:associatedWith sto:FiwareDataContextManagement ,
+                               sto:FiwareSecurity ;
+            sto_iot:hasTargetConcern sto:IdentityManagement .
+
+
+        
+###  https://w3id.org/i40/sto#ID4me
+sto:ID4me rdf:type owl:NamedIndividual ,
+                   sto:TechnicalSpecification ;
+          sto_iot:hasTargetConcern sto:Identification ,
+                               sto:IdentityManagement .
+
+
+
+
+###  https://w3id.org/i40/sto#IEC_62541
+sto:IEC_62541 rdf:type owl:NamedIndividual ,
+                       sto:Standard ;
+              sto:hasClassification sto:IDSRAMSystemLayer ,
+                                    sto:IICFFrameworkLayer ,
+                                    sto:IIRAApplicationDomain ,
+                                    sto:IIRAOperationsDomain ,
+                                    sto:InformationDomain ,
+                                    sto:RAMICommunicationlayer ,
+                                    sto:RAMIConnectedWorld ,
+                                    sto:RAMIControlDevice ,
+                                    sto:RAMIEnterprise ,
+                                    sto:RAMIFieldDevice ,
+                                    sto:RAMIStation ,
+                                    sto:RAMIWorkCenter ,
+                                    sto:SCADALevel ;
+              sto_iot:hasTargetConcern sto:AutonomousCommunication,
+                                       sto:Communication ,
+                                       sto:DataSovereignty;.
+
+
+###  https://w3id.org/i40/sto#IPv6
+sto:IPv6 rdf:type owl:NamedIndividual ,
+                  foaf:Document ,
+                  sto:Publication ,
+                  sto:TechnicalSpecification ;
+         dcterms:creator sto:sebastian ;
+         sto_iot:hasTargetConcern sto:SyntacticInteroperability ;
+         rdfs:comment "IPv6, is an Internet Layer protocol for packet-switched internetworking and provides end-to-end datagram transmission across multiple IP networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
+         rdfs:label "IPv6"@en ;
+         sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IPv6> .
+
+
+###  https://w3id.org/i40/sto#DIN_SPEC_16593_P1
+sto:DIN_SPEC_16593_P1 rdf:type owl:NamedIndividual ,
+                               sto:Standard ;
+                      sto_iot:hasTargetConcern sto:ServiceDescription .
+
+
+###  https://w3id.org/i40/sto#DIN_SPEC_92222
+sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
+                            sto:Standard ;
+                   sto_iot:hasTargetConcern sto:CloudComputing ,
+                              sto:communication ,
+                              sto:interoperability .
+
+
+###  https://w3id.org/i40/sto#IEC_61804_P3
+sto:IEC_61804_P3 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 sto_iot:hasTargetConcern sto:ThingDescription .
+
+
+###  https://w3id.org/i40/sto#IEC_61804_P4
+sto:IEC_61804_P4 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 sto_iot:hasTargetConcern sto:ThingDescription .
+
+
+###  https://w3id.org/i40/sto#IEC_61804_P5
+sto:IEC_61804_P5 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 sto_iot:hasTargetConcern sto:ThingDescription .
+
+
+###  https://w3id.org/i40/sto#IEC_61804_P6
+sto:IEC_61804_P6 rdf:type owl:NamedIndividual ,
+                          sto:TechnicalReport ;
+                sto_iot:hasTargetConcern sto:ThingDescription .
+
+
+###  https://w3id.org/i40/sto#IEC_62264_P6
+sto:IEC_62264_P6 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 sto_iot:hasTargetConcern sto:Communication .
+
+
+###  https://w3id.org/i40/sto#ISO_20140_P1
+sto:ISO_20140_P1 rdf:type owl:NamedIndividual ,
+                          sto:Standard ;
+                 sto_iot:hasTargetConcern sto:EnergyEfficiency .
+
+
 ###  https://w3id.org/i40/sto#OpenLicenseDocument
 sto:OpenLicenseDocument rdf:type owl:NamedIndividual ,
                                  dcterms:LicenseDocument ;
@@ -10358,170 +10516,6 @@ sto:QUIC rdf:type owl:NamedIndividual ,
          sto:hasOfficialResource <https://en.wikipedia.org/wiki/QUIC> .
 
 
-###  https://w3id.org/i40/sto#RAMI
-sto:RAMI rdf:type owl:NamedIndividual ,
-                  sto:StandardizationFramework ;
-         sto:hasPublisher sto:PlatformIndustry40 ;
-         rdfs:comment "Describes the RAMI model"@en ,
-                      "Describes the Reference Architecture Model for Industry 4.0, i.e., the RAMI Initiative."@en ;
-         rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.html> ;
-         rdfs:label "RAMI 4.0"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIAssetlayer
-sto:RAMIAssetlayer rdf:type owl:NamedIndividual ,
-                            rami:RAMIITLayer ,
-                            sto:StandardClassification ;
-                   dul:associatedWith sto:ASLifecycle_Status ;
-                   sto:isDescribedin sto:RAMI ;
-                   rdfs:label "RAMI Asset Layer"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIBody
-sto:RAMIBody rdf:type owl:NamedIndividual ,
-                      sto:StandardClassification ;
-             dul:isPartOf sto:AdministrationShell ;
-             sto:hasPublisher sto:PlatformIndustry40 ;
-             rdfs:comment "TODO: Find better class assignement"@en ;
-             sto:isDescribedin sto:AdministrationShell;
-             rdfs:label "Administration Shell Body"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIBusinessLayer
-sto:RAMIBusinessLayer rdf:type owl:NamedIndividual ,
-                               rami:RAMIITLayer ,
-                               sto:StandardClassification ;
-                      sto:isDescribedin sto:RAMI ;
-                      rdfs:label "RAMI Business Layer"@en .
-
-
-###  https://w3id.org/i40/sto#RAMICommunicationLayer
-sto:RAMICommunicationLayer rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#RAMICommunicationlayer
-sto:RAMICommunicationlayer rdf:type owl:NamedIndividual ,
-                                    rami:RAMIITLayer ,
-                                    sto:StandardClassification ;
-                           sto:isDescribedin sto:RAMI ;
-                           rdfs:label "RAMI Communication Layer"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIConnectedWorld
-sto:RAMIConnectedWorld rdf:type owl:NamedIndividual ,
-                                rami:RAMIHierarchyLevel ,
-                                sto:StandardClassification ;
-                       sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIControlDevice
-sto:RAMIControlDevice rdf:type owl:NamedIndividual ,
-                               rami:RAMIHierarchyLevel ,
-                               sto:StandardClassification ;
-                      sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIEnterprise
-sto:RAMIEnterprise rdf:type owl:NamedIndividual ,
-                            rami:RAMIHierarchyLevel ,
-                            sto:StandardClassification ;
-                   sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIFieldDevice
-sto:RAMIFieldDevice rdf:type owl:NamedIndividual ,
-                             rami:RAMIHierarchyLevel ,
-                             sto:StandardClassification ;
-                    sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIFunctional
-sto:RAMIFunctional rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/sto#RAMIFunctionalLayer
-sto:RAMIFunctionalLayer rdf:type owl:NamedIndividual ,
-                                 rami:RAMIITLayer ,
-                                 sto:StandardClassification ;
-                        sto:isDescribedin sto:RAMI ;
-                        rdfs:label "RAMI Functional Layer"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIHeader
-sto:RAMIHeader rdf:type owl:NamedIndividual ,
-                        sto:StandardClassification  ;
-               dul:isPartOf sto:AdministrationShell ;
-               sto:hasPublisher sto:PlatformIndustry40 ;
-               rdfs:label "Administration Shell Header"@en ;
-               sto:isDescribedin sto:AdministrationShell;
-               skos:note "find better class assignment"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIInformationLayer
-sto:RAMIInformationLayer rdf:type owl:NamedIndividual ,
-                                  rami:RAMIITLayer ,
-                                  sto:StandardClassification ;
-                         sto:isDescribedin sto:RAMI ;
-                         rdfs:label "RAMI Information Layer"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIIntegrationLayer
-sto:RAMIIntegrationLayer rdf:type owl:NamedIndividual ,
-                                  rami:RAMIITLayer ,
-                                  sto:StandardClassification ;
-                         sto:isDescribedin sto:RAMI ;
-                         rdfs:label "RAMI Integration Layer"@en .
-
-
-###  https://w3id.org/i40/sto#RAMIProduct
-sto:RAMIProduct rdf:type owl:NamedIndividual ,
-                         rami:RAMIHierarchyLevel ,
-                         sto:StandardClassification ;
-                sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIStation
-sto:RAMIStation rdf:type owl:NamedIndividual ,
-                         rami:RAMIHierarchyLevel ,
-                         sto:StandardClassification ;
-                sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIWorkCenter
-sto:RAMIWorkCenter rdf:type owl:NamedIndividual ,
-                            rami:RAMIHierarchyLevel ,
-                            sto:StandardClassification ;
-                   sto:isDescribedin sto:RAMI .
-
-
-###  https://w3id.org/i40/sto#RAMIWorkCenterAnno
-sto:RAMIWorkCenterAnno rdf:type owl:NamedIndividual ,
-                                oa:Annotation ;
-                       oa:hasBody sto:RAMIWorkCenter ;
-                       oa:hasTarget [ rdf:type oa:SpecificResource ;
-                                      dcterms:format "pdf" ;
-                                      oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                       oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                           rdf:value "Page 24"
-                                                                         ] ;
-                                                       oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                             rdf:value "Page 23"
-                                                                           ]
-                                                     ] ;
-                                      oa:hasSource sto:DIN_SPEC_91345
-                                    ] ,
-                                    [ rdf:type oa:SpecificResource ;
-                                      dcterms:format "pdf" ;
-                                      oa:hasSelector [ rdf:type oa:RangeSelector ;
-                                                       oa:hasEndSelector [ rdf:type oa:XPathSelector ;
-                                                                           rdf:value "Page 24"
-                                                                         ] ;
-                                                       oa:hasStartSelector [ rdf:type oa:XPathSelector ;
-                                                                             rdf:value "Page 23"
-                                                                           ]
-                                                     ] ;
-                                      oa:hasSource sto:DIN_SPEC_91345
-                                    ] .
 
 
 ###  https://w3id.org/i40/sto#RuralElectrification
@@ -11503,7 +11497,7 @@ sto:InternationalClassificationForStandards rdf:type owl:Class ;
                                             rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
 
 
-sto:Standard a owl:Class ;
+sto:Standard rdf:type owl:Class ;
              rdfs:subClassOf sto:Publication ;
              rdfs:label "Standard"@en ;
              rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
