@@ -128,8 +128,6 @@ sto_iot:supports rdf:type owl:ObjectProperty ;
 #################################################################
 
 
-
-
 ###  https://w3id.org/i40/sto#IdsPerspective
 sto:IdsPerspective rdf:type owl:Class ;
                                       owl:equivalentClass [ rdf:type owl:Class ;
@@ -227,6 +225,7 @@ sto:IIRACrosscuttingFunction rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#IIRAFunctionalDomain
 sto:IIRAFunctionalDomain rdf:type owl:Class ;
+                         dcterms:creator sto:sebastian ;
                          rdfs:subClassOf sto:StandardClassification ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty dul:isPartOf ;
@@ -235,7 +234,8 @@ sto:IIRAFunctionalDomain rdf:type owl:Class ;
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty sto:isDescribedin ;
                                            owl:hasValue sto:IIRA
-                                         ] .
+                                         ] ;
+                         rdfs:label "IIRA Functional Domain"@en .
 
 
 ###  https://w3id.org/i40/sto#IIRASystemCharacteristics
@@ -430,7 +430,7 @@ sto:AiiData rdf:type owl:NamedIndividual ,
                            sto:InformationDomain ;
             sto_iot:frames sto:DataAnalytics ,
                        sto:DataProcessing ,
-                       sto:Data_Collection ,
+                       sto:DataCollection ,
                        sto:EdgeComputing ,
                        sto:SemanticInteroperability ;
             sto:isDescribedin sto:IndustrialInternetArchitecture ;
@@ -1751,7 +1751,7 @@ sto:FiwareAdvancedUi rdf:type owl:NamedIndividual ,
                               sto:FiwareChapter ,
                               sto:StandardClassification ;
                      dcterms:creator sto:sebastian ;
-                     dul:associatedWith <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+                     dul:associatedWith sto:EndUser ,
                                         sto:IIRAApplicationDomain ,
                                         sto:IIRAUsageViewpoint ;
                      sto_iot:alignsWith sto:IIRAApplicationDomain ,
@@ -2712,11 +2712,10 @@ sto:IIRA rdf:type owl:NamedIndividual ,
                         sto:MaintenanceCost ,
                         sto:ProductLiability ,
                         sto:ReturnOnInvestment ;
-         sto:hasStakeholder <http://purl.oclc.org/NET/mvco.owl#EndUser> ,
+         sto:hasStakeholder sto:EndUser ,
                               
                               sto:DecisionMaker ,
                               sto:Developer ,
-                              
                               sto:ProductManager ,
                               sto:SystemEngineer ,
                               sto:SystemOperator ,
@@ -3117,9 +3116,7 @@ sto:IIRADistributedDataManagement rdf:type owl:NamedIndividual ,
                                   rdfs:label "IIRA Distributed Data Management"@en .
 
 
-###  https://w3id.org/i40/sto#IIRAFunctionalDomain
-sto:IIRAFunctionalDomain rdf:type owl:NamedIndividual ;
-                         dcterms:creator sto:sebastian .
+
 
 
 ###  https://w3id.org/i40/sto#IIRAFunctionalViewpoint
@@ -7576,10 +7573,17 @@ ids:TrustedConnector rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Customer
 sto:Customer rdf:type owl:NamedIndividual ,
-                      sto_iot:StakeholderGroup .
+                      sto_iot:StakeholderGroup.
 
 
-
+sto:EndUser  rdf:type owl:NamedIndividual ,
+                            sto_iot:StakeholderGroup ,
+                            sto:Stakeholder ;
+             owl:sameAs sto:Customer;
+             rdfs:comment ""@en ;
+             rdfs:label "End User"@en ;
+             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/End_user> ;
+             skos:note "<http://purl.oclc.org/NET/mvco.owl#EndUser>" .
 
 ###  https://w3id.org/i40/sto#RAMI
 sto:RAMI rdf:type owl:NamedIndividual ,
@@ -7618,9 +7622,6 @@ sto:RAMIBusinessLayer rdf:type owl:NamedIndividual ,
                       rdfs:label "RAMI Business Layer"@en .
 
 
-###  https://w3id.org/i40/sto#RAMICommunicationLayer
-sto:RAMICommunicationLayer rdf:type owl:NamedIndividual .
-
 
 ###  https://w3id.org/i40/sto#RAMICommunicationlayer
 sto:RAMICommunicationlayer rdf:type owl:NamedIndividual ,
@@ -7657,9 +7658,6 @@ sto:RAMIFieldDevice rdf:type owl:NamedIndividual ,
                              sto:StandardClassification ;
                     sto:isDescribedin sto:RAMI .
 
-
-###  https://w3id.org/i40/sto#RAMIFunctional
-sto:RAMIFunctional rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/i40/sto#RAMIFunctionalLayer
@@ -7822,7 +7820,7 @@ sto:IIRACrosscuttingFunction skos:note "Publications referred: 'IIC:PUB:G1:V1.80
                              rdfs:comment "Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level."@en .
 
 
-sto:IIRAFunctionalDomain rdfs:label "IIRA Functional Domain"@en .
+
 
 
 sto:IIRASystemCharacteristics rdfs:label "IIRA System Characteristic"@en .

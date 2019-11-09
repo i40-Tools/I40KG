@@ -227,7 +227,7 @@ sto:AccessPolicy rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Access_Rights_for_IoT-Cloud
-sto:Access_Rights_for_IoT-Cloud rdf:type owl:NamedIndividual ,
+sto:AccessRightsforIoTCloud rdf:type owl:NamedIndividual ,
                                          sto_iot:Concern ;
                                 dcterms:creator sto:MuhammadUsman ;
                                 sto_iot:supports sto:Cloud_Connectivity ;
@@ -330,7 +330,7 @@ sto:Authorization rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Auto_Scaling
-sto:Auto_Scaling rdf:type owl:NamedIndividual ,
+sto:AutoScaling rdf:type owl:NamedIndividual ,
                           sto_iot:Concern ;
                  dcterms:creator sto:MuhammadUsman ;
                  sto_iot:supports sto:Scalability ;
@@ -487,7 +487,7 @@ sto:CardinalityOfDataSources rdf:type owl:NamedIndividual ,
 sto:CardinalityOfParticipants rdf:type owl:NamedIndividual ,
                                        sto_iot:Concern ;
                               dcterms:creator sto:sebastian ;
-                              sto_iot:supports sto:interoperability ;
+                              sto_iot:supports sto:Interoperability ;
                               rdfs:comment "Data Artefacts from different Data Providers are delivered in order to provide additional insights (e.g. Collaborative Predictive Maintenance)."@en ;
                               rdfs:label "Cardinality of Participants"@en ;
                               sto:hasDBpediaResource <http://dbpedia.org/resource/Cardinality_(computer_engineering)> .
@@ -508,7 +508,7 @@ sto:Certification rdf:type owl:NamedIndividual ,
 sto:CloudComputing rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:sebastian ;
-                   dul:isPartOf sto:DataProcessing ;
+                   sto_iot:supports sto:DataAnalytics ;
                    rdfs:comment "Cloud computing is a type of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous, on-demand access to a shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services), which can be rapidly provisioned and released with minimal management effort. Cloud computing and storage solutions provide users and enterprises with various capabilities to store and process their data in third-party data centers that may be located far from the user–ranging in distance from across a city to across the world. Cloud computing relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid) over an electricity network. (source: wikipedia)"@en ;
                    rdfs:label "Cloud Computing Capability"@en ;
                    rdfs:seeAlso "IoT-A Requirement UNI.102" ,
@@ -649,15 +649,6 @@ sto:CrossDomainIdentityManagement rdf:type owl:NamedIndividual ,
                                   sto:hasDBpediaResource <http://dbpedia.org/resource/System_for_Cross-domain_Identity_Management> .
 
 
-###  https://w3id.org/i40/sto#DataAccess
-sto:DataAccess rdf:type owl:NamedIndividual ,
-                        sto_iot:Concern ;
-               dcterms:creator sto:sebastian ;
-               rdfs:comment "Data access typically refers to software and activities related to storing, retrieving, or acting on data housed in a database or other repository. [...] Data access crucially involves authorization to access different data repositories. (source: wikipedia)"@en ;
-               rdfs:label "Data Access"@en ;
-               rdfs:seeAlso "IoT-A Requirement UNI.022" ;
-               sto:hasDBpediaResource <http://dbpedia.org/resource/Data_access> .
-
 
 ###  https://w3id.org/i40/sto#DataAccessControl
 sto:DataAccessControl rdf:type owl:NamedIndividual ,
@@ -665,11 +656,14 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
                       dcterms:creator sto:sebastian ;
                       sto_iot:supports sto:Authorization ;
                       sto:hasStakeholder sto:EndUser ,
-                                                                        <https://w3id.org/i40/DataOwner> ;
-                      rdfs:comment "Automated access control based on formalized descriptions."@en ,
-                                   "In the fields of physical security and information security, access control (AC) is the selective restriction of access to a place or other resource. The act of accessing may mean consuming, entering, or using. Permission to access a resource is called authorization. Locks and login credentials are two analogous mechanisms of access control. (source: wikipedia)"@en ;
+                      <https://w3id.org/i40/DataOwner> ;
+               rdfs:comment "Data access typically refers to software and activities related to storing, retrieving, or acting on data housed in a database or other repository. [...] Data access crucially involves authorization to access different data repositories. (source: wikipedia)"@en ,
+                
+                      "Automated access control based on formalized descriptions."@en ,
+                       "In the fields of physical security and information security, access control (AC) is the selective restriction of access to a place or other resource. The act of accessing may mean consuming, entering, or using. Permission to access a resource is called authorization. Locks and login credentials are two analogous mechanisms of access control. (source: wikipedia)"@en ;
                       rdfs:label "Data Access Control"@en ;
                       rdfs:seeAlso "IoT-A Requirement UNI.002" ,
+                      			   "IoT-A Requirement UNI.022" ,
                                    "IoT-A Requirement UNI.067" ,
                                    "IoT-A Requirement UNI.410" ,
                                    "IoT-A Requirement UNI.411" ,
@@ -788,7 +782,6 @@ sto:DataIsolation rdf:type owl:NamedIndividual ,
                   sto_iot:supports sto:DataIntegrity ;
                   rdfs:comment "Isolation is one of the ACID (Atomicity, Consistency, Isolation, Durability) properties adopted by the database systems"@en ;
                   rdfs:label "Data Isolation"@en ;
-                  skos:broader sto:Isolation ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Isolation_(database_systems)> .
 
 
@@ -826,6 +819,7 @@ sto:DataMarkets rdf:type owl:NamedIndividual ,
 sto:DataProcessing rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:sebastian ;
+                   sto_iot:supports sto:DataAnalytics;
                    sto:hasStakeholder sto:SoftwareArchitect ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en ;
@@ -899,7 +893,7 @@ sto:DataUsageControl rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Data_Collection
-sto:Data_Collection rdf:type owl:NamedIndividual ,
+sto:DataCollection rdf:type owl:NamedIndividual ,
                              sto_iot:Concern ;
                     dcterms:creator sto:MuhammadUsman ;
                     sto_iot:supports sto:DataAnalytics ;
@@ -922,7 +916,7 @@ sto:Data_Confidentiality rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Device_Authentication
-sto:Device_Authentication rdf:type owl:NamedIndividual ,
+sto:DeviceAuthentication rdf:type owl:NamedIndividual ,
                                    sto_iot:Concern ;
                           dcterms:creator sto:MuhammadUsman ;
                           sto_iot:supports sto:Authentication ;
@@ -960,20 +954,15 @@ sto:EdgeAnalytics rdf:type owl:NamedIndividual ,
                            sto_iot:Concern ;
                   dcterms:creator sto:Priyanka ;
                   rdfs:comment "The concern of being able to understanding the states, conditions and behaviors of the systems under control and other systems by interpreting and correlating data gathered from sensors and other systems."@en ;
-                  rdfs:label "Edge Analytics"@en ;
-                  skos:broader sto:Analytics ;
-                  skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' " ;
-                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Edge_computing> .
-
-
-###  https://w3id.org/i40/sto#EdgeComputing
-sto:EdgeComputing rdf:type owl:NamedIndividual ,
-                           sto_iot:Concern ;
-                  sto_iot:supports sto:CloudComputing ,
-                               sto:DataProcessing ;
                   rdfs:comment "Edge Computing is pushing the frontier of computing applications, data, and services away from centralized nodes to the logical extremes of a network. It enables analytics and knowledge generation to occur at the source of the data. This approach requires leveraging resources that may not be continuously connected to a network such as laptops, smartphones, tablets and sensors. Edge Computing covers a wide range of technologies including wireless sensor networks, mobile data acquisition, mobile signature analysis, cooperative distributed peer-to-peer ad hoc networking and processing also classifiable as Local Cloud/Fog computing and Grid/Mesh Computing, dew computing, mobile edge computing, cloudlet, distributed data storage and retrieval, autonomic self-healing networks, remote cloud services, augmented reality, and more. (source: wikipedia)"@en ;
-                  rdfs:label "Edge computing"@en ;
-                  sto:hasDBpediaResource <http://dbpedia.org/resource/Edge_computing> .
+                  rdfs:label "Edge Analytics"@en ;
+                  sto_iot:supports sto:IoT ;
+                  skos:altLabel "Edge Computing"@en ;
+                  skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' " ;
+                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Edge_computing> ;
+                  sto:hasDBpediaResource <http://dbpedia.org/resource/Edge_computing>.
+
+
 
 
 ###  https://w3id.org/i40/sto#EndpointDescription
@@ -1455,7 +1444,7 @@ sto:ProcessIsolation rdf:type owl:NamedIndividual ,
                      dcterms:creator sto:MuhammadUsman ;
                      sto_iot:supports sto:IntegrityProtection ;
                      rdfs:comment "\"Isolation would be another issue at the edge of the network. In mobile OS, if an application fails or crashes, the whole system will usually crash and reboot. Or in a distributed system the shared resource could be managed with different synchronization mechanisms such as a lock or token ring. \""@en ;
-                     rdfs:label "Isolation"@en ;
+                     rdfs:label "Processs Isolation"@en ;
                      rdfs:seeAlso <https://ieeexplore.ieee.org/document/7488250> ;
                      sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Process_isolation> .
 
@@ -1610,6 +1599,7 @@ sto:Safety rdf:type owl:NamedIndividual ,
 sto:Scalability rdf:type owl:NamedIndividual ,
                          sto_iot:Concern ;
                 dcterms:creator sto:sebastian ;
+                 sto_iot:supports sto:Interoperability ;
                 rdfs:comment "Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth. For example, it can refer to the capability of a system to increase its total output under an increased load when resources (typically hardware) are added. An analogous meaning is implied when the word is used in an economic context, where scalability of a company implies that the underlying business model offers the potential for economic growth within the company. Scalability, as a property of systems, is generally difficult to define and in any particular case it is necessary to define the specific requirements for scalability on those dimensions that are deemed important. It is a highly significant issue in electronics systems, databases, routers, and networking. (source: wikipedia)"@en ;
                 rdfs:label "Scalability"@en ;
                 rdfs:seeAlso "IoT-A Requirement UNI.026" ,
@@ -1743,7 +1733,7 @@ sto:ServiceChoreography rdf:type owl:NamedIndividual ,
 sto:ServiceComposition rdf:type owl:NamedIndividual ,
                                 sto_iot:Concern ;
                        dcterms:creator sto:sebastian ;
-                       sto_iot:supports sto:interoperability ;
+                       sto_iot:supports sto:Interoperability ;
                        sto:hasStakeholder sto:SoftwareArchitect ;
                        rdfs:comment "2 to n Data Apps/Devices/Services are connected"@en ,
                                     "In computing, service composability is a design principle, applied within the service-orientation design paradigm, that encourages the design of services that can be reused in multiple solutions that are themselves made up of composed services. The ability to recompose the service is ideally independent of the size and complexity of the service composition. This principle is directly responsible for the agility promised by SOA as it promotes composing new solutions by reusing existing services. (source: wikipedia)"@en ;
@@ -1790,6 +1780,7 @@ sto:ServiceDescription rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceDiscovery
 sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                               sto_iot:Concern ;
+                     sto_iot:supports sto:VirtualEntity;
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "How to find desired (Web) services, Data Apps, functionalities."@en ;
                      rdfs:label "Service Discovery"@en ;
@@ -1805,14 +1796,6 @@ sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Service_discovery> .
 
 
-###  https://w3id.org/i40/sto#ServiceIsolation
-sto:ServiceIsolation rdf:type owl:NamedIndividual ,
-                              sto_iot:Concern ;
-                     dcterms:creator sto:sebastian ;
-                     rdfs:comment "Service isolation via a process group (as done with Docker) or by least privilege with clear separation and support for additional security modules (as done by trustme)."@en ;
-                     rdfs:label "Service Isolation"@en ;
-                     skos:broader sto:Isolation ;
-                     sto:hasDBpediaResource <http://dbpedia.org/resource/Process_isolation> .
 
 
 ###  https://w3id.org/i40/sto#ServiceLevelAgreements
@@ -1829,11 +1812,11 @@ sto:ServiceLevelAgreements rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ServiceLifecycleManagement
 sto:ServiceLifecycleManagement rdf:type owl:NamedIndividual ,
                                         sto_iot:Concern ;
+                                sto_iot:supports  sto:BusinessContext;
                                sto:hasStakeholder <https://w3id.org/i40/SystemArchitect> ;
-                               rdfs:comment "Information lifecycle management (ILM) refers to strategies for administering storage systems on computing devices. ILM is the practice of applying certain policies to effective information management. This practice had its basis in the management of information in paper or other physical forms (microfilm, negatives, photographs, audio or video recordings and other assets). ILM includes every phase of a \"record\" from its beginning to its end. And while it is generally applied to information that rises to the classic definition of a record (and thus related to records management), it applies to all informational assets. (source: wikipedia)"@en ;
+                               rdfs:comment "The Service Lifecycle Management (SLM) is engaged in the life cycle of services. (source: wikipedia)"@en ;
                                rdfs:label "Service life-cycle management"@en ;
                                rdfs:seeAlso "IoT-A Requirement UNI.087" ;
-                               sto:hasDBpediaResource <http://dbpedia.org/resource/Information_lifecycle_management>;
                                sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/Service-Lifecycle-Management> .
 
 
