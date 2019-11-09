@@ -1388,6 +1388,26 @@ sto:DmaArchitecture rdf:type owl:NamedIndividual ,
                              sto:StandardizationFramework ;
                     dcterms:creator sto:sebastian ;
                     sto:hasPublisher sto:DataMarketAustria ;
+                     dul:associatedWith sto:Blockchain ,
+                                        sto:REST ,
+                                        sto:RFC_6750 ;
+                    foaf:maker sto:DataMarketAustria ;
+                    sto:hasPublisher sto:DataMarketAustria ;
+                    sto_iot:frames sto:Authentication ,
+                    						sto:Authorization ,
+                                             sto:BigDataApplications ,
+                                             sto:Billing ,
+                                             sto:CloudComputing ,
+                                             sto:DataAccess ,
+                                             sto:DataQuality ,
+                                             sto:Privacy ,
+                                             sto:SecureCommunication ,
+                                             sto:Security ,
+                                             sto:SemanticInteroperability ,
+                                             sto:StreamProcessing ,
+                                             sto:SyntacticInteroperability ,
+                                             sto:Trustworthiness ;
+                                                                               
                     rdfs:label "DMA Architecture"@en .
 
 
@@ -1396,25 +1416,7 @@ sto:DmaServiceTechnologySpecificationAndDevelopmentRoadmap rdf:type owl:NamedInd
                                                                     foaf:Document ,
                                                                     sto:Publication ;
                                                            dcterms:creator sto:DataMarketAustria ;
-                                                           dul:associatedWith sto:Blockchain ,
-                                                                              sto:REST ,
-                                                                              sto:RFC_6750 ;
-                                                           foaf:maker sto:DataMarketAustria ;
-                                                           sto:hasPublisher sto:DataMarketAustria ;
-                                                           sto_iot:hasTargetConcern sto:Authentication ,
-                                                                                sto:Authorization ,
-                                                                                sto:BigDataApplications ,
-                                                                                sto:Billing ,
-                                                                                sto:CloudComputing ,
-                                                                                sto:DataAccess ,
-                                                                                sto:DataQuality ,
-                                                                                sto:Privacy ,
-                                                                                sto:SecureCommunication ,
-                                                                                sto:Security ,
-                                                                                sto:SemanticInteroperability ,
-                                                                                sto:StreamProcessing ,
-                                                                                sto:SyntacticInteroperability ,
-                                                                                sto:Trustworthiness ;
+                                                          
                                                            rdfs:comment """This document presents the DMA Data Technology Specification and Development Roadmap regarding the ongoing work in WP6 of the DMA project. The document relates to deliverable D2.2 “D2.2 Community-driven Data-Services Ecosystem Requirements (1st version)” which formulates
 the requirements of the DMA community. It will be explained in what way the requirements formulated in D2.2 are going to be addressed. The document gives an overview about the components which are going to be developed in WP6 and how these components are planned to be employed to provide DMA core services. The expected outputs of these services are described and a procedure of describing a 3rd party service for DMA platform is addressed."""@en ;
                                                            rdfs:label "DMA Service Technology Specification and Development Roadmap"@en ;
@@ -3831,13 +3833,7 @@ sto:IIRAUsageViewpointAnno rdf:type owl:NamedIndividual ,
 
 
 
-###  https://w3id.org/i40/sto#IIRC
-sto:IIRC rdf:type owl:NamedIndividual ,
-                  sto:StandardizationFramework ;
-         rdfs:comment "Industrial Internet Connectivity Framework"@en ;
-         rdfs:isDefinedBy <https://www.iiconsortium.org/IICF.htm> ;
-         rdfs:label "IICF"@en ;
-         rdfs:seeAlso <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> .
+
 
 
 ###  https://w3id.org/i40/sto#IPSO
