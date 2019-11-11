@@ -281,7 +281,8 @@ dcterms:language rdf:type owl:ObjectProperty .
 
 
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
-om2:hasUnit rdf:type owl:ObjectProperty ;
+om2:hasUnit rdf:type owl:ObjectProperty,
+                     owl:FunctionalProperty ;
             rdfs:range om2:Unit ;
             rdfs:label "has unit"@en .
 
@@ -397,7 +398,8 @@ sto:hasDimensionLayer rdf:type owl:ObjectProperty ;
                       rdfs:label "has Dimension Layer"@en .
 
 ###  https://w3id.org/i40/sto#hasFileSize
-sto:hasFileSize rdf:type owl:ObjectProperty ;
+sto:hasFileSize rdf:type owl:ObjectProperty,
+                         owl:FunctionalProperty ;
                 rdfs:domain foaf:Document ;
                 rdfs:range om2:Measure .
 
@@ -409,7 +411,8 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasICS
-sto:hasICS rdf:type owl:ObjectProperty ;
+sto:hasICS rdf:type owl:ObjectProperty,
+                    owl:FunctionalProperty ;
            rdfs:domain sto:Publication ;
            rdfs:range sto:InternationalClassificationForStandards ;
            rdfs:comment "Serves as a catalogue of International Classification For Standards"@en ;
@@ -501,7 +504,8 @@ sto:hasDeveloper rdf:type owl:ObjectProperty ;
                  dcterms:creator sto:irlan .
 
 ###  https://w3id.org/i40/sto#hasFileSize
-sto:hasFileSize rdf:type owl:ObjectProperty ;
+sto:hasFileSize rdf:type owl:ObjectProperty,
+                        owl:FunctionalProperty ;
                 dcterms:creator sto:irlan .
 
 
@@ -544,7 +548,6 @@ sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
 
 sto:hasOfficialResource rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:anyURI ;
-                        rdfs:domain sto:Publication ;
                         rdfs:comment "Points to the URL of the official website from which published the document"@en ;
                         rdfs:label "has Official Resource"@en .
 
@@ -558,6 +561,7 @@ sto:hasPublisher rdfs:label "has Publisher"@en ;
 
 
 sto:hasWikipediaArticle rdfs:label "has Wikipedia Article"@en ;
+                        rdfs:range xsd:anyURI ;
                         rdfs:comment "Wikipedia Article about the Standard"@en .
 
 
@@ -652,7 +656,8 @@ sto:hasOpenResource rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasPages
-sto:hasPages rdf:type owl:DatatypeProperty ;
+sto:hasPages rdf:type owl:DatatypeProperty,
+                      owl:FunctionalProperty ;
              rdfs:domain foaf:Document ;
              rdfs:range xsd:integer ;
              rdfs:comment "Indicates the number of pages in the document."@en ;
@@ -660,7 +665,8 @@ sto:hasPages rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasPublicationDate
-sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
+sto:hasPublicationDate rdf:type owl:DatatypeProperty,
+                           owl:FunctionalProperty ;
                        rdfs:domain sto:Publication ;
                        rdfs:range xsd:date ;
                        rdfs:comment "Publication date of the Publication"@en ;
@@ -787,7 +793,7 @@ foaf:Person rdf:type owl:Class .
 
 
 ###  https://w3id.org/i40/rami#AdminShellSubmodel
-rami:AdminShellSubmodel rdf:type owl:Class ;
+sto:RAMIAdminShellSubmodel rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
                         rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
                         rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
@@ -795,7 +801,7 @@ rami:AdminShellSubmodel rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/rami#RAMIHierarchyLevel
-rami:RAMIHierarchyLevel rdf:type owl:Class ;
+sto:RAMIHierarchyLevel rdf:type owl:Class ;
                         owl:equivalentClass [ rdf:type owl:Class ;
                                               owl:oneOf ( rami:ConnectedWorld
                                                           rami:ControlDevice
@@ -821,7 +827,7 @@ rami:RAMIHierarchyLevel rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/rami#RAMIITLayer
-rami:RAMIITLayer rdf:type owl:Class ;
+sto:RAMIITLayer rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
                                        owl:oneOf ( rami:Asset
                                                    rami:Business
@@ -845,7 +851,7 @@ rami:RAMIITLayer rdf:type owl:Class ;
 
 
 ###  https://w3id.org/i40/rami#RAMILifeCycleLayer
-rami:RAMILifeCycleLayer rdf:type owl:Class ;
+sto:RAMILifeCycleLayer rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
                         rdfs:label "RAMI Life Cycle Layer"@en ;
                         rdfs:seeAlso <http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx> ;
@@ -1201,53 +1207,29 @@ om2:kilobyte rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/rami#AdminShellGeneral
 sto:AdminShellGeneral rdf:type owl:NamedIndividual ,
-                                rami:AdminShellSubmodel ,
+                                sto:RAMIAdminShellSubmodel ,
                                 sto:StandardClassification ;
                        sto:isDescribedin sto:AdministrationShell .
 
 
-###  https://w3id.org/i40/rami#Asset
-rami:Asset rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Business
-rami:Business rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Communication
-rami:Communication rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/rami#ConditionMonitoring
 sto:ASConditionMonitoring rdf:type owl:NamedIndividual ,
-                                  rami:AdminShellSubmodel ,
+                                  sto:RAMIAdminShellSubmodel ,
                                   sto:StandardClassification ;
                          sto:isDescribedin sto:AdministrationShell .
 
 
 ###  https://w3id.org/i40/rami#Configuration
 sto:ASConfiguration rdf:type owl:NamedIndividual ,
-                            rami:AdminShellSubmodel ,
+                           sto:RAMIAdminShellSubmodel ,
                             sto:StandardClassification ;
                    sto:isDescribedin sto:AdministrationShell ;
                    skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'" .
 
 
-###  https://w3id.org/i40/rami#ConnectedWorld
-rami:ConnectedWorld rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#ControlDevice
-rami:ControlDevice rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#EnergyEfficiency
-rami:EnergyEfficiency rdf:type owl:NamedIndividual .
-
-
 ###  https://w3id.org/i40/rami#Engineering
 sto:ASEngineering rdf:type owl:NamedIndividual ,
-                          rami:AdminShellSubmodel ,
+                          sto:RAMIAdminShellSubmodel ,
                           sto:StandardClassification ;
                  dul:associatedWith sto:IviActivityLayer ,
                                     sto:IviActivityView ,
@@ -1258,21 +1240,10 @@ sto:ASEngineering rdf:type owl:NamedIndividual ,
                  sto:isDescribedin sto:AdministrationShell .
 
 
-###  https://w3id.org/i40/rami#Enterprise
-rami:Enterprise rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#FieldDevice
-rami:FieldDevice rdf:type owl:NamedIndividual .
-
-
-###  https://w3id.org/i40/rami#Functional
-rami:Functional rdf:type owl:NamedIndividual .
-
 
 ###  https://w3id.org/i40/rami#Identification
 sto:ASIdentification rdf:type owl:NamedIndividual ,
-                             rami:AdminShellSubmodel ,
+                             sto:RAMIAdminShellSubmodel ,
                              sto:StandardClassification ;
                     sto_iot:frames sto:IdentityManagement;
                     dul:associatedWith sto:ASIdentification ;
@@ -1281,13 +1252,10 @@ sto:ASIdentification rdf:type owl:NamedIndividual ,
                     rdfs:label "RAMI Identification"@en .
 
 
-###  https://w3id.org/i40/rami#Information
-rami:Information rdf:type owl:NamedIndividual .
-
 
 ###  https://w3id.org/i40/rami#InstanceMaintenance
 sto:RAMIInstanceMaintenance rdf:type owl:NamedIndividual ,
-                                  rami:RAMILifeCycleLayer ,
+                                  sto:RAMILifeCycleLayer ,
                                   sto:StandardClassification ;
                          sto:isDescribedin sto:RAMI;
                          rdfs:label "Instance Maintenance"@en .
@@ -1295,45 +1263,35 @@ sto:RAMIInstanceMaintenance rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/rami#InstanceProduction
 sto:RAMIInstanceProduction rdf:type owl:NamedIndividual ,
-                                 rami:RAMILifeCycleLayer ,
+                                 sto:RAMILifeCycleLayer ,
                                  sto:StandardClassification ;
                         sto:isDescribedin sto:RAMI;
                         rdfs:label "Instance Production"@en .
 
 
-###  https://w3id.org/i40/rami#Integration
-rami:Integration rdf:type owl:NamedIndividual .
-
 
 ###  https://w3id.org/i40/rami#Lifecycle_Status
 sto:ASLifecycle_Status rdf:type owl:NamedIndividual ,
-                               rami:AdminShellSubmodel ,
+                               sto:RAMIAdminShellSubmodel ,
                                sto:StandardClassification ;
                       sto:isDescribedin sto:AdministrationShell ;
                       rdfs:label "Lifecycle Status" .
 
 
-###  https://w3id.org/i40/rami#Other
-rami:Other rdf:type owl:NamedIndividual ,
-                    sto:StandardClassification .
-
 
 ###  https://w3id.org/i40/rami#ProcessPlanning
 sto:ASProcessPlanning rdf:type owl:NamedIndividual ,
-                              rami:AdminShellSubmodel ,
+                              sto:RAMIAdminShellSubmodel ,
                               sto:StandardClassification ;
                      sto:isDescribedin sto:AdministrationShell ;
                      rdfs:comment "Process planning frames everything related to model, plan and manage business workflows and processes."@en ;
                      rdfs:label "Process planning"@en .
 
 
-###  https://w3id.org/i40/rami#Product
-rami:Product rdf:type owl:NamedIndividual .
-
 
 ###  https://w3id.org/i40/rami#Safety
 sto:ASSafety rdf:type owl:NamedIndividual ,
-                     rami:AdminShellSubmodel ,
+                     sto:RAMIAdminShellSubmodel ,
                      sto:StandardClassification ;
             sto:isDescribedin sto:AdministrationShell ;
             rdfs:label "RAMI Safety"@en .
@@ -1341,7 +1299,7 @@ sto:ASSafety rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/rami#Security
 sto:ASSecurity rdf:type owl:NamedIndividual ,
-                       rami:AdminShellSubmodel ,
+                       sto:RAMIAdminShellSubmodel ,
                        sto:StandardClassification ;
               dul:associatedWith sto:BdvaCyberSecurityTrust ,
                                  sto:DtpSecurityPrivacy ,
@@ -1360,7 +1318,7 @@ rami:Station rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/rami#TypeDevelopment
 sto:RAMITypeDevelopment rdf:type owl:NamedIndividual ,
-                              rami:RAMILifeCycleLayer ,
+                              sto:RAMILifeCycleLayer ,
                               sto:StandardClassification ;
                      dul:associatedWith sto:IviSpecificationLayer ;
                      sto:alignsWith sto:IviSpecificationLayer ;
@@ -3797,7 +3755,7 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
               sto:hasClassification sto:ASSafety  ,
                                     sto:ASSecurity ,
                                     sto:IIRASecurity ,
-                                    sto:ProductModelDataExchange ,
+                                    sto:NISTProductModelDataExchange ,
                                     sto:RAMIControlDevice ,
                                     sto:RAMIFieldDevice ,
                                     sto:RAMIInformationLayer ,
@@ -6147,7 +6105,7 @@ sto:IEC_61360 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan;
               sto:hasClassification sto:ASEngineering ,
                                     sto:IDSRAMInformationLayer ,
-                                    sto:ManufacturingModelData ,
+                                    sto:NISTManufacturingModelData ,
                                     sto:RAMIAssetlayer ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
@@ -8580,7 +8538,7 @@ sto:ISO_14739-1 rdf:type owl:NamedIndividual ,
                          sto:Publication ,
                          sto:Standard ;
                 dcterms:creator sto:irlan ;
-                sto:hasClassification sto:ProductModelDataExchange ;
+                sto:hasClassification sto:NISTProductModelDataExchange ;
                 sto:hasPublisher sto:ISO ;
                 sto:hasPublicationDate "2014-12-01"^^xsd:date ;
                 rdfs:comment "Document management -- 3D use of Product Representation Compact (PRC) format-ISO 14739-1:2014 describes PRC 10001 of a product representation compact (PRC) file format for three dimensional (3D) content data. This format is designed to be included in PDF (ISO 32000) and other similar document formats for the purpose of 3D visualization and exchange. "@en ;
@@ -8829,7 +8787,7 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
               sto:hasClassification sto:ASConfiguration ,
                                     rami:ControlDevice ,
                                     sto:ASConfiguration ,
-                                    sto:ProductModelDataExchange ,
+                                    sto:NISTProductModelDataExchange ,
                                     sto:RAMICommunicationlayer ,
                                     sto:RAMIControlDevice ,
                                     sto:RAMIFieldDevice ,
@@ -9162,7 +9120,7 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
                                     sto:ASSafety  ,
                                     sto:ASSecurity ,
                                     sto:IIRASecurity ,
-                                    sto:ProductModelDataExchange ,
+                                    sto:NISTProductModelDataExchange ,
                                     sto:RAMIControlDevice ,
                                     sto:RAMIFieldDevice ,
                                     sto:RAMIInformationLayer ,
@@ -9898,8 +9856,8 @@ sto:IVRAManufacturing rdf:type owl:NamedIndividual ,
                   sto:isDescribedin sto:IVRA .
 
 
-###  https://w3id.org/i40/sto#ManufacturingModelData
-sto:ManufacturingModelData rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#NISTManufacturingModelData
+sto:NISTManufacturingModelData rdf:type owl:NamedIndividual ,
                                     sto:ProductDevelopmentLifeCycle ,
                                     sto:StandardClassification ;
                            sto:isDescribedin sto:NISTInitiative ;
@@ -9969,7 +9927,7 @@ sto:ModBus rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ModelingPractice
-sto:ModelingPractice rdf:type owl:NamedIndividual ,
+sto:NISTModelingPractice rdf:type owl:NamedIndividual ,
                               sto:ProductDevelopmentLifeCycle ,
                               sto:StandardClassification ;
                      sto:isDescribedin sto:NISTInitiative ;
@@ -10263,7 +10221,7 @@ sto:ISO_50001 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_9000
 sto:ISO_9000 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
-             sto:hasClassification sto:CrossLevel ,
+             sto:hasClassification sto:ISA95CrossLevel ,
                                    sto:IDSRAMCertification ;
              sto_iot:hasTargetConcern sto:QualityOfService ;
              rdfs:label "ISO 9000"@en .
@@ -10443,7 +10401,7 @@ sto:ProductLifeCycleManagement rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#ProductModelDataExchange
-sto:ProductModelDataExchange rdf:type owl:NamedIndividual ,
+sto:NISTProductModelDataExchange rdf:type owl:NamedIndividual ,
                                       sto:ProductDevelopmentLifeCycle  ;
                              sto:isDescribedin sto:NISTInitiative ;
                              rdfs:comment "These standards capture the representation of product and engineering information to enable data exchange between CAD software from different vendors."@en ;
