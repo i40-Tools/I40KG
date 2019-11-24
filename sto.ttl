@@ -15,6 +15,7 @@
 @prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lvont:<http://lexvo.org/ontology> .
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
@@ -26,6 +27,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
@@ -357,18 +359,13 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf dcterms:language ;
+                         rdfs:range lvont:Language;
                          rdfs:domain foaf:Document ;
                          rdfs:label "hasAvailableLanguage"@en ;
                          rdfs:comment "Points to Languages in which the standard document is available, e.g., English, French, etc. Defined as subProperty of dcterms:language"@en ,
-                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en ;
-                         rdfs:range dcterms:LinguisticSystem .
+                                      "Languages in which the document of the Standard is available, e.g., English, French, Spanish"@en .
 
 
-###  https://w3id.org/i40/sto#hasClassification
-sto:hasClassification rdf:type owl:ObjectProperty ;
-                      rdfs:domain sto:Publication ;
-                      rdfs:range sto:StandardClassification ;
-                      dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#hasDeveloper
@@ -411,8 +408,7 @@ sto:hasHeadquaterIn rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasICS
-sto:hasICS rdf:type owl:ObjectProperty,
-                    owl:FunctionalProperty ;
+sto:hasICS rdf:type owl:ObjectProperty;
            rdfs:domain sto:Publication ;
            rdfs:range sto:InternationalClassificationForStandards ;
            rdfs:comment "Serves as a catalogue of International Classification For Standards"@en ;
@@ -521,8 +517,12 @@ sto:hasPublisher rdf:type owl:ObjectProperty ;
 
 
 
-sto:hasClassification rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
-                      rdfs:label "has Classification"@en .
+sto:hasClassification rdf:type owl:ObjectProperty ;
+                      rdfs:comment "An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative"@en ;
+                      rdfs:label "has Classification"@en;
+                      rdfs:domain sto:Publication ;
+                      rdfs:range sto:StandardClassification ;
+                      dcterms:creator sto:irlan. 
 
 
 sto:hasDeveloper rdfs:label "has Developer"@en ;
@@ -3795,8 +3795,7 @@ sto:IEC_27031 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:domainName "Business Continuity"@en ;
-              sto:hasPublicationDate "2011-03-01"^^xsd:date ,
-                                     "2014-08-01"^^xsd:date .
+              sto:hasPublicationDate "2011-03-01"^^xsd:date  .
 
 
 ###  https://w3id.org/i40/sto#IEC_27036
@@ -4554,8 +4553,7 @@ sto:IEC_60839_P7_S1_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "39"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-1:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-1: Message formats and protocols for serial data interfaces in alarm transmission systems – General"@en ;
@@ -4578,8 +4576,7 @@ sto:IEC_60839_P7_S2_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "53"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-2:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-2: Message formats and protocols for serial data interfaces in alarm transmission systems - Common application layer protocol"@en ;
@@ -4602,8 +4599,7 @@ sto:IEC_60839_P7_S3_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "29"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-3:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-3: Message formats and protocols for serial data interfaces in alarm transmission systems - Common data link layer protocol"@en ;
@@ -4626,8 +4622,7 @@ sto:IEC_60839_P7_S4_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "23"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-4:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-4: Message formats and protocols for serial data interfaces in alarm transmission systems - Common transport layer protocol"@en ;
@@ -4650,8 +4645,7 @@ sto:IEC_60839_P7_S5_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "13"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-5:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-5: Message formats and protocols for serial data interfaces in alarm transmission systems - Alarm system interfaces employing a two-wire configuration in accordance with ISO/IEC 8482"@en ;
@@ -4674,8 +4668,7 @@ sto:IEC_60839_P7_S6_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "9"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate  "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-6:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-6: Message formats and protocols for serial data interfaces in alarm transmission systems - Alarm system interfaces employing ITU-T Recommendation V.24/V.28 signalling"@en ;
@@ -4698,8 +4691,7 @@ sto:IEC_60839_P7_S7_E1 rdf:type owl:NamedIndividual ,
                        sto:isPartOf sto:IEC_60839;
                        sto:hasEdition "1.0"^^xsd:float ;
                        sto:hasPages "21"^^xsd:int ;
-                       sto:hasPublicationDate "1968-03-01"^^xsd:date ,
-                                              "2001-03-09"^^xsd:date ;
+                       sto:hasPublicationDate "2001-03-09"^^xsd:date ;
                        sto:hasStabilityDate "2018"^^xsd:gYear ;
                        sto:hasTag "IEC 60839-7-7:2001"@en ;
                        dcterms:title "Alarm systems - Part 7-7: Message formats and protocols for serial data interfaces in alarm transmission systems - Alarm system interfaces for plug-in alarm system transceivers"@en ;
@@ -4721,8 +4713,7 @@ sto:IEC_60848_E3 rdf:type owl:NamedIndividual ,
                  sto:hasTechnicalCommittee sto:TC_3 ;
                  sto:hasEdition "3.0"^^xsd:float ;
                  sto:hasPages "109"^^xsd:int ;
-                 sto:hasPublicationDate "1958-02-13"^^xsd:date ,
-                                        "2013-02-27"^^xsd:date ;
+                 sto:hasPublicationDate "2013-02-27"^^xsd:date ;
                  sto:hasStabilityDate "2020"^^xsd:gYear ;
                  sto:hasTag "IEC 60848:2013"@en ;
                  dcterms:title "GRAFCET specification language for sequential function charts"@en ;
@@ -4869,8 +4860,7 @@ sto:IEC_60870_P5_S101_E2_1 rdf:type owl:NamedIndividual ,
                            sto:hasTechnicalCommittee sto:TC_57 ;
                            sto:hasEdition "2.1"^^xsd:float ;
                            sto:hasPages "360"^^xsd:int ;
-                           sto:hasPublicationDate "2015-11-26"^^xsd:date ,
-                                                  "2015-11-30"^^xsd:date ;
+                           sto:hasPublicationDate "2015-11-30"^^xsd:date ;
                            sto:hasStabilityDate "2018"^^xsd:gYear ;
                            sto:hasTag "IEC 60870-5-101:2003"@en ;
                            dcterms:title "Telecontrol equipment and systems - Part 5-101: Transmissionprotocols - Companion standard for basic telecontrol tasks"@en ;

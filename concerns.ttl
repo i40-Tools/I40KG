@@ -158,8 +158,8 @@ sto:Multilaterism rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#Programmability
 sto:Programmability rdf:type owl:NamedIndividual ,
                              sto_iot:Concern ;
-                    dul:isComponentOf sto:EdgeComputing ;
-                    sto_iot:supports sto:EdgeComputing ;
+                    dul:isComponentOf sto:EdgeAnalytics ;
+                    sto_iot:supports sto:EdgeAnalytics ;
                     rdfs:comment "In the edge computing, computation is offloaded from the cloud, and the edge nodes are most likely heterogeneous platforms. In this case, the runtime of these nodes differ from each other, and the programmer faces huge difficulties to write an application that may be deployed in the edge computing paradigm." ;
                     rdfs:label "Programmability" ;
                     rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3210240.3226062> ,
@@ -401,7 +401,7 @@ sto:Availability rdf:type owl:NamedIndividual ,
 sto:Awareness rdf:type owl:NamedIndividual ,
                        sto_iot:Concern ;
               dcterms:creator sto:MuhammadUsman ;
-              sto_iot:supports sto:EdgeComputing ;
+              sto_iot:supports sto:EdgeAnalytics ;
               rdfs:comment "Awareness is the ability to directly know and perceive, to feel, or to be cognizant of events. More broadly, it is the state of being conscious of something. Another definition describes it as a state wherein a subject is aware of some information when that information is directly available to bring to bear in the direction of a wide range of behavioral processes. The concept is often synonymous to consciousness and is also understood as being consciousness itself."@en ;
               rdfs:label "Awareness"@en ;
               rdfs:seeAlso <https://ieeexplore.ieee.org/document/7488250> ;
@@ -517,7 +517,8 @@ sto:CloudComputing rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#Cloud_Connectivity
-sto:Cloud_Connectivity rdf:type owl:NamedIndividual ;
+sto:Cloud_Connectivity rdf:type owl:NamedIndividual ,
+                            sto_iot:Concern;
                        sto_iot:supports sto:CloudComputing .
 
 
@@ -1002,10 +1003,8 @@ sto:EnergyControl rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#EnergyEfficiency
-sto:EnergyEfficiency rdf:type owl:NamedIndividual ,
-                              rami:AdminShellSubmodel ,
-                              sto_iot:Concern ,
-                              sto:StandardClassification ;
+sto:EnergyEfficiency rdf:type owl:NamedIndividual,
+                              sto_iot:Concern ;
                      sto_iot:supports sto:IoT ;
                      rdfs:comment "Efficient energy use, sometimes simply called energy efficiency, is the goal to reduce the amount of energy required to provide products and services."@en ;
                      rdfs:label "Energy Efficiency"@en ;
@@ -1953,7 +1952,7 @@ sto:ThingDescription rdf:type owl:NamedIndividual ,
 sto:ThingMobility rdf:type owl:NamedIndividual ,
                            sto_iot:Concern ;
                   dcterms:creator sto:sebastian ;
-                  sto_iot:supports sto:DataAccess ,
+                  sto_iot:supports sto:DataAccessControl ,
                                sto:IoT ,
                                sto:ServiceDeployment ;
                   rdfs:comment "A Thing in terms of Internet of Things (IoT) needs to be moveable."@en ;

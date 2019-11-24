@@ -381,7 +381,6 @@ sto:AMQP rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#AdministrationShell
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
-                                 sto:StandardClassification ,
                                  sto:StandardizationFramework ;
                         dul:associatedWith ids:TrustedConnector ;
                         sto_iot:alignsWith ids:TrustedConnector ;
@@ -5691,6 +5690,7 @@ sto:OFRASoftwareView rdf:type owl:NamedIndividual ,
                               sto:Viewpoint ;
                      dcterms:creator sto:sebastian ;
                      sto_iot:alignsWith sto:IIRAApplicationDomain ;
+                     sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                      sto_iot:frames sto:ServiceDiscovery ;
                      rdfs:comment "OpenFog Software Architecture View"@en ,
                                   "The software view of the OpenFog RA is composed of software running on a platform that is comprised of one or more node views coupled with other components to create a system addressing a given scenario. The stakeholders of the software view include the system integrators, software architects, solution designers, and application developers of a fog computing environment. The software running on fog platforms is used to satisfy a given deployment scenario. A robust fog deployment requires that the relationship between a fog node, fog platform, and fog software are seamless. source: OpenFog Reference Architecture"@en .
