@@ -357,7 +357,7 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
-sto:hasAvailableLanguage rdf:type owl:ObjectProperty 
+sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
                          rdfs:range lvont:Language;
                          rdfs:domain foaf:Document ;
                          rdfs:label "hasAvailableLanguage"@en ;
@@ -1427,7 +1427,6 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#AdministrationShell
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
-                                 sto:StandardClassification ,
                                  sto:StandardizationFramework ;
                         sto:hasPublisher sto:PlatformIndustry40 ;
                         rdfs:comment "Represents the classifications of the standards according to the submodels of the administration shell."@en ;
@@ -7064,7 +7063,7 @@ sto:IEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
-                       sto:hasFileSize sto:FileSizeIEC_61850_P7_S4_E2 ;
+                        sto:hasFileSize sto:FileSizeIEC_61850_P7_S4_E2 ;
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
@@ -8931,7 +8930,6 @@ sto:ISO_19941 rdf:type owl:NamedIndividual ,
 sto:ISO_20140_5 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:irlan ;
-                sto:hasClassification rami:EnergyEfficiency ;
                 sto:hasPublisher sto:ISO ;
                 sto:hasTag "Energy Efficiency"@en ;
                 rdfs:comment "Automation systems and integration -- Evaluating energy efficiency and other factors of manufacturing systems that influence the environment"@en ;
