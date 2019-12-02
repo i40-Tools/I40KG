@@ -16,6 +16,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lvont:<http://lexvo.org/ontology> .
+@prefix void:<http://www.w3.org/TR/void/> .
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
@@ -26,13 +27,15 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
+@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .  
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
                             dcterms:modified "2017-09-08"^^xsd:date ,
                                              "2019-01-23"^^xsd:date ;
+                            void:sparqlEndpoint <https://dydra.com/mtasnim/stoviz/sparql>;
+                            void:dataDump <https://dydra.com/mtasnim/stoviz.ttl>;
                             vann:preferredNamespaceUri "https://w3id.org/i40/sto/" ;
                             owl:versionInfo "0.4" ;
                             rdfs:label "Industry 4.0 Knowledge Graph"@en ;
@@ -358,7 +361,6 @@ sto:belongsTo rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/i40/sto#hasAvailableLanguage
 sto:hasAvailableLanguage rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf dcterms:language ;
                          rdfs:range lvont:Language;
                          rdfs:domain foaf:Document ;
                          rdfs:label "hasAvailableLanguage"@en ;
@@ -665,10 +667,11 @@ sto:hasPages rdf:type owl:DatatypeProperty,
 
 
 ###  https://w3id.org/i40/sto#hasPublicationDate
-sto:hasPublicationDate rdf:type owl:DatatypeProperty,
-                           owl:FunctionalProperty ;
+sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
+                           # owl:FunctionalProperty ;
                        rdfs:domain sto:Publication ;
                        rdfs:range xsd:date ;
+                       skos:note "sebastian: Can not be functional as long we connect standards from different organizations (e.g. IEC and DIN) with owl:sameAs. That leads to different publication dates for their respective documents, which is inconsistent with sameAs and a functional property at both instances."@en ;
                        rdfs:comment "Publication date of the Publication"@en ;
                        rdfs:label "has Publication Date"@en .
 
@@ -1428,7 +1431,6 @@ sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#AdministrationShell
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
-                                 sto:StandardClassification ,
                                  sto:StandardizationFramework ;
                         sto:hasPublisher sto:PlatformIndustry40 ;
                         rdfs:comment "Represents the classifications of the standards according to the submodels of the administration shell."@en ;
@@ -7065,7 +7067,7 @@ sto:IEC_61850_P7_S4_E2 rdf:type owl:NamedIndividual ,
                                 sto:Standard ;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
-                       sto:hasFileSize sto:FileSizeIEC_61850_P7_S4_E2 ;
+                        sto:hasFileSize sto:FileSizeIEC_61850_P7_S4_E2 ;
                        sto:hasICS sto:ICS_33_200 ;
                        sto:hasPublisher sto:IEC ;
                        sto:hasTechnicalCommittee sto:TC_57 ;
@@ -8932,7 +8934,6 @@ sto:ISO_19941 rdf:type owl:NamedIndividual ,
 sto:ISO_20140_5 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:irlan ;
-                sto:hasClassification rami:EnergyEfficiency ;
                 sto:hasPublisher sto:ISO ;
                 sto:hasTag "Energy Efficiency"@en ;
                 rdfs:comment "Automation systems and integration -- Evaluating energy efficiency and other factors of manufacturing systems that influence the environment"@en ;

@@ -26,6 +26,7 @@
 @prefix idsram: <https://w3id.org/ids/ram/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix void:<http://www.w3.org/TR/void/> .
 @prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
 
 
@@ -47,6 +48,8 @@ sto_iot:frameworks rdf:type owl:Ontology ;
                                  dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
                                  doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                                  dcterms:created "2019-06-09"^^xsd:date ;
+                                 void:sparqlEndpoint <https://dydra.com/mtasnim/stoviz/sparql>;
+                                 void:dataDump <https://dydra.com/mtasnim/stoviz.ttl>;
                                  owl:imports <concerns.ttl> .
 
 
@@ -2455,7 +2458,7 @@ sto:IICFFrameworkLayer rdf:type owl:NamedIndividual ,
                                   sto:ServiceDiscovery ,
                                   sto:SyntacticInteroperability ,
                                   sto:Trustworthiness ;
-                        sto:isDescribedin sto:IIRC;
+                        sto:isDescribedin sto:IIRA;
                        rdfs:comment "IICF Framework Layer"@en ,
                                     "IICF Framework Layer an instance of the IICF Connectivity Layer"@en ;
                        rdfs:isDefinedBy <https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf> ;
@@ -2501,7 +2504,7 @@ sto:IICFLinkLayer rdf:type owl:NamedIndividual ,
                                      sto:WiFi ;
                   dul:isPartOf sto:IIRAConnectivity ;
                   sto_iot:frames sto:Communication ;
-                  sto:isDescribedin sto:IIRC;
+                  sto:isDescribedin sto:IIRA;
                   rdfs:label "IICF Link Layer"@en .
 
 
@@ -2546,7 +2549,7 @@ sto:IICFNetworkLayer rdf:type owl:NamedIndividual ,
                                 sto:IPv6Support ,
                                 sto:Interoperability ,
                                 sto:SyntacticInteroperability ;
-                     sto:isDescribedin sto:IIRC;
+                     sto:isDescribedin sto:IIRA;
                      rdfs:label "IICF Network Layer"@en .
 
 
@@ -2588,7 +2591,7 @@ sto:IICFPhysicalLayer rdf:type owl:NamedIndividual ,
                                          sto:IEEE_802_16-2012 ;
                       dul:isPartOf sto:IIRAConnectivity ;
                       sto_iot:frames sto:Communication ;
-                      sto:isDescribedin sto:IIRC;
+                      sto:isDescribedin sto:IIRA;
                       rdfs:label "IICF Physical Layer" .
 
 
@@ -2648,7 +2651,7 @@ sto:IICFTansportLayer rdf:type owl:NamedIndividual ,
                                  sto:TimeSynchronization ,
                                  sto:Trustworthiness ,
                                  sto:Unicast ;
-                      sto:isDescribedin sto:IIRC;
+                      sto:isDescribedin sto:IIRA;
                       rdfs:label "IICF Transport Layer"@en .
 
 
@@ -4077,7 +4080,7 @@ sto:IotaDeploymentOperationViewpoint rdf:type owl:NamedIndividual ,
                                                         sto:IIRAImplementationViewpoint ;
                                      sto_iot:alignsWith sto:IDSRAMSystemLayer ,
                                                     sto:IIRAImplementationViewpoint ;
-                                     sto_iot:frames rami:EnergyEfficiency ,
+                                     sto_iot:frames sto:EnergyEfficiency ,
                                                 sto:DynamicAdjustability ,
                                                 sto:Evolvability ,
                                                 sto:ServiceChoreography ,
@@ -6273,7 +6276,6 @@ sto:OpenFogNodeView rdf:type owl:NamedIndividual .
 
 ###  https://w3id.org/i40/sto#OpenFogReferenceArchitecture
 sto:OpenFogReferenceArchitecture rdf:type owl:NamedIndividual ,
-                                          sto:ArchitectureDescription ,
                                           sto:StandardizationFramework ;
                                  dcterms:creator sto:sebastian; 
                                  sto:hasPublisher sto:OpenFogConsortium ;
