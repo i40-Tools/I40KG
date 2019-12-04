@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
- <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>I40 Knowledge Graph Ontology</title>
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>Industry 4.0 Knowledge Graph Ontology</title>
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://w3id.org/i40/sto","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/i40/sto","name":"I40 Knowledge Graph Ontology", "headline":"The Standard Ontology, STO, represents standards, standardization organizations and standardization frameworks for the Industry 4.0 area. ", "datePublished":"2018-08-15", "version":"0.3", "license":"http://creativecommons.org/licenses/by-nc-sa/3.0/", "author":[{"@type":"Person","name":"Steffen Lohmann","url":"http://data.semanticweb.org/person/steffen-lohmann"},{"@type":"Person","name":"Irlan Grangel Gonzalez","url":"http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/"},{"@type":"Person","name":"Paul Baptista","url":"https://www.linkedin.com/in/paul-baptista-601177b2"}]}</script>
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://w3id.org/i40/sto","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/i40/sto","name":"Industry 4.0 Knowledge Graph Ontology", "headline":"The Standard Ontology, STO, represents standards, standardization organizations and standardization frameworks for the Industry 4.0 area. ", "datePublished":"2018-08-15", "version":"0.3", "license":"http://creativecommons.org/licenses/by-nc-sa/3.0/", "author":[{"@type":"Person","name":"Steffen Lohmann","url":"http://data.semanticweb.org/person/steffen-lohmann"},{"@type":"Person","name":"Irlan Grangel Gonzalez","url":"http://sda.cs.uni-bonn.de/people/irlan-grangel-gonzalez/"},{"@type":"Person","name":"Paul Baptista","url":"https://www.linkedin.com/in/paul-baptista-601177b2"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -52,7 +52,7 @@ function loadTOC(){
 <div class="container">
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
-<h1>I40 Knowledge Graph Ontology</h1>
+<h1>Industry 4.0 Knowledge Graph Ontology</h1>
 <h2>Release  2018-08-15</h2>
 
 
@@ -101,6 +101,7 @@ This documentation presents STO, an ontology to describe standards, organization
 <tr><td><b>geo</b></td> <td>&lt;http://www.geonames.org/ontology#&gt;</td></tr>
 <tr><td><b>ids</b></td> <td>&lt;https://w3id.org/ids/core/&gt;</td></tr>
 <tr><td><b>idsram</b></td> <td>&lt;https://w3id.org/ids/ram/&gt;</td></tr>
+<tr><td><b>iira</b></td> <td>&lt;http://example.org/iira#&gt;</td></tr>
 <tr><td><b>lang</b></td> <td>&lt;http://lexvo.org/id/iso639-3/&gt;</td></tr>
 <tr><td><b>muto</b></td> <td>&lt;http://purl.org/muto/core#&gt;</td></tr>
 <tr><td><b>oa</b></td> <td>&lt;https://www.w3.org/ns/oa&gt;</td></tr>
@@ -114,6 +115,7 @@ This documentation presents STO, an ontology to describe standards, organization
 <tr><td><b>schema</b></td> <td>&lt;http://schema.org/&gt;</td></tr>
 <tr><td><b>skos</b></td> <td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
 <tr><td><b>sto</b></td> <td>&lt;https://w3id.org/i40/sto#&gt;</td></tr>
+<tr><td><b>sto_iot</b></td> <td>&lt;https://w3id.org/i40/sto/iot#&gt;</td></tr>
 <tr><td><b>terms</b></td> <td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
 <tr><td><b>vann</b></td> <td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
 <tr><td><b>voaf</b></td> <td>&lt;http://purl.org/vocommons/voaf#&gt;</td></tr>
@@ -128,7 +130,7 @@ This documentation presents STO, an ontology to describe standards, organization
   
 
 <!--OVERVIEW SECTION-->
-    <div id="overview"><h2 id="overv" class="list">I40 Knowledge Graph: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <div id="overview"><h2 id="overv" class="list">Industry 4.0 Knowledge Graph: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology has the following classes and properties.</span>
 <h4>Classes</h4>
@@ -137,9 +139,7 @@ This ontology has the following classes and properties.</span>
       <a href="#https://w3id.org/i40/rami#AdminShellSubmodel" title="https://w3id.org/i40/rami#AdminShellSubmodel">Admin Shell Sub Model</a>
    </li>
    <li>
-      <a href="#AiiClassification" title="https://w3id.org/i40/sto#AiiClassification">
-         <span>Alliance of Industrial Internet Architecture Classification</span>
-      </a>
+      <a href="#AiiClassification" title="https://w3id.org/i40/sto#AiiClassification">Alliance of Industrial Internet Architecture Classification</a>
    </li>
    <li>
       <a href="#ArchitectureDescription"
@@ -154,6 +154,9 @@ This ontology has the following classes and properties.</span>
       <a href="#BusinessCycleSCM" title="https://w3id.org/i40/sto#BusinessCycleSCM">Business Cycle SCM</a>
    </li>
    <li>
+      <a href="#ConnectivityLayer" title="https://w3id.org/i40/sto#ConnectivityLayer">Connectivity Layer</a>
+   </li>
+   <li>
       <a href="#IicfConnectivityLayer" title="https://w3id.org/i40/sto#IicfConnectivityLayer">
          <span>Connectivity Layer</span>
       </a>
@@ -162,9 +165,6 @@ This ontology has the following classes and properties.</span>
       <a href="#DataSharingInitiative" title="https://w3id.org/i40/sto#DataSharingInitiative">
          <span>Data Sharing Initiative</span>
       </a>
-   </li>
-   <li>
-      <a href="#Dimension" title="https://w3id.org/i40/sto#Dimension">Dimension</a>
    </li>
    <li>
       <a href="#Domain" title="https://w3id.org/i40/sto#Domain">Domain</a>
@@ -183,14 +183,21 @@ This ontology has the following classes and properties.</span>
       </a>
    </li>
    <li>
-      <a href="#IDSRAMLayer" title="https://w3id.org/i40/sto#IDSRAMLayer">
-         <span>IDS RAM Layer</span>
-      </a>
+      <a href="#IDSRAMLayer" title="https://w3id.org/i40/sto#IDSRAMLayer">IDS RAM Layer</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/ids/ram/Layer" title="https://w3id.org/ids/ram/Layer">IDS RAM Layer</a>
+   </li>
+   <li>
+      <a href="#http://w3id.org/ids/ram/Perspective" title="http://w3id.org/ids/ram/Perspective">IDS RAM Perspective</a>
    </li>
    <li>
       <a href="#IdsPerspective" title="https://w3id.org/i40/sto#IdsPerspective">
          <span>IDS RAM Perspective</span>
       </a>
+   </li>
+   <li>
+      <a href="#http://example.org/iira#CrosscuttingFunction" title="http://example.org/iira#CrosscuttingFunction">IIRA Crosscutting Function</a>
    </li>
    <li>
       <a href="#IIRACrosscuttingFunction"
@@ -199,9 +206,15 @@ This ontology has the following classes and properties.</span>
       </a>
    </li>
    <li>
+      <a href="#http://example.org/iira#FunctionalDomain" title="http://example.org/iira#FunctionalDomain">IIRA Functional Domain</a>
+   </li>
+   <li>
       <a href="#IIRAFunctionalDomain" title="https://w3id.org/i40/sto#IIRAFunctionalDomain">
          <span>IIRA Functional Domain</span>
       </a>
+   </li>
+   <li>
+      <a href="#http://example.org/iira#SystemCharacteristics" title="http://example.org/iira#SystemCharacteristics">IIRA System Characteristic</a>
    </li>
    <li>
       <a href="#IIRASystemCharacteristics"
@@ -218,9 +231,7 @@ This ontology has the following classes and properties.</span>
       <a href="#ISA95Level" title="https://w3id.org/i40/sto#ISA95Level">ISA 95 Level</a>
    </li>
    <li>
-      <a href="#IviLayer" title="https://w3id.org/i40/sto#IviLayer">
-         <span>IVI Layer</span>
-      </a>
+      <a href="#IviLayer" title="https://w3id.org/i40/sto#IviLayer">IVI Layer</a>
    </li>
    <li>
       <a href="#Layer" title="https://w3id.org/i40/sto#Layer">Layer</a>
@@ -233,14 +244,10 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#NGSI_Context_Information_Management_API"
-         title="https://w3id.org/i40/sto#NGSI_Context_Information_Management_API">
-         <span>NGSI Context Information Management API</span>
-      </a>
+         title="https://w3id.org/i40/sto#NGSI_Context_Information_Management_API">NGSI Context Information Management API</a>
    </li>
    <li>
-      <a href="#OcfBlock" title="https://w3id.org/i40/sto#OcfBlock">
-         <span>OCF Framework Block</span>
-      </a>
+      <a href="#OcfBlock" title="https://w3id.org/i40/sto#OcfBlock">OCF Framework Block</a>
    </li>
    <li>
       <a href="#ProductDevelopmentLifeCycle"
@@ -249,9 +256,6 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#ProductionSystemLifeCycle"
          title="https://w3id.org/i40/sto#ProductionSystemLifeCycle">Production System Life Cycle</a>
-   </li>
-   <li>
-      <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
    </li>
    <li>
       <a href="#https://w3id.org/i40/rami#RAMIHierarchyLevel" title="https://w3id.org/i40/rami#RAMIHierarchyLevel">RAMI Hierarchy Level</a>
@@ -263,105 +267,94 @@ This ontology has the following classes and properties.</span>
       <a href="#https://w3id.org/i40/rami#RAMILifeCycleLayer" title="https://w3id.org/i40/rami#RAMILifeCycleLayer">RAMI Life Cycle Layer RAMI Life Cycle Layer</a>
    </li>
    <li>
-      <a href="#RelevantSubject" title="https://w3id.org/i40/sto#RelevantSubject">Relevant Subject</a>
+      <a href="#Standard" title="https://w3id.org/i40/sto#Standard">
+         <span>Standard</span>
+      </a>
    </li>
    <li>
-      <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">
-         <span>standard organization</span>
-      </a>
+      <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+   </li>
+   <li>
+      <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
    </li>
    <li>
       <a href="#StandardPart" title="https://w3id.org/i40/sto#StandardPart">StandardPart</a>
    </li>
    <li>
-      <a href="#TechnicalCommittee" title="https://w3id.org/i40/sto#TechnicalCommittee">
-         <span>technical committee</span>
-      </a>
+      <a href="#StandardizationFramework"
+         title="https://w3id.org/i40/sto#StandardizationFramework">Standarization Framework</a>
    </li>
    <li>
       <a href="#TechnicalReport" title="https://w3id.org/i40/sto#TechnicalReport">
-         <span>technical report</span>
+         <span>Technical Report</span>
       </a>
    </li>
    <li>
       <a href="#TechnicalSpecification" title="https://w3id.org/i40/sto#TechnicalSpecification">
-         <span>technical specification</span>
+         <span>Technical Specification</span>
       </a>
    </li>
    <li>
-      <a href="#Technology" title="https://w3id.org/i40/sto#Technology">
-         <span>Technology</span>
-      </a>
+      <a href="#Technology" title="https://w3id.org/i40/sto#Technology">Technology</a>
    </li>
    <li>
-      <a href="#Viewpoint" title="https://w3id.org/i40/sto#Viewpoint">
-         <span>Viewpoint</span>
-      </a>
+      <a href="#Viewpoint" title="https://w3id.org/i40/sto#Viewpoint">Viewpoint</a>
    </li>
    <li>
-      <a href="#xRoadSection" title="https://w3id.org/i40/sto#xRoadSection">
-         <span>x-road Section</span>
-      </a>
+      <a href="#xRoadSection" title="https://w3id.org/i40/sto#xRoadSection">x-road Section</a>
    </li>
 </ul><h4>Object Properties</h4><ul class="hlist">
+   <li>
+      <a href="#alignesWith" title="https://w3id.org/i40/sto#alignesWith">alignes With</a>
+   </li>
    <li>
       <a href="#/iot#alignsWith" title="https://w3id.org/i40/sto/iot#alignsWith">alignes With</a>
    </li>
    <li>
-      <a href="#belongsTo" title="https://w3id.org/i40/sto#belongsTo">
-         <span>belongs To</span>
-      </a>
+      <a href="#belongsTo" title="https://w3id.org/i40/sto#belongsTo">belongs To</a>
    </li>
    <li>
-      <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
-         <span>creator</span>
-      </a>
+      <a href="#frames" title="https://w3id.org/i40/sto#frames">frames</a>
    </li>
    <li>
       <a href="#/iot#frames" title="https://w3id.org/i40/sto/iot#frames">frames</a>
    </li>
    <li>
-      <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">
-         <span>has Classification</span>
+      <a href="#hasAvailableLanguage" title="https://w3id.org/i40/sto#hasAvailableLanguage">has Available Language</a>
+   </li>
+   <li>
+      <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">has Classification</a>
+   </li>
+   <li>
+      <a href="#hasDeveloper" title="https://w3id.org/i40/sto#hasDeveloper">has Developer</a>
+   </li>
+   <li>
+      <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">
+         <span>has domain</span>
       </a>
    </li>
    <li>
-      <a href="#hasDeveloper" title="https://w3id.org/i40/sto#hasDeveloper">
-         <span>has Developer</span>
-      </a>
+      <a href="#hasFileSize" title="https://w3id.org/i40/sto#hasFileSize">has File Size</a>
    </li>
    <li>
-      <a href="#hasDimension" title="https://w3id.org/i40/sto#hasDimension">has Dimension</a>
-   </li>
-   <li>
-      <a href="#hasDimensionLayer" title="https://w3id.org/i40/sto#hasDimensionLayer">has Dimension Layer</a>
-   </li>
-   <li>
-      <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">has Domain</a>
-   </li>
-   <li>
-      <a href="#hasFileSize" title="https://w3id.org/i40/sto#hasFileSize">
-         <span>has File Size</span>
-      </a>
-   </li>
-   <li>
-      <a href="#hasHeadquaterIn" title="https://w3id.org/i40/sto#hasHeadquaterIn">
-         <span>has Headquater In</span>
-      </a>
+      <a href="#hasHeadquaterIn" title="https://w3id.org/i40/sto#hasHeadquaterIn">has Headquater In</a>
    </li>
    <li>
       <a href="#hasICS" title="https://w3id.org/i40/sto#hasICS">has ICS</a>
    </li>
    <li>
-      <a href="#hasLayer" title="https://w3id.org/i40/sto#hasLayer">has Layer</a>
+      <a href="#hasMotivation" title="https://w3id.org/i40/sto#hasMotivation">
+         <span>has motivation</span>
+      </a>
    </li>
    <li>
       <a href="#hasPreviousVersion" title="https://w3id.org/i40/sto#hasPreviousVersion">has Previous Version</a>
    </li>
    <li>
-      <a href="#hasPublisher" title="https://w3id.org/i40/sto#hasPublisher">
-         <span>has Publisher</span>
-      </a>
+      <a href="#hasPublisher" title="https://w3id.org/i40/sto#hasPublisher">has Publisher</a>
+   </li>
+   <li>
+      <a href="#hasTargetConcern" title="https://w3id.org/i40/sto#hasTargetConcern">has Target Concern</a>
    </li>
    <li>
       <a href="#/iot#hasTargetConcern" title="https://w3id.org/i40/sto/iot#hasTargetConcern">
@@ -376,12 +369,6 @@ This ontology has the following classes and properties.</span>
          title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit">has unit</a>
    </li>
    <li>
-      <a href="#hasAvailableLanguage" title="https://w3id.org/i40/sto#hasAvailableLanguage">hasAvailableLanguage</a>
-   </li>
-   <li>
-      <a href="#identifies" title="https://w3id.org/i40/sto#identifies">identifies</a>
-   </li>
-   <li>
       <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf"
          title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf">is Component Of</a>
    </li>
@@ -389,20 +376,11 @@ This ontology has the following classes and properties.</span>
       <a href="#isDescribedin" title="https://w3id.org/i40/sto#isDescribedin">is Described in</a>
    </li>
    <li>
-      <a href="#isImplementationOf" title="https://w3id.org/i40/sto#isImplementationOf">
-         <span>is Implementation Of</span>
-      </a>
+      <a href="#isImplementationOf" title="https://w3id.org/i40/sto#isImplementationOf">is Implementation Of</a>
    </li>
    <li>
       <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf"
          title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf">is member of</a>
-   </li>
-   <li>
-      <a href="#isRelevantFor" title="https://w3id.org/i40/sto#isRelevantFor">is Relevant for</a>
-   </li>
-   <li>
-      <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
-         title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">isPartOf</a>
    </li>
    <li>
       <a href="#relatedTo" title="https://w3id.org/i40/sto#relatedTo">related To</a>
@@ -445,16 +423,11 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#hasOfficialResource" title="https://w3id.org/i40/sto#hasOfficialResource">
-         <span>has Official Resource</span>
+         <span>has official resource</span>
       </a>
    </li>
    <li>
       <a href="#hasOntology" title="https://w3id.org/i40/sto#hasOntology">has Ontology</a>
-   </li>
-   <li>
-      <a href="#hasOpenResource" title="https://w3id.org/i40/sto#hasOpenResource">
-         <span>has Open Resource</span>
-      </a>
    </li>
    <li>
       <a href="#hasPages" title="https://w3id.org/i40/sto#hasPages">has Pages</a>
@@ -466,7 +439,12 @@ This ontology has the following classes and properties.</span>
       <a href="#hasStabilityDate" title="https://w3id.org/i40/sto#hasStabilityDate">has Stability Date</a>
    </li>
    <li>
-      <a href="#hasTag" title="https://w3id.org/i40/sto#hasTag">has Tag</a>
+      <a href="#hasStatus" title="https://w3id.org/i40/sto#hasStatus">has Status</a>
+   </li>
+   <li>
+      <a href="#hasTag" title="https://w3id.org/i40/sto#hasTag">
+         <span>has tag</span>
+      </a>
    </li>
    <li>
       <a href="#hasTask" title="https://w3id.org/i40/sto#hasTask">has Task</a>
@@ -482,7 +460,7 @@ This ontology has the following classes and properties.</span>
   
 
 <!--DESCRIPTION SECTION-->
-    <div id="description"><h2 id="desc" class="list">I40 Knowledge Graph: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <div id="description"><h2 id="desc" class="list">Industry 4.0 Knowledge Graph: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 Classes and properties from existing ontologies are reused, e.g., PROV for describing provenance of entities, and FOAF for representing and linking documents. DCTERMS for document metadata, such as licenses and titles as well as the RAMI4.0 ontology for linking Standards with RAMI4.0 concepts.</span>
 <div>
@@ -493,8 +471,8 @@ Classes and properties from existing ontologies are reused, e.g., PROV for descr
    
 
 <!--CROSSREF SECTION-->
-   <div id="crossref"><h2 id="crossreference" class="list">Cross reference for I40 Knowledge Graph classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-This section provides details for each class and property defined by I40 Knowledge Graph.
+   <div id="crossref"><h2 id="crossreference" class="list">Cross reference for Industry 4.0 Knowledge Graph classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Industry 4.0 Knowledge Graph.
 <div id="classes">
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
@@ -502,9 +480,7 @@ This section provides details for each class and property defined by I40 Knowled
          <a href="#https://w3id.org/i40/rami#AdminShellSubmodel" title="https://w3id.org/i40/rami#AdminShellSubmodel">Admin Shell Sub Model</a>
       </li>
       <li>
-         <a href="#AiiClassification" title="https://w3id.org/i40/sto#AiiClassification">
-            <span>Alliance of Industrial Internet Architecture Classification</span>
-         </a>
+         <a href="#AiiClassification" title="https://w3id.org/i40/sto#AiiClassification">Alliance of Industrial Internet Architecture Classification</a>
       </li>
       <li>
          <a href="#ArchitectureDescription"
@@ -519,6 +495,9 @@ This section provides details for each class and property defined by I40 Knowled
          <a href="#BusinessCycleSCM" title="https://w3id.org/i40/sto#BusinessCycleSCM">Business Cycle SCM</a>
       </li>
       <li>
+         <a href="#ConnectivityLayer" title="https://w3id.org/i40/sto#ConnectivityLayer">Connectivity Layer</a>
+      </li>
+      <li>
          <a href="#IicfConnectivityLayer" title="https://w3id.org/i40/sto#IicfConnectivityLayer">
             <span>Connectivity Layer</span>
          </a>
@@ -527,9 +506,6 @@ This section provides details for each class and property defined by I40 Knowled
          <a href="#DataSharingInitiative" title="https://w3id.org/i40/sto#DataSharingInitiative">
             <span>Data Sharing Initiative</span>
          </a>
-      </li>
-      <li>
-         <a href="#Dimension" title="https://w3id.org/i40/sto#Dimension">Dimension</a>
       </li>
       <li>
          <a href="#Domain" title="https://w3id.org/i40/sto#Domain">Domain</a>
@@ -548,14 +524,21 @@ This section provides details for each class and property defined by I40 Knowled
          </a>
       </li>
       <li>
-         <a href="#IDSRAMLayer" title="https://w3id.org/i40/sto#IDSRAMLayer">
-            <span>IDS RAM Layer</span>
-         </a>
+         <a href="#IDSRAMLayer" title="https://w3id.org/i40/sto#IDSRAMLayer">IDS RAM Layer</a>
+      </li>
+      <li>
+         <a href="#https://w3id.org/ids/ram/Layer" title="https://w3id.org/ids/ram/Layer">IDS RAM Layer</a>
+      </li>
+      <li>
+         <a href="#http://w3id.org/ids/ram/Perspective" title="http://w3id.org/ids/ram/Perspective">IDS RAM Perspective</a>
       </li>
       <li>
          <a href="#IdsPerspective" title="https://w3id.org/i40/sto#IdsPerspective">
             <span>IDS RAM Perspective</span>
          </a>
+      </li>
+      <li>
+         <a href="#http://example.org/iira#CrosscuttingFunction" title="http://example.org/iira#CrosscuttingFunction">IIRA Crosscutting Function</a>
       </li>
       <li>
          <a href="#IIRACrosscuttingFunction"
@@ -564,9 +547,15 @@ This section provides details for each class and property defined by I40 Knowled
          </a>
       </li>
       <li>
+         <a href="#http://example.org/iira#FunctionalDomain" title="http://example.org/iira#FunctionalDomain">IIRA Functional Domain</a>
+      </li>
+      <li>
          <a href="#IIRAFunctionalDomain" title="https://w3id.org/i40/sto#IIRAFunctionalDomain">
             <span>IIRA Functional Domain</span>
          </a>
+      </li>
+      <li>
+         <a href="#http://example.org/iira#SystemCharacteristics" title="http://example.org/iira#SystemCharacteristics">IIRA System Characteristic</a>
       </li>
       <li>
          <a href="#IIRASystemCharacteristics"
@@ -583,9 +572,7 @@ This section provides details for each class and property defined by I40 Knowled
          <a href="#ISA95Level" title="https://w3id.org/i40/sto#ISA95Level">ISA 95 Level</a>
       </li>
       <li>
-         <a href="#IviLayer" title="https://w3id.org/i40/sto#IviLayer">
-            <span>IVI Layer</span>
-         </a>
+         <a href="#IviLayer" title="https://w3id.org/i40/sto#IviLayer">IVI Layer</a>
       </li>
       <li>
          <a href="#Layer" title="https://w3id.org/i40/sto#Layer">Layer</a>
@@ -598,14 +585,10 @@ This section provides details for each class and property defined by I40 Knowled
       </li>
       <li>
          <a href="#NGSI_Context_Information_Management_API"
-            title="https://w3id.org/i40/sto#NGSI_Context_Information_Management_API">
-            <span>NGSI Context Information Management API</span>
-         </a>
+            title="https://w3id.org/i40/sto#NGSI_Context_Information_Management_API">NGSI Context Information Management API</a>
       </li>
       <li>
-         <a href="#OcfBlock" title="https://w3id.org/i40/sto#OcfBlock">
-            <span>OCF Framework Block</span>
-         </a>
+         <a href="#OcfBlock" title="https://w3id.org/i40/sto#OcfBlock">OCF Framework Block</a>
       </li>
       <li>
          <a href="#ProductDevelopmentLifeCycle"
@@ -614,9 +597,6 @@ This section provides details for each class and property defined by I40 Knowled
       <li>
          <a href="#ProductionSystemLifeCycle"
             title="https://w3id.org/i40/sto#ProductionSystemLifeCycle">Production System Life Cycle</a>
-      </li>
-      <li>
-         <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
       </li>
       <li>
          <a href="#https://w3id.org/i40/rami#RAMIHierarchyLevel" title="https://w3id.org/i40/rami#RAMIHierarchyLevel">RAMI Hierarchy Level</a>
@@ -628,45 +608,41 @@ This section provides details for each class and property defined by I40 Knowled
          <a href="#https://w3id.org/i40/rami#RAMILifeCycleLayer" title="https://w3id.org/i40/rami#RAMILifeCycleLayer">RAMI Life Cycle Layer RAMI Life Cycle Layer</a>
       </li>
       <li>
-         <a href="#RelevantSubject" title="https://w3id.org/i40/sto#RelevantSubject">Relevant Subject</a>
+         <a href="#Standard" title="https://w3id.org/i40/sto#Standard">
+            <span>Standard</span>
+         </a>
       </li>
       <li>
-         <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">
-            <span>standard organization</span>
-         </a>
+         <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+      </li>
+      <li>
+         <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
       </li>
       <li>
          <a href="#StandardPart" title="https://w3id.org/i40/sto#StandardPart">StandardPart</a>
       </li>
       <li>
-         <a href="#TechnicalCommittee" title="https://w3id.org/i40/sto#TechnicalCommittee">
-            <span>technical committee</span>
-         </a>
+         <a href="#StandardizationFramework"
+            title="https://w3id.org/i40/sto#StandardizationFramework">Standarization Framework</a>
       </li>
       <li>
          <a href="#TechnicalReport" title="https://w3id.org/i40/sto#TechnicalReport">
-            <span>technical report</span>
+            <span>Technical Report</span>
          </a>
       </li>
       <li>
          <a href="#TechnicalSpecification" title="https://w3id.org/i40/sto#TechnicalSpecification">
-            <span>technical specification</span>
+            <span>Technical Specification</span>
          </a>
       </li>
       <li>
-         <a href="#Technology" title="https://w3id.org/i40/sto#Technology">
-            <span>Technology</span>
-         </a>
+         <a href="#Technology" title="https://w3id.org/i40/sto#Technology">Technology</a>
       </li>
       <li>
-         <a href="#Viewpoint" title="https://w3id.org/i40/sto#Viewpoint">
-            <span>Viewpoint</span>
-         </a>
+         <a href="#Viewpoint" title="https://w3id.org/i40/sto#Viewpoint">Viewpoint</a>
       </li>
       <li>
-         <a href="#xRoadSection" title="https://w3id.org/i40/sto#xRoadSection">
-            <span>x-road Section</span>
-         </a>
+         <a href="#xRoadSection" title="https://w3id.org/i40/sto#xRoadSection">x-road Section</a>
       </li>
    </ul>
    <div class="entity" id="https://w3id.org/i40/rami#AdminShellSubmodel">
@@ -688,7 +664,7 @@ This section provides details for each class and property defined by I40 Knowled
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -709,7 +685,7 @@ This section provides details for each class and property defined by I40 Knowled
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -718,10 +694,6 @@ This section provides details for each class and property defined by I40 Knowled
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#AiiNetwork" title="https://w3id.org/i40/sto#AiiNetwork">AII Network Classification</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#AiiSecurity" title="https://w3id.org/i40/sto#AiiSecurity">AII Security Classification</a>
             <sup class="type-ni" title="named individual">ni</sup>
-         </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#AiiClassification">named individual</a>
          </dd>
       </dl>
    </div>
@@ -734,13 +706,14 @@ This section provides details for each class and property defined by I40 Knowled
          <strong>IRI:</strong> https://w3id.org/i40/sto#ArchitectureDescription</p>
       <div class="comment">
          <span class="markdown">A Reference Architecture describes the structure of a system with its element types and their structures, as well as their interaction types, among each other and with their environment. Describing this, a Reference Architecture defines restrictions for an instantiation (concrete architecture). Through abstraction from individual details, a Reference Architecture is universally valid within a specific domain. Further architectures with the same functional requirements can be constructed based on the reference architecture. Along with reference architectures comes a recommendation, based on experiences from existing developments as well as from a wide acceptance and recognition by its users or per definition. [ISO/IEC42010]
+
 Note: It is important to distinguish the Reference Architecture from a Reference Architecture Description. While the first refers to a mental model or shared concept, the second is potentially only one of several different documents describing this model.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted"
-                  title="https://w3id.org/i40/sto#StandardizationFramework">standardization framework</span>
+            <a href="#StandardizationFramework"
+               title="https://w3id.org/i40/sto#StandardizationFramework">Standarization Framework</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -774,7 +747,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -825,7 +798,31 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ConnectivityLayer">
+      <h3>Connectivity Layer<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#ConnectivityLayer</p>
+      <div class="comment">
+         <span class="markdown">Connectivity Layer of the Internet Connectivity Framework</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf">https://www.iiconsortium.org/pdf/IIC_PUB_G5_V1.01_PB_20180228.pdf</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -840,7 +837,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -853,9 +850,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
-         <dd>
-            <a href="#IicfConnectivityLayer">named individual</a>
-         </dd>
+         <dd>named individual</dd>
       </dl>
    </div>
    <div class="entity" id="DataSharingInitiative">
@@ -879,32 +874,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
-         <dd>
-            <a href="#DataSharingInitiative">named individual</a>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="Dimension">
-      <h3>Dimension<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#Dimension</p>
-      <div class="comment">
-         <span class="markdown">Links the Standardization Frameworks with the Layers</span>
-      </div>
-      <dl class="description">
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#hasDimensionLayer" title="https://w3id.org/i40/sto#hasDimensionLayer">has Dimension Layer</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasDimension" title="https://w3id.org/i40/sto#hasDimension">has Dimension</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
+         <dd>named individual</dd>
       </dl>
    </div>
    <div class="entity" id="Domain">
@@ -925,7 +895,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">has Domain</a>
+            <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">has domain</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -940,7 +910,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -964,7 +934,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -983,9 +953,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
-         <dd>
-            <a href="#FiwareChapter">named individual</a>
-         </dd>
+         <dd>named individual</dd>
       </dl>
    </div>
    <div class="entity" id="IIoTConsortium">
@@ -1020,10 +988,6 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#PlatformIndustry40" title="https://w3id.org/i40/sto#PlatformIndustry40">Platform Industry 4.0</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#IIoTConsortium">named individual</a>
-         </dd>
       </dl>
    </div>
    <div class="entity" id="IDSRAMLayer">
@@ -1038,7 +1002,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dd>{ <a href="#IDSRAMBusinessLayer" title="https://w3id.org/i40/sto#IDSRAMBusinessLayer">IDS RAM Business Layer</a> , <a href="#IDSRAMFunctionalLayer" title="https://w3id.org/i40/sto#IDSRAMFunctionalLayer">IDS RAM Functional Layer</a> , <a href="#IDSRAMInformationLayer" title="https://w3id.org/i40/sto#IDSRAMInformationLayer">IDS RAM Information Layer</a> , <a href="#IDSRAMProcessLayer" title="https://w3id.org/i40/sto#IDSRAMProcessLayer">IDS RAM Process Layer</a> , <a href="#IDSRAMSystemLayer" title="https://w3id.org/i40/sto#IDSRAMSystemLayer">IDS RAM System Layer</a> }</dd>
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1050,9 +1014,39 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMSystemLayer" title="https://w3id.org/i40/sto#IDSRAMSystemLayer">IDS RAM System Layer</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
-         <dt>is also defined as</dt>
+      </dl>
+   </div>
+   <div class="entity" id="https://w3id.org/ids/ram/Layer">
+      <h3>IDS RAM Layer<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/ids/ram/Layer</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>{ <span class="dotted" title="https://w3id.org/ids/ram/BusinessLayer">business layer</span> , <span class="dotted" title="https://w3id.org/ids/ram/FunctionalLayer">functional layer</span> , <span class="dotted" title="https://w3id.org/ids/ram/InformationLayer">information layer</span> , <span class="dotted" title="https://w3id.org/ids/ram/ProcessLayer">process layer</span> , <span class="dotted" title="https://w3id.org/ids/ram/SystemLayer">system layer</span> }</dd>
+         <dt>has super-classes</dt>
          <dd>
-            <a href="#IDSRAMLayer">named individual</a>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://w3id.org/ids/ram/Perspective">
+      <h3>IDS RAM Perspective<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://w3id.org/ids/ram/Perspective</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>{ <span class="dotted" title="https://w3id.org/ids/ram/Certification">certification</span> , <span class="dotted" title="https://w3id.org/ids/ram/Governance">governance</span> , <span class="dotted" title="https://w3id.org/ids/ram/Security">security</span> }</dd>
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1068,7 +1062,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dd>{ <a href="#IDSRAMCertification" title="https://w3id.org/i40/sto#IDSRAMCertification">IDS RAM Certification Perspective</a> , <a href="#IDSRAMGovernance" title="https://w3id.org/i40/sto#IDSRAMGovernance">IDS RAM Governance Perspective</a> , <a href="#IDSRAMSecurity" title="https://w3id.org/i40/sto#IDSRAMSecurity">IDS RAM Security Perspective</a> }</dd>
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1079,8 +1073,24 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
+         <dd>named individual</dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://example.org/iira#CrosscuttingFunction">
+      <h3>IIRA Crosscutting Function<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://example.org/iira#CrosscuttingFunction</p>
+      <div class="comment">
+         <span class="markdown">Often these enabling functions, the so-called crosscutting functions, need to be made available across many of the system functional components. For Reference Architecture 6: Functional Viewpoint example, system functions need to be connected so they can interact with each other to complete functionality at the system level.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
          <dd>
-            <a href="#IdsPerspective">named individual</a>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1094,7 +1104,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1109,8 +1119,21 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
+         <dd>named individual</dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://example.org/iira#FunctionalDomain">
+      <h3>IIRA Functional Domain<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://example.org/iira#FunctionalDomain</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
          <dd>
-            <a href="#IIRACrosscuttingFunction">named individual</a>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1124,7 +1147,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1137,8 +1160,21 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
+         <dd>named individual</dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://example.org/iira#SystemCharacteristics">
+      <h3>IIRA System Characteristic<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://example.org/iira#SystemCharacteristics</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
          <dd>
-            <a href="#IIRAFunctionalDomain">named individual</a>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1152,7 +1188,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1166,9 +1202,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
-         <dd>
-            <a href="#IIRASystemCharacteristics">named individual</a>
-         </dd>
+         <dd>named individual</dd>
       </dl>
    </div>
    <div class="entity" id="IotaPerspective">
@@ -1181,7 +1215,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1197,9 +1231,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
          <dt>is also defined as</dt>
-         <dd>
-            <a href="#IotaPerspective">named individual</a>
-         </dd>
+         <dd>named individual</dd>
       </dl>
    </div>
    <div class="entity" id="ISA95Level">
@@ -1215,7 +1247,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -1233,10 +1265,19 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#IviLayer</p>
+      <div class="comment">
+         <span class="markdown">A IVI Layer describes one of three layers of smart manufactoring as proposed by the Industrial Value Chain Initiative (IVI).</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="https://iv-i.org/wp/wp-content/uploads/2018/04/IVRA-Next_en.pdf">https://iv-i.org/wp/wp-content/uploads/2018/04/IVRA-Next_en.pdf</a>
+         </dd>
+      </dl>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1245,10 +1286,6 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviBusinessLayer" title="https://w3id.org/i40/sto#IviBusinessLayer">IVI Business Layer</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviSpecificationLayer" title="https://w3id.org/i40/sto#IviSpecificationLayer">IVI Specification Layer</a>
             <sup class="type-ni" title="named individual">ni</sup>
-         </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#IviLayer">named individual</a>
          </dd>
       </dl>
    </div>
@@ -1262,14 +1299,6 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <div class="comment">
          <span class="markdown">Describes the layers of the standardization frameworks. In some cases, the layers are connected to dimensions of the frameworks. </span>
       </div>
-      <dl class="description">
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasDimensionLayer" title="https://w3id.org/i40/sto#hasDimensionLayer">has Dimension Layer</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasLayer" title="https://w3id.org/i40/sto#hasLayer">has Layer</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
    </div>
    <div class="entity" id="Stakeholder">
       <h3>Layer<sup class="type-c" title="class">c</sup>
@@ -1323,7 +1352,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1335,10 +1364,6 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#NgsiLdInformationModel"
                title="https://w3id.org/i40/sto#NgsiLdInformationModel">NGSI-LD Information Model</a>
             <sup class="type-ni" title="named individual">ni</sup>
-         </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#NGSI_Context_Information_Management_API">named individual</a>
          </dd>
       </dl>
    </div>
@@ -1352,7 +1377,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1363,10 +1388,6 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#OcfNetworking" title="https://w3id.org/i40/sto#OcfNetworking">OCF Networking</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#OcfSecurity" title="https://w3id.org/i40/sto#OcfSecurity">OCF Security</a>
             <sup class="type-ni" title="named individual">ni</sup>
-         </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#OcfBlock">named individual</a>
          </dd>
       </dl>
    </div>
@@ -1382,14 +1403,12 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
-         <dd>
-            <a href="https://en.wikipedia.org/wiki/Product_lifecycle">https://en.wikipedia.org/wiki/Product_lifecycle</a>
-         </dd>
+         <dd>https://w3id.org/i40/sto</dd>
       </dl>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -1413,112 +1432,8 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="Publication">
-      <h3>Publication<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#Publication</p>
-      <div class="comment">
-         <span class="markdown">Specifies a Publication. E.g., International Standards,Technical Specifications,Publicly Available Specifications,Amendments
-                Technical Corrigenda,Interpretation Sheets,Technical Reports,Guides</span>
-      </div>
-      <dl class="definedBy">
-         <dt>Is defined by</dt>
-         <dd>
-            <a href="https://w3id.org/i40/sto#IEC">https://w3id.org/i40/sto#IEC</a>
-         </dd>
-      </dl>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <span class="dotted" title="http://xmlns.com/foaf/0.1/Document">document</span>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#StandardPart" title="https://w3id.org/i40/sto#StandardPart">StandardPart</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#Technology" title="https://w3id.org/i40/sto#Technology">Technology</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#TechnicalReport" title="https://w3id.org/i40/sto#TechnicalReport">technical report</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#TechnicalSpecification" title="https://w3id.org/i40/sto#TechnicalSpecification">technical specification</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">has Classification</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasDeveloper" title="https://w3id.org/i40/sto#hasDeveloper">has Developer</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">has Domain</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasICS" title="https://w3id.org/i40/sto#hasICS">has ICS</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasImplementationFormat"
-               title="https://w3id.org/i40/sto#hasImplementationFormat">has Implementation Format</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasOfficialResource" title="https://w3id.org/i40/sto#hasOfficialResource">has Official Resource</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasOntology" title="https://w3id.org/i40/sto#hasOntology">has Ontology</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasOpenResource" title="https://w3id.org/i40/sto#hasOpenResource">has Open Resource</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPublicationDate" title="https://w3id.org/i40/sto#hasPublicationDate">has Publication Date</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPublisher" title="https://w3id.org/i40/sto#hasPublisher">has Publisher</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasStabilityDate" title="https://w3id.org/i40/sto#hasStabilityDate">has Stability Date</a>
-            <sup class="type-dp" title="data property">dp</sup>, <span class="dotted" title="https://w3id.org/i40/sto#hasStatus">has Status</span>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasTechnicalCommittee" title="https://w3id.org/i40/sto#hasTechnicalCommittee">has Technical Committee</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>has members</dt>
-         <dd>
-            <a href="#LoWPAN" title="https://w3id.org/i40/sto#LoWPAN">6LoWPAN</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#AMQP" title="https://w3id.org/i40/sto#AMQP">AMQP</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Aeron" title="https://w3id.org/i40/sto#Aeron">Aeron</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Alljoyn" title="https://w3id.org/i40/sto#Alljoyn">Alljoyn</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Blockchain" title="https://w3id.org/i40/sto#Blockchain">Blockchain</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Bluetooth" title="https://w3id.org/i40/sto#Bluetooth">Bluetooth</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_8323" title="https://w3id.org/i40/sto#RFC_8323">CoAP</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DmaServiceTechnologySpecificationAndDevelopmentRoadmap"
-               title="https://w3id.org/i40/sto#DmaServiceTechnologySpecificationAndDevelopmentRoadmap">DMA Service Technology Specification and Development Roadmap</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DataTransferProjectWhitepaper"
-               title="https://w3id.org/i40/sto#DataTransferProjectWhitepaper">Data Transfer Project Whitepaper</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#EdgecrossWhitepaper" title="https://w3id.org/i40/sto#EdgecrossWhitepaper">Edgecross Whitepaper</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_2616" title="https://w3id.org/i40/sto#RFC_2616">HTTP/1.1</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7540" title="https://w3id.org/i40/sto#RFC_7540">HTTP/2</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_2818" title="https://w3id.org/i40/sto#RFC_2818">HTTPS</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICVocabulary" title="https://w3id.org/i40/sto#IICVocabulary">IIC Vocabulary</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICF" title="https://w3id.org/i40/sto#IICF">IICF</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IpsoAppFramework" title="https://w3id.org/i40/sto#IpsoAppFramework">IPSO App Framework</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IPv6" title="https://w3id.org/i40/sto#IPv6">IPv6</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#introductionXtee" title="https://w3id.org/i40/sto#introductionXtee">Introduction of X-tee</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IoTivity" title="https://w3id.org/i40/sto#IoTivity">IoTivity</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#JMS" title="https://w3id.org/i40/sto#JMS">JMS</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7519" title="https://w3id.org/i40/sto#RFC_7519">JSON Web Token</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_4511" title="https://w3id.org/i40/sto#RFC_4511">LDAP</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OMALightweightM2M" title="https://w3id.org/i40/sto#OMALightweightM2M">Lightweight M2M v1.0</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#NGSI" title="https://w3id.org/i40/sto#NGSI">NGSI</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ODRL" title="https://w3id.org/i40/sto#ODRL">ODRL</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OMG_DDS" title="https://w3id.org/i40/sto#OMG_DDS">OMG DDS</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OrionContextBroker" title="https://w3id.org/i40/sto#OrionContextBroker">ORION Context Broker</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OceanProtocol" title="https://w3id.org/i40/sto#OceanProtocol">Ocean Protocol</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OpenApi" title="https://w3id.org/i40/sto#OpenApi">OpenAPI</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OpenFogArchitecture" title="https://w3id.org/i40/sto#OpenFogArchitecture">OpenFog Architecture Whitepaper</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#PhysicalWeb" title="https://w3id.org/i40/sto#PhysicalWeb">Physical Web</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAML" title="https://w3id.org/i40/sto#RAML">RAML</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#REST" title="https://w3id.org/i40/sto#REST">REST</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_1122" title="https://w3id.org/i40/sto#RFC_1122">RFC 1122</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_5246" title="https://w3id.org/i40/sto#RFC_5246">RFC 5246</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_6750" title="https://w3id.org/i40/sto#RFC_6750">RFC 6750</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7252" title="https://w3id.org/i40/sto#RFC_7252">RFC 7252</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7642" title="https://w3id.org/i40/sto#RFC_7642">RFC 7642</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7643" title="https://w3id.org/i40/sto#RFC_7643">RFC 7643</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ROLL" title="https://w3id.org/i40/sto#ROLL">ROLL</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RPMA" title="https://w3id.org/i40/sto#RPMA">RPMA</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ReactiveStreams" title="https://w3id.org/i40/sto#ReactiveStreams">Reactive Streams</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#SCIM" title="https://w3id.org/i40/sto#SCIM">SCIM</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#KeyRock" title="https://w3id.org/i40/sto#KeyRock">key rock</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#LowPowerWiFi" title="https://w3id.org/i40/sto#LowPowerWiFi">low power wi fi</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RDF" title="https://w3id.org/i40/sto#RDF">r d f</a>
-            <sup class="type-ni" title="named individual">ni</sup>, <a href="#XACML" title="https://w3id.org/i40/sto#XACML">x a c m l</a>
-            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
@@ -1532,10 +1447,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>is equivalent to</dt>
          <dd>{ <span class="dotted" title="https://w3id.org/i40/rami#ConnectedWorld">connected world</span> , <span class="dotted" title="https://w3id.org/i40/rami#ControlDevice">control device</span> , <span class="dotted" title="https://w3id.org/i40/rami#Enterprise">enterprise</span> , <span class="dotted" title="https://w3id.org/i40/rami#FieldDevice">field device</span> , <span class="dotted" title="https://w3id.org/i40/rami#Product">product</span> , <span class="dotted" title="https://w3id.org/i40/rami#Station">station</span> , <span class="dotted" title="https://w3id.org/i40/rami#WorkCenter">work center</span> }</dd>
-         <dd>{ <a href="#RAMIConnectedWorld" title="https://w3id.org/i40/sto#RAMIConnectedWorld">r a m i connected world</a> , <span class="dotted" title="https://w3id.org/i40/sto#RAMIControlDevice">r a m i control device</span> , <span class="dotted" title="https://w3id.org/i40/sto#RAMIEnterprise">r a m i enterprise</span> , <a href="#RAMIFieldDevice" title="https://w3id.org/i40/sto#RAMIFieldDevice">r a m i field device</a> , <a href="#RAMIProduct" title="https://w3id.org/i40/sto#RAMIProduct">r a m i product</a> , <span class="dotted" title="https://w3id.org/i40/sto#RAMIStation">r a m i station</span> , <span class="dotted" title="https://w3id.org/i40/sto#RAMIWorkCenter">r a m i work center</span> }</dd>
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1557,11 +1471,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>is equivalent to</dt>
          <dd>{ <span class="dotted" title="https://w3id.org/i40/rami#Asset">asset</span> , <span class="dotted" title="https://w3id.org/i40/rami#Business">business</span> , <span class="dotted" title="https://w3id.org/i40/rami#Communication">communication</span> , <span class="dotted" title="https://w3id.org/i40/rami#Functional">functional</span> , <span class="dotted" title="https://w3id.org/i40/rami#Information">information</span> , <span class="dotted" title="https://w3id.org/i40/rami#Integration">integration</span> }</dd>
-         <dd>{ <a href="#RAMIAssetlayer" title="https://w3id.org/i40/sto#RAMIAssetlayer">RAMI Asset Layer</a> , <a href="#RAMIBusinessLayer" title="https://w3id.org/i40/sto#RAMIBusinessLayer">RAMI Business Layer</a> , <a href="#RAMICommunicationlayer"
-               title="https://w3id.org/i40/sto#RAMICommunicationlayer">RAMI Communication Layer</a> , <a href="#RAMIFunctionalLayer" title="https://w3id.org/i40/sto#RAMIFunctionalLayer">RAMI Functional Layer</a> , <a href="#RAMIInformationLayer" title="https://w3id.org/i40/sto#RAMIInformationLayer">RAMI Information Layer</a> , <a href="#RAMIIntegrationLayer" title="https://w3id.org/i40/sto#RAMIIntegrationLayer">RAMI Integration Layer</a> }</dd>
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1594,36 +1506,318 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="RelevantSubject">
-      <h3>Relevant Subject<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="Standard">
+      <h3>Standard<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#RelevantSubject</p>
-      <div class="comment">
-         <span class="markdown">A subject that is relevant in the context of a standard (IEC standards in specific). As specified in IEC Website .</span>
-      </div>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#Standard</p>
       <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">has Classification</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasTargetConcern" title="https://w3id.org/i40/sto#hasTargetConcern">has Target Concern</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf">is Component Of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#relatedTo" title="https://w3id.org/i40/sto#relatedTo">related To</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#isRelevantFor" title="https://w3id.org/i40/sto#isRelevantFor">is Relevant for</a>
+            <a href="#relatedTo" title="https://w3id.org/i40/sto#relatedTo">related To</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#DIN_77005_P1" title="https://w3id.org/i40/sto#DIN_77005_P1">DIN 77005-1:2018-09</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_50129" title="https://w3id.org/i40/sto#DIN_EN_50129">DIN EN 50129</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_50155" title="https://w3id.org/i40/sto#DIN_EN_50155">DIN EN 50155</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_61511" title="https://w3id.org/i40/sto#DIN_EN_61511">DIN EN 61511</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_2616" title="https://w3id.org/i40/sto#RFC_2616">HTTP/1.1</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7540" title="https://w3id.org/i40/sto#RFC_7540">HTTP/2</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_2818" title="https://w3id.org/i40/sto#RFC_2818">HTTPS</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_50001" title="https://w3id.org/i40/sto#ISO_50001">ISO 50001</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_9000" title="https://w3id.org/i40/sto#ISO_9000">ISO 9000</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_29115" title="https://w3id.org/i40/sto#ISO_29115">ISO/IEC 29115</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_9594" title="https://w3id.org/i40/sto#ISO_9594">ISO/IEC 9594</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_9594-8" title="https://w3id.org/i40/sto#ISO_9594-8">ISO/IEC 9594-8</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7519" title="https://w3id.org/i40/sto#RFC_7519">JSON Web Token</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ODRL" title="https://w3id.org/i40/sto#ODRL">ODRL</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OMG_DDS" title="https://w3id.org/i40/sto#OMG_DDS">OMG DDS</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_1122" title="https://w3id.org/i40/sto#RFC_1122">RFC 1122</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_5246" title="https://w3id.org/i40/sto#RFC_5246">RFC 5246</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_6750" title="https://w3id.org/i40/sto#RFC_6750">RFC 6750</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7252" title="https://w3id.org/i40/sto#RFC_7252">RFC 7252</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7642" title="https://w3id.org/i40/sto#RFC_7642">RFC 7642</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7643" title="https://w3id.org/i40/sto#RFC_7643">RFC 7643</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_7644" title="https://w3id.org/i40/sto#RFC_7644">RFC 7644</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_768" title="https://w3id.org/i40/sto#RFC_768">RFC 768</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RFC_793" title="https://w3id.org/i40/sto#RFC_793">RFC 793</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_50128" title="https://w3id.org/i40/sto#DIN_EN_50128">d i n e n 50128</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_50159" title="https://w3id.org/i40/sto#DIN_EN_50159">d i n e n 50159</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_ISO_13849" title="https://w3id.org/i40/sto#DIN_EN_ISO_13849">d i n e n i s o 13849</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_EN_ISO_IEC_17025" title="https://w3id.org/i40/sto#DIN_EN_ISO_IEC_17025">d i n e n i s o i e c 17025</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_ISO_14638" title="https://w3id.org/i40/sto#DIN_ISO_14638">d i n i s o 14638</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_SPEC_16593_P1" title="https://w3id.org/i40/sto#DIN_SPEC_16593_P1">d i n s p e c 16593 p1</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DIN_SPEC_92222" title="https://w3id.org/i40/sto#DIN_SPEC_92222">d i n s p e c 92222</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_29115" title="https://w3id.org/i40/sto#IEC_29115">i e c 29115</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_61508" title="https://w3id.org/i40/sto#IEC_61508">i e c 61508</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_61511" title="https://w3id.org/i40/sto#IEC_61511">i e c 61511</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_61804_P3" title="https://w3id.org/i40/sto#IEC_61804_P3">i e c 61804 p3</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_61804_P4" title="https://w3id.org/i40/sto#IEC_61804_P4">i e c 61804 p4</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_61804_P5" title="https://w3id.org/i40/sto#IEC_61804_P5">i e c 61804 p5</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_62264_P6" title="https://w3id.org/i40/sto#IEC_62264_P6">i e c 62264 p6</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IEC_62541" title="https://w3id.org/i40/sto#IEC_62541">i e c 62541</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_13485" title="https://w3id.org/i40/sto#ISO_13485">i s o 13485</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_13849" title="https://w3id.org/i40/sto#ISO_13849">i s o 13849</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_19941" title="https://w3id.org/i40/sto#ISO_19941">i s o 19941</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ISO_20140_P1" title="https://w3id.org/i40/sto#ISO_20140_P1">i s o 20140 p1</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="StandardClassification">
+      <h3>Standard Classification<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#StandardClassification</p>
+      <div class="comment">
+         <span class="markdown">Describes categorization areas that the different Standardizations Initiatives use to category Standards.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/i40/rami#AdminShellSubmodel" title="https://w3id.org/i40/rami#AdminShellSubmodel">Admin Shell Sub Model</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AiiClassification" title="https://w3id.org/i40/sto#AiiClassification">Alliance of Industrial Internet Architecture Classification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#BdvaConcern" title="https://w3id.org/i40/sto#BdvaConcern">BDVA Concern</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#BusinessCycleSCM" title="https://w3id.org/i40/sto#BusinessCycleSCM">Business Cycle SCM</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ConnectivityLayer" title="https://w3id.org/i40/sto#ConnectivityLayer">Connectivity Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IicfConnectivityLayer" title="https://w3id.org/i40/sto#IicfConnectivityLayer">Connectivity Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EdgecrossLayer" title="https://w3id.org/i40/sto#EdgecrossLayer">Edgecross Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#FiwareChapter" title="https://w3id.org/i40/sto#FiwareChapter">Fiware Chapter</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IDSRAMLayer" title="https://w3id.org/i40/sto#IDSRAMLayer">IDS RAM Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/ids/ram/Layer" title="https://w3id.org/ids/ram/Layer">IDS RAM Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://w3id.org/ids/ram/Perspective" title="http://w3id.org/ids/ram/Perspective">IDS RAM Perspective</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IdsPerspective" title="https://w3id.org/i40/sto#IdsPerspective">IDS RAM Perspective</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://example.org/iira#CrosscuttingFunction" title="http://example.org/iira#CrosscuttingFunction">IIRA Crosscutting Function</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IIRACrosscuttingFunction"
+               title="https://w3id.org/i40/sto#IIRACrosscuttingFunction">IIRA Crosscutting Function</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://example.org/iira#FunctionalDomain" title="http://example.org/iira#FunctionalDomain">IIRA Functional Domain</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IIRAFunctionalDomain" title="https://w3id.org/i40/sto#IIRAFunctionalDomain">IIRA Functional Domain</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://example.org/iira#SystemCharacteristics" title="http://example.org/iira#SystemCharacteristics">IIRA System Characteristic</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IIRASystemCharacteristics"
+               title="https://w3id.org/i40/sto#IIRASystemCharacteristics">IIRA System Characteristic</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ISA95Level" title="https://w3id.org/i40/sto#ISA95Level">ISA 95 Level</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IviLayer" title="https://w3id.org/i40/sto#IviLayer">IVI Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#IotaPerspective" title="https://w3id.org/i40/sto#IotaPerspective">IoT-A Perspective</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#NGSI_Context_Information_Management_API"
+               title="https://w3id.org/i40/sto#NGSI_Context_Information_Management_API">NGSI Context Information Management API</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#OcfBlock" title="https://w3id.org/i40/sto#OcfBlock">OCF Framework Block</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ProductDevelopmentLifeCycle"
+               title="https://w3id.org/i40/sto#ProductDevelopmentLifeCycle">Product Development Life Cycle</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ProductionSystemLifeCycle"
+               title="https://w3id.org/i40/sto#ProductionSystemLifeCycle">Production System Life Cycle</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/i40/rami#RAMIHierarchyLevel" title="https://w3id.org/i40/rami#RAMIHierarchyLevel">RAMI Hierarchy Level</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/i40/rami#RAMIITLayer" title="https://w3id.org/i40/rami#RAMIITLayer">RAMI IT Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/i40/rami#RAMILifeCycleLayer" title="https://w3id.org/i40/rami#RAMILifeCycleLayer">RAMI Life Cycle Layer RAMI Life Cycle Layer</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Viewpoint" title="https://w3id.org/i40/sto#Viewpoint">Viewpoint</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#xRoadSection" title="https://w3id.org/i40/sto#xRoadSection">x-road Section</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#alignesWith" title="https://w3id.org/i40/sto#alignesWith">alignes With</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/iot#alignsWith" title="https://w3id.org/i40/sto/iot#alignsWith">alignes With</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/iot#frames" title="https://w3id.org/i40/sto/iot#frames">frames</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isDescribedin" title="https://w3id.org/i40/sto#isDescribedin">is Described in</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#alignesWith" title="https://w3id.org/i40/sto#alignesWith">alignes With</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#/iot#alignsWith" title="https://w3id.org/i40/sto/iot#alignsWith">alignes With</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">has Classification</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#AdministrationShell" title="https://w3id.org/i40/sto#AdministrationShell">Administration Shell</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIHeader" title="https://w3id.org/i40/sto#RAMIHeader">Administration Shell Header</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaCloudAndHighPerformanceComputing"
+               title="https://w3id.org/i40/sto#BdvaCloudAndHighPerformanceComputing">BDVA Cloud and High Performance Computing</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaCommunicationConnectivity"
+               title="https://w3id.org/i40/sto#BdvaCommunicationConnectivity">BDVA Communication and Connectivity</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaCyberSecurityTrust" title="https://w3id.org/i40/sto#BdvaCyberSecurityTrust">BDVA Cybersecurity and Trust</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDataAnalytics" title="https://w3id.org/i40/sto#BdvaDataAnalytics">BDVA Data Analytics</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDataManagement" title="https://w3id.org/i40/sto#BdvaDataManagement">BDVA Data Management</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDataProcessingArchitectures"
+               title="https://w3id.org/i40/sto#BdvaDataProcessingArchitectures">BDVA Data Processing Architectures</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDataProtection" title="https://w3id.org/i40/sto#BdvaDataProtection">BDVA Data Protection</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDataSharingPlatforms"
+               title="https://w3id.org/i40/sto#BdvaDataSharingPlatforms">BDVA Data Sharing Platforms</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDevelopmentEngineering"
+               title="https://w3id.org/i40/sto#BdvaDevelopmentEngineering">BDVA Engineering and DevOps</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaThingsAssetsSensorsActuators"
+               title="https://w3id.org/i40/sto#BdvaThingsAssetsSensorsActuators">BDVA IoT CPS and Edge Computing</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaStandards" title="https://w3id.org/i40/sto#BdvaStandards">BDVA Standards</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DtpDeploymentView" title="https://w3id.org/i40/sto#DtpDeploymentView">DTP Deployment</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DtpEcosystemView" title="https://w3id.org/i40/sto#DtpEcosystemView">DTP Ecosystem</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DtpSecurityPrivacy" title="https://w3id.org/i40/sto#DtpSecurityPrivacy">DTP Security &amp; Privacy</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DtpSystemView" title="https://w3id.org/i40/sto#DtpSystemView">DTP System</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DataSovereignty" title="https://w3id.org/i40/sto#DataSovereignty">Data Sovereignty</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaDataVisualizationAndUserInteraction"
+               title="https://w3id.org/i40/sto#BdvaDataVisualizationAndUserInteraction">Data Visualisation and User Interaction</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#EdgecrossEdgeComputingLayer"
+               title="https://w3id.org/i40/sto#EdgecrossEdgeComputingLayer">Edgecross Edgecomputing Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#EdgecrossFacilityLayer" title="https://w3id.org/i40/sto#EdgecrossFacilityLayer">Edgecross FA</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#EdgecrossItSystemsLayer"
+               title="https://w3id.org/i40/sto#EdgecrossItSystemsLayer">Edgecross IT Systems Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#EnergyEfficiency" title="https://w3id.org/i40/sto#EnergyEfficiency">Energy Efficiency</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FiwareAdvancedUi" title="https://w3id.org/i40/sto#FiwareAdvancedUi">FIWARE Advanced Web-based User Interface</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FiwareApplicationsServicesAndDataDelivery"
+               title="https://w3id.org/i40/sto#FiwareApplicationsServicesAndDataDelivery">FIWARE Applications Services and Data Delivery</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FiwareCloudHosting" title="https://w3id.org/i40/sto#FiwareCloudHosting">FIWARE Cloud Hosting</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FiwareDataContextManagement"
+               title="https://w3id.org/i40/sto#FiwareDataContextManagement">FIWARE Data/Context Management</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#InterfaceNetworksDevices"
+               title="https://w3id.org/i40/sto#InterfaceNetworksDevices">FIWARE Interface to Networks and Devices</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FiwareIotServicesEnablement"
+               title="https://w3id.org/i40/sto#FiwareIotServicesEnablement">FIWARE IoT Services Enablement</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FiwareSecurity" title="https://w3id.org/i40/sto#FiwareSecurity">FIWARE Security</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMDataMarket" title="https://w3id.org/i40/sto#IDSRAMDataMarket">IDS Data Market</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMInteroperability" title="https://w3id.org/i40/sto#IDSRAMInteroperability">IDS Interoperability</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMBusinessLayer" title="https://w3id.org/i40/sto#IDSRAMBusinessLayer">IDS RAM Business Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMCertification" title="https://w3id.org/i40/sto#IDSRAMCertification">IDS RAM Certification Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMFunctionalLayer" title="https://w3id.org/i40/sto#IDSRAMFunctionalLayer">IDS RAM Functional Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMGovernance" title="https://w3id.org/i40/sto#IDSRAMGovernance">IDS RAM Governance Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMInformationLayer" title="https://w3id.org/i40/sto#IDSRAMInformationLayer">IDS RAM Information Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMProcessLayer" title="https://w3id.org/i40/sto#IDSRAMProcessLayer">IDS RAM Process Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMSecurity" title="https://w3id.org/i40/sto#IDSRAMSecurity">IDS RAM Security Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMSystemLayer" title="https://w3id.org/i40/sto#IDSRAMSystemLayer">IDS RAM System Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRASecurityFramework" title="https://w3id.org/i40/sto#IIRASecurityFramework">IIC Security Framework</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICVocabulary" title="https://w3id.org/i40/sto#IICVocabulary">IIC Vocabulary</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICFFrameworkLayer" title="https://w3id.org/i40/sto#IICFFrameworkLayer">IICF Framework Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICFLinkLayer" title="https://w3id.org/i40/sto#IICFLinkLayer">IICF Link Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICFNetworkLayer" title="https://w3id.org/i40/sto#IICFNetworkLayer">IICF Network Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICFPhysicalLayer" title="https://w3id.org/i40/sto#IICFPhysicalLayer">IICF Physical Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IICFTansportLayer" title="https://w3id.org/i40/sto#IICFTansportLayer">IICF Transport Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAApplicationDomain" title="https://w3id.org/i40/sto#IIRAApplicationDomain">IIRA Application Domain</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRABusinessDomain" title="https://w3id.org/i40/sto#IIRABusinessDomain">IIRA Business Domain</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRABusinessViewpoint" title="https://w3id.org/i40/sto#IIRABusinessViewpoint">IIRA Business Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAConnectivity" title="https://w3id.org/i40/sto#IIRAConnectivity">IIRA Connectivity</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAControlDomain" title="https://w3id.org/i40/sto#IIRAControlDomain">IIRA Control Domain</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRADistributedDataManagement"
+               title="https://w3id.org/i40/sto#IIRADistributedDataManagement">IIRA Distributed Data Management</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAFunctionalViewpoint"
+               title="https://w3id.org/i40/sto#IIRAFunctionalViewpoint">IIRA Functional Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAImplementationViewpoint"
+               title="https://w3id.org/i40/sto#IIRAImplementationViewpoint">IIRA Implementation Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAInformationDomain" title="https://w3id.org/i40/sto#IIRAInformationDomain">IIRA Information Domain</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAIntelligentAndResilientControl"
+               title="https://w3id.org/i40/sto#IIRAIntelligentAndResilientControl">IIRA Intelligent and Resilient Control</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAOperationsDomain" title="https://w3id.org/i40/sto#IIRAOperationsDomain">IIRA Operation Domain</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAPhysicalSystems" title="https://w3id.org/i40/sto#IIRAPhysicalSystems">IIRA Physical Systems</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAPrivacy" title="https://w3id.org/i40/sto#IIRAPrivacy">IIRA Privacy</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAReliability" title="https://w3id.org/i40/sto#IIRAReliability">IIRA Reliability</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAResilience" title="https://w3id.org/i40/sto#IIRAResilience">IIRA Resilience</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRASafety" title="https://w3id.org/i40/sto#IIRASafety">IIRA Safety</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAScalability" title="https://w3id.org/i40/sto#IIRAScalability">IIRA Scalability</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRASecurity" title="https://w3id.org/i40/sto#IIRASecurity">IIRA Security</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAUsageViewpoint" title="https://w3id.org/i40/sto#IIRAUsageViewpoint">IIRA Usage Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviActivityLayer" title="https://w3id.org/i40/sto#IviActivityLayer">IVI Activity Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviActivityView" title="https://w3id.org/i40/sto#IviActivityView">IVI Activity View</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviAssetView" title="https://w3id.org/i40/sto#IviAssetView">IVI Asset View</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviBusinessLayer" title="https://w3id.org/i40/sto#IviBusinessLayer">IVI Business Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviManagementView" title="https://w3id.org/i40/sto#IviManagementView">IVI Management View</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IviSpecificationLayer" title="https://w3id.org/i40/sto#IviSpecificationLayer">IVI Specification Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Identification" title="https://w3id.org/i40/sto#Identification">Identification</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaAvailabilityResilience"
+               title="https://w3id.org/i40/sto#IotaAvailabilityResilience">IoT-A Availability and Resilience</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaDeploymentOperationViewpoint"
+               title="https://w3id.org/i40/sto#IotaDeploymentOperationViewpoint">IoT-A Deployment and Operation</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaEvolutionInteroperability"
+               title="https://w3id.org/i40/sto#IotaEvolutionInteroperability">IoT-A Evolution and Interoperability</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaFunctionalViewpoint"
+               title="https://w3id.org/i40/sto#IotaFunctionalViewpoint">IoT-A Functional Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaInformationViewpoint"
+               title="https://w3id.org/i40/sto#IotaInformationViewpoint">IoT-A Information Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaPerformanceScalability"
+               title="https://w3id.org/i40/sto#IotaPerformanceScalability">IoT-A Performance and Scalability</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaTrustSecurityPrivacy"
+               title="https://w3id.org/i40/sto#IotaTrustSecurityPrivacy">IoT-A Trust Security and Privacy</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#NgsiLdApiOperation" title="https://w3id.org/i40/sto#NgsiLdApiOperation">NGSI-LD API Operation</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#NgsiLdArchitecture" title="https://w3id.org/i40/sto#NgsiLdArchitecture">NGSI-LD Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#NgsiLdDataRepresentation"
+               title="https://w3id.org/i40/sto#NgsiLdDataRepresentation">NGSI-LD Data Representation</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#NgsiLdInformationModel"
+               title="https://w3id.org/i40/sto#NgsiLdInformationModel">NGSI-LD Information Model</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OceanBusinessViewpoint"
+               title="https://w3id.org/i40/sto#OceanBusinessViewpoint">Ocean Protocol Business Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OceanMarketplaceViewpoint"
+               title="https://w3id.org/i40/sto#OceanMarketplaceViewpoint">Ocean Protocol Marketplace Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OceanSystemViewpoint" title="https://w3id.org/i40/sto#OceanSystemViewpoint">Ocean Protocol System Viewpoint</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAAgilityPillar" title="https://w3id.org/i40/sto#OFRAAgilityPillar">OpenFog Agility Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAAutonomyPillar" title="https://w3id.org/i40/sto#OFRAAutonomyPillar">OpenFog AutonomyPillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRADataAnalyticsAndControlPerspective"
+               title="https://w3id.org/i40/sto#OFRADataAnalyticsAndControlPerspective">OpenFog Data Analytics and Control Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAHierarchyPillar" title="https://w3id.org/i40/sto#OFRAHierarchyPillar">OpenFog Hierarchy Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAItBusinessAndCrossFogApplicationsPerspective"
+               title="https://w3id.org/i40/sto#OFRAItBusinessAndCrossFogApplicationsPerspective">OpenFog IT Business and Cross-fog Applications Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAManageabilityPerspective"
+               title="https://w3id.org/i40/sto#OFRAManageabilityPerspective">OpenFog Manageability Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAOpennessPillar" title="https://w3id.org/i40/sto#OFRAOpennessPillar">OpenFog Opennes Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAProgrammabilityPillar"
+               title="https://w3id.org/i40/sto#OFRAProgrammabilityPillar">OpenFog Programmability Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRA_RASPillar" title="https://w3id.org/i40/sto#OFRA_RASPillar">OpenFog RAS Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAScalabilityPillar" title="https://w3id.org/i40/sto#OFRAScalabilityPillar">OpenFog Scalability Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRASecurityPerspective"
+               title="https://w3id.org/i40/sto#OFRASecurityPerspective">OpenFog Security Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRASecurityPillar" title="https://w3id.org/i40/sto#OFRASecurityPillar">OpenFog Security Pillar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OFRAPerformancePerspective"
+               title="https://w3id.org/i40/sto#OFRAPerformancePerspective">Performance and Scale Perspective</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIAssetlayer" title="https://w3id.org/i40/sto#RAMIAssetlayer">RAMI Asset Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIBusinessLayer" title="https://w3id.org/i40/sto#RAMIBusinessLayer">RAMI Business Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMICommunicationlayer"
+               title="https://w3id.org/i40/sto#RAMICommunicationlayer">RAMI Communication Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIFunctionalLayer" title="https://w3id.org/i40/sto#RAMIFunctionalLayer">RAMI Functional Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIInformationLayer" title="https://w3id.org/i40/sto#RAMIInformationLayer">RAMI Information Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIIntegrationLayer" title="https://w3id.org/i40/sto#RAMIIntegrationLayer">RAMI Integration Layer</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Communication" title="https://w3id.org/i40/sto#Communication">communication</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRAIndustrialAnalytics"
+               title="https://w3id.org/i40/sto#IIRAIndustrialAnalytics">i i r a industrial analytics</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIFieldDevice" title="https://w3id.org/i40/sto#RAMIFieldDevice">r a m i field device</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIProduct" title="https://w3id.org/i40/sto#RAMIProduct">r a m i product</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#xRoadDeploymentView" title="https://w3id.org/i40/sto#xRoadDeploymentView">x-road Deplyoment View</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#xRoadProtocolsInterfaces"
+               title="https://w3id.org/i40/sto#xRoadProtocolsInterfaces">x-road Protocols and Interfaces</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#xRoadSystemComponents" title="https://w3id.org/i40/sto#xRoadSystemComponents">x-road System Components</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#xRoadTechnologyMatrix" title="https://w3id.org/i40/sto#xRoadTechnologyMatrix">x-road Technology Matrix</a>
+            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="StandardOrganization">
-      <h3>standard organization<sup class="type-c" title="class">c</sup>
+      <h3>StandardOrganization<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#StandardOrganization</p>
+      <div class="comment">
+         <span class="markdown">Define the standards organizations that develop and publish industry standards</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
@@ -1670,8 +1864,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-            <sup class="type-c" title="class">c</sup>
+            <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
          </dd>
          <dt>is in domain of</dt>
          <dd>
@@ -1680,28 +1873,59 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          </dd>
       </dl>
    </div>
-   <div class="entity" id="TechnicalCommittee">
-      <h3>technical committee<sup class="type-c" title="class">c</sup>
+   <div class="entity" id="StandardizationFramework">
+      <h3>Standarization Framework<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#TechnicalCommittee</p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#StandardizationFramework</p>
+      <div class="comment">
+         <span class="markdown">Describes existings Standardizations Initiatives, e.g, RAMI, NIST.</span>
+      </div>
       <dl class="description">
-         <dt>has super-classes</dt>
+         <dt>has sub-classes</dt>
          <dd>
-            <span class="dotted" title="http://xmlns.com/foaf/0.1/Organization">organization</span>
+            <a href="#ArchitectureDescription"
+               title="https://w3id.org/i40/sto#ArchitectureDescription">Architecture Description</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasTechnicalCommittee" title="https://w3id.org/i40/sto#hasTechnicalCommittee">has Technical Committee</a>
+            <a href="#isDescribedin" title="https://w3id.org/i40/sto#isDescribedin">is Described in</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#AdministrationShell" title="https://w3id.org/i40/sto#AdministrationShell">Administration Shell</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#RAMIHeader" title="https://w3id.org/i40/sto#RAMIHeader">Administration Shell Header</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ArrowheadFramework" title="https://w3id.org/i40/sto#ArrowheadFramework">Arrowhead Framework</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#BdvaSira" title="https://w3id.org/i40/sto#BdvaSira">BDVA SIRA</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DmaArchitecture" title="https://w3id.org/i40/sto#DmaArchitecture">DMA Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DmaServiceTechnologySpecificationAndDevelopmentRoadmap"
+               title="https://w3id.org/i40/sto#DmaServiceTechnologySpecificationAndDevelopmentRoadmap">DMA Service Technology Specification and Development Roadmap</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#DtpArchitecture" title="https://w3id.org/i40/sto#DtpArchitecture">Data Transfer Project Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#EdgecrossArchitecture" title="https://w3id.org/i40/sto#EdgecrossArchitecture">Edgecross Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#FIWARE" title="https://w3id.org/i40/sto#FIWARE">FIWARE Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IDSRAMReferenceArchitectureModel"
+               title="https://w3id.org/i40/sto#IDSRAMReferenceArchitectureModel">IDS RAM</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRC" title="https://w3id.org/i40/sto#IIRC">IICF</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IIRA" title="https://w3id.org/i40/sto#IIRA">Industrial Internet Reference Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IVRA" title="https://w3id.org/i40/sto#IVRA">Industrial Value Chain Reference Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IotaReferenceArchitecture"
+               title="https://w3id.org/i40/sto#IotaReferenceArchitecture">IoT-A Reference Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OcfFramework" title="https://w3id.org/i40/sto#OcfFramework">OCF Framework</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OceanProtocol" title="https://w3id.org/i40/sto#OceanProtocol">Ocean Protocol</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OpenFogReferenceArchitecture"
+               title="https://w3id.org/i40/sto#OpenFogReferenceArchitecture">OpenFog Reference Architecture</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#IndustrialDataSpace" title="https://w3id.org/i40/sto#IndustrialDataSpace">industrial data space</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#xTee" title="https://w3id.org/i40/sto#xTee">x-Tee</a>
+            <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="TechnicalReport">
-      <h3>technical report<sup class="type-c" title="class">c</sup>
+      <h3>Technical Report<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -1710,8 +1934,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-            <sup class="type-c" title="class">c</sup>
+            <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
          </dd>
          <dt>has members</dt>
          <dd>
@@ -1722,7 +1945,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </dl>
    </div>
    <div class="entity" id="TechnicalSpecification">
-      <h3>technical specification<sup class="type-c" title="class">c</sup>
+      <h3>Technical Specification<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -1731,8 +1954,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-            <sup class="type-c" title="class">c</sup>
+            <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
          </dd>
          <dt>has members</dt>
          <dd>
@@ -1776,21 +1998,15 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#Technology</p>
+      <div class="comment">
+         <span class="markdown">A Technology is an implementation of one or many standards in order to achieve a goal.</span>
+      </div>
       <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
          <dt>has members</dt>
          <dd>
             <a href="#TrustedConnector" title="https://w3id.org/i40/sto#TrustedConnector">IDS Trusted Connector</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/ids/core/TrustedConnector" title="https://w3id.org/ids/core/TrustedConnector">Trusted Connector</a>
             <sup class="type-ni" title="named individual">ni</sup>
-         </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#Technology">named individual</a>
          </dd>
       </dl>
    </div>
@@ -1801,11 +2017,19 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#Viewpoint</p>
+      <div class="comment">
+         <span class="markdown">ISO 42010 definition of a Viewpoint</span>
+      </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#frames" title="https://w3id.org/i40/sto#frames">frames</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>has members</dt>
          <dd>
@@ -1854,7 +2078,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+            <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has members</dt>
@@ -1866,73 +2090,62 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#xRoadTechnologyMatrix" title="https://w3id.org/i40/sto#xRoadTechnologyMatrix">x-road Technology Matrix</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
-         <dt>is also defined as</dt>
-         <dd>
-            <a href="#xRoadSection">named individual</a>
-         </dd>
       </dl>
    </div>
 </div><div id="objectproperties">
    <h3 id="properties" class="list">Object Properties</h3>
    <ul class="hlist">
       <li>
+         <a href="#alignesWith" title="https://w3id.org/i40/sto#alignesWith">alignes With</a>
+      </li>
+      <li>
          <a href="#/iot#alignsWith" title="https://w3id.org/i40/sto/iot#alignsWith">alignes With</a>
       </li>
       <li>
-         <a href="#belongsTo" title="https://w3id.org/i40/sto#belongsTo">
-            <span>belongs To</span>
-         </a>
+         <a href="#belongsTo" title="https://w3id.org/i40/sto#belongsTo">belongs To</a>
       </li>
       <li>
-         <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
-            <span>creator</span>
-         </a>
+         <a href="#frames" title="https://w3id.org/i40/sto#frames">frames</a>
       </li>
       <li>
          <a href="#/iot#frames" title="https://w3id.org/i40/sto/iot#frames">frames</a>
       </li>
       <li>
-         <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">
-            <span>has Classification</span>
+         <a href="#hasAvailableLanguage" title="https://w3id.org/i40/sto#hasAvailableLanguage">has Available Language</a>
+      </li>
+      <li>
+         <a href="#hasClassification" title="https://w3id.org/i40/sto#hasClassification">has Classification</a>
+      </li>
+      <li>
+         <a href="#hasDeveloper" title="https://w3id.org/i40/sto#hasDeveloper">has Developer</a>
+      </li>
+      <li>
+         <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">
+            <span>has domain</span>
          </a>
       </li>
       <li>
-         <a href="#hasDeveloper" title="https://w3id.org/i40/sto#hasDeveloper">
-            <span>has Developer</span>
-         </a>
+         <a href="#hasFileSize" title="https://w3id.org/i40/sto#hasFileSize">has File Size</a>
       </li>
       <li>
-         <a href="#hasDimension" title="https://w3id.org/i40/sto#hasDimension">has Dimension</a>
-      </li>
-      <li>
-         <a href="#hasDimensionLayer" title="https://w3id.org/i40/sto#hasDimensionLayer">has Dimension Layer</a>
-      </li>
-      <li>
-         <a href="#hasDomain" title="https://w3id.org/i40/sto#hasDomain">has Domain</a>
-      </li>
-      <li>
-         <a href="#hasFileSize" title="https://w3id.org/i40/sto#hasFileSize">
-            <span>has File Size</span>
-         </a>
-      </li>
-      <li>
-         <a href="#hasHeadquaterIn" title="https://w3id.org/i40/sto#hasHeadquaterIn">
-            <span>has Headquater In</span>
-         </a>
+         <a href="#hasHeadquaterIn" title="https://w3id.org/i40/sto#hasHeadquaterIn">has Headquater In</a>
       </li>
       <li>
          <a href="#hasICS" title="https://w3id.org/i40/sto#hasICS">has ICS</a>
       </li>
       <li>
-         <a href="#hasLayer" title="https://w3id.org/i40/sto#hasLayer">has Layer</a>
+         <a href="#hasMotivation" title="https://w3id.org/i40/sto#hasMotivation">
+            <span>has motivation</span>
+         </a>
       </li>
       <li>
          <a href="#hasPreviousVersion" title="https://w3id.org/i40/sto#hasPreviousVersion">has Previous Version</a>
       </li>
       <li>
-         <a href="#hasPublisher" title="https://w3id.org/i40/sto#hasPublisher">
-            <span>has Publisher</span>
-         </a>
+         <a href="#hasPublisher" title="https://w3id.org/i40/sto#hasPublisher">has Publisher</a>
+      </li>
+      <li>
+         <a href="#hasTargetConcern" title="https://w3id.org/i40/sto#hasTargetConcern">has Target Concern</a>
       </li>
       <li>
          <a href="#/iot#hasTargetConcern" title="https://w3id.org/i40/sto/iot#hasTargetConcern">
@@ -1947,12 +2160,6 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             title="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit">has unit</a>
       </li>
       <li>
-         <a href="#hasAvailableLanguage" title="https://w3id.org/i40/sto#hasAvailableLanguage">hasAvailableLanguage</a>
-      </li>
-      <li>
-         <a href="#identifies" title="https://w3id.org/i40/sto#identifies">identifies</a>
-      </li>
-      <li>
          <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf"
             title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf">is Component Of</a>
       </li>
@@ -1960,20 +2167,11 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <a href="#isDescribedin" title="https://w3id.org/i40/sto#isDescribedin">is Described in</a>
       </li>
       <li>
-         <a href="#isImplementationOf" title="https://w3id.org/i40/sto#isImplementationOf">
-            <span>is Implementation Of</span>
-         </a>
+         <a href="#isImplementationOf" title="https://w3id.org/i40/sto#isImplementationOf">is Implementation Of</a>
       </li>
       <li>
          <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf"
             title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf">is member of</a>
-      </li>
-      <li>
-         <a href="#isRelevantFor" title="https://w3id.org/i40/sto#isRelevantFor">is Relevant for</a>
-      </li>
-      <li>
-         <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
-            title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">isPartOf</a>
       </li>
       <li>
          <a href="#relatedTo" title="https://w3id.org/i40/sto#relatedTo">related To</a>
@@ -1991,6 +2189,39 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">was Generated By</a>
       </li>
    </ul>
+   <div class="entity" id="alignesWith">
+      <h3>alignes With<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#alignesWith</p>
+      <div class="comment">
+         <span class="markdown">indicates that some Standard Classification entity has a similar scope as another. This property most probably is symmetric but not transitive.</span>
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> symmetric</p>
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted"
+                     title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith">associated with</span>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="/iot#alignsWith">
       <h3>alignes With<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -2013,12 +2244,12 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2037,11 +2268,14 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#belongsTo</p>
+      <div class="comment">
+         <span class="markdown">A Standard Organization that belongs to the country</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">standard organization</a>
+               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -2052,19 +2286,33 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://purl.org/dc/terms/creator">
-      <h3>creator<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="frames">
+      <h3>frames<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#frames</p>
+      <div class="comment">
+         <span class="markdown">A relation specifying that a vewpoint regards a Concern.</span>
+      </div>
       <div class="description">
          <dl>
-            <dt>has equivalent properties</dt>
+            <dt>has super-properties</dt>
             <dd>
-               <span class="dotted" title="http://xmlns.com/foaf/0.1/maker">maker</span>
+               <span class="dotted"
+                     title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith">associated with</span>
                <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Viewpoint" title="https://w3id.org/i40/sto#Viewpoint">Viewpoint</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="https://w3id.org/i40/sto#Concern">Concern</span>
+               <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
@@ -2089,12 +2337,42 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <span class="dotted" title="https://w3id.org/i40/sto#Concern">Concern</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasAvailableLanguage">
+      <h3>has Available Language<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#hasAvailableLanguage</p>
+      <div class="comment">
+         <span class="markdown">Languages in which the document of the Standard is available, e.g., English, French, Spanish</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://purl.org/dc/terms/language">language</span>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted" title="http://xmlns.com/foaf/0.1/Document">document</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://purl.org/dc/terms/LinguisticSystem">linguistic system</span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2107,16 +2385,19 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasClassification</p>
+      <div class="comment">
+         <span class="markdown">An Standard is isCategorizedBy a given Categorization Area which is connected to a specific Standarization Initiative</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2129,6 +2410,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasDeveloper</p>
+      <div class="comment">
+         <span class="markdown">The organization that developed this Standard</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has super-properties</dt>
@@ -2138,84 +2422,28 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">standard organization</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasDimension">
-      <h3>has Dimension<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#hasDimension</p>
-      <div class="comment">
-         <span class="markdown">Links the Standardization Frameworks with the Dimensions.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <span class="dotted"
-                     title="https://w3id.org/i40/sto#StandardizationFramework">standardization framework</span>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#Dimension" title="https://w3id.org/i40/sto#Dimension">Dimension</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasDimensionLayer">
-      <h3>has Dimension Layer<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#hasDimensionLayer</p>
-      <div class="comment">
-         <span class="markdown">Links the Dimensions with Layers.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#Dimension" title="https://w3id.org/i40/sto#Dimension">Dimension</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#Layer" title="https://w3id.org/i40/sto#Layer">Layer</a>
+               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasDomain">
-      <h3>has Domain<sup class="type-op" title="object property">op</sup>
+      <h3>has domain<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasDomain</p>
-      <div class="comment">
-         <span class="markdown">Describes the domain, in which the Publication is used, particularly, standards.</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -2232,6 +2460,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasFileSize</p>
+      <div class="comment">
+         <span class="markdown">The size of document file in some unit, e.g., 104 Kilobyte.</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
@@ -2255,11 +2486,14 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasHeadquaterIn</p>
+      <div class="comment">
+         <span class="markdown">Denotes the countries in which the Headquarter of the organization who publishes the Standart</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">standard organization</a>
+               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -2284,8 +2518,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -2295,27 +2528,22 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          </dl>
       </div>
    </div>
-   <div class="entity" id="hasLayer">
-      <h3>has Layer<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="hasMotivation">
+      <h3>has motivation<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#hasLayer</p>
-      <div class="comment">
-         <span class="markdown">Links the Standardization Frameworks with the Layers </span>
-      </div>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#hasMotivation</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted"
-                     title="https://w3id.org/i40/sto#StandardizationFramework">standardization framework</span>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#Layer" title="https://w3id.org/i40/sto#Layer">Layer</a>
+               <span class="dotted" title="http://purl.org/spar/deo/Motivation">motivation</span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2348,6 +2576,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasPublisher</p>
+      <div class="comment">
+         <span class="markdown">The organization that published this Standard</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has super-properties</dt>
@@ -2357,12 +2588,42 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasTargetConcern">
+      <h3>has Target Concern<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#hasTargetConcern</p>
+      <div class="comment">
+         <span class="markdown">The relation declaring that a standard is relevant or targets a certain concern.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted"
+                     title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith">associated with</span>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">standard organization</a>
+               <span class="dotted" title="https://w3id.org/i40/sto#Concern">Concern</span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2385,10 +2646,11 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#Standard">standard</span> 
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
+               <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <span class="dotted"
-                     title="https://w3id.org/i40/sto#StandardizationFramework">standardization framework</span>
+               <a href="#StandardizationFramework"
+                  title="https://w3id.org/i40/sto#StandardizationFramework">Standarization Framework</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is also defined as</dt>
@@ -2412,13 +2674,11 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#TechnicalCommittee" title="https://w3id.org/i40/sto#TechnicalCommittee">technical committee</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#TechnicalCommittee">technical committee</span>
             </dd>
          </dl>
       </div>
@@ -2432,62 +2692,15 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit</p>
       <div class="description">
          <dl>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted" title="http://org.semanticweb.owlapi/error#Error1">error1</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
             <dt>has range</dt>
             <dd>
                <span class="dotted"
                      title="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit">unit</span>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasAvailableLanguage">
-      <h3>hasAvailableLanguage<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#hasAvailableLanguage</p>
-      <div class="comment">
-         <span class="markdown">Languages in which the document of the Standard is available, e.g., English, French, Spanish</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <span class="dotted" title="http://purl.org/dc/terms/language">language</span>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <span class="dotted" title="http://xmlns.com/foaf/0.1/Document">document</span>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://purl.org/dc/terms/LinguisticSystem">linguistic system</span>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="identifies">
-      <h3>identifies<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#identifies</p>
-      <div class="comment">
-         <span class="markdown">ISO 42010 relation between an architecture description on the on hand and stakeholders and concerns on the other.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <span class="dotted"
-                     title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith">associated with</span>
-               <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>
       </div>
@@ -2517,11 +2730,13 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#Standard">standard</span>
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#Standard">standard</span> 
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
+               <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
                <a href="#StandardPart" title="https://w3id.org/i40/sto#StandardPart">StandardPart</a>
                <sup class="type-c" title="class">c</sup>
@@ -2543,13 +2758,13 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#StandardClassification">standard classification</span>
+               <a href="#StandardClassification" title="https://w3id.org/i40/sto#StandardClassification">Standard Classification</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted"
-                     title="https://w3id.org/i40/sto#StandardizationFramework">standardization framework</span>
+               <a href="#StandardizationFramework"
+                  title="https://w3id.org/i40/sto#StandardizationFramework">Standarization Framework</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2562,6 +2777,9 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#isImplementationOf</p>
+      <div class="comment">
+         <span class="markdown">Represent the relation that connects two standards when standard A is the implementation of standard B, e.g., B2MML isImplementationOf ISA-95.</span>
+      </div>
       <div class="description">
          <dl>
             <dt>has super-properties</dt>
@@ -2596,46 +2814,18 @@ Note: It is important to distinguish the Reference Architecture from a Reference
                      title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith">associated with</span>
                <sup class="type-op" title="object property">op</sup>
             </dd>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted"
+                     title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity">entity</span>
+            </dd>
             <dt>has range</dt>
             <dd>
                <span class="dotted"
                      title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection">collection</span>
-               <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
-   </div>
-   <div class="entity" id="isRelevantFor">
-      <h3>is Relevant for<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#isRelevantFor</p>
-      <div class="comment">
-         <span class="markdown">An Standard is concerned with Relevant Subjects</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#Standard">standard</span>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#RelevantSubject" title="https://w3id.org/i40/sto#RelevantSubject">Relevant Subject</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">
-      <h3>isPartOf<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf</p>
    </div>
    <div class="entity" id="relatedTo">
       <h3>related To<sup class="type-op" title="object property">op</sup>
@@ -2645,7 +2835,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#relatedTo</p>
       <div class="comment">
-         <span class="markdown">General property to represent any type of relation that connects two standards.</span>
+         <span class="markdown">Represent any type of relation that connects two standards.</span>
       </div>
       <div class="description">
          <p>
@@ -2664,17 +2854,13 @@ Note: It is important to distinguish the Reference Architecture from a Reference
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#Standard">standard</span>
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="https://w3id.org/i40/sto#Standard">standard</span>
-            </dd>
-            <dt>is inverse of</dt>
-            <dd>
-               <a href="#relatedTo" title="https://w3id.org/i40/sto#relatedTo">related To</a>
-               <sup class="type-op" title="object property">op</sup>, <a href="#relatedTo" title="https://w3id.org/i40/sto#relatedTo">related To</a>
-               <sup class="type-op" title="object property">op</sup>
+               <a href="#Standard" title="https://w3id.org/i40/sto#Standard">Standard</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
@@ -2756,9 +2942,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
-         <dd>
-            <a href="https://www.w3.org/TR/prov-o/#wasGeneratedBy">https://www.w3.org/TR/prov-o/#wasGeneratedBy</a>
-         </dd>
+         <dd>https://w3id.org/i40/sto</dd>
       </dl>
       <div class="description">
          <dl>
@@ -2798,16 +2982,11 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </li>
       <li>
          <a href="#hasOfficialResource" title="https://w3id.org/i40/sto#hasOfficialResource">
-            <span>has Official Resource</span>
+            <span>has official resource</span>
          </a>
       </li>
       <li>
          <a href="#hasOntology" title="https://w3id.org/i40/sto#hasOntology">has Ontology</a>
-      </li>
-      <li>
-         <a href="#hasOpenResource" title="https://w3id.org/i40/sto#hasOpenResource">
-            <span>has Open Resource</span>
-         </a>
       </li>
       <li>
          <a href="#hasPages" title="https://w3id.org/i40/sto#hasPages">has Pages</a>
@@ -2819,7 +2998,12 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <a href="#hasStabilityDate" title="https://w3id.org/i40/sto#hasStabilityDate">has Stability Date</a>
       </li>
       <li>
-         <a href="#hasTag" title="https://w3id.org/i40/sto#hasTag">has Tag</a>
+         <a href="#hasStatus" title="https://w3id.org/i40/sto#hasStatus">has Status</a>
+      </li>
+      <li>
+         <a href="#hasTag" title="https://w3id.org/i40/sto#hasTag">
+            <span>has tag</span>
+         </a>
       </li>
       <li>
          <a href="#hasTask" title="https://w3id.org/i40/sto#hasTask">has Task</a>
@@ -2839,10 +3023,15 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#abbreviation</p>
       <div class="comment">
-         <span class="markdown">Abbreviated name of the thing.</span>
+         <span class="markdown">Abbreviated  name of the thing.</span>
       </div>
       <div class="description">
          <dl>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2002/07/owl#Thing">thing</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
             <dt>has range</dt>
             <dd>
                <span class="dotted"
@@ -2916,7 +3105,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">standard organization</a>
+               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -2940,8 +3129,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -2957,6 +3145,16 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </h3>
       <p>
          <strong>IRI:</strong> http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue</p>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted"
+                     title="_:genid-nodeid-genid-ee1c92f45151491f919ec9899b0eb2e4-6780A905CC831CAB4C4E310C38E6329A">_:genid-nodeid-genid-ee1c92f45151491f919ec9899b0eb2e4-6780A905CC831CAB4C4E310C38E6329A</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
    </div>
    <div class="entity" id="hasObjective">
       <h3>has Objective<sup class="type-dp" title="data property">dp</sup>
@@ -2983,7 +3181,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
       </div>
    </div>
    <div class="entity" id="hasOfficialResource">
-      <h3>has Official Resource<sup class="type-dp" title="data property">dp</sup>
+      <h3>has official resource<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
@@ -2993,8 +3191,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -3017,29 +3214,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#anyURI">any u r i</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasOpenResource">
-      <h3>has Open Resource<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/i40/sto#hasOpenResource</p>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -3086,8 +3261,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -3110,8 +3284,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Publication" title="https://w3id.org/i40/sto#Publication">Publication</a>
-               <sup class="type-c" title="class">c</sup>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
             </dd>
             <dt>has range</dt>
             <dd>
@@ -3120,16 +3293,36 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          </dl>
       </div>
    </div>
+   <div class="entity" id="hasStatus">
+      <h3>has Status<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/i40/sto#hasStatus</p>
+      <div class="comment">
+         <span class="markdown">Publication status of the Standard, e.g., Valid, Revised, Published, under preparation, Released</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted" title="https://w3id.org/i40/sto#Publication">Publication</span>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="hasTag">
-      <h3>has Tag<sup class="type-dp" title="data property">dp</sup>
+      <h3>has tag<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/i40/sto#hasTag</p>
-      <div class="comment">
-         <span class="markdown">Points to the identification of the standards</span>
-      </div>
       <div class="description">
          <dl>
             <dt>has range</dt>
@@ -3180,7 +3373,7 @@ Note: It is important to distinguish the Reference Architecture from a Reference
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">standard organization</a>
+               <a href="#StandardOrganization" title="https://w3id.org/i40/sto#StandardOrganization">StandardOrganization</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
