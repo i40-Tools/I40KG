@@ -663,10 +663,11 @@ sto:hasPages rdf:type owl:DatatypeProperty,
 
 
 ###  https://w3id.org/i40/sto#hasPublicationDate
-sto:hasPublicationDate rdf:type owl:DatatypeProperty,
-                           owl:FunctionalProperty ;
+sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
+                           # owl:FunctionalProperty ;
                        rdfs:domain sto:Publication ;
                        rdfs:range xsd:date ;
+                       skos:note "sebastian: Can not be functional as long we connect standards from different organizations (e.g. IEC and DIN) with owl:sameAs. That leads to different publication dates for their respective documents, which is inconsistent with sameAs and a functional property at both instances."@en ;
                        rdfs:comment "Publication date of the Publication"@en ;
                        rdfs:label "has Publication Date"@en .
 
