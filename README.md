@@ -5,6 +5,9 @@ are described and these descriptions are exploited for classifying standards fro
 to reference architectures development in different countries. Moreover, semantics encoded in the Standard Ontology allows for the discovery of relations between I4.0 standards, and
 for mappings across reference architectures proposed by different industrial communities such as RAMI, NIST, etc.
 
+# Documentaion 
+<a href="https://i40-tools.github.io/I40KG/">https://i40-tools.github.io/I40KG/</a> provides the ontology documentation.
+
 # Reused Vocabularies
 To build the Standard Ontology, as well as to populate it we have reused the following vocabularies<br/>
 <a href="http://xmlns.com/foaf/spec/">foaf</a>, <a href="https://www.w3.org/TR/vcard-rdf/">vcard</a>, <a href="http://dublincore.org/documents/dcmi-terms/">purl&dcterms</a>, <a href="https://schema.org/docs/about.html">schema.org</a>, <a href="http://dbpedia.org/ontology/">dbpedia</a>, <a href="https://creativecommons.org/ns">cc</a>, <a href="http://www.geonames.org/ontology/documentation.html">geonames</a>, <a href="https://en.wikipedia.org/wiki/Persistent_uniform_resource_locator">purl</a>.
