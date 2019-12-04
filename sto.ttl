@@ -27,7 +27,8 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
+@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .  
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @base <https://w3id.org/i40/sto#> .
 
 <https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
@@ -666,10 +667,11 @@ sto:hasPages rdf:type owl:DatatypeProperty,
 
 
 ###  https://w3id.org/i40/sto#hasPublicationDate
-sto:hasPublicationDate rdf:type owl:DatatypeProperty,
-                           owl:FunctionalProperty ;
+sto:hasPublicationDate rdf:type owl:DatatypeProperty ;
+                           # owl:FunctionalProperty ;
                        rdfs:domain sto:Publication ;
                        rdfs:range xsd:date ;
+                       skos:note "sebastian: Can not be functional as long we connect standards from different organizations (e.g. IEC and DIN) with owl:sameAs. That leads to different publication dates for their respective documents, which is inconsistent with sameAs and a functional property at both instances."@en ;
                        rdfs:comment "Publication date of the Publication"@en ;
                        rdfs:label "has Publication Date"@en .
 
