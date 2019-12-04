@@ -1,18 +1,20 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix oa: <https://www.w3.org/ns/oa> .
-@prefix dbo: <http://dbpedia.org/ontology#> .
-@prefix dbr: <http://dbpedia.org/resource#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix deo: <http://purl.org/spar/deo/> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
 @prefix geo: <http://www.geonames.org/ontology#> .
-@prefix ids: <https://w3id.org/ids/core/> .
 @prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix sto: <https://w3id.org/i40/sto#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lvont:<http://lexvo.org/ontology> .
@@ -21,25 +23,19 @@
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rami: <https://w3id.org/i40/rami#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix schema: <http://schema.org/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .  
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@base <https://w3id.org/i40/sto#> .
+@prefix sto: <https://w3id.org/i40/sto#> .
+@prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
 
-<https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
+<https://w3id.org/i40/sto/> rdf:type owl:Ontology ;
                             dcterms:modified "2017-09-08"^^xsd:date ,
-                                             "2019-01-23"^^xsd:date ;
+                                             "2019-01-23"^^xsd:date ,                                        
+                                             "2019-01-23"^^xsd:date ,
+                                             "2019-12-04"^^xsd:date ;     
                             void:sparqlEndpoint <https://dydra.com/mtasnim/stoviz/sparql>;
                             void:dataDump <https://dydra.com/mtasnim/stoviz.ttl>;
-                            vann:preferredNamespaceUri "https://w3id.org/i40/sto/" ;
-                            owl:versionInfo "0.4" ;
+                            owl:versionInfo "0.9" ;
                             rdfs:label "Industry 4.0 Knowledge Graph"@en ;
-                            dcterms:title "Standards Ontology"@en ;
+                            dcterms:title "Industry 4.0 Knowledge Graph"@en ;
                             rdfs:comment "A Knowledge Graph to describe standards and standardization frameworks related to Industry 4.0 and Smart Manufacturing"@en ;
                             dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                             dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
@@ -63,32 +59,32 @@ cc:attributionURL rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/date
-dce:date rdf:type owl:AnnotationProperty .
+dc:date rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/description
-dce:description rdf:type owl:AnnotationProperty ;
+dc:description rdf:type owl:AnnotationProperty ;
                  dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
                  dcterms:hasVersion <http://dublincore.org/usage/terms/history/#description-006> ;
                  dcterms:issued "1999-07-02"^^xsd:date ;
                  dcterms:modified "2008-01-14"^^xsd:date ;
                  rdfs:comment "An account of the resource."@en ;
-                 rdfs:isDefinedBy dce: ;
+                 rdfs:isDefinedBy dc: ;
                  rdfs:label "Description"@en ;
                  skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
 
 
 ###  http://purl.org/dc/elements/1.1/relation
-dce:relation rdf:type owl:AnnotationProperty .
+dc:relation rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/title
-dce:title rdf:type owl:AnnotationProperty ;
+dc:title rdf:type owl:AnnotationProperty ;
            dcterms:hasVersion <http://dublincore.org/usage/terms/history/#title-006> ;
            dcterms:issued "1999-07-02"^^xsd:date ;
            dcterms:modified "2008-01-14"^^xsd:date ;
            rdfs:comment "A name given to the resource."@en ;
-           rdfs:isDefinedBy dce: ;
+           rdfs:isDefinedBy dc: ;
            rdfs:label "Title"@en ;
            skos:note "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
 
@@ -108,8 +104,8 @@ dcterms:description rdf:type owl:AnnotationProperty ;
 dcterms:format rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/terms/hasLicense
-dcterms:hasLicense rdf:type owl:AnnotationProperty ;
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty ;
                    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
                    dcterms:issued "2004-06-14"^^xsd:date ;
                    dcterms:modified "2017-12-19"^^xsd:date ;
@@ -744,11 +740,11 @@ sto:stoPartName rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://dbpedia.org/ontology#Country
+###  http://dbpedia.org/ontology/Country
 dbo:Country rdf:type owl:Class .
 
 
-###  http://dbpedia.org/ontology#Place
+###  http://dbpedia.org/ontology/Place
 dbo:Place rdf:type owl:Class .
 
 
@@ -795,66 +791,56 @@ foaf:Organization rdf:type owl:Class .
 foaf:Person rdf:type owl:Class .
 
 
-###  https://w3id.org/i40/rami#AdminShellSubmodel
-sto:RAMIAdminShellSubmodel rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#AdminShellSubmodel
+sto:RamiAdminShellSubmodel rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
                         rdfs:comment "Describes the Administration Shell concept to organize/classify standards into submodels"@en ;
                         rdfs:isDefinedBy <https://www.plattform-i40.de/I40/Redaktion/EN/Downloads/Publikation/structure-of-the-administration-shell.pdf?__blob=publicationFile&v=7> ;
                         rdfs:label "Admin Shell Sub Model"@en .
 
 
-###  https://w3id.org/i40/rami#RAMIHierarchyLevel
-sto:RAMIHierarchyLevel rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#RamiControlDevice
+sto:RamiControlDevice rdf:type owl:Class ;
+                        rdfs:subClassOf sto:StandardClassification ;
+                        rdfs:label "RAMI Control Device"@en ;
+                        dcterms:creator sto:sebastian ;
+                        rdfs:isDefinedBy sto:Rami ;
+                        .
+
+
+###  https://w3id.org/i40/sto#RamiHierarchyLevel
+sto:RamiHierarchyLevel rdf:type owl:Class ;
                         owl:equivalentClass [ rdf:type owl:Class ;
-                                              owl:oneOf ( rami:ConnectedWorld
-                                                          rami:ControlDevice
-                                                          rami:Enterprise
-                                                          rami:FieldDevice
-                                                          rami:Product
-                                                          rami:Station
-                                                          rami:WorkCenter
-                                                        )
-                                            ] ,
-                                            [ rdf:type owl:Class ;
-                                              owl:oneOf ( sto:RAMIConnectedWorld
-                                                          sto:RAMIControlDevice
-                                                          sto:RAMIEnterprise
-                                                          sto:RAMIFieldDevice
-                                                          sto:RAMIProduct
-                                                          sto:RAMIStation
-                                                          sto:RAMIWorkCenter
+                                              owl:oneOf ( sto:RamiConnectedWorld
+                                                          sto:RamiControlDevice
+                                                          sto:RamiEnterprise
+                                                          sto:RamiFieldDevice
+                                                          sto:RamiProduct
+                                                          sto:RamiStation
+                                                          sto:RamiWorkCenter
                                                         )
                                             ] ;
                         rdfs:subClassOf sto:StandardClassification ;
                         rdfs:label "RAMI Hierarchy Level"@en .
 
 
-###  https://w3id.org/i40/rami#RAMIITLayer
-sto:RAMIITLayer rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#RamiITLayer
+sto:RamiITLayer rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
-                                       owl:oneOf ( rami:Asset
-                                                   rami:Business
-                                                   rami:Communication
-                                                   rami:Functional
-                                                   rami:Information
-                                                   rami:Integration
-                                                 )
-                                     ] ,
-                                     [ rdf:type owl:Class ;
-                                       owl:oneOf ( sto:RAMIAssetlayer
-                                                   sto:RAMIBusinessLayer
-                                                   sto:RAMICommunicationlayer
-                                                   sto:RAMIFunctionalLayer
-                                                   sto:RAMIInformationLayer
-                                                   sto:RAMIIntegrationLayer
+                                       owl:oneOf ( sto:RamiAssetlayer
+                                                   sto:RamiBusinessLayer
+                                                   sto:RamiCommunicationlayer
+                                                   sto:RamiFunctionalLayer
+                                                   sto:RamiInformationLayer
+                                                   sto:RamiIntegrationLayer
                                                  )
                                      ] ;
                  rdfs:subClassOf sto:StandardClassification ;
                  rdfs:label "RAMI IT Layer"@en .
 
 
-###  https://w3id.org/i40/rami#RAMILifeCycleLayer
-sto:RAMILifeCycleLayer rdf:type owl:Class ;
+###  https://w3id.org/i40/sto#RamiLifeCycleLayer
+sto:RamiLifeCycleLayer rdf:type owl:Class ;
                         rdfs:subClassOf sto:StandardClassification ;
                         rdfs:label "RAMI Life Cycle Layer"@en ;
                         rdfs:seeAlso <http://www.zvei.org/en/subjects/Industry-40/Pages/The-Reference-Architectural-Model-RAMI-40-and-the-Industrie-40-Component.aspx> ;
@@ -1204,35 +1190,35 @@ om2:kilobyte rdf:type owl:NamedIndividual ,
 ###  https://doi.org/10.1016/j.jksuci.2016.10.003
 <https://doi.org/10.1016/j.jksuci.2016.10.003> rdf:type owl:NamedIndividual ,
                                                         sto:Publication ;
-                                               dce:title "A survey on Internet of Things architectures" ;
+                                               dc:title "A survey on Internet of Things architectures" ;
                                                rdfs:label "A survey on Internet of Things architectures" .
 
 
-###  https://w3id.org/i40/rami#AdminShellGeneral
+###  https://w3id.org/i40/sto#AdminShellGeneral
 sto:AdminShellGeneral rdf:type owl:NamedIndividual ,
-                                sto:RAMIAdminShellSubmodel ,
+                                sto:RamiAdminShellSubmodel ,
                                 sto:StandardClassification ;
                        sto:isDescribedin sto:AdministrationShell .
 
 
-###  https://w3id.org/i40/rami#ConditionMonitoring
-sto:ASConditionMonitoring rdf:type owl:NamedIndividual ,
-                                  sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsConditionMonitoring
+sto:AsConditionMonitoring rdf:type owl:NamedIndividual ,
+                                  sto:RamiAdminShellSubmodel ,
                                   sto:StandardClassification ;
                          sto:isDescribedin sto:AdministrationShell .
 
 
-###  https://w3id.org/i40/rami#Configuration
-sto:ASConfiguration rdf:type owl:NamedIndividual ,
-                           sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsConfiguration
+sto:AsConfiguration rdf:type owl:NamedIndividual ,
+                           sto:RamiAdminShellSubmodel ,
                             sto:StandardClassification ;
                    sto:isDescribedin sto:AdministrationShell ;
                    skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'" .
 
 
-###  https://w3id.org/i40/rami#Engineering
-sto:ASEngineering rdf:type owl:NamedIndividual ,
-                          sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsEngineering
+sto:AsEngineering rdf:type owl:NamedIndividual ,
+                          sto:RamiAdminShellSubmodel ,
                           sto:StandardClassification ;
                  dul:associatedWith sto:IviActivityLayer ,
                                     sto:IviActivityView ,
@@ -1244,47 +1230,47 @@ sto:ASEngineering rdf:type owl:NamedIndividual ,
 
 
 
-###  https://w3id.org/i40/rami#Identification
-sto:ASIdentification rdf:type owl:NamedIndividual ,
-                             sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsIdentification
+sto:AsIdentification rdf:type owl:NamedIndividual ,
+                             sto:RamiAdminShellSubmodel ,
                              sto:StandardClassification ;
                     sto_iot:frames sto:IdentityManagement;
-                    dul:associatedWith sto:ASIdentification ;
-                    sto:alignsWith sto:ASIdentification ;
+                    dul:associatedWith sto:AsIdentification ;
+                    sto:alignsWith sto:AsIdentification ;
                     sto:isDescribedin sto:AdministrationShell ;
                     rdfs:label "RAMI Identification"@en .
 
 
 
-###  https://w3id.org/i40/rami#InstanceMaintenance
-sto:RAMIInstanceMaintenance rdf:type owl:NamedIndividual ,
-                                  sto:RAMILifeCycleLayer ,
+###  https://w3id.org/i40/sto#RamiInstanceMaintenance
+sto:RamiInstanceMaintenance rdf:type owl:NamedIndividual ,
+                                  sto:RamiLifeCycleLayer ,
                                   sto:StandardClassification ;
-                         sto:isDescribedin sto:RAMI;
+                         sto:isDescribedin sto:Rami;
                          rdfs:label "Instance Maintenance"@en .
 
 
-###  https://w3id.org/i40/rami#InstanceProduction
-sto:RAMIInstanceProduction rdf:type owl:NamedIndividual ,
-                                 sto:RAMILifeCycleLayer ,
+###  https://w3id.org/i40/sto#RamiInstanceProduction
+sto:RamiInstanceProduction rdf:type owl:NamedIndividual ,
+                                 sto:RamiLifeCycleLayer ,
                                  sto:StandardClassification ;
-                        sto:isDescribedin sto:RAMI;
+                        sto:isDescribedin sto:Rami;
                         rdfs:label "Instance Production"@en .
 
 
 
-###  https://w3id.org/i40/rami#Lifecycle_Status
-sto:ASLifecycle_Status rdf:type owl:NamedIndividual ,
-                               sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsLifecycle_Status
+sto:AsLifecycle_Status rdf:type owl:NamedIndividual ,
+                               sto:RamiAdminShellSubmodel ,
                                sto:StandardClassification ;
                       sto:isDescribedin sto:AdministrationShell ;
                       rdfs:label "Lifecycle Status" .
 
 
 
-###  https://w3id.org/i40/rami#ProcessPlanning
-sto:ASProcessPlanning rdf:type owl:NamedIndividual ,
-                              sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsProcessPlanning
+sto:AsProcessPlanning rdf:type owl:NamedIndividual ,
+                              sto:RamiAdminShellSubmodel ,
                               sto:StandardClassification ;
                      sto:isDescribedin sto:AdministrationShell ;
                      rdfs:comment "Process planning frames everything related to model, plan and manage business workflows and processes."@en ;
@@ -1292,17 +1278,17 @@ sto:ASProcessPlanning rdf:type owl:NamedIndividual ,
 
 
 
-###  https://w3id.org/i40/rami#Safety
-sto:ASSafety rdf:type owl:NamedIndividual ,
-                     sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsSafety
+sto:AsSafety rdf:type owl:NamedIndividual ,
+                     sto:RamiAdminShellSubmodel ,
                      sto:StandardClassification ;
             sto:isDescribedin sto:AdministrationShell ;
             rdfs:label "RAMI Safety"@en .
 
 
-###  https://w3id.org/i40/rami#Security
-sto:ASSecurity rdf:type owl:NamedIndividual ,
-                       sto:RAMIAdminShellSubmodel ,
+###  https://w3id.org/i40/sto#AsSecurity
+sto:AsSecurity rdf:type owl:NamedIndividual ,
+                       sto:RamiAdminShellSubmodel ,
                        sto:StandardClassification ;
               dul:associatedWith sto:BdvaCyberSecurityTrust ,
                                  sto:DtpSecurityPrivacy ,
@@ -1316,28 +1302,38 @@ sto:ASSecurity rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/rami#Station
-rami:Station rdf:type owl:NamedIndividual .
+sto:RamiStation rdf:type owl:NamedIndividual ,
+                       sto:StandardClassification ;
+              rdfs:label "RAMI Station"@en ;
+              dcterms:creator sto:sebastian ;
+              sto:isDescribedin sto:AdministrationShell ;
+.
 
 
-###  https://w3id.org/i40/rami#TypeDevelopment
-sto:RAMITypeDevelopment rdf:type owl:NamedIndividual ,
-                              sto:RAMILifeCycleLayer ,
+###  https://w3id.org/i40/sto#RamiTypeDevelopment
+sto:RamiTypeDevelopment rdf:type owl:NamedIndividual ,
+                              sto:RamiLifeCycleLayer ,
                               sto:StandardClassification ;
                      dul:associatedWith sto:IviSpecificationLayer ;
                      sto:alignsWith sto:IviSpecificationLayer ;
-                     sto:isDescribedin sto:RAMI;
+                     sto:isDescribedin sto:Rami;
                      rdfs:label "Type Development"@en .
 
 
-###  https://w3id.org/i40/rami#TypeMaintenance
-sto:RAMITypeMaintenance rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#RamiTypeMaintenance
+sto:RamiTypeMaintenance rdf:type owl:NamedIndividual ,
                               sto:StandardClassification ;
-                              sto:isDescribedin sto:RAMI;
+                              sto:isDescribedin sto:Rami;
                      rdfs:label "Type Maintenance"@en .
 
 
-###  https://w3id.org/i40/rami#WorkCenter
-rami:WorkCenter rdf:type owl:NamedIndividual .
+###  https://w3id.org/i40/sto#RamiWorkCenter
+sto:RamiWorkCenter rdf:type owl:NamedIndividual ,
+                       sto:StandardClassification ;
+              rdfs:label "RAMI Work Center"@en ;
+              dcterms:creator sto:sebastian ;
+              sto:isDescribedin sto:AdministrationShell ;
+.
 
 
 ###  https://w3id.org/i40/sto#ANSI
@@ -1376,8 +1372,8 @@ sto:APICS rdf:type owl:NamedIndividual ,
           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/APICS> .
 
 
-###  https://w3id.org/i40/sto#ASAM
-sto:ASAM rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#AsAM
+sto:AsAM rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:belongsTo dbr:Germany ;
          sto:hasHeadquaterIn dbr:Hoehenkirchen_Siegertsbrunn ;
@@ -1392,18 +1388,18 @@ sto:ASAM rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Association_for_Standardisation_of_Automation_and_Measuring_Systems> .
 
 
-###  https://w3id.org/i40/sto#ASAM_ODS
-sto:ASAM_ODS rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#AsAM_ODS
+sto:AsAM_ODS rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:irlan ;
-             sto:hasPublisher sto:ASAM ;
+             sto:hasPublisher sto:AsAM ;
              rdfs:comment "Set up a test data management system on top of test systems that produce measured or calculated data from testing activities"@en ;
              rdfs:label "ASAM ODS"@en ;
              sto:hasOfficialResource <https://wiki.asam.net/display/STANDARDS/ASAM+ODS> .
 
 
-###  https://w3id.org/i40/sto#ASME
-sto:ASME rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#AsME
+sto:AsME rdf:type owl:NamedIndividual ,
                   sto:StandardOrganization ;
          sto:hasHeadquaterIn dbr:New_York_City ;
          sto:abbreviation "ASME" ;
@@ -1415,13 +1411,13 @@ sto:ASME rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ASME> .
 
 
-###  https://w3id.org/i40/sto#ASME_Y1441
-sto:ASME_Y1441 rdf:type owl:NamedIndividual ,
+###  https://w3id.org/i40/sto#AsME_Y1441
+sto:AsME_Y1441 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                dcterms:creator sto:irlan ;
-               foaf:maker sto:ASME ;
+               foaf:maker sto:AsME ;
                sto:hasClassification sto:ModelingPractice ;
-               sto:hasPublisher sto:ASME ;
+               sto:hasPublisher sto:AsME ;
                rdfs:comment "ASME Y14.41 establishs requirements for model-based definition upon CAD software and those who use CAD software to create product definition within the 3D model."@en ;
                rdfs:label "ASME Y14.41"@en ;
                sto:hasDBpediaResource <http://dbpedia.org/resource/ASME_Y14.41> ;
@@ -1734,7 +1730,7 @@ sto:DIN_EN_ISO_13849 rdf:type owl:NamedIndividual ,
 sto:ISO_13849 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASSafety  ;
+              sto:hasClassification sto:AsSafety  ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:IEC_61508 ,
                             sto:IEC_61511 ,
@@ -3754,15 +3750,15 @@ sto:IEC_24760 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
               sto_iot:hasTargetConcern sto:IdentityManagement;
-              sto:hasClassification sto:ASSafety  ,
-                                    sto:ASSecurity ,
+              sto:hasClassification sto:AsSafety  ,
+                                    sto:AsSecurity ,
                                     sto:IIRASecurity ,
                                     sto:NISTProductModelDataExchange ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIInformationLayer ,
-                                    sto:RAMIProduct ,
-                                    sto:RAMIStation ;
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiInformationLayer ,
+                                    sto:RamiProduct ,
+                                    sto:RamiStation ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_24760 ,
                             sto:IEC_62443 ,
@@ -3889,9 +3885,9 @@ sto:IEC_29182_P1 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:irlan ;
                  sto:hasClassification sto:ProductionSystemModelData ,
-                                       sto:RAMICommunicationlayer ,
-                                       sto:RAMIControlDevice ,
-                                       sto:RAMIFieldDevice ;
+                                       sto:RamiCommunicationlayer ,
+                                       sto:RamiControlDevice ,
+                                       sto:RamiFieldDevice ;
                  sto:hasPublisher sto:IEC ,
                                   sto:ISO ;
                  sto:relatedTo sto:IEC_29182-1 ,
@@ -4520,10 +4516,10 @@ sto:IEC_60839_P5_S2_E2 rdf:type owl:NamedIndividual ,
                        dcterms:creator sto:irlan;
                        sto:hasAvailableLanguage lang:eng ,
                                                 lang:fra ;
-                       sto:hasClassification sto:ASSecurity ,
-                                             sto:RAMICommunicationlayer ,
-                                             sto:RAMIControlDevice ,
-                                             sto:RAMIFieldDevice ;
+                       sto:hasClassification sto:AsSecurity ,
+                                             sto:RamiCommunicationlayer ,
+                                             sto:RamiControlDevice ,
+                                             sto:RamiFieldDevice ;
                        sto:hasFileSize sto:FileSizeIEC_60839_P5_S2 ;
                        sto:hasICS sto:ICS_13_320 ;
                        sto:hasPublisher sto:IEC ;
@@ -5571,9 +5567,9 @@ sto:IEC_61131 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:sebastian , 
                               sto:irlan ;
               dul:isComponentOf sto:IEC_62714 ;
-              sto:hasClassification sto:RAMIControlDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+              sto:hasClassification sto:RamiControlDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -6095,10 +6091,10 @@ This publication is of high relevance for Smart Grid."""@en ,
 sto:IEC_61360 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan;
-              sto:hasClassification sto:ASEngineering ,
+              sto:hasClassification sto:AsEngineering ,
                                     sto:IDSRAMInformationLayer ,
                                     sto:NISTManufacturingModelData ,
-                                    sto:RAMIAssetlayer ;
+                                    sto:RamiAssetlayer ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -6336,8 +6332,8 @@ sto:IEC_61400_P25_S6_E2 rdf:type owl:NamedIndividual ,
 sto:IEC_61499 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ;
+              sto:hasClassification sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -6401,7 +6397,7 @@ sto:IEC_61508 rdf:type owl:NamedIndividual ,
               owl:sameAs sto:ISO_61508 ;
               dcterms:creator sto:sebastian , 
                                  sto:irlan ;
-              sto:hasClassification sto:ASSafety,
+              sto:hasClassification sto:AsSafety,
                                     sto:IDSRAMCertification  ;
 
               sto_iot:hasTargetConcern sto:Safety;
@@ -6449,10 +6445,10 @@ sto:IEC_61511 rdf:type owl:NamedIndividual ,
 sto:IEC_61512 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:RAMIControlDevice ,
-                                    sto:RAMIProduct ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+              sto:hasClassification sto:RamiControlDevice ,
+                                    sto:RamiProduct ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:hasTag "ISA-88"@en ;
               rdfs:comment "Batch control - Models and terminology"@en ;
@@ -6557,9 +6553,9 @@ sto:IEC_61691_P6_E1 rdf:type owl:NamedIndividual ,
 sto:IEC_61784 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:RAMICommunicationlayer ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ;
+              sto:hasClassification sto:RamiCommunicationlayer ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_29182-1 ,
                             sto:IEC_61158 ,
@@ -6579,9 +6575,9 @@ sto:IEC_61784 rdf:type owl:NamedIndividual ,
 sto:IEC_61804 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASConfiguration ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ;
+              sto:hasClassification sto:AsConfiguration ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -7579,13 +7575,13 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:irlan, 
                                 sto:sebastian ;
-                sto:hasClassification sto:ASEngineering ,
-                                      sto:RAMIControlDevice ,
-                                      sto:RAMIEnterprise ,
-                                      sto:RAMIFieldDevice ,
-                                      sto:RAMIProduct ,
-                                      sto:RAMIStation ,
-                                      sto:RAMIWorkCenter ;
+                sto:hasClassification sto:AsEngineering ,
+                                      sto:RamiControlDevice ,
+                                      sto:RamiEnterprise ,
+                                      sto:RamiFieldDevice ,
+                                      sto:RamiProduct ,
+                                      sto:RamiStation ,
+                                      sto:RamiWorkCenter ;
                 sto:hasPublisher sto:IEC ;
                 sto:hasAvailableLanguage lang:eng , 
                                          lang:fra ;
@@ -7601,7 +7597,7 @@ sto:IEC_61987_X rdf:type owl:NamedIndividual ,
 sto:IEC_62061 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASSafety  ;
+              sto:hasClassification sto:AsSafety  ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_61508 ,
                             sto:IEC_61511 ,
@@ -7621,15 +7617,11 @@ sto:IEC_62237 rdf:type owl:NamedIndividual ,
                        sto:TechnicalSpecification ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:AdminShellGeneral,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ,
                                     sto:ProductionSystemModelData ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62237 ,
                             sto:IEC_62337 ;
@@ -7645,7 +7637,7 @@ sto:IEC_62264 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan,
                               sto:sebastian ;
-              sto:hasClassification sto:RAMIFunctional ;
+              sto:hasClassification sto:RamiFunctional ;
               sto:hasDeveloper sto:IEC ;
               sto:hasPublisher sto:IEC ,
                                sto:MESA ;
@@ -7705,12 +7697,12 @@ sto:IEC_62279 rdf:type owl:NamedIndividual ,
 sto:IEC_62337 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASConditionMonitoring ,
-                                    sto:ASLifecycle_Status ,
+              sto:hasClassification sto:AsConditionMonitoring ,
+                                    sto:AsLifecycle_Status ,
                                     sto:ProductionSystemModelData ,
-                                    sto:RAMIEnterprise ,
-                                    sto:RAMIFunctionalLayer ,
-                                    sto:RAMIWorkCenter ;
+                                    sto:RamiEnterprise ,
+                                    sto:RamiFunctionalLayer ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:hasAvailableLanguage lang:eng ,
                                        lang:fra ;
@@ -7744,8 +7736,8 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan ,
                               sto:sebastian  ;
               sto_iot:hasTargetConcern sto:IdentityManagement;
-              sto:hasClassification sto:RAMIIdentification,
-                                    sto:ASSecurity ,
+              sto:hasClassification sto:RamiIdentification,
+                                    sto:AsSecurity ,
                                     sto:ISA95CrossLevel ,
                                     sto:IDSRAMCertification ,
                                     sto:IIRASecurity ;
@@ -7770,10 +7762,10 @@ sto:IEC_62443 rdf:type owl:NamedIndividual ,
 sto:IEC_62453 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASConfiguration ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ;
+              sto:hasClassification sto:AsConfiguration ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -7813,13 +7805,13 @@ sto:IEC_62453 rdf:type owl:NamedIndividual ,
 sto:IEC_62541 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               sto:hasAvailableLanguage lang:eng ;
-              sto:hasClassification sto:RAMICommunicationlayer ,
-                                    sto:RAMIConnectedWorld ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIEnterprise ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ,
+              sto:hasClassification sto:RamiCommunicationlayer ,
+                                    sto:RamiConnectedWorld ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiEnterprise ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ,
                                     sto:SCADALevel ;
               sto:hasDeveloper sto:OPC_Foundation ;
               sto:hasPublisher sto:IEC ;
@@ -7886,12 +7878,12 @@ sto:IEC_62656 rdf:type owl:NamedIndividual ,
 sto:IEC_62714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASEngineering ,
+              sto:hasClassification sto:AsEngineering ,
                                     sto:ProductionSystemEngineering ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIInformationLayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiInformationLayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -7961,19 +7953,15 @@ sto:IEC_62794 rdf:type owl:NamedIndividual ,
                        sto:TechnicalReport ;
               dcterms:creator sto:irlan ;
               sto:hasClassification sto:AdminShellGeneral,
-                                    rami:ControlDevice ,
-                                    rami:FieldDevice ,
-                                    rami:Station ,
-                                    rami:WorkCenter ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_62794 ,
                             sto:IEC_62832 ;
               sto:hasTag "DF/TR"@en ;
-              dcterms:hasLicense sto:PrivateLicenseDocument ;
+              dcterms:license sto:PrivateLicenseDocument ;
               rdfs:comment "Industrial-process measurement, control and automation - Reference model for representation of production facilities (digital factory)"@en ;
               rdfs:label "IEC TR 62794"@en ;
               sto:hasMotivation "The standards for Digital Factory define methods and information models, which are required for self description of I40-components. "@en ;
@@ -7987,10 +7975,10 @@ sto:IEC_62832 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan ;
               sto:hasAvailableLanguage lang:eng ;
               sto:hasClassification sto:AdminShellGeneral,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasFileSize sto:FileSizeIEC_62832 ;
               sto:hasICS sto:ICS_25_040_40 ;
               sto:hasPublisher sto:IEC ;
@@ -8021,10 +8009,10 @@ sto:IEC_62837 rdf:type owl:NamedIndividual ,
 sto:IEC_62890 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASLifecycle_Status ,
+              sto:hasClassification sto:AsLifecycle_Status ,
                                     sto:ProductionLifeCycleDataManagement ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:IEC ;
               sto:hasTag "IEC 62890"@en ;
               dcterms:license sto:PrivateLicenseDocument ;
@@ -8040,11 +8028,11 @@ sto:IEC_81714 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ,
                               sto:sebastian ;
-              sto:hasClassification sto:ASEngineering ,
-                                    sto:ASIdentification ,
+              sto:hasClassification sto:AsEngineering ,
+                                    sto:AsIdentification ,
                                     sto:ModelingPractice ,
-                                    sto:RAMIAssetlayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiAssetlayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2004-10-01"^^xsd:date ;
@@ -8070,10 +8058,10 @@ sto:IEC_PAS_63088 rdf:type owl:NamedIndividual ,
 sto:IEC_TS_62832 rdf:type owl:NamedIndividual ,
                           sto:TechnicalSpecification ;
                  sto:hasClassification sto:AdminShellGeneral,
-                                       sto:RAMIControlDevice ,
-                                       sto:RAMIFieldDevice ,
-                                       sto:RAMIStation ,
-                                       sto:RAMIWorkCenter ;
+                                       sto:RamiControlDevice ,
+                                       sto:RamiFieldDevice ,
+                                       sto:RamiStation ,
+                                       sto:RamiWorkCenter ;
                  sto:hasPublisher sto:IEC ;
                  sto:hasTag "DF/TS"@en ;
                  dcterms:license sto:PrivateLicenseDocument ;
@@ -8319,8 +8307,8 @@ sto:ISO_1101 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:irlan ;
              sto:hasClassification sto:ModelingPractice ,
-                                   sto:RAMIAssetlayer ,
-                                   sto:RAMIProduct ;
+                                   sto:RamiAssetlayer ,
+                                   sto:RamiProduct ;
              sto:hasPublisher sto:ISO ;
              sto:hasPublicationDate "2017-02-01"^^xsd:date ;
              rdfs:comment "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Tolerances of form, orientation, location and run-out"@en ;
@@ -8364,9 +8352,9 @@ sto:ISO_11783 rdf:type owl:NamedIndividual ,
 sto:ISO_11898-1 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:irlan ;
-                sto:hasClassification sto:ASEngineering ,
-                                      sto:ASSafety  ,
-                                      sto:RAMICommunicationlayer ;
+                sto:hasClassification sto:AsEngineering ,
+                                      sto:AsSafety  ,
+                                      sto:RamiCommunicationlayer ;
                 sto:hasPublisher sto:ISO ;
                 sto:relatedTo sto:ISO_11783 ,
                               sto:ISO_11898-1 ;
@@ -8393,10 +8381,10 @@ sto:ISO_1302 rdf:type owl:NamedIndividual ,
 sto:ISO_13374 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASConditionMonitoring ,
+              sto:hasClassification sto:AsConditionMonitoring ,
                                     sto:ProductionSystemEngineering ,
-                                    sto:RAMIBusinessLayer ,
-                                    sto:RAMIEnterprise ;
+                                    sto:RamiBusinessLayer ,
+                                    sto:RamiEnterprise ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
                             sto:ISO_15704 ,
@@ -8412,7 +8400,7 @@ sto:ISO_13374 rdf:type owl:NamedIndividual ,
 sto:ISO_13485 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASSafety  ;
+              sto:hasClassification sto:AsSafety  ;
                sto_iot:hasTargetConcern sto:QualityOfService;
               sto:hasPublisher sto:ISO ;
               rdfs:comment "Medical devices -- Quality management systems -- Requirements for regulatory purposes."@en ;
@@ -8471,12 +8459,12 @@ sto:ISO_14306 rdf:type owl:NamedIndividual ,
                        sto:Publication ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASEngineering ,
-                                    sto:ASIdentification ,
-                                    rami:ProcessPlanning ,
+              sto:hasClassification sto:AsEngineering ,
+                                    sto:AsIdentification ,
+                                    sto:AsProcessPlanning ,
                                     sto:ProductionSystemModelData ,
-                                    sto:RAMIAssetlayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiAssetlayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -8548,7 +8536,7 @@ sto:ISO_15408 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan ;
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:ISO ;
-              dce:title "Common Criteria for Information Technology Security Evaluation"@en ;
+              dc:title "Common Criteria for Information Technology Security Evaluation"@en ;
               rdfs:comment "The Common Criteria for Information Technology Security Evaluation (abbreviated as Common Criteria or CC) is an international standard (ISO/IEC 15408) for computer security certification"@en ;
               rdfs:label "ISO/IEC 15408"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/10255> ,
@@ -8637,9 +8625,8 @@ sto:ISO_15531-4x rdf:type owl:NamedIndividual ,
 sto:ISO_15704 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification rami:Other ,
-                                    sto:RAMIBusinessLayer ,
-                                    sto:RAMIEnterprise ;
+              sto:hasClassification sto:RamiBusinessLayer ,
+                                    sto:RamiEnterprise ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
                             sto:ISO_15704 ,
@@ -8655,15 +8642,15 @@ sto:ISO_15704 rdf:type owl:NamedIndividual ,
 sto:ISO_15746 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASEngineering ,
+              sto:hasClassification sto:AsEngineering ,
                                     sto:ProductLifeCycleManagement ,
-                                    sto:RAMICommunicationlayer ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIFunctional ,
-                                    sto:RAMIInformationLayer ,
-                                    sto:RAMIIntegrationLayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiCommunicationlayer ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiFunctional ,
+                                    sto:RamiInformationLayer ,
+                                    sto:RamiIntegrationLayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -8701,11 +8688,11 @@ sto:ISO_15746 rdf:type owl:NamedIndividual ,
 sto:ISO_15926 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASEngineering ,
-                                    sto:ASConfiguration ,
+              sto:hasClassification sto:AsEngineering ,
+                                    sto:AsConfiguration ,
                                     sto:ProductLifeCycleManagement ,
-                                    sto:RAMIIntegrationLayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiIntegrationLayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -8743,10 +8730,10 @@ sto:ISO_15926 rdf:type owl:NamedIndividual ,
 sto:ISO_16739 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASLifecycle_Status ,
+              sto:hasClassification sto:AsLifecycle_Status ,
                                     sto:ProductLifeCycleManagement ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:IEC_62890 ,
                             sto:ISO_16739 ;
@@ -8762,8 +8749,8 @@ sto:ISO_16792 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
               sto:hasClassification sto:ModelingPractice ,
-                                    sto:RAMIAssetlayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiAssetlayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:ISO ;
               sto:hasPublicationDate "2015-12-01"^^xsd:date ;
               rdfs:comment "ISO 16792 Technical product documentation -- Digital product definition data practices-It supports two methods of application: model-only and model and drawing in digital format."@en ;
@@ -8776,17 +8763,15 @@ sto:ISO_16792 rdf:type owl:NamedIndividual ,
 sto:ISO_18629 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASConfiguration ,
-                                    rami:ControlDevice ,
-                                    sto:ASConfiguration ,
+              sto:hasClassification sto:AsConfiguration ,
                                     sto:NISTProductModelDataExchange ,
-                                    sto:RAMICommunicationlayer ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIFunctionalLayer ,
-                                    sto:RAMIInformationLayer ,
-                                    sto:RAMIIntegrationLayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiCommunicationlayer ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiFunctionalLayer ,
+                                    sto:RamiInformationLayer ,
+                                    sto:RamiIntegrationLayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -8826,13 +8811,13 @@ sto:ISO_18629 rdf:type owl:NamedIndividual ,
 sto:ISO_18828-2 rdf:type owl:NamedIndividual ,
                          sto:Standard ;
                 dcterms:creator sto:irlan ;
-                sto:hasClassification sto:ASEngineering ,
-                                      sto:RAMIControlDevice ,
-                                      sto:RAMIEnterprise ,
-                                      sto:RAMIFieldDevice ,
-                                      sto:RAMIProduct ,
-                                      sto:RAMIStation ,
-                                      sto:RAMIWorkCenter ;
+                sto:hasClassification sto:AsEngineering ,
+                                      sto:RamiControlDevice ,
+                                      sto:RamiEnterprise ,
+                                      sto:RamiFieldDevice ,
+                                      sto:RamiProduct ,
+                                      sto:RamiStation ,
+                                      sto:RamiWorkCenter ;
                 sto:hasPublisher sto:ISO ;
                 sto:relatedTo sto:DIN_SPEC_16592 ,
                               sto:IEC_61131 ,
@@ -8871,7 +8856,7 @@ sto:ISO_19439 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
               dul:associatedWith sto:Certification ;
-              sto:hasClassification sto:RAMIBusinessLayer ;
+              sto:hasClassification sto:RamiBusinessLayer ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
                             sto:ISO_15704 ,
@@ -8887,11 +8872,11 @@ sto:ISO_19439 rdf:type owl:NamedIndividual ,
 sto:ISO_19440 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASEngineering ,
+              sto:hasClassification sto:AsEngineering ,
                                     sto:EnterpriseLevel ,
-                                    sto:RAMIEnterprise ,
-                                    sto:RAMIIntegrationLayer ,
-                                    sto:RAMIProduct ;
+                                    sto:RamiEnterprise ,
+                                    sto:RamiIntegrationLayer ,
+                                    sto:RamiProduct ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:BPMN ,
                             sto:ISO_19440 ;
@@ -9044,15 +9029,15 @@ sto:ISO_20922 rdf:type owl:NamedIndividual ,
 sto:ISO_22400 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:irlan ;
-              sto:hasClassification sto:ASConditionMonitoring ,
-                                    sto:ASLifecycle_Status ,
-                                    sto:RAMIBusinessLayer ,
-                                    sto:RAMIConnectedWorld ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIEnterprise ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ;
+              sto:hasClassification sto:AsConditionMonitoring ,
+                                    sto:AsLifecycle_Status ,
+                                    sto:RamiBusinessLayer ,
+                                    sto:RamiConnectedWorld ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiEnterprise ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:DIN_SPEC_16592 ,
                             sto:IEC_61131 ,
@@ -9091,8 +9076,8 @@ sto:ISO_22745-11 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:irlan ;
                  sto:hasClassification sto:ProductCatalogData ,
-                                       sto:RAMIAssetlayer ,
-                                       sto:RAMIProduct ;
+                                       sto:RamiAssetlayer ,
+                                       sto:RamiProduct ;
                  sto:hasPublisher sto:ISO ;
                  sto:hasPublicationDate "2010-02-01"^^xsd:date ;
                  rdfs:comment "ISO 22745-11:2010 provides guidelines that are recommended for the development of terminology for concepts in an open technical dictionary (OTD).Compliance with these guidelines is not required in order for a term or definition to be included in an OTD. These guidelines are provided as a framework for developers of industrial terminology to ensure that definitions are consistent and understandable. Terminology that complies with these guidelines will be marked as such in the OTD. This will allow a user to perform a search that filters terminology based on compliance with ISO 22745-11:2010."@en ;
@@ -9107,16 +9092,16 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
                        sto:Standard  ;
               dcterms:creator sto:irlan ;
               rdfs:label "ISO 24760"@en ;
-              sto:hasClassification sto:ASIdentification,
-                                    sto:ASSafety  ,
-                                    sto:ASSecurity ,
+              sto:hasClassification sto:AsIdentification,
+                                    sto:AsSafety  ,
+                                    sto:AsSecurity ,
                                     sto:IIRASecurity ,
                                     sto:NISTProductModelDataExchange ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIInformationLayer ,
-                                    sto:RAMIProduct ,
-                                    sto:RAMIStation ;
+                                    sto:RamiControlDevice ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiInformationLayer ,
+                                    sto:RamiProduct ,
+                                    sto:RamiStation ;
               sto:hasPublisher sto:IEC ;
               sto:relatedTo sto:IEC_24760 ,
                             sto:IEC_62443 ,
@@ -9185,7 +9170,7 @@ sto:ISO_27017 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2015-12-01"^^xsd:date ;
-              dce:title "Code of practice for information security controls based on ISO/IEC 27002 for cloud services"@en ;
+              dc:title "Code of practice for information security controls based on ISO/IEC 27002 for cloud services"@en ;
               rdfs:comment "The ISO/IEC 270172 standard provides guidance on the information security elements of cloud computing. It assists with the implementation of cloud-specific information security controls, supplementing the guidance in ISO 27000 series standards."@en ;
               rdfs:label "ISO/IEC 27017"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
@@ -9206,7 +9191,7 @@ sto:ISO_27018 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2014-08-01"^^xsd:date ;
-              dce:title "Information technology -- Security techniques -- Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ;
+              dc:title "Information technology -- Security techniques -- Code of practice for protection of personally identifiable information (PII) in public clouds acting as PII processors"@en ;
               rdfs:comment "ISO/IEC 27018:2014 establishes commonly accepted control objectives, controls and guidelines for implementing measures to protect Personally Identifiable Information (PII) in accordance with the privacy principles in ISO/IEC 29100 for the public cloud computing environment."@en ;
               rdfs:label "IEC 27018"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
@@ -9240,7 +9225,7 @@ sto:ISO_27031 rdf:type owl:NamedIndividual ,
                                sto:ISO ;
               sto:domainName "Business Continuity"@en ;
               sto:hasPublicationDate "2011-03-01"^^xsd:date ;
-              dce:title "Guidelines for information and communication technology readiness for business continuity"@en ;
+              dc:title "Guidelines for information and communication technology readiness for business continuity"@en ;
               rdfs:comment "ISO/IEC 27031:2011 describes the concepts and principles of information and comunication technology (ICT) readiness for business continuity, and provides a framework of methods and processes to identify and specify all aspects (such as performance criteria, design, and implementation) for improving an organization's ICT readiness to ensure business continuity."@en ;
               rdfs:label "IEC 27031"@en ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/11304> ,
@@ -9256,7 +9241,7 @@ sto:ISO_27036 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2016-10-01"^^xsd:date ;
-              dce:title "Information security for supplier relationships"@en ;
+              dc:title "Information security for supplier relationships"@en ;
               rdfs:comment """ISO/IEC 27036-4:2016 provides cloud service customers and cloud service providers with guidance on
 
 a) gaining visibility into the information security risks associated with the use of cloud services and managing those risks effectively, and
@@ -9359,7 +9344,7 @@ sto:ISO_29134 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2017-06-01"^^xsd:date ;
-              dce:title "Privacy impact assessment–Guidelines"@en ;
+              dc:title "Privacy impact assessment–Guidelines"@en ;
               rdfs:comment "‘Privacy impact assessment–Guidelines’ proposes a methodology to conduct assessments on the impact of privacy."@en ;
               rdfs:label "ISO/IEC 29134"@en ;
               sto:hasRelevantDomain sto:ITSecurity ;
@@ -9440,8 +9425,8 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:irlan ;
              sto:hasClassification sto:ModelingPractice ,
-                                   sto:RAMIAssetlayer ,
-                                   sto:RAMIProduct ;
+                                   sto:RamiAssetlayer ,
+                                   sto:RamiProduct ;
              sto:hasPublisher sto:ISO ;
              sto:hasPublicationDate "2011-08-01"^^xsd:date ;
              rdfs:comment "Geometrical product specifications (GPS) -- Geometrical tolerancing -- Datums and datum systems--ISO 5459:2011 specifies terminology, rules and methodology for the indication and understanding of datums and datum systems in technical product documentation"@en ;
@@ -9455,8 +9440,8 @@ sto:ISO_8062-4 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                dcterms:creator sto:irlan ;
                sto:hasClassification sto:ProductionSystemModelData ,
-                                     sto:RAMIAssetlayer ,
-                                     sto:RAMIProduct ;
+                                     sto:RamiAssetlayer ,
+                                     sto:RamiProduct ;
                sto:hasPublisher sto:ISO ;
                sto:relatedTo sto:ISO_10303 ,
                              sto:ISO_8062-4 ;
@@ -9509,11 +9494,11 @@ sto:ISO_9594-8 rdf:type owl:NamedIndividual ,
 sto:ISO_ASTM_52915 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    dcterms:creator sto:irlan ;
-                   sto:hasClassification sto:ASEngineering ,
-                                         sto:ASIdentification ,
+                   sto:hasClassification sto:AsEngineering ,
+                                         sto:AsIdentification ,
                                          sto:ProductionSystemEngineering ,
-                                         sto:RAMIAssetlayer ,
-                                         sto:RAMIProduct ;
+                                         sto:RamiAssetlayer ,
+                                         sto:RamiProduct ;
                    sto:hasPublisher sto:ISO ;
                    sto:relatedTo sto:DIN_SPEC_16592 ,
                                  sto:IEC_61131 ,
@@ -9592,13 +9577,13 @@ sto:ISO_PAS_17506 rdf:type owl:NamedIndividual ,
 sto:ISO_TS_14649-201 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      dcterms:creator sto:irlan ;
-                     sto:hasClassification sto:ASEngineering ,
-                                           sto:ASConfiguration,
-                                           sto:ASSafety  ,
+                     sto:hasClassification sto:AsEngineering ,
+                                           sto:AsConfiguration,
+                                           sto:AsSafety  ,
                                            sto:ProductionSystemModelData ,
-                                           sto:RAMIAssetlayer ,
-                                           sto:RAMIIntegrationLayer ,
-                                           sto:RAMIProduct ;
+                                           sto:RamiAssetlayer ,
+                                           sto:RamiIntegrationLayer ,
+                                           sto:RamiProduct ;
                      sto:hasPublisher sto:ISO ;
                      sto:hasPublicationDate "2011-12-01"^^xsd:date ;
                      rdfs:comment "SO/TS 14649-201:2011 specifies the technology-specific machine tool description data elements needed as process data for manufacturing and machine characteristics. The machine tool descriptions covered in this schema are, initially, milling machines, machining centres, turning machines and multi-tasking machines.ISO/TS 14649-201:2011 is not intended to replace existing machine tool description standards, but to cover the specific needs of manufacturing resource description for manufacturing needs in the technologies described in ISO 14649."@en ;
@@ -9907,7 +9892,7 @@ sto:ModBus rdf:type owl:NamedIndividual ,
                     sto:Standard ;
            dcterms:creator sto:SE ;
            foaf:maker sto:SE ;
-           sto:hasClassification sto:RAMIIntegrationLayer ;
+           sto:hasClassification sto:RamiIntegrationLayer ;
            sto:hasPublisher sto:SE ;
            sto:hasTag "Modbus"@en ;
            rdfs:comment "Modbus is a serial communications protocol to be used in Programmable logic controllers (PLCs)."@en ;
@@ -9967,7 +9952,7 @@ sto:NISTIR_8062 rdf:type owl:NamedIndividual ,
                 sto:hasClassification sto:IIRAPrivacy ;
                 sto:hasPublisher sto:NIST ;
                 sto:hasPublicationDate "2017-04-01"^^xsd:date ;
-                dce:title "Privacy Risk Management for Federal Information Systems"@en ;
+                dc:title "Privacy Risk Management for Federal Information Systems"@en ;
                 rdfs:comment "This document provides an introduction to the concepts of privacy engineering and risk management for federal information systems. These concepts establish the basis for a common vocabulary to facilitate better understanding and communication of privacy risk within federal information systems, and the effective implementation of privacy principles. This publication introduces two key components to support the application of privacy engineering and risk management: privacy engineering objectives and a privacy risk model."@en ;
                 rdfs:label "NIST Internal Report (NISTIR) 8062"@en ,
                            "NISTIR 8062"@en ;
@@ -10018,7 +10003,7 @@ sto:NIST_500-292 rdf:type owl:NamedIndividual ,
                  sto:hasPublisher sto:NIST ;
                  sto:hasRelevantDomain sto:CloudComputing;
                  sto:hasPublicationDate "2011-09-09"^^xsd:date ;
-                 dce:title "NIST Cloud Computing Reference Architecture"@en ;
+                 dc:title "NIST Cloud Computing Reference Architecture"@en ;
                  rdfs:comment "The adoption of cloud computing into the Federal Government and its implementation depend upon a variety of technical and non-technical factors. A fundamental reference point, based on the NIST definition of Cloud Computing, is needed to describe an overall framework that can be used government-wide. This document presents the NIST Cloud Computing Reference Architecture (RA) and Taxonomy (Tax) that will accurately communicate the components and offerings of cloud computing."@en ;
                  rdfs:label "NIST 500-292"@en ;
                  sto:hasOfficialResource <https://www.nist.gov/publications/nist-cloud-computing-reference-architecture> .
@@ -10066,7 +10051,7 @@ sto:NIST_800-146 rdf:type owl:NamedIndividual ,
                  sto:hasClassification sto:IIRASecurity ;
                  sto:hasPublisher sto:NIST ;
                  sto:hasPublicationDate "2012-05-01"^^xsd:date ;
-                 dce:title "Cloud Computing Synopsis and Recommendations"@en ;
+                 dc:title "Cloud Computing Synopsis and Recommendations"@en ;
                  rdfs:comment "This document reprises the NIST-established definition of cloud computing, describes cloud computing benefits and open issues, presents an overview of major classes of cloud technology, and provides guidelines and recommendations on how organizations should consider the relative opportunities and risks of cloud computing."@en ;
                  rdfs:label "NIST 800-146"@en ;
                  sto:hasRelevantDomain sto:CloudComputing ;
@@ -10264,13 +10249,13 @@ sto:IEC_62541 rdf:type owl:NamedIndividual ,
                                     sto:IIRAApplicationDomain ,
                                     sto:IIRAOperationsDomain ,
                                     sto:InformationDomain ,
-                                    sto:RAMICommunicationlayer ,
-                                    sto:RAMIConnectedWorld ,
-                                    sto:RAMIControlDevice ,
-                                    sto:RAMIEnterprise ,
-                                    sto:RAMIFieldDevice ,
-                                    sto:RAMIStation ,
-                                    sto:RAMIWorkCenter ,
+                                    sto:RamiCommunicationlayer ,
+                                    sto:RamiConnectedWorld ,
+                                    sto:RamiControlDevice ,
+                                    sto:RamiEnterprise ,
+                                    sto:RamiFieldDevice ,
+                                    sto:RamiStation ,
+                                    sto:RamiWorkCenter ,
                                     sto:SCADALevel ;
               sto_iot:hasTargetConcern sto:AutonomousCommunication,
                                        sto:Communication ,
@@ -10942,10 +10927,10 @@ sto:VDE_2182 rdf:type owl:NamedIndividual ,
              dcterms:creator sto:VDI ,
                              sto:sebastian ;
              foaf:maker sto:VDI ;
-             sto:hasClassification sto:ASSecurity ;
+             sto:hasClassification sto:AsSecurity ;
              sto:hasDeveloper sto:VDI ;
              sto:hasPublisher sto:VDI ;
-             dcterms:hasLicense "private"@en ;
+             dcterms:license "private"@en ;
              dcterms:title "IT-security for industrial automation"@en ,
                            "Informationssicherheit in der industriellen Automatisierung"@de ;
              rdfs:comment "This guideline describes how specific measures can be implemented in order to guarantee the IT security of automated machines and plant; aspects of the automation devices, automation systems, and automation applications used are considered. A uniform, feasible procedure for ensuring IT security throughout the entire life cycle of automation devices, systems, and applications is described, based on common terms and definitions agreed by the manufacturers of automation devices and systems and their users (e.g., machine manufacturers, integrators, operators). The life cycle covers the development, integration, operation, migration, and decommissioning phases.This guideline defines a simple procedure model for the development and description of IT Security. The model consists of eight steps."@en ;
@@ -10975,7 +10960,7 @@ sto:VDI_VDE_2182 rdf:type owl:NamedIndividual ,
                           sto:Standard ;
                  dcterms:creator sto:VDI ;
                  foaf:maker sto:VDI ;
-                 sto:hasClassification sto:ASSecurity ;
+                 sto:hasClassification sto:AsSecurity ;
                  sto:hasDeveloper sto:VDI ;
                  sto:hasPublisher sto:VDI ;
                  dcterms:creator sto:sebastian ;
@@ -11009,7 +10994,7 @@ sto:VDMA_24582 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                dcterms:creator sto:VDMA ;
                foaf:maker sto:VDMA ;
-               sto:hasClassification sto:ASConditionMonitoring ;
+               sto:hasClassification sto:AsConditionMonitoring ;
                sto:hasPublisher sto:VDMA ;
                rdfs:comment "Fieldbus neutral reference architecture for Condition Monitoring in production automation"@en ;
                rdfs:label "VDMA 24582"@en ;
@@ -11286,13 +11271,13 @@ sto:eClass rdf:type owl:NamedIndividual ,
                     sto:Standard ;
            dcterms:creator sto:eClassAssoc ;
            foaf:maker sto:eClassAssoc ;
-           sto:hasClassification sto:ASEngineering ,
-                                 sto:RAMIConnectedWorld ,
-                                 sto:RAMIControlDevice ,
-                                 sto:RAMIEnterprise ,
-                                 sto:RAMIProduct ,
-                                 sto:RAMIStation ,
-                                 sto:RAMIWorkCenter ;
+           sto:hasClassification sto:AsEngineering ,
+                                 sto:RamiConnectedWorld ,
+                                 sto:RamiControlDevice ,
+                                 sto:RamiEnterprise ,
+                                 sto:RamiProduct ,
+                                 sto:RamiStation ,
+                                 sto:RamiWorkCenter ;
            sto:hasDeveloper sto:eClassAssoc ;
            sto:hasPublisher sto:eClassAssoc ;
            sto:relatedTo sto:DIN_SPEC_16592 ,

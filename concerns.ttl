@@ -1,38 +1,34 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/terms/> .
 @prefix oa: <https://www.w3.org/ns/oa> .
-@prefix dbo: <http://dbpedia.org/ontology#> .
-@prefix dbr: <http://dbpedia.org/resource#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix deo: <http://purl.org/spar/deo/> .
 @prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
 @prefix geo: <http://www.geonames.org/ontology#> .
-@prefix ids: <https://w3id.org/ids/core/> .
 @prefix om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix sto: <https://w3id.org/i40/sto#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lang: <http://lexvo.org/id/iso639-3/> .
 @prefix muto: <http://purl.org/muto/core#> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rami: <https://w3id.org/i40/rami#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix terms: <http://purl.org/dc/terms/> .
-@prefix idsram: <https://w3id.org/ids/ram/> .
-@prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix void:<http://www.w3.org/TR/void/> .
+@prefix schema: <http://schema.org/> .
+@prefix void: <http://www.w3.org/TR/void/> .
+@prefix sto: <https://w3id.org/i40/sto#> .
 @prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
  
 
 sto_iot:concerns rdf:type owl:Ontology ;
-                                 owl:versionIRI <https://w3id.org/i40/sto/iot/0.1/concerns/> ;
+                                 owl:versionIRI <https://w3id.org/i40/sto/iot/0.3/concerns/> ;
                                  dcterms:title "Industrial IoT Architecture Ontology"@en ;
                                  sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
                                  vann:preferredNamespacePrefix "sto_iot" ;
@@ -42,8 +38,9 @@ sto_iot:concerns rdf:type owl:Ontology ;
                                  dcterms:creator sto:Priyanka ;
                                  dcterms:modified "2019-06-09"^^xsd:date ;
                                  dcterms:modified "2019-07-21"^^xsd:date ;
+                                 dcterms:modified "2019-12-04"^^xsd:date ;
                                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Internet_of_things> ;
-                                 owl:versionInfo "0.2" ;
+                                 owl:versionInfo "0.3" ;
                                  rdfs:comment "The Internet of things (IoT) is the network of devices such as vehicles, and home appliances that contain electronics, software, sensors, actuators, and connectivity which allows these things to connect, interact and exchange data."@en ;
                                  dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
                                  dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
@@ -527,7 +524,7 @@ sto:Cloud_Connectivity rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#Communication
 sto:Communication rdf:type owl:NamedIndividual ,
-                           rami:AdminShellSubmodel ,
+                           sto:AdminShellSubmodel ,
                            sto_iot:Concern ,
                            sto:StandardClassification ;
                   sto:isDescribedin sto:AdministrationShell ;
@@ -1639,6 +1636,7 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
 sto:Security rdf:type owl:NamedIndividual ,
                       sto_iot:Concern ;
              dcterms:creator sto:sebastian ;
+             rdfs:seeAlso <https://w3id.org/i40/rami#Security>;
              sto_iot:supports sto:Privacy ;
              sto:hasStakeholder <http://dbpedia.org/ontology/generalManager> ,
                                                                sto:SoftwareArchitect ;
