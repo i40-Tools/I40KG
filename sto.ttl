@@ -269,7 +269,14 @@ xsd:gYear rdf:type rdfs:Datatype .
 
 ###  http://purl.org/dc/terms/creator
 dcterms:creator rdf:type owl:ObjectProperty ;
-                owl:equivalentProperty foaf:maker .
+                owl:equivalentProperty foaf:maker ;
+                rdfs:comment "An entity primarily responsible for making the resource."@en ;
+                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
+                rdfs:isDefinedBy dcterms: ;
+                dcterms:modified "2010-10-11"^^xsd:date ;
+                rdfs:label "has Creator"@en ;
+                dcterms:issued "2008-01-14"^^xsd:date ;
+                dcterms:description "Examples of a Creator include a person, an organization, or a service."@en .
 
 
 ###  https://w3id.org/i40/sto#isImplementationOf
@@ -906,15 +913,43 @@ sto:Publication rdf:type owl:Class ;
 
 ###  https://w3id.org/i40/sto#StandardClassification
 sto:StandardClassification rdf:type owl:Class;
-                 rdfs:comment ""@en ;
-                 rdfs:label "Standard Classification";
+                 rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
+                           rdfs:label "Standard Classification"@en ;
+                 rdfs:comment "A category or section of a standard or reference framework. StandardClassification reflects views and viewpoints as defined by ISO 42010."@en ;
+                 rdfs:label "Standard Classification" ;
                  rdfs:isDefinedBy <http://cabibbo.dia.uniroma3.it/asw/altrui/iso-iec-ieee-42010-2011.pdf>;
                  sto:hasOfficialResource <http://www.iso-architecture.org/42010/>.
 
 
+
+
+###  https://w3id.org/i40/sto#InternationalClassificationForStandards
+sto:InternationalClassificationForStandards rdf:type owl:Class ;
+                                            rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
+                                            rdfs:label "International Classification For Standards"@en ;
+                                            sto:hasOfficialResource <https://www.iso.org/publication/PUB100033.html> ;
+                                            rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
+
+
+###  https://w3id.org/i40/sto#Standard
+sto:Standard rdf:type owl:Class ;
+             rdfs:subClassOf sto:Publication ;
+             rdfs:label "Standard"@en ;
+             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
+             cc:attributionURL <http://www.iec.ch> ;
+            cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
+             rdfs:isDefinedBy sto:IEC ;
+             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> ;
+.             
+
+
+
+
 ###  https://w3id.org/i40/sto#StandardOrganization
 sto:StandardOrganization rdf:type owl:Class ;
-                         rdfs:subClassOf foaf:Organization .
+                         rdfs:subClassOf foaf:Organization ;
+                         rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
+                         rdfs:label "StandardOrganization"@en .
 
 
 ###  https://w3id.org/i40/sto#StandardPart
@@ -929,7 +964,10 @@ sto:StandardizationFramework rdf:type owl:Class ;
                  rdfs:comment "A framework is conventions, principles and practices for the description of architectures established within a specific domain of application and/or community of stakeholders."@en ;
                  rdfs:label "Standardization Framework";
                  rdfs:isDefinedBy <http://cabibbo.dia.uniroma3.it/asw/altrui/iso-iec-ieee-42010-2011.pdf>;
-                 sto:hasOfficialResource <http://www.iso-architecture.org/42010/>.
+                 sto:hasOfficialResource <http://www.iso-architecture.org/42010/>; 
+                 skos:altLabel "Reference Architecture"@en ;
+                 rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
+.
 
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
@@ -10504,8 +10542,7 @@ sto:SCOR rdf:type owl:NamedIndividual ,
 
 
 ###  https://w3id.org/i40/sto#SE
-sto:SE rdf:type owl:NamedIndividual ,
-                sto:StandardOrganization ;
+sto:SE rdf:type owl:NamedIndividual ;
        sto:hasHeadquaterIn dbr:Paris ;
        sto:abbreviation "SE"^^xsd:string ;
        sto:formationDate "1936-01-01"^^xsd:date ;
@@ -10614,11 +10651,6 @@ sto:SmartGrid rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#StandardClassification
 sto:StandardClassification rdf:type owl:NamedIndividual ;
                            dcterms:creator sto:irlan .
-
-
-###  https://w3id.org/i40/sto#StandardOrganization
-sto:StandardOrganization rdf:type owl:NamedIndividual ;
-                         dcterms:creator sto:irlan .
 
 
 ###  https://w3id.org/i40/sto#StandardizationFramework
@@ -10860,9 +10892,33 @@ sto:TSMP rdf:type owl:NamedIndividual ,
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/TSMP> .
 
 ###  https://w3id.org/i40/sto#TechnicalCommittee
-sto:TechnicalCommittee rdf:type owl:NamedIndividual ;
-                       sto:abbreviation "TC" .
+sto:TechnicalCommittee rdf:type owl:Class ;
+                       sto:abbreviation "TC" ;
+                       rdfs:label "Technical Committee"@en ;
+                       skos:note "A property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
+                       rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
+                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
+                       rdfs:isDefinedBy sto:IEC .
 
+
+###  https://w3id.org/i40/sto#TechnicalReport
+sto:TechnicalReport rdf:type owl:Class ;
+                    cc:attributionURL <http://www.iec.ch> ;
+                    rdfs:isDefinedBy sto:IEC ;
+                    rdfs:comment "Technical Reports contain collected data of a kind different from that normally published as an International Standard, for example data obtained from a survey carried out among national committees, data of work in other international organizations or data on \"the state of the art\" in relation to standards of national committees on a particular subject.Technical Reports are entirely informative in nature and shall not contain matter implying that they are normative"@en ;
+                    rdfs:label "Technical Report"@en ;
+                    rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/tr.htm> ;
+                    rdfs:comment "Specifies that a given Publication is a Technical Report"@en .
+
+
+###  https://w3id.org/i40/sto#TechnicalSpecification
+sto:TechnicalSpecification rdf:type owl:Class ;
+                           rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ;
+                           rdfs:label "Technical Specification"@en ;
+                           rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
+                           cc:attributionURL <http://www.iec.ch> ;
+                           rdfs:isDefinedBy sto:IEC ;
+                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
 
 ###  https://w3id.org/i40/sto#Technology
 sto:Technology rdf:type owl:NamedIndividual ;
@@ -11420,66 +11476,4 @@ sto:uIP rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
-dcterms:creator rdfs:comment "An entity primarily responsible for making the resource."@en ;
-                dcterms:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-                rdfs:isDefinedBy dcterms: ;
-                dcterms:modified "2010-10-11"^^xsd:date ;
-                rdfs:label "has Creator"@en ;
-                dcterms:issued "2008-01-14"^^xsd:date ;
-                dcterms:description "Examples of a Creator include a person, an organization, or a service."@en .
 
-
-
-
-###  https://w3id.org/i40/sto#InternationalClassificationForStandards
-sto:InternationalClassificationForStandards rdf:type owl:Class ;
-                                            rdfs:seeAlso <https://www.iso.org/publication/PUB100033.html> ;
-                                            rdfs:label "International Classification For Standards"@en ;
-                                            sto:hasOfficialResource <https://www.iso.org/publication/PUB100033.html> ;
-                                            rdfs:comment "Serves as a structure for catalogues of international, regional and national standards and other normative documents, and as a basis for standing-order systems."@en .
-
-
-sto:Standard rdf:type owl:Class ;
-             rdfs:subClassOf sto:Publication ;
-             rdfs:label "Standard"@en ;
-             rdfs:comment "A document, established by consensus and approved by a recognized body, that provides, for common and repeated use, rules, guidelines or characteristics for activities or their results, aimed at the achievement of the optimum degree of order in a given context."@en ;
-             cc:attributionURL <http://www.iec.ch> ;
-            cc:attributionName "Copyright © 2016 IEC Geneva, Switzerland." ;
-             rdfs:isDefinedBy sto:IEC ;
-             rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/is.htm> ;
-.             
-
-
-sto:StandardClassification rdfs:comment "Describes categorization areas that the different Standardizations Initiatives use to category Standards."@en ;
-                           rdfs:label "Standard Classification"@en .
-
-
-sto:StandardOrganization rdfs:comment "Define the standards organizations that develop and publish industry standards"@en ;
-                         rdfs:label "StandardOrganization"@en .
-
-
-sto:StandardizationFramework skos:altLabel "Reference Architecture"@en ;
-                             rdfs:comment "Describes existings Standardizations Initiatives, e.g, RAMI, NIST."@en ;
-                             rdfs:label "Standarization Framework"@en .
-
-
-sto:TechnicalCommittee rdfs:label "Technical Committee"@en ;
-                       skos:note "A property explaining that TC and SC are managed by SMB (Standardization Management Board) needs to be added" ;
-                       rdfs:comment "Specifies the representitive code name of the Technical Committee that covers a Standard for e.g, TC 1, SC 3C. Many thousand experts carry out standardization work in the IEC in TCs (technical committees) and SCs (subcommittees), in hundreds of working groups, project and maintenance teams. They represent the national electrotechnical needs of IEC Member countries and of many Affiliates at the global level in the IEC. These technical experts are sent by industry, governments, test and research laboratories, academia and even consumer groups to work on the global, neutral and independent platform of the IEC. That's where they develop globally relevant, voluntary, consensus based IEC International Standards."@en ;
-                       rdfs:seeAlso <http://www.iec.ch/dyn/www/f?p=103:62:9979528650478:::62:FSP_ORG_ID,FSP_LANG_ID:,25> ;
-                       rdfs:isDefinedBy sto:IEC .
-
-
-sto:TechnicalReport cc:attributionURL <http://www.iec.ch> ;
-                    rdfs:isDefinedBy sto:IEC ;
-                    rdfs:comment "Technical Reports contain collected data of a kind different from that normally published as an International Standard, for example data obtained from a survey carried out among national committees, data of work in other international organizations or data on \"the state of the art\" in relation to standards of national committees on a particular subject.Technical Reports are entirely informative in nature and shall not contain matter implying that they are normative"@en ;
-                    rdfs:label "Technical Report"@en ;
-                    rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/tr.htm> ;
-                    rdfs:comment "Specifies that a given Publication is a Technical Report"@en .
-
-sto:TechnicalSpecification rdfs:comment "Specifies that a given Publication is a Technical Specification"@en ;
-                           rdfs:label "Technical Specification"@en ;
-                           rdfs:comment "Technical Specifications are often published when the subject under question is still under development or when insufficient consensus for approval of an International Standard is available.Technical Specifications approach International Standards in terms of detail and completeness, but have not yet passed through all approval stages either because consensus has not been reached or because standardization is seen to be premature."@en ;
-                           cc:attributionURL <http://www.iec.ch> ;
-                           rdfs:isDefinedBy sto:IEC ;
-                           rdfs:seeAlso <http://www.iec.ch/standardsdev/publications/ts.htm> .
