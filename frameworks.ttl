@@ -89,15 +89,6 @@ oa:hasTarget rdf:type owl:AnnotationProperty .
 #################################################################
 
 
-###  https://w3id.org/i40/sto_iot#alignsWith
-sto_iot:alignsWith rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf dul:associatedWith ;
-               rdf:type owl:SymmetricProperty ;
-               rdfs:domain sto:StandardClassification ;
-               rdfs:range sto:StandardClassification ;
-               rdfs:comment "indicates that some Standard Classification entity has a similar scope as another. This property most probably is symmetric but not transitive."@en ;
-               rdfs:label "alignes With"@en .
-
 ###  https://w3id.org/i40/sto_iot#frames
 sto_iot:frames rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf dul:associatedWith ;
@@ -381,7 +372,7 @@ sto:AMQP rdf:type owl:NamedIndividual ,
 sto:AdministrationShell rdf:type owl:NamedIndividual ,
                                  sto:StandardizationFramework ;
                         dul:associatedWith sto:IdsTrustedConnector ;
-                        sto_iot:alignsWith sto:IdsTrustedConnector ;
+                        sto:alignsWith sto:IdsTrustedConnector ;
                         sto_iot:frames sto:Lifecycle_Status ,
                                    sto:Availability ,
                                    sto:EnergyEfficiency,
@@ -423,7 +414,7 @@ sto:Aeron rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#AiiData
 sto:AiiData rdf:type owl:NamedIndividual ,
                      sto:AiiClassification ;
-            sto_iot:alignsWith sto:IDSRAMInformationLayer ,
+            sto:alignsWith sto:IDSRAMInformationLayer ,
                            sto:InformationDomain ;
             sto_iot:frames sto:DataAnalytics ,
                        sto:DataProcessing ,
@@ -454,7 +445,7 @@ sto:AiiDataAnno rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#AiiNetwork
 sto:AiiNetwork rdf:type owl:NamedIndividual ,
                         sto:AiiClassification ;
-               sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+               sto:alignsWith sto:IDSRAMSystemLayer ,
                               sto:IIRAConnectivity ,
                               sto:RamiCommunicationlayer ,
                               sto:RamiIntegrationLayer ;
@@ -487,7 +478,7 @@ sto:AiiNetworkAnno rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#AiiSecurity
 sto:AiiSecurity rdf:type owl:NamedIndividual ,
                          sto:AiiClassification ;
-                sto_iot:alignsWith sto:IDSRAMSecurity ,
+                sto:alignsWith sto:IDSRAMSecurity ,
                                sto:IIRASecurity ;
                 sto_iot:frames sto:DataAccess ,
                            sto:Security ;
@@ -626,7 +617,7 @@ sto:BdvaCloudAndHighPerformanceComputing rdf:type owl:NamedIndividual ,
                                                   sto:StandardClassification ;
                                          dcterms:creator sto:sebastian ;
                                          dul:associatedWith sto:IIRAApplicationDomain ;
-                                         sto_iot:alignsWith sto:IIRAApplicationDomain ;
+                                         sto:alignsWith sto:IIRAApplicationDomain ;
                                          sto_iot:frames sto:AI ,
                                                     sto:BigDataApplications ,
                                                     sto:CloudComputing ,
@@ -765,7 +756,7 @@ sto:BdvaCyberSecurityTrust rdf:type owl:NamedIndividual ,
                            dul:associatedWith sto:Security ,
                                               sto:IDSRAMSecurity ,
                                               sto:IIRASecurityFramework ;
-                           sto_iot:alignsWith sto:Security ,
+                           sto:alignsWith sto:Security ,
                                           sto:IDSRAMSecurity ,
                                           sto:IIRASecurityFramework ;
                            sto_iot:frames sto:Communication ,
@@ -818,7 +809,7 @@ sto:BdvaDataAnalytics rdf:type owl:NamedIndividual ,
                                          sto:InformationDomain ,
                                          sto:RamiFunctionalLayer ,
                                          sto:RamiInformationLayer ;
-                      sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                      sto:alignsWith sto:IDSRAMProcessLayer ,
                                      sto:InformationDomain ,
                                      sto:RamiFunctionalLayer ,
                                      sto:RamiInformationLayer ;
@@ -869,7 +860,7 @@ sto:BdvaDataManagement rdf:type owl:NamedIndividual ,
                        dul:associatedWith sto:IDSRAMInformationLayer ,
                                           sto:IDSRAMProcessLayer ,
                                           sto:RamiInformationLayer ;
-                       sto_iot:alignsWith sto:IDSRAMInformationLayer ,
+                       sto:alignsWith sto:IDSRAMInformationLayer ,
                                       sto:IDSRAMProcessLayer ,
                                       sto:RamiInformationLayer ;
                        sto_iot:frames sto:BigDataApplications ,
@@ -921,7 +912,7 @@ sto:BdvaDataProcessingArchitectures rdf:type owl:NamedIndividual ,
                                     dul:associatedWith sto:IDSRAMProcessLayer ,
                                                        sto:IIRAConnectivity ,
                                                        sto:InformationDomain ;
-                                    sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                                    sto:alignsWith sto:IDSRAMProcessLayer ,
                                                    sto:IIRAConnectivity ,
                                                    sto:InformationDomain ;
                                     sto_iot:frames sto:BigDataApplications ,
@@ -971,7 +962,7 @@ sto:BdvaDataProtection rdf:type owl:NamedIndividual ,
                        dcterms:creator sto:sebastian ;
                        dul:associatedWith sto:IDSRAMSecurity ,
                                           sto:IIRASecurityFramework ;
-                       sto_iot:alignsWith sto:IDSRAMSecurity ,
+                       sto:alignsWith sto:IDSRAMSecurity ,
                                       sto:IIRASecurityFramework ;
                        sto_iot:frames sto:DataProtection ,
                                   sto:DataSovereignty ,
@@ -1060,7 +1051,7 @@ sto:BdvaDataVisualizationAndUserInteraction rdf:type owl:NamedIndividual ,
                                             dcterms:creator sto:sebastian ;
                                             dul:associatedWith sto:IIRAUsageViewpoint ,
                                                                sto:RamiFunctionalLayer ;
-                                            sto_iot:alignsWith sto:IIRAUsageViewpoint ,
+                                            sto:alignsWith sto:IIRAUsageViewpoint ,
                                                            sto:RamiFunctionalLayer ;
                                             sto_iot:frames sto:BigDataApplications ;
                                             sto:isDescribedin sto:BdvaSira ;
@@ -1436,7 +1427,7 @@ sto:DtpDeploymentView rdf:type owl:NamedIndividual ,
                                sto:Viewpoint ;
                       dul:associatedWith sto:IDSRAMProcessLayer ,
                                          sto:IIRAImplementationViewpoint ;
-                      sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                      sto:alignsWith sto:IDSRAMProcessLayer ,
                                      sto:IIRAImplementationViewpoint ;
                       sto_iot:frames sto:Identification ,
                                  sto:IdentityManagement ,
@@ -1455,7 +1446,7 @@ sto:DtpEcosystemView rdf:type owl:NamedIndividual ,
                               sto:Viewpoint ;
                      dul:associatedWith sto:IDSRAMGovernance ,
                                         sto:IIRAUsageViewpoint ;
-                     sto_iot:alignsWith sto:IDSRAMGovernance ,
+                     sto:alignsWith sto:IDSRAMGovernance ,
                                     sto:IIRAUsageViewpoint ;
                      sto:isDescribedin sto:DtpArchitecture ;
                      rdfs:label "DTP Ecosystem"@en .
@@ -1469,7 +1460,7 @@ sto:DtpSecurityPrivacy rdf:type owl:NamedIndividual ,
                                           sto:IDSRAMGovernance ,
                                           sto:IIRAPrivacy ,
                                           sto:IIRASecurity ;
-                       sto_iot:alignsWith sto:Security ,
+                       sto:alignsWith sto:Security ,
                                       sto:IDSRAMGovernance ,
                                       sto:IIRAPrivacy ,
                                       sto:Security ;
@@ -1488,7 +1479,7 @@ sto:DtpSystemView rdf:type owl:NamedIndividual ,
                                      sto:RamiFunctionalLayer ,
                                      sto:RamiIntegrationLayer ,
                                      sto:RFC_6750 ;
-                  sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                  sto:alignsWith sto:IDSRAMSystemLayer ,
                                  sto:IIRAConnectivity ,
                                  sto:IIRAOperationsDomain ,
                                  sto:InformationDomain ,
@@ -1534,7 +1525,7 @@ sto:EdgecrossEdgeComputingLayer rdf:type owl:NamedIndividual ,
                                                    sto:InformationDomain ,
                                                    sto:RamiInformationLayer ,
                                                    sto:RamiIntegrationLayer ;
-                                sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                                sto:alignsWith sto:IDSRAMSystemLayer ,
                                                sto:IIRAControlDomain ,
                                                sto:IIRAOperationsDomain ,
                                                sto:InformationDomain ,
@@ -1585,7 +1576,7 @@ sto:EdgecrossFacilityLayer rdf:type owl:NamedIndividual ,
                                     sto:StandardClassification ;
                            dul:associatedWith sto:IIRAPhysicalSystems ,
                                               sto:RamiAssetlayer ;
-                           sto_iot:alignsWith sto:IIRAPhysicalSystems ,
+                           sto:alignsWith sto:IIRAPhysicalSystems ,
                                           sto:RamiAssetlayer ;
                            sto:isDescribedin sto:EdgecrossArchitecture ;
                            rdfs:label "Edgecross FA"@en .
@@ -1628,7 +1619,7 @@ sto:EdgecrossItSystemsLayer rdf:type owl:NamedIndividual ,
                             dul:associatedWith sto:IDSRAMSystemLayer ,
                                                sto:IIRAApplicationDomain ,
                                                sto:RamiIntegrationLayer ;
-                            sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                            sto:alignsWith sto:IDSRAMSystemLayer ,
                                            sto:IIRAApplicationDomain ,
                                            sto:RamiIntegrationLayer ;
                             sto_iot:frames sto:Communication ,
@@ -1719,7 +1710,7 @@ sto:FIWARE rdf:type owl:NamedIndividual ,
            dcterms:creator sto:sebastian ;
            dul:associatedWith sto:IDSRAMSystemLayer ,
                               sto:IIRAImplementationViewpoint ;
-           sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+           sto:alignsWith sto:IDSRAMSystemLayer ,
                           sto:IIRAImplementationViewpoint ;
            sto:hasPublisher sto:Fiware ;
            rdfs:comment "The FIWARE platform contains market-ready open source software, combining components that enable the connection to IoT with Context Information Management and Big Data services in the Cloud."@en ;
@@ -1753,7 +1744,7 @@ sto:FiwareAdvancedUi rdf:type owl:NamedIndividual ,
                      dul:associatedWith sto:EndUser ,
                                         sto:IIRAApplicationDomain ,
                                         sto:IIRAUsageViewpoint ;
-                     sto_iot:alignsWith sto:IIRAApplicationDomain ,
+                     sto:alignsWith sto:IIRAApplicationDomain ,
                                     sto:IIRAUsageViewpoint ;
                      sto_iot:frames sto:UserInteraction ;
                      sto:isDescribedin sto:FIWARE ;
@@ -1783,7 +1774,7 @@ sto:FiwareApplicationsServicesAndDataDelivery rdf:type owl:NamedIndividual ,
                                               dul:associatedWith sto:IDSRAMProcessLayer ,
                                                                  sto:IIRAConnectivity ,
                                                                  sto:NgsiLdArchitecture ;
-                                              sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                                              sto:alignsWith sto:IDSRAMProcessLayer ,
                                                              sto:IIRAConnectivity ,
                                                              sto:NgsiLdArchitecture ;
                                               sto_iot:frames sto:DataAnalytics ,
@@ -1835,7 +1826,7 @@ sto:FiwareCloudHosting rdf:type owl:NamedIndividual ,
                                           sto:IIRADistributedDataManagement ,
                                           sto:IIRAScalability ,
                                           sto:NgsiLdArchitecture ;
-                       sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                       sto:alignsWith sto:IDSRAMSystemLayer ,
                                       sto:IIRAApplicationDomain ,
                                       sto:IIRADistributedDataManagement ,
                                       sto:IIRAScalability ,
@@ -1881,7 +1872,7 @@ sto:FiwareDataContextManagement rdf:type owl:NamedIndividual ,
                                 dul:associatedWith sto:NgsiLdApiOperation ,
                                                    sto:NgsiLdDataRepresentation ,
                                                    sto:NgsiLdInformationModel ;
-                                sto_iot:alignsWith sto:NgsiLdApiOperation ,
+                                sto:alignsWith sto:NgsiLdApiOperation ,
                                                sto:NgsiLdDataRepresentation ,
                                                sto:NgsiLdInformationModel ;
                                 sto_iot:frames sto:BigDataApplications ,
@@ -1917,7 +1908,7 @@ sto:FiwareIotServicesEnablement rdf:type owl:NamedIndividual ,
                                                    sto:IIRAControlDomain ,
                                                    sto:RamiCommunicationlayer ,
                                                    sto:RamiIntegrationLayer ;
-                                sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                                sto:alignsWith sto:IDSRAMSystemLayer ,
                                                sto:IIRAControlDomain ,
                                                sto:RamiCommunicationlayer ,
                                                sto:RamiIntegrationLayer ;
@@ -1961,7 +1952,7 @@ sto:FiwareSecurity rdf:type owl:NamedIndividual ,
                                       sto:IDSRAMSecurity ,
                                       sto:IIRASecurity ,
                                       sto:XACML ;
-                   sto_iot:alignsWith sto:Security ,
+                   sto:alignsWith sto:Security ,
                                   sto:IDSRAMSecurity ,
                                   sto:IIRASecurity ;
                    sto_iot:frames sto:Authentication ,
@@ -2015,7 +2006,7 @@ sto:IDSRAMBusinessLayer rdf:type owl:NamedIndividual ,
                                            sto:OceanSystemViewpoint ,
                                            sto:RamiBusinessLayer ,
                                            sto:xRoadSystemComponents ;
-                        sto_iot:alignsWith sto:IIRABusinessDomain ,
+                        sto:alignsWith sto:IIRABusinessDomain ,
                                        sto:OceanSystemViewpoint ,
                                        sto:RamiBusinessLayer ,
                                        sto:xRoadSystemComponents ;
@@ -2114,7 +2105,7 @@ sto:IDSRAMGovernance rdf:type owl:NamedIndividual ,
                                         sto:DtpSecurityPrivacy ,
                                         sto:IICFFrameworkLayer ,
                                         sto:RamiBusinessLayer ;
-                     sto_iot:alignsWith sto:DtpEcosystemView ,
+                     sto:alignsWith sto:DtpEcosystemView ,
                                     sto:DtpSecurityPrivacy ,
                                     sto:IICFFrameworkLayer ,
                                     sto:RamiBusinessLayer ;
@@ -2153,7 +2144,7 @@ sto:IDSRAMInformationLayer rdf:type owl:NamedIndividual ,
                                               sto:NgsiLdInformationModel ,
                                               sto:RamiInformationLayer ,
                                               sto:Vocabulary ;
-                           sto_iot:alignsWith sto:BdvaDataManagement ,
+                           sto:alignsWith sto:BdvaDataManagement ,
                                           sto:InformationDomain ,
                                           sto:IotaInformationViewpoint ,
                                           sto:NgsiLdDataRepresentation ,
@@ -2223,7 +2214,7 @@ sto:IDSRAMProcessLayer rdf:type owl:NamedIndividual ,
                                           sto:RamiFunctionalLayer ,
                                           sto:xRoadProtocolsInterfaces ,
                                           sto:xRoadSystemComponents ;
-                       sto_iot:alignsWith sto:BdvaDataAnalytics ,
+                       sto:alignsWith sto:BdvaDataAnalytics ,
                                       sto:BdvaDataManagement ,
                                       sto:BdvaDataProcessingArchitectures ,
                                       sto:DtpDeploymentView ,
@@ -2269,7 +2260,7 @@ sto:IDSRAMReferenceArchitectureModel rdf:type owl:NamedIndividual ,
                                               sto:ArchitectureDescription ,
                                               sto:StandardizationFramework ;
                                      dul:associatedWith sto:IIRAFunctionalViewpoint ;
-                                     sto_iot:alignsWith sto:IIRAFunctionalViewpoint ;
+                                     sto:alignsWith sto:IIRAFunctionalViewpoint ;
                                      sto:hasPublisher sto:IDSA ;
                                      dcterms:title "Industrial Data Space Reference Architecture Model"@en ;
                                      rdfs:label "IDS RAM"@en .
@@ -2287,7 +2278,7 @@ sto:IDSRAMSecurity rdf:type owl:NamedIndividual ,
                                       sto:IotaFunctionalViewpoint ,
                                       sto:IotaTrustSecurityPrivacy ,
                                       sto:Rami ;
-                   sto_iot:alignsWith sto:BdvaCyberSecurityTrust ,
+                   sto:alignsWith sto:BdvaCyberSecurityTrust ,
                                   sto:BdvaDataProtection ,
                                   sto:FiwareSecurity ,
                                   sto:IIRASecurity ,
@@ -2353,7 +2344,7 @@ sto:IDSRAMSystemLayer rdf:type owl:NamedIndividual ,
                                          sto:RamiCommunicationlayer ,
                                          sto:RamiIntegrationLayer ,
                                          sto:xRoadDeploymentView ;
-                      sto_iot:alignsWith sto:DtpSystemView ,
+                      sto:alignsWith sto:DtpSystemView ,
                                      sto:EdgecrossEdgeComputingLayer ,
                                      sto:EdgecrossItSystemsLayer ,
                                      sto:FIWARE ,
@@ -2434,7 +2425,7 @@ sto:IICFFrameworkLayer rdf:type owl:NamedIndividual ,
                                           sto:oneM2M ,
                                           sto:SoftwareArchitect ;
                        dul:isPartOf sto:IIRAConnectivity ;
-                       sto_iot:alignsWith sto:IDSRAMGovernance ,
+                       sto:alignsWith sto:IDSRAMGovernance ,
                                       sto:IDSRAMSystemLayer ;
                        sto_iot:frames sto:Authentication ,
                                   sto:Communication ,
@@ -2689,7 +2680,7 @@ sto:IICVocabulary rdf:type owl:NamedIndividual ,
                                   sto:sebastian ;
                   dul:associatedWith sto:IDSRAMInformationLayer ;
                   foaf:maker sto:IIC ;
-                  sto_iot:alignsWith sto:IDSRAMInformationLayer ;
+                  sto:alignsWith sto:IDSRAMInformationLayer ;
                   sto:hasPublisher sto:IIC ;
                   sto:isDescribedin sto:IIRA ;
                   rdfs:label "IIC Vocabulary"@en .
@@ -2754,7 +2745,7 @@ sto:IIRAApplicationDomain rdf:type owl:NamedIndividual ,
                                              sto:RamiFunctionalLayer ,
                                              sto:RamiInformationLayer ;
                           dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                          sto_iot:alignsWith sto:BdvaCloudAndHighPerformanceComputing ,
+                          sto:alignsWith sto:BdvaCloudAndHighPerformanceComputing ,
                                          sto:EdgecrossItSystemsLayer ,
                                          sto:FiwareAdvancedUi ,
                                          sto:FiwareCloudHosting ,
@@ -2811,7 +2802,7 @@ sto:IIRABusinessDomain rdf:type owl:NamedIndividual ,
                                           sto:OceanSystemViewpoint ,
                                           sto:RamiBusinessLayer ;
                        dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                       sto_iot:alignsWith sto:IDSRAMBusinessLayer ,
+                       sto:alignsWith sto:IDSRAMBusinessLayer ,
                                       sto:OceanSystemViewpoint ,
                                       sto:RamiBusinessLayer ;
                        sto_iot:frames sto:AsProcessPlanning ;
@@ -2858,7 +2849,7 @@ sto:IIRABusinessViewpoint rdf:type owl:NamedIndividual ,
                           dul:associatedWith sto:IviBusinessLayer ,
                                              sto:OceanBusinessViewpoint ,
                                              sto:OceanMarketplaceViewpoint ;
-                          sto_iot:alignsWith sto:IviBusinessLayer ,
+                          sto:alignsWith sto:IviBusinessLayer ,
                                          sto:OceanBusinessViewpoint ,
                                          sto:OceanMarketplaceViewpoint ;
                           sto_iot:frames sto:BusinessContext ,
@@ -2925,7 +2916,7 @@ sto:IIRAConnectivity rdf:type owl:NamedIndividual ,
                                         sto:oneM2M ,
                                         sto:SoftwareArchitect ;
                      dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                     sto_iot:alignsWith sto:BdvaDataProcessingArchitectures ,
+                     sto:alignsWith sto:BdvaDataProcessingArchitectures ,
                                     sto:DtpSystemView ,
                                     sto:FiwareApplicationsServicesAndDataDelivery ,
                                     sto:IotaEvolutionInteroperability ,
@@ -3015,7 +3006,7 @@ sto:IIRAControlDomain rdf:type owl:NamedIndividual ,
                                          sto:RamiIntegrationLayer ,
                                          sto:xRoadProtocolsInterfaces ;
                       dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                      sto_iot:alignsWith sto:EdgecrossEdgeComputingLayer ,
+                      sto:alignsWith sto:EdgecrossEdgeComputingLayer ,
                                      sto:FiwareIotServicesEnablement ,
                                      sto:IDSRAMSystemLayer ,
                                      sto:IotaInformationViewpoint ,
@@ -3107,7 +3098,7 @@ sto:IIRADistributedDataManagement rdf:type owl:NamedIndividual ,
                                   dul:associatedWith sto:FiwareCloudHosting ,
                                                      sto:RamiCommunicationlayer ;
                                   dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                                  sto_iot:alignsWith sto:FiwareCloudHosting ,
+                                  sto:alignsWith sto:FiwareCloudHosting ,
                                                  sto:RamiCommunicationlayer ;
                                   sto_iot:frames sto:Interoperability ,
                                              sto:SemanticInteroperability ;
@@ -3126,7 +3117,7 @@ sto:IIRAFunctionalViewpoint rdf:type owl:NamedIndividual ,
                             dul:associatedWith sto:IDSRAMReferenceArchitectureModel ,
                                                sto:IotaFunctionalViewpoint ,
                                                sto:OceanSystemViewpoint ;
-                            sto_iot:alignsWith sto:IDSRAMReferenceArchitectureModel ,
+                            sto:alignsWith sto:IDSRAMReferenceArchitectureModel ,
                                            sto:IotaFunctionalViewpoint ,
                                            sto:OceanSystemViewpoint ;
                             sto_iot:frames sto:AsProcessPlanning ,
@@ -3241,7 +3232,7 @@ sto:IIRAImplementationViewpoint rdf:type owl:NamedIndividual ,
                                                    sto:IotaDeploymentOperationViewpoint ,
                                                    sto:NgsiLdArchitecture ,
                                                    sto:xRoadDeploymentView ;
-                                sto_iot:alignsWith sto:DtpDeploymentView ,
+                                sto:alignsWith sto:DtpDeploymentView ,
                                                sto:FIWARE ,
                                                sto:IotaDeploymentOperationViewpoint ,
                                                sto:NgsiLdArchitecture ,
@@ -3310,7 +3301,7 @@ sto:IIRAInformationDomain rdf:type owl:NamedIndividual ,
                                              sto:NgsiLdInformationModel ,
                                              sto:RamiInformationLayer ;
                           dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                          sto_iot:alignsWith sto:BdvaDataAnalytics ,
+                          sto:alignsWith sto:BdvaDataAnalytics ,
                                          sto:BdvaDataProcessingArchitectures ,
                                          sto:DtpSystemView ,
                                          sto:EdgecrossEdgeComputingLayer ,
@@ -3382,7 +3373,7 @@ sto:IIRAOperationsDomain rdf:type owl:NamedIndividual ,
                                             sto:IviActivityView ,
                                             sto:RamiFunctionalLayer ;
                          dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                         sto_iot:alignsWith sto:DtpSystemView ,
+                         sto:alignsWith sto:DtpSystemView ,
                                         sto:EdgecrossEdgeComputingLayer ,
                                         sto:IDSRAMProcessLayer ,
                                         sto:IotaInformationViewpoint ,
@@ -3436,7 +3427,7 @@ sto:IIRAPhysicalSystems rdf:type owl:NamedIndividual ,
                                            sto:IviAssetView ,
                                            sto:RamiAssetlayer ;
                         dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                        sto_iot:alignsWith sto:EdgecrossFacilityLayer ,
+                        sto:alignsWith sto:EdgecrossFacilityLayer ,
                                        sto:IDSRAMSystemLayer ,
                                        sto:IviAssetView ,
                                        sto:RamiAssetlayer ;
@@ -3453,7 +3444,7 @@ sto:IIRAPrivacy rdf:type owl:NamedIndividual ,
                          sto:StandardClassification ;
                 dul:associatedWith sto:DtpSecurityPrivacy ;
                 dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                sto_iot:alignsWith sto:DtpSecurityPrivacy ;
+                sto:alignsWith sto:DtpSecurityPrivacy ;
                 sto_iot:frames sto:DataSovereignty ,
                            sto:Privacy ,
                            sto:Trustworthiness ;
@@ -3611,7 +3602,7 @@ sto:IIRAScalability rdf:type owl:NamedIndividual ,
                              sto:StandardClassification ;
                     dul:associatedWith sto:FiwareCloudHosting ;
                     dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                    sto_iot:alignsWith sto:FiwareCloudHosting ;
+                    sto:alignsWith sto:FiwareCloudHosting ;
                     sto_iot:frames sto:Scalability ;
                     sto:isDescribedin sto:IIRA ;
                     rdfs:label "IIRA Scalability"@en .
@@ -3631,7 +3622,7 @@ sto:IIRASecurity rdf:type owl:NamedIndividual ,
                                     sto:IotaTrustSecurityPrivacy ,
                                     sto:SoftwareArchitect;
                  dul:isPartOf sto:IIRAFunctionalViewpoint ;
-                 sto_iot:alignsWith sto:DtpSecurityPrivacy ,
+                 sto:alignsWith sto:DtpSecurityPrivacy ,
                                 sto:FiwareSecurity ,
                                 sto:IDSRAMSecurity ,
                                 sto:IotaAvailabilityResilience ,
@@ -3704,7 +3695,7 @@ sto:IIRASecurityFramework rdf:type owl:NamedIndividual ,
                                              sto:BdvaDataProtection ,
                                              sto:IDSRAMSecurity ,
                                              sto:xRoadSystemComponents ;
-                          sto_iot:alignsWith sto:BdvaCyberSecurityTrust ,
+                          sto:alignsWith sto:BdvaCyberSecurityTrust ,
                                          sto:BdvaDataProtection ,
                                          sto:IDSRAMSecurity ,
                                          sto:xRoadSystemComponents ;
@@ -3781,7 +3772,7 @@ sto:IIRAUsageViewpoint rdf:type owl:NamedIndividual ,
                                           sto:DtpEcosystemView ,
                                           sto:FiwareAdvancedUi ,
                                           sto:IviManagementView ;
-                       sto_iot:alignsWith sto:BdvaDataViualisationAndUserInteraction ,
+                       sto:alignsWith sto:BdvaDataViualisationAndUserInteraction ,
                                       sto:DtpEcosystemView ,
                                       sto:FiwareAdvancedUi ,
                                       sto:IviManagementView ;
@@ -3956,7 +3947,7 @@ sto:InterfaceNetworksDevices rdf:type owl:NamedIndividual ,
                                                 sto:IDSRAMSystemLayer ,
                                                 sto:NgsiLdArchitecture ,
                                                 sto:OpenDaylight ;
-                             sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                             sto:alignsWith sto:IDSRAMProcessLayer ,
                                             sto:IDSRAMSystemLayer ,
                                             sto:NgsiLdArchitecture ;
                              sto_iot:frames sto:CloudComputing ,
@@ -4027,7 +4018,7 @@ sto:IotaAvailabilityResilience rdf:type owl:NamedIndividual ,
                                         sto:IotaPerspective ,
                                         sto:StandardClassification ;
                                dul:associatedWith sto:Security ;
-                               sto_iot:alignsWith sto:Security ;
+                               sto:alignsWith sto:Security ;
                                sto_iot:frames sto:Availability ,
                                           sto:Resilience ,
                                           sto:Security ,
@@ -4073,7 +4064,7 @@ sto:IotaDeploymentOperationViewpoint rdf:type owl:NamedIndividual ,
                                      dcterms:creator sto:sebastian ;
                                      dul:associatedWith sto:IDSRAMSystemLayer ,
                                                         sto:IIRAImplementationViewpoint ;
-                                     sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                                     sto:alignsWith sto:IDSRAMSystemLayer ,
                                                     sto:IIRAImplementationViewpoint ;
                                      sto_iot:frames sto:EnergyEfficiency ,
                                                 sto:DynamicAdjustability ,
@@ -4123,7 +4114,7 @@ sto:IotaEvolutionInteroperability rdf:type owl:NamedIndividual ,
                                            sto:StandardClassification ;
                                   dul:associatedWith sto:IIRAConnectivity ,
                                                      sto:RamiIntegrationLayer ;
-                                  sto_iot:alignsWith sto:IIRAConnectivity ,
+                                  sto:alignsWith sto:IIRAConnectivity ,
                                                  sto:RamiIntegrationLayer ;
                                   sto_iot:frames sto:DynamicAdjustability ,
                                              sto:Evolvability ,
@@ -4175,7 +4166,7 @@ sto:IotaFunctionalViewpoint rdf:type owl:NamedIndividual ,
                                                sto:IIRAFunctionalViewpoint ,
                                                sto:RamiAssetlayer ,
                                                sto:RamiFunctional ;
-                            sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                            sto:alignsWith sto:IDSRAMProcessLayer ,
                                            sto:IDSRAMSecurity ,
                                            sto:IIRAFunctionalViewpoint ,
                                            sto:RamiAssetlayer ,
@@ -4240,7 +4231,7 @@ sto:IotaInformationViewpoint rdf:type owl:NamedIndividual ,
                                                 sto:IIRAOperationsDomain ,
                                                 sto:InformationDomain ,
                                                 sto:RamiCommunicationlayer ;
-                             sto_iot:alignsWith sto:IDSRAMInformationLayer ,
+                             sto:alignsWith sto:IDSRAMInformationLayer ,
                                             sto:IDSRAMProcessLayer ,
                                             sto:IIRAControlDomain ,
                                             sto:IIRAOperationsDomain ,
@@ -4419,7 +4410,7 @@ sto:IotaTrustSecurityPrivacy rdf:type owl:NamedIndividual ,
                                       sto:StandardClassification ;
                              dul:associatedWith sto:IDSRAMSecurity ,
                                                 sto:IIRASecurity ;
-                             sto_iot:alignsWith sto:IDSRAMSecurity ,
+                             sto:alignsWith sto:IDSRAMSecurity ,
                                             sto:Security ;
                              sto_iot:frames sto:DataSovereignty ,
                                         sto:Privacy ,
@@ -4483,7 +4474,7 @@ sto:IviActivityLayer rdf:type owl:NamedIndividual ,
                      dcterms:creator sto:sebastian ;
                      dul:associatedWith sto:AsEngineering ,
                                         sto:Manufacturing ;
-                     sto_iot:alignsWith sto:AsEngineering ,
+                     sto:alignsWith sto:AsEngineering ,
                                     sto:Manufacturing ;
                      sto_iot:frames sto:AsProcessPlanning ;
                      sto:isDescribedin sto:IVRA ;
@@ -4528,7 +4519,7 @@ sto:IviActivityView rdf:type owl:NamedIndividual ,
                     dcterms:creator sto:sebastian ;
                     dul:associatedWith sto:AsEngineering ,
                                        sto:IIRAOperationsDomain ;
-                    sto_iot:alignsWith sto:AsEngineering ,
+                    sto:alignsWith sto:AsEngineering ,
                                    sto:IIRAOperationsDomain ;
                     sto_iot:frames sto:Manufacturing ;
                     sto:isDescribedin sto:IVRA ;
@@ -4572,7 +4563,7 @@ sto:IviAssetView rdf:type owl:NamedIndividual ,
                  dcterms:creator sto:sebastian ;
                  dul:associatedWith sto:IIRAPhysicalSystems ,
                                     sto:RamiAssetlayer ;
-                 sto_iot:alignsWith sto:IIRAPhysicalSystems ,
+                 sto:alignsWith sto:IIRAPhysicalSystems ,
                                 sto:RamiAssetlayer ;
                  sto_iot:frames sto:ThingRepresentation ;
                  sto:isDescribedin sto:IVRA ;
@@ -4616,7 +4607,7 @@ sto:IviBusinessLayer rdf:type owl:NamedIndividual ,
                      dcterms:creator sto:sebastian ;
                      dul:associatedWith sto:IIRABusinessViewpoint ,
                                         sto:RamiBusinessLayer ;
-                     sto_iot:alignsWith sto:IIRABusinessViewpoint ,
+                     sto:alignsWith sto:IIRABusinessViewpoint ,
                                     sto:RamiBusinessLayer ;
                      sto_iot:frames sto:BusinessContext ,
                                 sto:BusinessTransactions ;
@@ -4662,7 +4653,7 @@ sto:IviManagementView rdf:type owl:NamedIndividual ,
                       dcterms:creator sto:sebastian ;
                       dul:associatedWith sto:IIRAUsageViewpoint ,
                                          sto:RamiFunctionalLayer ;
-                      sto_iot:alignsWith sto:IIRAUsageViewpoint ,
+                      sto:alignsWith sto:IIRAUsageViewpoint ,
                                      sto:RamiFunctionalLayer ;
                       sto_iot:frames sto:BusinessContext ,
                                  sto:BusinessTransactions ,
@@ -4711,7 +4702,7 @@ sto:IviSpecificationLayer rdf:type owl:NamedIndividual ,
                           dcterms:creator sto:sebastian ;
                           dul:associatedWith sto:AsEngineering ,
                                              sto:RamiTypeDevelopment ;
-                          sto_iot:alignsWith sto:AsEngineering ,
+                          sto:alignsWith sto:AsEngineering ,
                                          sto:RamiTypeDevelopment ;
                           sto_iot:frames sto:DataProcessing ;
                           sto:isDescribedin sto:IVRA ;
@@ -4834,7 +4825,7 @@ sto:NgsiLdApiOperation rdf:type owl:NamedIndividual ,
                                           sto:IDSRAMSystemLayer ,
                                           sto:IIRAConnectivity ,
                                           sto:IIRAControlDomain ;
-                       sto_iot:alignsWith sto:FiwareDataContextManagement ,
+                       sto:alignsWith sto:FiwareDataContextManagement ,
                                       sto:IDSRAMProcessLayer ,
                                       sto:IDSRAMSystemLayer ,
                                       sto:IIRAConnectivity ,
@@ -4857,7 +4848,7 @@ sto:NgsiLdArchitecture rdf:type owl:NamedIndividual ,
                                           sto:IIRAImplementationViewpoint ,
                                           sto:InterfaceNetworksDevices ,
                                           sto:RamiIntegrationLayer ;
-                       sto_iot:alignsWith sto:FiwareApplicationsServicesAndDataDelivery ,
+                       sto:alignsWith sto:FiwareApplicationsServicesAndDataDelivery ,
                                       sto:FiwareCloudHosting ,
                                       sto:IDSRAMSystemLayer ,
                                       sto:IIRAImplementationViewpoint ,
@@ -4878,7 +4869,7 @@ sto:NgsiLdDataRepresentation rdf:type owl:NamedIndividual ,
                                                 sto:IDSRAMInformationLayer ,
                                                 sto:RamiFunctionalLayer ,
                                                 sto:RDF ;
-                             sto_iot:alignsWith sto:FiwareDataContextManagement ,
+                             sto:alignsWith sto:FiwareDataContextManagement ,
                                             sto:IDSRAMInformationLayer ,
                                             sto:RamiFunctionalLayer ;
                              sto_iot:frames sto:DataDescription ,
@@ -4897,7 +4888,7 @@ sto:NgsiLdInformationModel rdf:type owl:NamedIndividual ,
                                               sto:IDSRAMInformationLayer ,
                                               sto:InformationDomain ,
                                               sto:RamiInformationLayer ;
-                           sto_iot:alignsWith sto:FiwareDataContextManagement ,
+                           sto:alignsWith sto:FiwareDataContextManagement ,
                                           sto:IDSRAMInformationLayer ,
                                           sto:InformationDomain ,
                                           sto:RamiInformationLayer ;
@@ -4920,7 +4911,7 @@ sto:NgsiLdApiOperation rdf:type owl:NamedIndividual ,
                                           sto:IDSRAMSystemLayer ,
                                           sto:IIRAConnectivity ,
                                           sto:IIRAControlDomain ;
-                       sto_iot:alignsWith sto:FiwareDataContextManagement ,
+                       sto:alignsWith sto:FiwareDataContextManagement ,
                                       sto:IDSRAMProcessLayer ,
                                       sto:IDSRAMSystemLayer ,
                                       sto:IIRAConnectivity ,
@@ -4943,7 +4934,7 @@ sto:NgsiLdArchitecture rdf:type owl:NamedIndividual ,
                                           sto:IIRAImplementationViewpoint ,
                                           sto:InterfaceNetworksDevices ,
                                           sto:RamiIntegrationLayer ;
-                       sto_iot:alignsWith sto:FiwareApplicationsServicesAndDataDelivery ,
+                       sto:alignsWith sto:FiwareApplicationsServicesAndDataDelivery ,
                                       sto:FiwareCloudHosting ,
                                       sto:IDSRAMSystemLayer ,
                                       sto:IIRAImplementationViewpoint ,
@@ -4964,7 +4955,7 @@ sto:NgsiLdDataRepresentation rdf:type owl:NamedIndividual ,
                                                 sto:IDSRAMInformationLayer ,
                                                 sto:RamiFunctionalLayer ,
                                                 sto:RDF ;
-                             sto_iot:alignsWith sto:FiwareDataContextManagement ,
+                             sto:alignsWith sto:FiwareDataContextManagement ,
                                             sto:IDSRAMInformationLayer ,
                                             sto:RamiFunctionalLayer ;
                              sto_iot:frames sto:DataDescription ,
@@ -4983,7 +4974,7 @@ sto:NgsiLdInformationModel rdf:type owl:NamedIndividual ,
                                               sto:IDSRAMInformationLayer ,
                                               sto:InformationDomain ,
                                               sto:RamiInformationLayer ;
-                           sto_iot:alignsWith sto:FiwareDataContextManagement ,
+                           sto:alignsWith sto:FiwareDataContextManagement ,
                                           sto:IDSRAMInformationLayer ,
                                           sto:InformationDomain ,
                                           sto:RamiInformationLayer ;
@@ -5102,7 +5093,7 @@ sto:OFRAAutonomyPillarAnno rdf:type owl:NamedIndividual ,
 sto:OFRADataAnalyticsAndControlPerspective rdf:type owl:NamedIndividual ,
                                                     sto:StandardClassification ;
                                            dcterms:creator sto:sebastian ;
-                                           sto_iot:alignsWith sto:IIRAControlDomain ,
+                                           sto:alignsWith sto:IIRAControlDomain ,
                                                           sto:InformationDomain ;
                                            sto_iot:frames sto:DataAnalytics ;
                                            sto:isDescribedin sto:OpenFogReferenceArchitecture ;
@@ -5143,7 +5134,7 @@ sto:OFRADataAnalyticsAndControlPerspectiveAnno rdf:type owl:NamedIndividual ,
 sto:OFRADeploymentViewpoint rdf:type owl:NamedIndividual ,
                                      sto:Viewpoint ;
                             dcterms:creator sto:sebastian ;
-                            sto_iot:alignsWith sto:IIRAImplementationViewpoint ;
+                            sto:alignsWith sto:IIRAImplementationViewpoint ;
                             sto_iot:frames sto:ServiceDeployment ;
                             sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                             rdfs:comment "How fog software and fog systems are deployed to address a given scenario is also very important. There are many deployment types ranging from embedded to large clustered systems that are fully interconnected. The deployment type(s) chosen are scenario specific, but key aspects of the architecture remain visible regardless of deployment type. However, some may grow or shrink in importance. source: OpenFog Reference Architecture"@en ;
@@ -5348,7 +5339,7 @@ sto:OFRANodeView rdf:type owl:NamedIndividual ,
                           sto:Viewpoint ;
                  dcterms:creator sto:sebastian ;
                  dul:associatedWith sto:WiFi ;
-                 sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                 sto:alignsWith sto:IDSRAMSystemLayer ,
                                 sto:IIRAPhysicalSystems ,
                                 sto:RamiAssetlayer ;
                  sto_iot:frames sto:DataStorage ,
@@ -5559,7 +5550,7 @@ sto:OFRAScalabilityPillarAnno rdf:type owl:NamedIndividual ,
 sto:OFRASecurityPerspective rdf:type owl:NamedIndividual ,
                                      sto:StandardClassification ;
                             dcterms:creator sto:sebastian ;
-                            sto_iot:alignsWith sto:Security ,
+                            sto:alignsWith sto:Security ,
                                            sto:BdvaCyberSecurityTrust ,
                                            sto:FiwareSecurity ,
                                            sto:IDSRAMSecurity ,
@@ -5611,7 +5602,7 @@ sto:OFRASecurityPerspectiveAnno rdf:type owl:NamedIndividual ,
 sto:OFRASecurityPillar rdf:type owl:NamedIndividual ,
                                 sto:StandardClassification ;
                        dcterms:creator sto:sebastian ;
-                       sto_iot:alignsWith sto:Security ,
+                       sto:alignsWith sto:Security ,
                                       sto:BdvaCyberSecurityTrust ,
                                       sto:FiwareSecurity ,
                                       sto:IDSRAMSecurity ,
@@ -5687,7 +5678,7 @@ sto:OFRASecurityPillarAnno rdf:type owl:NamedIndividual ,
 sto:OFRASoftwareView rdf:type owl:NamedIndividual ,
                               sto:Viewpoint ;
                      dcterms:creator sto:sebastian ;
-                     sto_iot:alignsWith sto:IIRAApplicationDomain ;
+                     sto:alignsWith sto:IIRAApplicationDomain ;
                      sto:isDescribedin sto:OpenFogReferenceArchitecture ;
                      sto_iot:frames sto:ServiceDiscovery ;
                      rdfs:comment "OpenFog Software Architecture View"@en ,
@@ -5856,7 +5847,7 @@ sto:OceanBusinessViewpoint rdf:type owl:NamedIndividual ,
                                     sto:StandardClassification ,
                                     sto:Viewpoint ;
                            dul:associatedWith sto:IIRABusinessViewpoint ;
-                           sto_iot:alignsWith sto:IIRABusinessViewpoint ;
+                           sto:alignsWith sto:IIRABusinessViewpoint ;
                            sto_iot:frames sto:BusinessContext ,
                                       sto:BusinessTransactions ,
                                       sto:RoleCategorization ,
@@ -5898,7 +5889,7 @@ sto:OceanMarketplaceViewpoint rdf:type owl:NamedIndividual ,
                                        sto:StandardClassification ,
                                        sto:Viewpoint ;
                               dul:associatedWith sto:IIRABusinessViewpoint ;
-                              sto_iot:alignsWith sto:IIRABusinessViewpoint ;
+                              sto:alignsWith sto:IIRABusinessViewpoint ;
                               sto_iot:frames sto:BusinessContext ;
                               sto:isDescribedin sto:OceanProtocol ;
                               rdfs:label "Ocean Protocol Marketplace Viewpoint"@en .
@@ -5969,7 +5960,7 @@ sto:OceanSystemViewpoint rdf:type owl:NamedIndividual ,
                                             sto:IIRABusinessDomain ,
                                             sto:IIRAFunctionalViewpoint ,
                                             sto:RamiFunctionalLayer ;
-                         sto_iot:alignsWith sto:IDSRAMBusinessLayer ,
+                         sto:alignsWith sto:IDSRAMBusinessLayer ,
                                         sto:IDSRAMProcessLayer ,
                                         sto:IIRABusinessDomain ,
                                         sto:IIRAFunctionalViewpoint ,
@@ -6188,7 +6179,7 @@ sto:OcfSecurity rdf:type owl:NamedIndividual ,
                          sto:OcfBlock ;
                 dcterms:creator sto:sebastian ;
                 dul:associatedWith sto:RAML ;
-                sto_iot:alignsWith sto:Security ,
+                sto:alignsWith sto:Security ,
                                sto:BdvaCyberSecurityTrust ,
                                sto:FiwareSecurity ,
                                sto:IDSRAMSecurity ,
@@ -6352,7 +6343,7 @@ sto:RamiAssetlayer rdf:type owl:NamedIndividual ,
                                       sto:IIRAPhysicalSystems ,
                                       sto:IotaFunctionalViewpoint ,
                                       sto:IviAssetView ;
-                   sto_iot:alignsWith sto:EdgecrossFacilityLayer ,
+                   sto:alignsWith sto:EdgecrossFacilityLayer ,
                                   sto:IIRAPhysicalSystems ,
                                   sto:IotaFunctionalViewpoint ,
                                   sto:IviAssetView ;
@@ -6438,7 +6429,7 @@ sto:RamiBusinessLayer rdf:type owl:NamedIndividual ,
                                          sto:IDSRAMGovernance ,
                                          sto:IIRABusinessDomain ,
                                          sto:IviBusinessLayer ;
-                      sto_iot:alignsWith sto:IDSRAMBusinessLayer ,
+                      sto:alignsWith sto:IDSRAMBusinessLayer ,
                                      sto:IDSRAMGovernance ,
                                      sto:IIRABusinessDomain ,
                                      sto:IviBusinessLayer ;
@@ -6489,7 +6480,7 @@ sto:RamiCommunicationlayer rdf:type owl:NamedIndividual ,
                                               sto:IIRAConnectivity ,
                                               sto:IIRADistributedDataManagement ,
                                               sto:IotaInformationViewpoint ;
-                           sto_iot:alignsWith sto:FiwareIotServicesEnablement ,
+                           sto:alignsWith sto:FiwareIotServicesEnablement ,
                                           sto:IDSRAMSystemLayer ,
                                           sto:IIRAConnectivity ,
                                           sto:IIRADistributedDataManagement ,
@@ -6670,7 +6661,7 @@ sto:RamiFunctionalLayer rdf:type owl:NamedIndividual ,
                                            sto:NgsiLdDataRepresentation ,
                                            sto:OceanSystemViewpoint ,
                                            sto:xRoadSystemComponents ;
-                        sto_iot:alignsWith sto:BdvaDataAnalytics ,
+                        sto:alignsWith sto:BdvaDataAnalytics ,
                                        sto:BdvaDataViualisationAndUserInteraction ,
                                        sto:DtpSystemView ,
                                        sto:IDSRAMProcessLayer ,
@@ -6784,7 +6775,7 @@ sto:RamiInformationLayer rdf:type owl:NamedIndividual ,
                                             sto:IIRAApplicationDomain ,
                                             sto:InformationDomain ,
                                             sto:NgsiLdInformationModel ;
-                         sto_iot:alignsWith sto:BdvaDataAnalytics ,
+                         sto:alignsWith sto:BdvaDataAnalytics ,
                                         sto:BdvaDataManagement ,
                                         sto:EdgecrossEdgeComputingLayer ,
                                         sto:IDSRAMInformationLayer ,
@@ -6848,7 +6839,7 @@ sto:RamiIntegrationLayer rdf:type owl:NamedIndividual ,
                                             sto:NgsiLdArchitecture ,
                                             sto:xRoadDeploymentView ,
                                             sto:xRoadProtocolsInterfaces ;
-                         sto_iot:alignsWith sto:DtpSystemView ,
+                         sto:alignsWith sto:DtpSystemView ,
                                         sto:EdgecrossEdgeComputingLayer ,
                                         sto:EdgecrossItSystemsLayer ,
                                         sto:FiwareIotServicesEnablement ,
@@ -7341,7 +7332,7 @@ sto:TrustedConnector rdf:type owl:NamedIndividual ,
                      dul:associatedWith sto:DIN_SPEC_27070 ,
                                         sto:IDSRAMReferenceArchitectureModel ;
                     #aligns with is used between standard classifications.
-                    # sto_iot:alignsWith sto:DIN_SPEC_27070 ;
+                    # sto:alignsWith sto:DIN_SPEC_27070 ;
                      dcterms:creator sto:sebastian ;
                      rdfs:comment "The advent of the Industrial Internet of Things (IIoT) also raises challenges with respect to security and privacy of sensitive and personal data that is created by sensors and processed by services hosted in different administrative domains. The Industrial Data Space initiative addresses these challenges and proposes a secure edge gateway platform named \"Trusted Connector\". In this report, we introduce the main security building blocks of the Trusted Connector and point out how they help protecting business-critical data and preserving the user's privacy."@en ;
                      rdfs:label "IDS Trusted Connector"@en ;
@@ -7411,7 +7402,7 @@ sto:xRoadDeploymentView rdf:type owl:NamedIndividual ,
                         dul:associatedWith sto:IDSRAMSystemLayer ,
                                            sto:IIRAImplementationViewpoint ,
                                            sto:RamiIntegrationLayer ;
-                        sto_iot:alignsWith sto:IDSRAMSystemLayer ,
+                        sto:alignsWith sto:IDSRAMSystemLayer ,
                                        sto:IIRAImplementationViewpoint ,
                                        sto:RamiIntegrationLayer ;
                         sto_iot:frames sto:Communication ,
@@ -7448,7 +7439,7 @@ sto:xRoadProtocolsInterfaces rdf:type owl:NamedIndividual ,
                              dul:associatedWith sto:IDSRAMProcessLayer ,
                                                 sto:IIRAControlDomain ,
                                                 sto:RamiIntegrationLayer ;
-                             sto_iot:alignsWith sto:IDSRAMProcessLayer ,
+                             sto:alignsWith sto:IDSRAMProcessLayer ,
                                             sto:IIRAControlDomain ,
                                             sto:RamiIntegrationLayer ;
                              sto_iot:frames sto:Communication ,
@@ -7483,7 +7474,7 @@ sto:xRoadSystemComponents rdf:type owl:NamedIndividual ,
                                              sto:IDSRAMProcessLayer ,
                                              sto:IIRASecurityFramework ,
                                              sto:RamiFunctionalLayer ;
-                          sto_iot:alignsWith sto:IDSRAMBusinessLayer ,
+                          sto:alignsWith sto:IDSRAMBusinessLayer ,
                                          sto:IDSRAMProcessLayer ,
                                          sto:IIRASecurityFramework ,
                                          sto:RamiFunctionalLayer ;
@@ -7555,7 +7546,7 @@ sto:IdsTrustedConnector rdf:type owl:NamedIndividual ,
                      dul:associatedWith sto:AdministrationShell ,
                                         sto:IDSRAMReferenceArchitectureModel ;
                      foaf:maker sto:IDSRAMReferenceArchitectureModel ;
-                     sto_iot:alignsWith sto:AdministrationShell ;
+                     sto:alignsWith sto:AdministrationShell ;
                      rdfs:comment """The Trusted Connector is an Apache Karaf-based platform for the Industrial Internet of Things (IIoT). It supports Docker and trust|me as containerization environments and provides the following features:
    - Message routing and conversion between protocols with Apache Camel
    - Apps in isolated containers
