@@ -139,7 +139,7 @@ sto:DeviceSecurity rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:SebastianBader ;
                    sto_iot:supports sto:Objects_Safety_and_security ;
-                   rdfs:comment ""@en ;
+                   rdfs:comment "The security on an IoT or mobile device."@en ;
                    rdfs:label "Device Security"@en ;
                    rdfs:seeAlso <https://ieeexplore.ieee.org/document/8552311> ;
                    skos:broader sto:Security .
@@ -212,7 +212,7 @@ sto:AI rdf:type owl:NamedIndividual ,
        rdfs:comment "Artificial intelligence (AI) is intelligence exhibited by machines. In computer science, an ideal \"intelligent\" machine is a flexible rational agent that perceives its environment and takes actions that maximize its chance of success at some goal. Colloquially, the term \"artificial intelligence\" is applied when a machine mimics \"cognitive\" functions that humans associate with other human minds, such as \"learning\" and \"problem solving\". (source: wikipedia)"@en ;
        rdfs:label "Artificial Intelligence"@en ;
        sto:hasDBpediaResource <http://dbpedia.org/resource/Artificial_intelligence> ,
-                              ""@en .
+.
 
 
 ###  https://w3id.org/i40/sto#AccessPolicy
@@ -633,9 +633,8 @@ sto:CostEfficiency rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:SebastianBader ;
                    sto_iot:supports sto:BusinessContext ;
-                   rdfs:comment ""@en ;
-                   rdfs:label "Cost Efficiency"@en ,
-                              "DataRecovery"@en ;
+                   rdfs:comment "The requirement to invest the available resources (money, time, etc.) in the most efficient manner."@en ;
+                   rdfs:label "Cost Efficiency"@en ;
                    rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3266237.3266263> .
 
 
@@ -747,16 +746,25 @@ sto:DataEconomy rdf:type owl:NamedIndividual ,
 sto:DataEncryption rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:MuhammadUsman ;
-                   sto_iot:supports sto:BusinessContext ,
-                                sto:SecureCommunication ;
-                   rdfs:comment ""@en ,
-                                "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers"@en ;
-                   rdfs:label "Customization"@en ,
-                              "Data secrecy and encryption"@en ;
-                   rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3108421.3108426> ,
-                                <https://ieeexplore.ieee.org/document/6188257> ;
-                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Customization> ,
-                                           <https://en.wikipedia.org/wiki/Encryption> .
+                   sto_iot:supports sto:SecureCommunication ;
+                   rdfs:comment "In cryptography, encryption is the process of encoding messages or information in such a way that only authorized parties can read it. Encryption does not of itself prevent interception, but denies the message content to the interceptor. In an encryption scheme, the intended communication information or message, referred to as plaintext, is encrypted using an encryption algorithm, generating ciphertext that can only be read if decrypted. (source: wikipedia)"@en ;
+                   rdfs:label "Data secrecy and encryption"@en ;
+                   rdfs:seeAlso <https://ieeexplore.ieee.org/document/6188257> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Encryption> ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Encryption> ;
+.
+
+
+###  https://w3id.org/i40/sto#Customization
+sto:Customization rdf:type owl:NamedIndividual ,
+                            sto_iot:Concern ;
+                   dcterms:creator sto:MuhammadUsman ;
+                   sto_iot:supports sto:BusinessContext ;
+                   rdfs:comment "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers."@en ;
+                   rdfs:label "Customization"@en ;
+                   rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3108421.3108426> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Customization> ;
+.
 
 
 ###  https://w3id.org/i40/sto#DataInMotion
@@ -1171,8 +1179,9 @@ sto:InformationSecurity rdf:type owl:NamedIndividual ,
                                  sto_iot:Concern ;
                         dcterms:creator sto:SebastianBader ;
                         sto_iot:supports sto:Security ;
-                        rdfs:comment ""@en ;
+                        rdfs:comment "Information security, sometimes shortened to InfoSec, is the practice of defending information from unauthorized access, use, disclosure, disruption, modification, inspection, recording or destruction. It is a general term that can be used regardless of the form the data may take (e.g. electronic, physical). (source: wikipedia)"@en ;
                         rdfs:label "Information Security"@en ;
+                        sto:hasDBpediaResource <http://dbpedia.org/resource/Information_security> ;
                         rdfs:seeAlso <https://ieeexplore.ieee.org/document/8552311> .
 
 
@@ -1927,7 +1936,9 @@ sto:SystemRecovery rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:sebastian ;
                    sto_iot:supports sto:Reliability ;
-                   rdfs:comment ""@en ;
+                   rdfs:comment "The ability to recover systems or data after a failure, cras or attack."@en ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Data_recovery> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_recovery> ;
                    rdfs:label "System Recovery"@en .
 
 
