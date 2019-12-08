@@ -1,0 +1,215 @@
+
+Evaluation results
+
+It is obvious that not all the pitfalls are equally important; their impact in the ontology will depend on multiple factors. For this reason, each pitfall has an importance level attached indicating how important it is. We have identified three levels:
+
+    Critical Critical : It is crucial to correct the pitfall. Otherwise, it could affect the ontology consistency, reasoning, applicability, etc.
+    Important Important : Though not critical for ontology function, it is important to correct this type of pitfall.
+    Minor Minor : It is not really a problem, but by correcting it we will make the ontology nicer.
+
+[Expand All] | [Collapse All]
+Results for P04: Creating unconnected ontology elements. 14 cases | Minor Minor
+
+Ontology elements (classes, object properties and datatype properties) are created isolated, with no relation to the rest of the ontology.
+
+• This pitfall appears in the following elements:
+› https://w3id.org/i40/rami#AdminShellSubmodel
+› https://w3id.org/i40/rami#RAMIHierarchyLevel
+› https://www.w3.org/ns/oaXPathSelector
+› http://purl.org/dc/terms/LinguisticSystem
+› http://purl.org/dc/terms/LicenseDocument
+› http://purl.org/spar/deo/Motivation
+› http://xmlns.com/foaf/0.1/Organization
+› https://www.w3.org/ns/oaAnnotation
+› http://xmlns.com/foaf/0.1/Person
+› https://www.w3.org/ns/oaRangeSelector
+› https://w3id.org/i40/sto/iot#StakeholderGroup
+› https://w3id.org/i40/sto#standard
+› https://www.w3.org/ns/oaSpecificResource
+› https://w3id.org/i40/rami#RAMIITLayer
+Results for P08: Missing annotations. 38 cases | Minor Minor
+
+This pitfall consists in creating an ontology element and failing to provide human readable annotations attached to it. Consequently, ontology elements lack annotation properties that label them (e.g. rdfs:label, lemon:LexicalEntry, skos:prefLabel or skos:altLabel) or that define them (e.g. rdfs:comment or dc:description). This pitfall is related to the guidelines provided in [5].
+
+• The following elements have neither rdfs:label or rdfs:comment (nor skos:definition) defined:
+› http://xmlns.com/foaf/0.1/Document
+› https://w3id.org/i40/rami#AdminShellSubmodel
+› http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
+› http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
+› http://purl.org/spar/deo/Motivation
+› http://xmlns.com/foaf/0.1/Person
+› https://www.w3.org/ns/oaRangeSelector
+› http://purl.org/dc/terms/LinguisticSystem
+› https://www.w3.org/ns/oaSpecificResource
+› http://xmlns.com/foaf/0.1/Organization
+› http://dbpedia.org/ontology#Place
+› https://www.w3.org/ns/oaXPathSelector
+› http://lexvo.org/ontologyLanguage
+› https://w3id.org/i40/sto#standard
+› https://w3id.org/i40/rami#RAMIITLayer
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection
+› http://dbpedia.org/ontology#Country
+› https://www.w3.org/ns/oaAnnotation
+› https://w3id.org/i40/sto#IIoTConsortium
+› https://w3id.org/i40/rami#RAMIHierarchyLevel
+› http://purl.org/dc/terms/language
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
+› http://xmlns.com/foaf/0.1/maker
+› http://creativecommons.org/ns#attributionName
+› http://creativecommons.org/ns#attributionURL
+
+• The following elements have neither rdfs:comment or skos:definition defined:
+› https://w3id.org/i40/sto#OcfBlock
+› https://w3id.org/i40/sto#IdsPerspective
+› https://w3id.org/i40/sto#EdgecrossLayer
+› https://w3id.org/i40/sto#IIRAFunctionalDomain
+› https://w3id.org/i40/sto#IotaPerspective
+› https://w3id.org/i40/sto#AiiClassification
+› https://w3id.org/i40/sto#RAMIITLayer
+› https://w3id.org/i40/sto#RAMIHierarchyLevel
+› https://w3id.org/i40/sto#IDSRAMLayer
+› http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+› https://w3id.org/i40/sto#hasMotivation
+› http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
+Results for P10: Missing disjointness. ontology* | Important Important
+
+The ontology lacks disjoint axioms between classes or between properties that should be defined as disjoint. This pitfall is related with the guidelines provided in [6], [2] and [7].
+
+*This pitfall applies to the ontology in general instead of specific elements.
+Results for P11: Missing domain or range in properties. 21 cases | Important Important
+
+Object and/or datatype properties without domain or range (or none of them) are included in the ontology.
+
+• This pitfall appears in the following elements:
+› http://xmlns.com/foaf/0.1/maker
+› https://w3id.org/i40/sto#useStructureOf
+› https://w3id.org/i40/sto#hasTag
+› https://w3id.org/i40/sto#hasPreviousVersion
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
+› http://www.w3.org/ns/prov#wasGeneratedBy
+› http://purl.org/dc/terms/language
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+› http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+› https://w3id.org/i40/sto#identifies
+› https://w3id.org/i40/sto#isImplementationOf
+› https://w3id.org/i40/sto#uses
+› http://purl.org/dc/terms/creator
+› https://w3id.org/i40/sto#hasTag
+› http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
+› https://w3id.org/i40/sto#abbreviation
+› http://creativecommons.org/ns#attributionURL
+› http://creativecommons.org/ns#attributionName
+› https://w3id.org/i40/sto#hasWikipediaArticle
+› https://w3id.org/i40/sto#hasOfficialResource
+
+• Tip: Solving this pitfall may lead to new results for other pitfalls and suggestions. We encourage you to solve all cases when needed and see what else you can get from OOPS!
+Results for P12: Equivalent properties not explicitly declared. 1 case | Important Important
+
+The ontology lacks information about equivalent properties (owl:equivalentProperty) in the cases of duplicated relationships and/or attributes.
+
+• The following relations could be defined as equivalent:
+› https://w3id.org/i40/sto#isPartOf, http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+Results for P13: Inverse relationships not explicitly declared. 33 cases | Minor Minor
+
+This pitfall appears when any relationship (except for those that are defined as symmetric properties using owl:SymmetricProperty) does not have an inverse relationship (owl:inverseOf) defined within the ontology.
+
+• This pitfall appears in the following elements:
+› http://purl.org/dc/terms/creator
+› https://w3id.org/i40/sto#hasHeadquaterIn
+› https://w3id.org/i40/sto/iot#frames
+› https://w3id.org/i40/sto#hasDimension
+› https://w3id.org/i40/sto#hasLayer
+› https://w3id.org/i40/sto#hasICS
+› https://w3id.org/i40/sto/iot#hasTargetConcern
+› https://w3id.org/i40/sto#uses
+› https://w3id.org/i40/sto#isImplementationOf
+› https://w3id.org/i40/sto#identifies
+› http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+› https://w3id.org/i40/sto#hasRelevantDomain
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+› https://w3id.org/i40/sto#hasDimensionLayer
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf
+› https://w3id.org/i40/sto#hasFileSize
+› https://w3id.org/i40/sto#hasAvailableLanguage
+› https://w3id.org/i40/sto#isPartOf
+› http://purl.org/dc/terms/language
+› http://www.w3.org/ns/prov#wasGeneratedBy
+› https://w3id.org/i40/sto#hasTechnicalCommittee
+› https://w3id.org/i40/sto#belongsTo
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
+› https://w3id.org/i40/sto#hasPreviousVersion
+› https://w3id.org/i40/sto#hasTag
+› http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
+› https://w3id.org/i40/sto#hasPublisher
+› https://w3id.org/i40/sto#useStructureOf
+› https://w3id.org/i40/sto/iot#supports
+› https://w3id.org/i40/sto#isDescribedin
+› https://w3id.org/i40/sto#hasDeveloper
+› http://xmlns.com/foaf/0.1/maker
+› https://w3id.org/i40/sto#hasClassification
+Results for P20: Misusing ontology annotations. 1 case | Minor Minor
+
+The contents of some annotation properties are swapped or misused. This pitfall might affect annotation properties related to natural language information (for example, annotations for naming such as rdfs:label or for providing descriptions such as rdfs:comment). Other types of annotation could also be affected as temporal, versioning information, among others.
+
+• This pitfall appears in the following elements:
+› https://w3id.org/i40/sto#StandardClassification
+Results for P22: Using different naming conventions in the ontology. ontology* | Minor Minor
+
+The ontology elements are not named following the same convention (for example CamelCase or use of delimiters as "-" or "_") . Some notions about naming conventions are provided in [2].
+
+*This pitfall applies to the ontology in general instead of specific elements.
+Results for P24: Using recursive definitions. 2 cases | Important Important
+
+An ontology element (a class, an object property or a datatype property) is used in its own definition. Some examples of this would be: (a) the definition of a class as the enumeration of several classes including itself; (b) the appearance of a class within its owl:equivalentClass or rdfs:subClassOf axioms; (c) the appearance of an object property in its rdfs:domain or range rdfs:range definitions; or (d) the appearance of a datatype property in its rdfs:domain definition.
+
+• This pitfall appears in the following elements:
+› https://w3id.org/i40/sto#relatedTo
+› https://w3id.org/i40/sto/iot#alignsWith
+Results for P25: Defining a relationship as inverse to itself. 2 cases | Important Important
+
+A relationship is defined as inverse of itself. In this case, this relationship could have been defined as owl:SymmetricProperty instead.
+
+• This pitfall appears in the following elements:
+› https://w3id.org/i40/sto#relatedTo
+› https://w3id.org/i40/sto/iot#alignsWith
+Results for P26: Defining inverse relationships for a symmetric one. 2 cases | Important Important
+
+A symmetric object property (owl:SymmetricProperty) is defined as inverse of another object property (using owl:inverseOf).
+
+• This pitfall appears in the following elements:
+› https://w3id.org/i40/sto/iot#alignsWith
+› https://w3id.org/i40/sto#relatedTo
+Results for P30: Equivalent classes not explicitly declared. 1 case | Important Important
+
+This pitfall consists in missing the definition of equivalent classes (owl:equivalentClass) in case of duplicated concepts. When an ontology reuses terms from other ontologies, classes that have the same meaning should be defined as equivalent in order to benefit the interoperability between both ontologies.
+
+• The following classes might be equivalent:
+› https://w3id.org/i40/sto#Standard, https://w3id.org/i40/sto#standard, http://www.ontology-of-units-of-measure.org/resource/om-2/Measure
+Results for P32: Several classes with the same label. 1 case | Minor Minor
+
+Two or more classes have the same content for natural language annotations for naming, for example the rdfs:label annotation. This pitfall might involve lack of accuracy when defining terms.
+
+• The following classes contains the same label, maybe they should be replaced by one class with several labels or might be equivalent classes:
+› https://w3id.org/i40/sto#Layer, https://w3id.org/i40/sto#Stakeholder
+Results for P41: No license declared. ontology* | Important Important
+
+The ontology metadata omits information about the license that applies to the ontology.
+
+*This pitfall applies to the ontology in general instead of specific elements.
+SUGGESTION: symmetric or transitive object properties. 2 cases
+
+The domain and range axioms are equal for each of the following object properties. Could they be symmetric or transitive?
+› https://w3id.org/i40/sto#isPartOf
+› https://w3id.org/i40/sto/iot#supports
+
+According to the highest importance level of pitfall found in your ontology the conformace bagde suggested is "Important pitfalls" (see below). You can use the following HTML code to insert the badge within your ontology documentation:
+
+Important pitfalls were found
+
+<p>
+<a href="http://oops.linkeddata.es"><img
+	src="http://oops.linkeddata.es/resource/image/oops_important.png"
+	alt="Important pitfalls were found" height="69.6" width="100" /></a>
+</p>
