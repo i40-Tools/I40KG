@@ -1953,7 +1953,7 @@ sto:BPEL rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#BPMN
 sto:BPMN rdf:type owl:NamedIndividual ,
-                  sto:Standard ;
+                  sto:TechnicalSpecification ;
          dcterms:creator sto:irlan ;
          sto:hasClassification sto:SCM ;
          sto:hasDeveloper sto:OMG ;
@@ -2120,6 +2120,7 @@ sto:DIN_EN_50155 rdf:type owl:NamedIndividual ,
                               "EN 50155:2017 is an international standard covering electronic equipment used on rolling stock for railway applications. The standard covers aspects of this electronic equipment, including temperature, humidity, shock, vibration, and other parameters. A copy of the standard may be purchased from authorised standards agencies, e.g. BSI in the UK."@en ;
                  rdfs:label "DIN EN 50155"@en ;
                  sto:hasClassification sto:IDSRAMCertification;
+                 sto:hasPublisher sto:DIN ;
                  sto_iot:hasTargetConcern sto:Safety;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/EN_50155> ;
                  sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50155/275256249> ;
@@ -2135,10 +2136,12 @@ sto:DIN_EN_50159 rdf:type owl:NamedIndividual ,
                  dcterms:title "Railway applications - Communication, signalling and processing systems - Safety-related communication in transmission systems"@en ;
                  rdfs:comment "This European Standard is applicable for safety-relevant electronic systems which use a transmission system for digital communication purposes which has not been necessarily designed for safety-relevant applications and which - remains under the control of the designer and does not change during the life cycle, or - which is partly unknown and also does not remain constant, for which unauthorized access can be excluded, however, or - which is not under control of the designer and where unauthorized access shall also be considered. The responsible Committee is Subcommittee UK 351.3 \"Bahn-Signalanlagen\" (\"Signalling systems for railways\") of the DKE (German Commission for Electrical, Electronic and Information Technologies) at DIN and VDE."@en ;
                  rdfs:label "DIN EN 50159"@en ;
+                 sto:hasPublisher sto:DIN ;
                  sto:hasAvailableLanguage lang:deu;
                  sto:hasClassification sto:IDSRAMCertification ;
                  sto_iot:hasTargetConcern sto:Safety;
                  sto:hasPublicationDate "2011-04-01"^^xsd:date;
+                 sto:hasPublisher sto:DIN ;
                  sto:hasOfficialResource <https://www.beuth.de/de/norm/din-en-50159/137853742> .
 
 
@@ -2332,6 +2335,7 @@ sto:DIN_SPEC_92222 rdf:type owl:NamedIndividual ,
                                    sto:sebastian ;
                    sto:hasClassification sto:IDSRAMSecurity ;
                    sto:hasDeveloper sto:DIN ;
+                   sto:hasPublisher sto:DIN ;
                    sto_iot:frames sto:CloudComputing ,
                                   sto:communication ,
                                   sto:interoperability ;
@@ -2364,7 +2368,7 @@ sto:DMSC rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#DTLS
 sto:DTLS rdf:type owl:NamedIndividual ,
-                  sto:Standard ;
+                  sto:TechnicalSpecification ;
          dcterms:creator sto:irlan ,
                          sto:sebastian ;
          rdfs:comment "Datagram Transport Layer - The DTLS protocol provides communications privacy for datagram protocols. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering, or message forgery. The DTLS protocol is based on the Transport Layer Security (TLS) protocol and provides equivalent security guarantees. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
@@ -4147,6 +4151,7 @@ sto:IEC rdf:type owl:NamedIndividual ,
                  sto:StandardOrganization ;
         sto:hasHeadquaterIn dbr:Geneva ;
         sto:abbreviation "IEC"^^xsd:string ;
+        rdfs:label "IEC"^^xsd:string ;
         sto:formationDate "1906-06-26"^^xsd:date ;
         sto:orgName "Commission électrotechnique internationale"@fr ,
                     "International Electrotechnical Commission"@en ;
@@ -4160,6 +4165,8 @@ sto:IEC rdf:type owl:NamedIndividual ,
 sto:IEC_11404 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_11404 ;
+              rdfs:comment "Information technology -- General-Purpose Datatypes (GPD)"@en ;
+              rdfs:label "ISO/IEC 11404"@en ;
               dcterms:creator sto:irlan ,
                               sto:sebastian ; 
               sto:hasDeveloper sto:IEC ,
@@ -4247,6 +4254,7 @@ sto:IEC_27018 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27018 ;
               rdfs:label "IEC 27018" ;
+              rdfs:comment "ISO/IEC 27018:2014 establishes commonly accepted control objectives, controls and guidelines for implementing measures to protect Personally Identifiable Information (PII) in accordance with the privacy principles in ISO/IEC 29100 for the public cloud computing environment."@en ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
@@ -4259,6 +4267,8 @@ sto:IEC_27018 rdf:type owl:NamedIndividual ,
 sto:IEC_27031 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27031 ;
+              rdfs:comment "ISO/IEC 27031:2011 describes the concepts and principles of information and comunication technology (ICT) readiness for business continuity, and provides a framework of methods and processes to identify and specify all aspects (such as performance criteria, design, and implementation) for improving an organization's ICT readiness to ensure business continuity."@en ;
+              rdfs:label "ISO/IEC 27031"@en ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
@@ -4272,6 +4282,12 @@ sto:IEC_27031 rdf:type owl:NamedIndividual ,
 sto:IEC_27036 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_27036 ;
+              rdfs:comment """ISO/IEC 27036-4:2016 provides cloud service customers and cloud service providers with guidance on
+
+a) gaining visibility into the information security risks associated with the use of cloud services and managing those risks effectively, and
+
+b) responding to risks specific to the acquisition or provision of cloud services that can have an information security impact on organizations using these services."""@en ;
+              rdfs:label "ISO/IEC 27036"@en ;
               dcterms:creator sto:irlan;
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -4283,8 +4299,10 @@ sto:IEC_27036 rdf:type owl:NamedIndividual ,
 sto:IEC_29100 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:ISO_29100 ;
-              dcterms:creator sto:irlan ,
-                              sto:ISO ;
+              rdfs:comment """‘Privacy framework’1 provides a guideline that specifies a common privacy terminology, defines actors and roles in processing PII, describes privacy safeguarding considerations, and includes references to known privacy principles for Information technology.
+source: IIC SF"""@en ;
+              rdfs:label "ISO/IEC 29100"@en ;
+              dcterms:creator sto:irlan ;
               sto:hasClassification sto:IIRAPrivacy ,
                                     sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
@@ -4306,6 +4324,17 @@ sto:ISO_29115 rdf:type owl:NamedIndividual ,
               sto:hasClassification sto:IIRASecurity ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
+              rdfs:comment """ISO/IEC 29115:2013 provides a framework for managing entity authentication assurance in a given context. In particular, it:
+
+- specifies four levels of entity authentication assurance;
+
+- specifies criteria and guidelines for achieving each of the four levels of entity authentication assurance;
+
+- provides guidance for mapping other authentication assurance schemes to the four LoAs;
+
+- provides guidance for exchanging the results of authentication that are based on the four LoAs; and
+
+- provides guidance concerning controls that should be used to mitigate authentication threats."""@en ;
               rdfs:label "ISO/IEC 29115"@en .
 
 ###  https://w3id.org/i40/sto#IEC_29115
@@ -4348,10 +4377,7 @@ sto:IEC_29161 rdf:type owl:NamedIndividual ,
                                       <https://www.iso.org/standard/45240.html> .
 
 
-###  https://w3id.org/i40/sto#IEC_29182-1
-sto:IEC_29182-1 rdf:type owl:NamedIndividual, sto:Standard ;
-              rdfs:label "IEC 29182-1"@en ;
-              .
+
 
 
 ###  https://w3id.org/i40/sto#IEC_29182_P1
@@ -4364,8 +4390,7 @@ sto:IEC_29182_P1 rdf:type owl:NamedIndividual ,
                                        sto:RamiFieldDevice ;
                  sto:hasPublisher sto:IEC ,
                                   sto:ISO ;
-                 sto:relatedTo sto:IEC_29182-1 ,
-                               sto:IEC_61158 ,
+                 sto:relatedTo sto:IEC_61158 ,
                                sto:IEC_61784 ,
                                sto:OMG_DDS ;
                  sto:hasPublicationDate "2013-06-01"^^xsd:date ;
@@ -4385,6 +4410,7 @@ sto:IEC_29190 rdf:type owl:NamedIndividual ,
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
               sto:hasPublicationDate "2015-08-01"^^xsd:date ;
+              rdfs:comment "‘Privacy capability assessment model’ provides high-level guidance to organizations about assessing their capability to manage privacy-related processes."@en ;
               rdfs:label "IEC 29190"@en .
 
 
@@ -4418,6 +4444,7 @@ sto:IEC_60027 rdf:type owl:NamedIndividual ,
                     sto:hasImplementationFormat "Document"@en ;
                     rdfs:comment "IEC 60027 (formerly IEC 27) is a technical international standard for letter symbols."@en ;
                     rdfs:label "IEC 60027"@en ;
+              sto:hasPublisher sto:IEC ;
                     sto:hasDBpediaResource <http://dbpedia.org/page/IEC_60027> ;
                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/IEC_60027> .
 
@@ -4499,6 +4526,7 @@ sto:IEC_60050 rdf:type owl:NamedIndividual ,
               rdfs:comment "The International Electrotechnical Vocabulary (IEV) serves to promote the global unification of terminology in the field of electrotechnology, electronics and telecommunications."@en ;
               rdfs:label "IEC 60050"@en ;
               skos:altLabel "Electropedia"@en ;
+                 sto:hasPublisher sto:IEC ;
               sto:hasDBpediaResource <http://dbpedia.org/page/International_Electrotechnical_Vocabulary> ;
               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/International_Electrotechnical_Vocabulary> .
 
@@ -5875,6 +5903,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                          sto:hasICS sto:ICS_33_200 ;
                          sto:hasPublisher sto:IEC ;
                          sto:hasTechnicalCommittee sto:TC_57 ;
+                         sto:hasPublisher sto:IEC ;
                          sto:isPartOf sto:IEC_60870 ;
                          sto:relatedTo sto:IEC_60870_P2_S1_E2 ;
                          sto:hasEdition "2.0"^^xsd:float ;
@@ -5884,7 +5913,7 @@ sto:IEC_60870_P6_S702_E2 rdf:type owl:NamedIndividual ,
                          sto:hasTag "IEC 60870-6-702:2014"@en ;
                          dcterms:title "Telecontrol equipment and systems - Part 6-702: Telecontrol protocols compatible with ISO standards and ITU-T recommendations - Functional profile for providing the TASE.2 application service in end systems"@en ;
                          rdfs:comment """IEC 60870-6-702:2014 is a functional profile (FP) and defines the provision of the TASE.2 communications services between two control centre end systems. It is supported by the transport services implemented in accordance with transport-profiles defined for the type of network that interconnects the control centre end systems. The main changes with respect to the previous edition are listed below:
-- certain objects were moved from being normative to informative - certain TASE.2 conformance blocks have been made out-of-scope.""" ;
+- certain objects were moved from being normative to informative - certain TASE.2 conformance blocks have been made out-of-scope."""@en ;
                          rdfs:label "IEC 60870-6-702:2014"@en ;
                          sto:hasDBpediaResource <https://dbpedia.org/resource/IEC_60870> ;
                          sto:hasOfficialResource <https://webstore.iec.ch/publication/3768> ;
@@ -6112,7 +6141,7 @@ sto:IEC_61158 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:sebastian , 
                               sto:irlan ;
               sto:hasPublisher sto:IEC ;
-              sto:relatedTo sto:IEC_29182-1 ,
+              sto:relatedTo sto:IEC_29182_P1 ,
                             sto:IEC_61158 ,
                             sto:IEC_61784 ,
                             sto:OMG_DDS ;
@@ -7070,7 +7099,7 @@ sto:IEC_61784 rdf:type owl:NamedIndividual ,
                                     sto:RamiControlDevice ,
                                     sto:RamiFieldDevice ;
               sto:hasPublisher sto:IEC ;
-              sto:relatedTo sto:IEC_29182-1 ,
+              sto:relatedTo sto:IEC_29182_P1 ,
                             sto:IEC_61158 ,
                             sto:IEC_61784 ,
                             sto:OMG_DDS ;
@@ -7664,6 +7693,7 @@ sto:IEEE_1815-2012 rdf:type owl:NamedIndividual ,
                             sto:Standard ; 
                             dcterms:creator sto:priyanka ;
                    sto:hasPublicationDate "2012-10-10"^^xsd:date ;
+                    sto:hasPublisher sto:IEEE ;
                    rdfs:comment "IEEE Standard for Electric Power Systems Communications-Distributed Network Protocol (DNP3)"@en ;
                    rdfs:label "IEEE 1377-2012"@en ;
                    sto:hasTag "DNP3"@en;
@@ -8620,6 +8650,7 @@ sto:IEEE rdf:type owl:NamedIndividual ,
 sto:IEEE_1377-2012 rdf:type owl:NamedIndividual ,
                             sto:Standard ;
                    dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
                    rdfs:comment "IEEE Standard for Utility Industry Metering Communication Protocol Application Layer (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
                    rdfs:label "IEEE 1377-2012"@en ;
                    sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1377-2012.html> .
@@ -8631,6 +8662,7 @@ sto:IEEE_1451 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:sebastian ;
               rdfs:comment "The IEEE 1451, a family of Smart Transducer Interface Standards, describes a set of open, common, network-independent communication interfaces for connecting transducers (sensors or actuators) to microprocessors, instrumentation systems, and control/field networks. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "IEEE 1451"@en ;
+              sto:hasPublisher sto:IEEE ;
               sto:hasOfficialResource <http://grouper.ieee.org/groups/1451/0/body%20frame_files/Family-of-1451_handout.htm> .
 
 
@@ -8654,6 +8686,7 @@ sto:IEEE_1686 rdf:type owl:NamedIndividual ,
 sto:IEEE_1856 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
               rdfs:comment "Standard Framework for Prognostics and Health Management of Electronic Systems (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "IEEE 1856"@en ;
               sto:hasOfficialResource <http://standards.ieee.org/develop/project/1856.html> .
@@ -8663,6 +8696,7 @@ sto:IEEE_1856 rdf:type owl:NamedIndividual ,
 sto:IEEE_1888-3-2013 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
                      rdfs:comment " - IEEE Standard for Ubiquitous Green Community Control Network: Security (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
                      rdfs:label "IEEE 1888.3-2013"@en ;
                      sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1888.3-2013.html> .
@@ -8672,6 +8706,7 @@ sto:IEEE_1888-3-2013 rdf:type owl:NamedIndividual ,
 sto:IEEE_1905_1-2013 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
                      rdfs:comment "IEEE Standard for a Convergent Digital Home Network for Heterogeneous Technologies (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
                      rdfs:label "IEEE 1905.1-2013"@en ;
                      sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/1905.1-2013.html> .
@@ -8681,6 +8716,7 @@ sto:IEEE_1905_1-2013 rdf:type owl:NamedIndividual ,
 sto:IEEE_2413 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
               rdfs:comment "IEEE P2413 - Standard for an Architectural Framework for the Internet of Things (IoT) (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
               rdfs:label "IEEE 2413"@en ;
               sto:hasOfficialResource <https://standards.ieee.org/develop/project/2413.html> .
@@ -8689,7 +8725,8 @@ sto:IEEE_2413 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#IEEE_42010
 sto:IEEE_42010 rdf:type owl:NamedIndividual, 
                sto:Standard ;
-               rdfs:label "IEEE 42010" ;              
+               rdfs:label "IEEE 42010"^^xsd:string ;       
+              sto:hasPublisher sto:IEEE ;       
                rdfs:comment "ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages."@en ;
                owl:sameAs sto:ISO_42010 .
 
@@ -8699,6 +8736,7 @@ sto:IEEE_802 rdf:type owl:NamedIndividual ,
                       sto:Standard ;
              dcterms:creator sto:irlan ,
                              sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
              rdfs:comment "IEEE 802.15.4 is a standard which specifies the physical layer and media access control for low-rate wireless personal area networks (LR-WPANs). It is maintained by the IEEE 802.15 working group. It is the basis for the ZigBee,ISA100.11a, WirelessHART, and MiWi specifications, each of which further extends the standard by developing the upper layers which are not defined in IEEE 802.15.4. Alternatively, it can be used with 6LoWPAN and standard Internet protocols to build a wireless embedded Internet. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
              rdfs:label "IEEE 802.15.4"@en ;
              sto:hasDBpediaResource <http://dbpedia.org/page/IEEE_802.15.4> ;
@@ -8709,6 +8747,7 @@ sto:IEEE_802 rdf:type owl:NamedIndividual ,
 sto:IEEE_802_16-2012 rdf:type owl:NamedIndividual ,
                               sto:Standard ;
                      dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
                      rdfs:comment "IEEE Standard for Air Interface for Broadband Wireless Access Systems (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
                      rdfs:label "IEEE 802.16p-2012"@en ;
                      sto:hasOfficialResource <http://standards.ieee.org/findstds/standard/802.16p-2012.html> .
@@ -8718,6 +8757,7 @@ sto:IEEE_802_16-2012 rdf:type owl:NamedIndividual ,
 sto:IEEE_P1828 rdf:type owl:NamedIndividual ,
                         sto:Standard ;
                dcterms:creator sto:sebastian ;
+              sto:hasPublisher sto:IEEE ;
                rdfs:comment "Standard for Systems With Virtual Components (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
                rdfs:label "IEEE P1828"@en ;
                sto:hasOfficialResource <http://standards.ieee.org/develop/project/1828.html> .
@@ -10256,6 +10296,8 @@ sto:ISA95 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISA_62443
 sto:ISA_62443 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
+           sto:hasPublisher sto:ISA ;
+              rdfs:comment "Security for industrial automation and control systems"@en ;
               rdfs:label "ISA_62443"@en ;
               sto:publisher sto:ISA .
 
@@ -10368,6 +10410,7 @@ sto:ISO_1302 rdf:type owl:NamedIndividual ,
              sto:hasPublicationDate "2002-02-01"^^xsd:date ;
              rdfs:comment "Geometrical product specifications Standards"@en ;
              rdfs:label "ISO 1302"@en ;
+                sto:hasPublisher sto:ISO ;
              sto:hasOfficialResource <https://www.iso.org/standard/28089.html> .
 
 
@@ -10379,6 +10422,7 @@ sto:ISO_13374 rdf:type owl:NamedIndividual ,
                                     sto:ProductionSystemEngineering ,
                                     sto:RamiBusinessLayer ,
                                     sto:RamiEnterprise ;
+                sto:hasPublisher sto:ISO ;
               sto:hasPublisher sto:ISO ;
               sto:relatedTo sto:ISO_13374 ,
                             sto:ISO_15704 ,
@@ -10563,7 +10607,8 @@ sto:ISO_15408 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/i40/sto#ISO_15459
 sto:ISO_15459 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
-              rdfs:label "ISO 15459"^^xsd:string ;
+              rdfs:label "ISO 15459"^^xsd:string ;              
+              rdfs:comment "ISO/IEC 15459-1:2014 specifies a unique string of characters for the identification of individual transport units. The character string is intended to be represented in a bar code label or other AIDC media attached to the entity to meet management needs. To address management needs, different types of entities are recognized in the various parts of ISO/IEC 15459, which allows different requirements to be met by the identities associated with each type. The rules for the unique identification for individual transport units, to identify physical logistical transfers, with the identity relevant for the duration of one or more items in the load being held or transported as part of that load, are defined and supported by example."@en ;
               dcterms:creator sto:irlan ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
@@ -10595,6 +10640,7 @@ sto:ISO_15531-2x rdf:type owl:NamedIndividual ,
                           sto:Standard ,
                           sto:StandardPart ;
                  dul:isComponentOf sto:ISO_15531 ;
+              sto:hasPublisher sto:ISO ;
                  sto:relatedTo sto:ISO_15531 ,
                                sto:ISO_15531-2x ,
                                sto:ISO_15531-3x ,
@@ -10611,6 +10657,7 @@ sto:ISO_15531-3x rdf:type owl:NamedIndividual ,
                           sto:Standard ,
                           sto:StandardPart ;
                  dul:isComponentOf sto:ISO_15531 ;
+                 sto:hasPublisher sto:ISO ;
                  sto:relatedTo sto:ISO_15531 ,
                                sto:ISO_15531-2x ,
                                sto:ISO_15531-3x ,
@@ -10627,6 +10674,7 @@ sto:ISO_15531-4x rdf:type owl:NamedIndividual ,
                           sto:Standard ,
                           sto:StandardPart ;
                  dul:isComponentOf sto:ISO_15531 ;
+              sto:hasPublisher sto:ISO ;
                  sto:relatedTo sto:ISO_15531 ,
                                sto:ISO_15531-2x ,
                                sto:ISO_15531-3x ,
@@ -10885,7 +10933,7 @@ sto:ISO_19439 rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ISO_19440
 sto:ISO_19440 rdf:type owl:NamedIndividual ,
-                       sto:Standard ;
+                       sto:TechnicalSpecification ;
               dcterms:creator sto:irlan ;
               sto:hasClassification sto:AsEngineering ,
                                     sto:EnterpriseLevel ,
@@ -10926,6 +10974,8 @@ sto:ISO_19941 rdf:type owl:NamedIndividual ,
               sto_iot:hasTargetConcern sto:CloudComputing;
               rdfs:comment "Description of the ecosystem of devices and cloud services and the related flows of data between cloud services, cloud service customers, cloud service users and their devices. These are necessary to provide guidance about how data is used on the devices in the context of the cloud computing ecosystem and the associated location and identity issues that emerge from such use."@en ;
               rdfs:label "ISO/IEC 19941:2017"@en ;
+              sto:hasPublisher sto:IEC ,
+                               sto:ISO ;
               sto:hasOfficialResource <http://standards.iso.org/ittf/PubliclyAvailableStandards/c066639_ISO_IEC_19941_2017.zip> ;
               sto_iot:hasTargetConcern sto:CloudComputing .
 
@@ -11111,6 +11161,14 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
                        sto:Standard  ;
               dcterms:creator sto:irlan ;
               rdfs:label "ISO 24760"@en ;
+              rdfs:comment """ISO/IEC 24760-1:2011
+
+    defines terms for identity management, and
+    specifies core concepts of identity and identity management and their relationships.
+
+It is applicable to any information system that processes identity information.
+
+A bibliography of documents describing various aspects of identity information management is provided."""@en ;
               sto:hasClassification sto:AsIdentification,
                                     sto:AsSafety  ,
                                     sto:AsSecurity ,
@@ -11122,6 +11180,7 @@ sto:ISO_24760 rdf:type owl:NamedIndividual ,
                                     sto:RamiProduct ,
                                     sto:RamiStation ;
               sto:hasPublisher sto:IEC ;
+              sto:hasStatus "Withdrawn"@en ;
               sto:relatedTo sto:IEC_24760 ,
                             sto:IEC_62443 ,
                             sto:ISO_24760 ;
@@ -11269,7 +11328,7 @@ sto:ISO_27036 rdf:type owl:NamedIndividual ,
 a) gaining visibility into the information security risks associated with the use of cloud services and managing those risks effectively, and
 
 b) responding to risks specific to the acquisition or provision of cloud services that can have an information security impact on organizations using these services."""@en ;
-              rdfs:label "IEC 27036"@en ;
+              rdfs:label "ISO/IEC 27036"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_27000-series> ;
               sto:hasOfficialResource <https://webstore.iec.ch/publication/11314> ,
                                       <https://www.iso.org/standard/59689.html> ;
@@ -11417,7 +11476,7 @@ sto:ISO_42010 rdf:type owl:NamedIndividual ,
               dcterms:creator sto:irlan ;
               sto:hasPublisher sto:IEC ,
                                sto:ISO ;
-              rdfs:label "ISO 42010" ;
+              rdfs:label "ISO 42010"^^xsd:string ;
               sto:domainName "Reference Architecture Description"@en ;
               dcterms:title "Systems and software engineering — Architecture description"@en ;
               rdfs:comment """ISO/IEC/IEEE 42010:2011 defines requirements on the description of system, software and enterprise architectures. It aims to standardise the practice of architecture description by defining standard terms, presenting a conceptual foundation for expressing, communicating and reviewing architectures and specifying requirements that apply to architecture descriptions, architecture frameworks and architecture description languages.
@@ -11465,7 +11524,9 @@ sto:ISO_5459 rdf:type owl:NamedIndividual ,
 sto:ISO_61508 rdf:type owl:NamedIndividual ,
                        sto:Standard ;
               owl:sameAs sto:IEC_61508 ;
-              rdfs:label "ISO 61508" ;
+             sto:hasPublisher sto:ISO ;
+              rdfs:label "ISO 61508"@en ;
+             rdfs:comment "Functional safety is a concept applicable across all industry sectors. It is fundamental to the enabling of complex technology used for safety-related systems. It provides the assurance that the safety-related systems will offer the necessary risk reduction required to achieve safety for the equipment. The oil and gas industry, nuclear plants and the machinery sector, to name but a few, all rely heavily on functional safety to achieve safety for the equipment giving rise to the hazards."@en ;
                        .
 
 
@@ -11507,7 +11568,10 @@ sto:ISO_9594 rdf:type owl:NamedIndividual ,
              sto:hasClassification sto:DataSovereignty ,
                                    sto:IDSRAMCertification ,
                                    sto:IDSRAMSecurity ;
-             sto:hasPublisher sto:ISO ;
+             sto:hasPublisher sto:ISO ;               
+             rdfs:comment """ISO/IEC 9594-8:2017 addresses some of the security requirements in the areas of authentication and other security services through the provision of a set of frameworks upon which full services can be based. Specifically, this Recommendation | International Standard defines frameworks for:
+- public-key certificates; and
+- attribute certificates."""@en ;
              rdfs:label "ISO/IEC 9594"@en ,
                         "X.509"@en ;
              sto:hasOfficialResource <https://tools.ietf.org/html/rfc5280> .
@@ -12036,7 +12100,7 @@ sto:Mihini rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/i40/sto#ModBus
 sto:ModBus rdf:type owl:NamedIndividual ,
-                    sto:Standard ;
+                    sto:TechnicalSpecification ;
            dcterms:creator sto:SE ;
            foaf:maker sto:SE ;
            sto:hasClassification sto:RamiIntegrationLayer ;
@@ -12111,6 +12175,7 @@ sto:NISTIR_8107 rdf:type owl:NamedIndividual ,
                          sto:Standard  ;
                 sto:isDescribedin sto:NISTBusinessProcessExecution ,
                                   sto:SCM ;
+                sto:hasPublisher sto:NIST ;
                 rdfs:comment "Describes the NIST Initiative"@en ;
                 rdfs:isDefinedBy <http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf> ;
                 rdfs:label "NISTIR_8107"@en ;
@@ -12326,7 +12391,7 @@ sto:OMG_DDS rdf:type owl:NamedIndividual ,
             sto:hasClassification sto:IICFFrameworkLayer ,
                                   sto:IIRAConnectivity ;
             sto:hasPublisher sto:OMG ;
-            sto:relatedTo sto:IEC_29182-1 ,
+            sto:relatedTo sto:IEC_29182_P1 ,
                           sto:IEC_61158 ,
                           sto:IEC_61784 ,
                           sto:OMG_DDS ;
@@ -12690,7 +12755,7 @@ sto:SCM rdf:type owl:NamedIndividual ,
 sto:SCOR rdf:type owl:NamedIndividual ,
                   foaf:Document ,
                   sto:Publication ,
-                  sto:Standard ;
+                  sto:TechnicalSpecification ;
          dcterms:creator sto:APICS ;
          foaf:maker sto:APICS ;
          sto:hasClassification sto:SCM ;
@@ -13105,6 +13170,7 @@ sto:Thread rdf:type owl:NamedIndividual ,
            dcterms:creator sto:sebastian ;
            rdfs:comment "Thread - Built on open standards and IPv6 technology with 6LoWPAN as its foundation. (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
            rdfs:label "Thread"@en ;
+           sto:hasPublisher <https://www.threadgroup.org/thread-group> ;
            sto:hasOfficialResource <http://www.threadgroup.org/About.aspx> .
 
 
@@ -13114,6 +13180,7 @@ sto:UDP rdf:type owl:NamedIndividual ,
                  sto:Publication ,
                  sto:Standard ;
         dcterms:creator sto:sebastian ;
+         sto:hasPublisher sto:IETF ;
         rdfs:comment "UDP (User Datagram Protocol) - A simple OSI transport layer protocol for client/server network applications based on Internet Protocol (IP). UDP is the main alternative to TCP and one of the oldest network protocols in existence, introduced in 1980. UDP is often used in applications specially tuned for real-time performance."@en ;
         rdfs:label "UDP"@en ;
         sto:hasOfficialResource <https://tools.ietf.org/html/rfc768> .
@@ -13432,6 +13499,8 @@ sto:X509 rdf:type owl:NamedIndividual ,
          dcterms:creator sto:sebastian ;
          rdfs:comment "Standard for public key infrastructure (PKI) to manage digital certificates and public-key encryption. A key part of the Transport Layer Security protocol used to secure web and email communication.  (source: https://www.postscapes.com/internet-of-things-protocols/)"@en ;
          rdfs:label "X.509"@en ;
+         sto:hasPublisher <http://dbpedia.org/resource/International_Telecommunication_Union> ;
+         sto:hasOfficialResource <https://www.itu.int/rec/T-REC-X.509> ;
          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/X.509> .
 
 
