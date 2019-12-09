@@ -31,7 +31,7 @@ sto_iot:concerns rdf:type owl:Ontology ;
                                  owl:versionIRI <https://w3id.org/i40/sto/iot/0.3/concerns/> ;
                                  dcterms:title "Industrial IoT Architecture Ontology"@en ;
                                  sto:hasOfficialResource <https://webstore.iec.ch/publication/153> ;
-                                 vann:preferredNamespacePrefix "sto_iot" ;
+                                 vann:preferredNamespacePrefix "sto_iot"^^xsd:string ;
                                  dcterms:creator sto:sebastian ;
                                  sto:hasDBpediaResource <http://dbpedia.org/page/Internet_of_things> ;
                                  rdfs:comment "An ontology to describe the landscape of IIoT, Industry 4.0 and Smart Manufacturing"@en ;
@@ -40,9 +40,10 @@ sto_iot:concerns rdf:type owl:Ontology ;
                                  dcterms:modified "2019-07-21"^^xsd:date ;
                                  dcterms:modified "2019-12-04"^^xsd:date ;
                                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Internet_of_things> ;
-                                 owl:versionInfo "0.3" ;
+                                 owl:versionInfo "0.3"^^xsd:double ;
                                  rdfs:comment "The Internet of things (IoT) is the network of devices such as vehicles, and home appliances that contain electronics, software, sensors, actuators, and connectivity which allows these things to connect, interact and exchange data."@en ;
                                  dcterms:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+                                 dcterms:license <https://creativecommons.org/licenses/by-nc/3.0/legalcode> ;
                                  dcterms:publisher <http://de.dbpedia.org/resource/Fraunhofer-Gesellschaft> ;
                                  doap:repository <https://github.com/i40-Tools/StandardsOntology> ;
                                  dcterms:created "2019-06-09"^^xsd:date ;
@@ -61,7 +62,7 @@ sto_iot:concerns rdf:type owl:Ontology ;
 
 ###  https://w3id.org/i40/sto/iot#hasStakeholder
 sto:hasStakeholder rdf:type owl:AnnotationProperty ;
-            rdfs:label "has Stakeholder" ;
+            rdfs:label "has Stakeholder"^^xsd:string ;
 			rdfs:comment "This property links entities to the typical stakeholder which is interested in the topic."@en ;
 			skos:note "Subproperty of http://voag.linkedmodel.org/voag#hasStakeholder (vocabulary not accessible)."@en
 			.
@@ -96,7 +97,7 @@ sto:hasStakeholder rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/i40/sto/iot#Concern
 sto_iot:Concern rdf:type owl:Class ;
-            rdfs:label "Concern" ;
+            rdfs:label "Concern"^^xsd:string ;
             sto:hasOfficialResource <http://www.iso-architecture.org/42010/> ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/ISO/IEC_42010> ;
             sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/ISO/IEC_42010#Conceptual_Model_-_Concern> ;
@@ -138,7 +139,7 @@ sto:DeviceSecurity rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:SebastianBader ;
                    sto_iot:supports sto:Objects_Safety_and_security ;
-                   rdfs:comment ""@en ;
+                   rdfs:comment "The security on an IoT or mobile device."@en ;
                    rdfs:label "Device Security"@en ;
                    rdfs:seeAlso <https://ieeexplore.ieee.org/document/8552311> ;
                    skos:broader sto:Security .
@@ -160,11 +161,11 @@ sto:Programmability rdf:type owl:NamedIndividual ,
                              sto_iot:Concern ;
                     dul:isComponentOf sto:EdgeAnalytics ;
                     sto_iot:supports sto:EdgeAnalytics ;
-                    rdfs:comment "In the edge computing, computation is offloaded from the cloud, and the edge nodes are most likely heterogeneous platforms. In this case, the runtime of these nodes differ from each other, and the programmer faces huge difficulties to write an application that may be deployed in the edge computing paradigm." ;
-                    rdfs:label "Programmability" ;
+                    rdfs:comment "In the edge computing, computation is offloaded from the cloud, and the edge nodes are most likely heterogeneous platforms. In this case, the runtime of these nodes differ from each other, and the programmer faces huge difficulties to write an application that may be deployed in the edge computing paradigm."@en ;
+                    rdfs:label "Programmability"@en ;
                     rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3210240.3226062> ,
                                  <https://ieeexplore.ieee.org/document/7488250> ;
-                    skos:note "Publications referred: ' <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.5 Programmability Pillar' 'Page 29' " .
+                    skos:note "Publications referred: ' <https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.5 Programmability Pillar' 'Page 29' "@en .
 
 
 ###  https://w3id.org/i40/sto#ProductLiability
@@ -172,7 +173,7 @@ sto:ProductLiability rdf:type owl:NamedIndividual ,
                               sto_iot:Concern ;
                      sto_iot:supports sto:BusinessContext ;
                      rdfs:label "Product Liability"@en ;
-                     skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' " .
+                     skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' "@en .
 
 
 ###  https://w3id.org/i40/sto#LocalDataConfidentiality
@@ -210,8 +211,8 @@ sto:AI rdf:type owl:NamedIndividual ,
        sto_iot:supports sto:DataAnalytics ;
        rdfs:comment "Artificial intelligence (AI) is intelligence exhibited by machines. In computer science, an ideal \"intelligent\" machine is a flexible rational agent that perceives its environment and takes actions that maximize its chance of success at some goal. Colloquially, the term \"artificial intelligence\" is applied when a machine mimics \"cognitive\" functions that humans associate with other human minds, such as \"learning\" and \"problem solving\". (source: wikipedia)"@en ;
        rdfs:label "Artificial Intelligence"@en ;
-       sto:hasDBpediaResource <http://dbpedia.org/resource/Artificial_intelligence> ,
-                              ""@en .
+       sto:hasDBpediaResource <http://dbpedia.org/resource/Artificial_intelligence>
+.
 
 
 ###  https://w3id.org/i40/sto#AccessPolicy
@@ -221,7 +222,7 @@ sto:AccessPolicy rdf:type owl:NamedIndividual ,
                  sto_iot:supports sto:DataAccessControl ;
                  rdfs:comment "Access to the service shall be regulated by access policies. Users entitled in access policies to envoke a given service must be able to actually envoke it."@en ;
                  rdfs:label "Access Policy"@en ;
-                 rdfs:seeAlso "IoT-A Requirement UNI.604" ,
+                 rdfs:seeAlso "IoT-A Requirement UNI.604"^^xsd:string ,
                               <https://ieeexplore.ieee.org/document/6188257> ,
                               <https://ieeexplore.ieee.org/document/8552311> .
 
@@ -233,7 +234,7 @@ sto:AccessRightsforIoTCloud rdf:type owl:NamedIndividual ,
                                 sto_iot:supports sto:Cloud_Connectivity ;
                                 rdfs:label "Access Rights for IoT-Cloud"@en ;
                                 rdfs:seeAlso <https://ieeexplore.ieee.org/document/7919553> ;
-                                skos:note "TODO what is the IoT Cloud?" ;
+                                skos:note "TODO what is the IoT Cloud?"@en ;
                                 sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Access_rights> .
 
 
@@ -242,7 +243,7 @@ sto:Accountability rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    rdfs:comment "A system built using the ARM shall support the reversing of the pseudonymization processes in order to guarantee mutual accountability"@en ;
                    rdfs:label "Accountability"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.605" .
+                   rdfs:seeAlso "IoT-A Requirement UNI.605"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#Actuation
@@ -252,7 +253,7 @@ sto:Actuation rdf:type owl:NamedIndividual ,
               sto_iot:supports sto:IoT ;
               rdfs:comment "Sending data or a signal to a kind of actuating device, which leads to a change in a defined environment."@en ;
               rdfs:label "Actuation"@en ;
-              skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28' " ;
+              skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28' "@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/Actuator> .
 
 
@@ -265,7 +266,7 @@ sto:Adaptability rdf:type owl:NamedIndividual ,
 continuously a need for survival and development of Internet of Things."""@en ;
                  rdfs:label "Adaptability"@en ;
                  rdfs:seeAlso <https://ieeexplore.ieee.org/document/6188257> ;
-                 skos:note "TODO merge with programmability or evolveability" ;
+                 skos:note "TODO merge with programmability or evolveability"@en ;
                  sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Adaptability> .
 
 
@@ -275,7 +276,7 @@ sto:Agility rdf:type owl:NamedIndividual ,
             sto_iot:supports sto:BusinessContext ;
             rdfs:comment """Agility as a key pillar that enables quick and astute business operational decisions for an OpenFog System. The predicted scale of the data generated by IoT means that it is highly unlikely that humans alone will be able to comprehend the data, derive knowledge and make wise decisions about how to best leverage their IoT assets for the benefit of their businesses. In the OpenFog architecture the agility pillar is about making sure that the valuable data generated in the IoT can be rapidly transformed into actionable insights that drive rapid decisions and further levels of automation to support business interest.
 Spurce: OpenFog Consortum Architecture Whitepaper"""@en ;
-            skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.7 Agility Pillar' 'Page 31' " .
+            skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.7 Agility Pillar' 'Page 31' "@en .
 
 
 ###  https://w3id.org/i40/sto#Anonymity
@@ -285,8 +286,8 @@ sto:Anonymity rdf:type owl:NamedIndividual ,
               sto:hasStakeholder sto:EndUser ;
               rdfs:comment "Anonymity is the guarantee for a user to interact with a system without being tracked or connected to its real-world identity."@en ;
               rdfs:label "Anonymity"@en ;
-              rdfs:seeAlso "IoT-A Requirement UNI.001" ,
-                           "IoT-A Requirement UNI.322" ,
+              rdfs:seeAlso "IoT-A Requirement UNI.001"^^xsd:string ,
+                           "IoT-A Requirement UNI.322"^^xsd:string ,
                            "UNI.322"@en ;
               sto:hasDBpediaResource <http://dbpedia.org/resource/Anonymity> ,
                                      <http://dbpedia.org/resource/Anonymous_web_browsing> .
@@ -299,7 +300,7 @@ sto:AssetManagement rdf:type owl:NamedIndividual ,
                     sto_iot:supports sto:IoT ;
                     rdfs:comment "The concern of being able to manage the system onboarding, configuration, policy, software/firmware updates and other lifecycle management operations."@en ;
                     rdfs:label "Asset Management"@en ;
-                    skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' " ;
+                    skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' "@en ;
                     sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Asset_management#Physical_and_Infrastructure_asset_management> .
 
 
@@ -310,8 +311,8 @@ sto:Authentication rdf:type owl:NamedIndividual ,
                    sto_iot:supports sto:IdentityManagement ;
                    rdfs:comment "Authentication before opening a valid connection; this can be done by just verifying the server identity or doing mutual authentication."@en ;
                    rdfs:label "Authentication"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.612" ,
-                                "IoT-A Requirement UNI.618" ,
+                   rdfs:seeAlso "IoT-A Requirement UNI.612"^^xsd:string ,
+                                "IoT-A Requirement UNI.618"^^xsd:string ,
                                 <https://ieeexplore.ieee.org/document/6188257> ,
                                 <https://ieeexplore.ieee.org/document/7919553Y> ,
                                 <https://ieeexplore.ieee.org/document/8327600> ,
@@ -322,9 +323,9 @@ sto:Authentication rdf:type owl:NamedIndividual ,
 sto:Authorization rdf:type owl:NamedIndividual ,
                            sto_iot:Concern ;
                   sto_iot:supports sto:Privacy ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.319" ,
-                               "IoT-A Requirement UNI.502" ,
-                               "IoT-A Requirement UNI.503" ,
+                  rdfs:seeAlso "IoT-A Requirement UNI.319"^^xsd:string ,
+                               "IoT-A Requirement UNI.502"^^xsd:string ,
+                               "IoT-A Requirement UNI.503"^^xsd:string ,
                                <https://ieeexplore.ieee.org/document/7919553> ,
                                <https://ieeexplore.ieee.org/document/8552311> .
 
@@ -349,9 +350,9 @@ sto:AutonomousCommunication rdf:type owl:NamedIndividual ,
                             sto:hasStakeholder sto:SoftwareArchitect ;
                             rdfs:comment "Autonomous Communication frames all requirements in order to autonomously establish communication channels between participants of a network. In most cases, this will be a machine-to-machine communication channel. Main challenges are related to interoperability."@en ;
                             rdfs:label "Autonomous Communication"@en ;
-                            rdfs:seeAlso "IoT-A Requirement UNI.005" ,
-                                         "IoT-A Requirement UNI.012" ,
-                                         "IoT-A Requirement UNI.708" .
+                            rdfs:seeAlso "IoT-A Requirement UNI.005"^^xsd:string ,
+                                         "IoT-A Requirement UNI.012"^^xsd:string ,
+                                         "IoT-A Requirement UNI.708"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#AutonomousConfiguration
@@ -361,16 +362,16 @@ sto:AutonomousConfiguration rdf:type owl:NamedIndividual ,
                             sto:hasStakeholder sto:SoftwareArchitect ;
                             rdfs:comment "A system built using the Reference Architecture shall be able to remotely control and configure devices."@en ;
                             rdfs:label "Autonomous Configuration"@en ;
-                            rdfs:seeAlso "IoT-A Requirement UNI.015" ,
-                                         "IoT-A Requirement UNI.031" ,
-                                         "IoT-A Requirement UNI.032" ,
-                                         "IoT-A Requirement UNI.060" ,
-                                         "IoT-A Requirement UNI.247" ,
-                                         "IoT-A Requirement UNI.509" ,
-                                         "IoT-A Requirement UNI.704" ,
-                                         "IoT-A Requirement UNI.706" ,
-                                         "IoT-A Requirement UNI.717" ;
-                            skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '1.2. Utilities of IoT' 'Page 295'" .
+                            rdfs:seeAlso "IoT-A Requirement UNI.015"^^xsd:string ,
+                                         "IoT-A Requirement UNI.031"^^xsd:string ,
+                                         "IoT-A Requirement UNI.032"^^xsd:string ,
+                                         "IoT-A Requirement UNI.060"^^xsd:string ,
+                                         "IoT-A Requirement UNI.247"^^xsd:string ,
+                                         "IoT-A Requirement UNI.509"^^xsd:string ,
+                                         "IoT-A Requirement UNI.704"^^xsd:string ,
+                                         "IoT-A Requirement UNI.706"^^xsd:string ,
+                                         "IoT-A Requirement UNI.717"^^xsd:string ;
+                            skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '1.2. Utilities of IoT' 'Page 295'"@en .
 
 
 ###  https://w3id.org/i40/sto#Availability
@@ -381,19 +382,19 @@ sto:Availability rdf:type owl:NamedIndividual ,
                  rdfs:comment "In reliability theory and reliability engineering, the term availability has the following meanings: * The degree to which a system, subsystem or equipment is in a specified operable and committable state at the start of a mission, when the mission is called for at an unknown, i.e. a random, time. Simply put, availability is the proportion of time a system is in a functioning condition. This is often described as a mission capable rate. Mathematically, this is expressed as 100% minus unavailability. * The ratio of (a) the total time a functional unit is capable of being used during a given interval to (b) the length of the interval. For example, a unit that is capable of being used 100 hours per week (168 hours) would have an availability of 100/168. However, typical availability values are specified in decimal (such as 0.9998). In high availability applications, a metric known as nines, corresponding to the number of nines following the decimal point, is used. With this convention, \"five nines\" equals 0.99999 (or 99.999%) availability. (source: wikipedia)"@en ;
                  rdfs:label "Availability"@en ;
                  rdfs:seeAlso sto:OpenFogArchitecture ,
-                              "IoT-A Requirement UNI.058" ,
-                              "IoT-A Requirement UNI.064" ,
-                              "IoT-A Requirement UNI.239" ,
-                              "IoT-A Requirement UNI.321" ,
-                              "IoT-A Requirement UNI.601" ,
-                              "IoT-A Requirement UNI.610" ,
-                              "IoT-A Requirement UNI.616" ,
+                              "IoT-A Requirement UNI.058"^^xsd:string ,
+                              "IoT-A Requirement UNI.064"^^xsd:string ,
+                              "IoT-A Requirement UNI.239"^^xsd:string ,
+                              "IoT-A Requirement UNI.321"^^xsd:string ,
+                              "IoT-A Requirement UNI.601"^^xsd:string ,
+                              "IoT-A Requirement UNI.610"^^xsd:string ,
+                              "IoT-A Requirement UNI.616"^^xsd:string ,
                               <https://dl.acm.org/citation.cfm?doid=3108421.3108426> ,
                               <https://ieeexplore.ieee.org/document/7919553> ,
                               <https://ieeexplore.ieee.org/document/8327600> ,
                               <https://ieeexplore.ieee.org/document/8463303> ,
                               <https://ieeexplore.ieee.org/document/8474855> ;
-                 skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
+                 skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' "@en ;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/Availability> .
 
 
@@ -450,11 +451,11 @@ sto:BusinessProcessManagement rdf:type owl:NamedIndividual ,
                               dcterms:title "Business process management"@en ;
                               rdfs:comment "Business process management (BPM) is a field in operations management that focuses on improving corporate performance by managing and optimizing a company's business processes. It can therefore be described as a \"process optimization process.\" It is argued that BPM enables organizations to be more efficient, more effective and more capable of change than a functionally focused, traditional hierarchical management approach. These processes can impact the cost and revenue generation of an organization. As a policy-making approach, BPM sees processes as important assets of an organization that must be understood, managed, and developed to announce value-added products and services to clients or customers. This approach closely resembles other total quality management or continual improvement process methodologies and BPM proponents also claim that this approach can be supported, or enabled, through technology. As such, many BPM articles and scholars frequently discuss BPM from one of two viewpoints: people and/or technology. (source: wikipedia)"@en ;
                               rdfs:label "BPM"@en ;
-                              rdfs:seeAlso "IoT-A Requirement UNI.211" ,
-                                           "IoT-A Requirement UNI.212" ,
-                                           "IoT-A Requirement UNI.214" ,
-                                           "IoT-A Requirement UNI.215" ,
-                                           "IoT-A Requirement UNI.229" ;
+                              rdfs:seeAlso "IoT-A Requirement UNI.211"^^xsd:string ,
+                                           "IoT-A Requirement UNI.212"^^xsd:string ,
+                                           "IoT-A Requirement UNI.214"^^xsd:string ,
+                                           "IoT-A Requirement UNI.215"^^xsd:string ,
+                                           "IoT-A Requirement UNI.229"^^xsd:string ;
                               sto:hasDBpediaResource <http://dbpedia.org/resource/Business_process_management> .
 
 
@@ -474,7 +475,7 @@ sto:BusinessValue rdf:type owl:NamedIndividual ,
                   dcterms:creator sto:sebastian ;
                   sto_iot:supports sto:BusinessContext ;
                   rdfs:label "Business Value"@en ;
-                  skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' " .
+                  skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' "@en .
 
 
 ###  https://w3id.org/i40/sto#CardinalityOfDataSources
@@ -511,8 +512,8 @@ sto:CloudComputing rdf:type owl:NamedIndividual ,
                    sto_iot:supports sto:DataAnalytics ;
                    rdfs:comment "Cloud computing is a type of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous, on-demand access to a shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services), which can be rapidly provisioned and released with minimal management effort. Cloud computing and storage solutions provide users and enterprises with various capabilities to store and process their data in third-party data centers that may be located far from the user–ranging in distance from across a city to across the world. Cloud computing relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid) over an electricity network. (source: wikipedia)"@en ;
                    rdfs:label "Cloud Computing Capability"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.102" ,
-                                "IoT-A Requirement UNI.234" ;
+                   rdfs:seeAlso "IoT-A Requirement UNI.102"^^xsd:string ,
+                                "IoT-A Requirement UNI.234"^^xsd:string ;
                    sto:hasDBpediaResource <http://dbpedia.org/resource/Cloud_computing> .
 
 
@@ -529,22 +530,22 @@ sto:Communication rdf:type owl:NamedIndividual ,
                            sto:StandardClassification ;
                   sto:isDescribedin sto:AdministrationShell ;
                   sto_iot:supports sto:Interoperability ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.021" ,
-                               "IoT-A Requirement UNI.095" ,
-                               "IoT-A Requirement UNI.303" ,
-                               "IoT-A Requirement UNI.306" ,
-                               "IoT-A Requirement UNI.307" ,
-                               "IoT-A Requirement UNI.308" ,
-                               "IoT-A Requirement UNI.309" ,
-                               "IoT-A Requirement UNI.310" ,
-                               "IoT-A Requirement UNI.311" ,
-                               "IoT-A Requirement UNI.312" ,
-                               "IoT-A Requirement UNI.313" ,
-                               "IoT-A Requirement UNI.315" ,
-                               "IoT-A Requirement UNI.318" ,
-                               "IoT-A Requirement UNI.321" ,
-                               "IoT-A Requirement UNI.324" ,
-                               "IoT-A Requirement UNI.716" .
+                  rdfs:seeAlso "IoT-A Requirement UNI.021"^^xsd:string ,
+                               "IoT-A Requirement UNI.095"^^xsd:string ,
+                               "IoT-A Requirement UNI.303"^^xsd:string ,
+                               "IoT-A Requirement UNI.306"^^xsd:string ,
+                               "IoT-A Requirement UNI.307"^^xsd:string ,
+                               "IoT-A Requirement UNI.308"^^xsd:string ,
+                               "IoT-A Requirement UNI.309"^^xsd:string ,
+                               "IoT-A Requirement UNI.310"^^xsd:string ,
+                               "IoT-A Requirement UNI.311"^^xsd:string ,
+                               "IoT-A Requirement UNI.312"^^xsd:string ,
+                               "IoT-A Requirement UNI.313"^^xsd:string ,
+                               "IoT-A Requirement UNI.315"^^xsd:string ,
+                               "IoT-A Requirement UNI.318"^^xsd:string ,
+                               "IoT-A Requirement UNI.321"^^xsd:string ,
+                               "IoT-A Requirement UNI.324"^^xsd:string ,
+                               "IoT-A Requirement UNI.716"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#ComplexEventProcessing
@@ -554,7 +555,7 @@ sto:ComplexEventProcessing rdf:type owl:NamedIndividual ,
                            dcterms:title "Complex Event Processing"@en ;
                            rdfs:comment "Event processing is a method of tracking and analyzing (processing) streams of information (data) about things that happen (events), and deriving a conclusion from them. Complex event processing, or CEP, is event processing that combines data from multiple sources to infer events or patterns that suggest more complicated circumstances. The goal of complex event processing is to identify meaningful events (such as opportunities or threats) and respond to them as quickly as possible. (source: wikipedia)"@en ;
                            rdfs:label "CEP"@en ;
-                           rdfs:seeAlso "IoT-A Requirement UNI.232" ;
+                           rdfs:seeAlso "IoT-A Requirement UNI.232"^^xsd:string ;
                            sto:hasDBpediaResource <http://dbpedia.org/page/Complex_event_processing> .
 
 
@@ -607,8 +608,8 @@ sto:ConstrainedDevices rdf:type owl:NamedIndividual ,
                        rdfs:comment "Data-memory-constrained devices must be able to participate in communication. This means that a system built using the ARM shall support communication stacks with small data footprint."@en ,
                                     "Small devices with limited CPU, memory, and power resources, so-called \"constrained devices\" (often used as sensors/actuators, smart objects, or smart devices) can form a network, becoming \"constrained nodes\" in that network.  Such a network may itself exhibit constraints, e.g., with unreliable or lossy channels, limited and unpredictable bandwidth, and a highly dynamic topology. (source: https://tools.ietf.org/html/rfc7228)"@en ;
                        rdfs:label "Constrained Devices"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.306" ,
-                                    "IoT-A Requirement UNI.307" ,
+                       rdfs:seeAlso "IoT-A Requirement UNI.306"^^xsd:string ,
+                                    "IoT-A Requirement UNI.307"^^xsd:string ,
                                     "UNI.306"@en .
 
 
@@ -619,11 +620,11 @@ sto:ContextAwareness rdf:type owl:NamedIndividual ,
                      sto:hasStakeholder "Developer"@en ;
                      rdfs:comment "The look-up service of the system shall withold or grant information depending on context. Context includes application involved, requesting entity, and security permissions."@en ;
                      rdfs:label "Context Awareness"@en ;
-                     rdfs:seeAlso "IoT-A Requirement UNI.407" ,
-                                  "IoT-A Requirement UNI.420" ,
-                                  "IoT-A Requirement UNI.421" ,
+                     rdfs:seeAlso "IoT-A Requirement UNI.407"^^xsd:string ,
+                                  "IoT-A Requirement UNI.420"^^xsd:string ,
+                                  "IoT-A Requirement UNI.421"^^xsd:string ,
                                   "UNI.407"@en ;
-                     skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '1.2. Utilities of IoT' 'Page 296'" ;
+                     skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '1.2. Utilities of IoT' 'Page 296'"@en ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Context_awareness> .
 
 
@@ -632,9 +633,8 @@ sto:CostEfficiency rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:SebastianBader ;
                    sto_iot:supports sto:BusinessContext ;
-                   rdfs:comment ""@en ;
-                   rdfs:label "Cost Efficiency"@en ,
-                              "DataRecovery"@en ;
+                   rdfs:comment "The requirement to invest the available resources (money, time, etc.) in the most efficient manner."@en ;
+                   rdfs:label "Cost Efficiency"@en ;
                    rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3266237.3266263> .
 
 
@@ -646,7 +646,7 @@ sto:CrossDomainIdentityManagement rdf:type owl:NamedIndividual ,
                                   sto:hasStakeholder "System Architect"@en ;
                                   rdfs:comment "A system built using the ARM shall support identity-locator split, i.e. making the device's identity independent from its locator."@en ;
                                   rdfs:label "Cross-domain Identity Management"@en ;
-                                  rdfs:seeAlso "IoT-A Requirement UNI.314" ;
+                                  rdfs:seeAlso "IoT-A Requirement UNI.314"^^xsd:string ;
                                   sto:hasDBpediaResource <http://dbpedia.org/resource/System_for_Cross-domain_Identity_Management> .
 
 
@@ -663,14 +663,14 @@ sto:DataAccessControl rdf:type owl:NamedIndividual ,
                       "Automated access control based on formalized descriptions."@en ,
                        "In the fields of physical security and information security, access control (AC) is the selective restriction of access to a place or other resource. The act of accessing may mean consuming, entering, or using. Permission to access a resource is called authorization. Locks and login credentials are two analogous mechanisms of access control. (source: wikipedia)"@en ;
                       rdfs:label "Data Access Control"@en ;
-                      rdfs:seeAlso "IoT-A Requirement UNI.002" ,
-                      			   "IoT-A Requirement UNI.022" ,
-                                   "IoT-A Requirement UNI.067" ,
-                                   "IoT-A Requirement UNI.410" ,
-                                   "IoT-A Requirement UNI.411" ,
-                                   "IoT-A Requirement UNI.412" ,
-                                   "IoT-A Requirement UNI.413" ,
-                                   "IoT-A Requirement UNI.504" ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.002"^^xsd:string ,
+                      			   "IoT-A Requirement UNI.022"^^xsd:string ,
+                                   "IoT-A Requirement UNI.067"^^xsd:string ,
+                                   "IoT-A Requirement UNI.410"^^xsd:string ,
+                                   "IoT-A Requirement UNI.411"^^xsd:string ,
+                                   "IoT-A Requirement UNI.412"^^xsd:string ,
+                                   "IoT-A Requirement UNI.413"^^xsd:string ,
+                                   "IoT-A Requirement UNI.504"^^xsd:string ;
                       sto:hasDBpediaResource <http://dbpedia.org/resource/Access_control> .
 
 
@@ -691,7 +691,7 @@ sto:DataAnalytics rdf:type owl:NamedIndividual ,
                   dcterms:creator sto:sebastian ;
                   rdfs:comment "Analysis of data is a process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, suggesting conclusions, and supporting decision-making. Data analysis has multiple facets and approaches, encompassing diverse techniques under a variety of names, in different business, science, and social science domains. Data mining is a particular data analysis technique that focuses on modeling and knowledge discovery for predictive rather than purely descriptive purposes. Business intelligence covers data analysis that relies heavily on aggregation, focusing on business information. (source: wikipedia)"@en ;
                   rdfs:label "Data Analytics"@en ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.232" ;
+                  rdfs:seeAlso "IoT-A Requirement UNI.232"^^xsd:string ;
                   sto:hasDBpediaResource <http://dbpedia.org/resource/Data_analysis> .
 
 
@@ -714,8 +714,8 @@ sto:DataDescription rdf:type owl:NamedIndividual ,
                     rdfs:comment <http://dbpedia.org/resource/Data_model> ,
                                  "Methods to unambiguously describe data resources."@en ;
                     rdfs:label "Data Description"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.004" ,
-                                 "IoT-A Requirement UNI.240" .
+                    rdfs:seeAlso "IoT-A Requirement UNI.004"^^xsd:string ,
+                                 "IoT-A Requirement UNI.240"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DataDiscovery
@@ -726,9 +726,9 @@ sto:DataDiscovery rdf:type owl:NamedIndividual ,
                   dcterms:creator sto:sebastian ;
                   rdfs:comment "How to find desired resources, Data Assets, Data Artifacts in a defined environment."@en ;
                   rdfs:label "Data Discovery"@en ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.236" ,
-                               "IoT-A Requirement UNI.408" ,
-                               "IoT-A Requirement UNI.422" .
+                  rdfs:seeAlso "IoT-A Requirement UNI.236"^^xsd:string ,
+                               "IoT-A Requirement UNI.408"^^xsd:string ,
+                               "IoT-A Requirement UNI.422"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DataEconomy
@@ -746,16 +746,25 @@ sto:DataEconomy rdf:type owl:NamedIndividual ,
 sto:DataEncryption rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:MuhammadUsman ;
-                   sto_iot:supports sto:BusinessContext ,
-                                sto:SecureCommunication ;
-                   rdfs:comment ""@en ,
-                                "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers"@en ;
-                   rdfs:label "Customization"@en ,
-                              "Data secrecy and encryption"@en ;
-                   rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3108421.3108426> ,
-                                <https://ieeexplore.ieee.org/document/6188257> ;
-                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Customization> ,
-                                           <https://en.wikipedia.org/wiki/Encryption> .
+                   sto_iot:supports sto:SecureCommunication ;
+                   rdfs:comment "In cryptography, encryption is the process of encoding messages or information in such a way that only authorized parties can read it. Encryption does not of itself prevent interception, but denies the message content to the interceptor. In an encryption scheme, the intended communication information or message, referred to as plaintext, is encrypted using an encryption algorithm, generating ciphertext that can only be read if decrypted. (source: wikipedia)"@en ;
+                   rdfs:label "Data secrecy and encryption"@en ;
+                   rdfs:seeAlso <https://ieeexplore.ieee.org/document/6188257> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Encryption> ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Encryption> ;
+.
+
+
+###  https://w3id.org/i40/sto#Customization
+sto:Customization rdf:type owl:NamedIndividual ,
+                            sto_iot:Concern ;
+                   dcterms:creator sto:MuhammadUsman ;
+                   sto_iot:supports sto:BusinessContext ;
+                   rdfs:comment "The resources sharing by contrasting users keeps cloud service provider from having the capacity to customize their services to meet the diverse necessities of customers."@en ;
+                   rdfs:label "Customization"@en ;
+                   rdfs:seeAlso <https://dl.acm.org/citation.cfm?doid=3108421.3108426> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Customization> ;
+.
 
 
 ###  https://w3id.org/i40/sto#DataInMotion
@@ -824,7 +833,7 @@ sto:DataProcessing rdf:type owl:NamedIndividual ,
                    sto:hasStakeholder sto:SoftwareArchitect ;
                    rdfs:comment "Data processing and analytic components from the App Store create flexible data processing pipelines."@en ;
                    rdfs:label "Data Processing"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.018" ,
+                   rdfs:seeAlso "IoT-A Requirement UNI.018"^^xsd:string ,
                                 <https://dl.acm.org/citation.cfm?doid=3098208.3098210> ;
                    sto:hasDBpediaResource <http://dbpedia.org/resource/Data_processing> .
 
@@ -858,9 +867,9 @@ sto:DataQuality rdf:type owl:NamedIndividual ,
                 sto_iot:supports sto:QualityOfService ;
                 rdfs:comment "Data quality refers to the level of quality of data. There are many definitions of data quality but data are generally considered high quality if \"they are fit for their intended uses in operations, decision making and planning.\" (Tom Redman<Redman, T.C. (2008). Data driven: Profiting from your most important business asset (p. 56). Boston, Mass.: Harvard Business Press.>). Alternatively, data is deemed of high quality if it correctly represents the real-world construct to which it refers. Furthermore, apart from these definitions, as data volume increases, the question of internal consistency within data becomes significant, regardless of fitness for use for any particular external purpose. People's views on data quality can often be in disagreement, even when discussing the same set of data used for the same purpose. (source: wikipedia)"@en ;
                 rdfs:label "Data Quality"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.235" ,
-                             "IoT-A Requirement UNI.236" ,
-                             "IoT-A Requirement UNI.237" ;
+                rdfs:seeAlso "IoT-A Requirement UNI.235"^^xsd:string ,
+                             "IoT-A Requirement UNI.236"^^xsd:string ,
+                             "IoT-A Requirement UNI.237"^^xsd:string ;
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Data_quality> .
 
 
@@ -934,7 +943,7 @@ sto:DynamicAdjustability rdf:type owl:NamedIndividual ,
                                       sto:ServiceOrchestration ;
                          rdfs:comment "A systems ability to adjust its behaviour on dynamic changes in its environment."@en ;
                          rdfs:label "Dynamic Adjustability"@en ;
-                         rdfs:seeAlso "IoT-A Requirement UNI.713" .
+                         rdfs:seeAlso "IoT-A Requirement UNI.713"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#DynamicDiscovery
@@ -944,10 +953,10 @@ sto:DynamicDiscovery rdf:type owl:NamedIndividual ,
                                   sto:ServiceDiscovery ;
                      rdfs:comment "A systems ability to retrive according information on required assets and components on-the-fly."@en ;
                      rdfs:label "Dynamic Discovery"@en ;
-                     rdfs:seeAlso "IoT-A Requirement UNI.418" ,
-                                  "IoT-A Requirement UNI.419" ,
-                                  "IoT-A Requirement UNI.420" ,
-                                  "IoT-A Requirement UNI.421" .
+                     rdfs:seeAlso "IoT-A Requirement UNI.418"^^xsd:string ,
+                                  "IoT-A Requirement UNI.419"^^xsd:string ,
+                                  "IoT-A Requirement UNI.420"^^xsd:string ,
+                                  "IoT-A Requirement UNI.421"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#EdgeAnalytics
@@ -959,7 +968,7 @@ sto:EdgeAnalytics rdf:type owl:NamedIndividual ,
                   rdfs:label "Edge Analytics"@en ;
                   sto_iot:supports sto:IoT ;
                   skos:altLabel "Edge Computing"@en ;
-                  skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' " ;
+                  skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 29' "@en ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Edge_computing> ;
                   sto:hasDBpediaResource <http://dbpedia.org/resource/Edge_computing>.
 
@@ -982,8 +991,8 @@ sto:EndpointInvocation rdf:type owl:NamedIndividual ,
                        sto_iot:supports sto:SyntacticInteroperability ;
                        rdfs:comment "Mechanisms to interact with a service and to access it through the network."@en ;
                        rdfs:label "Endpoint Invocation"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.100" ,
-                                    "IoT-A Requirement UNI.417" .
+                       rdfs:seeAlso "IoT-A Requirement UNI.100"^^xsd:string ,
+                                    "IoT-A Requirement UNI.417"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#EnergyControl
@@ -991,13 +1000,13 @@ sto:EnergyControl rdf:type owl:NamedIndividual ,
                            sto_iot:Concern ;
                   sto_iot:supports sto:EnergyEfficiency ;
                   rdfs:label "Energy Control"@en ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.100" ,
-                               "IoT-A Requirement UNI.101" ,
-                               "IoT-A Requirement UNI.309" ,
-                               "IoT-A Requirement UNI.310" ,
-                               "IoT-A Requirement UNI.505" ,
-                               "IoT-A Requirement UNI.512" ,
-                               "IoT-A Requirement UNI.714" ,
+                  rdfs:seeAlso "IoT-A Requirement UNI.100"^^xsd:string ,
+                               "IoT-A Requirement UNI.101"^^xsd:string ,
+                               "IoT-A Requirement UNI.309"^^xsd:string ,
+                               "IoT-A Requirement UNI.310"^^xsd:string ,
+                               "IoT-A Requirement UNI.505"^^xsd:string ,
+                               "IoT-A Requirement UNI.512"^^xsd:string ,
+                               "IoT-A Requirement UNI.714"^^xsd:string ,
                                <https://ieeexplore.ieee.org/document/7488250> ;
                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Internet_of_things#Energy_management> .
 
@@ -1019,8 +1028,8 @@ sto:EventDrivenMessaging rdf:type owl:NamedIndividual ,
                          sto_iot:supports sto:DataInMotion ;
                          sto:hasStakeholder sto:SoftwareArchitect ;
                          rdfs:label "Event-Driven Messaging"@en ;
-                         rdfs:seeAlso "IoT-A Requirement UNI.005" ,
-                                      "IoT-A Requirement UNI.233" ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.005"^^xsd:string ,
+                                      "IoT-A Requirement UNI.233"^^xsd:string ;
                          sto:hasDBpediaResource <http://dbpedia.org/page/Event-Driven_Messaging> .
 
 
@@ -1031,8 +1040,8 @@ sto:Evolvability rdf:type owl:NamedIndividual ,
                  sto_iot:supports sto:DynamicAdjustability ;
                  rdfs:comment "A system shall accomodate fast developmental changes in applications and network."@en ;
                  rdfs:label "Evolvability"@en ;
-                 rdfs:seeAlso "IoT-A Requirement UNI.701" ,
-                              "IoT-A Requirement UNI.702" ;
+                 rdfs:seeAlso "IoT-A Requirement UNI.701"^^xsd:string ,
+                              "IoT-A Requirement UNI.702"^^xsd:string ;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/Evolving_intelligent_system> ,
                                         <http://dbpedia.org/resource/Software_evolution> .
 
@@ -1088,7 +1097,7 @@ sto:GeoTracking rdf:type owl:NamedIndividual ,
                 sto:hasStakeholder sto:EndUser ;
                 rdfs:comment "A system built using the ARM shall support physical entity location tracking (geo spatial and/or logical location)"@en ;
                 rdfs:label "Geo tracking"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.016" ;
+                rdfs:seeAlso "IoT-A Requirement UNI.016"^^xsd:string ;
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Track_and_trace> .
 
 
@@ -1098,14 +1107,14 @@ sto:GeospatialData rdf:type owl:NamedIndividual ,
                    sto_iot:supports sto:DataAnalytics ;
                    rdfs:comment "Discovery and lookup services of the system shall allow locating physical entities based on geographical parameters."@en ;
                    rdfs:label "Geospatial data and information"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.402" ,
-                                "IoT-A Requirement UNI.403" ,
-                                "IoT-A Requirement UNI.404" ,
-                                "IoT-A Requirement UNI.405" ,
-                                "IoT-A Requirement UNI.406" ,
-                                "IoT-A Requirement UNI.415" ,
-                                "IoT-A Requirement UNI.420" ,
-                                "IoT-A Requirement UNI.421" ,
+                   rdfs:seeAlso "IoT-A Requirement UNI.402"^^xsd:string ,
+                                "IoT-A Requirement UNI.403"^^xsd:string ,
+                                "IoT-A Requirement UNI.404"^^xsd:string ,
+                                "IoT-A Requirement UNI.405"^^xsd:string ,
+                                "IoT-A Requirement UNI.406"^^xsd:string ,
+                                "IoT-A Requirement UNI.415"^^xsd:string ,
+                                "IoT-A Requirement UNI.420"^^xsd:string ,
+                                "IoT-A Requirement UNI.421"^^xsd:string ,
                                 "UNI.401"@en ,
                                 "UNI.402"@en ,
                                 "UNI.403"@en ,
@@ -1139,7 +1148,7 @@ sto:IPv4Support rdf:type owl:NamedIndividual ,
                 sto:hasStakeholder "System Architect"@en ;
                 rdfs:comment "Communication with non-IPv6 networks must be possible (IPv4, others)."@en ;
                 rdfs:label "IPv4 Support"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.313" ;
+                rdfs:seeAlso "IoT-A Requirement UNI.313"^^xsd:string ;
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_Protocol> .
 
 
@@ -1151,16 +1160,16 @@ sto:IdentityManagement rdf:type owl:NamedIndividual ,
                        sto_iot:supports sto:NonRepudiation ;
                        rdfs:comment "In computer security, identity and access management (IAM) is the security and business discipline that \"enables the right individuals to access the right resources at the right times and for the right reasons\".It addresses the need to ensure appropriate access to resources across increasingly heterogeneous technology environments and to meet increasingly rigorous compliance requirements. (source: wikipedia)"@en ;
                        rdfs:label "Identity Management"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.030" ,
-                                "IoT-A Requirement UNI.425" ,
-                                "IoT-A Requirement UNI.428" ,
+                       rdfs:seeAlso "IoT-A Requirement UNI.030"^^xsd:string ,
+                                "IoT-A Requirement UNI.425"^^xsd:string ,
+                                "IoT-A Requirement UNI.428"^^xsd:string ,
                                 "IoT-A Requirement UNI.622",
-                                "IoT-A Requirement UNI.048" ,
-                                    "IoT-A Requirement UNI.432" ,
+                                "IoT-A Requirement UNI.048"^^xsd:string ,
+                                    "IoT-A Requirement UNI.432"^^xsd:string ,
                                     <https://ieeexplore.ieee.org/document/6188257> ,
                                     <https://ieeexplore.ieee.org/document/7488250> ,
                                     <https://ieeexplore.ieee.org/document/7919553> ;
-                        skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' 'Survey on domain specific IoT architectures' 'Page 299'" ;
+                        skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' 'Survey on domain specific IoT architectures' 'Page 299'"@en ;
                        sto:hasDBpediaResource <http://dbpedia.org/resource/Identity_management> ;
                        sto:hasDBpediaResource <http://dbpedia.org/resource/Identification_(information)> .
 
@@ -1170,8 +1179,9 @@ sto:InformationSecurity rdf:type owl:NamedIndividual ,
                                  sto_iot:Concern ;
                         dcterms:creator sto:SebastianBader ;
                         sto_iot:supports sto:Security ;
-                        rdfs:comment ""@en ;
+                        rdfs:comment "Information security, sometimes shortened to InfoSec, is the practice of defending information from unauthorized access, use, disclosure, disruption, modification, inspection, recording or destruction. It is a general term that can be used regardless of the form the data may take (e.g. electronic, physical). (source: wikipedia)"@en ;
                         rdfs:label "Information Security"@en ;
+                        sto:hasDBpediaResource <http://dbpedia.org/resource/Information_security> ;
                         rdfs:seeAlso <https://ieeexplore.ieee.org/document/8552311> .
 
 
@@ -1192,13 +1202,13 @@ sto:IntegrityProtection rdf:type owl:NamedIndividual ,
                                  sto_iot:Concern ;
                         dcterms:creator sto:sebastian ;
                         sto_iot:supports sto:DeviceSecurity ;
-                        sto:hasStakeholder "Device/Service Owner" ;
+                        sto:hasStakeholder "Device/Service Owner"@en ;
                         rdfs:comment "In telecommunications, the term system integrity has the following meanings: 1. * That condition of a system wherein its mandated operational and technical parameters are within the prescribed limits. 2. * The quality of an AIS when it performs its intended function in an unimpaired manner, free from deliberate or inadvertent unauthorized manipulation of the system. 3. * The state that exists when there is complete assurance that under all conditions an IT system is based on the logical correctness and reliability of the operating system, the logical completeness of the hardware and software that implement the protection mechanisms, and data integrity. (source: wikipedia)"@en ,
                                      "Integrity protection and verification of the software stack installed; local integrity protection would be something like trusted boot; remote integrity verification means support for remote attestation."@en ;
                         rdfs:label "Integrity Protection and Verification"@en ;
-                        rdfs:seeAlso "IoT-A Requirement UNI.066" ,
-                                     "IoT-A Requirement UNI.603" ,
-                                     "IoT-A Requirement UNI.620" ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.066"^^xsd:string ,
+                                     "IoT-A Requirement UNI.603"^^xsd:string ,
+                                     "IoT-A Requirement UNI.620"^^xsd:string ;
                         skos:altLabel "Attestation"@en ;
                         sto:hasDBpediaResource <http://dbpedia.org/resource/System_integrity> .
 
@@ -1211,15 +1221,15 @@ sto:Interoperability rdf:type owl:NamedIndividual ,
                      rdfs:comment "A systems ability to connect with other systems."@en ,
                                   "Interoperability refers to the ability of two or more devices from the same vendor, or different vendors, to exchange information and use that information for correct co-operation [IEC61850-2010]."@en ;
                      rdfs:label "Interoperability"@en ;
-                     rdfs:seeAlso "IoT-A Requirement UNI.008" ,
-                                  "IoT-A Requirement UNI.010" ,
-                                  "IoT-A Requirement UNI.023" ,
-                                  "IoT-A Requirement UNI.042" ,
-                                  "IoT-A Requirement UNI.047" ,
-                                  "IoT-A Requirement UNI.093" ,
-                                  "IoT-A Requirement UNI.094" ,
-                                  "IoT-A Requirement UNI.232" ,
-                                  "IoT-A Requirement UNI.712" ,
+                     rdfs:seeAlso "IoT-A Requirement UNI.008"^^xsd:string ,
+                                  "IoT-A Requirement UNI.010"^^xsd:string ,
+                                  "IoT-A Requirement UNI.023"^^xsd:string ,
+                                  "IoT-A Requirement UNI.042"^^xsd:string ,
+                                  "IoT-A Requirement UNI.047"^^xsd:string ,
+                                  "IoT-A Requirement UNI.093"^^xsd:string ,
+                                  "IoT-A Requirement UNI.094"^^xsd:string ,
+                                  "IoT-A Requirement UNI.232"^^xsd:string ,
+                                  "IoT-A Requirement UNI.712"^^xsd:string ,
                                   <https://dl.acm.org/citation.cfm?doid=3266237.3266263> ,
                                   <https://ieeexplore.ieee.org/document/8249113> ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Interoperability> .
@@ -1231,7 +1241,7 @@ sto:IoT rdf:type owl:NamedIndividual ,
         dcterms:title "Internet of Things"@en ;
         rdfs:comment "The internet of things (IoT) is the internetworking of physical devices, vehicles (also referred to as \"connected devices\" and \"smart devices\"), buildings and other items—embedded with electronics, software, sensors, actuators, and network connectivity that enable these objects to collect and exchange data. (source: wikipedia)"@en ;
         rdfs:label "IoT"@en ;
-        rdfs:seeAlso "IoT-A Requirement UNI.213" ;
+        rdfs:seeAlso "IoT-A Requirement UNI.213"^^xsd:string ;
         sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_of_things> .
 
 
@@ -1263,8 +1273,8 @@ sto:Logging rdf:type owl:NamedIndividual ,
                          sto:ServiceAccessControl ;
             rdfs:comment "The process of recording incidents and events regarding a specific service, data resource or device in order to make status changes transparent."@en ;
             rdfs:label "Logging"@en ;
-            rdfs:seeAlso "IoT-A Requirement UNI.409" ,
-                         "IoT-A Requirement UNI.710" ;
+            rdfs:seeAlso "IoT-A Requirement UNI.409"^^xsd:string ,
+                         "IoT-A Requirement UNI.710"^^xsd:string ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/Data_logger> .
 
 
@@ -1295,8 +1305,8 @@ sto:MaintenanceCost rdf:type owl:NamedIndividual ,
                     sto_iot:supports sto:BusinessContext ;
                     rdfs:comment "The ability of a system to be maintained."@en ;
                     rdfs:label "Maintenance Cost"@en ;
-                    skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '3 Use Cases for Fog' 'Page 13' " ,
-                              "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' " .
+                    skos:note "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '3 Use Cases for Fog' 'Page 13' "@en ,
+                              "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' "@en .
 
 
 ###  https://w3id.org/i40/sto#MessagePriority
@@ -1307,7 +1317,7 @@ sto:MessagePriority rdf:type owl:NamedIndividual ,
                                                                       <owl:Developer> ;
                     rdfs:comment "Message precedence is an indicator attached to a message indicating its level of urgency. (source: wikipedia)"@en ;
                     rdfs:label "Message precedence"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.028" ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.028"^^xsd:string ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Message_precedence> .
 
 
@@ -1318,7 +1328,7 @@ sto:NonRepudiation rdf:type owl:NamedIndividual ,
                    sto_iot:supports sto:IntegrityProtection ;
                    rdfs:comment "In digital security, non-repudiation means:  (a)  A service that provides proof of the integrity and origin of data. (b) An authentication that can be said to be genuine with high confidence. The most common method of verifying the digital origin of data is through digital certificates, a form of public key infrastructure that includes digital signatures."@en ;
                    rdfs:label "Non-repudiation"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.619" ,
+                   rdfs:seeAlso "IoT-A Requirement UNI.619"^^xsd:string ,
                                 <https://ieeexplore.ieee.org/document/6188257> ;
                    sto:hasDBpediaResource <https://dbpedia.org/resource/Non-repudiation> ;
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Non-repudiation> .
@@ -1331,7 +1341,7 @@ sto:NetworkPerformance rdf:type owl:NamedIndividual ,
                                     sto:QualityOfService ;
                        rdfs:comment "Network performance refers to measures of service quality of a network as seen by the customer. There are many different ways to measure the performance of a network, as each network is different in nature and design. (source: wikidata)"@en ;
                        rdfs:label "Network performance"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.252" ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.252"^^xsd:string ;
                        sto:hasDBpediaResource <http://dbpedia.org/resource/Network_performance> .
 
 
@@ -1359,7 +1369,7 @@ sto:NetworkVirtualization rdf:type owl:NamedIndividual ,
                           sto_iot:supports sto:Communication ;
                           rdfs:comment "The system shall support network virtualisation, i.e. the usage of virtual overlay networks."@en ;
                           rdfs:label "Network Virtualization"@en ;
-                          rdfs:seeAlso "IoT-A Requirement UNI.328" ,
+                          rdfs:seeAlso "IoT-A Requirement UNI.328"^^xsd:string ,
                                        "UNI.328"@en ;
                           sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Network_virtualization> .
 
@@ -1371,7 +1381,7 @@ sto:NonRepudiation rdf:type owl:NamedIndividual ,
                    sto_iot:supports sto:IntegrityProtection ;
                    rdfs:comment "In digital security, non-repudiation means:  (a)  A service that provides proof of the integrity and origin of data. (b) An authentication that can be said to be genuine with high confidence. The most common method of verifying the digital origin of data is through digital certificates, a form of public key infrastructure that includes digital signatures."@en ;
                    rdfs:label "Non-repudiation"@en ;
-                   rdfs:seeAlso "IoT-A Requirement UNI.619" ,
+                   rdfs:seeAlso "IoT-A Requirement UNI.619"^^xsd:string ,
                                 <https://ieeexplore.ieee.org/document/6188257> ;
                    sto:hasDBpediaResource <https://dbpedia.org/resource/Non-repudiation> ;
                    sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Non-repudiation> .
@@ -1407,7 +1417,7 @@ sto:PeriodicCommunication rdf:type owl:NamedIndividual ,
                           sto_iot:supports sto:EventDrivenMessaging ;
                           sto:hasStakeholder sto:SoftwareArchitect ;
                           rdfs:label "Periodic Communication"@en ;
-                          rdfs:seeAlso "IoT-A Requirement UNI.005" .
+                          rdfs:seeAlso "IoT-A Requirement UNI.005"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#PhysicalConnectivity
@@ -1427,10 +1437,10 @@ sto:Privacy rdf:type owl:NamedIndividual ,
                          sto:Trustworthiness ;
             rdfs:comment "Information privacy, or data privacy (or data protection), is the relationship between collection and dissemination of data, technology, the public expectation of privacy, and the legal and political issues surrounding them. Privacy concerns exist wherever personally identifiable information or other sensitive information is collected, stored, used, and finally destroyed or deleted – in digital form or otherwise. Improper or non-existent disclosure control can be the root cause for privacy issues. Data privacy issues can arise in response to information from a wide range of sources, such as: * Healthcare records * Criminal justice investigations and proceedings * Financial institutions and transactions * Biological traits, such as genetic material * Residence and geographic records * Ethnicity * Privacy breach * Location-based service and geolocation * Web surfing behavior or user preferences using persistent cookies. (source: wikipedia)"@en ;
             rdfs:label "Privacy"@en ;
-            rdfs:seeAlso "IoT-A Requirement UNI.423" ,
-                         "IoT-A Requirement UNI.424" ,
-                         "IoT-A Requirement UNI.606" ,
-                         "IoT-A Requirement UNI.623" ,
+            rdfs:seeAlso "IoT-A Requirement UNI.423"^^xsd:string ,
+                         "IoT-A Requirement UNI.424"^^xsd:string ,
+                         "IoT-A Requirement UNI.606"^^xsd:string ,
+                         "IoT-A Requirement UNI.623"^^xsd:string ,
                          <https://dl.acm.org/citation.cfm?doid=3098208.3098210> ,
                          <https://ieeexplore.ieee.org/document/6188257> ,
                          <https://ieeexplore.ieee.org/document/7919553> ;
@@ -1456,8 +1466,8 @@ sto:ProvenanceTracking rdf:type owl:NamedIndividual ,
                        sto:hasStakeholder sto:EndUser ;
                        rdfs:comment "Data provenance includes the data's origins, what happens to it and where it moves/moved over time."@en ;
                        rdfs:label "Provenance Tracking"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.041" ,
-                                    "IoT-A Requirement UNI.606" ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.041"^^xsd:string ,
+                                    "IoT-A Requirement UNI.606"^^xsd:string ;
                        sto:hasDBpediaResource <http://dbpedia.org/resource/Data_lineage> .
 
 
@@ -1468,7 +1478,7 @@ sto:Pseudonimity rdf:type owl:NamedIndividual ,
                  sto_iot:supports sto:Anonymity ;
                  rdfs:comment "While complete anonymity is not feasibe in an IoT scenario, pseudonimity should be supported."@en ;
                  rdfs:label "Pseudonimity"@en ;
-                 rdfs:seeAlso "IoT-A Requirement UNI.624" ;
+                 rdfs:seeAlso "IoT-A Requirement UNI.624"^^xsd:string ;
                  sto:hasDBpediaResource <http://dbpedia.org/resource/Pseudonymity> .
 
 
@@ -1478,9 +1488,9 @@ sto:QualityOfService rdf:type owl:NamedIndividual ,
                      sto_iot:supports sto:ServiceDescription ;
                      rdfs:comment "Quality of service (QoS) is the overall performance of a telephony or computer network, particularly the performance seen by the users of the network. To quantitatively measure quality of service, several related aspects of the network service are often considered, such as error rates, bit rate, throughput, transmission delay, availability, jitter, etc. In the field of computer networking and other packet-switched telecommunication networks, quality of service refers to traffic prioritization and resource reservation control mechanisms rather than the achieved service quality. (source: wikipedia)"@en ;
                      rdfs:label "Quality of Service"@en ;
-                     rdfs:seeAlso "IoT-A Requirement UNI.613" ,
-                                  "IoT-A Requirement UNI.614" ,
-                                  "IoT-A Requirement UNI.717" ,
+                     rdfs:seeAlso "IoT-A Requirement UNI.613"^^xsd:string ,
+                                  "IoT-A Requirement UNI.614"^^xsd:string ,
+                                  "IoT-A Requirement UNI.717"^^xsd:string ,
                                   <https://dl.acm.org/citation.cfm?doid=3098208.3098210> ,
                                   <https://dl.acm.org/citation.cfm?doid=3266237.3266263> ,
                                   <https://ieeexplore.ieee.org/document/7919553> ;
@@ -1494,7 +1504,7 @@ sto:RadioActivityControl rdf:type owl:NamedIndividual ,
                          sto:hasStakeholder <http://dbpedia.org/ontology/developer> ;
                          rdfs:comment "The user shall be able to control the radio activity of the system."@en ;
                          rdfs:label "Radio activity control"@en ;
-                         rdfs:seeAlso "IoT-A Requirement UNI.021" .
+                         rdfs:seeAlso "IoT-A Requirement UNI.021"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#RealTimeAnalytics
@@ -1504,7 +1514,7 @@ sto:RealTimeAnalytics rdf:type owl:NamedIndividual ,
                       sto:hasStakeholder sto:EndUser ;
                       rdfs:comment "In computer science, real-time computing (RTC), or reactive computing describes hardware and software systems subject to a \"real-time constraint\", for example from event to system response. Real-time programs must guarantee response within specified time constraints, often referred to as \"deadlines\". Systems of this type whose correctness depends on their temporal aspects as well as their functional aspects. Real-time responses are often understood to be in the order of milliseconds, and sometimes microseconds."@en ;
                       rdfs:label "Real Time Analytics"@en ;
-                      rdfs:seeAlso "IoT-A Requirement UNI.020" ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.020"^^xsd:string ;
                       sto:hasDBpediaResource <http://dbpedia.org/resource/Real-time_computing> .
 
 
@@ -1526,12 +1536,12 @@ sto:Reliability rdf:type owl:NamedIndividual ,
                 sto_iot:supports sto:Trustworthiness ;
                 rdfs:comment "In computer networking, a reliable protocol provides reliability properties with respect to the delivery of data to the intended recipient(s), as opposed to an unreliable protocol, which does not provide notifications to the sender as to the delivery of transmitted data. (source: wikipedia)"@en ;
                 rdfs:label "Reliability"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.065" ,
+                rdfs:seeAlso "IoT-A Requirement UNI.065"^^xsd:string ,
                              <https://dl.acm.org/citation.cfm?doid=3266237.3266263> ,
                              <https://ieeexplore.ieee.org/document/7488250> ,
                              <https://ieeexplore.ieee.org/document/8463303> ;
-                skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'" ,
-                          "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' " ;
+                skos:note "Publications referred: '<https://www.iiconsortium.org/pdf/IIC_PUB_G4_V1.00_PB-3.pdf IIC:PUB:G4:V1.0:PB:20160926>'"@en ,
+                          "Publications referred: '<https://www.openfogconsortium.org/wp-content/uploads/OpenFog_Reference_Architecture_2_09_17-FINAL.pdf> OPFRA001.020817' '4.6 Reliability, Availability, and Serviceability (RAS)Pillar' 'Page 29' "@en ;
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Reliability_(computer_networking)> .
 
 
@@ -1544,11 +1554,11 @@ sto:Resilience rdf:type owl:NamedIndividual ,
                                                                  sto:SoftwareArchitect ;
                rdfs:comment "Resilience is the ability to provide and maintain an acceptable level of service in the face of faults and challenges to normal operation.” Threats and challenges for services can range from simple misconfiguration over large scale natural disasters to targeted attacks. As such, network resilience touches a very wide range of topics. In order to increase the resilience of a given communication network, the probable challenges and risks have to be identified and appropriate resilience metrics have to be defined for the service to be protected. (source: wikipedia)"@en ;
                rdfs:label "Resilience"@en ;
-               rdfs:seeAlso "IoT-A Requirement UNI.012" ,
-                            "IoT-A Requirement UNI.040" ,
-                            "IoT-A Requirement UNI.058" ,
-                            "IoT-A Requirement UNI.064" ,
-                            "IoT-A Requirement UNI.718" ,
+               rdfs:seeAlso "IoT-A Requirement UNI.012"^^xsd:string ,
+                            "IoT-A Requirement UNI.040"^^xsd:string ,
+                            "IoT-A Requirement UNI.058"^^xsd:string ,
+                            "IoT-A Requirement UNI.064"^^xsd:string ,
+                            "IoT-A Requirement UNI.718"^^xsd:string ,
                             <https://ieeexplore.ieee.org/document/7919553> ;
                sto:hasDBpediaResource <http://dbpedia.org/resource/Resilience_(network)> .
 
@@ -1558,7 +1568,7 @@ sto:ReturnOnInvestment rdf:type owl:NamedIndividual ,
                                 sto_iot:Concern ;
                        sto_iot:supports sto:BusinessContext ;
                        rdfs:label "Return On Investment"@en ;
-                       skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' " .
+                       skos:note "Publications referred: '(IIC:PUB:G1:V1.80:20170131' '4 BUSINESS VIEWPOINT' 'Page 20' "@en .
 
 
 ###  https://w3id.org/i40/sto#RiskManagement
@@ -1601,10 +1611,10 @@ sto:Scalability rdf:type owl:NamedIndividual ,
                  sto_iot:supports sto:Interoperability ;
                 rdfs:comment "Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth. For example, it can refer to the capability of a system to increase its total output under an increased load when resources (typically hardware) are added. An analogous meaning is implied when the word is used in an economic context, where scalability of a company implies that the underlying business model offers the potential for economic growth within the company. Scalability, as a property of systems, is generally difficult to define and in any particular case it is necessary to define the specific requirements for scalability on those dimensions that are deemed important. It is a highly significant issue in electronics systems, databases, routers, and networking. (source: wikipedia)"@en ;
                 rdfs:label "Scalability"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.026" ,
-                             "IoT-A Requirement UNI.234" ,
-                             "IoT-A Requirement UNI.511" ,
-                             "IoT-A Requirement UNI.711" ,
+                rdfs:seeAlso "IoT-A Requirement UNI.026"^^xsd:string ,
+                             "IoT-A Requirement UNI.234"^^xsd:string ,
+                             "IoT-A Requirement UNI.511"^^xsd:string ,
+                             "IoT-A Requirement UNI.711"^^xsd:string ,
                              <https://dl.acm.org/citation.cfm?doid=3266237.3266263> ,
                              <https://ieeexplore.ieee.org/document/6188257> ,
                              <https://ieeexplore.ieee.org/document/8327600> ;
@@ -1623,12 +1633,12 @@ sto:SecureCommunication rdf:type owl:NamedIndividual ,
                         rdfs:comment <http://dbpedia.org/resource/Secure_communication> ,
                                      "This concern frames everything necessary to establish and conduct a secure communication channel, which cannot be read, intercepted or altered by a third party. Especially relevant are encrypting techniques."@en ;
                         rdfs:label "Secure Communication"@en ;
-                        rdfs:seeAlso "IoT-A Requirement UNI.022" ,
-                                     "IoT-A Requirement UNI.062" ,
-                                     "IoT-A Requirement UNI.501" ,
-                                     "IoT-A Requirement UNI.607" ,
-                                     "IoT-A Requirement UNI.608" ,
-                                     "IoT-A Requirement UNI.609" ,
+                        rdfs:seeAlso "IoT-A Requirement UNI.022"^^xsd:string ,
+                                     "IoT-A Requirement UNI.062"^^xsd:string ,
+                                     "IoT-A Requirement UNI.501"^^xsd:string ,
+                                     "IoT-A Requirement UNI.607"^^xsd:string ,
+                                     "IoT-A Requirement UNI.608"^^xsd:string ,
+                                     "IoT-A Requirement UNI.609"^^xsd:string ,
                                      <https://ieeexplore.ieee.org/document/7919553> .
 
 
@@ -1642,10 +1652,10 @@ sto:Security rdf:type owl:NamedIndividual ,
                                                                sto:SoftwareArchitect ;
              rdfs:comment "Information security, sometimes shortened to InfoSec, is the practice of defending information from unauthorized access, use, disclosure, disruption, modification, inspection, recording or destruction. It is a general term that can be used regardless of the form the data may take (e.g. electronic, physical). (source: wikipedia)"@en ;
              rdfs:label "Security"@en ;
-             rdfs:seeAlso "IoT-A Requirement UNI.040" ,
-                          "IoT-A Requirement UNI.507" ,
-                          "IoT-A Requirement UNI.626" ,
-                          "IoT-A Requirement UNI.719" ,
+             rdfs:seeAlso "IoT-A Requirement UNI.040"^^xsd:string ,
+                          "IoT-A Requirement UNI.507"^^xsd:string ,
+                          "IoT-A Requirement UNI.626"^^xsd:string ,
+                          "IoT-A Requirement UNI.719"^^xsd:string ,
                           <https://dl.acm.org/citation.cfm?doid=3266237.3266263> ,
                           <https://ieeexplore.ieee.org/document/7919553> ;
              sto:hasDBpediaResource <http://dbpedia.org/resource/Information_security> .
@@ -1657,7 +1667,7 @@ sto:SecurityConfiguration rdf:type owl:NamedIndividual ,
                           sto_iot:supports sto:Security ;
                           rdfs:comment "Users should be able to monitor and control the security and privacy settings of all the devices that they own."@en ;
                           rdfs:label "Security Configuration"@en ;
-                          rdfs:seeAlso "IoT-A Requirement UNI.625" ;
+                          rdfs:seeAlso "IoT-A Requirement UNI.625"^^xsd:string ;
                           sto:hasDBpediaResource <http://dbpedia.org/resource/Hardening_(computing)> .
 
 
@@ -1683,13 +1693,13 @@ sto:SemanticInteroperability rdf:type owl:NamedIndividual ,
                              rdfs:comment """Beyond the ability of two or more computer systems to exchange information, semantic interoperability is the ability to automatically interpret the information exchanged meaningfully and accurately in order to produce useful results as defined by the end users of both systems. To achieve semantic interoperability, both sides must refer to a common information exchange reference model. 
 source: <https://en.wikipedia.org/wiki/Interoperability>"""@en ;
                              rdfs:label "Semantic Interoperability"@en ;
-                             rdfs:seeAlso "IoT-A Requirement UNI.003" ,
-                                          "IoT-A Requirement UNI.070" ,
-                                          "IoT-A Requirement UNI.073" ,
-                                          "IoT-A Requirement UNI.213" ,
-                                          "IoT-A Requirement UNI.426" ,
-                                          "IoT-A Requirement UNI.427" ;
-                             skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '3.2. Direction toward Io<*>' 'Page 315'" ;
+                             rdfs:seeAlso "IoT-A Requirement UNI.003"^^xsd:string ,
+                                          "IoT-A Requirement UNI.070"^^xsd:string ,
+                                          "IoT-A Requirement UNI.073"^^xsd:string ,
+                                          "IoT-A Requirement UNI.213"^^xsd:string ,
+                                          "IoT-A Requirement UNI.426"^^xsd:string ,
+                                          "IoT-A Requirement UNI.427"^^xsd:string ;
+                             skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '3.2. Direction toward Io<*>' 'Page 315'"@en ;
                              sto:hasDBpediaResource <http://dbpedia.org/resource/Semantic_interoperability> .
 
 
@@ -1700,7 +1710,7 @@ sto:Sensing rdf:type owl:NamedIndividual ,
             sto_iot:supports sto:IoT ;
             rdfs:comment "The concern of being able to measure values from a defined environment."@en ;
             rdfs:label "Sensing"@en ;
-            skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28' " ;
+            skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28' "@en ;
             sto:hasDBpediaResource <http://dbpedia.org/resource/Sensor> .
 
 
@@ -1712,7 +1722,7 @@ sto:ServiceAccessControl rdf:type owl:NamedIndividual ,
                          sto_iot:supports sto:Authorization ;
                          rdfs:comment "Service access control is the selective restriction of access to a specific (web) service or process. The act of accessing may mean consuming, entering, or using. Permission to access a service is called service authorization. Locks and login credentials are two analogous mechanisms of access control. (source: wikipedia)"@en ;
                          rdfs:label "Service Access Control"@en ;
-                         rdfs:seeAlso "IoT-A Requirement UNI.611" ;
+                         rdfs:seeAlso "IoT-A Requirement UNI.611"^^xsd:string ;
                          sto:hasDBpediaResource <http://dbpedia.org/resource/Network_Access_Control> .
 
 
@@ -1724,8 +1734,8 @@ sto:ServiceChoreography rdf:type owl:NamedIndividual ,
                         rdfs:comment "2 to n Data Apps/Services/Data Provider are connected (without a central coordinator)"@en ,
                                      "Service choreography is a form of service composition in which the interaction protocol between several partner services is defined from a global perspective.The intuition underlying the notion of service choreography can be summarised as follows: “Dancers dance following a global scenario without a single point of control\" That is, at run-time each participant in a service choreography executes its part of it (i.e. its role) according to the behavior of the other participants.A choreography's role specifies the expected messaging behavior of the participants that will play it in terms of the sequencing and timing of the messages that they can consume and produce. (source: wikipedia)"@en ;
                         rdfs:label "Service Choreography"@en ;
-                        rdfs:seeAlso "IoT-A Requirement UNI.096" ,
-                                     "IoT-A Requirement UNI.704" ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.096"^^xsd:string ,
+                                     "IoT-A Requirement UNI.704"^^xsd:string ;
                         sto:hasDBpediaResource <http://dbpedia.org/resource/Service_choreography> .
 
 
@@ -1738,17 +1748,17 @@ sto:ServiceComposition rdf:type owl:NamedIndividual ,
                        rdfs:comment "2 to n Data Apps/Devices/Services are connected"@en ,
                                     "In computing, service composability is a design principle, applied within the service-orientation design paradigm, that encourages the design of services that can be reused in multiple solutions that are themselves made up of composed services. The ability to recompose the service is ideally independent of the size and complexity of the service composition. This principle is directly responsible for the agility promised by SOA as it promotes composing new solutions by reusing existing services. (source: wikipedia)"@en ;
                        rdfs:label "Service Composition"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.014" ,
-                                    "IoT-A Requirement UNI.031" ,
-                                    "IoT-A Requirement UNI.043" ,
-                                    "IoT-A Requirement UNI.089" ,
-                                    "IoT-A Requirement UNI.094" ,
-                                    "IoT-A Requirement UNI.234" ,
-                                    "IoT-A Requirement UNI.244" ,
-                                    "IoT-A Requirement UNI.245" ,
-                                    "IoT-A Requirement UNI.247" ,
-                                    "IoT-A Requirement UNI.251" ,
-                                    "IoT-A Requirement UNI.253" ;
+                       rdfs:seeAlso "IoT-A Requirement UNI.014"^^xsd:string ,
+                                    "IoT-A Requirement UNI.031"^^xsd:string ,
+                                    "IoT-A Requirement UNI.043"^^xsd:string ,
+                                    "IoT-A Requirement UNI.089"^^xsd:string ,
+                                    "IoT-A Requirement UNI.094"^^xsd:string ,
+                                    "IoT-A Requirement UNI.234"^^xsd:string ,
+                                    "IoT-A Requirement UNI.244"^^xsd:string ,
+                                    "IoT-A Requirement UNI.245"^^xsd:string ,
+                                    "IoT-A Requirement UNI.247"^^xsd:string ,
+                                    "IoT-A Requirement UNI.251"^^xsd:string ,
+                                    "IoT-A Requirement UNI.253"^^xsd:string ;
                        sto:hasDBpediaResource <http://dbpedia.org/resource/Service_composition> .
 
 
@@ -1758,7 +1768,7 @@ sto:ServiceDeployment rdf:type owl:NamedIndividual ,
                       sto_iot:supports sto:ServiceLifecycleManagement ;
                       rdfs:comment "Software deployment is all of the activities that make a software system available for use. The general deployment process consists of several interrelated activities with possible transitions between them. These activities can occur at the producer side or at the consumer side or both. Because every software system is unique, the precise processes or procedures within each activity can hardly be defined. Therefore, \"deployment\" should be interpreted as a general process that has to be customized according to specific requirements or characteristics. (source: wikipedia)"@en ;
                       rdfs:label "Service Deployment"@en ;
-                      rdfs:seeAlso "IoT-A Requirement UNI.429" ;
+                      rdfs:seeAlso "IoT-A Requirement UNI.429"^^xsd:string ;
                       sto:hasDBpediaResource <http://dbpedia.org/resource/Software_deployment> .
 
 
@@ -1770,11 +1780,11 @@ sto:ServiceDescription rdf:type owl:NamedIndividual ,
                        sto:hasStakeholder <http://dbpedia.org/ontology/developer> ;
                        rdfs:comment "A Service Description plays an important role in enabling access to a service. Most service description languages are designed for machine consumption, allowing for the automatic creation of code skeletons, easier search, and classification of services. However, people may also find descriptions useful to learn about the use of parameters or the precise semantics of some operation.  (https://www.w3.org/standards/webofservices/description)"@en ;
                        rdfs:label "Service Description"@en ;
-                       rdfs:seeAlso "IoT-A Requirement UNI.004" ,
-                                    "IoT-A Requirement UNI.036" ,
-                                    "IoT-A Requirement UNI.042" ,
-                                    "IoT-A Requirement UNI.240" ,
-                                    "IoT-A Requirement UNI.715" .
+                       rdfs:seeAlso "IoT-A Requirement UNI.004"^^xsd:string ,
+                                    "IoT-A Requirement UNI.036"^^xsd:string ,
+                                    "IoT-A Requirement UNI.042"^^xsd:string ,
+                                    "IoT-A Requirement UNI.240"^^xsd:string ,
+                                    "IoT-A Requirement UNI.715"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#ServiceDiscovery
@@ -1785,14 +1795,14 @@ sto:ServiceDiscovery rdf:type owl:NamedIndividual ,
                      rdfs:comment "How to find desired (Web) services, Data Apps, functionalities."@en ;
                      rdfs:label "Service Discovery"@en ;
                      sto_iot:supports sto:ServiceOrchestration ;
-                     rdfs:seeAlso "IoT-A Requirement UNI.406" ,
-                                  "IoT-A Requirement UNI.408" ,
-                                  "IoT-A Requirement UNI.414" ,
-                                  "IoT-A Requirement UNI.415" ,
-                                  "IoT-A Requirement UNI.416" ,
-                                  "IoT-A Requirement UNI.422" ,
-                                  "IoT-A Requirement UNI.427" ;
-                     skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.8.2. Societal data service' 'Page 309'" ;
+                     rdfs:seeAlso "IoT-A Requirement UNI.406"^^xsd:string ,
+                                  "IoT-A Requirement UNI.408"^^xsd:string ,
+                                  "IoT-A Requirement UNI.414"^^xsd:string ,
+                                  "IoT-A Requirement UNI.415"^^xsd:string ,
+                                  "IoT-A Requirement UNI.416"^^xsd:string ,
+                                  "IoT-A Requirement UNI.422"^^xsd:string ,
+                                  "IoT-A Requirement UNI.427"^^xsd:string ;
+                     skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.8.2. Societal data service' 'Page 309'"@en ;
                      sto:hasDBpediaResource <http://dbpedia.org/resource/Service_discovery> .
 
 
@@ -1805,7 +1815,7 @@ sto:ServiceLevelAgreements rdf:type owl:NamedIndividual ,
                            sto_iot:supports sto:ServiceLifecycleManagement ;
                            rdfs:comment "A service-level agreement (SLA) is defined as an official commitment that prevails between a service provider and the customer. Particular aspects of the service – quality, availability, responsibilities – are agreed between the service provider and the service user. The most common component of SLA is that the services should be provided to the customer as agreed upon in the contract. As an example, Internet service providers and telcos will commonly include service level agreements within the terms of their contracts with customers to define the level(s) of service being sold in plain language terms. In this case the SLA will typically have a technical definition in terms of mean time between failures (MTBF), mean time to repair or mean time to recovery (MTTR); identifying which party is responsible for reporting faults or paying fees; responsibility for various data rates; throughput; jitter; or similar measurable details. (source: wikipedia)"@en ;
                            rdfs:label "Service level agreement"@en ;
-                           rdfs:seeAlso "IoT-A Requirement UNI.060" ;
+                           rdfs:seeAlso "IoT-A Requirement UNI.060"^^xsd:string ;
                            sto:hasDBpediaResource <http://dbpedia.org/resource/Service-level_agreement> .
 
 
@@ -1816,7 +1826,7 @@ sto:ServiceLifecycleManagement rdf:type owl:NamedIndividual ,
                                sto:hasStakeholder <https://w3id.org/i40/SystemArchitect> ;
                                rdfs:comment "The Service Lifecycle Management (SLM) is engaged in the life cycle of services. (source: wikipedia)"@en ;
                                rdfs:label "Service life-cycle management"@en ;
-                               rdfs:seeAlso "IoT-A Requirement UNI.087" ;
+                               rdfs:seeAlso "IoT-A Requirement UNI.087"^^xsd:string ;
                                sto:hasWikipediaArticle <https://de.wikipedia.org/wiki/Service-Lifecycle-Management> .
 
 
@@ -1828,9 +1838,9 @@ sto:ServiceOrchestration rdf:type owl:NamedIndividual ,
                          sto:hasStakeholder sto:SoftwareArchitect ;
                          rdfs:comment "A Service/Data App are connected with Data Provider, other Services/Data Apps in order to fulfill a certain task, orchestrated by a central entity."@en ;
                          rdfs:label "Service Orchestration"@en ;
-                         rdfs:seeAlso "IoT-A Requirement UNI.010" ,
+                         rdfs:seeAlso "IoT-A Requirement UNI.010"^^xsd:string ,
                                       <https://dl.acm.org/citation.cfm?doid=3098208.3098210> ;
-                         skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'" ;
+                         skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.2.2. Middleware enablement' 'Page 300'"@en ;
                          sto:hasDBpediaResource <http://dbpedia.org/resource/Orchestration_(computing)> ;
                          sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Deployment> ,
                                                  <https://en.wikipedia.org/wiki/Orchestration_(computing)> .
@@ -1875,7 +1885,7 @@ sto:SpatialModeling rdf:type owl:NamedIndividual ,
                                  sto:SemanticInteroperability ;
                     rdfs:comment "A system shall have a semantic understanding of distance and location."@en ;
                     rdfs:label "Spatial modeling"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.098" ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.098"^^xsd:string ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Spatial_analysis> .
 
 
@@ -1896,16 +1906,16 @@ sto:SyntacticInteroperability rdf:type owl:NamedIndividual ,
                               sto_iot:supports sto:Interoperability ;
                               rdfs:comment "If two or more systems are capable of communicating with each other, they exhibit syntactic interoperability when using specified data formats and communication protocols. XML or SQL standards are among the tools of syntactic interoperability. This is also true for lower-level data formats, such as ensuring alphabetical characters are stored in a same variation of ASCII or a Unicode format (for English or international text) in all the communicating systems. source: <https://en.wikipedia.org/wiki/Interoperability>"@en ;
                               rdfs:label "Syntactic Interoperability"@en ;
-                              rdfs:seeAlso "IoT-A Requirement UNI.071" ,
-                                           "IoT-A Requirement UNI.096" ,
-                                           "IoT-A Requirement UNI.241" ,
-                                           "IoT-A Requirement UNI.318" ,
-                                           "IoT-A Requirement UNI.326" ,
-                                           "IoT-A Requirement UNI.327" ,
-                                           "IoT-A Requirement UNI.506" ,
-                                           "IoT-A Requirement UNI.709" ,
+                              rdfs:seeAlso "IoT-A Requirement UNI.071"^^xsd:string ,
+                                           "IoT-A Requirement UNI.096"^^xsd:string ,
+                                           "IoT-A Requirement UNI.241"^^xsd:string ,
+                                           "IoT-A Requirement UNI.318"^^xsd:string ,
+                                           "IoT-A Requirement UNI.326"^^xsd:string ,
+                                           "IoT-A Requirement UNI.327"^^xsd:string ,
+                                           "IoT-A Requirement UNI.506"^^xsd:string ,
+                                           "IoT-A Requirement UNI.709"^^xsd:string ,
                                            "UNI.327"@en ;
-                              skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.8.2. Societal data service' 'Page 308'" ;
+                              skos:note "Publications referred: '<https://doi.org/10.1016/j.jksuci.2016.10.003>' '2.8.2. Societal data service' 'Page 308'"@en ;
                               sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Unified_interoperability#Syntactic_interoperability> .
 
 
@@ -1916,8 +1926,8 @@ sto:SystemEvolution rdf:type owl:NamedIndividual ,
                     sto_iot:supports sto:Evolvability ;
                     rdfs:comment "Software evolution is the term used in software engineering (specifically software maintenance) to refer to the process of developing software initially, then repeatedly updating it for various reasons. (source: wikipedia)"@en ;
                     rdfs:label "System evolution"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.211" ,
-                                 "IoT-A Requirement UNI.229" ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.211"^^xsd:string ,
+                                 "IoT-A Requirement UNI.229"^^xsd:string ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Software_evolution> .
 
 
@@ -1926,7 +1936,9 @@ sto:SystemRecovery rdf:type owl:NamedIndividual ,
                             sto_iot:Concern ;
                    dcterms:creator sto:sebastian ;
                    sto_iot:supports sto:Reliability ;
-                   rdfs:comment ""@en ;
+                   rdfs:comment "The ability to recover systems or data after a failure, cras or attack."@en ;
+                   sto:hasDBpediaResource <http://dbpedia.org/resource/Data_recovery> ;
+                   sto:hasWikipediaArticle <https://en.wikipedia.org/wiki/Data_recovery> ;
                    rdfs:label "System Recovery"@en .
 
 
@@ -1939,14 +1951,14 @@ sto:ThingDescription rdf:type owl:NamedIndividual ,
                                                                        <owl:Developer> ;
                      rdfs:comment "'Things' in terms of physical objects in the IoT need to be described in order to identify them and to provide further information."@en ;
                      rdfs:label "Thing description"@en ;
-                     rdfs:seeAlso "IoT-A Requirement UNI.036" ,
-                                  "IoT-A Requirement UNI.042" ,
-                                  "IoT-A Requirement UNI.213" ,
-                                  "IoT-A Requirement UNI.237" ,
-                                  "IoT-A Requirement UNI.240" ,
-                                  "IoT-A Requirement UNI.404" ,
-                                  "IoT-A Requirement UNI.509" ,
-                                  "IoT-A Requirement UNI.512" .
+                     rdfs:seeAlso "IoT-A Requirement UNI.036"^^xsd:string ,
+                                  "IoT-A Requirement UNI.042"^^xsd:string ,
+                                  "IoT-A Requirement UNI.213"^^xsd:string ,
+                                  "IoT-A Requirement UNI.237"^^xsd:string ,
+                                  "IoT-A Requirement UNI.240"^^xsd:string ,
+                                  "IoT-A Requirement UNI.404"^^xsd:string ,
+                                  "IoT-A Requirement UNI.509"^^xsd:string ,
+                                  "IoT-A Requirement UNI.512"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#ThingMobility
@@ -1958,8 +1970,8 @@ sto:ThingMobility rdf:type owl:NamedIndividual ,
                                sto:ServiceDeployment ;
                   rdfs:comment "A Thing in terms of Internet of Things (IoT) needs to be moveable."@en ;
                   rdfs:label "Thing mobility"@en ;
-                  rdfs:seeAlso "IoT-A Requirement UNI.050" ,
-                               "IoT-A Requirement UNI.233" .
+                  rdfs:seeAlso "IoT-A Requirement UNI.050"^^xsd:string ,
+                               "IoT-A Requirement UNI.233"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#ThingRepresentation
@@ -1969,7 +1981,7 @@ sto:ThingRepresentation rdf:type owl:NamedIndividual ,
                         sto_iot:supports sto:IoT ;
                         rdfs:comment "Physical objects need to be represented."@en ;
                         rdfs:label "Thing representation"@en ;
-                        rdfs:seeAlso "IoT-A Requirement UNI.239" .
+                        rdfs:seeAlso "IoT-A Requirement UNI.239"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#TimeSynchronization
@@ -1979,7 +1991,7 @@ sto:TimeSynchronization rdf:type owl:NamedIndividual ,
                         sto_iot:supports sto:ServiceComposition ;
                         sto:hasStakeholder <https://w3id.org/i40/Developer> ;
                         rdfs:label "Time Synchronization"@en ;
-                        rdfs:seeAlso "IoT-A Requirement UNI.089" ;
+                        rdfs:seeAlso "IoT-A Requirement UNI.089"^^xsd:string ;
                         sto:hasDBpediaResource <http://dbpedia.org/resource/Synchronization_(computer_science)> ,
                                                "Synchronization refers to one of two distinct but related concepts: synchronization of processes, and synchronization of data. Process synchronization refers to the idea that multiple processes are to join up or handshake at a certain point, in order to reach an agreement or commit to a certain sequence of action. Data synchronization refers to the idea of keeping multiple copies of a dataset in coherence with one another, or to maintain data integrity. Process synchronization primitives are commonly used to implement data synchronization. (sourc: wikipedia)"@en .
 
@@ -1990,9 +2002,9 @@ sto:Trustworthiness rdf:type owl:NamedIndividual ,
                     dcterms:creator sto:sebastian ;
                     rdfs:comment "Trustworthiness is the degree of confidence one has that the system performs as expected in respect to all the key system characteristics in the face of environmental disruptions, human errors, system faults and attacks. source: IISF"@en ;
                     rdfs:label "Trustworthiness"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.062" ,
-                                 "IoT-A Requirement UNI.602" ,
-                                 "IoT-A Requirement UNI.613" ,
+                    rdfs:seeAlso "IoT-A Requirement UNI.062"^^xsd:string ,
+                                 "IoT-A Requirement UNI.602"^^xsd:string ,
+                                 "IoT-A Requirement UNI.613"^^xsd:string ,
                                  <https://dl.acm.org/citation.cfm?doid=3180465.3180470> ,
                                  <https://ieeexplore.ieee.org/document/6188257> ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Software_trustworthiness> .
@@ -2005,8 +2017,8 @@ sto:Unicast rdf:type owl:NamedIndividual ,
             sto_iot:supports sto:CardinalityOfDataSources ;
             rdfs:comment "one-to-one connectivity"@en ;
             rdfs:label "Unicast"@en ;
-            rdfs:seeAlso "IoT-A Requirement UNI.301" ,
-                         "IoT-A Requirement UNI.304" .
+            rdfs:seeAlso "IoT-A Requirement UNI.301"^^xsd:string ,
+                         "IoT-A Requirement UNI.304"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#UnreliableNetwork
@@ -2018,8 +2030,8 @@ sto:UnreliableNetwork rdf:type owl:NamedIndividual ,
                                                                         "System Architect"@en ;
                       rdfs:comment "Productive systems must inherently cover issues caused by unreliable networks."@en ;
                       rdfs:label "Unreliable Network"@en ;
-                      rdfs:seeAlso "IoT-A Requirement UNI.308" ,
-                                   "IoT-A Requirement UNI.318" .
+                      rdfs:seeAlso "IoT-A Requirement UNI.308"^^xsd:string ,
+                                   "IoT-A Requirement UNI.318"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#UserExperience
@@ -2036,10 +2048,10 @@ sto:UserInteraction rdf:type owl:NamedIndividual ,
                     sto:hasStakeholder sto:EndUser ;
                     rdfs:comment "Interaction design, often abbreviated as IxD, is defined as \"the practice of designing interactive digital products, environments, systems, and services.\" While the digital side of this statement is true, Interaction design is also valid when creating physical (non-digital) products, covering the ideology of how a user may interact with it. (source: wikipedia)"@en ;
                     rdfs:label "User Interaction"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.019" ,
-                                 "IoT-A Requirement UNI.092" ,
-                                 "IoT-A Requirement UNI.214" ,
-                                 "IoT-A Requirement UNI.252" ;
+                    rdfs:seeAlso "IoT-A Requirement UNI.019"^^xsd:string ,
+                                 "IoT-A Requirement UNI.092"^^xsd:string ,
+                                 "IoT-A Requirement UNI.214"^^xsd:string ,
+                                 "IoT-A Requirement UNI.252"^^xsd:string ;
                     sto:hasDBpediaResource <http://dbpedia.org/resource/Interaction_design> .
 
 
@@ -2050,7 +2062,7 @@ sto:UserPreferences rdf:type owl:NamedIndividual ,
                     sto_iot:supports sto:ServiceLevelAgreements ;
                     rdfs:comment "Users can have the possibility to prefer one service over another for any reason."@en ;
                     rdfs:label "User Preferences"@en ;
-                    rdfs:seeAlso "IoT-A Requirement UNI.253" .
+                    rdfs:seeAlso "IoT-A Requirement UNI.253"^^xsd:string .
 
 
 ###  https://w3id.org/i40/sto#VendorLockin
@@ -2077,7 +2089,7 @@ sto:VirtualEntity rdf:type owl:NamedIndividual ,
                   rdfs:seeAlso "UNI.030"@en ,
                                "UNI.066"@en ,
                                "UNI.402"@en ;
-                  skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28' " ;
+                  skos:note "Publications referred: 'IIC:PUB:G1:V1.80:20170131' '6.1 THE CONTROL DOMAIN' 'Page 28' "@en ;
                   sto:hasDBpediaResource <http://dbpedia.org/resource/Digital_twin> .
 
 
@@ -2114,5 +2126,5 @@ sto:IPv6Support rdf:type owl:NamedIndividual ,
                 sto:hasStakeholder "System Architect"@en ;
                 rdfs:comment "A system built using the ARM shall use/support common-addressing-schemes such as IPv6."@en ;
                 rdfs:label "IPv6 Support"@en ;
-                rdfs:seeAlso "IoT-A Requirement UNI.312" ;
+                rdfs:seeAlso "IoT-A Requirement UNI.312"^^xsd:string ;
                 sto:hasDBpediaResource <http://dbpedia.org/resource/Internet_Protocol> .
