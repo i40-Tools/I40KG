@@ -4,7 +4,7 @@ The Industry 4.0 Standards Knowledge Graph is used for describing standards and 
 for mappings across reference architectures proposed by different industrial communities such as RAMI, IIRA, etc.
 
 
-# Documentaion 
+# Documentation
 <a href="https://i40-tools.github.io/I40KG/">https://i40-tools.github.io/I40KG/</a> provides the ontology documentation.
 
 # Reused Vocabularies
