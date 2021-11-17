@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/i40/sto#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix oa: <https://www.w3.org/ns/oa> .
@@ -27,9 +26,9 @@
 @prefix schema: <http://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sto_iot: <https://w3id.org/i40/sto/iot#> .
-@base <https://w3id.org/i40/sto#> .
+@base <https://w3id.org/i40/sto/> .
 
-<https://w3id.org/i40/sto#> rdf:type owl:Ontology ;
+<https://w3id.org/i40/sto/> rdf:type owl:Ontology ;
                              owl:imports <https://w3id.org/i40/sto/iot/0.3/concerns/> ,
                                          <https://w3id.org/i40/sto/iot/0.3/frameworks/> ;
                              dcterms:created "2017-01-25"^^xsd:date ;
@@ -230,11 +229,11 @@ foaf:name rdf:type owl:AnnotationProperty ;
 
 
 ###  https://w3id.org/i40/sto#Tag
-sto:Tag rdf:type owl:AnnotationProperty .
+sto:Tag rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/i40/sto#hasDBpediaResource
-sto:hasDBpediaResource rdf:type owl:AnnotationProperty ;
+sto:hasDBpediaResource rdf:type owl:ObjectProperty ;
                        rdfs:comment "Instance's DBpedia Resource"@en ;
                        rdfs:label "has DBpedia Resource"@en .
 
@@ -254,7 +253,7 @@ sto:hasTargetConcern rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/i40/sto#hasWikipediaArticle
-sto:hasWikipediaArticle rdf:type owl:AnnotationProperty ;
+sto:hasWikipediaArticle rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:anyURI .
 
 
@@ -434,13 +433,6 @@ sto:hasDomain rdf:type owl:ObjectProperty ;
               rdfs:range sto:Domain ;
               rdfs:comment "Describes the domain, in which the Publication is used, particularly, standards."@en ;
               rdfs:label "has Domain"@en .
-
-
-###  https://w3id.org/i40/sto#hasFileSize
-sto:hasFileSize rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty ;
-                rdfs:domain foaf:Document ;
-                rdfs:range om2:Measure .
 
 
 ###  https://w3id.org/i40/sto#hasHeadquaterIn
@@ -822,6 +814,22 @@ Note: It is important to distinguish the Reference Architecture from a Reference
                                          "ISO 42010 definition of an Architecture Description"@en ;
                             rdfs:label "Architecture Description" ;
                             rdfs:seeAlso <https://www.iso.org/standard/50508.html> .
+
+
+sto:Term rdf:type owl:Class ;
+         rdfs:label "Term"@en ;
+         rdfs:comment "Describes the class term. It refers to the terms that are in the standards documents"@en ;
+.
+
+sto:definedInStandard rdf:type owl:ObjectProperty ;
+         rdfs:label "definedInStandard"@en ;
+         rdfs:comment "Links the terms and the standards"@en ;
+         rdfs:domain sto:Term ;
+         rdfs:range sto:Standard ;
+.              
+
+
+
 
 
 ###  https://w3id.org/i40/sto#BdvaConcern
@@ -19040,17 +19048,6 @@ sto:hasClassification rdfs:comment "An Standard is isCategorizedBy a given Categ
 sto:hasDeveloper rdfs:label "has Developer"@en ;
                  rdfs:comment "The organization that developed this Standard"@en ,
                               "Links the Standard Organization that developed the Publication with the specific type of publication, e.g., Standard, Technical Report"@en .
-
-
-sto:hasFileSize rdfs:seeAlso <https://webstore.iec.ch/webstore/webstore.nsf/xpFAQ.xsp?Open&id=ADMN-7NALM5> ;
-                skos:note """1. Reference for om2:Measure <http://www.ontology-of-units-of-measure.org/page/om-2/Measure>
-                         2. om2:Measure om2:hasNumericalValue xsd:float;
-                         3. om2:Measure om2:hasUnit om2:Unit;
-                         4. om2:hasUnit om2:InformationCapacityUnit; is another possibility for range that could not be verified.
-                         5. rdfs:seeAlso <http://www.ontology-of-units-of-measure.org/page/om-2/kilobyte> 
-                         6. Documentation on Measure <https://github.com/HajoRijgersberg/OM>"""@en ;
-                rdfs:label "has File Size"@en ;
-                rdfs:comment "The size of document file in some unit, e.g., 104 Kilobyte."@en .
 
 
 sto:hasHeadquaterIn rdfs:label "has Headquater In"@en ;
